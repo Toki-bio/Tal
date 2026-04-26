@@ -1,0 +1,82 @@
+# Genome & sequence files (large)
+*.fna
+*.fasta
+*.fa
+*.gz
+*.fai
+
+# BLAST indexes
+*.ndb
+*.nhr
+*.nin
+*.not
+*.nsq
+*.ntf
+*.nto
+
+# Archives
+*.zip
+*.tgz
+*.tar.gz
+
+# Local SINEderella workspace (large run data)
+_sinederella/
+
+# Large per-species result files (keep only summary tables + report)
+saq/all_hits.labeled.bed
+saq/all_sines.bedlike.ALL.tsv
+saq/all_votes.tsv
+saq/assigned.fasta
+saq/extracted.fasta
+saq/unassigned.fasta
+saq/regions.by_subfam.bed
+saq/self_bits*.tsv
+saq/sim_scores.tsv
+saq/assignment_full.tsv
+saq/subfamilies/
+saq/plots/
+
+ccr/all_hits.labeled.bed
+ccr/all_sines.bedlike.ALL.tsv
+ccr/all_votes.tsv
+ccr/assigned.fasta
+ccr/extracted.fasta
+ccr/unassigned.fasta
+ccr/regions.by_subfam.bed
+ccr/self_bits*.tsv
+ccr/sim_scores.tsv
+ccr/assignment_full.tsv
+ccr/subfamilies/
+ccr/plots/
+
+toc/all_hits.labeled.bed
+toc/all_sines.bedlike.ALL.tsv
+toc/assignment_full.tsv
+toc/subfamilies/
+toc/plots/
+
+gpy/all_hits.labeled.bed
+gpy/all_sines.bedlike.ALL.tsv
+gpy/assignment_full.tsv
+gpy/subfamilies/
+gpy/plots/
+
+dmo/all_hits.labeled.bed
+dmo/all_sines.bedlike.ALL.tsv
+dmo/assignment_full.tsv
+dmo/subfamilies/
+dmo/plots/
+
+# toc large subdirectories (raw sample data)
+toc/100-sample2/
+toc/100-sample3/
+toc/300/
+toc/6cons/
+toc/identity/
+toc/new/
+toc/scores/
+
+# gpy large subdirectories
+gpy/GCA_019455555.1_Gpyr_1.0_genomic_step1_step2/
+gpy/samples/
+gpy/new/
