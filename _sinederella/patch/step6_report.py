@@ -630,21 +630,23 @@ def build_sineplot_iframe(s2_out: Path,
 
 
 def build_pca_fig(run_root: Path, s2_out: Path,
-                  max_copies: int = 2000,
-                  threads: int = 4) -> Optional[dict]:
-    """PCA of assigned SINE copies in per-consensus bitscore space.
+                  n_per_sf: int = 200,
+                  threads: int = 8) -> Optional[dict]:
+    """Mutation-space PCA of assigned SINE copies.
 
-    Feature vector per copy: normalised bitscore vs each subfamily consensus.
-    Uses ssearch36 (copies vs consensuses only, not all-vs-all) + numpy SVD.
-    Returns a Plotly figure dict, or None if prerequisites are missing.
+    Each copy is represented as a binary vector: 1 at alignment positions
+    where it differs from its assigned-subfamily consensus, 0 elsewhere.
+    mafft --add adds copies into the consensus alignment (keeplength),
+    then SVD gives PC1/PC2.  Returns a Plotly figure dict + metadata dict,
+    or None if prerequisites are missing.
     """
     try:
         import numpy as _np
     except ImportError:
-        LOG.warning("numpy not available; skipping built-in PCA")
+        LOG.warning("numpy not available; skipping mutation-space PCA")
         return None
-    if not shutil.which("ssearch36"):
-        LOG.warning("ssearch36 not in PATH; skipping PCA")
+    if not shutil.which("mafft"):
+        LOG.warning("mafft not in PATH; skipping PCA")
         return None
 
     # Locate consensus FASTA
@@ -664,90 +666,120 @@ def build_pca_fig(run_root: Path, s2_out: Path,
         LOG.warning("No assigned.fasta; skipping PCA")
         return None
 
-    records = _read_fasta(assigned)
-    rng = random.Random(42)
-    if len(records) > max_copies:
-        records = rng.sample(records, max_copies)
-    LOG.info("PCA: %d copies vs consensuses in %s", len(records), cons.name)
-
-    # Subfamily labels from assignment_full.tsv
-    seq_to_sf: Dict[str, str] = {}
-    assign_tsv = s2_out / "assignment_full.tsv"
-    if assign_tsv.is_file():
-        with assign_tsv.open(errors="replace") as fh:
-            for i, line in enumerate(fh):
-                if i == 0:
-                    continue
-                parts = line.rstrip("\n").split("\t")
-                if len(parts) >= 5 and parts[4] == "assigned":
-                    seq_to_sf[parts[0]] = parts[1]
-
-    # Self-bits for column normalisation
-    self_bits: Dict[str, float] = {}
-    sbr = s2_out / "self_bits_real.tsv"
-    if sbr.is_file():
-        with sbr.open(errors="replace") as fh:
-            for line in fh:
-                parts = line.strip().split("\t")
-                if len(parts) >= 2:
-                    try:
-                        self_bits[parts[0]] = float(parts[1])
-                    except ValueError:
-                        pass
-
-    cons_names = [n for n, _ in _read_fasta(cons)]
-    n_cons = len(cons_names)
-    if n_cons < 2:
+    cons_records = _read_fasta(cons)
+    cons_name_set = {n for n, _ in cons_records}
+    if len(cons_name_set) < 2:
         LOG.warning("Fewer than 2 consensuses; PCA skipped")
         return None
+
+    # Stratified sample: up to n_per_sf copies per subfamily.
+    # Subfamily parsed from assigned.fasta header: >id|sf|score
+    LOG.info("PCA: reading assigned.fasta for stratified sample ...")
+    all_copies = _read_fasta(assigned)
+    seq_to_sf: Dict[str, str] = {}
+    by_sf: Dict[str, list] = {}
+    for rec in all_copies:
+        parts = rec[0].split("|")
+        sf = parts[1] if len(parts) >= 2 else "unknown"
+        seq_to_sf[rec[0]] = sf
+        by_sf.setdefault(sf, []).append(rec)
+
+    rng = random.Random(42)
+    sampled: list = []
+    for sf in sorted(by_sf):
+        pool = by_sf[sf]
+        take = min(len(pool), n_per_sf)
+        sampled.extend(rng.sample(pool, take))
+
+    n_copies = len(sampled)
+    LOG.info("PCA: %d copies (up to %d per subfamily, %d subfamilies)",
+             n_copies, n_per_sf, len(by_sf))
+
+    # Use simplified names so mafft never truncates long headers
+    simple_to_sf: Dict[str, str] = {}
+    simple_records: list = []
+    for i, (orig, seq) in enumerate(sampled):
+        sname = f"cp{i}"
+        simple_to_sf[sname] = seq_to_sf.get(orig, "unknown")
+        simple_records.append((sname, seq))
 
     work = Path(tempfile.mkdtemp(prefix="pca_"))
     try:
         copies_fa = work / "copies.fa"
-        _write_fasta(records, copies_fa)
-        LOG.info("PCA: ssearch36 %d copies × %d consensuses",
-                 len(records), n_cons)
-        result = subprocess.run(
-            ["ssearch36", "-m", "8", "-T", str(threads),
-             str(copies_fa), str(cons)],
-            capture_output=True, check=False, timeout=600)
-        if result.returncode != 0:
-            LOG.warning("ssearch36 (PCA) failed rc=%d: %s",
-                        result.returncode,
-                        result.stderr.decode(errors="replace")[:200])
+        cons_tmp  = work / "cons.fa"
+        cons_aln  = work / "cons_aln.fa"
+        all_aln   = work / "all_aln.fa"
+
+        _write_fasta(simple_records, copies_fa)
+        _write_fasta(cons_records,   cons_tmp)
+
+        # Step 1: align consensus sequences
+        LOG.info("PCA: mafft aligning %d consensuses ...", len(cons_records))
+        r1 = subprocess.run(
+            ["mafft", "--auto", "--quiet",
+             "--thread", str(threads), "--nuc", str(cons_tmp)],
+            capture_output=True, check=False, timeout=120)
+        if r1.returncode != 0:
+            LOG.warning("mafft (consensus) failed: %s",
+                        r1.stderr.decode(errors="replace")[:300])
+            return None
+        cons_aln.write_bytes(r1.stdout)
+
+        # Step 2: add copies (fixed length = consensus alignment)
+        LOG.info("PCA: mafft --add %d copies ...", n_copies)
+        r2 = subprocess.run(
+            ["mafft", "--add", str(copies_fa),
+             "--keeplength", "--quiet",
+             "--thread", str(threads), "--nuc", str(cons_aln)],
+            capture_output=True, check=False, timeout=900)
+        if r2.returncode != 0:
+            LOG.warning("mafft --add failed: %s",
+                        r2.stderr.decode(errors="replace")[:300])
+            return None
+        all_aln.write_bytes(r2.stdout)
+
+        # Parse alignment
+        cons_aln_dict: Dict[str, str] = {}
+        copy_aln: list = []
+        for name, seq in _read_fasta(all_aln):
+            if name in cons_name_set:
+                cons_aln_dict[name] = seq.upper()
+            else:
+                copy_aln.append((name, seq.upper()))
+
+        if not cons_aln_dict or not copy_aln:
+            LOG.warning("PCA: alignment parsing yielded no data")
             return None
 
-        # Parse BLAST-tabular m8: col 0=query, 1=subject, 11=bitscore
-        scores: Dict[Tuple[str, str], float] = {}
-        for line in result.stdout.decode(errors="replace").splitlines():
-            if line.startswith("#") or not line.strip():
-                continue
-            parts = line.split("\t")
-            if len(parts) < 12:
-                continue
-            q, s = parts[0], parts[1]
-            try:
-                bs = float(parts[11])
-            except (ValueError, IndexError):
-                continue
-            key = (q, s)
-            if key not in scores or scores[key] < bs:
-                scores[key] = bs
+        aln_len = len(next(iter(cons_aln_dict.values())))
+        copy_names = [n for n, _ in copy_aln]
+        assigned_sfs = [simple_to_sf.get(n, "unknown") for n in copy_names]
+        n_copies_actual = len(copy_aln)
 
-        if not scores:
-            LOG.warning("ssearch36 produced no output for PCA")
+        # Binary mutation matrix: 1 where copy ≠ assigned-sf consensus
+        LOG.info("PCA: building mutation matrix (%d × %d) ...",
+                 n_copies_actual, aln_len)
+        X = _np.zeros((n_copies_actual, aln_len), dtype=_np.float32)
+        for i, (cname, cseq) in enumerate(copy_aln):
+            sf = assigned_sfs[i]
+            ref = cons_aln_dict.get(sf) or next(iter(cons_aln_dict.values()))
+            for j in range(aln_len):
+                cc = cseq[j]   if j < len(cseq) else "-"
+                rc = ref[j]    if j < len(ref)  else "-"
+                if cc not in "-Nn" and rc not in "-Nn" and cc != rc:
+                    X[i, j] = 1.0
+
+        # Keep variable columns (mutation rate 3 %–97 %)
+        col_rate = X.mean(axis=0)
+        keep = (col_rate >= 0.03) & (col_rate <= 0.97)
+        X = X[:, keep]
+        n_var = int(keep.sum())
+        LOG.info("PCA: %d variable columns retained", n_var)
+        if n_var < 2:
+            LOG.warning("PCA: fewer than 2 variable columns; skipping")
             return None
 
-        # Build matrix (copies × consensuses), each value normalised by self-bits
-        copy_names = [n for n, _ in records]
-        n_copies = len(copy_names)
-        X = _np.zeros((n_copies, n_cons), dtype=_np.float32)
-        for i, cname in enumerate(copy_names):
-            for j, sname in enumerate(cons_names):
-                sb = self_bits.get(sname, 1.0) or 1.0
-                X[i, j] = scores.get((cname, sname), 0.0) / sb
-
-        # PCA via SVD
+        # SVD
         X_c = (X - X.mean(axis=0)).astype(_np.float64)
         U, S, Vt = _np.linalg.svd(X_c, full_matrices=False)
         pc1 = (X_c @ Vt[0]).tolist()
@@ -756,16 +788,26 @@ def build_pca_fig(run_root: Path, s2_out: Path,
         pct1 = round(float(S[0] ** 2) / var_total * 100, 1)
         pct2 = round(float(S[1] ** 2) / var_total * 100, 1)
 
-        subfams_ordered = sorted(
-            set(seq_to_sf.get(n, "unassigned") for n in copy_names))
+        # eta² — how well PC1 separates subfamilies
+        sf_uniq = sorted(set(assigned_sfs))
+        pc1_arr = _np.array(pc1)
+        grand_mean = float(pc1_arr.mean())
+        ss_total = float(((pc1_arr - grand_mean) ** 2).sum())
+        ss_between = sum(
+            float((pc1_arr[_np.array(assigned_sfs) == sf] - grand_mean).sum()) ** 2
+            / max(1, int((_np.array(assigned_sfs) == sf).sum()))
+            for sf in sf_uniq
+        )
+        eta2 = round(ss_between / ss_total, 3) if ss_total > 0 else 0.0
+
+        subfams_ordered = sf_uniq
         traces = []
+        sf_arr = _np.array(assigned_sfs)
         for idx, sf in enumerate(subfams_ordered):
-            xi, yi, ti = [], [], []
-            for i, cname in enumerate(copy_names):
-                if seq_to_sf.get(cname, "unassigned") == sf:
-                    xi.append(round(pc1[i], 4))
-                    yi.append(round(pc2[i], 4))
-                    ti.append(cname)
+            mask = sf_arr == sf
+            xi = [round(float(v), 4) for v in pc1_arr[mask]]
+            yi = [round(float(v), 4) for v in _np.array(pc2)[mask]]
+            ti = [copy_names[i] for i in range(n_copies_actual) if assigned_sfs[i] == sf]
             if not xi:
                 continue
             traces.append({
@@ -776,21 +818,31 @@ def build_pca_fig(run_root: Path, s2_out: Path,
                     "color": SF_PALETTE[idx % len(SF_PALETTE)],
                 },
                 "hovertemplate": (
-                    "%{fullData.name}<br>%{text}<br>"
-                    "PC1 %{x:.3f}  PC2 %{y:.3f}<extra></extra>"),
+                    "<b>%{fullData.name}</b><br>%{text}<br>"
+                    "PC1&thinsp;%{x:.3f} &nbsp;PC2&thinsp;%{y:.3f}"
+                    "<extra></extra>"),
             })
         return {
             "data": traces,
             "layout": {
-                "title": (f"PCA \u2014 per-copy bitscore vs all "
-                          f"consensuses (n={n_copies:,})"),
+                "title": (
+                    f"Mutation-space PCA \u2014 per-copy alignment differences "
+                    f"from assigned-subfamily consensus"
+                    f"<br><sub>n\u2009=\u2009{n_copies_actual:,} copies &middot; "
+                    f"{n_var} variable cols &middot; "
+                    f"PC1\u2009{pct1}\u2009% &middot; "
+                    f"PC2\u2009{pct2}\u2009% variance &middot; "
+                    f"\u03b7\u00b2(SF\u2192PC1)\u2009=\u2009{eta2}</sub>"
+                ),
                 "xaxis": {"title": f"PC1 ({pct1}\u2009% variance)",
                           "zeroline": True},
                 "yaxis": {"title": f"PC2 ({pct2}\u2009% variance)",
                           "zeroline": True},
                 "legend": {"title": {"text": "Subfamily"}},
-                "height": 580,
-                "margin": {"t": 60, "r": 20, "b": 60, "l": 70},
+                "height": 600,
+                "margin": {"t": 80, "r": 20, "b": 60, "l": 70},
+                "_meta": {"n_copies": n_copies_actual, "n_var": n_var,
+                          "pct1": pct1, "pct2": pct2, "eta2": eta2},
             },
         }
     except Exception as exc:
@@ -1262,23 +1314,31 @@ def build_html(run_root: Path,
         sineplot_html = build_sineplot_iframe(
             s2, script_dir, sineplot_max, threads)
 
-    # Built-in PCA (copies vs consensuses, numpy SVD)
-    pca_fig = build_pca_fig(run_root, s2, max_copies=2000, threads=threads)
+    # Built-in PCA (mutation-space: mafft alignment columns)
+    pca_fig = build_pca_fig(run_root, s2, n_per_sf=200, threads=threads)
     if pca_fig:
+        # strip the internal _meta key before JSON serialisation
+        pca_fig["layout"].pop("_meta", None)
         figs["pca"] = pca_fig
     pca_section_html = (
-        "<p class='intro'>Each point is one assigned SINE copy, coloured "
-        "by subfamily. The x&#47;y axes are the first two principal components "
-        "of each copy&#x27;s normalised bitscore vector against all "
-        "subfamily consensuses. Copies with similar bitscore profiles "
-        "cluster together.</p>"
+        "<p class='intro'>Each point is one assigned SINE copy, coloured by "
+        "subfamily. Axes are PC1&thinsp;/&thinsp;PC2 of a binary mutation "
+        "matrix: each alignment column where the copy nucleotide differs from "
+        "its assigned-subfamily consensus is encoded as&thinsp;1, matches as&thinsp;0. "
+        "Only variable columns (mutation rate 3&ndash;97&thinsp;%) are used. "
+        "Copies with distinct mutation patterns cluster together &mdash; "
+        "subfamily clouds are expected when subfamilies have different "
+        "characteristic mutations.</p>"
         "<div class='plot' id='plot_pca'></div>"
-        "<p class='small muted'>Feature matrix: bitscore vs each consensus "
-        "/&thinsp;consensus self-bitscore (ssearch36 -m 8, up to 2&#x2009;000 "
-        "sampled copies). PCA via numpy SVD.</p>"
+        "<p class='small muted'>Method: <code>mafft --add --keeplength</code> "
+        "adds sampled copies into the consensus alignment (up to 200 per "
+        "subfamily). Binary mutation matrix &rarr; SVD. "
+        "&eta;&sup2;(subfamily&rarr;PC1) = fraction of PC1 variance explained "
+        "by subfamily label (0&thinsp;=&thinsp;no separation, "
+        "1&thinsp;=&thinsp;perfect).</p>"
     ) if pca_fig else (
         "<div class='skip-note'><b>PCA not available.</b> "
-        "Requires <code>ssearch36</code> in PATH and "
+        "Requires <code>mafft</code> in PATH and "
         "<code>numpy</code>. Run with <code>--verbose</code> "
         "for details.</div>"
     )
@@ -1515,7 +1575,8 @@ def build_html(run_root: Path,
     This is a proxy for sequence divergence, not a direct nucleotide count.
     Values are clamped to 0 (local alignment can occasionally score a copy
     <i>above</i> the self-bitscore, which would otherwise appear as negative
-    divergence). One KDE curve per subfamily; click legend entries to toggle.</p>
+    divergence). One KDE curve per subfamily (up to 3,000 copies per
+    subfamily sampled for display); click legend entries to toggle.</p>
     {conservation_html}
     <div class="plot" id="plot_div_kde"></div>
     <h3>Distributions per subfamily (violin)</h3>
@@ -1527,7 +1588,7 @@ def build_html(run_root: Path,
   </section>
 
   <section class="card" id="pca">
-    <h2>PCA &mdash; bitscore fingerprint</h2>
+    <h2>PCA &mdash; mutation landscape</h2>
     {pca_section_html}
   </section>
 
