@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tal SINE — Condylura cristata (ccr)</title>
+<style>
+:root { --fg:#222; --bg:#fafafa; --card:#fff; --accent:#4C72B0;
+        --muted:#666; --border:#e2e2e2; }
+* { box-sizing: border-box; }
+body { font-family: -apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+       background:var(--bg); color:var(--fg); margin:0; padding:0; }
+header { background: linear-gradient(135deg, #2c3e50, #4C72B0);
+         color:#fff; padding:24px 32px; }
+header h1 { margin:0 0 6px 0; font-size:1.6rem; }
+header .sub { opacity:.85; font-size:.95rem; }
+header .nav { margin-top:10px; font-size:.88rem; }
+header .nav a { color:rgba(255,255,255,.85); text-decoration:none;
+                margin-right:14px; }
+header .nav a:hover { color:#fff; text-decoration:underline; }
+main { max-width:1100px; margin:0 auto; padding:24px; }
+section.card { background:var(--card); border:1px solid var(--border);
+               border-radius:8px; padding:18px 22px; margin:18px 0;
+               box-shadow:0 1px 3px rgba(0,0,0,0.04); }
+section.card h2 { margin-top:0; font-size:1.15rem; color:#2c3e50;
+                  border-bottom:1px solid var(--border); padding-bottom:8px; }
+section.card p.intro { color:var(--muted); font-size:.9rem;
+                       margin-top:4px; margin-bottom:14px; }
+.metrics { display:flex; flex-wrap:wrap; gap:14px; margin:8px 0 16px 0; }
+.metric { background:#f0f3f7; border-left:4px solid var(--accent);
+          padding:10px 14px; border-radius:4px; min-width:160px; }
+.metric .num { font-size:1.4rem; font-weight:600; color:#2c3e50; }
+.metric .lbl { font-size:.78rem; color:var(--muted);
+               text-transform:uppercase; letter-spacing:.04em; }
+.tbl { border-collapse:collapse; width:100%; font-size:.88rem; margin:8px 0; }
+.tbl th,.tbl td { border:1px solid var(--border); padding:5px 8px; text-align:left; }
+.tbl th { background:#f0f3f7; }
+.tbl tbody tr:nth-child(even) { background:#fafbfd; }
+.tbl td:not(:first-child) { font-variant-numeric:tabular-nums; }
+.aln-link { display:inline-block; background:var(--accent); color:#fff;
+            padding:3px 10px; border-radius:4px; font-size:.83rem;
+            text-decoration:none; margin:1px 0; }
+.aln-link:hover { background:#2c3e50; }
+.aln-link.orange { background:#e07b39; }
+.aln-link.green  { background:#28a745; }
+</style>
+</head><body>
+<header>
+  <h1>Tal SINE &mdash; <em>Condylura cristata</em> (ccr)</h1>
+  <div class="sub">Star-nosed mole &middot; <a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000260355.1/" target="_blank" style="color:rgba(255,255,255,.8)">GCF_000260355.1 ConCri1.0</a></div>
+  <div class="nav">
+    <a href="../index.html">&#8592; All species</a>
+    <a href="../saq/report.html">saq report</a>
+    <a href="https://github.com/Toki-bio/Tal" target="_blank">GitHub</a>
+  </div>
+</header>
+<main>
+
+<section class="card">
+  <h2>Assignment Summary</h2>
+  <div class="metrics">
+    <div class="metric"><div class="num">7</div><div class="lbl">Subfamilies</div></div>
+    <div class="metric"><div class="num">380,406</div><div class="lbl">Assigned Copies</div></div>
+    <div class="metric"><div class="num">GCF_000260355.1</div><div class="lbl">Assembly</div></div>
+  </div>
+  <table class="tbl">
+    <thead>
+      <tr><th>Subfamily</th><th>Assigned</th><th>TopN Bitscore</th><th>Threshold</th><th>Firm %</th><th>Similarity (mean)</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>g3_71seqs</td><td>102,608</td><td>2216</td><td>997</td><td>22.1%</td><td>1.003</td></tr>
+      <tr><td>g6_58seqs</td><td>90,733</td><td>2041</td><td>918</td><td>19.6%</td><td>0.861</td></tr>
+      <tr><td>g4_77seqs</td><td>60,698</td><td>2237</td><td>1007</td><td>13.1%</td><td>1.015</td></tr>
+      <tr><td>g2_103seqs</td><td>60,323</td><td>1966</td><td>885</td><td>13.0%</td><td>0.833</td></tr>
+      <tr><td>g7_3seqs</td><td>46,345</td><td>1993</td><td>897</td><td>10.0%</td><td>0.781</td></tr>
+      <tr><td>g1_180seqs</td><td>14,490</td><td>1937</td><td>872</td><td>3.1%</td><td>0.713</td></tr>
+      <tr><td>g5_7seqs</td><td>5,209</td><td>2385</td><td>1073</td><td>1.1%</td><td>1.013</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="card" id="alignments">
+  <h2>Subfamily Alignments — open in MSA Viewer</h2>
+  <p class="intro">Each alignment has the subfamily consensus prepended as the first sequence.
+    Copies re-extracted with <strong>50 bp upstream + 70 bp downstream</strong> flanks (strand-aware).
+    <a class="aln-link" id="consi-btn" href="#" style="margin-left:10px;">All consensi</a>
+  </p>
+  <table class="tbl">
+    <thead>
+      <tr><th>Subfamily</th><th>Top 100 by bitscore</th><th>100 random copies</th><th>SubFam (200 random)</th></tr>
+    </thead>
+    <tbody id="aln-tbody">
+    </tbody>
+  </table>
+</section>
+
+</main>
+<script>
+const RAW   = 'https://raw.githubusercontent.com/Toki-bio/Tal/main/ccr/alignments/';
+const MSA   = 'https://toki-bio.github.io/MSA-viewer/';
+const subfams = ['g1_180seqs','g2_103seqs','g3_71seqs','g4_77seqs','g5_7seqs','g6_58seqs','g7_3seqs'];
+
+function msaHref(file, title) {
+  return MSA + '?url=' + encodeURIComponent(RAW + file) + '&title=' + encodeURIComponent(title);
+}
+
+document.getElementById('consi-btn').href =
+  msaHref('ccr_consensuses.fa', 'ccr all consensi');
+
+const tbody = document.getElementById('aln-tbody');
+subfams.forEach(sf => {
+  const tr = document.createElement('tr');
+  tr.innerHTML =
+    `<td><code>${sf}</code></td>` +
+    `<td><a class="aln-link" href="${msaHref('ccr_'+sf+'_top100.aln.fa','ccr '+sf+' top100')}" target="_blank">top 100 by score</a></td>` +
+    `<td><a class="aln-link orange" href="${msaHref('ccr_'+sf+'_rand100.aln.fa','ccr '+sf+' rand100')}" target="_blank">100 random</a></td>` +
+    `<td><a class="aln-link green" href="${msaHref('ccr_'+sf+'_subfam.aln.fa','ccr '+sf+' subfam')}" target="_blank">SubFam 200</a></td>`;
+  tbody.appendChild(tr);
+});
+</script>
+</body></html>

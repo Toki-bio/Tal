@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tal SINE — Talpidae Analysis</title>
+<style>
+:root { --fg:#222; --bg:#f5f6f8; --card:#fff; --accent:#4C72B0;
+        --muted:#666; --border:#e2e2e2; }
+* { box-sizing: border-box; }
+body { font-family: -apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+       background:var(--bg); color:var(--fg); margin:0; padding:0; }
+header { background: linear-gradient(135deg, #2c3e50, #4C72B0);
+         color:#fff; padding:28px 36px; }
+header h1 { margin:0 0 6px 0; font-size:1.7rem; }
+header .sub { opacity:.85; font-size:.95rem; }
+main { max-width:1100px; margin:0 auto; padding:28px 24px; }
+section.card { background:var(--card); border:1px solid var(--border);
+               border-radius:8px; padding:20px 24px; margin:18px 0;
+               box-shadow:0 1px 3px rgba(0,0,0,0.05); }
+section.card h2 { margin-top:0; font-size:1.1rem; color:#2c3e50;
+                  border-bottom:1px solid var(--border); padding-bottom:8px; }
+.tbl { border-collapse:collapse; width:100%; font-size:.88rem; margin:8px 0; }
+.tbl th,.tbl td { border:1px solid var(--border); padding:6px 10px; text-align:left; }
+.tbl th { background:#f0f3f7; }
+.tbl tbody tr:nth-child(even) { background:#fafbfd; }
+.tbl td.num { font-variant-numeric:tabular-nums; text-align:right; }
+.tag { display:inline-block; border-radius:3px; padding:1px 6px;
+       font-size:.78rem; font-weight:600; }
+.tag-ok  { background:#d4edda; color:#155724; }
+.tag-partial { background:#fff3cd; color:#856404; }
+.tag-no  { background:#f0f0f0; color:#777; }
+a.btn { display:inline-block; background:var(--accent); color:#fff;
+        padding:4px 12px; border-radius:4px; font-size:.84rem;
+        text-decoration:none; margin:2px 2px 2px 0; }
+a.btn:hover { background:#2c3e50; }
+a.btn.secondary { background:#6c757d; }
+a.btn.green  { background:#28a745; }
+a { color:var(--accent); }
+.species-grid { display:grid; gap:16px;
+                grid-template-columns: repeat(auto-fit, minmax(320px,1fr)); }
+.sp-card { border:1px solid var(--border); border-radius:7px;
+           padding:14px 16px; background:#fff; }
+.sp-card h3 { margin:0 0 4px; font-size:1rem; color:#2c3e50; }
+.sp-card .sci { font-style:italic; color:var(--muted); font-size:.88rem; }
+.sp-card .actions { margin-top:10px; }
+</style>
+</head><body>
+<header>
+  <h1>Tal SINE — Talpidae Analysis</h1>
+  <div class="sub">tRNA-derived Short Interspersed Nuclear Elements across moles, desmans and shrew-moles</div>
+</header>
+<main>
+
+<section class="card">
+  <h2>Species</h2>
+  <div class="species-grid">
+
+    <div class="sp-card">
+      <h3>saq <span class="tag tag-ok">full report</span></h3>
+      <div class="sci">Scalopus aquaticus — Eastern mole</div>
+      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;">
+        9 subfamilies &middot; 305,812 assigned copies
+        &middot; <a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_004024925.1/" target="_blank">GCA_004024925.1</a>
+      </div>
+      <div class="actions">
+        <a class="btn" href="saq/report.html">SINEderella Report</a>
+        <a class="btn secondary" href="saq/alignments/saq_consensuses.fa"
+           onclick="return openMSA('saq/alignments/saq_consensuses.fa','saq all consensi')">All Consensi in MSA</a>
+      </div>
+    </div>
+
+    <div class="sp-card">
+      <h3>ccr <span class="tag tag-ok">alignments</span></h3>
+      <div class="sci">Condylura cristata — Star-nosed mole</div>
+      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;">
+        7 subfamilies &middot; 380,406 assigned copies
+        &middot; <a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000260355.1/" target="_blank">GCF_000260355.1</a>
+      </div>
+      <div class="actions">
+        <a class="btn" href="ccr/report.html">CCR Data &amp; Alignments</a>
+        <a class="btn secondary" href="javascript:void(0)"
+           onclick="openMSA('ccr/alignments/ccr_consensuses.fa','ccr all consensi')">All Consensi in MSA</a>
+      </div>
+    </div>
+
+    <div class="sp-card">
+      <h3>toc <span class="tag tag-partial">partial</span></h3>
+      <div class="sci">Talpa occidentalis — Western mole</div>
+      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;">Manual alignments available</div>
+      <div class="actions">
+        <a class="btn secondary" href="javascript:void(0)"
+           onclick="openMSA('toc/toc-Tal.bnk.clw.al','toc Tal consensus aln')">toc consensus aln</a>
+      </div>
+    </div>
+
+    <div class="sp-card">
+      <h3>gpy <span class="tag tag-partial">partial</span></h3>
+      <div class="sci">Galemys pyrenaicus — Pyrenean desman</div>
+      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;">Consensus alignment available</div>
+      <div class="actions">
+        <a class="btn secondary" href="javascript:void(0)"
+           onclick="openMSA('gpy/input.msf','gpy consensus')">gpy consensus MSF</a>
+      </div>
+    </div>
+
+    <div class="sp-card">
+      <h3>dmo <span class="tag tag-no">pending</span></h3>
+      <div class="sci">Desmana moschata — Russian desman</div>
+      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;">Assembly TBD</div>
+    </div>
+
+  </div>
+</section>
+
+<section class="card">
+  <h2>Analysis Status</h2>
+  <table class="tbl">
+    <thead>
+      <tr><th>Species</th><th>Search</th><th>Subfamilies</th><th>Stats</th><th>Report</th><th>Alignments</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>saq</strong> <em>Scalopus aquaticus</em></td>
+        <td><span class="tag tag-ok">✓</span></td>
+        <td><span class="tag tag-ok">✓ 9</span></td>
+        <td><span class="tag tag-ok">✓</span></td>
+        <td><span class="tag tag-ok"><a href="saq/report.html">HTML</a></span></td>
+        <td><span class="tag tag-ok">top100 · rand100 · subfam</span></td>
+      </tr>
+      <tr>
+        <td><strong>ccr</strong> <em>Condylura cristata</em></td>
+        <td><span class="tag tag-ok">✓</span></td>
+        <td><span class="tag tag-ok">✓ 7</span></td>
+        <td><span class="tag tag-ok">✓</span></td>
+        <td><span class="tag tag-ok"><a href="ccr/report.html">HTML</a></span></td>
+        <td><span class="tag tag-ok">top100 · rand100 · subfam</span></td>
+      </tr>
+      <tr>
+        <td><strong>toc</strong> <em>Talpa occidentalis</em></td>
+        <td><span class="tag tag-ok">✓</span></td>
+        <td><span class="tag tag-partial">partial</span></td>
+        <td><span class="tag tag-no">—</span></td>
+        <td><span class="tag tag-no">—</span></td>
+        <td><span class="tag tag-partial">manual</span></td>
+      </tr>
+      <tr>
+        <td><strong>gpy</strong> <em>Galemys pyrenaicus</em></td>
+        <td><span class="tag tag-partial">partial</span></td>
+        <td><span class="tag tag-no">—</span></td>
+        <td><span class="tag tag-no">—</span></td>
+        <td><span class="tag tag-no">—</span></td>
+        <td><span class="tag tag-partial">manual</span></td>
+      </tr>
+      <tr>
+        <td><strong>dmo</strong> <em>Desmana moschata</em></td>
+        <td><span class="tag tag-no">—</span></td>
+        <td><span class="tag tag-no">—</span></td>
+        <td><span class="tag tag-no">—</span></td>
+        <td><span class="tag tag-no">—</span></td>
+        <td><span class="tag tag-no">—</span></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="card">
+  <h2>Resources</h2>
+  <ul style="margin:0;padding-left:20px;font-size:.9rem;">
+    <li><a href="WORKFLOW.md">WORKFLOW.md</a> — full analysis pipeline (steps 1–8)</li>
+    <li><a href="https://github.com/Toki-bio/Tal" target="_blank">github.com/Toki-bio/Tal</a> — data repository</li>
+    <li><a href="https://github.com/Toki-bio/SINEderella" target="_blank">SINEderella</a> — SINE search + subfamily assignment tool</li>
+    <li><a href="https://toki-bio.github.io/MSA-viewer/" target="_blank">MSA Viewer</a> — alignment visualization</li>
+  </ul>
+</section>
+
+</main>
+<script>
+const RAW = 'https://raw.githubusercontent.com/Toki-bio/Tal/main/';
+const MSA = 'https://toki-bio.github.io/MSA-viewer/';
+function openMSA(relPath, title) {
+  const url = RAW + relPath;
+  window.open(MSA + '?url=' + encodeURIComponent(url) + '&title=' + encodeURIComponent(title), '_blank');
+}
+</script>
+</body></html>
