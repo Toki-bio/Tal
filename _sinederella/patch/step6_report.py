@@ -298,6 +298,48 @@ def fig_funnel(stats: Dict[str, str]) -> dict:
     }
 
 
+def funnel_html(stats: Dict[str, str]) -> str:
+    """Simple two-branch HTML summary of pipeline counts (no chart)."""
+    def fmt(n: str) -> str:
+        try:
+            return f"{int(n):,}"
+        except Exception:
+            return str(n) if n else "?"
+
+    def pct(num: str, den: str) -> str:
+        try:
+            n_, d_ = int(num), int(den)
+            if d_ <= 0:
+                return ""
+            return (f" <span class='muted small'>({100.0 * n_ / d_:.1f}%)</span>")
+        except Exception:
+            return ""
+
+    total    = stats.get("total", "")
+    unan     = stats.get("unanimous", "")
+    assigned = stats.get("assigned", "")
+    unassgn  = stats.get("unassigned", "")
+    return (
+        "<table class='tbl' style='max-width:540px'>"
+        "<colgroup><col style='width:62%'><col></colgroup>"
+        f"<tr><td>Total sequences (step1 merged hits entering step2)</td>"
+        f"<td><b>{fmt(total)}</b></td></tr>"
+        f"<tr><td style='padding-left:1.4em'>&#9492; Unanimous"
+        f" (10&#47;10 sub-sample votes)</td>"
+        f"<td>{fmt(unan)}{pct(unan, total)}</td></tr>"
+        f"<tr><td><b>&#10003;&thinsp;Assigned</b>"
+        f" (passed bitscore threshold)</td>"
+        f"<td><b>{fmt(assigned)}</b>{pct(assigned, total)}</td></tr>"
+        f"<tr><td>&#10007;&thinsp;Unassigned</td>"
+        f"<td>{fmt(unassgn)}{pct(unassgn, total)}</td></tr>"
+        "</table>"
+        "<p class='small muted' style='margin-top:6px'>"
+        "Assigned + Unassigned &asymp; Total. "
+        "Unanimous is a strict subset; assigned includes unanimous + "
+        "soft-assigned copies that passed the bitscore threshold.</p>"
+    )
+
+
 def kde_curve(vals: List[float], n_pts: int = 300,
               ) -> Tuple[List[float], List[float]]:
     """Gaussian KDE (no scipy). Scott's bandwidth: h = std * n^(-1/5)."""
@@ -584,6 +626,177 @@ def build_sineplot_iframe(s2_out: Path,
         shutil.rmtree(work, ignore_errors=True)
 
 
+def build_pca_fig(run_root: Path, s2_out: Path,
+                  max_copies: int = 2000,
+                  threads: int = 4) -> Optional[dict]:
+    """PCA of assigned SINE copies in per-consensus bitscore space.
+
+    Feature vector per copy: normalised bitscore vs each subfamily consensus.
+    Uses ssearch36 (copies vs consensuses only, not all-vs-all) + numpy SVD.
+    Returns a Plotly figure dict, or None if prerequisites are missing.
+    """
+    try:
+        import numpy as _np
+    except ImportError:
+        LOG.warning("numpy not available; skipping built-in PCA")
+        return None
+    if not shutil.which("ssearch36"):
+        LOG.warning("ssearch36 not in PATH; skipping PCA")
+        return None
+
+    # Locate consensus FASTA
+    cons: Optional[Path] = None
+    for cand in [run_root / "consensuses.clean.fa",
+                 run_root / "results" / "consensuses.fa",
+                 s2_out.parent.parent / "consensuses.clean.fa"]:
+        if cand.is_file():
+            cons = cand
+            break
+    if cons is None:
+        LOG.warning("No consensuses FASTA found; skipping PCA")
+        return None
+
+    assigned = s2_out / "assigned.fasta"
+    if not assigned.is_file():
+        LOG.warning("No assigned.fasta; skipping PCA")
+        return None
+
+    records = _read_fasta(assigned)
+    rng = random.Random(42)
+    if len(records) > max_copies:
+        records = rng.sample(records, max_copies)
+    LOG.info("PCA: %d copies vs consensuses in %s", len(records), cons.name)
+
+    # Subfamily labels from assignment_full.tsv
+    seq_to_sf: Dict[str, str] = {}
+    assign_tsv = s2_out / "assignment_full.tsv"
+    if assign_tsv.is_file():
+        with assign_tsv.open(errors="replace") as fh:
+            for i, line in enumerate(fh):
+                if i == 0:
+                    continue
+                parts = line.rstrip("\n").split("\t")
+                if len(parts) >= 5 and parts[4] == "assigned":
+                    seq_to_sf[parts[0]] = parts[1]
+
+    # Self-bits for column normalisation
+    self_bits: Dict[str, float] = {}
+    sbr = s2_out / "self_bits_real.tsv"
+    if sbr.is_file():
+        with sbr.open(errors="replace") as fh:
+            for line in fh:
+                parts = line.strip().split("\t")
+                if len(parts) >= 2:
+                    try:
+                        self_bits[parts[0]] = float(parts[1])
+                    except ValueError:
+                        pass
+
+    cons_names = [n for n, _ in _read_fasta(cons)]
+    n_cons = len(cons_names)
+    if n_cons < 2:
+        LOG.warning("Fewer than 2 consensuses; PCA skipped")
+        return None
+
+    work = Path(tempfile.mkdtemp(prefix="pca_"))
+    try:
+        copies_fa = work / "copies.fa"
+        _write_fasta(records, copies_fa)
+        LOG.info("PCA: ssearch36 %d copies × %d consensuses",
+                 len(records), n_cons)
+        result = subprocess.run(
+            ["ssearch36", "-m", "8", "-T", str(threads),
+             str(copies_fa), str(cons)],
+            capture_output=True, check=False, timeout=600)
+        if result.returncode != 0:
+            LOG.warning("ssearch36 (PCA) failed rc=%d: %s",
+                        result.returncode,
+                        result.stderr.decode(errors="replace")[:200])
+            return None
+
+        # Parse BLAST-tabular m8: col 0=query, 1=subject, 11=bitscore
+        scores: Dict[Tuple[str, str], float] = {}
+        for line in result.stdout.decode(errors="replace").splitlines():
+            if line.startswith("#") or not line.strip():
+                continue
+            parts = line.split("\t")
+            if len(parts) < 12:
+                continue
+            q, s = parts[0], parts[1]
+            try:
+                bs = float(parts[11])
+            except (ValueError, IndexError):
+                continue
+            key = (q, s)
+            if key not in scores or scores[key] < bs:
+                scores[key] = bs
+
+        if not scores:
+            LOG.warning("ssearch36 produced no output for PCA")
+            return None
+
+        # Build matrix (copies × consensuses), each value normalised by self-bits
+        copy_names = [n for n, _ in records]
+        n_copies = len(copy_names)
+        X = _np.zeros((n_copies, n_cons), dtype=_np.float32)
+        for i, cname in enumerate(copy_names):
+            for j, sname in enumerate(cons_names):
+                sb = self_bits.get(sname, 1.0) or 1.0
+                X[i, j] = scores.get((cname, sname), 0.0) / sb
+
+        # PCA via SVD
+        X_c = (X - X.mean(axis=0)).astype(_np.float64)
+        U, S, Vt = _np.linalg.svd(X_c, full_matrices=False)
+        pc1 = (X_c @ Vt[0]).tolist()
+        pc2 = (X_c @ Vt[1]).tolist()
+        var_total = float((S ** 2).sum()) or 1.0
+        pct1 = round(float(S[0] ** 2) / var_total * 100, 1)
+        pct2 = round(float(S[1] ** 2) / var_total * 100, 1)
+
+        subfams_ordered = sorted(
+            set(seq_to_sf.get(n, "unassigned") for n in copy_names))
+        traces = []
+        for idx, sf in enumerate(subfams_ordered):
+            xi, yi, ti = [], [], []
+            for i, cname in enumerate(copy_names):
+                if seq_to_sf.get(cname, "unassigned") == sf:
+                    xi.append(round(pc1[i], 4))
+                    yi.append(round(pc2[i], 4))
+                    ti.append(cname)
+            if not xi:
+                continue
+            traces.append({
+                "type": "scatter", "mode": "markers",
+                "x": xi, "y": yi, "name": sf, "text": ti,
+                "marker": {
+                    "size": 5, "opacity": 0.65,
+                    "color": SF_PALETTE[idx % len(SF_PALETTE)],
+                },
+                "hovertemplate": (
+                    "%{fullData.name}<br>%{text}<br>"
+                    "PC1 %{x:.3f}  PC2 %{y:.3f}<extra></extra>"),
+            })
+        return {
+            "data": traces,
+            "layout": {
+                "title": (f"PCA \u2014 per-copy bitscore vs all "
+                          f"consensuses (n={n_copies:,})"),
+                "xaxis": {"title": f"PC1 ({pct1}\u2009% variance)",
+                          "zeroline": True},
+                "yaxis": {"title": f"PC2 ({pct2}\u2009% variance)",
+                          "zeroline": True},
+                "legend": {"title": {"text": "Subfamily"}},
+                "height": 580,
+                "margin": {"t": 60, "r": 20, "b": 60, "l": 70},
+            },
+        }
+    except Exception as exc:
+        LOG.warning("PCA failed: %s", exc, exc_info=True)
+        return None
+    finally:
+        shutil.rmtree(work, ignore_errors=True)
+
+
 # ===========================================================================
 # HTML helpers
 # ===========================================================================
@@ -615,24 +828,30 @@ def img_to_data_uri(p: Path) -> Optional[str]:
 def render_table(header: List[str], rows: List[List[str]],
                  max_rows: int = 100,
                  col_titles: Optional[Dict[str, str]] = None,
-                 escape: bool = True) -> str:
+                 escape: bool = True,
+                 highlight_cols: Optional[List[str]] = None) -> str:
     if not header and not rows:
         return "<p><em>(no data)</em></p>"
     titles = col_titles or {}
+    hl_set = set(highlight_cols or [])
+    hl_idx = {i for i, h in enumerate(header) if h in hl_set}
     head_cells = []
     for h in header:
         title = titles.get(h, "")
         attr = f' title="{html.escape(title)}"' if title else ""
-        head_cells.append(f"<th{attr}>{html.escape(h)}</th>")
+        hl = ' class="hl"' if h in hl_set else ""
+        head_cells.append(f"<th{attr}{hl}>{html.escape(h)}</th>")
     head = "".join(head_cells)
     body_rows = rows[:max_rows]
 
-    def cell(c):
+    def cell(c, idx):
         s = str(c)
-        return html.escape(s) if escape else s
+        v = html.escape(s) if escape else s
+        cls = ' class="hl"' if idx in hl_idx else ""
+        return f"<td{cls}>{v}</td>"
 
     body = "".join(
-        "<tr>" + "".join(f"<td>{cell(c)}</td>" for c in r) + "</tr>"
+        "<tr>" + "".join(cell(c, i) for i, c in enumerate(r)) + "</tr>"
         for r in body_rows
     )
     extra = ""
@@ -720,6 +939,25 @@ section.card p.intro { color: var(--muted); font-size: 0.9rem;
 .aln-link.green:hover { background: #1e7e34; }
 .small { font-size: 0.8rem; }
 .muted { color: var(--muted); }
+/* Highlighted table columns */
+.tbl th.hl { background: #d6e8ff; }
+.tbl td.hl { font-weight: 600; color: #1a3a6e; background: #f4f8ff; }
+/* Collapsible card (details element styled like section.card) */
+details.card { background: var(--card); border: 1px solid var(--border);
+               border-radius: 8px; margin: 18px 0;
+               box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+details.card > summary { padding: 14px 22px; cursor: pointer;
+               list-style: none; display: flex; align-items: center;
+               user-select: none; }
+details.card > summary::-webkit-details-marker { display: none; }
+details.card > summary h2 { margin: 0; font-size: 1.15rem; color: #2c3e50;
+               padding-bottom: 0; border-bottom: none; flex: 1; }
+details.card > summary::before { content: '\25B6'; margin-right: 10px;
+               color: var(--accent); font-size: .75rem;
+               transition: transform .18s; }
+details.card[open] > summary::before { transform: rotate(90deg); }
+details.card[open] > summary { border-bottom: 1px solid var(--border); }
+.card-body { padding: 4px 22px 18px; }
 nav.toc { background: #fff; border: 1px solid var(--border);
           border-radius: 8px; padding: 12px 18px; margin: 18px 0;
           font-size: 0.92rem; }
@@ -805,6 +1043,38 @@ LEG_STEP1_HITS = [
     ("RawHits",  "Number of ssearch36 hits returned for this query "
                  "BEFORE bedtools-merge collapses overlapping intervals."),
 ]
+
+# Human-readable column names for summary.by_subfam.tsv
+_BYSF_RENAME: Dict[str, str] = {
+    "subfam":         "Subfamily",
+    "firm_assigned":  "Firm",
+    "soft_assigned":  "Soft",
+    "total_assigned": "Total copies",
+    "leak_n":         "Leaks",
+    "conf_alt_n":     "Conflicts",
+    "firm_pct":       "Firm %",
+    "total_pct":      "Total %",
+    "leak_pct":       "Leak %",
+    "conf_alt_pct":   "Conflict %",
+    "sim_mean":       "Sim mean",
+    "sim_median":     "Sim median",
+}
+_BYSF_HIGHLIGHT = {"Total copies", "Sim mean", "Sim median", "Conflict %"}
+
+
+def render_bysf_table(header: List[str], rows: List[List[str]],
+                      max_rows: int = 200) -> str:
+    """Render summary.by_subfam table with renamed columns, legend, highlights."""
+    disp_header = [_BYSF_RENAME.get(h, h) for h in header]
+    ren_leg = [(_BYSF_RENAME.get(k, k), v) for k, v in LEG_BYSUBFAM]
+    leg_html = render_legend(ren_leg)
+    tbl_html = render_table(
+        disp_header, rows, max_rows,
+        col_titles={_BYSF_RENAME.get(k, k): _strip_html(v)
+                    for k, v in LEG_BYSUBFAM},
+        highlight_cols=list(_BYSF_HIGHLIGHT),
+    )
+    return leg_html + tbl_html
 
 
 def _strip_html(s: str) -> str:
@@ -958,10 +1228,8 @@ def build_html(run_root: Path,
                 curves[sf] = conservation_curve(nf)
 
     figs = {
-        "funnel":      fig_funnel(summary_stats),
-        "sim_kde":     fig_similarity_kde(sim_by_sf),
-        "sim_violins": fig_sim_violins(sim_by_sf),
         "div_kde":     fig_divergence_kde(sim_by_sf),
+        "sim_violins": fig_sim_violins(sim_by_sf),
     }
     if curves:
         figs["conservation"] = fig_conservation(curves)
@@ -990,6 +1258,27 @@ def build_html(run_root: Path,
         script_dir = Path(sd) if sd else None
         sineplot_html = build_sineplot_iframe(
             s2, script_dir, sineplot_max, threads)
+
+    # Built-in PCA (copies vs consensuses, numpy SVD)
+    pca_fig = build_pca_fig(run_root, s2, max_copies=2000, threads=threads)
+    if pca_fig:
+        figs["pca"] = pca_fig
+    pca_section_html = (
+        "<p class='intro'>Each point is one assigned SINE copy, coloured "
+        "by subfamily. The x&#47;y axes are the first two principal components "
+        "of each copy&#x27;s normalised bitscore vector against all "
+        "subfamily consensuses. Copies with similar bitscore profiles "
+        "cluster together.</p>"
+        "<div class='plot' id='plot_pca'></div>"
+        "<p class='small muted'>Feature matrix: bitscore vs each consensus "
+        "/&thinsp;consensus self-bitscore (ssearch36 -m 8, up to 2&#x2009;000 "
+        "sampled copies). PCA via numpy SVD.</p>"
+    ) if pca_fig else (
+        "<div class='skip-note'><b>PCA not available.</b> "
+        "Requires <code>ssearch36</code> in PATH and "
+        "<code>numpy</code>. Run with <code>--verbose</code> "
+        "for details.</div>"
+    )
 
     # Plotly script
     plotly_tag, plotly_mode = get_plotly_js(inline_plotly)
@@ -1069,33 +1358,18 @@ def build_html(run_root: Path,
     stats_table = render_table(
         stats_hdr, stats_rows, max_table_rows,
         col_titles={k: _strip_html(v) for k, v in LEG_ASSIGN_STATS})
-    bysf_table = render_table(
-        bysf_hdr, bysf_rows, max_table_rows,
-        col_titles={k: _strip_html(v) for k, v in LEG_BYSUBFAM})
+    bysf_table = render_bysf_table(bysf_hdr, bysf_rows, max_table_rows)
+    funnel_table = funnel_html(summary_stats)
 
-    # Conservation panel HTML
+    # Conservation panel HTML (per-position nucfreq when available)
     if curves:
         conservation_html = (
             "<div class='plot' id='plot_conservation'></div>"
             "<p class='small muted'>Per-position conservation from "
             "<code>plots/data/*_nucfreq.tsv</code>.</p>"
-            "<h3>Divergence distribution (all subfamilies)</h3>"
-            "<p class='intro'>KDE density curves of per-copy divergence "
-            "(100 &minus; similarity&nbsp;%) &mdash; one line per subfamily.</p>"
-            "<div class='plot' id='plot_div_kde'></div>"
         )
     else:
-        conservation_html = (
-            "<p class='intro'>Per-copy divergence from consensus "
-            "(100 &minus; similarity&nbsp;%), shown as KDE density curves "
-            "for all subfamilies on the same axes. "
-            "Click subfamily names in the legend to toggle.</p>"
-            "<div class='plot' id='plot_div_kde'></div>"
-            "<p class='small muted'>Source: "
-            "<code>sim_scores.tsv</code> joined with "
-            "<code>assignment_full.tsv</code>. "
-            "Sampled up to 3\u202f000 copies per subfamily.</p>"
-        )
+        conservation_html = ""
 
     # Alignment section (optional, requires --tal-species-code)
     alignment_section = ""
@@ -1201,17 +1475,16 @@ def build_html(run_root: Path,
     <strong>Sections:</strong>
     {'<a href="#alignments">Alignments</a>' if alignment_section else ''}
     <a href="#overview">Overview</a>
-    <a href="#run">Run info</a>
-    <a href="#funnel">Funnel</a>
-    <a href="#step1">Step1 hits</a>
-    <a href="#assignment">Assignment</a>
     <a href="#composition">Composition</a>
-    <a href="#thresholds">Thresholds</a>
-    <a href="#flags">Flags</a>
-    <a href="#conservation">Divergence</a>
-    <a href="#similarity">Similarity</a>
-    <a href="#sineplot">SINEplot PCA</a>
-    {'<a href="#gallery">Plot gallery</a>' if image_blocks else ''}
+    <a href="#divergence">Divergence&thinsp;/&thinsp;Similarity</a>
+    <a href="#pca">PCA</a>
+    {'<a href="#gallery">Gallery</a>' if image_blocks else ''}
+    <span style="opacity:.45">&bull;</span>
+    <a href="#run" style="opacity:.7">Run info</a>
+    <a href="#step1" style="opacity:.7">Step1</a>
+    <a href="#assignment" style="opacity:.7">Step2</a>
+    <a href="#thresholds" style="opacity:.7">Thresholds</a>
+    <a href="#flags" style="opacity:.7">Flags</a>
   </nav>
 
   {alignment_section}
@@ -1219,103 +1492,91 @@ def build_html(run_root: Path,
   <section class="card" id="overview">
     <h2>Overview</h2>
     {overview_paragraph}
-    <p class="small muted">Detailed numbers are in the
-    <a href="#funnel">Funnel</a>, <a href="#assignment">Assignment</a>
-    and <a href="#composition">Composition</a> sections below.</p>
-  </section>
-
-  <section class="card" id="run">
-    <h2>Run info (<code>manifest.txt</code>)</h2>
-    {mani_html}
-  </section>
-
-  <section class="card" id="funnel">
-    <h2>Pipeline funnel</h2>
-    <p class="intro">Counts at each stage of the pipeline. Percentages are
-    relative to the initial step1 hit count.</p>
-    <div class="plot" id="plot_funnel"></div>
-  </section>
-
-  <section class="card" id="step1">
-    <h2>Step1 &mdash; raw hits per query consensus</h2>
-    <p class="intro">Raw <code>ssearch36</code> hit counts per query
-    consensus, before <code>bedtools merge</code> collapses overlapping
-    intervals across queries. The total at the bottom is the sum across
-    queries; the merged total (after deduplication) is shown in the
-    Overview cards above.</p>
-    {render_legend(LEG_STEP1_HITS)}
-    {step1_hits_table(step1_hits)}
-  </section>
-
-  <section class="card" id="assignment">
-    <h2>Step2 &mdash; assignments per subfamily</h2>
-    <p class="intro">Output of <code>step2_asSINEment.sh</code> stored in
-    <code>assignment_stats.tsv</code>. <i>Assigned</i> is the number of
-    SINE copies that received a final, threshold-passing label of this
-    subfamily.</p>
-    {render_legend(LEG_ASSIGN_STATS)}
-    {stats_table}
+    <h3 style="margin-top:16px">Pipeline counts</h3>
+    {funnel_table}
   </section>
 
   <section class="card" id="composition">
-    <h2>Step3 &mdash; per-subfamily composition</h2>
-    <p class="intro">Source: <code>summary.by_subfam.tsv</code>. Combines
-    firm vs soft assignments with sanity-check leak/conflict counts and
-    similarity statistics.</p>
-    {render_legend(LEG_BYSUBFAM)}
+    <h2>Subfamily composition</h2>
+    <p class="intro">Source: <code>summary.by_subfam.tsv</code>.
+    Highlighted columns (<span style="font-weight:600;color:#1a3a6e">bold</span>):
+    total copies, similarity mean&thinsp;/&thinsp;median, conflict rate.
+    Hover a column header for its full description.</p>
     {bysf_table}
   </section>
 
-  <section class="card" id="thresholds">
-    <h2>Bitscore thresholds vs real consensus self-bits</h2>
-    <p class="intro">The threshold is stored as integer bits&times;100;
-    real self-bits are the raw <code>ssearch36</code> bitscore of each
-    consensus aligned against itself. The ratio shows how strict the
-    threshold is relative to a perfect self-match (1.0 = perfect).</p>
-    {render_legend(LEG_THRESHOLDS)}
-    {thresholds_table(stats_rows, sbr_rows)}
-  </section>
-
-  <section class="card" id="flags">
-    <h2>Quality flags (CONFLICT / LEAK / OK)</h2>
-    <p class="intro">Counts of merged genomic intervals per subfamily,
-    grouped by sanity-check flag from <code>step3_postprocess.sh</code>.
-    A high <code>%CONFLICT</code> means many intervals had hits from
-    multiple subfamilies in the same locus.</p>
-    {render_legend(LEG_FLAGS)}
-    {flags_table(flags)}
-  </section>
-
-  <section class="card" id="conservation">
+  <section class="card" id="divergence">
     <h2>Divergence from consensus &mdash; per copy</h2>
+    <p class="intro">KDE density curves: divergence = 100&thinsp;&minus;&thinsp;similarity
+    (bitscore&thinsp;/&thinsp;self-bits &times; 100&thinsp;%). One curve per subfamily;
+    click legend entries to toggle. Computed from up to
+    3&thinsp;000 sampled copies per subfamily.</p>
     {conservation_html}
-  </section>
-
-  <section class="card" id="similarity">
-    <h2>Similarity to consensus &mdash; per copy</h2>
-    <p class="intro">KDE density curves of per-copy similarity
-    (bitscore / consensus self-bits, &times;100%). One curve per subfamily;
-    click legend to toggle. Computed from up to 3&thinsp;000 sampled
-    copies per subfamily.</p>
-    <div class="plot" id="plot_sim_kde"></div>
-    <h3>Distributions per subfamily (violins)</h3>
+    <div class="plot" id="plot_div_kde"></div>
+    <h3>Distributions per subfamily (violin)</h3>
+    <p class="intro">Same data as above shown as symmetric violin plots.
+    Width encodes density; inner box = IQR; dashed line = mean.</p>
     <div class="plot" id="plot_sim_violins"></div>
     <p class="small muted">Source: <code>sim_scores.tsv</code> joined with
     <code>assignment_full.tsv</code>.</p>
   </section>
 
-  <section class="card" id="sineplot">
-    <h2>SINEplot PCA &mdash; bitscore-based subfamily layout</h2>
-    <p class="intro">External visualisation by
-    <a href="https://github.com/Toki-bio/SINEplot">SINEplot</a>. Each copy
-    is positioned in 2D using MDS over the all-vs-all bitscore matrix of
-    (consensuses + a stratified sample of assigned copies). Copies are
-    coloured by best-matching subfamily; opacity encodes confidence; a
-    Conflict mode highlights ambiguous assignments.</p>
-    {sineplot_section}
+  <section class="card" id="pca">
+    <h2>PCA &mdash; bitscore fingerprint</h2>
+    {pca_section_html}
   </section>
 
   {gallery_html}
+
+  <details class="card" id="run">
+    <summary><h2>Run info (<code>manifest.txt</code>)</h2></summary>
+    <div class="card-body">{mani_html}</div>
+  </details>
+
+  <details class="card" id="step1">
+    <summary><h2>Step1 &mdash; raw hits per query consensus</h2></summary>
+    <div class="card-body">
+      <p class="intro">Raw <code>ssearch36</code> hit counts per query consensus,
+      before <code>bedtools merge</code>. The pre-merge total is the sum across
+      all queries; after merging, overlapping intervals are collapsed.</p>
+      {render_legend(LEG_STEP1_HITS)}
+      {step1_hits_table(step1_hits)}
+    </div>
+  </details>
+
+  <details class="card" id="assignment">
+    <summary><h2>Step2 &mdash; assignment stats per subfamily</h2></summary>
+    <div class="card-body">
+      <p class="intro">Output of <code>step2_asSINEment.sh</code>
+      (<code>assignment_stats.tsv</code>). <i>Assigned</i> = copies that
+      passed the bitscore threshold.</p>
+      {render_legend(LEG_ASSIGN_STATS)}
+      {stats_table}
+    </div>
+  </details>
+
+  <details class="card" id="thresholds">
+    <summary><h2>Bitscore thresholds vs consensus self-bits</h2></summary>
+    <div class="card-body">
+      <p class="intro">Threshold is stored as integer bits&times;100; real
+      self-bits = ssearch36 score of the consensus vs itself.
+      Threshold/Self &asymp; minimum fractional similarity to pass.</p>
+      {render_legend(LEG_THRESHOLDS)}
+      {thresholds_table(stats_rows, sbr_rows)}
+    </div>
+  </details>
+
+  <details class="card" id="flags">
+    <summary><h2>Quality flags per subfamily</h2></summary>
+    <div class="card-body">
+      <p class="intro">Merged genomic intervals grouped by sanity flag from
+      <code>step3_postprocess.sh</code>. High <code>%CONFLICT</code> suggests
+      ambiguous subfamily boundaries at those loci.</p>
+      {render_legend(LEG_FLAGS)}
+      {flags_table(flags)}
+    </div>
+  </details>
+
 </main>
 <footer>
   Generated by <code>step6_report.py</code> &middot;
@@ -1361,11 +1622,11 @@ def main(argv: Optional[List[str]] = None) -> int:
                     help="Output HTML path "
                          "(default: <RUN_ROOT>/results/report.html)")
     ap.add_argument("--inline-plotly", dest="inline_plotly",
-                    action="store_true", default=True,
-                    help="Inline plotly.js (default; self-contained).")
+                    action="store_true", default=False,
+                    help="Inline plotly.js (~4 MB larger but fully self-contained).")
     ap.add_argument("--no-inline-plotly", dest="inline_plotly",
                     action="store_false",
-                    help="Use plotly.js from CDN instead of inlining.")
+                    help="Use plotly.js from CDN (default; requires internet).")
     ap.add_argument("--no-embed-images", dest="embed_images",
                     action="store_false", default=True,
                     help="Do not embed step4 PNGs (smaller HTML).")
