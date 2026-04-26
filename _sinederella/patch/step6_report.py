@@ -1194,29 +1194,34 @@ def build_alignment_section(
     msa_url: str = "https://toki-bio.github.io/MSA-viewer/",
     raw_base: str = "https://raw.githubusercontent.com/Toki-bio/Tal/main/",
 ) -> str:
-    raw_aln = f"{raw_base}{species_code}/alignments/"
+    raw_aln    = f"{raw_base}{species_code}/alignments/"
+    raw_subfam = f"{raw_base}{species_code}/subfam/"
 
-    def msa_href(filename: str, title: str) -> str:
-        return (f"{msa_url}?url={quote(raw_aln + filename, safe='')}"
+    def msa_href(url: str, title: str) -> str:
+        return (f"{msa_url}?url={quote(url, safe='')}"
                 f"&title={quote(title, safe='')}")
 
-    consi_href = msa_href(f"{species_code}_consensuses.fa",
+    consi_href = msa_href(raw_aln + f"{species_code}_consensuses.fa",
                           f"{species_code} all consensi")
-    subfam_input_href = msa_href(f"{species_code}_subfam_input.aln.fa",
+    subfam_input_href = msa_href(raw_aln + f"{species_code}_subfam_input.aln.fa",
                                  f"{species_code} SubFam input (all families)")
 
     rows_html = ""
     for sf in sorted(subfams):
-        t100 = msa_href(f"{species_code}_{sf}_top100.aln.fa",
-                        f"{species_code} {sf} top100")
-        r100 = msa_href(f"{species_code}_{sf}_rand100.aln.fa",
-                        f"{species_code} {sf} rand100")
+        t100  = msa_href(raw_aln    + f"{species_code}_{sf}_top100.aln.fa",
+                         f"{species_code} {sf} top100")
+        r100  = msa_href(raw_aln    + f"{species_code}_{sf}_rand100.aln.fa",
+                         f"{species_code} {sf} rand100")
+        subfam_href = msa_href(raw_subfam + f"{sf}.al",
+                               f"{species_code} {sf} SubFam")
         rows_html += (
             f"<tr><td><code>{html.escape(sf)}</code></td>"
             f"<td><a class='aln-link' href='{t100}' target='_blank'>"
             f"top 100 by score</a></td>"
             f"<td><a class='aln-link orange' href='{r100}' target='_blank'>"
-            f"100 random</a></td></tr>"
+            f"100 random</a></td>"
+            f"<td><a class='aln-link green' href='{subfam_href}' target='_blank'>"
+            f"SubFam</a></td></tr>"
         )
     return (
         "<section class='card' id='alignments'>"
@@ -1232,7 +1237,8 @@ def build_alignment_section(
         "<table class='tbl'>"
         "<thead><tr><th>Subfamily</th>"
         "<th>Top 100 by bitscore</th>"
-        "<th>100 random copies</th></tr></thead>"
+        "<th>100 random copies</th>"
+        "<th>SubFam (chunk consensuses)</th></tr></thead>"
         f"<tbody>{rows_html}</tbody>"
         "</table></section>"
     )
