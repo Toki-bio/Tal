@@ -397,11 +397,13 @@ def fig_similarity_kde(by_sf: Dict[str, List[float]]) -> dict:
 
 
 def fig_divergence_kde(by_sf: Dict[str, List[float]]) -> dict:
-    """Per-subfamily KDE density lines of divergence = 100 \u2212 similarity (%)."""
+    """Per-subfamily KDE density lines of divergence = max(0, 100 - similarity)."""
     sf_sorted = sorted(by_sf.keys())
     traces = []
     for i, sf in enumerate(sf_sorted):
-        vals = [100.0 - v for v in by_sf[sf]]
+        # clamp to [0, 100]: bitscore-based similarity can exceed 100% due to
+        # local alignment scoring (copy bitscore > consensus self-bitscore)
+        vals = [max(0.0, 100.0 - v) for v in by_sf[sf]]
         if not vals:
             continue
         x, y = kde_curve(vals)
@@ -409,7 +411,7 @@ def fig_divergence_kde(by_sf: Dict[str, List[float]]) -> dict:
             continue
         traces.append({
             "type": "scatter", "mode": "lines",
-            "x": [round(v, 3) for v in x],
+            "x": [round(max(0.0, v), 3) for v in x],
             "y": [round(v, 6) for v in y],
             "name": sf,
             "line": {"color": SF_PALETTE[i % len(SF_PALETTE)], "width": 2},
@@ -420,8 +422,9 @@ def fig_divergence_kde(by_sf: Dict[str, List[float]]) -> dict:
     return {
         "data": traces,
         "layout": {
-            "title": "Divergence from consensus \u2014 per-copy distribution (KDE)",
-            "xaxis": {"title": "Divergence from subfamily consensus (%)"},
+            "title": "Bitscore-based divergence from consensus \u2014 per-copy KDE",
+            "xaxis": {"title": "Divergence (100 \u2212 bitscore/self-bits \u00d7 100%)",
+                      "rangemode": "nonnegative"},
             "yaxis": {"title": "Density"},
             "legend": {"title": {"text": "Subfamily (click to toggle)"}},
             "height": 460,
@@ -1507,10 +1510,12 @@ def build_html(run_root: Path,
 
   <section class="card" id="divergence">
     <h2>Divergence from consensus &mdash; per copy</h2>
-    <p class="intro">KDE density curves: divergence = 100&thinsp;&minus;&thinsp;similarity
-    (bitscore&thinsp;/&thinsp;self-bits &times; 100&thinsp;%). One curve per subfamily;
-    click legend entries to toggle. Computed from up to
-    3&thinsp;000 sampled copies per subfamily.</p>
+    <p class="intro"><b>Metric:</b> bitscore-based divergence =
+    100&thinsp;&minus;&thinsp;(copy bitscore&thinsp;/&thinsp;consensus self-bitscore &times; 100&thinsp;%).
+    This is a proxy for sequence divergence, not a direct nucleotide count.
+    Values are clamped to 0 (local alignment can occasionally score a copy
+    <i>above</i> the self-bitscore, which would otherwise appear as negative
+    divergence). One KDE curve per subfamily; click legend entries to toggle.</p>
     {conservation_html}
     <div class="plot" id="plot_div_kde"></div>
     <h3>Distributions per subfamily (violin)</h3>
