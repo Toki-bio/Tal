@@ -1,0 +1,11 @@
+﻿# Keep biological data files as-is (LF)
+*.fa binary
+*.fasta binary
+*.aln.fa binary
+*.bnk binary
+*.bed binary
+*.tsv text eol=lf
+*.sh text eol=lf
+*.py text eol=lf
+*.html text eol=lf
+*.md text eol=lf

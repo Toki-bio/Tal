@@ -5,6 +5,10 @@
 *.gz
 *.fai
 
+# Exception: aligned FASTA files for MSA viewer (small, curated)
+!*.aln.fa
+!*_consensuses.fa
+
 # BLAST indexes
 *.ndb
 *.nhr
