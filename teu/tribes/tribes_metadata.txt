@@ -6,3 +6,6 @@ min_cluster_size=5
 top_alignment_tribes=10
 max_alignment_sequences=500
 sampling=awk/shuf
+alignment_flanks=50bp_left_70bp_right
+alignment_flank_method=strand-aware genome.clean.fa extraction; lowercase unaligned flank blocks attached to existing MAFFT body alignment
+alignment_flank_source=genome.clean.fa
