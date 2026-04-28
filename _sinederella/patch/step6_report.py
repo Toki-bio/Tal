@@ -341,6 +341,7 @@ def funnel_html(stats: Dict[str, str]) -> str:
 
 
 def kde_curve(vals: List[float], n_pts: int = 300,
+              lower_bound: Optional[float] = None
               ) -> Tuple[List[float], List[float]]:
     """Gaussian KDE (no scipy). Scott's bandwidth: h = std * n^(-1/5)."""
     n = len(vals)
@@ -351,6 +352,8 @@ def kde_curve(vals: List[float], n_pts: int = 300,
     std = math.sqrt(max(var, 1e-12))
     h = std * n ** (-0.2)
     lo = min(vals) - 2.5 * h
+    if lower_bound is not None:
+        lo = max(lower_bound, lo)
     hi = max(vals) + 2.5 * h
     step = (hi - lo) / (n_pts - 1)
     x_arr = [lo + i * step for i in range(n_pts)]
@@ -406,26 +409,27 @@ def fig_divergence_kde(by_sf: Dict[str, List[float]]) -> dict:
         vals = [max(0.0, 100.0 - v) for v in by_sf[sf]]
         if not vals:
             continue
-        x, y = kde_curve(vals)
+        x, y = kde_curve(vals, lower_bound=0.0)
         if not x:
             continue
+        points = [(xv, yv) for xv, yv in zip(x, y) if yv > 0.0]
         traces.append({
             "type": "scatter", "mode": "lines",
-            "x": [round(max(0.0, v), 3) for v in x],
-            "y": [round(v, 6) for v in y],
+            "x": [round(xv, 3) for xv, _ in points],
+            "y": [float(f"{yv:.8g}") for _, yv in points],
             "name": sf,
             "line": {"color": SF_PALETTE[i % len(SF_PALETTE)], "width": 2},
             "hovertemplate": (
                 "%{fullData.name}<br>divergence %{x:.1f}%"
-                "<br>density %{y:.5f}<extra></extra>"),
+                "<br>density %{y:.3e}<extra></extra>"),
         })
     return {
         "data": traces,
         "layout": {
-            "title": "Bitscore-based divergence from consensus \u2014 per-copy KDE",
+                "title": "Bitscore-based divergence from consensus \u2014 per-copy KDE (log density)",
             "xaxis": {"title": "Divergence (100 \u2212 bitscore/self-bits \u00d7 100%)",
                       "rangemode": "nonnegative"},
-            "yaxis": {"title": "Density"},
+                "yaxis": {"title": "Density (log scale)", "type": "log"},
             "legend": {"title": {"text": "Subfamily (click to toggle)"}},
             "height": 460,
             "margin": {"t": 60, "r": 20, "b": 60, "l": 70},
@@ -1201,7 +1205,7 @@ def build_alignment_section(
         return (f"{msa_url}?url={quote(url, safe='')}"
                 f"&title={quote(title, safe='')}")
 
-    consi_href = msa_href(raw_aln + f"{species_code}_consensuses.fa",
+    consi_href = msa_href(raw_aln + f"{species_code}_consensuses.aln.fa",
                           f"{species_code} all consensi")
     subfam_input_href = msa_href(raw_aln + f"{species_code}_subfam_input.aln.fa",
                                  f"{species_code} SubFam input (all families)")
@@ -1582,7 +1586,9 @@ def build_html(run_root: Path,
     Values are clamped to 0 (local alignment can occasionally score a copy
     <i>above</i> the self-bitscore, which would otherwise appear as negative
     divergence). One KDE curve per subfamily (up to 3,000 copies per
-    subfamily sampled for display); click legend entries to toggle.</p>
+    subfamily sampled for display). The density axis is logarithmic so the
+    zero-divergence peak and low-density tails remain visible together; click
+    legend entries to toggle.</p>
     {conservation_html}
     <div class="plot" id="plot_div_kde"></div>
     <h3>Distributions per subfamily (violin)</h3>
