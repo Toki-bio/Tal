@@ -1,0 +1,8 @@
+species=gpy
+run_root=/data/W/toki/Genomes/Mammalia/Eulipotyphla/gpy/gpy/run_20260427_122509
+input=/data/W/toki/Genomes/Mammalia/Eulipotyphla/gpy/gpy/run_20260427_122509/genome.clean_step1/extracted.fasta
+method=SINEtribes-compatible vsearch --cluster_fast --id 0.99 --strand plus
+min_cluster_size=5
+top_alignment_tribes=10
+max_alignment_sequences=500
+sampling=awk/shuf
