@@ -178,6 +178,42 @@ def stratified_sample_sim(sim_path: Path, assign_path: Path,
     return by_sf
 
 
+def divergence_count_histogram(sim_path: Path, assign_path: Path,
+                               bin_width: float = 0.5
+                               ) -> Dict[str, Dict[float, int]]:
+    """Return full-data {subfam: {divergence_bin_start: copy_count}}."""
+    if not sim_path.is_file() or not assign_path.is_file():
+        return {}
+    seq_to_sf: Dict[str, str] = {}
+    with assign_path.open(errors="replace") as fh:
+        for i, line in enumerate(fh):
+            if i == 0:
+                continue
+            parts = line.rstrip("\n").split("\t")
+            if len(parts) >= 5 and parts[4] == "assigned":
+                seq_to_sf[parts[0]] = parts[1]
+
+    by_sf: Dict[str, Dict[float, int]] = {}
+    with sim_path.open(errors="replace") as fh:
+        for line in fh:
+            parts = line.rstrip("\n").split("\t")
+            if len(parts) < 4:
+                continue
+            sid = parts[0]
+            sf = seq_to_sf.get(sid)
+            if not sf:
+                continue
+            try:
+                divergence = max(0.0, 100.0 - float(parts[3]) * 100.0)
+            except ValueError:
+                continue
+            bin_start = math.floor((divergence + 1e-9) / bin_width) * bin_width
+            bin_start = round(bin_start, 6)
+            counts = by_sf.setdefault(sf, {})
+            counts[bin_start] = counts.get(bin_start, 0) + 1
+    return by_sf
+
+
 def count_flags_per_subfam(bedlike_path: Path
                            ) -> Dict[str, Dict[str, int]]:
     out: Dict[str, Dict[str, int]] = {}
@@ -399,37 +435,43 @@ def fig_similarity_kde(by_sf: Dict[str, List[float]]) -> dict:
     }
 
 
-def fig_divergence_kde(by_sf: Dict[str, List[float]]) -> dict:
-    """Per-subfamily KDE density lines of divergence = max(0, 100 - similarity)."""
+def fig_divergence_counts(by_sf: Dict[str, Dict[float, int]],
+                          bin_width: float = 0.5,
+                          x_range_max: Optional[float] = None) -> dict:
+    """Stacked per-subfamily copy counts by bitscore-divergence bin."""
     sf_sorted = sorted(by_sf.keys())
     traces = []
+    max_bin_end = 0.0
     for i, sf in enumerate(sf_sorted):
-        # clamp to [0, 100]: bitscore-based similarity can exceed 100% due to
-        # local alignment scoring (copy bitscore > consensus self-bitscore)
-        vals = [max(0.0, 100.0 - v) for v in by_sf[sf]]
-        if not vals:
+        counts = by_sf[sf]
+        if not counts:
             continue
-        x, y = kde_curve(vals, lower_bound=0.0)
-        if not x:
-            continue
-        points = [(xv, yv) for xv, yv in zip(x, y) if yv > 0.0]
+        bins = sorted(counts)
+        max_bin_end = max(max_bin_end, max(bins) + bin_width)
         traces.append({
-            "type": "scatter", "mode": "lines",
-            "x": [round(xv, 3) for xv, _ in points],
-            "y": [float(f"{yv:.8g}") for _, yv in points],
+            "type": "bar",
+            "x": [round(b + bin_width / 2.0, 3) for b in bins],
+            "y": [counts[b] for b in bins],
+            "width": [round(bin_width * 0.9, 3) for _ in bins],
             "name": sf,
-            "line": {"color": SF_PALETTE[i % len(SF_PALETTE)], "width": 2},
+            "marker": {"color": SF_PALETTE[i % len(SF_PALETTE)]},
+            "customdata": [[round(b, 3), round(b + bin_width, 3)] for b in bins],
             "hovertemplate": (
-                "%{fullData.name}<br>divergence %{x:.1f}%"
-                "<br>density %{y:.3e}<extra></extra>"),
+                "%{fullData.name}<br>divergence %{customdata[0]:.2f}-%{customdata[1]:.2f}%"
+                "<br>copies %{y:,d}<extra></extra>"),
         })
+    if x_range_max is None:
+        x_range_max = min(100.0, max(5.0, math.ceil(max_bin_end / 5.0) * 5.0))
     return {
         "data": traces,
         "layout": {
-                "title": "Bitscore-based divergence from consensus \u2014 per-copy KDE (log density)",
+            "title": ("Bitscore-based divergence from consensus \u2014 "
+                      f"copy counts per {bin_width:g}% bin"),
             "xaxis": {"title": "Divergence (100 \u2212 bitscore/self-bits \u00d7 100%)",
-                      "rangemode": "nonnegative"},
-                "yaxis": {"title": "Density (log scale)", "type": "log"},
+                      "rangemode": "nonnegative", "range": [0, x_range_max]},
+            "yaxis": {"title": "Copies"},
+            "barmode": "stack",
+            "bargap": 0.03,
             "legend": {"title": {"text": "Subfamily (click to toggle)"}},
             "height": 460,
             "margin": {"t": 60, "r": 20, "b": 60, "l": 70},
@@ -1279,6 +1321,8 @@ def build_html(run_root: Path,
 
     sim_by_sf = stratified_sample_sim(
         s2 / "sim_scores.tsv", s2 / "assignment_full.tsv", per_group=3000)
+    divergence_counts = divergence_count_histogram(
+        s2 / "sim_scores.tsv", s2 / "assignment_full.tsv", bin_width=0.5)
 
     flags = count_flags_per_subfam(s2 / "all_sines.bedlike.ALL.tsv")
 
@@ -1293,7 +1337,7 @@ def build_html(run_root: Path,
                 curves[sf] = conservation_curve(nf)
 
     figs = {
-        "div_kde":     fig_divergence_kde(sim_by_sf),
+        "div_kde":     fig_divergence_counts(divergence_counts, bin_width=0.5),
         "sim_violins": fig_sim_violins(sim_by_sf),
     }
     if curves:
@@ -1585,10 +1629,9 @@ def build_html(run_root: Path,
     This is a proxy for sequence divergence, not a direct nucleotide count.
     Values are clamped to 0 (local alignment can occasionally score a copy
     <i>above</i> the self-bitscore, which would otherwise appear as negative
-    divergence). One KDE curve per subfamily (up to 3,000 copies per
-    subfamily sampled for display). The density axis is logarithmic so the
-    zero-divergence peak and low-density tails remain visible together; click
-    legend entries to toggle.</p>
+    divergence). The histogram uses all assigned copies with similarity scores,
+    grouped into 0.5 percentage-point divergence bins; bar height is copy count.
+    Colors show subfamilies; click legend entries to toggle.</p>
     {conservation_html}
     <div class="plot" id="plot_div_kde"></div>
     <h3>Distributions per subfamily (violin)</h3>
