@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Tal SINE — divergence from consensus (6 species)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+<style>
+  body { font-family: Arial, sans-serif; max-width: 1100px; margin: 0 auto; padding: 20px;
+         background: #fff; color: #222; }
+  h1 { font-size: 1.3em; margin-bottom: 4px; }
+  .subtitle { color: #555; font-size: 0.9em; margin-bottom: 20px; }
+  /* panels */
+  #figure-container { display:flex; flex-direction:column; gap:8px; }
+  .panel { border: 1px solid #ddd; border-radius: 4px; padding: 6px 10px 2px 10px;
+            background: #fafafa; }
+  .panel-header { display:flex; align-items:center; gap:10px; margin-bottom:4px; }
+  .panel-letter { font-size: 1.4em; font-weight: bold; min-width: 22px; color:#333; }
+  .panel-title { font-size: 0.95em; flex:1; }
+  .panel-btns { display:flex; gap:4px; }
+  .move-btn { background:#e8e8e8; border:1px solid #bbb; border-radius:3px;
+               cursor:pointer; padding:1px 6px; font-size:1.1em; line-height:1.2; }
+  .move-btn:hover { background:#d0d0d0; }
+  .dl-btn { background:#d4e8ff; border:1px solid #88b; border-radius:3px;
+             cursor:pointer; padding:2px 7px; font-size:0.8em; }
+  .dl-btn:hover { background:#b8d0f0; }
+  .plot-wrap { width:100%; }
+  /* legend */
+  .legend-container { margin-top:28px; padding:14px 18px; border:1px solid #ddd;
+                       border-radius:4px; background:#f7f7f7; }
+  .legend-container h3 { margin:0 0 10px 0; font-size:1em; }
+  .legend-row { display:flex; align-items:center; margin:5px 0; }
+  .swatch { display:inline-block; width:28px; height:16px; border-radius:3px;
+             margin-right:10px; flex-shrink:0; }
+  .legend-label { font-size:0.85em; }
+  /* caption + methods */
+  .caption-block, .methods-block {
+    margin-top:24px; padding:14px 18px; border:1px solid #ddd;
+    border-radius:4px; background:#f7f7f7;
+  }
+  .caption-block h3, .methods-block h3 { margin:0 0 8px 0; font-size:1em; }
+  .caption-block p, .methods-block p { font-size:0.88em; line-height:1.6; margin:0; }
+  /* reorder highlight */
+  .panel.dragging { opacity:0.5; }
+  /* download-all button */
+  #dl-all-btn { margin-top:10px; padding:6px 16px; background:#4A8C3F; color:#fff;
+                 border:none; border-radius:4px; cursor:pointer; font-size:0.9em; }
+  #dl-all-btn:hover { background:#3A7D35; }
+</style>
+</head>
+<body>
+
+<h1>Tal SINEs — divergence from subfamily consensus across six Talpidae species</h1>
+<p class="subtitle">
+  Panels A–F can be reordered using the &#8679;&#8681; buttons.
+  Click &#128247;&nbsp;PNG or &#128196;&nbsp;SVG to export individual panels.
+  <button id="dl-all-btn" onclick="dlAll()">&#128247; Download all panels as PNG</button>
+</p>
+
+<div id="figure-container">
+
+  <div class="panel" id="panel-toc" data-sp="toc" data-label="A">
+    <div class="panel-header">
+      <span class="panel-letter">A</span>
+      <span class="panel-title"><em>Talpa occidentalis</em></span>
+      <div class="panel-btns">
+        <button class="move-btn" onclick="movePanel('toc', -1)" title="Move up">&#8679;</button>
+        <button class="move-btn" onclick="movePanel('toc', +1)" title="Move down">&#8681;</button>
+        <button class="dl-btn" onclick="dlPNG('toc')" title="Download PNG">&#128247; PNG</button>
+        <button class="dl-btn" onclick="dlSVG('toc')" title="Download SVG">&#128196; SVG</button>
+      </div>
+    </div>
+    <div class="plot-wrap" id="plot-toc"></div>
+  </div>
+  <div class="panel" id="panel-teu" data-sp="teu" data-label="B">
+    <div class="panel-header">
+      <span class="panel-letter">B</span>
+      <span class="panel-title"><em>Talpa europaea</em></span>
+      <div class="panel-btns">
+        <button class="move-btn" onclick="movePanel('teu', -1)" title="Move up">&#8679;</button>
+        <button class="move-btn" onclick="movePanel('teu', +1)" title="Move down">&#8681;</button>
+        <button class="dl-btn" onclick="dlPNG('teu')" title="Download PNG">&#128247; PNG</button>
+        <button class="dl-btn" onclick="dlSVG('teu')" title="Download SVG">&#128196; SVG</button>
+      </div>
+    </div>
+    <div class="plot-wrap" id="plot-teu"></div>
+  </div>
+  <div class="panel" id="panel-gpy" data-sp="gpy" data-label="C">
+    <div class="panel-header">
+      <span class="panel-letter">C</span>
+      <span class="panel-title"><em>Galemys pyrenaicus</em></span>
+      <div class="panel-btns">
+        <button class="move-btn" onclick="movePanel('gpy', -1)" title="Move up">&#8679;</button>
+        <button class="move-btn" onclick="movePanel('gpy', +1)" title="Move down">&#8681;</button>
+        <button class="dl-btn" onclick="dlPNG('gpy')" title="Download PNG">&#128247; PNG</button>
+        <button class="dl-btn" onclick="dlSVG('gpy')" title="Download SVG">&#128196; SVG</button>
+      </div>
+    </div>
+    <div class="plot-wrap" id="plot-gpy"></div>
+  </div>
+  <div class="panel" id="panel-dmo" data-sp="dmo" data-label="D">
+    <div class="panel-header">
+      <span class="panel-letter">D</span>
+      <span class="panel-title"><em>Desmana moschata</em></span>
+      <div class="panel-btns">
+        <button class="move-btn" onclick="movePanel('dmo', -1)" title="Move up">&#8679;</button>
+        <button class="move-btn" onclick="movePanel('dmo', +1)" title="Move down">&#8681;</button>
+        <button class="dl-btn" onclick="dlPNG('dmo')" title="Download PNG">&#128247; PNG</button>
+        <button class="dl-btn" onclick="dlSVG('dmo')" title="Download SVG">&#128196; SVG</button>
+      </div>
+    </div>
+    <div class="plot-wrap" id="plot-dmo"></div>
+  </div>
+  <div class="panel" id="panel-saq" data-sp="saq" data-label="E">
+    <div class="panel-header">
+      <span class="panel-letter">E</span>
+      <span class="panel-title"><em>Scalopus aquaticus</em></span>
+      <div class="panel-btns">
+        <button class="move-btn" onclick="movePanel('saq', -1)" title="Move up">&#8679;</button>
+        <button class="move-btn" onclick="movePanel('saq', +1)" title="Move down">&#8681;</button>
+        <button class="dl-btn" onclick="dlPNG('saq')" title="Download PNG">&#128247; PNG</button>
+        <button class="dl-btn" onclick="dlSVG('saq')" title="Download SVG">&#128196; SVG</button>
+      </div>
+    </div>
+    <div class="plot-wrap" id="plot-saq"></div>
+  </div>
+  <div class="panel" id="panel-ccr" data-sp="ccr" data-label="F">
+    <div class="panel-header">
+      <span class="panel-letter">F</span>
+      <span class="panel-title"><em>Condylura cristata</em></span>
+      <div class="panel-btns">
+        <button class="move-btn" onclick="movePanel('ccr', -1)" title="Move up">&#8679;</button>
+        <button class="move-btn" onclick="movePanel('ccr', +1)" title="Move down">&#8681;</button>
+        <button class="dl-btn" onclick="dlPNG('ccr')" title="Download PNG">&#128247; PNG</button>
+        <button class="dl-btn" onclick="dlSVG('ccr')" title="Download SVG">&#128196; SVG</button>
+      </div>
+    </div>
+    <div class="plot-wrap" id="plot-ccr"></div>
+  </div>
+</div>
+
+<div class="legend-container">
+<h3>Legend — Subfamily colour groups (Table 1)</h3>
+
+  <div class="legend-row">
+    <span class="swatch" style="background:#FFC000;border:2px solid #B87000;"></span>
+    <span class="legend-label"><strong>a subfamilies (oldest retained lineage, all species):</strong>
+      a_Toc, a_Teu, a_Gpy, a_Dmo, a_Saq</span>
+  </div>
+
+  <div class="legend-row">
+    <span class="swatch" style="background:#FFFF00;border:2px solid #909000;"></span>
+    <span class="legend-label"><strong>b subfamilies (all species):</strong>
+      b1_Toc, b2_Toc, b1_Teu, b2_Teu, b_Gpy, b_Dmo, b1_Saq, b2_Saq, b1_Ccr, b2_Ccr</span>
+  </div>
+
+  <div class="legend-row">
+    <span class="swatch" style="background:#C6D9F1;border:2px solid #1A5C96;"></span>
+    <span class="legend-label"><strong>c–e subfamilies: Talpa spp. (toc, teu):</strong>
+      c_Toc, d_Toc, e_Toc, c_Teu, d_Teu, e_Teu</span>
+  </div>
+
+  <div class="legend-row">
+    <span class="swatch" style="background:#F2DBDB;border:2px solid #A93226;"></span>
+    <span class="legend-label"><strong>c–e subfamilies: Galemys / Desmana (gpy, dmo):</strong>
+      c_Gpy, d_Gpy, e_Gpy, c_Dmo, d_Dmo, e_Dmo</span>
+  </div>
+
+  <div class="legend-row">
+    <span class="swatch" style="background:#D6E3BC;border:2px solid #3A7D35;"></span>
+    <span class="legend-label"><strong>c–g subfamilies: Scalopus (saq):</strong>
+      c_Saq (s1), c_Saq (s9), d_Saq, e_Saq, f_Saq, g_Saq</span>
+  </div>
+
+  <div class="legend-row">
+    <span class="swatch" style="background:#E5DFEC;border:2px solid #6A1FA0;"></span>
+    <span class="legend-label"><strong>c–g subfamilies: Condylura (ccr):</strong>
+      c_Ccr, d_Ccr, e_Ccr, f_Ccr, g_Ccr</span>
+  </div>
+</div>
+
+<div class="caption-block">
+  <h3>Figure caption</h3>
+  <p>
+    <strong>Figure N.</strong> Divergence of Tal SINE copies from their subfamily consensus sequences
+    in six Talpidae species. Each panel shows copy-count histograms (0.5 percentage-point bins)
+    per subfamily. Divergence was computed as 100&nbsp;&minus;&nbsp;(<em>copy bitscore /
+    self-bitscore</em>&nbsp;&times;&nbsp;100%), capped at 0 (Ssearch36-based alignment,
+    SINEderella pipeline step 2). Colour groups follow the cross-species subfamily nomenclature
+    in Table&nbsp;1: amber&nbsp;=&nbsp;a (oldest), yellow&nbsp;=&nbsp;b, blue&nbsp;=&nbsp;c–e
+    for <em>Talpa</em> spp., pink&nbsp;=&nbsp;c–e for <em>Galemys</em>/<em>Desmana</em>,
+    green&nbsp;=&nbsp;c–g for <em>Scalopus</em>, lavender&nbsp;=&nbsp;c–g for
+    <em>Condylura</em>. Up to 10,000 copies per subfamily were used.
+    (A)&nbsp;<em>Talpa occidentalis</em>; (B)&nbsp;<em>Talpa europaea</em>;
+    (C)&nbsp;<em>Galemys pyrenaicus</em>; (D)&nbsp;<em>Desmana moschata</em>;
+    (E)&nbsp;<em>Scalopus aquaticus</em>; (F)&nbsp;<em>Condylura cristata</em>.
+  </p>
+</div>
+
+<div class="methods-block">
+  <h3>Methods — divergence metric</h3>
+  <p>
+    Divergence from consensus for each assigned SINE copy was computed as
+    100&nbsp;&minus;&nbsp;(<em>bitscore<sub>copy→consensus</sub></em> /
+    <em>bitscore<sub>consensus→self</sub></em>&nbsp;&times;&nbsp;100%).
+    Values were clamped to 0 where the copy bitscore exceeded the self-bitscore
+    (full-length high-quality copies). Assignments were performed by the
+    SINEderella pipeline (Toki, unpubl.) using Ssearch36 (Smith–Waterman local
+    alignment) against the per-species SINE bank of consensus sequences derived
+    from step-2 clustering. All assigned copies per subfamily were binned into
+    0.5 percentage-point divergence bins; bar height = copy count (raw, not
+    normalised). Subfamilies were unified into cross-species homology groups
+    a–g using pairwise consensus alignment scores and phylogenetic context
+    (Table&nbsp;1). Colours in the figure reflect these homology groups as
+    listed in the legend above; line shading within the same hue distinguishes
+    individual subfamilies sharing the same group colour.
+  </p>
+</div>
+
+<script>
+// ---- Plotly initialisation ----
+  Plotly.newPlot('plot-toc', [{"type": "scatter", "mode": "lines", "name": "e_Toc", "x": [0.5, 1.5, 2.5, 3.5, 4.5, 5.5, 6.5, 7.5, 8.5, 9.5, 10.5, 11.5, 12.5, 13.5, 14.5, 15.5, 16.5, 17.5, 18.5, 19.5, 20.5, 21.5, 22.5, 25.5, 26.5, 28.5, 29.5, 31.5, 32.5, 33.5, 34.5, 35.5, 36.5, 38.5], "y": [36, 613, 2192, 2383, 1566, 978, 680, 519, 395, 275, 169, 78, 39, 14, 14, 8, 5, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 2, 2, 6, 3, 5, 4, 3], "fill": "tozeroy", "fillcolor": "rgba(198,217,241,0.25)", "line": {"color": "#5B9CD6", "width": 2}, "hovertemplate": "<b>e_Toc</b><br>divergence ~%{x:.0f}%<br>copies %{y:,d}<extra></extra>", "legendgroup": "#C6D9F1"}, {"type": "scatter", "mode": "lines", "name": "d_Toc", "x": [0.5, 1.5, 2.5, 3.5, 4.5, 5.5, 6.5, 7.5, 8.5, 9.5, 10.5, 11.5, 12.5, 13.5, 14.5, 15.5, 16.5, 17.5, 18.5, 19.5, 20.5, 23.5, 27.5, 29.5, 30.5, 31.5, 32.5, 33.5, 34.5, 35.5, 36.5, 37.5, 38.5], "y": [41, 381, 1097, 1837, 2324, 1819, 1075, 741, 325, 146, 83, 32, 27, 4, 8, 2, 4, 2, 1, 1, 1, 2, 2, 2, 2, 4, 3, 5, 8, 6, 7, 4, 4], "fill": "tozeroy", "fillcolor": "rgba(198,217,241,0.25)", "line": {"color": "#2E7CBD", "width": 2}, "hovertemplate": "<b>d_Toc</b><br>divergence ~%{x:.0f}%<br>copies %{y:,d}<extra></extra>", "legendgroup": "#C6D9F1"}, {"type": "scatter", "mode": "lines", "name": "a_Toc", "x": [4.5, 5.5, 6.5, 7.5, 8.5, 9.5, 10.5, 11.5, 12.5, 13.5, 14.5, 15.5, 16.5, 17.5, 18.5, 19.5, 20.5, 21.5, 22.5, 23.5, 24.5, 25.5, 26.5, 27.5, 28.5, 29.5, 30.5, 32.5, 33.5, 34.5, 35.5, 36.5, 37.5], "y": [1, 17, 61, 150, 340, 777, 1221, 1503, 1516, 1413, 1043, 767, 497, 288, 151, 77, 61, 32, 16, 10, 9, 5, 5, 8, 7, 5, 3, 3, 2, 6, 1, 4, 1], "fill": "tozeroy", "fillcolor": "rgba(255,192,0,0.25)", "line": {"color": "#E6A000", "width": 2}, "hovertemplate": "<b>a_Toc</b><br>divergence ~%{x:.0f}%<br>copies %{y:,d}<extra></extra>", "legendgroup": "#FFC000"}, {"type": "scatter", "mode": "lines", "name": "c_Toc", "x": [1.5, 2.5, 3.5, 4.5, 5.5, 6.5, 7.5, 8.5, 9.5, 10.5, 11.5, 12.5, 13.5, 14.5, 15.5, 16.5, 17.5, 18.5, 19.5, 20.5, 21.5, 22.5, 23.5, 25.5, 28.5, 30.5, 31.5, 32.5, 33.5, 34.5, 35.5, 36.5, 41.5], "y": [1, 6, 66, 225, 752, 1280, 2072, 1901, 1377, 936, 508, 361, 197, 131, 73, 30, 18, 5, 6, 1, 2, 1, 1, 2, 1, 1, 2, 2, 2, 3, 1, 1, 1], "fill": "tozeroy", "fillcolor": "rgba(198,217,241,0.25)", "line": {"color": "#1A5C96", "width": 2}, "hovertemplate": "<b>c_Toc</b><br>divergence ~%{x:.0f}%<br>copies %{y:,d}<extra></extra>", "legendgroup": "#C6D9F1"}, {"type": "scatter", "mode": "lines", "name": "b2_Toc", "x": [3.5, 4.5, 5.5, 6.5, 7.5, 8.5, 9.5, 10.5, 11.5, 12.5, 13.5, 14.5, 15.5, 16.5, 17.5, 18.5, 19.5, 20.5, 21.5, 22.5, 23.5, 24.5, 25.5, 26.5, 27.5, 31.5, 33.5, 34.5], "y": [3, 41, 198, 544, 926, 1296, 1299, 1292, 1079, 946, 726, 538, 419, 286, 209, 103, 47, 21, 9, 7, 3, 1, 1, 1, 2, 1, 1, 1], "fill": "tozeroy", "fillcolor": "rgba(255,255,0,0.25)", "line": {"color": "#B8B800", "width": 2}, "hovertemplate": "<b>b2_Toc</b><br>divergence ~%{x:.0f}%<br>copies %{y:,d}<extra></extra>", "legendgroup": "#FFFF00"}, {"type": "scatter", "mode": "lines", "name": "b1_Toc", "x": [3.5, 4.5, 5.5, 6.5, 7.5, 8.5, 9.5, 10.5, 11.5, 12.5, 13.5, 14.5, 15.5, 16.5, 17.5, 18.5, 19.5, 20.5, 21.5, 22.5, 23.5, 24.5, 25.5, 26.5, 27.5, 34.5, 36.5, 38.5], "y": [1, 13, 90, 256, 466, 673, 733, 851, 762, 980, 1092, 1199, 1025, 804, 499, 278, 154, 57, 17, 10, 6, 2, 2, 2, 2, 1, 1, 1], "fill": "tozeroy", "fillcolor": "rgba(255,255,0,0.25)", "line": {"color": "#A0A000", "width": 2}, "hovertemplate": "<b>b1_Toc</b><br>divergence ~%{x:.0f}%<br>copies %{y:,d}<extra></extra>", "legendgroup": "#FFFF00"}], {"title": null, "xaxis": {"title": "Divergence from consensus (%)", "range": [0, 45]}, "yaxis": {"title": "Copies"}, "legend": {"orientation": "v", "x": 1.02, "y": 1, "xanchor": "left", "yanchor": "top", "tracegroupgap": 2}, "margin": {"t": 20, "b": 60, "l": 70, "r": 180}, "height": 320}, {responsive:true, displaylogo:false, modeBarButtonsToRemove:['toImage']});
+  Plotly.newPlot('plot-teu', [{"type": "scatter", "mode": "lines", "name": "e_Teu", "x": [0.5, 1.5, 2.5, 3.5, 4.5, 5.5, 6.5, 7.5, 8.5, 9.5, 10.5, 11.5, 12.5, 13.5, 14.5, 15.5, 16.5, 17.5, 18.5, 30.5, 32.5, 33.5, 34.5, 35.5, 36.5, 37.5, 38.5], "y": [35, 538, 1883, 2666, 1644, 1005, 722, 530, 374, 229, 166, 76, 43, 27, 12, 6, 3, 2, 1, 2, 5, 8, 6, 6, 4, 2, 5], "fill": "tozeroy", "fillcolor": "rgba(198,217,241,0.25)", "line": {"color": "#5B9CD6", "width": 2}, "hovertemplate": "<b>e_Teu</b><br>divergence ~%{x:.0f}%<br>copies %{y:,d}<extra></extra>", "legendgroup": "#C6D9F1"}, {"type": "scatter", "mode": "lines", "name": "d_Teu", "x": [0.5, 1.5, 2.5, 3.5, 4.5, 5.5, 6.5, 7.5, 8.5, 9.5, 10.5, 11.5, 12.5, 13.5, 14.5, 15.5, 16.5, 17.5, 18.5, 22.5, 25.5, 27.5, 28.5, 29.5, 30.5, 31.5, 32.5, 33.5, 34.5, 35.5, 36.5, 37.5, 38.5], "y": [18, 357, 1038, 1653, 2325, 1831, 1224, 760, 379, 170, 92, 49, 24, 11, 9, 5, 2, 1, 4, 1, 1, 2, 2, 1, 5, 3, 6, 3, 8, 5, 5, 4, 2], "fill": "tozeroy", "fillcolor": "rgba(198,217,241,0.25)", "line": {"color": "#2E7CBD", "width": 2}, "hovertemplate": "<b>d_Teu</b><br>divergence ~%{x:.0f}%<br>copies %{y:,d}<extra></extra>", "legendgroup": "#C6D9F1"}, {"type": "scatter", "mode": "lines", "name": "a_Teu", "x": [3.5, 5.5, 6.5, 7.5, 8.5, 9.5, 10.5, 11.5, 12.5, 13.5, 14.5, 15.5, 16.5, 17.5, 18.5, 19.5, 20.5, 21.5, 22.5, 23.5, 24.5, 25.5, 26.5, 27.5, 28.5, 29.5, 30.5, 31.5, 32.5, 33.5, 34.5, 35.5, 36.5, 38.5, 39.5], "y": [1, 11, 48, 172, 338, 723, 1130, 1478, 1573, 1430, 1065, 771, 475, 312, 176, 113, 64, 28, 22, 7, 5, 5, 4, 3, 4, 4, 4, 3, 7, 4, 2, 5, 9, 3, 1], "fill": "tozeroy", "fillcolor": "rgba(255,192,0,0.25)", "line": {"color": "#E6A000", "width": 2}, "hovertemplate": "<b>a_Teu</b><br>divergence ~%{x:.0f}%<br>copies %{y:,d}<extra></extra>", "legendgroup": "#FFC000"}, {"type": "scatter", "mode": "lines", "name": "c_Teu", "x": [2.5, 3.5, 4.5, 5.5, 6.5, 7.5, 8.5, 9.5, 10.5, 11.5, 12.5, 13.5, 14.5, 15.5, 16.5, 17.5, 18.5, 19.5, 20.5, 21.5, 24.5, 31.5, 32.5, 33.5, 34.5, 35.5, 36.5, 37.5, 38.5], "y": [3, 53, 164, 675, 1182, 1905, 1897, 1436, 1066, 587, 401, 225, 145, 80, 49, 31, 11, 8, 5, 2, 1, 1, 4, 2, 4, 1, 1, 2, 1], "fill": "tozeroy", "fillcolor": "rgba(198,217,241,0.25)", "line": {"color": "#1A5C96", "width": 2}, "hovertemplate": "<b>c_Teu</b><br>divergence ~%{x:.0f}%<br>copies %{y:,d}<extra></extra>", "legendgroup": "#C6D9F1"}, {"type": "scatter", "mode": "lines", "name": "b2_Teu", "x": [2.5, 3.5, 4.5, 5.5, 6.5, 7.5, 8.5, 9.5, 10.5, 11.5, 12.5, 13.5, 14.5, 15.5, 16.5, 17.5, 18.5, 19.5, 20.5, 21.5, 22.5, 23.5, 24.5, 25.5, 27.5, 28.5, 30.5, 32.5, 33.5, 36.5], "y": [1, 5, 33, 188, 514, 807, 1287, 1233, 1265, 1098, 979, 766, 577, 459, 345, 210, 107, 50, 33, 20, 5, 1, 3, 5, 1, 2, 2, 1, 2, 1], "fill": "tozeroy", "fillcolor": "rgba(255,255,0,0.25)", "line": {"color": "#B8B800", "width": 2}, "hovertemplate": "<b>b2_Teu</b><br>divergence ~%{x:.0f}%<br>copies %{y:,d}<extra></extra>", "legendgroup": "#FFFF00"}, {"type": "scatter", "mode": "lines", "name": "b1_Teu", "x": [1.5, 3.5, 4.5, 5.5, 6.5, 7.5, 8.5, 9.5, 10.5, 11.5, 12.5, 13.5, 14.5, 15.5, 16.5, 17.5, 18.5, 19.5, 20.5, 21.5, 22.5, 23.5, 24.5, 25.5, 27.5, 33.5, 34.5, 35.5, 36.5, 37.5, 38.5], "y": [1, 1, 12, 73, 223, 434, 672, 719, 792, 816, 958, 1076, 1212, 1120, 832, 468, 301, 138, 85, 26, 12, 5, 1, 3, 2, 3, 2, 1, 2, 1, 1], "fill": "tozeroy", "fillcolor": "rgba(255,255,0,0.25)", "line": {"color": "#A0A000", "width": 2}, "hovertemplate": "<b>b1_Teu</b><br>divergence ~%{x:.0f}%<br>copies %{y:,d}<extra></extra>", "legendgroup": "#FFFF00"}], {"title": null, "xaxis": {"title": "Divergence from consensus (%)", "range": [0, 45]}, "yaxis": {"title": "Copies"}, "legend": {"orientation": "v", "x": 1.02, "y": 1, "xanchor": "left", "yanchor": "top", "tracegroupgap": 2}, "margin": {"t": 20, "b": 60, "l": 70, "r": 180}, "height": 320}, {responsive:true, displaylogo:false, modeBarButtonsToRemove:['toImage']});
+  Plotly.newPlot('plot-gpy', [{"type": "scatter", "mode": "lines", "name": "a_Gpy", "x": [5.5, 6.5, 7.5, 8.5, 9.5, 10.5, 11.5, 12.5, 13.5, 14.5, 15.5, 16.5, 17.5, 18.5, 19.5, 20.5, 21.5, 22.5, 23.5, 24.5, 25.5, 26.5, 27.5, 28.5, 29.5, 30.5, 31.5, 33.5, 35.5, 36.5], "y": [2, 4, 18, 67, 178, 407, 747, 1084, 1393, 1406, 1407, 1078, 819, 557, 343, 216, 98, 67, 35, 24, 9, 10, 7, 4, 6, 5, 3, 2, 3, 1], "fill": "tozeroy", "fillcolor": "rgba(255,192,0,0.25)", "line": {"color": "#E6A000", "width": 2}, "hovertemplate": "<b>a_Gpy</b><br>divergence ~%{x:.0f}%<br>copies %{y:,d}<extra></extra>", "legendgroup": "#FFC000"}, {"type": "scatter", "mode": "lines", "name": "d_Gpy", "x": [0.5, 1.5, 2.5, 3.5, 4.5, 5.5, 6.5, 7.5, 8.5, 9.5, 10.5, 11.5, 12.5, 13.5, 14.5, 15.5, 16.5, 17.5, 18.5, 19.5, 20.5, 21.5, 22.5, 23.5, 24.5, 25.5, 27.5, 29.5, 30.5, 31.5, 32.5, 33.5, 34.5, 35.5, 36.5], "y": [3, 31, 143, 564, 864, 800, 984, 1162, 1126, 1272, 1065, 685, 566, 309, 188, 98, 50, 31, 12, 8, 3, 1, 1, 4, 2, 3, 3, 3, 1, 1, 3, 3, 4, 2, 5], "fill": "tozeroy", "fillcolor": "rgba(242,219,219,0.25)", "line": {"color": "#E07070", "width": 2}, "hovertemplate": "<b>d_Gpy</b><br>divergence ~%{x:.0f}%<br>copies %{y:,d}<extra></extra>", "legendgroup": "#F2DBDB"}, {"type": "scatter", "mode": "lines", "name": "c_Gpy", "x": [1.5, 2.5, 3.5, 4.5, 5.5, 6.5, 7.5, 8.5, 9.5, 10.5, 11.5, 12.5, 13.5, 14.5, 15.5, 16.5, 17.5, 18.5, 19.5, 20.5, 21.5, 22.5, 23.5, 24.5, 27.5, 28.5, 29.5, 30.5, 32.5, 33.5, 34.5], "y": [3, 13, 125, 443, 777, 1400, 1646, 1283, 1216, 950, 660, 581, 385, 204, 144, 74, 28, 20, 6, 6, 5, 1, 1, 1, 3, 1, 2, 1, 1, 2, 1], "fill": "tozeroy", "fillcolor": "rgba(242,219,219,0.25)", "line": {"color": "#C05050", "width": 2}, "hovertemplate": "<b>c_Gpy</b><br>divergence ~%{x:.0f}%<br>copies %{y:,d}<extra></extra>", "legendgroup": "#F2DBDB"}, {"type": "scatter", "mode": "lines", "name": "e_Gpy", "x": [0.5, 1.5, 2.5, 3.5, 4.5, 5.5, 6.5, 7.5, 8.5, 9.5, 10.5, 11.5, 12.5, 13.5, 14.5, 15.5, 16.5, 17.5, 18.5, 19.5, 20.5, 30.5, 31.5, 32.5, 35.5, 37.5], "y": [13, 215, 1007, 2268, 2409, 1458, 1023, 485, 243, 175, 151, 139, 128, 91, 74, 37, 21, 12, 5, 4, 2, 1, 2, 2, 4, 1], "fill": "tozeroy", "fillcolor": "rgba(242,219,219,0.25)", "line": {"color": "#A93226", "width": 2}, "hovertemplate": "<b>e_Gpy</b><br>divergence ~%{x:.0f}%<br>copies %{y:,d}<extra></extra>", "legendgroup": "#F2DBDB"}, {"type": "scatter", "mode": "lines", "name": "b_Gpy", "x": [4.5, 5.5, 6.5, 7.5, 8.5, 9.5, 10.5, 11.5, 12.5, 13.5, 14.5, 15.5, 16.5, 17.5, 18.5, 19.5, 20.5, 21.5, 22.5, 23.5, 24.5, 25.5, 28.5, 31.5, 32.5], "y": [1, 4, 29, 116, 313, 516, 967, 1282, 1432, 1412, 1273, 990, 680, 386, 261, 142, 84, 49, 18, 5, 4, 3, 1, 2, 1], "fill": "tozeroy", "fillcolor": "rgba(255,255,0,0.25)", "line": {"color": "#B8B800", "width": 2}, "hovertemplate": "<b>b_Gpy</b><br>divergence ~%{x:.0f}%<br>copies %{y:,d}<extra></extra>", "legendgroup": "#FFFF00"}], {"title": null, "xaxis": {"title": "Divergence from consensus (%)", "range": [0, 45]}, "yaxis": {"title": "Copies"}, "legend": {"orientation": "v", "x": 1.02, "y": 1, "xanchor": "left", "yanchor": "top", "tracegroupgap": 2}, "margin": {"t": 20, "b": 60, "l": 70, "r": 180}, "height": 320}, {responsive:true, displaylogo:false, modeBarButtonsToRemove:['toImage']});
+  Plotly.newPlot('plot-dmo', [{"type": "scatter", "mode": "lines", "name": "a_Dmo", "x": [5.5, 6.5, 7.5, 8.5, 9.5, 10.5, 11.5, 12.5, 13.5, 14.5, 15.5, 16.5, 17.5, 18.5, 19.5, 20.5, 21.5, 22.5, 23.5, 24.5, 25.5, 26.5, 27.5, 28.5, 29.5, 30.5, 31.5, 32.5, 33.5, 34.5, 35.5, 36.5, 40.5], "y": [3, 3, 18, 76, 194, 385, 745, 1068, 1393, 1364, 1458, 1073, 852, 536, 332, 219, 101, 63, 33, 14, 11, 10, 10, 8, 2, 6, 7, 4, 3, 4, 2, 2, 1], "fill": "tozeroy", "fillcolor": "rgba(255,192,0,0.25)", "line": {"color": "#E6A000", "width": 2}, "hovertemplate": "<b>a_Dmo</b><br>divergence ~%{x:.0f}%<br>copies %{y:,d}<extra></extra>", "legendgroup": "#FFC000"}, {"type": "scatter", "mode": "lines", "name": "d_Dmo", "x": [1.5, 2.5, 3.5, 4.5, 5.5, 6.5, 7.5, 8.5, 9.5, 10.5, 11.5, 12.5, 13.5, 14.5, 15.5, 16.5, 17.5, 18.5, 19.5, 20.5, 21.5, 22.5, 23.5, 24.5, 25.5, 27.5, 28.5, 31.5, 32.5, 33.5, 34.5, 35.5, 37.5], "y": [35, 161, 631, 1043, 877, 1183, 1314, 1110, 1120, 961, 578, 420, 245, 129, 66, 40, 28, 10, 2, 6, 3, 1, 3, 2, 2, 1, 2, 1, 4, 11, 4, 5, 2], "fill": "tozeroy", "fillcolor": "rgba(242,219,219,0.25)", "line": {"color": "#E07070", "width": 2}, "hovertemplate": "<b>d_Dmo</b><br>divergence ~%{x:.0f}%<br>copies %{y:,d}<extra></extra>", "legendgroup": "#F2DBDB"}, {"type": "scatter", "mode": "lines", "name": "c_Dmo", "x": [1.5, 2.5, 3.5, 4.5, 5.5, 6.5, 7.5, 8.5, 9.5, 10.5, 11.5, 12.5, 13.5, 14.5, 15.5, 16.5, 17.5, 18.5, 19.5, 20.5, 21.5, 22.5, 26.5, 28.5, 29.5, 30.5, 32.5, 33.5, 34.5, 36.5, 37.5], "y": [4, 21, 123, 486, 814, 1523, 1677, 1323, 1167, 906, 594, 488, 336, 254, 125, 66, 31, 19, 8, 8, 2, 1, 1, 2, 2, 1, 1, 2, 3, 1, 1], "fill": "tozeroy", "fillcolor": "rgba(242,219,219,0.25)", "line": {"color": "#C05050", "width": 2}, "hovertemplate": "<b>c_Dmo</b><br>divergence ~%{x:.0f}%<br>copies %{y:,d}<extra></extra>", "legendgroup": "#F2DBDB"}, {"type": "scatter", "mode": "lines", "name": "e_Dmo", "x": [0.5, 1.5, 2.5, 3.5, 4.5, 5.5, 6.5, 7.5, 8.5, 9.5, 10.5, 11.5, 12.5, 13.5, 14.5, 15.5, 16.5, 18.5, 31.5, 41.5], "y": [2, 90, 595, 2518, 3252, 1583, 963, 452, 149, 95, 88, 57, 57, 44, 16, 23, 11, 3, 1, 1], "fill": "tozeroy", "fillcolor": "rgba(242,219,219,0.25)", "line": {"color": "#A93226", "width": 2}, "hovertemplate": "<b>e_Dmo</b><br>divergence ~%{x:.0f}%<br>copies %{y:,d}<extra></extra>", "legendgroup": "#F2DBDB"}, {"type": "scatter", "mode": "lines", "name": "b_Dmo", "x": [5.5, 6.5, 7.5, 8.5, 9.5, 10.5, 11.5, 12.5, 13.5, 14.5, 15.5, 16.5, 17.5, 18.5, 19.5, 20.5, 21.5, 22.5, 23.5, 24.5, 25.5, 26.5, 28.5, 30.5, 31.5, 32.5, 33.5, 34.5], "y": [5, 41, 102, 286, 537, 961, 1244, 1472, 1528, 1251, 986, 634, 378, 273, 134, 75, 37, 12, 6, 4, 4, 2, 1, 1, 1, 1, 1, 2], "fill": "tozeroy", "fillcolor": "rgba(255,255,0,0.25)", "line": {"color": "#B8B800", "width": 2}, "hovertemplate": "<b>b_Dmo</b><br>divergence ~%{x:.0f}%<br>copies %{y:,d}<extra></extra>", "legendgroup": "#FFFF00"}], {"title": null, "xaxis": {"title": "Divergence from consensus (%)", "range": [0, 45]}, "yaxis": {"title": "Copies"}, "legend": {"orientation": "v", "x": 1.02, "y": 1, "xanchor": "left", "yanchor": "top", "tracegroupgap": 2}, "margin": {"t": 20, "b": 60, "l": 70, "r": 180}, "height": 320}, {responsive:true, displaylogo:false, modeBarButtonsToRemove:['toImage']});
+  Plotly.newPlot('plot-saq', [{"type": "scatter", "mode": "lines", "name": "c_Saq (s1)", "x": [3.5, 4.5, 5.5, 6.5, 7.5, 8.5, 9.5, 10.5, 11.5, 12.5, 13.5, 14.5, 15.5, 16.5, 17.5, 18.5, 19.5, 20.5, 21.5, 22.5, 23.5, 24.5, 25.5, 26.5, 27.5, 29.5, 30.5, 31.5, 32.5, 33.5, 34.5, 35.5, 36.5, 37.5, 38.5, 39.5], "y": [2, 12, 83, 274, 646, 1173, 1545, 1705, 1586, 1174, 751, 468, 219, 111, 55, 38, 28, 22, 9, 11, 7, 8, 3, 3, 7, 2, 3, 7, 4, 11, 12, 11, 3, 2, 3, 2], "fill": "tozeroy", "fillcolor": "rgba(214,227,188,0.25)", "line": {"color": "#8DC85A", "width": 2}, "hovertemplate": "<b>c_Saq (s1)</b><br>divergence ~%{x:.0f}%<br>copies %{y:,d}<extra></extra>", "legendgroup": "#D6E3BC"}, {"type": "scatter", "mode": "lines", "name": "a_Saq", "x": [4.5, 5.5, 6.5, 7.5, 8.5, 9.5, 10.5, 11.5, 12.5, 13.5, 14.5, 15.5, 16.5, 17.5, 18.5, 19.5, 20.5, 21.5, 22.5, 23.5, 24.5, 25.5, 26.5, 27.5, 28.5, 29.5, 30.5, 31.5, 32.5, 33.5, 34.5, 35.5, 36.5, 37.5, 39.5], "y": [2, 12, 60, 209, 425, 861, 1164, 1510, 1446, 1390, 1087, 674, 504, 287, 150, 88, 41, 19, 16, 3, 13, 4, 3, 2, 5, 1, 2, 4, 5, 2, 1, 4, 2, 2, 2], "fill": "tozeroy", "fillcolor": "rgba(255,192,0,0.25)", "line": {"color": "#E6A000", "width": 2}, "hovertemplate": "<b>a_Saq</b><br>divergence ~%{x:.0f}%<br>copies %{y:,d}<extra></extra>", "legendgroup": "#FFC000"}, {"type": "scatter", "mode": "lines", "name": "b1_Saq", "x": [1.5, 2.5, 3.5, 4.5, 5.5, 6.5, 7.5, 8.5, 9.5, 10.5, 11.5, 12.5, 13.5, 14.5, 15.5, 16.5, 17.5, 18.5, 19.5, 20.5, 21.5, 22.5, 24.5, 30.5, 34.5, 35.5], "y": [2, 5, 38, 93, 474, 862, 1291, 1461, 1211, 1192, 932, 909, 636, 450, 237, 129, 43, 17, 1, 5, 5, 1, 1, 1, 3, 1], "fill": "tozeroy", "fillcolor": "rgba(255,255,0,0.25)", "line": {"color": "#B8B800", "width": 2}, "hovertemplate": "<b>b1_Saq</b><br>divergence ~%{x:.0f}%<br>copies %{y:,d}<extra></extra>", "legendgroup": "#FFFF00"}, {"type": "scatter", "mode": "lines", "name": "d_Saq", "x": [0.5, 1.5, 2.5, 3.5, 4.5, 5.5, 6.5, 7.5, 8.5, 9.5, 10.5, 11.5, 12.5, 13.5, 14.5, 15.5, 16.5, 17.5, 18.5, 20.5, 21.5, 22.5, 27.5, 30.5, 31.5, 32.5, 33.5, 34.5, 35.5, 36.5, 37.5, 38.5, 40.5], "y": [9, 227, 956, 2612, 2451, 2049, 886, 429, 176, 75, 38, 20, 10, 9, 1, 3, 1, 1, 1, 2, 2, 1, 1, 4, 1, 6, 8, 8, 4, 6, 1, 1, 1], "fill": "tozeroy", "fillcolor": "rgba(214,227,188,0.25)", "line": {"color": "#5EAA3A", "width": 2}, "hovertemplate": "<b>d_Saq</b><br>divergence ~%{x:.0f}%<br>copies %{y:,d}<extra></extra>", "legendgroup": "#D6E3BC"}, {"type": "scatter", "mode": "lines", "name": "e_Saq", "x": [0.5, 1.5, 2.5, 3.5, 4.5, 5.5, 6.5, 7.5, 8.5, 9.5, 10.5, 11.5, 12.5, 13.5, 14.5, 15.5, 16.5, 17.5, 19.5, 23.5, 25.5, 26.5, 27.5, 28.5, 29.5, 30.5, 31.5, 32.5, 33.5, 34.5, 35.5, 36.5, 37.5, 38.5, 39.5, 40.5, 41.5], "y": [11, 133, 566, 805, 1088, 578, 423, 191, 147, 70, 60, 20, 8, 5, 2, 3, 2, 3, 1, 1, 2, 1, 2, 4, 8, 16, 18, 29, 34, 43, 30, 22, 15, 3, 5, 1, 2], "fill": "tozeroy", "fillcolor": "rgba(214,227,188,0.25)", "line": {"color": "#3A7D35", "width": 2}, "hovertemplate": "<b>e_Saq</b><br>divergence ~%{x:.0f}%<br>copies %{y:,d}<extra></extra>", "legendgroup": "#D6E3BC"}, {"type": "scatter", "mode": "lines", "name": "f_Saq", "x": [0.5, 1.5, 2.5, 3.5, 4.5, 5.5, 6.5, 7.5, 8.5, 9.5, 10.5, 11.5, 12.5, 13.5, 14.5, 15.5, 16.5, 17.5, 19.5, 26.5, 30.5, 31.5, 32.5, 33.5, 34.5, 35.5, 36.5, 37.5, 38.5], "y": [1, 27, 224, 359, 1082, 1392, 2356, 1684, 1456, 607, 402, 194, 100, 50, 27, 13, 3, 2, 1, 1, 3, 1, 2, 2, 4, 1, 3, 2, 1], "fill": "tozeroy", "fillcolor": "rgba(214,227,188,0.25)", "line": {"color": "#256020", "width": 2}, "hovertemplate": "<b>f_Saq</b><br>divergence ~%{x:.0f}%<br>copies %{y:,d}<extra></extra>", "legendgroup": "#D6E3BC"}, {"type": "scatter", "mode": "lines", "name": "b2_Saq", "x": [3.5, 4.5, 5.5, 6.5, 7.5, 8.5, 9.5, 10.5, 11.5, 12.5, 13.5, 14.5, 15.5, 16.5, 17.5, 18.5, 19.5, 20.5, 23.5, 24.5, 25.5, 26.5, 29.5, 30.5, 32.5, 34.5, 35.5, 36.5, 37.5, 38.5], "y": [13, 68, 313, 815, 1342, 1947, 1817, 1540, 1018, 550, 309, 142, 48, 28, 16, 5, 4, 2, 1, 1, 2, 1, 1, 3, 3, 2, 4, 1, 2, 2], "fill": "tozeroy", "fillcolor": "rgba(255,255,0,0.25)", "line": {"color": "#A0A000", "width": 2}, "hovertemplate": "<b>b2_Saq</b><br>divergence ~%{x:.0f}%<br>copies %{y:,d}<extra></extra>", "legendgroup": "#FFFF00"}, {"type": "scatter", "mode": "lines", "name": "g_Saq", "x": [2.5, 3.5, 4.5, 5.5, 6.5, 7.5, 8.5, 9.5, 10.5, 11.5, 12.5, 13.5, 14.5, 15.5, 16.5, 17.5, 18.5, 19.5, 32.5, 33.5, 34.5, 35.5, 36.5, 37.5, 38.5], "y": [5, 53, 149, 532, 888, 1751, 1708, 2075, 1283, 874, 367, 178, 66, 26, 9, 5, 4, 1, 2, 2, 8, 3, 8, 2, 1], "fill": "tozeroy", "fillcolor": "rgba(214,227,188,0.25)", "line": {"color": "#16430F", "width": 2}, "hovertemplate": "<b>g_Saq</b><br>divergence ~%{x:.0f}%<br>copies %{y:,d}<extra></extra>", "legendgroup": "#D6E3BC"}, {"type": "scatter", "mode": "lines", "name": "c_Saq (s9)", "x": [3.5, 4.5, 5.5, 6.5, 7.5, 8.5, 9.5, 10.5, 11.5, 12.5, 13.5, 14.5, 15.5, 16.5, 17.5, 18.5, 19.5, 20.5, 21.5, 22.5, 23.5, 24.5, 25.5, 26.5, 27.5, 28.5, 29.5, 30.5, 31.5, 32.5, 33.5, 34.5, 35.5, 36.5, 37.5, 38.5, 42.5], "y": [1, 14, 90, 264, 545, 917, 1154, 1294, 1189, 977, 697, 547, 318, 207, 138, 77, 39, 24, 6, 7, 5, 8, 4, 10, 6, 11, 9, 7, 7, 4, 8, 13, 3, 6, 6, 1, 1], "fill": "tozeroy", "fillcolor": "rgba(214,227,188,0.25)", "line": {"color": "#16430F", "width": 2}, "hovertemplate": "<b>c_Saq (s9)</b><br>divergence ~%{x:.0f}%<br>copies %{y:,d}<extra></extra>", "legendgroup": "#D6E3BC"}], {"title": null, "xaxis": {"title": "Divergence from consensus (%)", "range": [0, 45]}, "yaxis": {"title": "Copies"}, "legend": {"orientation": "v", "x": 1.02, "y": 1, "xanchor": "left", "yanchor": "top", "tracegroupgap": 2}, "margin": {"t": 20, "b": 60, "l": 70, "r": 180}, "height": 320}, {responsive:true, displaylogo:false, modeBarButtonsToRemove:['toImage']});
+  Plotly.newPlot('plot-ccr', [{"type": "scatter", "mode": "lines", "name": "b1_Ccr", "x": [4.5, 5.5, 6.5, 7.5, 8.5, 9.5, 10.5, 11.5, 12.5, 13.5, 14.5, 15.5, 16.5, 17.5, 18.5, 19.5, 20.5, 21.5, 22.5, 23.5, 24.5, 25.5, 26.5, 27.5, 28.5, 29.5, 30.5, 31.5, 32.5, 33.5, 34.5], "y": [1, 4, 7, 43, 87, 265, 510, 682, 942, 1086, 1147, 1102, 981, 790, 697, 474, 387, 247, 196, 118, 104, 49, 33, 18, 8, 7, 3, 4, 5, 2, 1], "fill": "tozeroy", "fillcolor": "rgba(255,255,0,0.25)", "line": {"color": "#B8B800", "width": 2}, "hovertemplate": "<b>b1_Ccr</b><br>divergence ~%{x:.0f}%<br>copies %{y:,d}<extra></extra>", "legendgroup": "#FFFF00"}, {"type": "scatter", "mode": "lines", "name": "d_Ccr", "x": [4.5, 5.5, 6.5, 7.5, 8.5, 9.5, 10.5, 11.5, 12.5, 13.5, 14.5, 15.5, 16.5, 17.5, 18.5, 19.5, 20.5, 21.5, 22.5, 23.5, 24.5, 26.5, 27.5, 28.5, 30.5, 35.5], "y": [2, 4, 22, 93, 250, 526, 970, 1232, 1620, 1562, 1357, 930, 631, 404, 220, 102, 33, 25, 10, 1, 1, 1, 1, 1, 1, 1], "fill": "tozeroy", "fillcolor": "rgba(229,223,236,0.25)", "line": {"color": "#B07FD4", "width": 2}, "hovertemplate": "<b>d_Ccr</b><br>divergence ~%{x:.0f}%<br>copies %{y:,d}<extra></extra>", "legendgroup": "#E5DFEC"}, {"type": "scatter", "mode": "lines", "name": "e_Ccr", "x": [0.5, 1.5, 2.5, 3.5, 4.5, 5.5, 6.5, 7.5, 8.5, 9.5, 10.5, 11.5, 12.5, 13.5, 14.5, 15.5, 16.5, 17.5, 18.5, 19.5, 20.5, 24.5, 35.5], "y": [1, 5, 26, 280, 604, 1409, 1426, 1299, 1308, 1008, 966, 686, 493, 250, 128, 61, 24, 15, 4, 3, 2, 1, 1], "fill": "tozeroy", "fillcolor": "rgba(229,223,236,0.25)", "line": {"color": "#8B50BA", "width": 2}, "hovertemplate": "<b>e_Ccr</b><br>divergence ~%{x:.0f}%<br>copies %{y:,d}<extra></extra>", "legendgroup": "#E5DFEC"}, {"type": "scatter", "mode": "lines", "name": "f_Ccr", "x": [0.5, 1.5, 2.5, 3.5, 4.5, 5.5, 6.5, 7.5, 8.5, 9.5, 10.5, 11.5, 12.5, 13.5, 14.5, 15.5, 16.5, 17.5, 18.5, 19.5, 20.5, 21.5, 23.5, 25.5, 27.5, 35.5], "y": [2, 42, 250, 909, 1357, 2211, 1844, 1401, 815, 424, 243, 171, 132, 93, 49, 19, 15, 6, 7, 3, 1, 1, 2, 1, 1, 1], "fill": "tozeroy", "fillcolor": "rgba(229,223,236,0.25)", "line": {"color": "#6A1FA0", "width": 2}, "hovertemplate": "<b>f_Ccr</b><br>divergence ~%{x:.0f}%<br>copies %{y:,d}<extra></extra>", "legendgroup": "#E5DFEC"}, {"type": "scatter", "mode": "lines", "name": "g_Ccr", "x": [0.5, 1.5, 2.5, 3.5, 4.5, 5.5, 6.5, 7.5, 8.5, 9.5, 10.5, 11.5, 12.5, 13.5, 14.5, 18.5, 19.5, 21.5, 22.5, 23.5, 25.5, 29.5, 31.5, 32.5, 33.5, 34.5, 35.5, 36.5], "y": [677, 1778, 944, 719, 348, 191, 228, 179, 93, 66, 36, 14, 12, 3, 6, 1, 1, 2, 2, 1, 1, 1, 2, 2, 4, 1, 2, 3], "fill": "tozeroy", "fillcolor": "rgba(229,223,236,0.25)", "line": {"color": "#4E0D80", "width": 2}, "hovertemplate": "<b>g_Ccr</b><br>divergence ~%{x:.0f}%<br>copies %{y:,d}<extra></extra>", "legendgroup": "#E5DFEC"}, {"type": "scatter", "mode": "lines", "name": "c_Ccr", "x": [4.5, 5.5, 6.5, 7.5, 8.5, 9.5, 10.5, 11.5, 12.5, 13.5, 14.5, 15.5, 16.5, 17.5, 18.5, 19.5, 20.5, 21.5, 22.5, 23.5, 24.5, 25.5, 26.5, 27.5, 28.5, 29.5, 30.5, 32.5, 33.5, 34.5], "y": [1, 3, 10, 39, 122, 285, 655, 982, 1311, 1518, 1435, 1277, 898, 610, 362, 194, 111, 65, 34, 16, 13, 10, 3, 4, 1, 1, 1, 1, 2, 1], "fill": "tozeroy", "fillcolor": "rgba(229,223,236,0.25)", "line": {"color": "#380060", "width": 2}, "hovertemplate": "<b>c_Ccr</b><br>divergence ~%{x:.0f}%<br>copies %{y:,d}<extra></extra>", "legendgroup": "#E5DFEC"}, {"type": "scatter", "mode": "lines", "name": "b2_Ccr", "x": [6.5, 7.5, 8.5, 9.5, 10.5, 11.5, 12.5, 13.5, 14.5, 15.5, 16.5, 17.5, 18.5, 19.5, 20.5, 21.5, 22.5, 23.5, 24.5, 25.5, 26.5, 27.5, 28.5, 29.5, 30.5, 31.5, 32.5, 33.5, 34.5], "y": [3, 18, 77, 181, 340, 515, 862, 1170, 1278, 1320, 1195, 924, 715, 455, 357, 226, 146, 87, 42, 27, 24, 9, 5, 7, 6, 4, 4, 2, 1], "fill": "tozeroy", "fillcolor": "rgba(255,255,0,0.25)", "line": {"color": "#A0A000", "width": 2}, "hovertemplate": "<b>b2_Ccr</b><br>divergence ~%{x:.0f}%<br>copies %{y:,d}<extra></extra>", "legendgroup": "#FFFF00"}], {"title": null, "xaxis": {"title": "Divergence from consensus (%)", "range": [0, 45]}, "yaxis": {"title": "Copies"}, "legend": {"orientation": "v", "x": 1.02, "y": 1, "xanchor": "left", "yanchor": "top", "tracegroupgap": 2}, "margin": {"t": 20, "b": 60, "l": 70, "r": 180}, "height": 320}, {responsive:true, displaylogo:false, modeBarButtonsToRemove:['toImage']});
+
+// ---- Reorder panels ----
+function movePanel(sp, dir) {
+  const container = document.getElementById('figure-container');
+  const panels = Array.from(container.children);
+  const el = document.getElementById('panel-' + sp);
+  const idx = panels.indexOf(el);
+  const newIdx = idx + dir;
+  if (newIdx < 0 || newIdx >= panels.length) return;
+  if (dir === -1) container.insertBefore(el, panels[newIdx]);
+  else container.insertBefore(panels[newIdx], el);
+  relabelPanels();
+}
+
+function relabelPanels() {
+  const labels = 'ABCDEF';
+  const panels = Array.from(document.getElementById('figure-container').children);
+  panels.forEach((p, i) => {
+    const letter = labels[i] || String(i + 1);
+    p.querySelector('.panel-letter').textContent = letter;
+    p.dataset.label = letter;
+  });
+}
+
+// ---- PNG / SVG download ----
+function dlPNG(sp) {
+  const sp2full = {"toc": "Talpa_occidentalis", "teu": "Talpa_europaea", "gpy": "Galemys_pyrenaicus", "dmo": "Desmana_moschata", "saq": "Scalopus_aquaticus", "ccr": "Condylura_cristata"};
+  Plotly.downloadImage('plot-' + sp, {
+    format: 'png', width: 1400, height: 500, scale: 2,
+    filename: sp2full[sp] + '_divergence'
+  });
+}
+
+function dlSVG(sp) {
+  const sp2full = {"toc": "Talpa_occidentalis", "teu": "Talpa_europaea", "gpy": "Galemys_pyrenaicus", "dmo": "Desmana_moschata", "saq": "Scalopus_aquaticus", "ccr": "Condylura_cristata"};
+  Plotly.downloadImage('plot-' + sp, {
+    format: 'svg', width: 1400, height: 500,
+    filename: sp2full[sp] + '_divergence'
+  });
+}
+
+function dlAll() {
+  const sps = ["toc", "teu", "gpy", "dmo", "saq", "ccr"];
+  sps.forEach((sp, i) => {
+    setTimeout(() => dlPNG(sp), i * 800);
+  });
+}
+</script>
+</body>
+</html>
