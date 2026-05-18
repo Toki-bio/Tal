@@ -34,6 +34,7 @@ RENAME = {
         'g5_7seqs':   'g_Ccr',
         'g6_58seqs':  'c_Ccr',
         'g7_3seqs':   'b2_Ccr',
+        'a_ccr':      'b3_Ccr',
     },
     'toc': {
         't1_45seqs':  'e_Toc',
@@ -172,6 +173,48 @@ def extract_kde_traces(html_text):
     return traces, layout
 
 
+def extract_sim_hist_traces(html_text):
+    """Extract traces from Plotly.newPlot('plot_sim_hist',...)
+    and convert similarity-% → divergence bins (scatter/lines format)."""
+    marker = "Plotly.newPlot('plot_sim_hist',"
+    pos = html_text.find(marker)
+    if pos == -1:
+        return None
+    pos += len(marker)
+    while html_text[pos] in ' \t\n\r':
+        pos += 1
+    if html_text[pos] != '[':
+        return None
+    traces_str = extract_matching(html_text, pos, '[', ']')
+    if not traces_str:
+        return None
+    try:
+        raw_traces = json.loads(traces_str)
+    except json.JSONDecodeError as e:
+        print(f"  JSON parse error in plot_sim_hist: {e}")
+        return None
+
+    traces = []
+    for t in raw_traces:
+        if t.get('type') != 'histogram':
+            continue
+        name = t.get('name', '')
+        sim_vals = t.get('x', [])
+        if not sim_vals:
+            continue
+        # Convert similarity-% → divergence-% = max(0, 100 - sim), bin at 1% midpoints
+        bins = {}
+        for sim in sim_vals:
+            div = max(0.0, 100.0 - sim)
+            mid = int(div) + 0.5
+            bins[mid] = bins.get(mid, 0) + 1
+        xs = sorted(bins.keys())
+        ys = [bins[x] for x in xs]
+        traces.append({'type': 'scatter', 'mode': 'lines',
+                       'name': name, 'x': xs, 'y': ys})
+    return traces if traces else None
+
+
 # ---------------------------------------------------------------------------
 # 4. Transform traces
 # ---------------------------------------------------------------------------
@@ -200,8 +243,7 @@ def transform_traces(traces, sp):
             'name': new_name,
             'x': t['x'],
             'y': t['y'],
-            'fill': 'tozeroy',
-            'fillcolor': _hex_to_rgba(fill, 0.25),
+            'fill': 'none',
             'line': {'color': '#000000', 'width': 2},  # placeholder, updated below
             'hovertemplate': f'<b>{new_name}</b><br>divergence ~%{{x:.0f}}%<br>copies %{{y:,d}}<extra></extra>',
         }
@@ -220,6 +262,8 @@ def transform_traces(traces, sp):
         nt['legendgroup'] = fill
         result.append(nt)
 
+    # Sort alphabetically by name
+    result.sort(key=lambda t: t['name'])
     return result
 
 
@@ -254,7 +298,7 @@ LEGEND_GROUPS = [
      ['a_Toc', 'a_Teu', 'a_Gpy', 'a_Dmo', 'a_Saq']),
     ('#FFFF00', '#909000', 'b subfamilies (all species)',
      ['b1_Toc', 'b2_Toc', 'b1_Teu', 'b2_Teu', 'b_Gpy', 'b_Dmo',
-      'b1_Saq', 'b2_Saq', 'b1_Ccr', 'b2_Ccr']),
+      'b1_Saq', 'b2_Saq', 'b1_Ccr', 'b2_Ccr', 'b3_Ccr']),
     ('#C6D9F1', '#1A5C96', 'c–e subfamilies: Talpa spp. (toc, teu)',
      ['c_Toc', 'd_Toc', 'e_Toc', 'c_Teu', 'd_Teu', 'e_Teu']),
     ('#F2DBDB', '#A93226', 'c–e subfamilies: Galemys / Desmana (gpy, dmo)',
@@ -293,7 +337,7 @@ def build_html(panels_data):
         layout_json = json.dumps({
             **layout,
             'title': None,
-            'xaxis': {'title': 'Divergence from consensus (%)', 'range': [0, 45]},
+            'xaxis': {'title': 'Divergence from consensus (%)', 'range': [0, 30]},
             'yaxis': {'title': 'Copies'},
             'legend': {'orientation': 'v', 'x': 1.02, 'y': 1,
                        'xanchor': 'left', 'yanchor': 'top',
@@ -321,7 +365,7 @@ def build_html(panels_data):
         traces_json = json.dumps(traces)
         layout_json = json.dumps({
             'title': None,
-            'xaxis': {'title': 'Divergence from consensus (%)', 'range': [0, 45]},
+            'xaxis': {'title': 'Divergence from consensus (%)', 'range': [0, 30]},
             'yaxis': {'title': 'Copies'},
             'legend': {'orientation': 'v', 'x': 1.02, 'y': 1,
                        'xanchor': 'left', 'yanchor': 'top',
@@ -335,6 +379,7 @@ def build_html(panels_data):
         )
 
     legend_html = build_legend_html()
+
 
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -508,10 +553,18 @@ def main():
             html_text = fh.read()
 
         traces, layout = extract_kde_traces(html_text)
+
         if traces is None:
-            print(f'ERROR: could not extract plot_div_kde from {path}')
-            continue
-        print(f'{len(traces)} traces found')
+            # Fallback: try plot_sim_hist (newer report format)
+            traces = extract_sim_hist_traces(html_text)
+            if traces is not None:
+                layout = {}
+                print(f'(no plot_div_kde; extracted from plot_sim_hist: {len(traces)} traces)')
+            else:
+                print(f'ERROR: could not extract divergence data from {path}')
+                continue
+        else:
+            print(f'{len(traces)} traces found')
 
         new_traces = transform_traces(traces, sp)
         label = PANEL_LABELS[SPECIES_ORDER.index(sp)]
