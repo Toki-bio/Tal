@@ -34,7 +34,7 @@ RENAME = {
         'g5_7seqs':   'g_Ccr',
         'g6_58seqs':  'c_Ccr',
         'g7_3seqs':   'b2_Ccr',
-        'a_ccr':      'b3_Ccr',
+        'a_ccr':      'a_Ccr',
     },
     'toc': {
         't1_45seqs':  'e_Toc',
@@ -295,10 +295,10 @@ REPORT_PATHS = {sp: os.path.join(sp, 'report.html') for sp in SPECIES_ORDER}
 # ---------------------------------------------------------------------------
 LEGEND_GROUPS = [
     ('#FFC000', '#B87000', 'a subfamilies (oldest retained lineage, all species)',
-     ['a_Toc', 'a_Teu', 'a_Gpy', 'a_Dmo', 'a_Saq']),
+    ['a_Toc', 'a_Teu', 'a_Gpy', 'a_Dmo', 'a_Saq', 'a_Ccr']),
     ('#FFFF00', '#909000', 'b subfamilies (all species)',
      ['b1_Toc', 'b2_Toc', 'b1_Teu', 'b2_Teu', 'b_Gpy', 'b_Dmo',
-      'b1_Saq', 'b2_Saq', 'b1_Ccr', 'b2_Ccr', 'b3_Ccr']),
+    'b1_Saq', 'b2_Saq', 'b1_Ccr', 'b2_Ccr']),
     ('#C6D9F1', '#1A5C96', 'c–e subfamilies: Talpa spp. (toc, teu)',
      ['c_Toc', 'd_Toc', 'e_Toc', 'c_Teu', 'd_Teu', 'e_Teu']),
     ('#F2DBDB', '#A93226', 'c–e subfamilies: Galemys / Desmana (gpy, dmo)',
@@ -337,7 +337,7 @@ def build_html(panels_data):
         layout_json = json.dumps({
             **layout,
             'title': None,
-            'xaxis': {'title': 'Divergence from consensus (%)', 'range': [0, 30]},
+            'xaxis': {'title': 'Divergence from consensus (%)', 'range': [0, 42]},
             'yaxis': {'title': 'Copies'},
             'legend': {'orientation': 'v', 'x': 1.02, 'y': 1,
                        'xanchor': 'left', 'yanchor': 'top',
@@ -365,7 +365,7 @@ def build_html(panels_data):
         traces_json = json.dumps(traces)
         layout_json = json.dumps({
             'title': None,
-            'xaxis': {'title': 'Divergence from consensus (%)', 'range': [0, 30]},
+            'xaxis': {'title': 'Divergence from consensus (%)', 'range': [0, 42]},
             'yaxis': {'title': 'Copies'},
             'legend': {'orientation': 'v', 'x': 1.02, 'y': 1,
                        'xanchor': 'left', 'yanchor': 'top',
