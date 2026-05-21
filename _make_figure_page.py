@@ -69,57 +69,25 @@ RENAME = {
 }
 
 # ---------------------------------------------------------------------------
-# 2. Color scheme  (fill = Table-1 exact hex; line = visible darkened version)
+# 2. Color scheme: subfamily letters a-g map uniformly to rainbow colors
 # ---------------------------------------------------------------------------
-# Determine fill color from new name
-TABLE1_FILL = {
-    'a': '#FFC000',          # orange
-    'b': '#FFFF00',          # yellow (b, b1, b2, b3)
-}
-# Species-specific for c–g
-SP_FILL = {
-    'toc': '#C6D9F1',   # light blue
-    'teu': '#C6D9F1',
-    'gpy': '#F2DBDB',   # light pink
-    'dmo': '#F2DBDB',
-    'saq': '#D6E3BC',   # light sage-green
-    'ccr': '#E5DFEC',   # light lavender
-}
-
-# Dark line colors per hue group (for visibility on white background)
-LINE_COLOR = {
-    '#FFC000': '#B87000',   # darker amber
-    '#FFFF00': '#909000',   # dark olive
-    '#C6D9F1': '#1A5C96',   # steel blue
-    '#F2DBDB': '#A93226',   # dark red
-    '#D6E3BC': '#3A7D35',   # forest green
-    '#E5DFEC': '#6A1FA0',   # violet
-}
-
-# Within-group line-color variants (for up to 5 subfamilies sharing one hue)
-# Each group gets a graduated list from lighter to darker of the same hue
-LINE_VARIANTS = {
-    '#FFC000': ['#E6A000', '#CC8800', '#B87000', '#A06000', '#885000'],
-    '#FFFF00': ['#B8B800', '#A0A000', '#909000', '#787800', '#606000'],
-    '#C6D9F1': ['#5B9CD6', '#2E7CBD', '#1A5C96', '#0D3E6A', '#082647'],
-    '#F2DBDB': ['#E07070', '#C05050', '#A93226', '#8B1A1A', '#6B0808'],
-    '#D6E3BC': ['#8DC85A', '#5EAA3A', '#3A7D35', '#256020', '#16430F'],
-    '#E5DFEC': ['#B07FD4', '#8B50BA', '#6A1FA0', '#4E0D80', '#380060'],
+LETTER_COLORS = {
+    'a': '#D62728',  # red
+    'b': '#FF7F0E',  # orange
+    'c': '#FFD700',  # yellow
+    'd': '#2CA02C',  # green
+    'e': '#1F77B4',  # blue
+    'f': '#4B0082',  # indigo
+    'g': '#9400D3',  # violet
 }
 
 
-def get_fill_color(new_name, sp):
-    letter = new_name[0].lower()   # 'a', 'b', 'c', 'd', ...
-    if letter == 'a':
-        return '#FFC000'
-    if letter == 'b':
-        return '#FFFF00'
-    return SP_FILL.get(sp, '#888888')
+def get_letter(new_name):
+    return new_name[0].lower()
 
 
-def get_line_color(fill, variant_idx=0):
-    variants = LINE_VARIANTS.get(fill, ['#444444'] * 5)
-    return variants[min(variant_idx, len(variants) - 1)]
+def get_color(new_name):
+    return LETTER_COLORS.get(get_letter(new_name), '#444444')
 
 
 # ---------------------------------------------------------------------------
@@ -219,11 +187,8 @@ def extract_sim_hist_traces(html_text):
 # 4. Transform traces
 # ---------------------------------------------------------------------------
 def transform_traces(traces, sp):
-    """Rename old codes, apply Table-1 colors, add fill."""
+    """Rename old codes and apply uniform rainbow colors by subfamily letter."""
     rename_map = RENAME[sp]
-
-    # group fills to count variants
-    fill_counter = {}  # fill_color -> list of trace indices
 
     transformed = []
     for t in traces:
@@ -231,11 +196,7 @@ def transform_traces(traces, sp):
             continue
         old_name = t.get('name', '')
         new_name = rename_map.get(old_name, old_name)
-        fill = get_fill_color(new_name, sp)
-        fill_key = fill
-        if fill_key not in fill_counter:
-            fill_counter[fill_key] = []
-        fill_counter[fill_key].append(len(transformed))
+        color = get_color(new_name)
 
         nt = {
             'type': 'scatter',
@@ -244,27 +205,15 @@ def transform_traces(traces, sp):
             'x': t['x'],
             'y': t['y'],
             'fill': 'none',
-            'line': {'color': '#000000', 'width': 2},  # placeholder, updated below
+            'line': {'color': color, 'width': 2},
             'hovertemplate': f'<b>{new_name}</b><br>divergence ~%{{x:.0f}}%<br>copies %{{y:,d}}<extra></extra>',
+            'legendgroup': get_letter(new_name),
         }
-        transformed.append((nt, fill))
-
-    # Assign per-variant line colors within each fill group
-    # First pass: count per fill
-    fill_seencount = {}
-    result = []
-    for nt, fill in transformed:
-        idx = fill_seencount.get(fill, 0)
-        fill_seencount[fill] = idx + 1
-        line_color = get_line_color(fill, idx)
-        nt['line']['color'] = line_color
-        # Legend group: cluster same-fill traces together in legend
-        nt['legendgroup'] = fill
-        result.append(nt)
+        transformed.append(nt)
 
     # Sort alphabetically by name
-    result.sort(key=lambda t: t['name'])
-    return result
+    transformed.sort(key=lambda t: t['name'])
+    return transformed
 
 
 def _hex_to_rgba(hex_color, alpha):
@@ -294,29 +243,31 @@ REPORT_PATHS = {sp: os.path.join(sp, 'report.html') for sp in SPECIES_ORDER}
 # 6. Build legend HTML
 # ---------------------------------------------------------------------------
 LEGEND_GROUPS = [
-    ('#FFC000', '#B87000', 'a subfamilies (oldest retained lineage, all species)',
-    ['a_Toc', 'a_Teu', 'a_Gpy', 'a_Dmo', 'a_Saq', 'a_Ccr']),
-    ('#FFFF00', '#909000', 'b subfamilies (all species)',
-     ['b1_Toc', 'b2_Toc', 'b1_Teu', 'b2_Teu', 'b_Gpy', 'b_Dmo',
-    'b1_Saq', 'b2_Saq', 'b1_Ccr', 'b2_Ccr']),
-    ('#C6D9F1', '#1A5C96', 'c–e subfamilies: Talpa spp. (toc, teu)',
-     ['c_Toc', 'd_Toc', 'e_Toc', 'c_Teu', 'd_Teu', 'e_Teu']),
-    ('#F2DBDB', '#A93226', 'c–e subfamilies: Galemys / Desmana (gpy, dmo)',
-     ['c_Gpy', 'd_Gpy', 'e_Gpy', 'c_Dmo', 'd_Dmo', 'e_Dmo']),
-    ('#D6E3BC', '#3A7D35', 'c–g subfamilies: Scalopus (saq)',
-     ['c_Saq (s1)', 'c_Saq (s9)', 'd_Saq', 'e_Saq', 'f_Saq', 'g_Saq']),
-    ('#E5DFEC', '#6A1FA0', 'c–g subfamilies: Condylura (ccr)',
-     ['c_Ccr', 'd_Ccr', 'e_Ccr', 'f_Ccr', 'g_Ccr']),
+        ('a', '#D62728', 'a subfamilies',
+         ['a_Toc', 'a_Teu', 'a_Gpy', 'a_Dmo', 'a_Saq', 'a_Ccr']),
+        ('b', '#FF7F0E', 'b subfamilies',
+         ['b1_Toc', 'b2_Toc', 'b1_Teu', 'b2_Teu', 'b_Gpy', 'b_Dmo',
+            'b1_Saq', 'b2_Saq', 'b1_Ccr', 'b2_Ccr']),
+        ('c', '#FFD700', 'c subfamilies',
+         ['c_Toc', 'c_Teu', 'c_Gpy', 'c_Dmo', 'c_Saq (s1)', 'c_Saq (s9)', 'c_Ccr']),
+        ('d', '#2CA02C', 'd subfamilies',
+         ['d_Toc', 'd_Teu', 'd_Gpy', 'd_Dmo', 'd_Saq', 'd_Ccr']),
+        ('e', '#1F77B4', 'e subfamilies',
+         ['e_Toc', 'e_Teu', 'e_Gpy', 'e_Dmo', 'e_Saq', 'e_Ccr']),
+        ('f', '#4B0082', 'f subfamilies',
+         ['f_Saq', 'f_Ccr']),
+        ('g', '#9400D3', 'g subfamilies',
+         ['g_Saq', 'g_Ccr']),
 ]
 
 
 def build_legend_html():
     parts = ['<div class="legend-container">',
-             '<h3>Legend — Subfamily colour groups (Table 1)</h3>']
-    for fill, line, label, members in LEGEND_GROUPS:
+             '<h3>Legend — Subfamily letter colours</h3>']
+    for letter, color, label, members in LEGEND_GROUPS:
         parts.append(f'''
   <div class="legend-row">
-    <span class="swatch" style="background:{fill};border:2px solid {line};"></span>
+    <span class="swatch" style="background:{color};border:2px solid {color};"></span>
     <span class="legend-label"><strong>{htmllib.escape(label)}:</strong>
       {htmllib.escape(", ".join(members))}</span>
   </div>''')
@@ -452,11 +403,10 @@ def build_html(panels_data):
     in six Talpidae species. Each panel shows copy-count histograms (0.5 percentage-point bins)
     per subfamily. Divergence was computed as 100&nbsp;&minus;&nbsp;(<em>copy bitscore /
     self-bitscore</em>&nbsp;&times;&nbsp;100%), capped at 0 (Ssearch36-based alignment,
-    SINEderella pipeline step 2). Colour groups follow the cross-species subfamily nomenclature
-    in Table&nbsp;1: amber&nbsp;=&nbsp;a (oldest), yellow&nbsp;=&nbsp;b, blue&nbsp;=&nbsp;c–e
-    for <em>Talpa</em> spp., pink&nbsp;=&nbsp;c–e for <em>Galemys</em>/<em>Desmana</em>,
-    green&nbsp;=&nbsp;c–g for <em>Scalopus</em>, lavender&nbsp;=&nbsp;c–g for
-    <em>Condylura</em>. Up to 10,000 copies per subfamily were used.
+    SINEderella pipeline step 2). Colours follow the subfamily letter uniformly across
+    species, from ancient to recent: red&nbsp;=&nbsp;a, orange&nbsp;=&nbsp;b,
+    yellow&nbsp;=&nbsp;c, green&nbsp;=&nbsp;d, blue&nbsp;=&nbsp;e,
+    indigo&nbsp;=&nbsp;f, violet&nbsp;=&nbsp;g. Up to 10,000 copies per subfamily were used.
     (A)&nbsp;<em>Talpa occidentalis</em>; (B)&nbsp;<em>Talpa europaea</em>;
     (C)&nbsp;<em>Galemys pyrenaicus</em>; (D)&nbsp;<em>Desmana moschata</em>;
     (E)&nbsp;<em>Scalopus aquaticus</em>; (F)&nbsp;<em>Condylura cristata</em>.
@@ -478,8 +428,8 @@ def build_html(panels_data):
     normalised). Subfamilies were unified into cross-species homology groups
     a–g using pairwise consensus alignment scores and phylogenetic context
     (Table&nbsp;1). Colours in the figure reflect these homology groups as
-    listed in the legend above; line shading within the same hue distinguishes
-    individual subfamilies sharing the same group colour.
+    listed in the legend above; the same subfamily letter uses the same colour in every
+    species.
   </p>
 </div>
 
