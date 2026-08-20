@@ -44,6 +44,13 @@
 #     the final mafft alignment.
 #   - mafft parameters (--localpair --maxiterate 1000 --ep 0.123 --nuc
 #     --reorder --preservecase) match the real precedent script exactly.
+#   - Contig names in headers get "@U@" substituted for "_" upstream by the
+#     SINEderella orchestrator itself (SINEderella:214, gsub(/_/,"@U@",hdr) —
+#     a reversible sanitization also used by sear/sear_multi, which restore
+#     it on their own outputs). This script's outputs never had that restore
+#     step, so top100/rand100 headers leaked "@U@" all the way to the
+#     published alignments (e.g. NC@U@080165.1 instead of NC_080165.1).
+#     Fixed by restoring "_" right before writing each output file.
 #
 # Usage:
 #   extract_top100_rand100_subfam.sh <RUN_ROOT> <SPECIES_CODE> <OUT_DIR>
@@ -341,6 +348,7 @@ PYEOF
     mafft "${MAFFT_OPTS[@]}" "$WORK/${sf}.top${TOPN}.combined.fasta" \
         > "$OUT_DIR/${SPECIES}_${sf}_top100.aln.fa"
     postprocess_flanks "$OUT_DIR/${SPECIES}_${sf}_top100.aln.fa" "$cons_name"
+    sed -i 's/@U@/_/g' "$OUT_DIR/${SPECIES}_${sf}_top100.aln.fa"
     echo "[$(date '+%H:%M:%S')]   OK top100 ($head_n copies, ${FLANK_L}L+${FLANK_R}R flanked, + consensus)"
 
     # ---- rand100 (flanked; project's own sample tool: unseeded shuf-based) ----
@@ -353,6 +361,7 @@ PYEOF
     mafft "${MAFFT_OPTS[@]}" "$WORK/${sf}.rand${RANDN}.combined.fasta" \
         > "$OUT_DIR/${SPECIES}_${sf}_rand100.aln.fa"
     postprocess_flanks "$OUT_DIR/${SPECIES}_${sf}_rand100.aln.fa" "$cons_name"
+    sed -i 's/@U@/_/g' "$OUT_DIR/${SPECIES}_${sf}_rand100.aln.fa"
     echo "[$(date '+%H:%M:%S')]   OK rand100 ($rand_n copies, ${FLANK_L}L+${FLANK_R}R flanked, + consensus)"
 
     # ---- subfam (SubFam re-clustering, same method as run_subfam_per_sf.sh —

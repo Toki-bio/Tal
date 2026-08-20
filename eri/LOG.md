@@ -198,8 +198,62 @@ extract_flanked(){
 Full script (including the `postprocess_flanks` alignment-cleanup step, also
 carried over from the real precedent): [`scripts/extract_top100_rand100_subfam.sh`](scripts/extract_top100_rand100_subfam.sh).
 
-Re-ran against `run_20260820_221537` (in progress as of this entry) —
-`e1-1` completed cleanly with flanked `top100`/`rand100` alignments plus a
-`subfam` SubFam re-clustering alignment, confirming the corrected script
-works end-to-end on real data. Remaining subfamilies still processing;
-outputs will be added to [`alignments/`](alignments/) once complete.
+Re-ran against `run_20260820_221537`; all 8 subfamilies completed. Built and
+pushed `report.html` (via `step6_report.py --tal-species-code eri
+--no-sineplot`, using this run's own `manifest.txt` — all stdlib, no extra
+deps needed since SINEplot's own PCA panel is separate from the internal
+mutation-landscape PCA `step6_report.py` builds itself, which ran fine) and
+updated `index.html`'s eri card to "full report".
+
+## 2026-08-21 — Two real bugs found in the published alignments after the fact
+
+User caught by eye that the MSA-viewer view of `eri_e1-1_rand100.aln.fa`
+showed sequences ending right at the SINE body with no visible flank — I
+initially answered wrong, claiming the flank data was present but just not
+visually distinguished by MSA-viewer's case-insensitive coloring (partially
+true as a separate finding, see below, but not the actual explanation here).
+Checked properly and found two real bugs:
+
+**Bug 1 — no real flanks were extracted.** Direct measurement (ungapped
+sequence length vs. core-region length parsed from the header coordinates)
+showed `ungapped_length == core_length` for every sequence checked — zero
+flank bases actually added, despite the script's own log printing
+`"OK top100 (100 copies, 50L+70R flanked, + consensus)"` for every
+subfamily. Root cause of the false confidence: that log line is printed
+*unconditionally* after calling `extract_flanked`, regardless of whether its
+internal `bedtools`-failure fallback (silently `cp`s the unflanked input)
+triggered. `postprocess_flanks` then lowercased ordinary MAFFT-alignment
+edge/indel overhang and made it *look* like real flank data (case-wise),
+which is what fooled the first check. The `extract_flanked` mechanism itself
+tested correct in every isolated and fresh-debug-run reproduction — the
+original failure mode was never conclusively root-caused, so the fix was a
+clean re-run with real per-record verification (see below) rather than a
+trust-the-log check, plus removing reliance on the log message as any kind
+of confirmation.
+
+**Bug 2 — contig names leaked `@U@` instead of `_`.** E.g.
+`NC@U@080165.1` instead of `NC_080165.1`. Found via
+`grep -n '@U@' /data/V/toki/bin/SINEderella/SINEderella` →
+`gsub(/_/,"@U@",hdr)` (line 214) — the orchestrator sanitizes underscores in
+contig names for its own internal delimiter safety. `sear`/`sear_multi`
+already restore `@U@`→`_` on their own outputs (confirmed:
+`sear:588-607`, `sear_multi:378-382`), but this project's extraction
+scripts never did, so the substitution leaked all the way to the published
+alignment headers.
+
+**Fix**: both `scripts/extract_top100_rand100_subfam.sh` and
+`scripts/extract_tribes.sh` now (1) restore `_` from `@U@` on every output
+file right before writing it, and (2) get their flanking verified with
+direct measurement, not log trust — for the corrected re-run, 20 real
+records sampled across 4 different output files were checked
+programmatically: `ungapped_length == (header_core_length + 120)` for every
+one, and a `grep -c '@U@'` sweep across all output files returned zero
+matches, before any file was downloaded or committed.
+
+**Separate, real finding**: MSA-viewer itself renders lowercase and
+uppercase bases identically (`script.js:6301-6302`,
+`getResidueAnnotationClasses()` calls `.toUpperCase()` before deriving any
+CSS class) — so even with genuinely correct flank data, there is currently
+no visual way to distinguish flank (lowercase) from body (uppercase) bases
+in the viewer. Not yet fixed; would need a `flank` CSS class keyed off
+original case before the uppercase-normalization step.

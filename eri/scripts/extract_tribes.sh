@@ -232,6 +232,10 @@ PYEOF
     extract_flanked "$aln_input" "$WORK/${tribe_id}.flanked.fasta" "$WORK"
     mafft "${MAFFT_OPTS[@]}" "$WORK/${tribe_id}.flanked.fasta" \
         > "$OUT_DIR/${SPECIES}_${tribe_id}_${n_used}seqs.aln.fa"
+    # Restore "_" from the "@U@" contig-name sanitization the SINEderella
+    # orchestrator applies upstream (SINEderella:214) — see
+    # extract_top100_rand100_subfam.sh for the full explanation.
+    sed -i 's/@U@/_/g' "$OUT_DIR/${SPECIES}_${tribe_id}_${n_used}seqs.aln.fa"
     echo "[$(date '+%H:%M:%S')] $tribe_id: $seq_count total members, $n_used aligned (50L+70R flanked)"
 done < "$WORK/tribes_ranked.tsv"
 
