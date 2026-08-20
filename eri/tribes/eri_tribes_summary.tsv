@@ -1,0 +1,11 @@
+rank	tribe_id	cluster_id	seq_count	assigned_count	unassigned_or_missing_count	dominant_subfamily	dominant_subfamily_count	dominant_subfamily_pct_total	dominant_subfamily_pct_assigned	subfamily_breakdown
+1	tribe01	281109	1321	1321	0	e1-4	1321	100.0	100.0	e1-4:1321
+2	tribe02	1396398	954	954	0	e1-2	954	100.0	100.0	e1-2:954
+3	tribe03	445265	931	931	0	e1-4	931	100.0	100.0	e1-4:931
+4	tribe04	738686	838	838	0	e2-2	838	100.0	100.0	e2-2:838
+5	tribe05	332016	816	816	0	e1-4	816	100.0	100.0	e1-4:816
+6	tribe06	700015	741	741	0	e2-2	741	100.0	100.0	e2-2:741
+7	tribe07	1402167	705	705	0	e1-2	705	100.0	100.0	e1-2:705
+8	tribe08	700014	684	684	0	e2-2	684	100.0	100.0	e2-2:684
+9	tribe09	1396395	547	547	0	e1-2	547	100.0	100.0	e1-2:547
+10	tribe10	738505	475	475	0	e2-2	475	100.0	100.0	e2-2:475
