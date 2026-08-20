@@ -147,6 +147,23 @@ a { color:var(--accent); }
       </div>
     </div>
 
+    <div class="sp-card">
+      <h3>eri <span class="tag tag-partial">in progress</span></h3>
+      <div class="sci">Erinaceus europaeus &mdash; European hedgehog (Erinaceidae)</div>
+      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;">
+        Initial run (2 known consensuses ERI-1/ERI-2): 1,276,402 / 1,548,346 assigned (82.4%)
+        &middot; <a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_950295315.1/" target="_blank">GCF_950295315.1</a>
+      </div>
+      <div style="font-size:.82rem;color:var(--muted);margin-top:2px;">
+        New candidate subfamily consensuses (manually clustered from SubFam output) being
+        run through SINEderella next &mdash; full report not yet available.
+      </div>
+      <div class="actions">
+        <a class="btn secondary" href="javascript:void(0)"
+           onclick="openMSA('eri/alignments/eri_candidate_consensuses_vs_sinebase.aln.fa','eri candidate consensi vs SINEbase ERI-1/ERI-2')">Candidate Consensi vs SINEbase ERI-1/ERI-2</a>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -204,6 +221,14 @@ a { color:var(--accent); }
         <td><span class="tag tag-ok">✓</span></td>
         <td><span class="tag tag-ok"><a href="dmo/report.html">HTML</a></span></td>
         <td><span class="tag tag-ok">top100 · rand100 · subfam</span></td>
+      </tr>
+      <tr>
+        <td><strong>eri</strong> <em>Erinaceus europaeus</em></td>
+        <td><span class="tag tag-ok">✓</span></td>
+        <td><span class="tag tag-partial">initial: 2 &middot; 1,276,402</span></td>
+        <td><span class="tag tag-no">&mdash;</span></td>
+        <td><span class="tag tag-no">pending</span></td>
+        <td><span class="tag tag-partial">candidate consensi vs SINEbase</span></td>
       </tr>
     </tbody>
   </table>
