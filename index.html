@@ -148,17 +148,19 @@ a { color:var(--accent); }
     </div>
 
     <div class="sp-card">
-      <h3>eri <span class="tag tag-partial">in progress</span></h3>
+      <h3>eri <span class="tag tag-ok">full report</span></h3>
       <div class="sci">Erinaceus europaeus &mdash; European hedgehog (Erinaceidae)</div>
       <div style="font-size:.82rem;color:var(--muted);margin-top:4px;">
-        Initial run (2 known consensuses ERI-1/ERI-2): 1,276,402 / 1,548,346 assigned (82.4%)
+        8 subfamilies (e1-1..e1-4, e2-1..e2-4) &middot; 1,735,888 assigned copies
         &middot; <a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_950295315.1/" target="_blank">GCF_950295315.1</a>
       </div>
       <div style="font-size:.82rem;color:var(--muted);margin-top:2px;">
-        New candidate subfamily consensuses (manually clustered from SubFam output) being
-        run through SINEderella next &mdash; full report not yet available.
+        SINE Tribes and per-subfamily diagnostic plots being added next.
       </div>
       <div class="actions">
+        <a class="btn" href="eri/report.html"><i>Erinaceus europaeus</i> &mdash; full report</a>
+        <a class="btn secondary" href="javascript:void(0)"
+           onclick="openMSA('eri/alignments/eri_consensuses.aln.fa','eri all consensi')">All Consensi in MSA</a>
         <a class="btn secondary" href="javascript:void(0)"
            onclick="openMSA('eri/alignments/eri_candidate_consensuses_vs_sinebase.aln.fa','eri candidate consensi vs SINEbase ERI-1/ERI-2')">Candidate Consensi vs SINEbase ERI-1/ERI-2</a>
         <a class="btn secondary" href="eri/LOG.md">Analysis Log</a>
