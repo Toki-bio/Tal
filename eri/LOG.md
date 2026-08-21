@@ -524,3 +524,48 @@ same stepwise-extension method is also being generalized into a proper
 SINEderella pipeline step (`step7_boundary_refine.sh`, applied per-locus
 rather than per-sample-set) — not yet run against real eri/scorpion data as
 of this entry.
+
+## 2026-08-21 — Correction: the "confirmed" downstream boundary claim is retracted
+
+User caught the real problem by eye, looking at the published alignment
+directly: most sequences' downstream ends still visibly share a conserved
+motif, contradicting the "confirmed" verdict above. Checked the raw
+(unaligned) genomic sequences directly at three offset zones past the hit
+end (0–50bp, 50–100bp, 100–120bp) rather than trusting the mean-identity
+summary statistic — found the population is **bimodal**: at the
+100–120bp zone (the part of the 120bp downstream flank furthest from the
+core, well past the "confirmed" ext=50 boundary), roughly half the sampled
+sequences still clearly carry the `gcaggcaccgag...cccagcaataa` motif
+(`gcaggcaccgagcccagcaataa`, `gcccagcaataaccctggag`, ...) while the other
+half look like genuine independent background (`gtcctcctccgccgtcatgc`,
+`aaaaaaaaaaagctggagga`, ...).
+
+**Root cause of the false "confirmed" result**: the boundary-scan script
+used mean pairwise identity across all 100 sampled members as its single
+summary statistic. A population that is half highly-conserved and half
+independent random DNA averages to a mean below the 35% threshold even
+though a real subset of copies has not reached background at all — mean
+identity cannot distinguish "uniformly weakly related" (genuinely
+approaching background) from "a persistent conserved subgroup diluted by
+an unrelated majority" (not background, just outvoted in the average).
+Likely connected to the tandem-repeat contamination already measured for
+e2-3 earlier in this file (11.7% of e2-3 hits fall inside a tandem-repeat
+interval) — plausible that flanking regions near SINE insertions are
+enriched for the same repetitive content, though this hasn't been checked
+directly yet.
+
+**The "confirmed" downstream-boundary claim, and the "hypothesis
+confirmed" framing, from the previous entry are retracted.**
+[`report.html`](report.html#e2-3-extended) updated in place with a
+correction notice above the original writeup (kept, not deleted, per the
+same pattern as the Unique-Flank Tribes retraction above). The two
+extended alignment files are kept for reference/audit, not deleted, but
+should not be read as demonstrating a confirmed uniform 3' boundary shift.
+
+**Not yet done**: a proper re-test (fraction of pairs above/below
+threshold rather than a mean, and/or directly correlating the
+still-conserved subset against tandem-repeat interval overlap) has not
+been run. `step7_boundary_refine.sh` (the generalized per-locus version of
+this same method, not yet run against real data) uses the identical
+mean-identity approach and likely has the same blind spot — worth fixing
+there too before it's ever run for real, not just here.
