@@ -111,8 +111,30 @@ this session.
   this codebase that this script's own author had apparently seen before
   but missed applying to the new fallback code.
 
+## 2026-08-21 — Re-extraction with the `(+,-)` fix, verified before publishing
+
+Re-ran `extract_top100_rand100_subfam.sh` (with the strand-parsing fix
+described above) against this run — 83 alignment files, ~4.5 min. Verified
+directly before publishing, not by trusting the log: 39 records sampled
+across 14 files, weighted toward records with `(+,-)` headers (27 of the 39
+— the exact case that failed before), checked
+`ungapped_length == core_length + 120` (50L+70R). **0 mismatches.** Also
+scanned all 83 files for `@U@` leaks: **0 occurrences** anywhere. This
+confirms the fix actually works, not just that it runs without error.
+
+`subfam/` rebuilt from the 25 `*_subfam.aln.fa` outputs (matches the 25
+subfamilies with >=400 members; g20/g24/g26/g28 correctly skipped).
+
+**Same bug very likely still affects `eri`'s already-published
+top100/rand100/subfam alignments** — eri's `assigned.fasta` has a similar
+`(+,-)` header rate and was extracted before this fix existed. Not
+re-verified or re-published there in this session; flagged again as
+follow-up work, not started.
+
 ## Not yet done
 
+- Re-verify/re-publish `eri`'s alignments with this same `(+,-)` fix (see
+  above — real, not yet done).
 - Cross-referencing whether the earlier tRNA-gene-contamination hypothesis
   (raised during the single-genome exploratory work, before this batch —
   see `SCORPION_WORKFLOW.md`) applies to any of these 29 subfamilies
