@@ -203,6 +203,17 @@ postprocess_flanks(){
         exit
       }
 
+      # mafft --reorder can move the consensus away from the top of the
+      # alignment; build an explicit iteration order with it forced first
+      # regardless of where mafft placed it.
+      ord[1] = cons_idx
+      k = 1
+      for (i=1; i<=n; i++) {
+        if (i == cons_idx) continue
+        k++
+        ord[k] = i
+      }
+
       cs = seqs[cons_idx]
       alen = length(cs)
 
@@ -214,7 +225,8 @@ postprocess_flanks(){
       if (lbound == 0) lbound = 1
       if (rbound == 0) rbound = alen
 
-      for (i=1; i<=n; i++) {
+      for (k=1; k<=n; k++) {
+        i = ord[k]
         print hdr[i]
         s = seqs[i]
 
@@ -248,6 +260,37 @@ postprocess_flanks(){
 
         full = lf_out body rf_out
         for (j=1; j<=length(full); j+=80) print substr(full, j, 80)
+      }
+    }
+  ' "$aln_file" > "$tmp" && mv "$tmp" "$aln_file"
+}
+
+# For alignment variants (like subfam) that don't go through
+# postprocess_flanks: mafft --reorder can still move the consensus away
+# from the top, so force it back regardless of where mafft placed it.
+reorder_consensus_first(){
+  local aln_file="$1" cons_name="$2"
+  [[ -s "$aln_file" ]] || return 0
+  local tmp="${aln_file}.rcf"
+  awk -v cons_name="$cons_name" '
+    /^>/ {
+      if (NR>1) seqs[n] = seq
+      n++; hdr[n] = $0; seq = ""
+      h = $0; sub(/^>/, "", h); sub(/[[:space:]].*/, "", h)
+      if (h == cons_name) cons_idx = n
+      next
+    }
+    { seq = seq $0 }
+    END {
+      seqs[n] = seq
+      if (cons_idx == 0) {
+        for (i=1; i<=n; i++) { print hdr[i]; print seqs[i] }
+        exit
+      }
+      print hdr[cons_idx]; print seqs[cons_idx]
+      for (i=1; i<=n; i++) {
+        if (i == cons_idx) continue
+        print hdr[i]; print seqs[i]
       }
     }
   ' "$aln_file" > "$tmp" && mv "$tmp" "$aln_file"
@@ -360,7 +403,7 @@ with open(out, 'w') as fh:
         fh.write('>{}\n{}\n'.format(nm, sq))
 PYEOF
     extract_flanked "$WORK/${sf}.top${TOPN}.fasta" "$WORK/${sf}.top${TOPN}.flanked.fasta" "$WORK"
-    cat "$WORK/${sf}.top${TOPN}.flanked.fasta" "$cons" > "$WORK/${sf}.top${TOPN}.combined.fasta"
+    cat "$cons" "$WORK/${sf}.top${TOPN}.flanked.fasta" > "$WORK/${sf}.top${TOPN}.combined.fasta"
     mafft "${MAFFT_OPTS[@]}" "$WORK/${sf}.top${TOPN}.combined.fasta" \
         > "$OUT_DIR/${SPECIES}_${sf}_top100.aln.fa"
     postprocess_flanks "$OUT_DIR/${SPECIES}_${sf}_top100.aln.fa" "$cons_name"
@@ -390,7 +433,7 @@ PYEOF
       rm -f "$WORK/${sf}.forsample.lin" "$WORK/${sf}.forsample.shuf" "$WORK/${sf}.forsample.sel"
     fi
     extract_flanked "$WORK/${sf}.rand${RANDN}.fasta" "$WORK/${sf}.rand${RANDN}.flanked.fasta" "$WORK"
-    cat "$WORK/${sf}.rand${RANDN}.flanked.fasta" "$cons" > "$WORK/${sf}.rand${RANDN}.combined.fasta"
+    cat "$cons" "$WORK/${sf}.rand${RANDN}.flanked.fasta" > "$WORK/${sf}.rand${RANDN}.combined.fasta"
     mafft "${MAFFT_OPTS[@]}" "$WORK/${sf}.rand${RANDN}.combined.fasta" \
         > "$OUT_DIR/${SPECIES}_${sf}_rand100.aln.fa"
     postprocess_flanks "$OUT_DIR/${SPECIES}_${sf}_rand100.aln.fa" "$cons_name"
@@ -450,9 +493,10 @@ PYEOF
     else
         cp "$sf_work/input.clw" "$sf_work/input_reps.fasta"
     fi
-    cat "$sf_work/input_reps.fasta" "$cons" > "$sf_work/combined.fasta"
+    cat "$cons" "$sf_work/input_reps.fasta" > "$sf_work/combined.fasta"
     mafft "${MAFFT_OPTS[@]}" "$sf_work/combined.fasta" \
         > "$OUT_DIR/${SPECIES}_${sf}_subfam.aln.fa"
+    reorder_consensus_first "$OUT_DIR/${SPECIES}_${sf}_subfam.aln.fa" "$cons_name"
     echo "[$(date '+%H:%M:%S')]   OK subfam ($sample_n copies clustered + consensus)"
     rm -rf "$sf_work"
 done
