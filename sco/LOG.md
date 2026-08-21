@@ -170,6 +170,59 @@ extended alignments or update `report.html` for scorpion — this run was a
 tool-correctness test, not yet a publish step. The 3 undetermined
 subfamilies have not been individually inspected by eye.
 
+## 2026-08-21 — Published: extended alignments for all 29 subfamilies
+
+Ran `step8a_extract_alignments.sh` + `step8b_publish_report.sh` against
+this run, using `boundary_refinement.tsv` above to size each subfamily's
+flanks (base 50bp/70bp + the confirmed per-side extension) instead of the
+fixed 50L/70R every other species page on this site still uses.
+
+**A second real bug found on this first execution**: the `subfam` variant's
+element-extraction `bedtools getfasta` call was not wrapped in `set +e/-e`
+like every other bedtools/mafft call in this script — when it failed for
+`g02` (30284 members, the second subfamily processed), `set -e` killed the
+whole script silently, with the real error swallowed by `2>/dev/null` and
+no WARNING logged (the temp-dir cleanup trap fired cleanly, making it look
+like a graceful finish rather than a crash). Only caught by rerunning with
+`bash -x` tracing to reproduce and pinpoint the exact failing command.
+Fixed by wrapping the call in `set +e/-e`, capturing stderr instead of
+discarding it, and skipping just that subfamily's `subfam` variant (with a
+logged WARNING) instead of killing the whole run. 6 subfamilies (g02, g05,
+g07, g09, g10, g13) hit this on the real data and now skip gracefully
+rather than crash.
+
+**A publishing-integration bug also found and fixed**: `report.html`
+already had a real (not placeholder) "Subfamily Alignments" table from an
+earlier manual publish, so `step8b`'s placeholder-search-and-replace logic
+didn't find a match and instead appended a second, duplicate table before
+`</body>` — leaving the page with two `id="alignments"` sections and the
+old one's hardcoded "50bp upstream + 70bp downstream" text now factually
+wrong (flanks vary per subfamily since boundary refinement). Fixed by hand:
+removed the old section, restyled the new step8b-generated table to match
+the site (card styling, intro paragraph, added an Extension column showing
+each subfamily's confirmed up/down boundary).
+
+**A verification false alarm, resolved**: an initial flank-length check
+appeared to show zero flank added to every record. Root cause was in the
+*check*, not the extraction: `bedtools getfasta` without `-nameOnly`
+labels each output sequence with the coordinates of the BED interval it
+was given (i.e. the already-flanked window), not the original core hit
+coordinates — the first verification script assumed the header showed raw
+coordinates and effectively double-subtracted the flank. Re-verified
+properly by cross-referencing each alignment header's interval against the
+real raw hit coordinates in `assigned.fasta` (not the alignment file's own
+header) for 45 records across 9 files, 3 different subfamilies' up/down
+extensions: all 45 match the confirmed boundary within 2bp. The extraction
+was correct all along.
+
+Published: 78 alignment files (29 top100 + 29 rand100 + 19 subfam — the
+other 10 subfamilies either have <400 members, per the original
+`report.html` stats table, or hit the getfasta bug above) replace the
+previous fixed-50L/70R set entirely; `subfam/` rebuilt to match (19 `.al`
+files, down from 25 since 6 more subfamilies' subfam variant is now
+correctly skipped rather than silently broken). Full boundary numbers:
+[`boundary_refine/boundary_refinement.tsv`](boundary_refine/boundary_refinement.tsv).
+
 ## Not yet done
 
 - Re-verify/re-publish `eri`'s alignments with this same `(+,-)` fix (see
