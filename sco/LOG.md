@@ -223,6 +223,32 @@ files, down from 25 since 6 more subfamilies' subfam variant is now
 correctly skipped rather than silently broken). Full boundary numbers:
 [`boundary_refine/boundary_refinement.tsv`](boundary_refine/boundary_refinement.tsv).
 
+## 2026-08-21 — Manual verdict: direct visual curation of all 29 subfamilies
+
+User directly inspected all 29 candidate subfamilies' alignments and gave
+a verdict for each — this is a real, first-hand determination, not an
+inference. Summary:
+
+| Verdict | Count | Subfamilies |
+|---|---|---|
+| Not SINE | 16 | g01, g02, g04, g06, g09, g10, g11, g12, g13, g15, g16, g17, g18, g21, g24, g29 |
+| Weak SINE signature inside | 6 | g14, g19, g22, g25, g26, g27 |
+| Investigate — can be interesting | 6 | g03 (also check its other subfam versions), g05 (finding so far: not SINE, but an interspersed short repeat — worth noting), g07 (check top sequences), g08, g20, g28 (top 17 sequences specifically) |
+| LF-SINE-like, edges need clarifying | 1 | g23 |
+
+**Bottom line: only 13/29 candidates (g03, g05, g07, g08, g14, g19, g20,
+g22, g23, g25, g26, g27, g28) show any SINE-like signature at all** — the
+other 16 are not SINEs. This substantially narrows what should be treated
+as a real candidate going forward; the "29 candidate subfamilies" framing
+elsewhere on this page/site should be read alongside this table, not as
+"29 confirmed SINE-like elements."
+
+Published as a new "Manual verdict" column in the
+[`report.html`](report.html#alignments) alignments table (color-coded,
+hover for notes) — same table, not a separate page, so the verdict sits
+right next to the actual alignment links a reader would open to check it
+themselves.
+
 ## Not yet done
 
 - Re-verify/re-publish `eri`'s alignments with this same `(+,-)` fix (see
