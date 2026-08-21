@@ -253,5 +253,7 @@ alignment_flank_method=strand-aware genome.clean.fa extraction via bedtools slop
 alignment_flank_source=genome.clean.fa
 META
 
-rm -rf "$WORK"
-echo "[$(date '+%H:%M:%S')] Done. Outputs in $OUT_DIR"
+# Intermediates ($WORK, including clusters.uc — the full vsearch cluster
+# membership mapping, expensive to regenerate) are NOT auto-deleted. Clean
+# up manually if truly done with them.
+echo "[$(date '+%H:%M:%S')] Done. Outputs in $OUT_DIR (intermediates kept in $WORK)"

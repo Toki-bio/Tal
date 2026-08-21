@@ -424,5 +424,6 @@ PYEOF
     rm -rf "$sf_work"
 done
 
-rm -rf "$WORK"
-echo "[$(date '+%H:%M:%S')] Done. Outputs in $OUT_DIR"
+# Intermediates ($WORK) are NOT auto-deleted. Clean up manually if truly
+# done with them.
+echo "[$(date '+%H:%M:%S')] Done. Outputs in $OUT_DIR (intermediates kept in $WORK)"
