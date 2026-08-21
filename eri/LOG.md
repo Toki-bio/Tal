@@ -352,7 +352,66 @@ tables above). The full interval/hit BED files (`tandem_repeats.merged.bed`,
 `run_20260820_221537/` (`trf_out/tandem_repeats.merged.bed`,
 `sine_hits.in_tandem.bed`) for anyone who wants to audit specific loci.
 
-**Not yet done**: the 7 clean tribes haven't been re-published as a
-filtered/labeled subset anywhere on the page yet (still sitting in
-`eri/tribes/` undifferentiated from the 3 contaminated ones) — a report.html
-update flagging which of the 10 is which is the natural next step.
+**Not yet done** (at the time of that entry): the 7 clean tribes hadn't been
+re-published as a filtered/labeled subset — see next entry, superseded by
+checking further down the size ranking instead.
+
+## 2026-08-21 — Went past the top-10 clusters, found 11 genuinely clean ones
+
+Re-ran the vsearch clustering (`--cluster_fast --id 0.99 --strand plus` on
+`genome.clean_step1/extracted.fasta`) to regenerate `clusters.uc` (deleted
+by the original run's cleanup — see the intermediates-preservation fix,
+same commit that removed the auto-`rm -rf $WORK` from both extraction
+scripts). Reproduced the original top-10 tribes exactly (same cluster IDs,
+same sizes) — confirms the clustering is deterministic, not an artifact of
+run-to-run variation.
+
+Checked 50 more clusters, ranks 11&ndash;60 by size (133&ndash;373 members,
+below the size range the original 10 "Tribes" were drawn from), for the
+same two criteria as the tandem-repeat entry above: genuine per-member
+flank uniqueness (singleton left+right flank, not shared with any other
+cluster member) and TRF tandem-repeat overlap.
+
+**11 of 50 pass both convincingly**:
+
+| Cluster | Size | Singleton-flank | Tandem overlap |
+|---|---|---|---|
+| 449354 | 373 | 59.8% | 1.9% |
+| 11535 | 229 | 79.0% | 12.7% |
+| 159155 | 222 | 81.5% | 26.6% |
+| 24069 | 199 | 72.4% | 13.1% |
+| 10605 | 146 | 81.5% | 14.4% |
+| 19132 | 159 | 74.2% | 1.3% |
+| 189222 | 149 | 75.8% | 10.7% |
+| 11960 | 149 | 70.5% | 20.1% |
+| 447956 | 155 | 63.9% | 20.6% |
+| 184652 | 133 | 66.2% | 4.5% |
+| 158992 | 133 | 64.7% | 3.8% |
+
+Manually spot-checked the two highest-singleton clusters (`11535`,
+`449354`) by eye: left flanks are genuinely distinct strings across
+different scaffolds at wildly different coordinates (e.g. `449354`:
+`NC_080162.1` at 187M, 190M, 194M, 195M — real dispersed positions, not a
+repeated motif). Right flanks in `11535` show a family resemblance
+(AT-rich, some shared short substrings) but with real accumulated
+divergence between copies, not byte-identical duplication — consistent
+with genuine evolutionary drift from a common ancestral insertion, which
+is exactly what real dispersed SINE copies are expected to look like.
+
+The other 39/50 checked show the same contamination signature as the
+original top-10 (0&ndash;1.8% singleton-flank, mostly exactly 0%) — so this
+isn't "everything below the top 10 is clean," specifically these 11 stand
+out.
+
+Published as a new page:
+[`eri/unique_flank_tribes.html`](unique_flank_tribes.html) (linked from
+`index.html` and from `report.html`'s Tribes section) — real MAFFT
+alignments (50L+70R flanks, same convention as the rest of the site) built
+from each cluster's full membership, plus
+[`eri/unique_flank_tribes/summary.tsv`](unique_flank_tribes/summary.tsv)
+with the full numbers for all 50 checked (not just the 11 that passed).
+
+**Not yet done**: haven't checked clusters below rank 60 (there are
+3,484 total clusters with &ge;5 members) — unclear whether the ~22% hit
+rate (11/50) found here holds at smaller sizes, or whether it changes as
+cluster size shrinks toward the noise floor.
