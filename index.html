@@ -245,6 +245,35 @@ a { color:var(--accent); }
   </ul>
 </section>
 
+<section class="card">
+  <h2>Other de novo SINE work sharing this infrastructure (not Eulipotyphla)</h2>
+  <p style="color:var(--muted);font-size:.9rem;margin-top:4px;">
+    Scorpiones (scorpions) — an unrelated, exploratory de novo SINE discovery project using the
+    same SINEderella/report.html pipeline as the species above, kept in this repo for
+    infrastructure reuse rather than taxonomic relevance. See
+    <a href="sco/LOG.md">sco/LOG.md</a> for the full methodology (why scorpions, de novo query
+    construction, batch genome scan across 11 assemblies, and the manual SubFam clustering that
+    produced the 29 candidate consensuses below).
+  </p>
+  <div class="species-grid" style="margin-top:12px;">
+    <div class="sp-card">
+      <h3>sco <span class="tag tag-ok">full report</span></h3>
+      <div class="sci">Belisarius xambeui — scorpion (GCA_982267015.1)</div>
+      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;">
+        29 candidate subfamilies (manually clustered from SubFam output)
+        &middot; 169,262 assigned copies (67.4% of 251,164 extracted loci)
+        &middot; <a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_982267015.1/" target="_blank">GCA_982267015.1</a>
+      </div>
+      <div class="actions">
+        <a class="btn" href="sco/report.html"><i>Belisarius xambeui</i> &mdash; full report</a>
+        <a class="btn secondary" href="javascript:void(0)"
+           onclick="openMSA('sco/alignments/sco_consensuses.aln.fa','sco all consensi')">All Consensi in MSA</a>
+        <a class="btn secondary" href="sco/LOG.md">Analysis Log</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 </main>
 <script>
 const RAW = 'https://raw.githubusercontent.com/Toki-bio/Tal/main/';
