@@ -99,11 +99,39 @@ standalone after the main orchestrator finished, which regenerates
 - `boundary_refine/boundary_refinement.tsv` — full dual-population
   boundary-refinement numbers
 
+## 2026-08-21 — Rerun with refined consensuses (t1, t2, t345, t6, t7, t8)
+
+User refined the 8 original candidate consensuses down to 6, based on
+inspecting the first run's results — t3/t4/t5 merged into a single `t345`
+consensus. Full `SINEderella` rerun (`run_20260821_145119`) against the
+same genome with this refined 6-sequence bank:
+
+| Subfamily | Assigned copies |
+|---|---|
+| t1 | 166,261 |
+| t2 | 14,640 |
+| t345 | 80,395 |
+| t6 | 9,677 |
+| t7 | 7,163 |
+| t8 | 19,334 |
+
+`step7_boundary_refine.sh`: all 24 sides (6 subfamilies x 2 populations x
+2 sides) confirmed, 0 undetermined — same clean result as the first run.
+`step8a`/`step8b`: 0 warnings, all 6 subfamilies got all three alignment
+variants. Same `results/report.html`-gets-destroyed orchestrator bug hit
+again (see below) — same workaround applied (standalone `step6_report.sh`
+re-run).
+
+This entirely replaces the previous 8-subfamily (`t1`-`t8`) publish —
+old `t3`/`t4`/`t5` alignment files removed, all others regenerated fresh
+against the new run.
+
 ## Not yet done
 
 - Fix the `SINEderella` orchestrator's results/-directory race so
-  `step6_report.sh` doesn't need a manual standalone re-run.
+  `step6_report.sh` doesn't need a manual standalone re-run (hit again on
+  this rerun, same as the first run — genuinely reproducible, not a fluke).
 - Tandem-repeat contamination check (TRF) not done on this genome yet.
-- No cross-referencing of the 8 candidate subfamilies against any
+- No cross-referencing of the 6 refined candidate subfamilies against any
   Phasmatodea-specific literature (none was assumed to exist, same as
   scorpions — these remain unconfirmed candidates).
