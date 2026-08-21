@@ -70,10 +70,15 @@ fasta_headers_to_bed(){
     id = $1
     n = split(id, parts, "|")
     loc = parts[1]
+    # See extract_top100_rand100_subfam.sh for why this strips ANY trailing
+    # parenthetical rather than requiring exactly a single +/- char --
+    # merged/overlapping hits produce "(+,-)", which corrupted the
+    # coordinate split below and silently dropped the BED line.
     strand = "+"
-    if (sub(/\([+-]\)$/, "", loc)) {
+    if (sub(/\([^)]*\)$/, "", loc)) {
       i = index(parts[1], "(")
-      strand = substr(parts[1], i+1, 1)
+      inside = substr(parts[1], i+1, length(parts[1])-i-1)
+      if (inside == "-") strand = "-"
     }
     last_colon = 0; rest = loc
     while ((p = index(rest, ":")) > 0) { last_colon += p; rest = substr(rest, p+1) }

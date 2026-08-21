@@ -69,8 +69,13 @@ OUT_DIR="${3:?usage: $0 <RUN_ROOT> <SPECIES_CODE> <OUT_DIR>}"
 ASSIGNED="$RUN_ROOT/step2/step2_output/assigned.fasta"
 CONS_FA="$RUN_ROOT/consensuses.clean.fa"
 GENOME="$RUN_ROOT/genome.clean.fa"
-SUBFAM_BIN="/data/V/toki/bin/SINEderella/SubFam"
-SAMPLE_BIN="/data/V/toki/bin/sample"
+# Overridable via env for other servers (default: KIT's paths).
+# On DRAGEN: SUBFAM_BIN=/staging/tmp/SINEderella/SubFam (no equivalent
+# "sample" tool exists there — SAMPLE_BIN falls back to an inline
+# shuf-based sampler matching KIT's /data/V/toki/bin/sample exactly,
+# see sample_fallback() below).
+SUBFAM_BIN="${SUBFAM_BIN:-/data/V/toki/bin/SINEderella/SubFam}"
+SAMPLE_BIN="${SAMPLE_BIN:-/data/V/toki/bin/sample}"
 BINSIZE=50
 N_SAMPLE=10000       # subfam variant: max copies fed to SubFam clustering
 MIN_COPIES_SUBFAM=400  # subfam variant: skip subfamilies smaller than this
@@ -111,10 +116,21 @@ fasta_headers_to_bed(){
     n = split(id, parts, "|")
     loc = parts[1]
 
+    # Strand suffix is not always a single char -- merged/overlapping hits
+    # can produce "(+,-)" (both strands), which the old \([+-]\)$ pattern
+    # did not match. Left un-stripped, "(+,-)" contains a literal "-" that
+    # corrupted the coordinate split below (silently dropping the BED line,
+    # which meant these hits ended up unflanked in the alignments with no
+    # error -- found by direct verification, not by trusting the success-
+    # looking logs of the pipeline itself, same class of bug as the earlier
+    # flanking
+    # issue documented in eri/LOG.md). Strip ANY trailing parenthetical and
+    # default to "+" unless the whole block reads exactly "(-)".
     strand = "+"
-    if (sub(/\([+-]\)$/, "", loc)) {
+    if (sub(/\([^)]*\)$/, "", loc)) {
       i = index(parts[1], "(")
-      strand = substr(parts[1], i+1, 1)
+      inside = substr(parts[1], i+1, length(parts[1])-i-1)
+      if (inside == "-") strand = "-"
     }
 
     last_colon = 0; rest = loc
@@ -351,11 +367,28 @@ PYEOF
     sed -i 's/@U@/_/g' "$OUT_DIR/${SPECIES}_${sf}_top100.aln.fa"
     echo "[$(date '+%H:%M:%S')]   OK top100 ($head_n copies, ${FLANK_L}L+${FLANK_R}R flanked, + consensus)"
 
-    # ---- rand100 (flanked; project's own sample tool: unseeded shuf-based) ----
+    # ---- rand100 (flanked; project's own sample tool: unseeded shuf-based,
+    #      falls back to an inline equivalent if SAMPLE_BIN doesn't exist
+    #      on this server, e.g. DRAGEN — same shuf-based logic, no seed) ----
     rand_n=$(( n_total < RANDN ? n_total : RANDN ))
     cp "$sorted_fa" "$WORK/${sf}.forsample.fasta"
-    "$SAMPLE_BIN" "$rand_n" "$WORK/${sf}.forsample.fasta"
-    mv "$WORK/${sf}.forsample.fasta.${rand_n}" "$WORK/${sf}.rand${RANDN}.fasta"
+    if [[ -x "$SAMPLE_BIN" ]]; then
+      "$SAMPLE_BIN" "$rand_n" "$WORK/${sf}.forsample.fasta"
+      mv "$WORK/${sf}.forsample.fasta.${rand_n}" "$WORK/${sf}.rand${RANDN}.fasta"
+    else
+      # Intermediate files, not a raw pipe into head — under set -o pipefail,
+      # head closing early sends SIGPIPE back up the pipe, which pipefail
+      # then treats as a failed command and (with set -e) kills the whole
+      # script. Same class of bug already documented/avoided elsewhere in
+      # this codebase (see extract_alignments.sh's "write to file to avoid
+      # SIGPIPE" comment) — missed it here the first time.
+      awk '/^>/ { if(i>0) printf("\n"); i++; printf("%s\t",$0); next;} {printf("%s",$0);} END { printf("\n");}' \
+        "$WORK/${sf}.forsample.fasta" > "$WORK/${sf}.forsample.lin"
+      shuf "$WORK/${sf}.forsample.lin" > "$WORK/${sf}.forsample.shuf"
+      head -n "$rand_n" "$WORK/${sf}.forsample.shuf" > "$WORK/${sf}.forsample.sel"
+      awk 'BEGIN{FS="\t"}{printf("%s\n%s\n",$1,$2)}' "$WORK/${sf}.forsample.sel" > "$WORK/${sf}.rand${RANDN}.fasta"
+      rm -f "$WORK/${sf}.forsample.lin" "$WORK/${sf}.forsample.shuf" "$WORK/${sf}.forsample.sel"
+    fi
     extract_flanked "$WORK/${sf}.rand${RANDN}.fasta" "$WORK/${sf}.rand${RANDN}.flanked.fasta" "$WORK"
     cat "$WORK/${sf}.rand${RANDN}.flanked.fasta" "$cons" > "$WORK/${sf}.rand${RANDN}.combined.fasta"
     mafft "${MAFFT_OPTS[@]}" "$WORK/${sf}.rand${RANDN}.combined.fasta" \

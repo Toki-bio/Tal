@@ -1,0 +1,5 @@
+variant	side	boundary_bp	status	final_identity_pct
+top100	upstream	0	confirmed	17.106666666666648
+top100	downstream	50	confirmed	33.06666666666666
+rand100	upstream	0	confirmed	14.79999999999999
+rand100	downstream	50	confirmed	28.200000000000003

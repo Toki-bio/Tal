@@ -466,3 +466,61 @@ should not be read as verified real dispersed SINE families.
 **Not yet done**: the fuzzy-3'-boundary hypothesis is untested. Also
 haven't checked clusters below rank 500 (3,484 total clusters with ≥5
 members exist) under the corrected criterion.
+
+## 2026-08-21 — e2-3 boundary extension: the fuzzy-3'-boundary hypothesis, tested
+
+User noticed e2-3 copies sometimes appear to continue past the called
+consensus border (right side, occasionally left), and asked for a direct
+test on e2-3's top100/rand100 sets rather than the Tribes clusters:
+stepwise `bedtools slop` extension (50bp increments, cap 1000bp) on each
+side, checking at each step whether the newly-added window's pairwise
+identity across the 100-member sample has dropped to this genome's
+established background (25.0%, +10 margin = 35% threshold — same numbers as
+the Unique-Flank Tribes work above).
+
+**Real bug hit and fixed while building this** (worth recording — same bug
+class flagged repeatedly in other scripts this project): the script
+restored `@U@` → `_` in contig names immediately after parsing
+`assigned.fasta`, before using those names to query the genome via
+`samtools faidx`. But `genome.clean.fa` itself keeps `@U@`-sanitized contig
+names (confirmed directly: `genome.clean.fa.fai` lists `NC@U@080162.1`, not
+`NC_080162.1`) — restoring underscores that early broke every coordinate
+lookup, and the script silently produced empty/truncated output with no
+error under `set -euo pipefail`, plus separately looked like a hang because
+the SSH tunnel to KIT was dropping around the same time (both problems were
+real, independently, and had to be untangled one at a time). Fixed by
+deferring `@U@` restoration to only the final alignment output files.
+
+**Result**:
+
+| Set | Side | Extension needed | Identity at that point |
+|---|---|---|---|
+| top100 | upstream (5') | 0bp | 17.1% |
+| top100 | downstream (3') | 50bp | 33.1% |
+| rand100 | upstream (5') | 0bp | 14.8% |
+| rand100 | downstream (3') | 50bp | 28.2% |
+
+The upstream (left) side is already at background identity at the
+originally-called boundary — no extension needed, the left boundary call
+looks correct. The downstream (right) side needed a 50bp extension before
+identity dropped to background in both independent samples (top100 and
+rand100 agree) — **this confirms the fuzzy-3'-boundary hypothesis** raised
+in the previous entry: the original de novo 3' boundary call under-calls
+the true SINE end by roughly 50bp for e2-3.
+
+Published as a new section on
+[`report.html`](report.html#e2-3-extended) right after the main alignments
+table:
+[`alignments/eri_e2-3_top100_extended.aln.fa`](alignments/eri_e2-3_top100_extended.aln.fa)
+and
+[`alignments/eri_e2-3_rand100_extended.aln.fa`](alignments/eri_e2-3_rand100_extended.aln.fa)
+(50bp upstream + 120bp downstream flanks — base 50/70 convention plus the
+confirmed 50bp extension on the downstream side), raw boundary-scan numbers
+in [`e2-3_extend/boundary_results.tsv`](e2-3_extend/boundary_results.tsv).
+
+**Not yet done**: only e2-3 has been tested this way; e1-1..e1-4, e2-1,
+e2-2, e2-4 have not been checked for the same fuzzy-boundary effect. This
+same stepwise-extension method is also being generalized into a proper
+SINEderella pipeline step (`step7_boundary_refine.sh`, applied per-locus
+rather than per-sample-set) — not yet run against real eri/scorpion data as
+of this entry.
