@@ -411,7 +411,58 @@ from each cluster's full membership, plus
 [`eri/unique_flank_tribes/summary.tsv`](unique_flank_tribes/summary.tsv)
 with the full numbers for all 50 checked (not just the 11 that passed).
 
-**Not yet done**: haven't checked clusters below rank 60 (there are
-3,484 total clusters with &ge;5 members) — unclear whether the ~22% hit
-rate (11/50) found here holds at smaller sizes, or whether it changes as
-cluster size shrinks toward the noise floor.
+**Not yet done** (at the time of that entry): hadn't checked clusters below
+rank 60 — see next entry, and the "11 verified" claim below is retracted.
+
+## 2026-08-21 — Correction: the "11 verified" claim doesn't survive a real statistical test
+
+User caught the real problem with the previous entry's methodology: the
+"singleton flank" test only checked for **exact-duplicate** flanks. That's
+too weak — it doesn't catch flanks that are similar-but-not-identical,
+which is exactly the signature ordinary mutation accumulation between
+related copies produces. Direct check on `11535` (one of the "best" 11):
+mean pairwise difference across its right flanks was only 33.5% (66.5%
+identity) with a clearly recognizable shared motif across samples
+(`TAACTACAACAATAAA...CAACAAGGGCAACAAAAGGGAATAAATAAAT...`) — obviously
+related sequence, not independent DNA, that the exact-match test completely
+missed since no two copies were byte-identical.
+
+**Established the real background first**: sampled 2,000 pairs from 300
+random unrelated 70bp genomic windows (all contigs) → **25.0% mean pairwise
+identity** — matches the theoretical value for independent 4-letter DNA
+exactly, confirming no meaningful compositional bias needs correcting for
+in this genome.
+
+**Re-scanned properly**: required both left AND right flank mean pairwise
+identity (150 sampled member pairs each) to be ≤35% (background + margin)
+to count as genuinely unique — not "no exact duplicate," but "statistically
+indistinguishable from unrelated DNA." Scanned 48 clusters, ranks 11–500 by
+size (all 11 originally-flagged clusters included).
+
+**Result: 0 of 48 pass on both sides.** But a real, informative pattern in
+the failures: left (upstream) flanks are often close to background (31–33%
+in the previously-published 11) while right (downstream) flanks are
+consistently far above it (58–100%, no exception, even in the "best"
+clusters). Leading hypothesis, not yet confirmed: SINE 3' ends are
+notoriously fuzzy (poly-A tails, AT-rich trailing sequence), so the
+original de novo hit-boundary calling likely under-calls the true 3' end —
+meaning the "downstream flank" window is still real SINE-tail sequence for
+many copies, not independent genomic context. Not tested: whether shifting
+the right-flank window further downstream (past the likely fuzzy boundary
+zone) recovers background-level identity.
+
+**Standing conclusion, corrected**: no cluster checked so far — the
+original top-10 Tribes, nor these 48 further down the ranking — has been
+shown to have genuinely independent flanking DNA on both sides. The "11
+verified unique-flank clusters" claim from the previous entry is retracted.
+[`eri/unique_flank_tribes.html`](unique_flank_tribes.html) updated in place
+with a correction notice at the top, the original (now-labeled-retracted)
+writeup below it, and the full 48-cluster strict-scan table with real
+numbers
+([`unique_flank_tribes/strict_scan_summary.tsv`](unique_flank_tribes/strict_scan_summary.tsv)).
+The 11 alignment files are kept for reference/audit, not deleted, but
+should not be read as verified real dispersed SINE families.
+
+**Not yet done**: the fuzzy-3'-boundary hypothesis is untested. Also
+haven't checked clusters below rank 500 (3,484 total clusters with ≥5
+members exist) under the corrected criterion.

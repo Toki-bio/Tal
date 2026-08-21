@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>eri — Verified Unique-Flank SINE Tribes</title>
+<title>eri — Unique-Flank SINE Tribes (retracted)</title>
 <style>
 :root { --fg:#222; --bg:#fafafa; --card:#fff; --accent:#4C72B0;
         --muted:#666; --border:#e2e2e2; }
@@ -44,13 +44,47 @@ footer { padding: 18px 32px; color: var(--muted); font-size: 0.8rem;
 </head>
 <body>
 <header>
-  <h1>eri — Verified Unique-Flank SINE Tribes</h1>
-  <div class="sub">Erinaceus europaeus &mdash; genuinely dispersed clusters, checked against tandem-repeat contamination and flank-sequence uniqueness</div>
+  <h1>eri — Unique-Flank SINE Tribes: correction</h1>
+  <div class="sub">Erinaceus europaeus &mdash; the original 11 "verified" clusters below did not survive a rigorous re-check</div>
 </header>
 <main>
 
+<section class="card" style="border-left:4px solid #c0392b;">
+<h2 style="color:#c0392b;">Correction (2026-08-21, later same day)</h2>
+<p class="intro">
+The "11 verified unique-flank clusters" below were flagged using an <strong>exact-duplicate</strong>
+test only (a member's flank counted as "unique" if no other member had the byte-identical flank
+sequence). That test is too weak: it doesn't catch flanks that are <em>similar but not identical</em>
+&mdash; which is exactly what real contamination looks like once you allow for ordinary mutation
+accumulation between related copies.
+</p>
+<p class="intro">
+Re-checked properly: measured genuine random background identity in this genome directly (2,000
+sampled pairs of unrelated 70bp genomic windows &rarr; <strong>25.0% mean pairwise identity</strong>,
+matching the theoretical value for independent 4-letter DNA). Then required each cluster's left AND
+right flank mean pairwise identity to sit close to that background (&le;35%) across a much larger
+scan &mdash; 48 clusters, ranks 11&ndash;500 by size (all 11 originally-published clusters included).
+</p>
+<p class="intro">
+<strong>Result: 0 of 48 clusters pass on both sides.</strong> Left flanks (upstream) are often close
+to background (31&ndash;33% in several of the originally-published 11) but right flanks
+(downstream) are consistently far above it (58&ndash;100%), including in every one of the original
+11. Most likely explanation: SINE 3' ends are notoriously fuzzy (poly-A tails, AT-rich trailing
+sequence), so the original hit-boundary calling probably under-calls the true 3' end &mdash; meaning
+the "downstream flank" window is still real SINE-tail sequence for many copies, not independent
+genomic context, which is exactly the kind of shared-signal false positive the exact-duplicate test
+couldn't see.
+</p>
+<p class="intro">
+<strong>Standing conclusion: no cluster checked so far (the original top-10 Tribes, nor these 48
+further down the ranking) has been shown to have genuinely independent flanking DNA on both sides.</strong>
+The alignments below are kept for reference/audit but should not be read as "verified real dispersed
+SINE families" &mdash; that claim is retracted.
+</p>
+</section>
+
 <section class="card">
-<h2>Background</h2>
+<h2>Original writeup (superseded by the correction above)</h2>
 <p class="intro">
 The original 10 "SINE Tribes" (99% identity clusters of the raw Step1 extracted pool,
 ranked by size) turned out to be almost entirely contaminated: only 3/10 overlapped
@@ -74,7 +108,7 @@ site) built from its full cluster membership.
 </section>
 
 <section class="card">
-<h2>The 11 verified clusters</h2>
+<h2>The 11 clusters originally flagged (claim retracted — see correction above)</h2>
 <p class="intro">
 "Singleton flank" = a member whose 50bp-left AND 70bp-right genomic flank sequence
 is unique among the full cluster's original vsearch membership (not resampled) &mdash;
@@ -121,6 +155,45 @@ contamination pattern as the original top-10 Tribes. Full numbers in
 <a href="unique_flank_tribes/summary.tsv">summary.tsv</a>. Not aligned/published as
 individual pages since they don't represent anything new beyond the already-documented
 contamination finding.
+</p>
+</section>
+
+<section class="card">
+<h2>Rigorous re-check: pairwise-identity vs. genuine random background (0/48 pass)</h2>
+<p class="intro">
+Real background established directly on this genome: 2,000 sampled pairs of unrelated
+random 70bp windows (n=300 windows across all contigs) &rarr; <strong>25.0% mean pairwise
+identity</strong> (75.0% mean pairwise difference), matching the theoretical value for
+independent 4-letter DNA exactly &mdash; no meaningful compositional bias to correct for.
+Threshold used: both left AND right flank mean pairwise identity (150 sampled member pairs
+each, per cluster) must be &le;35% to pass. Scanned 48 clusters, ranks 11&ndash;500 by size
+(size &ge;100), including all 11 clusters originally flagged above.
+</p>
+<table class="tbl">
+<thead><tr><th>Cluster</th><th>n</th><th>Left identity %</th><th>Right identity %</th><th>Pass?</th></tr></thead>
+<tbody>
+<tr><td><code>159155</code></td><td>222</td><td>32.2%</td><td>58.2%</td><td>no</td></tr>
+<tr><td><code>10605</code></td><td>146</td><td>31.2%</td><td>63.0%</td><td>no</td></tr>
+<tr><td><code>24069</code></td><td>199</td><td>32.9%</td><td>63.1%</td><td>no</td></tr>
+<tr><td><code>1198389</code></td><td>119</td><td>63.1%</td><td>63.4%</td><td>no</td></tr>
+<tr><td><code>11535</code></td><td>229</td><td>31.1%</td><td>64.8%</td><td>no</td></tr>
+<tr><td><code>184652</code></td><td>133</td><td>32.3%</td><td>67.6%</td><td>no</td></tr>
+<tr><td><code>11960</code></td><td>149</td><td>32.8%</td><td>67.8%</td><td>no</td></tr>
+<tr><td><code>189222</code></td><td>149</td><td>33.3%</td><td>68.7%</td><td>no</td></tr>
+<tr><td><code>158992</code></td><td>133</td><td>33.2%</td><td>70.4%</td><td>no</td></tr>
+<tr><td><code>449354</code></td><td>373</td><td>33.5%</td><td>71.4%</td><td>no</td></tr>
+<tr><td><code>447956</code></td><td>155</td><td>32.0%</td><td>72.6%</td><td>no</td></tr>
+<tr><td><code>19132</code></td><td>159</td><td>32.5%</td><td>77.7%</td><td>no</td></tr>
+<tr><td colspan="5" class="small muted">...remaining 36 clusters all score &ge;74% on at least one side; full list in <a href="unique_flank_tribes/strict_scan_summary.tsv">strict_scan_summary.tsv</a></td></tr>
+</tbody>
+</table>
+<p class="intro">
+Note the pattern: the 12 clusters shown are exactly the "best" ones by left-flank score, and
+every one of them is a cluster already flagged above under the weaker test. Left flanks alone
+get respectably close to background (31&ndash;33%) for these; right flanks never do (58% at
+best, most clusters far worse). No cluster passes both. Not resolved: whether this is fixable
+by trimming further into the downstream flank (past a fuzzy/poly-A 3' boundary), or whether it
+reflects something more structural about how these loci were called.
 </p>
 </section>
 
