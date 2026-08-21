@@ -131,6 +131,45 @@ top100/rand100/subfam alignments** — eri's `assigned.fasta` has a similar
 re-verified or re-published there in this session; flagged again as
 follow-up work, not started.
 
+## 2026-08-21 — Ran the modular boundary-refinement step against all 29 subfamilies
+
+First real test of `step7_boundary_refine.sh` (the standalone, independently-
+runnable module underlying the eri e2-3 boundary-extension work above —
+same fraction-of-pairs-above-threshold test, same 45% cutoff, calibrated
+against this genome's own background) against a full multi-subfamily run
+rather than a single hand-picked subfamily. Deployed to DRAGEN
+(`/staging/tmp/step7_boundary_refine.sh`), run directly against
+`run_20260821_025634` (needed `setfacl -R -m user:copilot:rwx` granted by
+the user first — the run directory is root-owned).
+
+**Real bug found on this first execution** (never caught by `bash -n`,
+since it's an awk-level error, not a bash syntax error): the per-subfamily
+member-filtering step used `awk -v sub="$subfam" '$1 == sub'`, and `sub`
+collides with awk's own built-in `sub()` function name —
+`awk: fatal: cannot use gawk builtin 'sub' as variable name`, killing the
+script immediately after Step A. Fixed by renaming the variable to `sf`.
+Fixed in the SINEderella worktree, not yet pushed/merged upstream.
+
+**Result**: completed in 35 seconds for the whole genome (29 subfamilies x
+2 sides = 58 rows). 55/58 sides confirmed (boundary found within the
+1000bp cap), 3 undetermined (g17 downstream, g18 upstream, g22 upstream —
+still above the elevated-fraction threshold even at 1000bp, meaning either
+a genuinely long fuzzy boundary or tandem/repeat contamination extending
+further than tested). Confirmed boundaries range from 50bp (many
+subfamilies — base flank already unique) up to 1000bp (g21 downstream).
+Full table: [`boundary_refine/boundary_refinement.tsv`](boundary_refine/boundary_refinement.tsv).
+
+Confirms the tool works as a standalone module against a real multi-
+subfamily run, not just the single hand-tested eri e2-3 case — this was
+the point of the test (per the project's modular-pipeline design: each
+SINEderella step should be runnable independently, not just as part of
+the full orchestrator).
+
+**Not yet done**: results have not been fed into step8a/8b to regenerate
+extended alignments or update `report.html` for scorpion — this run was a
+tool-correctness test, not yet a publish step. The 3 undetermined
+subfamilies have not been individually inspected by eye.
+
 ## Not yet done
 
 - Re-verify/re-publish `eri`'s alignments with this same `(+,-)` fix (see
