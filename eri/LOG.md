@@ -569,3 +569,53 @@ been run. `step7_boundary_refine.sh` (the generalized per-locus version of
 this same method, not yet run against real data) uses the identical
 mean-identity approach and likely has the same blind spot — worth fixing
 there too before it's ever run for real, not just here.
+
+## 2026-08-21 — Proper re-test: fraction-of-pairs, not mean
+
+Rebuilt the test to fix the exact blind spot above: instead of a single
+mean pairwise identity, sample up to 1000 pairs per window and compute the
+**fraction** of those pairs exceeding a 45% identity cutoff
+(`elevated_frac`). A window only counts as background once `elevated_frac`
+is within 5 points of this genome's own background `elevated_frac` — which
+was measured directly and freshly for this test (500 random unrelated
+70bp genomic windows, 3000 sampled pairs): mean identity 13.0%, only
+**0.1%** of background pairs exceed 45% identity by chance, so the pass
+threshold is 5.1%.
+
+**Result**:
+
+| Set | Side | Extension needed | Elevated fraction at that point |
+|---|---|---|---|
+| top100 | upstream (5') | 0bp | 2.9% (bg 0.1%, threshold 5.1%) |
+| top100 | downstream (3') | 150bp | 1.3% (bg 0.1%, threshold 5.1%) |
+| rand100 | upstream (5') | 0bp | 0.4% (bg 0.1%, threshold 5.1%) |
+| rand100 | downstream (3') | 100bp | 0.9% (bg 0.1%, threshold 5.1%) |
+
+Re-verified by eye at both the newly-confirmed boundary (raw sequences
+genuinely heterogeneous, no shared motif visible in 12 sampled records at
+each) and the zone just before it (raw sequences still show the
+`gcaggcaccgag...cccagcaataa` motif in ~10-11% of sampled pairs — correctly
+rejected by the fraction test). This is a real, not statistically-averaged-
+away, confirmation of the fuzzy-3'-boundary hypothesis: the downstream
+boundary needed 100-150bp of extension (2-3x more than the retracted first
+attempt's 50bp) before the shared motif genuinely disappears. top100 and
+rand100 land at slightly different values (150bp vs 100bp) — plausibly
+because top100 (bitscore-ranked) systematically selects longer/more-intact
+copies whose real 3' extent runs further.
+
+Published as the corrected version of the `report.html#e2-3-extended`
+section (the mean-based retraction notice replaced with this method and
+result; the wrong-but-retracted `eri_e2-3_{top100,rand100}_extended.aln.fa`
+files are kept for audit, the new
+[`eri_e2-3_top100_extended_v2.aln.fa`](alignments/eri_e2-3_top100_extended_v2.aln.fa)
+/
+[`eri_e2-3_rand100_extended_v2.aln.fa`](alignments/eri_e2-3_rand100_extended_v2.aln.fa)
+(50L+220R / 50L+170R flanks) are the ones actually linked from the page
+now), raw numbers in
+[`e2-3_extend/boundary_results_v2.tsv`](e2-3_extend/boundary_results_v2.tsv).
+
+**Still not yet done**: `step7_boundary_refine.sh` (the general pipeline
+version) still needs the same fraction-based fix applied before it is ever
+run for real — not done as part of this entry, tracked separately. The
+tandem-repeat-overlap correlation hypothesis for the still-conserved
+subgroup also remains unchecked.

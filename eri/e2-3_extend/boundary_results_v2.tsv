@@ -1,0 +1,5 @@
+variant	side	boundary_bp	status	mean_identity_pct	elevated_frac_pct	bg_mean	bg_frac	frac_threshold
+top100	upstream	0	confirmed	18.454	2.900	13.033	0.100	5.1
+top100	downstream	150	confirmed	15.088	1.300	13.033	0.100	5.1
+rand100	upstream	0	confirmed	15.082	0.400	13.033	0.100	5.1
+rand100	downstream	100	confirmed	15.392	0.900	13.033	0.100	5.1
