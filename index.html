@@ -296,6 +296,37 @@ a { color:var(--accent); }
   </div>
 </section>
 
+<section class="card" style="border-left:4px solid #c0392b;">
+  <h2>Timema cristinae &mdash; unconfirmed candidate SINE-like elements (not Eulipotyphla)</h2>
+  <p style="color:var(--muted);font-size:.9rem;margin-top:4px;">
+    <strong style="color:#c0392b;">These are not confirmed SINEs.</strong> Same situation as
+    the scorpion work above: <i>Timema cristinae</i> (a stick insect, Phasmatodea &mdash; an
+    insect, unrelated to the scorpion work too) has no known SINE consensus library, so the 8
+    "subfamilies" below are candidate consensuses from an exploratory de novo discovery pipeline
+    (cross-species fragment homology search against the same 958-fragment query bank used for
+    scorpions, then manual SubFam clustering), not validated SINE families. Kept in this repo
+    purely for infrastructure reuse. See <a href="tim/LOG.md">tim/LOG.md</a> for the full
+    methodology.
+  </p>
+  <div class="species-grid" style="margin-top:12px;">
+    <div class="sp-card">
+      <h3>tim <span class="tag tag-candidate">unconfirmed candidate</span></h3>
+      <div class="sci">Timema cristinae &mdash; stick insect (GCA_050494535.1)</div>
+      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;">
+        8 candidate subfamilies (manually clustered from SubFam output)
+        &middot; 172,236&ndash;1,010 assigned copies per subfamily
+        &middot; <a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_050494535.1/" target="_blank">GCA_050494535.1</a>
+      </div>
+      <div class="actions">
+        <a class="btn" href="tim/report.html"><i>Timema cristinae</i> &mdash; candidate report</a>
+        <a class="btn secondary" href="javascript:void(0)"
+           onclick="openMSA('tim/alignments/tim_consensuses.aln.fa','tim all consensi')">All Consensi in MSA</a>
+        <a class="btn secondary" href="tim/LOG.md">Analysis Log</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 </main>
 <script>
 const RAW = 'https://raw.githubusercontent.com/Toki-bio/Tal/main/';
