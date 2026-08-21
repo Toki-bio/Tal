@@ -257,3 +257,102 @@ CSS class) — so even with genuinely correct flank data, there is currently
 no visual way to distinguish flank (lowercase) from body (uppercase) bases
 in the viewer. Not yet fixed; would need a `flank` CSS class keyed off
 original case before the uppercase-normalization step.
+
+## 2026-08-21 — Tandem-repeat contamination: quantified genome-wide, checked per-Tribe
+
+Follow-up on the periodicity finding above. Ran genome-wide Tandem Repeats
+Finder (`/data/V/toki/bin/trf`, parallelized 32-way by contig via
+[`run_trf_genome.sh`](scripts/run_trf_genome.sh) — not committed to
+`scripts/` yet, see below) against `genome.clean.fa`, then intersected the
+result against both the full SINE hit set and each Tribe individually.
+
+**Two real bugs hit and fixed along the way** (documented here since they're
+easy to repeat):
+1. `trf` (the installed v4.09 build) segfaults above `MaxPeriod≈2000` — every
+   value tried from 2200 up crashed it consistently. Empirically verified
+   2000 is still sufficient: a direct test on tribe10's known periodic
+   region found real tandem content at MaxPeriod=2000 (small microsatellite
+   periods of 1/3/4/10bp, recurring in an alternating ~1,160bp/~2,260bp
+   pattern that sums to the same ~3,425bp macro-period found earlier) — the
+   true tandem unit is tiny, the larger inter-hit spacing is just the
+   SINE-query-motif's recurrence interval within the array.
+2. First full run "completed" in 1 second with 0 results — `$OUTDIR` was
+   passed as a relative path, and each parallel job does `cd "$OUTDIR/dat"`
+   before referencing a path built from `$OUTDIR`, breaking resolution
+   after the cd. Fixed by resolving `$OUTDIR`/`$GENOME` to absolute paths
+   upfront. Second bug, same symptom class: `trf2bed` writes its own
+   `<input>.bed` file rather than printing to stdout (looks like it should
+   from the command name, isn't) — the script was capturing stdout, getting
+   nothing, silently succeeding with an empty merged BED. Fixed by `cat`-ing
+   the real per-chunk `.bed` files it produces.
+
+**Genome-wide result**: 1,105,283 merged tandem-repeat intervals, ~103.7Mb
+total (~4% of the 2.6Gb genome).
+
+**SINE hit exclusion estimate**: intersecting against all 1,735,888 assigned
+SINE hits (`step2_output/assigned.fasta`), **207,492 (11.95%) fall inside a
+tandem-repeat interval** and should be excluded from the true SINE copy
+count. Per subfamily:
+
+| Subfamily | Total | In tandem | % |
+|---|---|---|---|
+| e1-1 | 123,749 | 13,244 | 10.7% |
+| e1-2 | 146,021 | 29,917 | 20.5% |
+| e1-3 *(header: e1-3consensus_32seqs)* | 83,033 | 6,521 | 7.9% |
+| e1-4 | 10,859 | 85 | 0.8% |
+| e2-1 | 631,692 | 74,333 | 11.8% |
+| e2-2 | 11,578 | 141 | 1.2% |
+| e2-3 | 647,525 | 75,876 | 11.7% |
+| e2-4 | 81,431 | 7,375 | 9.1% |
+
+**Per-Tribe check — finding "proper" tribes with unique flanks**: this is
+the direct, authoritative check (vs. the periodicity-in-hit-spacing proxy
+used in the previous entry, which turned out to be an unreliable predictor —
+see below).
+
+| Tribe | Tandem overlap (of 500 sampled members) |
+|---|---|
+| tribe02 | **89.0%** — contaminated |
+| tribe07 | **89.6%** — contaminated |
+| tribe09 | **88.6%** — contaminated |
+| tribe01 | 0.2% — clean |
+| tribe03 | 0.2% — clean |
+| tribe04 | 0.0% — clean |
+| tribe05 | 0.0% — clean |
+| tribe06 | 0.2% — clean |
+| tribe08 | 0.0% — clean |
+| tribe10 | 0.0% — clean |
+
+**7 of 10 tribes (01, 03, 04, 05, 06, 08, 10) are genuinely clean, dispersed
+SINE families** — not tandem-array artifacts.
+
+**The periodicity proxy from the previous entry was a poor predictor**: it
+flagged tribe06/08/09/10 as suspicious (strong periodic SINE-hit spacing,
+59-94% regularity) and called tribe02 the cleanest (weakest periodicity,
+19%). Direct TRF evidence agrees only on tribe09; it's wrong for tribe02
+(actually 89% contaminated despite irregular spacing) and wrong for
+tribe06/08/10 (actually clean despite regular spacing). Lesson: periodic
+hit-*spacing* and actual tandem-repeat *sequence content* overlap are not
+the same signal — a tribe can sit mostly inside satellite DNA with
+irregular hit spacing, or have regular hit spacing while sitting almost
+entirely outside any TRF-detected tandem region. Direct intersection
+against real tandem annotation (this entry) is the reliable check; the
+spacing heuristic (previous entry) was only useful for raising the
+question, not answering it.
+
+Scripts: [`scripts/run_trf_genome.sh`](scripts/run_trf_genome.sh),
+[`scripts/per_subfamily_tandem_overlap.sh`](scripts/per_subfamily_tandem_overlap.sh),
+[`scripts/per_tribe_tandem_overlap.py`](scripts/per_tribe_tandem_overlap.py).
+Data: [`tandem_analysis/summary.tsv`](tandem_analysis/summary.tsv) (the two
+tables above). The full interval/hit BED files (`tandem_repeats.merged.bed`,
+1.1M intervals; `sine_hits.in_tandem.bed`, the 207,492 excluded hits) are
+*not* committed — repo convention excludes all `*.gz`/raw per-hit BED data
+(see `.gitignore`, matches how every other species' `assigned.fasta`/
+`all_hits.labeled.bed` etc. are handled). They remain on KIT in
+`run_20260820_221537/` (`trf_out/tandem_repeats.merged.bed`,
+`sine_hits.in_tandem.bed`) for anyone who wants to audit specific loci.
+
+**Not yet done**: the 7 clean tribes haven't been re-published as a
+filtered/labeled subset anywhere on the page yet (still sitting in
+`eri/tribes/` undifferentiated from the 3 contaminated ones) — a report.html
+update flagging which of the 10 is which is the natural next step.
