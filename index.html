@@ -28,6 +28,8 @@ section.card h2 { margin-top:0; font-size:1.1rem; color:#2c3e50;
        font-size:.78rem; font-weight:600; }
 .tag-ok  { background:#d4edda; color:#155724; }
 .tag-partial { background:#fff3cd; color:#856404; }
+.tag-candidate { background:#f8d7da; color:#721c24; }
+.tag-other-family { background:#e2e3ff; color:#2d2d8f; }
 .tag-no  { background:#f0f0f0; color:#777; }
 a.btn { display:inline-block; background:var(--accent); color:#fff;
         padding:4px 12px; border-radius:4px; font-size:.84rem;
@@ -47,7 +49,7 @@ a { color:var(--accent); }
 </head><body>
 <header>
   <h1>Tal SINE — Talpidae Analysis</h1>
-  <div class="sub">tRNA-derived Short Interspersed Nuclear Elements across 6 Eulipotyphla genomes &mdash; 2 moles, 2 Talpa, 2 desmans</div>
+  <div class="sub">tRNA-derived Short Interspersed Nuclear Elements across 6 Talpidae genomes &mdash; 2 moles, 2 Talpa, 2 desmans. This site also hosts two related-infrastructure, non-Talpidae projects kept separate below: confirmed Erinaceidae (hedgehog) SINEs, and unconfirmed candidate SINE-like elements from Scorpiones.</div>
 </header>
 <main>
 
@@ -147,8 +149,21 @@ a { color:var(--accent); }
       </div>
     </div>
 
+  </div>
+</section>
+
+<section class="card" style="border-left:4px solid #2d2d8f;">
+  <h2>Erinaceidae SINE &mdash; confirmed, but not Talpidae</h2>
+  <p style="color:var(--muted);font-size:.9rem;margin-top:4px;">
+    <i>Erinaceus europaeus</i> (European hedgehog) belongs to Erinaceidae, a different
+    Eulipotyphla family from the 6 Talpidae species above &mdash; kept on this site for
+    infrastructure reuse, not because it is a Talpidae result. Unlike the scorpion work below,
+    this SINE family is a real, confirmed classification against known literature consensuses
+    (ERI-1/ERI-2, Borodulina 2001), not a de novo/unconfirmed candidate.
+  </p>
+  <div class="species-grid" style="margin-top:12px;">
     <div class="sp-card">
-      <h3>eri <span class="tag tag-ok">full report</span></h3>
+      <h3>eri <span class="tag tag-other-family">confirmed &middot; not Talpidae</span></h3>
       <div class="sci">Erinaceus europaeus &mdash; European hedgehog (Erinaceidae)</div>
       <div style="font-size:.82rem;color:var(--muted);margin-top:4px;">
         8 subfamilies (e1-1..e1-4, e2-1..e2-4) &middot; 1,735,888 assigned copies
@@ -164,7 +179,6 @@ a { color:var(--accent); }
         <a class="btn secondary" href="eri/LOG.md">Analysis Log</a>
       </div>
     </div>
-
   </div>
 </section>
 
@@ -223,16 +237,21 @@ a { color:var(--accent); }
         <td><span class="tag tag-ok"><a href="dmo/report.html">HTML</a></span></td>
         <td><span class="tag tag-ok">top100 · rand100 · subfam</span></td>
       </tr>
-      <tr>
-        <td><strong>eri</strong> <em>Erinaceus europaeus</em></td>
+      <tr style="border-top:3px solid #2d2d8f;">
+        <td><strong>eri</strong> <em>Erinaceus europaeus</em> <span class="tag tag-other-family" style="margin-left:4px;">not Talpidae</span></td>
         <td><span class="tag tag-ok">✓</span></td>
-        <td><span class="tag tag-partial">initial: 2 &middot; 1,276,402</span></td>
-        <td><span class="tag tag-no">&mdash;</span></td>
-        <td><span class="tag tag-no">pending</span></td>
-        <td><span class="tag tag-partial">candidate consensi vs SINEbase</span></td>
+        <td><span class="tag tag-ok">✓ 8 &middot; 1,735,888</span></td>
+        <td><span class="tag tag-ok">✓</span></td>
+        <td><span class="tag tag-ok"><a href="eri/report.html">HTML</a></span></td>
+        <td><span class="tag tag-ok">top100 · rand100 · subfam</span></td>
       </tr>
     </tbody>
   </table>
+  <p style="color:var(--muted);font-size:.82rem;margin-top:8px;">
+    The row above (eri) is Erinaceidae, a different family from the 6 Talpidae rows above it &mdash;
+    see the separate section below for context. Scorpiones (sco) is not listed in this table at all;
+    it is an unrelated, unconfirmed-candidate project, see its own section further down.
+  </p>
 </section>
 
 <section class="card">
@@ -245,19 +264,22 @@ a { color:var(--accent); }
   </ul>
 </section>
 
-<section class="card">
-  <h2>Other de novo SINE work sharing this infrastructure (not Eulipotyphla)</h2>
+<section class="card" style="border-left:4px solid #c0392b;">
+  <h2>Scorpiones &mdash; unconfirmed candidate SINE-like elements (not Eulipotyphla)</h2>
   <p style="color:var(--muted);font-size:.9rem;margin-top:4px;">
-    Scorpiones (scorpions) — an unrelated, exploratory de novo SINE discovery project using the
-    same SINEderella/report.html pipeline as the species above, kept in this repo for
-    infrastructure reuse rather than taxonomic relevance. See
+    <strong style="color:#c0392b;">These are not confirmed SINEs.</strong> Unlike every species
+    above (Talpidae and the confirmed Erinaceidae/eri result), scorpions have no known SINE
+    consensus library to classify against &mdash; the 29 "subfamilies" below are candidate
+    consensuses from an exploratory de novo discovery pipeline (cross-species fragment homology
+    search, manual SubFam clustering), not validated SINE families. Kept in this repo purely for
+    infrastructure reuse, in a completely unrelated taxon (an arachnid, not a mammal). See
     <a href="sco/LOG.md">sco/LOG.md</a> for the full methodology (why scorpions, de novo query
     construction, batch genome scan across 11 assemblies, and the manual SubFam clustering that
     produced the 29 candidate consensuses below).
   </p>
   <div class="species-grid" style="margin-top:12px;">
     <div class="sp-card">
-      <h3>sco <span class="tag tag-ok">full report</span></h3>
+      <h3>sco <span class="tag tag-candidate">unconfirmed candidate</span></h3>
       <div class="sci">Belisarius xambeui — scorpion (GCA_982267015.1)</div>
       <div style="font-size:.82rem;color:var(--muted);margin-top:4px;">
         29 candidate subfamilies (manually clustered from SubFam output)
@@ -265,7 +287,7 @@ a { color:var(--accent); }
         &middot; <a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_982267015.1/" target="_blank">GCA_982267015.1</a>
       </div>
       <div class="actions">
-        <a class="btn" href="sco/report.html"><i>Belisarius xambeui</i> &mdash; full report</a>
+        <a class="btn" href="sco/report.html"><i>Belisarius xambeui</i> &mdash; candidate report</a>
         <a class="btn secondary" href="javascript:void(0)"
            onclick="openMSA('sco/alignments/sco_consensuses.aln.fa','sco all consensi')">All Consensi in MSA</a>
         <a class="btn secondary" href="sco/LOG.md">Analysis Log</a>
