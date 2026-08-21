@@ -1,3 +1,10 @@
+>e1-1_CONSENSUS
+G---TGGTCCGGGAGGTGGCGCAGTGG----ATAAAGCATTGGACTCTCAA---GCATGA
+GGTCCTGAGTTCAATCCCCGGC--AGCACA-TGTACCAGAGTG---ATGTCTGG--TTCT
+TTC---------TCTC-TC-TCCTCCT--------------ATCTTT-------------
+------CTC----AT------TAAT-AAATAAATAAA----ATCT-----TTAAAAAAAA
+A-----------------------------------------------------------
+----------------------------------------------------
 >input_001.bnk
 G---TGGTCCAGGAGGTGGCgCAGTGG----ATAAAGCATTGGACTCTCAA---GCATGA
 GGTCCTGAGTTCAATCCCCGGC--AGCACA-TGTACCAGAGTG---ATGTCTGG--TTCT
@@ -501,13 +508,6 @@ GGTCCTGAGTTCAATCCCCgGC--AGCACA-TGTACCAGAGTG---ATGTCTGG--TTCT
 TTC---------TCTC-TC-TcCTCCT--------------ATCTTT-------------
 ------CTC----AT------TAAT-AAATAAATAAA----ATCT-----TTAAAAAAAA
 a-----------------------------------------------------------
-----------------------------------------------------
->e1-1_CONSENSUS
-G---TGGTCCGGGAGGTGGCGCAGTGG----ATAAAGCATTGGACTCTCAA---GCATGA
-GGTCCTGAGTTCAATCCCCGGC--AGCACA-TGTACCAGAGTG---ATGTCTGG--TTCT
-TTC---------TCTC-TC-TCCTCCT--------------ATCTTT-------------
-------CTC----AT------TAAT-AAATAAATAAA----ATCT-----TTAAAAAAAA
-A-----------------------------------------------------------
 ----------------------------------------------------
 >input_123.bnk
 G---TGGTCCGGGAGGTGGCgCAGTGG----ATAAAGCAcTGGACTCTCAA---GCATGA

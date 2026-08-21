@@ -1,3 +1,11 @@
+>e1-3consensus_32seqs_CONSENSUS
+--------------------------------------------------------------------------------
+---GCGGGAGGTG------------GCAC----AGTGGA-----TA----AAGCATTGGACTCTC--------AAGCATG
+AGGTCC-------TGAGTTCAAT--CCCTGG-----CATCACAT----------GTGCCAGAG----------TGATGCT
+CTGGT-----------TCTCTCTCTCTCTTTCT-----------------------------------------CATAAT
+AAATAAA--------------TAAATTTTTAAAAAAAA------------------------------------------
+--------------------------------------------------------------------------------
+---------------
 >NC_080167.1:55650635-55650758(+)|e1-3consensus_32seqs|738(+)
 ------------------------------------ggtttggcacttggcttgtatgctaatactcagcagtgtctctt
 ggctaaggagatg------------gcac----agtgga-----ca----aagtcttggactctg--------aagcatg
@@ -37,14 +45,6 @@ agtttc-------caagtttgat--ctctgg-----caggtaat----------gtaccagag----------tgatgct
 ctggt-----------tttctacctctctctctct--------------------------------------ccacaat
 aaattaa--------------taatttttttaaaaataaaacaaataaatacacattaaataaaaaattttaaaaactaa
 ggatgtactggataaagctaaagatgccaataatg---------------------------------------------
----------------
->e1-3consensus_32seqs_CONSENSUS
---------------------------------------------------------------------------------
----GCGGGAGGTG------------GCAC----AGTGGA-----TA----AAGCATTGGACTCTC--------AAGCATG
-AGGTCC-------TGAGTTCAAT--CCCTGG-----CATCACAT----------GTGCCAGAG----------TGATGCT
-CTGGT-----------TCTCTCTCTCTCTTTCT-----------------------------------------CATAAT
-AAATAAA--------------TAAATTTTTAAAAAAAA------------------------------------------
---------------------------------------------------------------------------------
 ---------------
 >NC_080173.1:47328686-47328825(-)|e1-3consensus_32seqs|996(-)
 ----------------------------ataaagtaaataaaatattttcaaaatcacaaggaaggagaaggataatggt

@@ -1,3 +1,10 @@
+>e2-2_CONSENSUS
+--------------------------------------------------------------------------------
+GGTACCAGGTGGTGCCACACCC----------------------AGTTAAGCACTCATGTTACAATGCAGGAGGACTGGG
+CTTCAACACCCTGGTCCCCACCTGCCAGGGGAAATCTTTACAAGTGGTGCAGAAGTGCTGCAGGTGTCTCTCTCTGTGTC
+T---------CAAACTCTCTCTACCTCCCTTCCCT-------CTCAATTCCTGTCTATTTATTCCAGTGAAT-AA-----
+--------------------------------------------------------------------------------
+--------------------
 >NW_026647124.1:712741-712937(-)|e2-2|2144(-)
 ------------------------------ccttgccacgagaatttcttttcattgctaaaaaaaagtgtcccatcaag
 ggtaccaggtggtgccacaccc----------------------agttaagcactcatgttacaatgcaggaggactggg
@@ -172,13 +179,6 @@ ggtaccaggtggtgccacaccc----------------------agttaagcactcatgttacaatgcaggaggactggg
 cttcaacaccctggttcccacctgccaggggaaatctttacaagtggtgcagaagtgctgcagttgtctctctctgtgtc
 t---------caaactctctctacctcccttccct-------ctcaattcctgtctatttattccagtgaat-aatcaag
 aaaatagaaagtaaaaaaagaaaaaggaaaaggaaatattccacgacttcaaatgggctactcag---------------
---------------------
->e2-2_CONSENSUS
---------------------------------------------------------------------------------
-GGTACCAGGTGGTGCCACACCC----------------------AGTTAAGCACTCATGTTACAATGCAGGAGGACTGGG
-CTTCAACACCCTGGTCCCCACCTGCCAGGGGAAATCTTTACAAGTGGTGCAGAAGTGCTGCAGGTGTCTCTCTCTGTGTC
-T---------CAAACTCTCTCTACCTCCCTTCCCT-------CTCAATTCCTGTCTATTTATTCCAGTGAAT-AA-----
---------------------------------------------------------------------------------
 --------------------
 >NW_026647132.1:734312-734508(+)|e2-2|2164(+)
 ------------------------------cctggccacgagaatttcttttcattgctaaaaaaaagtgtcccatcaag
