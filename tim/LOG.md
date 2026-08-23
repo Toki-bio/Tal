@@ -126,6 +126,58 @@ This entirely replaces the previous 8-subfamily (`t1`-`t8`) publish —
 old `t3`/`t4`/`t5` alignment files removed, all others regenerated fresh
 against the new run.
 
+## 2026-08-23 — Cross-check against an independent de novo tool (AnnoSINE_v2)
+
+A separate, unrelated exploration this session built a from-scratch
+ab-initio SINE discovery pipeline and benchmarked several published tools
+against it, including [AnnoSINE_v2](https://github.com/liaoherui/AnnoSINE_v2)
+(Liao, Sun & Ou, *Mobile DNA* 2024) — a structure-based (TSD/poly-A/RNA-pol-III-promoter
+signal) de novo SINE finder that needs no prior consensus library. Since it
+needs no library, it's a genuinely independent check: it was never given the
+6 `t1`/`t2`/`t345`/`t6`/`t7`/`t8` consensuses above, and found its own 55
+candidates from the raw genome alone (mode 3 hybrid; zero hits from its
+built-in homology/HMM library — Timema has no related family in it — so all
+55 rest entirely on the structural module, each independently tagged as
+tRNA-derived).
+
+**Cross-check method**: `blastn` both directions between the 6 manually-curated
+consensuses and AnnoSINE_v2's 55 candidates (`-evalue 1e-10`, `-word_size 11`).
+
+**Result — real, mutual convergence, not circular**:
+
+- **All 6 of the manually-curated subfamilies** have at least one significant
+  AnnoSINE_v2 hit (e-values 1e-12 to 1e-95, 82–89% identity).
+- **40 of AnnoSINE_v2's 55 candidates (73%)** independently converge onto one
+  of the 6 subfamilies:
+
+  | Subfamily | # AnnoSINE_v2 candidates matching it |
+  |---|---|
+  | t1 | 14 |
+  | t2 | 17 |
+  | t345 | 3 |
+  | t6 | 6 |
+  | t7 | 1 |
+  | t8 | 2 |
+
+  Identity is consistently 76–89% — high enough to clearly be the same
+  underlying element, low enough (never >95%) that this reads as two
+  independent measurements agreeing, not one derived from the other.
+- **15 candidates (27%) found no match**: `SINE_3, 6, 17, 19, 22, 25, 28, 30,
+  38, 39, 46, 47, 50, 52, 53`. Either genuinely novel families the manual
+  6-subfamily curation hasn't captured, or false positives from AnnoSINE_v2's
+  more permissive purely-structural net (no homology backstop at all for this
+  taxon) — not yet manually inspected either way.
+
+This is independent support that the 6 manually-curated subfamilies are real,
+structurally-detectable SINEs and not artifacts of the `sear`/`ssearch36`
+homology pipeline alone — a second, methodologically unrelated tool finds the
+same families from raw sequence with no prior knowledge of them.
+
+Full pairwise tables (on DRAGEN, not yet copied into this repo):
+`/staging/tmp/timema_sines/cross_check/{user_vs_annosine,annosine_vs_user}.tsv`,
+`unmatched.txt`. AnnoSINE_v2's raw 55-candidate output:
+`/staging/tmp/timema_sines/annosine2/out/Seed_SINE.fa`.
+
 ## Not yet done
 
 - Fix the `SINEderella` orchestrator's results/-directory race so
@@ -135,3 +187,5 @@ against the new run.
 - No cross-referencing of the 6 refined candidate subfamilies against any
   Phasmatodea-specific literature (none was assumed to exist, same as
   scorpions — these remain unconfirmed candidates).
+- Manually inspect the 15 AnnoSINE_v2 candidates with no match to any of the
+  6 curated subfamilies (real/novel vs. structural-scan false positive).
