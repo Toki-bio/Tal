@@ -178,6 +178,29 @@ Full pairwise tables (on DRAGEN, not yet copied into this repo):
 `unmatched.txt`. AnnoSINE_v2's raw 55-candidate output:
 `/staging/tmp/timema_sines/annosine2/out/Seed_SINE.fa`.
 
+## 2026-08-23 — `t7` set aside for separate treatment
+
+`t7` is excluded from the new, further-split curated consensus set (below) —
+not dropped as invalid, but held out deliberately. It only *partly* resembles
+a SINE: the SINE-like signature appears to be a fragment embedded within a
+larger repeat of unknown nature, not a clean standalone element the way
+`t1`/`t2`/`t3`/`t6`/`t8` are. Classifying it alongside the others in a normal
+SINEderella run would conflate two different questions (is this a SINE
+copy-number/subfamily assignment vs. is this a fragment of a larger,
+unrelated repeat family), so it needs its own separate investigation rather
+than being folded into this run. Revisit once the surrounding larger repeat
+is characterized.
+
+## 2026-08-23 — Further manual split into finer subfamilies
+
+User further split the curated consensus set into smaller, more homogeneous
+subfamilies based on closer inspection — `t1` &rarr; `t1_1`/`t1-2`/`t1-3`/`t1-4`,
+`t2` &rarr; `t2-1`/`t2-2`, `t345` split back apart into `t3-1`/`t3-2` (no longer
+merged), `t6` &rarr; `t6-1`...`t6-5`, `t8` &rarr; `t8-1`/`t8-2` — **15 consensus
+sequences total**, `t7` excluded (see above). Full `SINEderella` rerun
+launched against this set (`run_20260823_063444`); results to be added here
+and alignments/report republished once complete.
+
 ## Not yet done
 
 - Fix the `SINEderella` orchestrator's results/-directory race so
@@ -189,3 +212,5 @@ Full pairwise tables (on DRAGEN, not yet copied into this repo):
   scorpions — these remain unconfirmed candidates).
 - Manually inspect the 15 AnnoSINE_v2 candidates with no match to any of the
   6 curated subfamilies (real/novel vs. structural-scan false positive).
+- Characterize the larger repeat `t7` is embedded in, then decide how to
+  treat it (separate family? chimera flag? exclude entirely?).
