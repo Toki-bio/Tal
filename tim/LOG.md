@@ -247,11 +247,67 @@ actually fixing the race at the source afterward (block reorder in the main
 after) — not yet re-verified with a fresh run since the fix, but the fix
 itself is in place for the next one.
 
+## 2026-08-24 — t6-2/t6-3/t6-4 consensus extension, t2-1/t2-2 remerge (v4)
+
+Two follow-ups from inspecting the v3 alignments directly in the MSA viewer:
+
+**t6-2/t6-3/t6-4 consensuses were truncated.** The published alignments showed
+a clearly shared, non-decaying motif continuing well past where the consensus
+sequence stopped — not gradual decay into unique per-copy tails, a real
+conserved block the original consensus simply never captured. Diagnosed by
+column-level coverage analysis on the `rand100` alignment (excluding the old
+consensus row): sustained shared signal continued for another 140–270
+alignment columns past the old edge before genuinely dropping to background.
+Fixed by re-extracting with a widened right flank (320bp, up from the
+default 70bp) and re-aligning — not by rebuilding the consensus itself from
+that alignment (a first attempt at that produced 40–60% `n` positions from
+per-column vote splitting across a very indel-rich alignment, not usable).
+User then manually extended the three consensuses directly using the wider
+alignments.
+
+**t2-1/t2-2 merged back into one `t2` consensus.**
+
+Full `SINEderella` rerun against the updated 14-consensus set
+(`run_20260823_103133`, "v4"):
+
+| Subfamily | Total assigned | Firm % | Sim mean | vs. v3 |
+|---|---|---|---|---|
+| t1-2 | 120,871 | 29.02 | 0.6496 | ~same |
+| t1_1 | 54,058 | 12.79 | 0.8830 | up from 0.8135 |
+| t3-1 | 47,256 | 12.25 | 0.9208 | up from 0.9084 |
+| t3-2 | 31,892 | 8.11 | 0.9201 | up from 0.9091 |
+| t1-4 | 40,909 | 7.97 | 0.3452 | ~same |
+| t1-3 | 30,666 | 4.89 | 0.6116 | ~same |
+| t8-2 | 21,129 | 4.21 | 0.5793 | down from 0.6186 |
+| t2 (merged) | 14,652 | 3.76 | 0.6488 | replaces t2-1/t2-2 |
+| t8-1 | 11,400 | 2.83 | 0.6418 | down from 0.6999 |
+| t6-1 | 5,705 | 1.45 | 0.5954 | ~same |
+| t6-2 | 2,256 | 0.57 | 0.5589 | fewer copies (2,720→2,256), extended consensus is pickier |
+| t6-4 | 1,061 | 0.27 | 0.5366 | fewer copies (1,444→1,061) |
+| t6-3 | 717 | 0.17 | 0.5633 | fewer copies (883→717) |
+| t6-5 | 957 | 0.10 | 0.6372 | ~same |
+
+The extended t6-2/t6-3/t6-4 consensuses recruit fewer but more specific
+copies, as expected from a longer, more precise reference. t1_1/t3-1/t3-2
+all show a real `sim_mean` improvement from the refined consensus set.
+
+`step8a`/`step8b` ran cleanly against this run — all 14 subfamilies got all
+three alignment variants. This is the first run to complete after the
+`SINEderella` orchestrator's results/-directory race fix (2026-08-23):
+`results/report.html` (3.6MB) survived intact with no manual workaround
+needed, confirming the fix holds.
+
+This **entirely replaces** the v3 15-subfamily publish — `t2-1`/`t2-2`
+alignment files removed, `t6-2`/`t6-3`/`t6-4` regenerated with the extended
+consensuses, `tim_consensuses.fa` refreshed to the 14-sequence v4 set,
+`report.html` regenerated fresh against this run.
+
 ## Not yet done
 
 - Fix the `SINEderella` orchestrator's results/-directory race so
   `step6_report.sh` doesn't need a manual standalone re-run (hit again on
   this rerun, same as the first run — genuinely reproducible, not a fluke).
+  **Fixed 2026-08-23, confirmed holding on the v4 run above.**
 - Tandem-repeat contamination check (TRF) not done on this genome yet.
 - No cross-referencing of the 6 refined candidate subfamilies against any
   Phasmatodea-specific literature (none was assumed to exist, same as
