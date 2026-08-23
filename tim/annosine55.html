@@ -1,0 +1,493 @@
+<title>AnnoSINE_v2 55-candidate cross-check</title>
+<style>
+:root{
+  --bg:#f5f2ea; --paper:#ffffff; --ink:#1d241f; --muted:#5c665e; --line:#dcd5c2;
+  --accent:#0d6b58; --accent-bg:#e4efe9; --warn:#9c3b1e; --warn-bg:#fbe9e4;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#141815; --paper:#1c2119; --ink:#e9e5d8; --muted:#9a9b8f; --line:#39412f;
+    --accent:#4fc3a1; --accent-bg:#1e3128; --warn:#e08063; --warn-bg:#3a2118;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#141815; --paper:#1c2119; --ink:#e9e5d8; --muted:#9a9b8f; --line:#39412f;
+  --accent:#4fc3a1; --accent-bg:#1e3128; --warn:#e08063; --warn-bg:#3a2118;
+}
+*{box-sizing:border-box;}
+body{background:var(--bg); color:var(--ink); font-family:system-ui,-apple-system,"Segoe UI",sans-serif; margin:0; padding:2rem 1rem 4rem;}
+.wrap{max-width:960px; margin:0 auto;}
+h1{font-size:1.6rem; margin:0 0 .4rem;}
+p.lede{color:var(--muted); max-width:70ch; margin:0 0 1.5rem;}
+.mono{font-family:"SFMono-Regular",Consolas,monospace; font-size:.85rem;}
+table{width:100%; border-collapse:collapse; background:var(--paper); border:1px solid var(--line); border-radius:8px; overflow:hidden;}
+th,td{padding:.5rem .7rem; border-bottom:1px solid var(--line); font-size:.85rem; text-align:left;}
+th{background:var(--accent-bg); color:var(--accent); font-size:.75rem; text-transform:uppercase; letter-spacing:.04em;}
+td.num{text-align:right; font-variant-numeric:tabular-nums;}
+td.num.high{color:var(--warn);}
+.match{font-weight:600; color:var(--accent);}
+.pid{color:var(--muted); font-size:.78rem;}
+.nomatch{color:var(--muted); font-style:italic;}
+.links a{color:var(--accent); text-decoration:none; font-size:.82rem;}
+.links a:hover{text-decoration:underline;}
+.tablewrap{overflow-x:auto;}
+footer{margin-top:1.5rem; color:var(--muted); font-size:.8rem;}
+</style>
+<div class="wrap">
+<h1>AnnoSINE_v2's 55 candidates vs. the curated subfamilies</h1>
+<p class="lede">All 55 structural candidates AnnoSINE_v2 found independently (no homology library,
+no knowledge of the curated consensuses) run through SINEderella against the full genome,
+one candidate = one consensus, purely to see how much of the genome each one pulls in and
+how much of that 55 is noise. "Matches" a curated subfamily if blastn found a significant hit
+(e-value &lt; 1e-10) between the two; identity shown is the best hit found, against the original
+t1/t2/t345/t6/t7/t8 curated set (not yet re-checked against the finer v4 split).</p>
+<div class="tablewrap">
+<table>
+<thead><tr><th>Candidate</th><th>Matches</th><th>Total assigned</th><th>Leak %</th><th>Sim mean</th><th>Alignments</th></tr></thead>
+<tbody>
+<tr>
+      <td class="mono">SINE_18</td>
+      <td><span class="match">t1</span> <span class="pid">(88.446% id)</span></td>
+      <td class="num">87,601</td>
+      <td class="num mid">30.5%</td>
+      <td class="num">0.583</td>
+      <td class="links"><a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_18_top100.aln.fa&title=SINE_18%20top100">top100</a> &middot; <a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_18_rand100.aln.fa&title=SINE_18%20rand100">rand100</a></td>
+    </tr>
+<tr>
+      <td class="mono">SINE_36</td>
+      <td><span class="match">t345</span> <span class="pid">(85.382% id)</span></td>
+      <td class="num">77,502</td>
+      <td class="num low">0.1%</td>
+      <td class="num">0.751</td>
+      <td class="links"><a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_36_top100.aln.fa&title=SINE_36%20top100">top100</a> &middot; <a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_36_rand100.aln.fa&title=SINE_36%20rand100">rand100</a></td>
+    </tr>
+<tr>
+      <td class="mono">SINE_45</td>
+      <td><span class="match">t1</span> <span class="pid">(82.286% id)</span></td>
+      <td class="num">36,203</td>
+      <td class="num high">73.6%</td>
+      <td class="num">0.419</td>
+      <td class="links"><a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_45_top100.aln.fa&title=SINE_45%20top100">top100</a> &middot; <a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_45_rand100.aln.fa&title=SINE_45%20rand100">rand100</a></td>
+    </tr>
+<tr>
+      <td class="mono">SINE_41</td>
+      <td><span class="match">t1</span> <span class="pid">(80.808% id)</span></td>
+      <td class="num">30,663</td>
+      <td class="num mid">26.7%</td>
+      <td class="num">0.373</td>
+      <td class="links"><a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_41_top100.aln.fa&title=SINE_41%20top100">top100</a> &middot; <a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_41_rand100.aln.fa&title=SINE_41%20rand100">rand100</a></td>
+    </tr>
+<tr>
+      <td class="mono">SINE_5</td>
+      <td><span class="match">t1</span> <span class="pid">(78.771% id)</span></td>
+      <td class="num">30,630</td>
+      <td class="num high">80.9%</td>
+      <td class="num">0.389</td>
+      <td class="links"><a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_5_top100.aln.fa&title=SINE_5%20top100">top100</a> &middot; <a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_5_rand100.aln.fa&title=SINE_5%20rand100">rand100</a></td>
+    </tr>
+<tr>
+      <td class="mono">SINE_32</td>
+      <td><span class="match">t7</span> <span class="pid">(85.430% id)</span></td>
+      <td class="num">19,152</td>
+      <td class="num low">0.1%</td>
+      <td class="num">0.480</td>
+      <td class="links"><a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_32_top100.aln.fa&title=SINE_32%20top100">top100</a> &middot; <a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_32_rand100.aln.fa&title=SINE_32%20rand100">rand100</a></td>
+    </tr>
+<tr>
+      <td class="mono">SINE_51</td>
+      <td><span class="match">t1</span> <span class="pid">(76.163% id)</span></td>
+      <td class="num">16,095</td>
+      <td class="num high">75.6%</td>
+      <td class="num">0.369</td>
+      <td class="links"><a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_51_top100.aln.fa&title=SINE_51%20top100">top100</a> &middot; <a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_51_rand100.aln.fa&title=SINE_51%20rand100">rand100</a></td>
+    </tr>
+<tr>
+      <td class="mono">SINE_25</td>
+      <td><span class="nomatch">no match</span></td>
+      <td class="num">15,940</td>
+      <td class="num low">0.2%</td>
+      <td class="num">0.337</td>
+      <td class="links"><a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_25_top100.aln.fa&title=SINE_25%20top100">top100</a> &middot; <a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_25_rand100.aln.fa&title=SINE_25%20rand100">rand100</a></td>
+    </tr>
+<tr>
+      <td class="mono">SINE_31</td>
+      <td><span class="match">t1</span> <span class="pid">(80.105% id)</span></td>
+      <td class="num">15,566</td>
+      <td class="num high">84.2%</td>
+      <td class="num">0.421</td>
+      <td class="links"><a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_31_top100.aln.fa&title=SINE_31%20top100">top100</a> &middot; <a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_31_rand100.aln.fa&title=SINE_31%20rand100">rand100</a></td>
+    </tr>
+<tr>
+      <td class="mono">SINE_47</td>
+      <td><span class="nomatch">no match</span></td>
+      <td class="num">13,262</td>
+      <td class="num low">0.0%</td>
+      <td class="num">0.286</td>
+      <td class="links"><a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_47_top100.aln.fa&title=SINE_47%20top100">top100</a> &middot; <a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_47_rand100.aln.fa&title=SINE_47%20rand100">rand100</a></td>
+    </tr>
+<tr>
+      <td class="mono">SINE_24</td>
+      <td><span class="match">t1</span> <span class="pid">(77.612% id)</span></td>
+      <td class="num">10,685</td>
+      <td class="num high">89.1%</td>
+      <td class="num">0.435</td>
+      <td class="links"><a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_24_top100.aln.fa&title=SINE_24%20top100">top100</a> &middot; <a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_24_rand100.aln.fa&title=SINE_24%20rand100">rand100</a></td>
+    </tr>
+<tr>
+      <td class="mono">SINE_29</td>
+      <td><span class="match">t8</span> <span class="pid">(84.774% id)</span></td>
+      <td class="num">10,229</td>
+      <td class="num high">68.5%</td>
+      <td class="num">0.512</td>
+      <td class="links"><a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_29_top100.aln.fa&title=SINE_29%20top100">top100</a> &middot; <a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_29_rand100.aln.fa&title=SINE_29%20rand100">rand100</a></td>
+    </tr>
+<tr>
+      <td class="mono">SINE_14</td>
+      <td><span class="match">t1</span> <span class="pid">(82.051% id)</span></td>
+      <td class="num">8,532</td>
+      <td class="num high">81.5%</td>
+      <td class="num">0.341</td>
+      <td class="links"><a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_14_top100.aln.fa&title=SINE_14%20top100">top100</a> &middot; <a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_14_rand100.aln.fa&title=SINE_14%20rand100">rand100</a></td>
+    </tr>
+<tr>
+      <td class="mono">SINE_49</td>
+      <td><span class="match">t8</span> <span class="pid">(85.169% id)</span></td>
+      <td class="num">8,232</td>
+      <td class="num high">68.8%</td>
+      <td class="num">0.459</td>
+      <td class="links"><a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_49_top100.aln.fa&title=SINE_49%20top100">top100</a> &middot; <a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_49_rand100.aln.fa&title=SINE_49%20rand100">rand100</a></td>
+    </tr>
+<tr>
+      <td class="mono">SINE_34</td>
+      <td><span class="match">t1</span> <span class="pid">(80.208% id)</span></td>
+      <td class="num">7,208</td>
+      <td class="num high">92.1%</td>
+      <td class="num">0.449</td>
+      <td class="links"><a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_34_top100.aln.fa&title=SINE_34%20top100">top100</a> &middot; <a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_34_rand100.aln.fa&title=SINE_34%20rand100">rand100</a></td>
+    </tr>
+<tr>
+      <td class="mono">SINE_7</td>
+      <td><span class="match">t2</span> <span class="pid">(85.099% id)</span></td>
+      <td class="num">6,892</td>
+      <td class="num high">92.4%</td>
+      <td class="num">0.503</td>
+      <td class="links"><a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_7_top100.aln.fa&title=SINE_7%20top100">top100</a> &middot; <a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_7_rand100.aln.fa&title=SINE_7%20rand100">rand100</a></td>
+    </tr>
+<tr>
+      <td class="mono">SINE_15</td>
+      <td><span class="match">t1</span> <span class="pid">(83.505% id)</span></td>
+      <td class="num">6,811</td>
+      <td class="num high">76.7%</td>
+      <td class="num">0.280</td>
+      <td class="links"><a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_15_top100.aln.fa&title=SINE_15%20top100">top100</a> &middot; <a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_15_rand100.aln.fa&title=SINE_15%20rand100">rand100</a></td>
+    </tr>
+<tr>
+      <td class="mono">SINE_30</td>
+      <td><span class="nomatch">no match</span></td>
+      <td class="num">6,328</td>
+      <td class="num high">66.4%</td>
+      <td class="num">0.463</td>
+      <td class="links"><a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_30_top100.aln.fa&title=SINE_30%20top100">top100</a> &middot; <a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_30_rand100.aln.fa&title=SINE_30%20rand100">rand100</a></td>
+    </tr>
+<tr>
+      <td class="mono">SINE_9</td>
+      <td><span class="match">t1</span> <span class="pid">(80.709% id)</span></td>
+      <td class="num">6,197</td>
+      <td class="num high">94.9%</td>
+      <td class="num">0.451</td>
+      <td class="links"><a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_9_top100.aln.fa&title=SINE_9%20top100">top100</a> &middot; <a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_9_rand100.aln.fa&title=SINE_9%20rand100">rand100</a></td>
+    </tr>
+<tr>
+      <td class="mono">SINE_13</td>
+      <td><span class="match">t1</span> <span class="pid">(82.653% id)</span></td>
+      <td class="num">5,423</td>
+      <td class="num high">68.2%</td>
+      <td class="num">0.294</td>
+      <td class="links"><a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_13_top100.aln.fa&title=SINE_13%20top100">top100</a> &middot; <a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_13_rand100.aln.fa&title=SINE_13%20rand100">rand100</a></td>
+    </tr>
+<tr>
+      <td class="mono">SINE_43</td>
+      <td><span class="match">t1</span> <span class="pid">(83.511% id)</span></td>
+      <td class="num">5,349</td>
+      <td class="num mid">59.3%</td>
+      <td class="num">0.273</td>
+      <td class="links"><a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_43_top100.aln.fa&title=SINE_43%20top100">top100</a> &middot; <a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_43_rand100.aln.fa&title=SINE_43%20rand100">rand100</a></td>
+    </tr>
+<tr>
+      <td class="mono">SINE_0</td>
+      <td><span class="match">t1</span> <span class="pid">(81.048% id)</span></td>
+      <td class="num">5,083</td>
+      <td class="num high">88.8%</td>
+      <td class="num">0.376</td>
+      <td class="links"><a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_0_top100.aln.fa&title=SINE_0%20top100">top100</a> &middot; <a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_0_rand100.aln.fa&title=SINE_0%20rand100">rand100</a></td>
+    </tr>
+<tr>
+      <td class="mono">SINE_1</td>
+      <td><span class="match">t6</span> <span class="pid">(84.831% id)</span></td>
+      <td class="num">4,871</td>
+      <td class="num mid">39.9%</td>
+      <td class="num">0.484</td>
+      <td class="links"><a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_1_top100.aln.fa&title=SINE_1%20top100">top100</a> &middot; <a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_1_rand100.aln.fa&title=SINE_1%20rand100">rand100</a></td>
+    </tr>
+<tr>
+      <td class="mono">SINE_2</td>
+      <td><span class="match">t2</span> <span class="pid">(86.799% id)</span></td>
+      <td class="num">3,193</td>
+      <td class="num high">96.9%</td>
+      <td class="num">0.486</td>
+      <td class="links"><a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_2_top100.aln.fa&title=SINE_2%20top100">top100</a> &middot; <a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_2_rand100.aln.fa&title=SINE_2%20rand100">rand100</a></td>
+    </tr>
+<tr>
+      <td class="mono">SINE_26</td>
+      <td><span class="match">t6</span> <span class="pid">(87.500% id)</span></td>
+      <td class="num">2,206</td>
+      <td class="num high">60.8%</td>
+      <td class="num">0.401</td>
+      <td class="links"><a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_26_top100.aln.fa&title=SINE_26%20top100">top100</a> &middot; <a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_26_rand100.aln.fa&title=SINE_26%20rand100">rand100</a></td>
+    </tr>
+<tr>
+      <td class="mono">SINE_37</td>
+      <td><span class="match">t2</span> <span class="pid">(85.185% id)</span></td>
+      <td class="num">1,821</td>
+      <td class="num high">95.7%</td>
+      <td class="num">0.440</td>
+      <td class="links"><a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_37_top100.aln.fa&title=SINE_37%20top100">top100</a> &middot; <a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_37_rand100.aln.fa&title=SINE_37%20rand100">rand100</a></td>
+    </tr>
+<tr>
+      <td class="mono">SINE_54</td>
+      <td><span class="match">t6</span> <span class="pid">(80.142% id)</span></td>
+      <td class="num">1,438</td>
+      <td class="num low">4.7%</td>
+      <td class="num">0.387</td>
+      <td class="links"><a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_54_top100.aln.fa&title=SINE_54%20top100">top100</a> &middot; <a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_54_rand100.aln.fa&title=SINE_54%20rand100">rand100</a></td>
+    </tr>
+<tr>
+      <td class="mono">SINE_21</td>
+      <td><span class="match">t2</span> <span class="pid">(80.456% id)</span></td>
+      <td class="num">1,244</td>
+      <td class="num mid">50.0%</td>
+      <td class="num">0.243</td>
+      <td class="links"><a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_21_top100.aln.fa&title=SINE_21%20top100">top100</a> &middot; <a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_21_rand100.aln.fa&title=SINE_21%20rand100">rand100</a></td>
+    </tr>
+<tr>
+      <td class="mono">SINE_28</td>
+      <td><span class="nomatch">no match</span></td>
+      <td class="num">1,185</td>
+      <td class="num high">76.4%</td>
+      <td class="num">0.425</td>
+      <td class="links"><a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_28_top100.aln.fa&title=SINE_28%20top100">top100</a> &middot; <a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_28_rand100.aln.fa&title=SINE_28%20rand100">rand100</a></td>
+    </tr>
+<tr>
+      <td class="mono">SINE_50</td>
+      <td><span class="nomatch">no match</span></td>
+      <td class="num">1,132</td>
+      <td class="num high">94.1%</td>
+      <td class="num">0.388</td>
+      <td class="links"><a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_50_top100.aln.fa&title=SINE_50%20top100">top100</a> &middot; <a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_50_rand100.aln.fa&title=SINE_50%20rand100">rand100</a></td>
+    </tr>
+<tr>
+      <td class="mono">SINE_12</td>
+      <td><span class="match">t2</span> <span class="pid">(84.407% id)</span></td>
+      <td class="num">1,099</td>
+      <td class="num high">90.5%</td>
+      <td class="num">0.484</td>
+      <td class="links"><a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_12_top100.aln.fa&title=SINE_12%20top100">top100</a> &middot; <a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_12_rand100.aln.fa&title=SINE_12%20rand100">rand100</a></td>
+    </tr>
+<tr>
+      <td class="mono">SINE_11</td>
+      <td><span class="match">t6</span> <span class="pid">(82.270% id)</span></td>
+      <td class="num">1,088</td>
+      <td class="num mid">44.2%</td>
+      <td class="num">0.394</td>
+      <td class="links"><a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_11_top100.aln.fa&title=SINE_11%20top100">top100</a> &middot; <a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_11_rand100.aln.fa&title=SINE_11%20rand100">rand100</a></td>
+    </tr>
+<tr>
+      <td class="mono">SINE_48</td>
+      <td><span class="match">t2</span> <span class="pid">(83.553% id)</span></td>
+      <td class="num">1,046</td>
+      <td class="num high">98.0%</td>
+      <td class="num">0.409</td>
+      <td class="links"><a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_48_top100.aln.fa&title=SINE_48%20top100">top100</a> &middot; <a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_48_rand100.aln.fa&title=SINE_48%20rand100">rand100</a></td>
+    </tr>
+<tr>
+      <td class="mono">SINE_22</td>
+      <td><span class="nomatch">no match</span></td>
+      <td class="num">963</td>
+      <td class="num high">89.5%</td>
+      <td class="num">0.468</td>
+      <td class="links"><a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_22_top100.aln.fa&title=SINE_22%20top100">top100</a> &middot; <a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_22_rand100.aln.fa&title=SINE_22%20rand100">rand100</a></td>
+    </tr>
+<tr>
+      <td class="mono">SINE_44</td>
+      <td><span class="match">t2</span> <span class="pid">(87.903% id)</span></td>
+      <td class="num">887</td>
+      <td class="num high">95.1%</td>
+      <td class="num">0.503</td>
+      <td class="links"><a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_44_top100.aln.fa&title=SINE_44%20top100">top100</a> &middot; <a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_44_rand100.aln.fa&title=SINE_44%20rand100">rand100</a></td>
+    </tr>
+<tr>
+      <td class="mono">SINE_23</td>
+      <td><span class="match">t6</span> <span class="pid">(83.333% id)</span></td>
+      <td class="num">710</td>
+      <td class="num high">84.2%</td>
+      <td class="num">0.315</td>
+      <td class="links"><a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_23_top100.aln.fa&title=SINE_23%20top100">top100</a> &middot; <a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_23_rand100.aln.fa&title=SINE_23%20rand100">rand100</a></td>
+    </tr>
+<tr>
+      <td class="mono">SINE_20</td>
+      <td><span class="match">t2</span> <span class="pid">(82.736% id)</span></td>
+      <td class="num">568</td>
+      <td class="num high">96.7%</td>
+      <td class="num">0.391</td>
+      <td class="links"><a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_20_top100.aln.fa&title=SINE_20%20top100">top100</a> &middot; <a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_20_rand100.aln.fa&title=SINE_20%20rand100">rand100</a></td>
+    </tr>
+<tr>
+      <td class="mono">SINE_35</td>
+      <td><span class="match">t2</span> <span class="pid">(88.506% id)</span></td>
+      <td class="num">528</td>
+      <td class="num high">87.5%</td>
+      <td class="num">0.388</td>
+      <td class="links"><a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_35_top100.aln.fa&title=SINE_35%20top100">top100</a> &middot; <a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_35_rand100.aln.fa&title=SINE_35%20rand100">rand100</a></td>
+    </tr>
+<tr>
+      <td class="mono">SINE_27</td>
+      <td><span class="match">t2</span> <span class="pid">(80.782% id)</span></td>
+      <td class="num">507</td>
+      <td class="num high">85.7%</td>
+      <td class="num">0.441</td>
+      <td class="links"><a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_27_top100.aln.fa&title=SINE_27%20top100">top100</a> &middot; <a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_27_rand100.aln.fa&title=SINE_27%20rand100">rand100</a></td>
+    </tr>
+<tr>
+      <td class="mono">SINE_10</td>
+      <td><span class="match">t6</span> <span class="pid">(82.677% id)</span></td>
+      <td class="num">445</td>
+      <td class="num high">89.5%</td>
+      <td class="num">0.410</td>
+      <td class="links"><a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_10_top100.aln.fa&title=SINE_10%20top100">top100</a> &middot; <a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_10_rand100.aln.fa&title=SINE_10%20rand100">rand100</a></td>
+    </tr>
+<tr>
+      <td class="mono">SINE_53</td>
+      <td><span class="nomatch">no match</span></td>
+      <td class="num">423</td>
+      <td class="num high">93.0%</td>
+      <td class="num">0.432</td>
+      <td class="links"><a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_53_top100.aln.fa&title=SINE_53%20top100">top100</a> &middot; <a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_53_rand100.aln.fa&title=SINE_53%20rand100">rand100</a></td>
+    </tr>
+<tr>
+      <td class="mono">SINE_8</td>
+      <td><span class="match">t2</span> <span class="pid">(82.026% id)</span></td>
+      <td class="num">417</td>
+      <td class="num high">95.9%</td>
+      <td class="num">0.435</td>
+      <td class="links"><a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_8_top100.aln.fa&title=SINE_8%20top100">top100</a> &middot; <a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_8_rand100.aln.fa&title=SINE_8%20rand100">rand100</a></td>
+    </tr>
+<tr>
+      <td class="mono">SINE_19</td>
+      <td><span class="nomatch">no match</span></td>
+      <td class="num">359</td>
+      <td class="num high">65.8%</td>
+      <td class="num">0.458</td>
+      <td class="links"><a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_19_top100.aln.fa&title=SINE_19%20top100">top100</a> &middot; <a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_19_rand100.aln.fa&title=SINE_19%20rand100">rand100</a></td>
+    </tr>
+<tr>
+      <td class="mono">SINE_6</td>
+      <td><span class="nomatch">no match</span></td>
+      <td class="num">326</td>
+      <td class="num high">87.7%</td>
+      <td class="num">0.422</td>
+      <td class="links"><a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_6_top100.aln.fa&title=SINE_6%20top100">top100</a> &middot; <a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_6_rand100.aln.fa&title=SINE_6%20rand100">rand100</a></td>
+    </tr>
+<tr>
+      <td class="mono">SINE_4</td>
+      <td><span class="match">t2</span> <span class="pid">(84.643% id)</span></td>
+      <td class="num">318</td>
+      <td class="num high">94.3%</td>
+      <td class="num">0.495</td>
+      <td class="links"><a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_4_top100.aln.fa&title=SINE_4%20top100">top100</a> &middot; <a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_4_rand100.aln.fa&title=SINE_4%20rand100">rand100</a></td>
+    </tr>
+<tr>
+      <td class="mono">SINE_16</td>
+      <td><span class="match">t2</span> <span class="pid">(81.944% id)</span></td>
+      <td class="num">278</td>
+      <td class="num high">94.6%</td>
+      <td class="num">0.394</td>
+      <td class="links"><a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_16_top100.aln.fa&title=SINE_16%20top100">top100</a> &middot; <a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_16_rand100.aln.fa&title=SINE_16%20rand100">rand100</a></td>
+    </tr>
+<tr>
+      <td class="mono">SINE_38</td>
+      <td><span class="nomatch">no match</span></td>
+      <td class="num">273</td>
+      <td class="num high">94.2%</td>
+      <td class="num">0.369</td>
+      <td class="links"><a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_38_top100.aln.fa&title=SINE_38%20top100">top100</a> &middot; <a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_38_rand100.aln.fa&title=SINE_38%20rand100">rand100</a></td>
+    </tr>
+<tr>
+      <td class="mono">SINE_17</td>
+      <td><span class="nomatch">no match</span></td>
+      <td class="num">260</td>
+      <td class="num low">0.0%</td>
+      <td class="num">0.361</td>
+      <td class="links"><a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_17_top100.aln.fa&title=SINE_17%20top100">top100</a> &middot; <a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_17_rand100.aln.fa&title=SINE_17%20rand100">rand100</a></td>
+    </tr>
+<tr>
+      <td class="mono">SINE_40</td>
+      <td><span class="match">t2</span> <span class="pid">(79.801% id)</span></td>
+      <td class="num">241</td>
+      <td class="num high">89.2%</td>
+      <td class="num">0.255</td>
+      <td class="links"><a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_40_top100.aln.fa&title=SINE_40%20top100">top100</a> &middot; <a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_40_rand100.aln.fa&title=SINE_40%20rand100">rand100</a></td>
+    </tr>
+<tr>
+      <td class="mono">SINE_33</td>
+      <td><span class="match">t2</span> <span class="pid">(82.576% id)</span></td>
+      <td class="num">183</td>
+      <td class="num high">90.7%</td>
+      <td class="num">0.276</td>
+      <td class="links"><a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_33_top100.aln.fa&title=SINE_33%20top100">top100</a> &middot; <a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_33_rand100.aln.fa&title=SINE_33%20rand100">rand100</a></td>
+    </tr>
+<tr>
+      <td class="mono">SINE_52</td>
+      <td><span class="nomatch">no match</span></td>
+      <td class="num">148</td>
+      <td class="num high">82.0%</td>
+      <td class="num">0.373</td>
+      <td class="links"><a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_52_top100.aln.fa&title=SINE_52%20top100">top100</a> &middot; <a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_52_rand100.aln.fa&title=SINE_52%20rand100">rand100</a></td>
+    </tr>
+<tr>
+      <td class="mono">SINE_39</td>
+      <td><span class="nomatch">no match</span></td>
+      <td class="num">137</td>
+      <td class="num high">89.4%</td>
+      <td class="num">0.343</td>
+      <td class="links"><a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_39_top100.aln.fa&title=SINE_39%20top100">top100</a> &middot; <a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_39_rand100.aln.fa&title=SINE_39%20rand100">rand100</a></td>
+    </tr>
+<tr>
+      <td class="mono">SINE_42</td>
+      <td><span class="match">t2</span> <span class="pid">(86.166% id)</span></td>
+      <td class="num">103</td>
+      <td class="num high">92.9%</td>
+      <td class="num">0.317</td>
+      <td class="links"><a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_42_top100.aln.fa&title=SINE_42%20top100">top100</a> &middot; <a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_42_rand100.aln.fa&title=SINE_42%20rand100">rand100</a></td>
+    </tr>
+<tr>
+      <td class="mono">SINE_3</td>
+      <td><span class="nomatch">no match</span></td>
+      <td class="num">101</td>
+      <td class="num high">74.3%</td>
+      <td class="num">0.296</td>
+      <td class="links"><a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_3_top100.aln.fa&title=SINE_3%20top100">top100</a> &middot; <a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_3_rand100.aln.fa&title=SINE_3%20rand100">rand100</a></td>
+    </tr>
+<tr>
+      <td class="mono">SINE_46</td>
+      <td><span class="nomatch">no match</span></td>
+      <td class="num">49</td>
+      <td class="num high">81.8%</td>
+      <td class="num">0.346</td>
+      <td class="links"><a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_46_top100.aln.fa&title=SINE_46%20top100">top100</a> &middot; <a href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftim%2Fannosine55%2Falignments%2Fannosine55_SINE_46_rand100.aln.fa&title=SINE_46%20rand100">rand100</a></td>
+    </tr>
+</tbody>
+</table>
+</div>
+<footer>Full analysis and matched/unmatched breakdown in <a href="LOG.md">LOG.md</a>.
+Run: sinederella_benchmark/runs/timema/run_20260822_231705.</footer>
+</div>
