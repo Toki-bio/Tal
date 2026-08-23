@@ -198,8 +198,54 @@ subfamilies based on closer inspection — `t1` &rarr; `t1_1`/`t1-2`/`t1-3`/`t1-
 `t2` &rarr; `t2-1`/`t2-2`, `t345` split back apart into `t3-1`/`t3-2` (no longer
 merged), `t6` &rarr; `t6-1`...`t6-5`, `t8` &rarr; `t8-1`/`t8-2` — **15 consensus
 sequences total**, `t7` excluded (see above). Full `SINEderella` rerun
-launched against this set (`run_20260823_063444`); results to be added here
-and alignments/report republished once complete.
+against this set (`run_20260823_063444`) completed successfully:
+
+| Subfamily | Total assigned | Firm % | Sim mean |
+|---|---|---|---|
+| t1-2 | 120,953 | 28.97 | 0.6519 |
+| t1_1 | 54,071 | 12.77 | 0.8135 |
+| t3-1 | 47,215 | 12.20 | 0.9084 |
+| t3-2 | 31,926 | 8.08 | 0.9091 |
+| t1-4 | 40,902 | 7.95 | 0.3424 |
+| t1-3 | 30,650 | 4.86 | 0.6126 |
+| t8-2 | 21,133 | 4.20 | 0.6186 |
+| t2-1 | 14,637 | 3.77 | 0.6852 |
+| t8-1 | 11,429 | 2.83 | 0.6999 |
+| t6-1 | 5,715 | 1.45 | 0.5626 |
+| t6-2 | 2,720 | 0.65 | 0.6395 |
+| t6-4 | 1,444 | 0.28 | 0.5585 |
+| t6-3 | 883 | 0.16 | 0.5789 |
+| t6-5 | 667 | 0.11 | 0.5840 |
+| t2-2 | 381 | 0.06 | 0.8549 |
+
+`t1-4` and several `t6-*`/`t2-2` subfamilies show noticeably lower `sim_mean`
+and higher `leak_pct`/`conf_alt_pct` than the earlier 6/8-subfamily runs —
+expected at this finer split (smaller, more homogeneous groups mean less
+internal signal to firmly separate close neighbors, and boundary refinement
+was not rerun at this granularity). Full numbers in
+`results/summary.by_subfam.tsv` on DRAGEN and in the republished
+[`report.html`](report.html).
+
+`step8a_extract_alignments.sh` + `step8b_publish_report.sh` ran cleanly
+against this run — all 15 subfamilies got top100/rand100 alignment variants,
+14/15 also got the `subfam` variant (`t2-2` has only 215 assigned copies,
+below the `MIN_COPIES_SUBFAM` threshold for SubFam re-clustering). This
+**entirely replaces** the previous 6-subfamily (`t1`/`t2`/`t345`/`t6`/`t7`/`t8`)
+publish — old alignment files removed, `tim_consensuses.fa` refreshed to the
+new 15-sequence set, `report.html` regenerated fresh against this run. The
+older `subfam/` and `boundary_refine/` directories are left in place as
+historical record of the two earlier (8-subfamily and 6-subfamily) runs —
+this v3 run did not rerun SubFam re-clustering site-wide or boundary
+refinement, so there is nothing new to put there yet.
+
+This was also the run that finally exercised the fixed `SINEderella`
+orchestrator: `results/report.html` still got destroyed by the known
+symlink-farm race a third time (worked around the same way as before,
+standalone `step6_report.sh --no-sineplot` rerun), which is what motivated
+actually fixing the race at the source afterward (block reorder in the main
+`SINEderella` script, `results/` symlink farm now runs before Step 6, not
+after) — not yet re-verified with a fresh run since the fix, but the fix
+itself is in place for the next one.
 
 ## Not yet done
 
