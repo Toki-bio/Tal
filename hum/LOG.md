@@ -70,3 +70,70 @@ members, seen consistently across all three benchmark legs.
 variant (below `MIN_COPIES_SUBFAM` skipped for the smallest few). PCA panel
 in `report.html` timed out (900s limit) at this scale and was skipped
 gracefully — everything else in the report is complete.
+
+## 2026-08-27 — Independent quality check against RepeatMasker's hg38 annotation
+
+Unlike the AnnoSINE_v2 cross-checks on `timb`/`sco`, human has a real,
+independent, pre-existing genome-wide annotation to compare against:
+RepeatMasker's own hg38 track (`rmsk.txt.gz` from UCSC goldenPath, the
+actual RepeatMasker output, not a re-derived approximation). Same
+underlying subfamily nomenclature (both trace to Dfam/RepBase), so this is
+a direct concordance check, not a proxy.
+
+**Method**: downloaded `rmsk.txt.gz`, filtered to `repClass == SINE`
+(1,910,631 genome-wide elements, 63 distinct subfamily names), converted
+both RepeatMasker's calls and SINEderella's `assigned.fasta` loci to BED,
+and joined with `bedtools intersect -f 0.5 -r` (reciprocal ≥50% overlap —
+boundary definitions differ between Crossmatch-based RepeatMasker calls and
+ssearch36-based SINEderella hits, so exact coordinate equality isn't the
+right bar).
+
+**Overlap rate**: 366,843 / 394,901 (92.9%) of SINEderella's assigned loci
+found a matching RepeatMasker SINE call at all.
+
+**Subfamily-name concordance**: 82.8% raw exact-match rate, **85.0% after
+normalizing** for a naming-convention artifact — Dfam splits some
+consensuses into `_short_`/full-length variants that RepeatMasker doesn't
+distinguish (e.g. `AluJb_short_` was literally the single largest
+"confusion" pair, 6,303 loci, purely because RepeatMasker just calls both
+`AluJb`; same for `FLAM_C_short_`/`FRAM_short_`).
+
+**Best-performing subfamilies** (young, well-differentiated — expected to
+be easy for any tool): `AluYa5` 99.3%, `AluSc8` 98.8%, `AluSq2` 97.9%,
+`AluSx` 97.7%, `AluSq` 96.9%.
+
+**Where the two tools genuinely disagree, and why it's mostly explainable
+rather than a SINEderella error**:
+
+- `FLAM_C`/`FLAM_A`/`FRAM` (39–77% precision) confuse mostly with the
+  oldest Alu-J subfamilies (`AluJo`/`AluJr`/`AluJb`). FLAM/FRAM are the
+  ancestral Alu monomer precursors — biologically very close to the oldest
+  Alu subfamilies, a known-hard boundary in the literature on either side.
+- `AluJr4` (58%) confuses mostly with `AluJr`/`AluJo` — same old-Alu-J
+  cluster.
+- `MIR`/`MIRb`/`MIRc` mutually confuse (87–93% each way) — MIR subfamilies
+  are ancient and highly diverged, also a known-hard case generally.
+
+**`BC200` case, investigated specifically**: 449 loci SINEderella called
+`BC200`, 0% exact match — but RepeatMasker's hg38 SINE track has **zero**
+`BC200`/`BCYRN1` entries at all (confirmed directly: `grep -i bc200` against
+all 63 RepeatMasker subfamily names returns nothing), so a 0% match rate
+here was structurally guaranteed regardless of call quality — RepeatMasker
+has no vocabulary for the thing being asked about. The biology explains
+where the calls actually land: BC200 (BCYRN1) is a single-copy neuronal
+ncRNA gene, not a genuine multi-copy retrotransposon subfamily — its 5'
+~120bp domain is a FLAM-C-derived Alu left-monomer fused to a unique 3'
+tail. 307/449 (68%) of SINEderella's `BC200` calls landed on `FLAM_C`
+specifically, the rest on the same `AluJo`/`AluJr`/`AluJr4`/`AluJb`
+ancestral-monomer cluster flagged above — exactly where evolutionary
+relatedness predicts they'd land, not evidence of a misclassification.
+
+A few other near-zero entries (`CAS`, `ASR`, `AluYk3`, `AluYh9`, `AluYh7`)
+have tiny sample sizes (1–34 overlapping loci) — not statistically
+meaningful on their own, not investigated individually.
+
+Full overlap table, per-subfamily precision, and confusion-pair breakdown
+generated via `bedtools intersect` + a small Python aggregation script; raw
+intermediate files (`rmsk_sine.bed`, `sinederella_hum.bed`, `overlap.tsv`)
+live in `/staging/tmp/rmsk_compare/` on DRAGEN, not copied into this repo
+(large, easily regenerated from `rmsk.txt.gz` + `assigned.fasta`).
