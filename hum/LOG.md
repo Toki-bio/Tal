@@ -148,8 +148,14 @@ class-filtered search — `grep`-ing subfamily names within one filtered class
 list found nothing, but the name existed one filter away.
 
 A few other near-zero entries (`CAS`, `ASR`, `AluYk3`, `AluYh9`, `AluYh7`)
-have tiny sample sizes (1–34 overlapping loci) — not statistically
-meaningful on their own, not investigated individually.
+have tiny sample sizes (1–34 overlapping loci) — checked each for the same
+repClass-filter mistake that caused the BC200 error above, given how easily
+it slipped through once: `AluYk3`/`AluYh9`/`AluYh7` genuinely are
+`repClass = SINE` in RepeatMasker with substantial genome-wide counts
+(1,481 / 168 / 200 loci) — no filter artifact, their low scores here are
+just genuinely small overlap samples. `CAS` and `ASR`, by contrast, are
+confirmed absent from RepeatMasker's hg38 track under *any* repClass, not
+just SINE — a real absence, not a misclassification like BC200's.
 
 Full overlap table, per-subfamily precision, and confusion-pair breakdown
 generated via `bedtools intersect` + a small Python aggregation script; raw
