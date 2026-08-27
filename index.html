@@ -326,8 +326,52 @@ a { color:var(--accent); }
         <a class="btn" href="tim/report.html"><i>Timema cristinae</i> &mdash; candidate report</a>
         <a class="btn secondary" href="javascript:void(0)"
            onclick="openMSA('tim/alignments/tim_consensuses.aln.fa','tim all consensi')">All Consensi in MSA</a>
-        <a class="btn secondary" href="tim/annosine55.html">AnnoSINE_v2 55-candidate cross-check</a>
         <a class="btn secondary" href="tim/LOG.md">Analysis Log</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="card" style="border-left:4px solid #2d2d8f;">
+  <h2>Cross-tool benchmark: AnnoSINE_v2 vs. SINEderella</h2>
+  <p style="color:var(--muted);font-size:.9rem;margin-top:4px;">
+    A separate exercise from the discovery work above: does an independent de novo
+    tool (<a href="https://github.com/liaoherui/AnnoSINE_v2" target="_blank">AnnoSINE_v2</a>,
+    Liao, Sun &amp; Ou, <i>Mobile DNA</i> 2024 &mdash; structure-based, needs no prior
+    consensus library) find the same SINEs SINEderella finds against known or curated
+    libraries, and how much noise is in what it finds independently? Two legs so far:
+    zebrafish (an established Dfam library as ground truth) and Timema (AnnoSINE_v2's own
+    55 candidates cross-checked against the curated <a href="tim/report.html">tim</a>
+    subfamilies). A third leg (human, hg38 + Dfam Alu library) is in progress.
+  </p>
+  <div class="species-grid" style="margin-top:12px;">
+    <div class="sp-card">
+      <h3>zeb <span class="tag tag-other-family">benchmark &middot; known library</span></h3>
+      <div class="sci">Danio rerio &mdash; zebrafish (danRer11/GRCz11)</div>
+      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;">
+        15 Dfam SINE consensuses &middot; 155,249 assigned copies
+        &middot; <a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000002035.6/" target="_blank">GRCz11</a>
+      </div>
+      <div class="actions">
+        <a class="btn" href="zeb/report.html"><i>Danio rerio</i> &mdash; benchmark report</a>
+        <a class="btn secondary" href="javascript:void(0)"
+           onclick="openMSA('zeb/alignments/zeb_consensuses.fa','zeb all consensi')">All Consensi in MSA</a>
+        <a class="btn secondary" href="zeb/LOG.md">Analysis Log</a>
+      </div>
+    </div>
+    <div class="sp-card">
+      <h3>timb <span class="tag tag-other-family">benchmark &middot; AnnoSINE_v2 candidates</span></h3>
+      <div class="sci">Timema cristinae &mdash; stick insect (GCA_050494535.1)</div>
+      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;">
+        AnnoSINE_v2's 55 de novo candidates, each run individually &middot; 40/55 matched
+        the curated <a href="tim/report.html">tim</a> subfamilies by blastn
+        &middot; <a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_050494535.1/" target="_blank">GCA_050494535.1</a>
+      </div>
+      <div class="actions">
+        <a class="btn" href="timb/report.html"><i>Timema cristinae</i> &mdash; benchmark report</a>
+        <a class="btn secondary" href="javascript:void(0)"
+           onclick="openMSA('timb/alignments/timb_consensuses.fa','timb all consensi')">All Consensi in MSA</a>
+        <a class="btn secondary" href="timb/LOG.md">Analysis Log</a>
       </div>
     </div>
   </div>
