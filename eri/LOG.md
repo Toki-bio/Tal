@@ -619,3 +619,22 @@ version) still needs the same fraction-based fix applied before it is ever
 run for real — not done as part of this entry, tracked separately. The
 tandem-repeat-overlap correlation hypothesis for the still-conserved
 subgroup also remains unchecked.
+
+## 2026-08-27 — Re-extraction with the `(+,-)` strand-header fix (flagged in `sco/LOG.md`, done here)
+
+The `(+,-)` malformed-strand-header bug found and fixed while re-extracting
+`sco`'s alignments (single-character strand regex `\([+-]\)$` failed to
+match a merged/overlapping-hit header like `(+,-)`, silently dropping that
+locus's flank and falling back to unflanked raw sequence with no visible
+error) was flagged there as also affecting `eri` — ~15,390 of 1.76M
+`assigned.fasta` headers here have this pattern (~0.9%), and the fix had
+never actually been re-run against this species' published alignments.
+
+Done now: re-ran `extract_top100_rand100_subfam.sh` (already carrying the
+fix — "strip ANY trailing parenthetical" — from when it was written, just
+never re-executed) against `run_20260820_221537`. All 8 subfamilies
+completed cleanly, all three variants each. 22 of 24 files came back with
+real content differences from the previously-published versions (the other
+2, `e1-4_top100` and `e2-2_top100`, happened to sample zero `(+,-)`-header
+loci by chance — expected at ~0.9% affected rate over a 100-sequence
+sample). Republished, replacing the old files in place.

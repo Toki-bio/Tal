@@ -251,8 +251,8 @@ themselves.
 
 ## Not yet done
 
-- Re-verify/re-publish `eri`'s alignments with this same `(+,-)` fix (see
-  above — real, not yet done).
+- ~~Re-verify/re-publish `eri`'s alignments with this same `(+,-)` fix~~ —
+  **done 2026-08-27**, see `eri/LOG.md`.
 - Cross-referencing whether the earlier tRNA-gene-contamination hypothesis
   (raised during the single-genome exploratory work, before this batch —
   see `SCORPION_WORKFLOW.md`) applies to any of these 29 subfamilies
