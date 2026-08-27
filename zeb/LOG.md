@@ -58,8 +58,29 @@ to either species or tool.
 
 ## Publishing
 
-`step8a_extract_alignments.sh` + `step8b_publish_report.sh` ran cleanly:
-13/15 subfamilies got all three alignment variants (top100/rand100/subfam),
-2 small ones (below the `MIN_COPIES_SUBFAM` threshold) got top100/rand100
-only. `report.html` is the standard SINEderella-generated report, same
-generator as every other species page on this site.
+`step8a_extract_alignments.sh` + `step8b_publish_report.sh` ran cleanly.
+Initially 13/15 subfamilies got all three alignment variants
+(top100/rand100/subfam); the other 2 (`7SLRNA`, `DANA`, `LmeSINE1c`,
+`SINE2-2_DR` — small counts) were correctly skipped for `subfam` below the
+`MIN_COPIES_SUBFAM` threshold.
+
+**A real bug found here**: 3 subfamilies with substantial copy counts
+(`SINE2-3_DR` 32,619, `SINE2-4_DR` 7,267, `SINE3-1a` 4,047) were *also*
+missing their `subfam` variant, and not because of the threshold —
+`bedtools getfasta` was failing outright with "malformed BED entry, Start
+Coordinate detected that is < 0". Root cause: the BED-construction step
+(`$4-1` for 0-based conversion) can produce a negative start when a locus
+sits right at the beginning of a contig, and `bedtools getfasta` aborts its
+*entire* batch on a single malformed line. `top100`/`rand100` (100 loci
+sampled each) rarely hit this by chance; `subfam` samples up to 10,000 loci,
+so the odds of including one contig-edge locus are much higher — explaining
+why only the `subfam` variant was silently and completely lost for these
+three, while `top100`/`rand100` for the same subfamilies worked fine.
+Checked `tim`/`timb`/`hum`'s manifests for the same pattern (`has_subfam=0`
+despite ≥400 members) — none affected, so this appears to be specific to
+where zebrafish's SINE loci happen to fall relative to contig boundaries in
+this particular assembly. Fixed by clamping the start coordinate to 0 in
+`step8a_extract_alignments.sh` (both occurrences of the BED-construction
+awk); re-ran the `subfam` extraction for the 3 affected subfamilies with the
+fix, all three now have the full three-variant set. Fix committed to
+`github.com/Toki-bio/SINEderella`.
