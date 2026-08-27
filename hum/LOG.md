@@ -114,19 +114,38 @@ rather than a SINEderella error**:
 - `MIR`/`MIRb`/`MIRc` mutually confuse (87–93% each way) — MIR subfamilies
   are ancient and highly diverged, also a known-hard case generally.
 
-**`BC200` case, investigated specifically**: 449 loci SINEderella called
-`BC200`, 0% exact match — but RepeatMasker's hg38 SINE track has **zero**
-`BC200`/`BCYRN1` entries at all (confirmed directly: `grep -i bc200` against
-all 63 RepeatMasker subfamily names returns nothing), so a 0% match rate
-here was structurally guaranteed regardless of call quality — RepeatMasker
-has no vocabulary for the thing being asked about. The biology explains
-where the calls actually land: BC200 (BCYRN1) is a single-copy neuronal
-ncRNA gene, not a genuine multi-copy retrotransposon subfamily — its 5'
-~120bp domain is a FLAM-C-derived Alu left-monomer fused to a unique 3'
-tail. 307/449 (68%) of SINEderella's `BC200` calls landed on `FLAM_C`
-specifically, the rest on the same `AluJo`/`AluJr`/`AluJr4`/`AluJb`
-ancestral-monomer cluster flagged above — exactly where evolutionary
-relatedness predicts they'd land, not evidence of a misclassification.
+**`BC200` case, investigated specifically — original 0% figure below was
+corrected after digging in, see the reasoning**: the "0% match, RepeatMasker
+has no BC200 entries" claim in the first version of this section was
+**wrong**, caused by an overly narrow filter on my own part. RepeatMasker
+*does* annotate `BC200` by name genome-wide (202 loci in hg38) — it's just
+filed under `repClass = scRNA`, not `SINE`, so the `repClass == SINE` filter
+used to build the main comparison silently excluded it. Once the RepeatMasker
+side is rebuilt without that filter, restricted to just `repName == BC200`:
+
+- SINEderella called **592** loci `BC200` total (not 449 — that 449 was
+  already an artifact, the subset that happened to also overlap *some*
+  SINE-class RepeatMasker call).
+- **94 of those 592 (15.9%)** match a genuine RepeatMasker `BC200` locus —
+  and those 94 recover **46.5% (94/202)** of RepeatMasker's entire BC200 set.
+  Real, moderate concordance, not the guaranteed-zero the first pass implied.
+- **450 (76.0%)** overlap a SINE-class RepeatMasker call instead — 308
+  `FLAM_C`, 111 `AluJo`, 19 `AluJr`, 5 `FLAM_A`, 4 `AluJr4`, 2 `AluJb`, 1
+  `MIR`. This part of the original explanation still holds: BC200's 5'
+  ~120bp domain is a FLAM-C-derived Alu left-monomer, and BC200 is itself
+  retrotransposition-competent, so a real population of degraded secondary
+  BC200-derived copies exists genome-wide — RepeatMasker evidently calls a
+  copy `BC200` only when it's close to the intact scRNA gene model, and
+  falls back to the more general Alu-family consensus once a copy has
+  decayed past that point. Not obviously a SINEderella error; a genuine
+  boundary-of-definition case similar to FLAM/old-AluJ above.
+- **142 (24.0%)** have no SINE-class RepeatMasker overlap at all — not
+  investigated further, flagged as open.
+
+Lesson for future comparisons on this page: always check a name's actual
+`repClass` in RepeatMasker before concluding "not present" from a
+class-filtered search — `grep`-ing subfamily names within one filtered class
+list found nothing, but the name existed one filter away.
 
 A few other near-zero entries (`CAS`, `ASR`, `AluYk3`, `AluYh9`, `AluYh7`)
 have tiny sample sizes (1–34 overlapping loci) — not statistically
