@@ -1,0 +1,768 @@
+<title>BC200 per-copy comparison</title>
+<style>
+:root{
+  --bg:#f5f2ea; --paper:#ffffff; --ink:#1d241f; --muted:#5c665e; --line:#dcd5c2;
+  --accent:#0d6b58; --accent-bg:#e4efe9; --warn:#9c3b1e; --warn-bg:#fbe9e4;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#141815; --paper:#1c2119; --ink:#e9e5d8; --muted:#9a9b8f; --line:#39412f;
+    --accent:#4fc3a1; --accent-bg:#1e3128; --warn:#e08063; --warn-bg:#3a2118;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#141815; --paper:#1c2119; --ink:#e9e5d8; --muted:#9a9b8f; --line:#39412f;
+  --accent:#4fc3a1; --accent-bg:#1e3128; --warn:#e08063; --warn-bg:#3a2118;
+}
+*{box-sizing:border-box;}
+body{background:var(--bg); color:var(--ink); font-family:system-ui,-apple-system,"Segoe UI",sans-serif; margin:0; padding:2rem 1rem 4rem;}
+.wrap{max-width:1100px; margin:0 auto;}
+h1{font-size:1.5rem; margin:0 0 .3rem;}
+h2{font-size:1.1rem; margin:2rem 0 .4rem;}
+p.lede{color:var(--muted); max-width:75ch; margin:0 0 1rem; font-size:.9rem;}
+.mono{font-family:"SFMono-Regular",Consolas,monospace; font-size:.8rem;}
+table{width:100%; border-collapse:collapse; background:var(--paper); border:1px solid var(--line); border-radius:8px; overflow:hidden;}
+th,td{padding:.4rem .6rem; border-bottom:1px solid var(--line); font-size:.82rem; text-align:left;}
+th{background:var(--accent-bg); color:var(--accent); font-size:.72rem; text-transform:uppercase; letter-spacing:.03em; position:sticky; top:0;}
+td.num{text-align:right; font-variant-numeric:tabular-nums; font-family:"SFMono-Regular",Consolas,monospace;}
+.tablewrap{overflow:auto; max-height:600px; border-radius:8px;}
+.count{color:var(--muted); font-size:.85rem; margin-bottom:.5rem;}
+footer{margin-top:2rem; color:var(--muted); font-size:.8rem;}
+</style>
+<div class="wrap">
+<h1>BC200: every SINEderella call vs. every RepeatMasker call, hg38</h1>
+<p class="lede">Full per-copy reconciliation behind the summary in
+<a href="LOG.md">LOG.md</a>'s 2026-08-27 entries. RepeatMasker's crossmatch-derived
+alignment stats (Smith-Waterman score, %diverged/deleted/inserted, and the aligned
+span within the repeat model, from <code>rmsk.txt</code>) are shown wherever a
+RepeatMasker BC200 row is involved. &ge;50% reciprocal overlap = "matched".</p>
+
+<h2>Matched pairs (94)</h2>
+<p class="count">Both tools called the same locus BC200.</p>
+<div class="tablewrap"><table>
+<thead><tr><th>SINEderella locus</th><th>Bitscore</th><th>RepeatMasker locus</th>
+<th>SW score</th><th>% div</th><th>% del</th><th>% ins</th><th>Repeat-model span (left)</th></tr></thead>
+<tbody><tr><td class='mono'>chr1:38650956-38651112(-)</td><td class='num'>1203</td><td class='mono'>chr1:38650942-38651112(-)</td><td class='num'>917</td><td class='num'>13.6%</td><td class='num'>4.0%</td><td class='num'>0.6%</td><td class='mono'>-24..176 (left 1)</td></tr>
+<tr><td class='mono'>chr1:110331828-110331973(-)</td><td class='num'>1177</td><td class='mono'>chr1:110331831-110331967(-)</td><td class='num'>829</td><td class='num'>11.9%</td><td class='num'>1.5%</td><td class='num'>1.5%</td><td class='mono'>-53..147 (left 12)</td></tr>
+<tr><td class='mono'>chr1:113799215-113799341(-)</td><td class='num'>787</td><td class='mono'>chr1:113799207-113799341(-)</td><td class='num'>497</td><td class='num'>19.2%</td><td class='num'>11.0%</td><td class='num'>3.0%</td><td class='mono'>-53..147 (left 2)</td></tr>
+<tr><td class='mono'>chr1:143333127-143333256(-)</td><td class='num'>1133</td><td class='mono'>chr1:143333131-143333256(-)</td><td class='num'>808</td><td class='num'>12.8%</td><td class='num'>1.6%</td><td class='num'>0.0%</td><td class='mono'>-60..140 (left 14)</td></tr>
+<tr><td class='mono'>chr1:144158700-144158829(-)</td><td class='num'>1133</td><td class='mono'>chr1:144158704-144158829(-)</td><td class='num'>808</td><td class='num'>12.8%</td><td class='num'>1.6%</td><td class='num'>0.0%</td><td class='mono'>-60..140 (left 14)</td></tr>
+<tr><td class='mono'>chr1:144807552-144807681(+)</td><td class='num'>1128</td><td class='mono'>chr1:144807553-144807681(+)</td><td class='num'>870</td><td class='num'>13.3%</td><td class='num'>1.5%</td><td class='num'>0.0%</td><td class='mono'>14..143 (left -57)</td></tr>
+<tr><td class='mono'>chr1:182912159-182912308(+)</td><td class='num'>1327</td><td class='mono'>chr1:182912160-182912312(+)</td><td class='num'>1052</td><td class='num'>11.2%</td><td class='num'>1.3%</td><td class='num'>0.0%</td><td class='mono'>2..155 (left -45)</td></tr>
+<tr><td class='mono'>chr1:186339146-186339297(+)</td><td class='num'>1146</td><td class='mono'>chr1:186339147-186339289(+)</td><td class='num'>773</td><td class='num'>16.2%</td><td class='num'>1.4%</td><td class='num'>0.0%</td><td class='mono'>1..144 (left -56)</td></tr>
+<tr><td class='mono'>chr10:92686176-92686338(+)</td><td class='num'>1102</td><td class='mono'>chr10:92686177-92686340(+)</td><td class='num'>798</td><td class='num'>16.1%</td><td class='num'>1.3%</td><td class='num'>4.9%</td><td class='mono'>2..158 (left -42)</td></tr>
+<tr><td class='mono'>chr11:21427585-21427730(+)</td><td class='num'>920</td><td class='mono'>chr11:21427586-21427706(+)</td><td class='num'>631</td><td class='num'>18.6%</td><td class='num'>2.5%</td><td class='num'>1.7%</td><td class='mono'>1..121 (left -79)</td></tr>
+<tr><td class='mono'>chr11:63891122-63891252(-)</td><td class='num'>800</td><td class='mono'>chr11:63891164-63891252(-)</td><td class='num'>522</td><td class='num'>15.9%</td><td class='num'>2.2%</td><td class='num'>0.0%</td><td class='mono'>-109..91 (left 2)</td></tr>
+<tr><td class='mono'>chr11:120010312-120010455(+)</td><td class='num'>1141</td><td class='mono'>chr11:120010317-120010465(+)</td><td class='num'>845</td><td class='num'>15.8%</td><td class='num'>1.4%</td><td class='num'>1.4%</td><td class='mono'>10..157 (left -43)</td></tr>
+<tr><td class='mono'>chr12:8012674-8012819(-)</td><td class='num'>1342</td><td class='mono'>chr12:8012659-8012817(-)</td><td class='num'>991</td><td class='num'>9.0%</td><td class='num'>1.3%</td><td class='num'>1.9%</td><td class='mono'>-38..162 (left 6)</td></tr>
+<tr><td class='mono'>chr12:19384907-19385049(+)</td><td class='num'>1490</td><td class='mono'>chr12:19384908-19385047(+)</td><td class='num'>1297</td><td class='num'>2.2%</td><td class='num'>0.0%</td><td class='num'>0.0%</td><td class='mono'>2..140 (left -60)</td></tr>
+<tr><td class='mono'>chr12:24383069-24383217(-)</td><td class='num'>982</td><td class='mono'>chr12:24383088-24383205(-)</td><td class='num'>672</td><td class='num'>16.2%</td><td class='num'>1.7%</td><td class='num'>0.0%</td><td class='mono'>-81..119 (left 1)</td></tr>
+<tr><td class='mono'>chr12:24992778-24992922(-)</td><td class='num'>1011</td><td class='mono'>chr12:24992777-24992920(-)</td><td class='num'>783</td><td class='num'>11.2%</td><td class='num'>6.9%</td><td class='num'>6.3%</td><td class='mono'>-51..149 (left 6)</td></tr>
+<tr><td class='mono'>chr12:53471150-53471272(+)</td><td class='num'>578</td><td class='mono'>chr12:53471151-53471272(+)</td><td class='num'>446</td><td class='num'>21.3%</td><td class='num'>0.0%</td><td class='num'>10.7%</td><td class='mono'>5..112 (left -88)</td></tr>
+<tr><td class='mono'>chr12:54480363-54480512(+)</td><td class='num'>1031</td><td class='mono'>chr12:54480368-54480519(+)</td><td class='num'>780</td><td class='num'>16.4%</td><td class='num'>4.6%</td><td class='num'>3.3%</td><td class='mono'>9..161 (left -39)</td></tr>
+<tr><td class='mono'>chr12:56223807-56223953(-)</td><td class='num'>1306</td><td class='mono'>chr12:56223808-56223949(-)</td><td class='num'>902</td><td class='num'>10.6%</td><td class='num'>2.1%</td><td class='num'>0.0%</td><td class='mono'>-51..149 (left 6)</td></tr>
+<tr><td class='mono'>chr13:18709753-18709902(-)</td><td class='num'>1455</td><td class='mono'>chr13:18709708-18709902(-)</td><td class='num'>1557</td><td class='num'>5.7%</td><td class='num'>1.5%</td><td class='num'>0.0%</td><td class='mono'>-3..197 (left 1)</td></tr>
+<tr><td class='mono'>chr13:56557975-56558115(+)</td><td class='num'>998</td><td class='mono'>chr13:56557976-56558115(+)</td><td class='num'>679</td><td class='num'>19.4%</td><td class='num'>2.8%</td><td class='num'>0.0%</td><td class='mono'>1..143 (left -57)</td></tr>
+<tr><td class='mono'>chr13:99335886-99336014(+)</td><td class='num'>1106</td><td class='mono'>chr13:99335887-99336021(+)</td><td class='num'>793</td><td class='num'>13.4%</td><td class='num'>2.2%</td><td class='num'>0.0%</td><td class='mono'>16..152 (left -48)</td></tr>
+<tr><td class='mono'>chr14:64088488-64088627(+)</td><td class='num'>1099</td><td class='mono'>chr14:64088489-64088624(+)</td><td class='num'>758</td><td class='num'>15.8%</td><td class='num'>1.5%</td><td class='num'>1.5%</td><td class='mono'>2..136 (left -64)</td></tr>
+<tr><td class='mono'>chr15:25013549-25013684(+)</td><td class='num'>1020</td><td class='mono'>chr15:25013550-25013657(+)</td><td class='num'>746</td><td class='num'>11.2%</td><td class='num'>1.8%</td><td class='num'>0.0%</td><td class='mono'>12..120 (left -80)</td></tr>
+<tr><td class='mono'>chr15:55434550-55434668(+)</td><td class='num'>1148</td><td class='mono'>chr15:55434551-55434660(+)</td><td class='num'>945</td><td class='num'>2.8%</td><td class='num'>1.8%</td><td class='num'>0.0%</td><td class='mono'>2..112 (left -88)</td></tr>
+<tr><td class='mono'>chr15:64245638-64245766(+)</td><td class='num'>1148</td><td class='mono'>chr15:64245639-64245761(+)</td><td class='num'>893</td><td class='num'>7.4%</td><td class='num'>2.4%</td><td class='num'>0.8%</td><td class='mono'>17..140 (left -60)</td></tr>
+<tr><td class='mono'>chr15:101317863-101317989(-)</td><td class='num'>922</td><td class='mono'>chr15:101317864-101317989(-)</td><td class='num'>601</td><td class='num'>16.4%</td><td class='num'>2.4%</td><td class='num'>2.4%</td><td class='mono'>-67..133 (left 9)</td></tr>
+<tr><td class='mono'>chr16:67587641-67587785(+)</td><td class='num'>1132</td><td class='mono'>chr16:67587646-67587786(+)</td><td class='num'>843</td><td class='num'>15.0%</td><td class='num'>2.1%</td><td class='num'>0.0%</td><td class='mono'>6..148 (left -52)</td></tr>
+<tr><td class='mono'>chr17:18173319-18173449(+)</td><td class='num'>876</td><td class='mono'>chr17:18173320-18173449(+)</td><td class='num'>636</td><td class='num'>18.4%</td><td class='num'>2.4%</td><td class='num'>3.1%</td><td class='mono'>13..140 (left -60)</td></tr>
+<tr><td class='mono'>chr17:44654182-44654297(-)</td><td class='num'>892</td><td class='mono'>chr17:44654183-44654297(-)</td><td class='num'>649</td><td class='num'>14.0%</td><td class='num'>9.5%</td><td class='num'>0.0%</td><td class='mono'>-61..139 (left 14)</td></tr>
+<tr><td class='mono'>chr17:48822822-48822970(-)</td><td class='num'>1288</td><td class='mono'>chr17:48822815-48822970(-)</td><td class='num'>1058</td><td class='num'>11.3%</td><td class='num'>1.3%</td><td class='num'>2.6%</td><td class='mono'>-46..154 (left 2)</td></tr>
+<tr><td class='mono'>chr17:75799845-75799983(+)</td><td class='num'>1048</td><td class='mono'>chr17:75799846-75799983(+)</td><td class='num'>736</td><td class='num'>13.1%</td><td class='num'>8.1%</td><td class='num'>0.0%</td><td class='mono'>7..155 (left -45)</td></tr>
+<tr><td class='mono'>chr18:6049008-6049153(+)</td><td class='num'>1026</td><td class='mono'>chr18:6049009-6049156(+)</td><td class='num'>785</td><td class='num'>17.7%</td><td class='num'>1.3%</td><td class='num'>0.0%</td><td class='mono'>7..155 (left -45)</td></tr>
+<tr><td class='mono'>chr18:63581189-63581366(+)</td><td class='num'>1401</td><td class='mono'>chr18:63581190-63581320(+)</td><td class='num'>1106</td><td class='num'>3.1%</td><td class='num'>0.8%</td><td class='num'>0.0%</td><td class='mono'>1..131 (left -69)</td></tr>
+<tr><td class='mono'>chr19:6673111-6673258(+)</td><td class='num'>1295</td><td class='mono'>chr19:6673112-6673275(+)</td><td class='num'>972</td><td class='num'>12.3%</td><td class='num'>2.4%</td><td class='num'>0.6%</td><td class='mono'>2..167 (left -33)</td></tr>
+<tr><td class='mono'>chr19:34716559-34716702(+)</td><td class='num'>1264</td><td class='mono'>chr19:34716560-34716704(+)</td><td class='num'>963</td><td class='num'>11.9%</td><td class='num'>1.4%</td><td class='num'>0.7%</td><td class='mono'>5..149 (left -51)</td></tr>
+<tr><td class='mono'>chr19:39914882-39915074(+)</td><td class='num'>862</td><td class='mono'>chr19:39914958-39915083(+)</td><td class='num'>650</td><td class='num'>17.6%</td><td class='num'>4.6%</td><td class='num'>0.0%</td><td class='mono'>29..159 (left -41)</td></tr>
+<tr><td class='mono'>chr19:50071366-50071492(+)</td><td class='num'>1062</td><td class='mono'>chr19:50071367-50071492(+)</td><td class='num'>858</td><td class='num'>11.2%</td><td class='num'>6.0%</td><td class='num'>0.0%</td><td class='mono'>2..134 (left -66)</td></tr>
+<tr><td class='mono'>chr19:54151421-54151554(+)</td><td class='num'>1089</td><td class='mono'>chr19:54151422-54151529(+)</td><td class='num'>848</td><td class='num'>5.6%</td><td class='num'>1.8%</td><td class='num'>0.0%</td><td class='mono'>2..110 (left -90)</td></tr>
+<tr><td class='mono'>chr2:44910185-44910325(+)</td><td class='num'>733</td><td class='mono'>chr2:44910186-44910262(+)</td><td class='num'>514</td><td class='num'>9.2%</td><td class='num'>2.6%</td><td class='num'>0.0%</td><td class='mono'>2..79 (left -121)</td></tr>
+<tr><td class='mono'>chr2:47335313-47335463(+)</td><td class='num'>1571</td><td class='mono'>chr2:47335314-47335514(+)</td><td class='num'>1825</td><td class='num'>0.0%</td><td class='num'>0.0%</td><td class='num'>0.0%</td><td class='mono'>1..200 (left 0)</td></tr>
+<tr><td class='mono'>chr2:48177113-48177258(+)</td><td class='num'>1091</td><td class='mono'>chr2:48177114-48177258(+)</td><td class='num'>769</td><td class='num'>20.1%</td><td class='num'>1.4%</td><td class='num'>0.0%</td><td class='mono'>2..147 (left -53)</td></tr>
+<tr><td class='mono'>chr2:65578993-65579136(+)</td><td class='num'>1052</td><td class='mono'>chr2:65579002-65579108(+)</td><td class='num'>753</td><td class='num'>10.4%</td><td class='num'>1.9%</td><td class='num'>0.0%</td><td class='mono'>11..118 (left -82)</td></tr>
+<tr><td class='mono'>chr2:87343088-87343217(+)</td><td class='num'>1132</td><td class='mono'>chr2:87343089-87343214(+)</td><td class='num'>854</td><td class='num'>12.8%</td><td class='num'>1.6%</td><td class='num'>0.0%</td><td class='mono'>14..140 (left -60)</td></tr>
+<tr><td class='mono'>chr2:90239434-90239563(+)</td><td class='num'>1152</td><td class='mono'>chr2:90239435-90239560(+)</td><td class='num'>872</td><td class='num'>12.0%</td><td class='num'>1.6%</td><td class='num'>0.0%</td><td class='mono'>14..140 (left -60)</td></tr>
+<tr><td class='mono'>chr2:100900882-100901015(-)</td><td class='num'>1060</td><td class='mono'>chr2:100900890-100901011(-)</td><td class='num'>743</td><td class='num'>14.9%</td><td class='num'>1.6%</td><td class='num'>0.0%</td><td class='mono'>-61..139 (left 17)</td></tr>
+<tr><td class='mono'>chr2:119959456-119959586(+)</td><td class='num'>933</td><td class='mono'>chr2:119959457-119959586(+)</td><td class='num'>651</td><td class='num'>17.3%</td><td class='num'>1.6%</td><td class='num'>1.6%</td><td class='mono'>1..129 (left -71)</td></tr>
+<tr><td class='mono'>chr2:151149702-151149849(+)</td><td class='num'>1310</td><td class='mono'>chr2:151149707-151149855(+)</td><td class='num'>1032</td><td class='num'>9.6%</td><td class='num'>1.4%</td><td class='num'>1.4%</td><td class='mono'>6..153 (left -47)</td></tr>
+<tr><td class='mono'>chr2:163815652-163815797(-)</td><td class='num'>988</td><td class='mono'>chr2:163815644-163815797(-)</td><td class='num'>758</td><td class='num'>14.4%</td><td class='num'>4.0%</td><td class='num'>4.6%</td><td class='mono'>-47..153 (left 2)</td></tr>
+<tr><td class='mono'>chr2:163817380-163817494(-)</td><td class='num'>846</td><td class='mono'>chr2:163817385-163817494(-)</td><td class='num'>617</td><td class='num'>12.4%</td><td class='num'>3.7%</td><td class='num'>3.7%</td><td class='mono'>-90..110 (left 2)</td></tr>
+<tr><td class='mono'>chr20:12025833-12025947(-)</td><td class='num'>1051</td><td class='mono'>chr20:12025825-12025943(-)</td><td class='num'>805</td><td class='num'>8.5%</td><td class='num'>2.5%</td><td class='num'>0.0%</td><td class='mono'>-44..156 (left 36)</td></tr>
+<tr><td class='mono'>chr20:33547931-33548061(-)</td><td class='num'>1046</td><td class='mono'>chr20:33547926-33548061(-)</td><td class='num'>778</td><td class='num'>12.8%</td><td class='num'>5.7%</td><td class='num'>1.5%</td><td class='mono'>-50..150 (left 10)</td></tr>
+<tr><td class='mono'>chr21:13809611-13809759(-)</td><td class='num'>1496</td><td class='mono'>chr21:13809562-13809759(-)</td><td class='num'>1504</td><td class='num'>4.7%</td><td class='num'>2.0%</td><td class='num'>2.0%</td><td class='mono'>-3..197 (left 1)</td></tr>
+<tr><td class='mono'>chr22:17677063-17677181(+)</td><td class='num'>935</td><td class='mono'>chr22:17677064-17677182(+)</td><td class='num'>739</td><td class='num'>15.4%</td><td class='num'>1.7%</td><td class='num'>0.8%</td><td class='mono'>28..146 (left -54)</td></tr>
+<tr><td class='mono'>chr22:28638830-28638965(-)</td><td class='num'>1014</td><td class='mono'>chr22:28638854-28638965(-)</td><td class='num'>745</td><td class='num'>12.6%</td><td class='num'>1.8%</td><td class='num'>0.0%</td><td class='mono'>-87..113 (left 1)</td></tr>
+<tr><td class='mono'>chr3:45814634-45814734(+)</td><td class='num'>862</td><td class='mono'>chr3:45814641-45814743(+)</td><td class='num'>606</td><td class='num'>13.7%</td><td class='num'>2.9%</td><td class='num'>0.0%</td><td class='mono'>50..154 (left -46)</td></tr>
+<tr><td class='mono'>chr3:78051258-78051384(-)</td><td class='num'>781</td><td class='mono'>chr3:78051243-78051409(-)</td><td class='num'>574</td><td class='num'>19.3%</td><td class='num'>1.4%</td><td class='num'>12.7%</td><td class='mono'>-45..155 (left 9)</td></tr>
+<tr><td class='mono'>chr3:150363566-150363703(-)</td><td class='num'>1101</td><td class='mono'>chr3:150363567-150363701(-)</td><td class='num'>783</td><td class='num'>16.4%</td><td class='num'>1.5%</td><td class='num'>0.0%</td><td class='mono'>-61..139 (left 4)</td></tr>
+<tr><td class='mono'>chr3:172921058-172921181(-)</td><td class='num'>1022</td><td class='mono'>chr3:172921035-172921181(-)</td><td class='num'>776</td><td class='num'>15.8%</td><td class='num'>2.0%</td><td class='num'>0.0%</td><td class='mono'>-31..169 (left 21)</td></tr>
+<tr><td class='mono'>chr4:3345913-3346044(-)</td><td class='num'>875</td><td class='mono'>chr4:3345925-3346040(-)</td><td class='num'>676</td><td class='num'>13.9%</td><td class='num'>11.5%</td><td class='num'>0.0%</td><td class='mono'>-66..134 (left 5)</td></tr>
+<tr><td class='mono'>chr4:39695141-39695313(+)</td><td class='num'>1253</td><td class='mono'>chr4:39695146-39695298(+)</td><td class='num'>1016</td><td class='num'>10.6%</td><td class='num'>1.3%</td><td class='num'>0.7%</td><td class='mono'>6..158 (left -42)</td></tr>
+<tr><td class='mono'>chr4:41655670-41655828(-)</td><td class='num'>975</td><td class='mono'>chr4:41655671-41655828(-)</td><td class='num'>670</td><td class='num'>17.9%</td><td class='num'>1.4%</td><td class='num'>7.6%</td><td class='mono'>-53..147 (left 1)</td></tr>
+<tr><td class='mono'>chr4:45650780-45650925(+)</td><td class='num'>1076</td><td class='mono'>chr4:45650781-45650926(+)</td><td class='num'>807</td><td class='num'>15.9%</td><td class='num'>5.2%</td><td class='num'>0.0%</td><td class='mono'>1..153 (left -47)</td></tr>
+<tr><td class='mono'>chr4:84850941-84851086(-)</td><td class='num'>1236</td><td class='mono'>chr4:84850969-84851086(-)</td><td class='num'>821</td><td class='num'>12.8%</td><td class='num'>1.6%</td><td class='num'>0.8%</td><td class='mono'>-81..119 (left 1)</td></tr>
+<tr><td class='mono'>chr4:124419124-124419273(-)</td><td class='num'>1144</td><td class='mono'>chr4:124419161-124419273(-)</td><td class='num'>829</td><td class='num'>9.8%</td><td class='num'>1.8%</td><td class='num'>0.0%</td><td class='mono'>-85..115 (left 2)</td></tr>
+<tr><td class='mono'>chr4:126652157-126652305(+)</td><td class='num'>1124</td><td class='mono'>chr4:126652158-126652296(+)</td><td class='num'>810</td><td class='num'>17.4%</td><td class='num'>1.4%</td><td class='num'>0.0%</td><td class='mono'>1..140 (left -60)</td></tr>
+<tr><td class='mono'>chr4:136855066-136855184(-)</td><td class='num'>662</td><td class='mono'>chr4:136855058-136855184(-)</td><td class='num'>450</td><td class='num'>18.4%</td><td class='num'>12.6%</td><td class='num'>0.8%</td><td class='mono'>-44..156 (left 14)</td></tr>
+<tr><td class='mono'>chr5:69275691-69275828(+)</td><td class='num'>1225</td><td class='mono'>chr5:69275692-69275816(+)</td><td class='num'>920</td><td class='num'>8.9%</td><td class='num'>1.6%</td><td class='num'>0.0%</td><td class='mono'>2..127 (left -73)</td></tr>
+<tr><td class='mono'>chr5:127133838-127134016(-)</td><td class='num'>1326</td><td class='mono'>chr5:127133883-127134016(-)</td><td class='num'>1087</td><td class='num'>3.0%</td><td class='num'>1.5%</td><td class='num'>0.0%</td><td class='mono'>-65..135 (left 1)</td></tr>
+<tr><td class='mono'>chr5:132973324-132973459(-)</td><td class='num'>1018</td><td class='mono'>chr5:132973341-132973459(-)</td><td class='num'>747</td><td class='num'>16.1%</td><td class='num'>1.7%</td><td class='num'>0.0%</td><td class='mono'>-79..121 (left 2)</td></tr>
+<tr><td class='mono'>chr5:157431430-157431578(-)</td><td class='num'>1175</td><td class='mono'>chr5:157431443-157431578(-)</td><td class='num'>884</td><td class='num'>13.3%</td><td class='num'>1.5%</td><td class='num'>0.0%</td><td class='mono'>-63..137 (left 1)</td></tr>
+<tr><td class='mono'>chr5:162919050-162919191(-)</td><td class='num'>1153</td><td class='mono'>chr5:162919051-162919189(-)</td><td class='num'>859</td><td class='num'>11.0%</td><td class='num'>2.9%</td><td class='num'>1.4%</td><td class='mono'>-55..145 (left 6)</td></tr>
+<tr><td class='mono'>chr5:169599794-169599945(+)</td><td class='num'>1050</td><td class='mono'>chr5:169599795-169599940(+)</td><td class='num'>776</td><td class='num'>15.1%</td><td class='num'>2.1%</td><td class='num'>4.1%</td><td class='mono'>2..143 (left -57)</td></tr>
+<tr><td class='mono'>chr5:174805653-174805793(-)</td><td class='num'>1090</td><td class='mono'>chr5:174805660-174805793(-)</td><td class='num'>837</td><td class='num'>16.5%</td><td class='num'>1.5%</td><td class='num'>0.0%</td><td class='mono'>-64..136 (left 2)</td></tr>
+<tr><td class='mono'>chr6:27829236-27829366(+)</td><td class='num'>783</td><td class='mono'>chr6:27829237-27829321(+)</td><td class='num'>521</td><td class='num'>11.9%</td><td class='num'>2.3%</td><td class='num'>0.0%</td><td class='mono'>5..90 (left -110)</td></tr>
+<tr><td class='mono'>chr6:36440989-36441132(+)</td><td class='num'>1113</td><td class='mono'>chr6:36440990-36441130(+)</td><td class='num'>808</td><td class='num'>15.8%</td><td class='num'>1.4%</td><td class='num'>0.7%</td><td class='mono'>7..147 (left -53)</td></tr>
+<tr><td class='mono'>chr6:134144555-134144698(-)</td><td class='num'>1107</td><td class='mono'>chr6:134144557-134144694(-)</td><td class='num'>825</td><td class='num'>16.1%</td><td class='num'>1.4%</td><td class='num'>0.0%</td><td class='mono'>-53..147 (left 9)</td></tr>
+<tr><td class='mono'>chr6:158423006-158423122(+)</td><td class='num'>1064</td><td class='mono'>chr6:158423007-158423122(+)</td><td class='num'>804</td><td class='num'>9.6%</td><td class='num'>1.7%</td><td class='num'>0.0%</td><td class='mono'>14..130 (left -70)</td></tr>
+<tr><td class='mono'>chr7:56057361-56057485(-)</td><td class='num'>763</td><td class='mono'>chr7:56057384-56057484(-)</td><td class='num'>548</td><td class='num'>20.0%</td><td class='num'>2.0%</td><td class='num'>0.0%</td><td class='mono'>-79..121 (left 20)</td></tr>
+<tr><td class='mono'>chr7:68369563-68369683(+)</td><td class='num'>867</td><td class='mono'>chr7:68369564-68369690(+)</td><td class='num'>593</td><td class='num'>19.8%</td><td class='num'>2.3%</td><td class='num'>0.0%</td><td class='mono'>30..158 (left -42)</td></tr>
+<tr><td class='mono'>chr7:70919263-70919394(+)</td><td class='num'>1086</td><td class='mono'>chr7:70919266-70919391(+)</td><td class='num'>807</td><td class='num'>12.4%</td><td class='num'>1.4%</td><td class='num'>8.1%</td><td class='mono'>20..140 (left -60)</td></tr>
+<tr><td class='mono'>chr7:115004336-115004475(+)</td><td class='num'>983</td><td class='mono'>chr7:115004337-115004480(+)</td><td class='num'>698</td><td class='num'>17.3%</td><td class='num'>1.4%</td><td class='num'>2.8%</td><td class='mono'>12..152 (left -48)</td></tr>
+<tr><td class='mono'>chr7:137025865-137026010(+)</td><td class='num'>1172</td><td class='mono'>chr7:137025866-137026036(+)</td><td class='num'>877</td><td class='num'>16.5%</td><td class='num'>3.4%</td><td class='num'>0.0%</td><td class='mono'>1..176 (left -24)</td></tr>
+<tr><td class='mono'>chr8:3326905-3327040(+)</td><td class='num'>1127</td><td class='mono'>chr8:3326908-3327046(+)</td><td class='num'>883</td><td class='num'>12.4%</td><td class='num'>1.4%</td><td class='num'>0.7%</td><td class='mono'>15..153 (left -47)</td></tr>
+<tr><td class='mono'>chr8:30382834-30382973(-)</td><td class='num'>1040</td><td class='mono'>chr8:30382834-30382978(-)</td><td class='num'>789</td><td class='num'>18.1%</td><td class='num'>4.0%</td><td class='num'>0.0%</td><td class='mono'>-45..155 (left 6)</td></tr>
+<tr><td class='mono'>chr9:18570076-18570249(+)</td><td class='num'>884</td><td class='mono'>chr9:18570077-18570249(+)</td><td class='num'>611</td><td class='num'>16.1%</td><td class='num'>3.9%</td><td class='num'>13.4%</td><td class='mono'>2..156 (left -44)</td></tr>
+<tr><td class='mono'>chr9:88286839-88287006(+)</td><td class='num'>1244</td><td class='mono'>chr9:88286840-88287000(+)</td><td class='num'>986</td><td class='num'>10.3%</td><td class='num'>1.3%</td><td class='num'>3.1%</td><td class='mono'>2..158 (left -42)</td></tr>
+<tr><td class='mono'>chr9:124903525-124903665(+)</td><td class='num'>955</td><td class='mono'>chr9:124903526-124903667(+)</td><td class='num'>678</td><td class='num'>17.7%</td><td class='num'>5.4%</td><td class='num'>0.0%</td><td class='mono'>10..158 (left -42)</td></tr>
+<tr><td class='mono'>chrX:14945694-14945811(-)</td><td class='num'>960</td><td class='mono'>chrX:14945714-14945811(-)</td><td class='num'>697</td><td class='num'>10.3%</td><td class='num'>2.0%</td><td class='num'>0.0%</td><td class='mono'>-79..121 (left 23)</td></tr>
+<tr><td class='mono'>chrX:68915732-68915868(-)</td><td class='num'>966</td><td class='mono'>chrX:68915732-68915868(-)</td><td class='num'>758</td><td class='num'>13.2%</td><td class='num'>13.9%</td><td class='num'>0.0%</td><td class='mono'>-41..159 (left 2)</td></tr>
+<tr><td class='mono'>chrX:107568776-107568920(+)</td><td class='num'>1092</td><td class='mono'>chrX:107568777-107568905(+)</td><td class='num'>823</td><td class='num'>15.6%</td><td class='num'>1.5%</td><td class='num'>0.0%</td><td class='mono'>2..131 (left -69)</td></tr>
+<tr><td class='mono'>chrX:108373120-108373264(+)</td><td class='num'>1163</td><td class='mono'>chrX:108373121-108373254(+)</td><td class='num'>832</td><td class='num'>15.0%</td><td class='num'>1.5%</td><td class='num'>0.0%</td><td class='mono'>2..136 (left -64)</td></tr>
+<tr><td class='mono'>chrX:154044049-154044189(+)</td><td class='num'>966</td><td class='mono'>chrX:154044050-154044191(+)</td><td class='num'>775</td><td class='num'>15.6%</td><td class='num'>7.2%</td><td class='num'>0.0%</td><td class='mono'>8..159 (left -41)</td></tr>
+<tr><td class='mono'>chrY:15457382-15457524(+)</td><td class='num'>958</td><td class='mono'>chrY:15457383-15457524(+)</td><td class='num'>705</td><td class='num'>16.8%</td><td class='num'>1.5%</td><td class='num'>7.1%</td><td class='mono'>10..142 (left -58)</td></tr>
+</tbody>
+</table></div>
+
+<h2>SINEderella-only BC200 calls (498)</h2>
+<p class="count">SINEderella called BC200; shown is what RepeatMasker's SINE-class
+track calls the same locus instead (or notes no SINE-class call exists there).</p>
+<div class="tablewrap"><table>
+<thead><tr><th>SINEderella locus</th><th>Bitscore</th><th>RepeatMasker calls this locus</th></tr></thead>
+<tbody><tr><td class='mono'>chr1:2573049-2573208(+)</td><td class='num'>1232</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr1:20615351-20615497(+)</td><td class='num'>1199</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr1:21390864-21391011(+)</td><td class='num'>1363</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr1:23651707-23651854(+)</td><td class='num'>1325</td><td>FLAM_A</td></tr>
+<tr><td class='mono'>chr1:24455536-24455682(+)</td><td class='num'>1325</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr1:24980111-24980254(-)</td><td class='num'>1170</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr1:25153191-25153341(+)</td><td class='num'>1288</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr1:28986646-28986784(+)</td><td class='num'>1431</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr1:31995408-31995550(-)</td><td class='num'>1022</td><td>AluJr</td></tr>
+<tr><td class='mono'>chr1:32242783-32243078(-)</td><td class='num'>1002</td><td>(no SINE-class RM call)</td></tr>
+<tr><td class='mono'>chr1:37908452-37908601(+)</td><td class='num'>1521</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr1:38590820-38590968(+)</td><td class='num'>1182</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr1:39168485-39168787(+)</td><td class='num'>1202</td><td>(no SINE-class RM call)</td></tr>
+<tr><td class='mono'>chr1:39960979-39961116(-)</td><td class='num'>1093</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr1:43304092-43304234(-)</td><td class='num'>1152</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr1:45126620-45126761(+)</td><td class='num'>1182</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr1:48196197-48196347(-)</td><td class='num'>1571</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr1:51996457-51996589(-)</td><td class='num'>744</td><td>AluJr</td></tr>
+<tr><td class='mono'>chr1:67006002-67006148(-)</td><td class='num'>1253</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr1:81916988-81917128(-)</td><td class='num'>996</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr1:92140139-92140283(+)</td><td class='num'>1087</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr1:113029742-113029889(-)</td><td class='num'>1077</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr1:113050026-113050172(-)</td><td class='num'>1383</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr1:118143415-118143566(+)</td><td class='num'>897</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr1:118872358-118872501(-)</td><td class='num'>1156</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr1:120939049-120939192(-)</td><td class='num'>1249</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr1:145189861-145190012(+)</td><td class='num'>1277</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr1:148399167-148399316(-)</td><td class='num'>1257</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr1:149633204-149633355(-)</td><td class='num'>1277</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr1:155036737-155037058(-)</td><td class='num'>1277</td><td>(no SINE-class RM call)</td></tr>
+<tr><td class='mono'>chr1:158369958-158370098(+)</td><td class='num'>936</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr1:161503254-161503397(+)</td><td class='num'>1086</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr1:166910904-166911061(-)</td><td class='num'>1111</td><td>AluJr4</td></tr>
+<tr><td class='mono'>chr1:170541829-170541978(+)</td><td class='num'>1337</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr1:171261600-171261753(+)</td><td class='num'>1337</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr1:180789573-180789718(-)</td><td class='num'>1032</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr1:190034804-190034950(+)</td><td class='num'>1297</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr1:203004764-203004909(-)</td><td class='num'>1141</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr1:205292387-205292530(-)</td><td class='num'>1190</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr1:206086338-206086482(-)</td><td class='num'>1074</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr1:217466377-217466523(-)</td><td class='num'>1178</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr1:229528312-229528463(-)</td><td class='num'>1241</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr1:234165537-234165684(-)</td><td class='num'>1097</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr1:247397468-247397604(-)</td><td class='num'>1116</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr1:247414417-247414561(-)</td><td class='num'>1451</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr10:3634240-3634387(+)</td><td class='num'>1321</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr10:7855800-7855947(+)</td><td class='num'>1391</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr10:9288601-9288744(+)</td><td class='num'>1318</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr10:10474159-10474323(+)</td><td class='num'>1200</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr10:16078472-16078628(+)</td><td class='num'>1187</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr10:16266938-16267053(+)</td><td class='num'>630</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr10:21712509-21712628(-)</td><td class='num'>350</td><td>(no SINE-class RM call)</td></tr>
+<tr><td class='mono'>chr10:24500799-24501093(+)</td><td class='num'>1173</td><td>(no SINE-class RM call)</td></tr>
+<tr><td class='mono'>chr10:24677979-24678126(+)</td><td class='num'>1230</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr10:36427750-36427897(+)</td><td class='num'>1140</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr10:39114269-39114421(-)</td><td class='num'>1267</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr10:42865179-42865326(-)</td><td class='num'>1237</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr10:43006515-43006666(-)</td><td class='num'>1281</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr10:69163271-69163419(-)</td><td class='num'>1099</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr10:69408458-69408605(-)</td><td class='num'>1480</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr10:73633445-73633593(+)</td><td class='num'>1383</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr10:74743022-74743170(-)</td><td class='num'>1217</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr10:92584694-92584857(+)</td><td class='num'>895</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr10:102323561-102323705(-)</td><td class='num'>1164</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr10:109858034-109858183(+)</td><td class='num'>1107</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr10:110390004-110390257(+)</td><td class='num'>1398</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr10:110560137-110560275(-)</td><td class='num'>1055</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr10:114490820-114491146(-)</td><td class='num'>1377</td><td>(no SINE-class RM call)</td></tr>
+<tr><td class='mono'>chr10:123167949-123168101(-)</td><td class='num'>1446</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr11:14303467-14303591(+)</td><td class='num'>959</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr11:16368952-16369094(+)</td><td class='num'>990</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr11:27337465-27337610(-)</td><td class='num'>1200</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr11:31187988-31188119(-)</td><td class='num'>718</td><td>FLAM_A</td></tr>
+<tr><td class='mono'>chr11:34304262-34304409(-)</td><td class='num'>1190</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr11:43272891-43273062(-)</td><td class='num'>1415</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr11:43661526-43661670(+)</td><td class='num'>1097</td><td>AluJr</td></tr>
+<tr><td class='mono'>chr11:47646161-47646286(+)</td><td class='num'>820</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr11:62468986-62469104(-)</td><td class='num'>651</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr11:67459061-67459209(+)</td><td class='num'>1240</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr11:72481870-72482011(-)</td><td class='num'>1365</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr11:73644431-73644579(+)</td><td class='num'>1448</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr11:73793855-73794190(+)</td><td class='num'>1458</td><td>AluJb</td></tr>
+<tr><td class='mono'>chr11:74602089-74602242(-)</td><td class='num'>1266</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr11:75391538-75391686(-)</td><td class='num'>1428</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr11:84910629-84910776(+)</td><td class='num'>1243</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr11:86008807-86008975(+)</td><td class='num'>1508</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr11:116079308-116079453(+)</td><td class='num'>1428</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr12:7701003-7701447(+)</td><td class='num'>1441</td><td>(no SINE-class RM call)</td></tr>
+<tr><td class='mono'>chr12:8609468-8609613(-)</td><td class='num'>967</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr12:8757947-8758096(-)</td><td class='num'>1463</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr12:13073146-13073294(-)</td><td class='num'>1359</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr12:14183648-14183785(+)</td><td class='num'>972</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr12:14224699-14224829(-)</td><td class='num'>1129</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr12:25375245-25375393(-)</td><td class='num'>1472</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr12:27310196-27310341(+)</td><td class='num'>480</td><td>(no SINE-class RM call)</td></tr>
+<tr><td class='mono'>chr12:27939079-27939226(+)</td><td class='num'>928</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr12:39935106-39935257(+)</td><td class='num'>1175</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr12:43034030-43034179(+)</td><td class='num'>1432</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr12:48856947-48857103(+)</td><td class='num'>1330</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr12:49309802-49309936(+)</td><td class='num'>778</td><td>FLAM_A</td></tr>
+<tr><td class='mono'>chr12:50154681-50154829(-)</td><td class='num'>1115</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr12:50267820-50267954(-)</td><td class='num'>991</td><td>AluJr</td></tr>
+<tr><td class='mono'>chr12:60961612-60961755(-)</td><td class='num'>1177</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr12:62628004-62628149(-)</td><td class='num'>888</td><td>AluJr</td></tr>
+<tr><td class='mono'>chr12:64588402-64588532(+)</td><td class='num'>968</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr12:65707598-65707745(+)</td><td class='num'>1335</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr12:79435321-79435467(-)</td><td class='num'>1310</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr12:85991708-85991841(+)</td><td class='num'>1158</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr12:89141691-89141835(+)</td><td class='num'>800</td><td>AluJr</td></tr>
+<tr><td class='mono'>chr12:105119947-105120096(+)</td><td class='num'>1474</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr12:112287639-112287773(+)</td><td class='num'>757</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr12:114800200-114800341(-)</td><td class='num'>1348</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr12:119253351-119253499(-)</td><td class='num'>1101</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr12:119914061-119914198(+)</td><td class='num'>1032</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr12:122502515-122502660(-)</td><td class='num'>1112</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr12:122880550-122880693(+)</td><td class='num'>1005</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr12:132654221-132654372(-)</td><td class='num'>1425</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr12:132919220-132919370(-)</td><td class='num'>919</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr13:43468508-43468653(+)</td><td class='num'>1290</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr13:56336846-56336984(-)</td><td class='num'>976</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr13:73438122-73438251(-)</td><td class='num'>810</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr13:77475775-77476053(-)</td><td class='num'>398</td><td>(no SINE-class RM call)</td></tr>
+<tr><td class='mono'>chr13:79748354-79748490(+)</td><td class='num'>1328</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr13:101972661-101972807(-)</td><td class='num'>1346</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr13:104228643-104228788(-)</td><td class='num'>1560</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr13:112491657-112491785(-)</td><td class='num'>1259</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr13@U@KI270838v1@U@alt:292627-292755(-)</td><td class='num'>1255</td><td>(no SINE-class RM call)</td></tr>
+<tr><td class='mono'>chr13@U@KI270840v1@U@alt:11403-11552(-)</td><td class='num'>1459</td><td>(no SINE-class RM call)</td></tr>
+<tr><td class='mono'>chr14:18878926-18879098(-)</td><td class='num'>1291</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr14:19640372-19640544(+)</td><td class='num'>1291</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr14:21313219-21313362(+)</td><td class='num'>1201</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr14:27681789-27681936(-)</td><td class='num'>1351</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr14:28122055-28122201(+)</td><td class='num'>1219</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr14:44249620-44249753(+)</td><td class='num'>1070</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr14:57137757-57137876(-)</td><td class='num'>862</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr14:61886890-61887039(-)</td><td class='num'>1485</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr14:62967245-62967381(-)</td><td class='num'>1030</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr14:67385650-67385777(-)</td><td class='num'>839</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr14:73075793-73075944(-)</td><td class='num'>1323</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr14:73569798-73570091(-)</td><td class='num'>989</td><td>(no SINE-class RM call)</td></tr>
+<tr><td class='mono'>chr14:73899256-73899407(-)</td><td class='num'>997</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr14:75037669-75037817(+)</td><td class='num'>1376</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr14:75870260-75870407(-)</td><td class='num'>1483</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr14:76578411-76578555(-)</td><td class='num'>1456</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr14:76972553-76972699(+)</td><td class='num'>1286</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr14:88483852-88483980(+)</td><td class='num'>1033</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr14:90222214-90222349(+)</td><td class='num'>1217</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr14:93187276-93187422(-)</td><td class='num'>1238</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr14:97258813-97258952(+)</td><td class='num'>969</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr14@U@KI270847v1@U@alt:301838-301984(-)</td><td class='num'>1238</td><td>(no SINE-class RM call)</td></tr>
+<tr><td class='mono'>chr15:40431135-40431283(-)</td><td class='num'>1378</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr15:51451144-51451287(+)</td><td class='num'>1150</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr15:55564520-55564642(+)</td><td class='num'>362</td><td>(no SINE-class RM call)</td></tr>
+<tr><td class='mono'>chr15:84699642-84699806(+)</td><td class='num'>1269</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr15:84743839-84743984(-)</td><td class='num'>1182</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr15:92404978-92405099(+)</td><td class='num'>1066</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr15:94651839-94651987(+)</td><td class='num'>1457</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr15:96243593-96243740(-)</td><td class='num'>1122</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr16:2384939-2385093(+)</td><td class='num'>1197</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr16:2504897-2505035(-)</td><td class='num'>1090</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr16:4528231-4528378(-)</td><td class='num'>1277</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr16:4546942-4547087(-)</td><td class='num'>1251</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr16:4547802-4547938(-)</td><td class='num'>715</td><td>FLAM_A</td></tr>
+<tr><td class='mono'>chr16:12018734-12018887(-)</td><td class='num'>1317</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr16:15767480-15767621(-)</td><td class='num'>1404</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr16:19644398-19644536(-)</td><td class='num'>1010</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr16:21576394-21576541(+)</td><td class='num'>1088</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr16:24337531-24337674(+)</td><td class='num'>1041</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr16:46519692-46519826(+)</td><td class='num'>1063</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr16:51206389-51206570(+)</td><td class='num'>1256</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr16:68880932-68881087(-)</td><td class='num'>1305</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr16:69486581-69486728(+)</td><td class='num'>1051</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr16:72035234-72035383(+)</td><td class='num'>1449</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr16:75090369-75090517(-)</td><td class='num'>1048</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr16:81365770-81365901(+)</td><td class='num'>862</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr16:87295575-87295704(-)</td><td class='num'>1138</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr16:87390749-87390897(-)</td><td class='num'>1181</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr16:87752123-87752270(+)</td><td class='num'>1259</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr16@U@KI270853v1@U@alt:1425491-1425632(-)</td><td class='num'>1392</td><td>(no SINE-class RM call)</td></tr>
+<tr><td class='mono'>chr16@U@KI270855v1@U@alt:230554-230701(-)</td><td class='num'>1265</td><td>(no SINE-class RM call)</td></tr>
+<tr><td class='mono'>chr17:1465818-1465966(-)</td><td class='num'>1229</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr17:2685999-2686138(+)</td><td class='num'>1428</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr17:4441240-4441386(+)</td><td class='num'>1355</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr17:15707871-15708011(+)</td><td class='num'>1165</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr17:18344385-18344534(+)</td><td class='num'>1251</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr17:20715825-20716000(-)</td><td class='num'>1031</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr17:28708602-28708746(+)</td><td class='num'>1501</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr17:29682510-29682634(+)</td><td class='num'>853</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr17:38928162-38928310(+)</td><td class='num'>1075</td><td>AluJr</td></tr>
+<tr><td class='mono'>chr17:40375322-40375447(-)</td><td class='num'>1105</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr17:50717469-50717621(-)</td><td class='num'>1073</td><td>AluJr</td></tr>
+<tr><td class='mono'>chr17:51206267-51206406(-)</td><td class='num'>1062</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr17:59925788-59925946(-)</td><td class='num'>1108</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr17:60521579-60521716(-)</td><td class='num'>1256</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr17:62247633-62247784(+)</td><td class='num'>1077</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr17:64318134-64318282(-)</td><td class='num'>1230</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr17:64488421-64488568(+)</td><td class='num'>1028</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr17:67736162-67736309(+)</td><td class='num'>1230</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr17:73129635-73129934(-)</td><td class='num'>1358</td><td>(no SINE-class RM call)</td></tr>
+<tr><td class='mono'>chr17:77333386-77333526(-)</td><td class='num'>1087</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr17:80174055-80174198(+)</td><td class='num'>1061</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr17:81298442-81298590(-)</td><td class='num'>1353</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr18:2871240-2871375(-)</td><td class='num'>1073</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr18:12620031-12620155(+)</td><td class='num'>856</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr18:21238487-21238638(+)</td><td class='num'>1193</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr18:32420629-32420775(+)</td><td class='num'>1039</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr18:40195371-40195517(+)</td><td class='num'>1101</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr18:56543903-56544045(+)</td><td class='num'>1089</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr18:66622053-66622224(+)</td><td class='num'>1546</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr19:2262070-2262245(-)</td><td class='num'>1042</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr19:4386489-4386633(-)</td><td class='num'>1168</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr19:5089888-5090164(+)</td><td class='num'>963</td><td>(no SINE-class RM call)</td></tr>
+<tr><td class='mono'>chr19:20387342-20387495(-)</td><td class='num'>1251</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr19:23726684-23726827(-)</td><td class='num'>1255</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr19:34446010-34446178(-)</td><td class='num'>1054</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr19:38177390-38177546(+)</td><td class='num'>1230</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr19:40359855-40359998(-)</td><td class='num'>845</td><td>AluJr</td></tr>
+<tr><td class='mono'>chr19:47024367-47024516(+)</td><td class='num'>1411</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr19:49099302-49099439(+)</td><td class='num'>1311</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr19:49307547-49307754(+)</td><td class='num'>1235</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr19:53026570-53026719(+)</td><td class='num'>1300</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr19:56684454-56684586(+)</td><td class='num'>1019</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr19:57341272-57341406(-)</td><td class='num'>1021</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr19:58079127-58079280(-)</td><td class='num'>1065</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr19@U@GL949746v1@U@alt:126271-126404(+)</td><td class='num'>1092</td><td>(no SINE-class RM call)</td></tr>
+<tr><td class='mono'>chr19@U@GL949747v2@U@alt:126271-126404(+)</td><td class='num'>1092</td><td>(no SINE-class RM call)</td></tr>
+<tr><td class='mono'>chr19@U@GL949748v2@U@alt:126271-126404(+)</td><td class='num'>1092</td><td>(no SINE-class RM call)</td></tr>
+<tr><td class='mono'>chr19@U@GL949749v2@U@alt:126271-126404(+)</td><td class='num'>1092</td><td>(no SINE-class RM call)</td></tr>
+<tr><td class='mono'>chr19@U@GL949750v2@U@alt:126271-126404(+)</td><td class='num'>1092</td><td>(no SINE-class RM call)</td></tr>
+<tr><td class='mono'>chr19@U@GL949751v2@U@alt:126271-126404(+)</td><td class='num'>1092</td><td>(no SINE-class RM call)</td></tr>
+<tr><td class='mono'>chr19@U@GL949752v1@U@alt:126271-126404(+)</td><td class='num'>1092</td><td>(no SINE-class RM call)</td></tr>
+<tr><td class='mono'>chr19@U@GL949753v2@U@alt:126271-126404(+)</td><td class='num'>1092</td><td>(no SINE-class RM call)</td></tr>
+<tr><td class='mono'>chr19@U@KI270938v1@U@alt:126271-126404(+)</td><td class='num'>1092</td><td>(no SINE-class RM call)</td></tr>
+<tr><td class='mono'>chr1@U@KI270712v1@U@random:111378-111507(-)</td><td class='num'>1126</td><td>(no SINE-class RM call)</td></tr>
+<tr><td class='mono'>chr1@U@KI270762v1@U@alt:124239-124398(+)</td><td class='num'>1230</td><td>(no SINE-class RM call)</td></tr>
+<tr><td class='mono'>chr1@U@KI270764v1@U@alt:2081-2228(-)</td><td class='num'>1096</td><td>(no SINE-class RM call)</td></tr>
+<tr><td class='mono'>chr2:6575319-6575466(+)</td><td class='num'>1179</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr2:6626562-6626707(+)</td><td class='num'>1141</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr2:17836396-17836531(-)</td><td class='num'>1132</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr2:24006661-24006802(+)</td><td class='num'>1098</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr2:30066905-30067039(+)</td><td class='num'>1009</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr2:32315896-32316048(+)</td><td class='num'>1409</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr2:34410481-34410629(+)</td><td class='num'>1234</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr2:44711476-44711613(-)</td><td class='num'>1171</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr2:55021465-55021622(-)</td><td class='num'>1262</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr2:66483224-66483372(-)</td><td class='num'>1459</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr2:95062941-95063072(+)</td><td class='num'>1026</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr2:96319892-96320025(-)</td><td class='num'>1122</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr2:96852784-96852921(+)</td><td class='num'>1060</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr2:122331988-122332136(+)</td><td class='num'>1320</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr2:127880020-127880163(+)</td><td class='num'>1106</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr2:136243143-136243291(+)</td><td class='num'>1339</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr2:139892395-139892559(+)</td><td class='num'>1556</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr2:140320587-140320726(-)</td><td class='num'>1205</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr2:153533720-153534037(-)</td><td class='num'>1378</td><td>(no SINE-class RM call)</td></tr>
+<tr><td class='mono'>chr2:174005494-174005621(+)</td><td class='num'>1009</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr2:174943825-174943956(-)</td><td class='num'>899</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr2:200114950-200115119(-)</td><td class='num'>1442</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr2:202337657-202337804(-)</td><td class='num'>1438</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr2:207263477-207263625(+)</td><td class='num'>1293</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr2:207778631-207778785(-)</td><td class='num'>1148</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr2:208036081-208036227(+)</td><td class='num'>1087</td><td>AluJr</td></tr>
+<tr><td class='mono'>chr2:218361892-218362036(+)</td><td class='num'>1360</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr2:218523558-218523717(-)</td><td class='num'>1019</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr2:238055876-238056024(-)</td><td class='num'>1108</td><td>AluJr4</td></tr>
+<tr><td class='mono'>chr2:241449176-241449325(+)</td><td class='num'>1502</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr2:241681406-241681558(+)</td><td class='num'>1306</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr20:2465387-2465549(-)</td><td class='num'>1462</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr20:3363569-3363717(+)</td><td class='num'>1280</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr20:4986184-4986315(+)</td><td class='num'>954</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr20:8618378-8618518(+)</td><td class='num'>1089</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr20:33642098-33642284(-)</td><td class='num'>1071</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr20:33727925-33728072(-)</td><td class='num'>1169</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr20:34628199-34628347(+)</td><td class='num'>1126</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr20:36929942-36930114(+)</td><td class='num'>1380</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr20:44152195-44152531(+)</td><td class='num'>1172</td><td>MIR</td></tr>
+<tr><td class='mono'>chr20:51736505-51736654(-)</td><td class='num'>1405</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr20:53626909-53627061(-)</td><td class='num'>1238</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr20:57426016-57426151(-)</td><td class='num'>1118</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr21:39481182-39481322(+)</td><td class='num'>1015</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr21:44431291-44431437(-)</td><td class='num'>1188</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr22:15601563-15601735(-)</td><td class='num'>1295</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr22:21945220-21945488(+)</td><td class='num'>947</td><td>(no SINE-class RM call)</td></tr>
+<tr><td class='mono'>chr22:25189765-25189911(-)</td><td class='num'>1135</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr22:28731682-28731827(-)</td><td class='num'>1220</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr22:42601227-42601376(+)</td><td class='num'>1532</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr2@U@KI270894v1@U@alt:45795-45924(+)</td><td class='num'>1147</td><td>(no SINE-class RM call)</td></tr>
+<tr><td class='mono'>chr3:13472230-13472377(-)</td><td class='num'>1023</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr3:32811965-32812118(-)</td><td class='num'>1292</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr3:36642463-36642605(-)</td><td class='num'>1445</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr3:44519156-44519291(-)</td><td class='num'>713</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr3:47314481-47314631(-)</td><td class='num'>1389</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr3:48744020-48744159(-)</td><td class='num'>1284</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr3:49040325-49040473(+)</td><td class='num'>1189</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr3:56921081-56921233(+)</td><td class='num'>1084</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr3:60744964-60745109(+)</td><td class='num'>1245</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr3:61056142-61056274(+)</td><td class='num'>1245</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr3:62083253-62083399(-)</td><td class='num'>1376</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr3:63179904-63180047(-)</td><td class='num'>1106</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr3:73004173-73004339(-)</td><td class='num'>1252</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr3:83761759-83761900(-)</td><td class='num'>1018</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr3:108212235-108212373(-)</td><td class='num'>976</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr3:121576102-121576238(-)</td><td class='num'>753</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr3:128679601-128679724(+)</td><td class='num'>844</td><td>AluJr</td></tr>
+<tr><td class='mono'>chr3:132451179-132451322(+)</td><td class='num'>1163</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr3:133109345-133109481(+)</td><td class='num'>1169</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr3:135196973-135197122(+)</td><td class='num'>1450</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr3:156325669-156325819(+)</td><td class='num'>1319</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr3:162413959-162414209(+)</td><td class='num'>1190</td><td>(no SINE-class RM call)</td></tr>
+<tr><td class='mono'>chr3:180890593-180890734(+)</td><td class='num'>1115</td><td>AluJr4</td></tr>
+<tr><td class='mono'>chr3:183292271-183292419(+)</td><td class='num'>1323</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr3:183656776-183656925(+)</td><td class='num'>1506</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr3:184989419-184989564(-)</td><td class='num'>1146</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr3:194516479-194516625(-)</td><td class='num'>1257</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr3:194562021-194562167(+)</td><td class='num'>1255</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr4:397560-397707(+)</td><td class='num'>1292</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr4:2842709-2842849(-)</td><td class='num'>1025</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr4:4682009-4682179(-)</td><td class='num'>1094</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr4:10787862-10788008(+)</td><td class='num'>1243</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr4:26652393-26652540(-)</td><td class='num'>1443</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr4:40042644-40042800(-)</td><td class='num'>1325</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr4:40441140-40441287(+)</td><td class='num'>1205</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr4:42126728-42126888(+)</td><td class='num'>1315</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr4:54683353-54683481(+)</td><td class='num'>1180</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr4:62266014-62266158(-)</td><td class='num'>895</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr4:67473081-67473230(-)</td><td class='num'>1483</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr4:73355409-73355546(-)</td><td class='num'>861</td><td>FLAM_A</td></tr>
+<tr><td class='mono'>chr4:76404742-76404889(+)</td><td class='num'>1145</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr4:90294229-90294369(+)</td><td class='num'>1357</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr4:108231484-108231624(-)</td><td class='num'>986</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr4:108448102-108448243(-)</td><td class='num'>1022</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr4:113082297-113082438(-)</td><td class='num'>1049</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr4:120954576-120954734(-)</td><td class='num'>1304</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr4:124317279-124317421(-)</td><td class='num'>873</td><td>(no SINE-class RM call)</td></tr>
+<tr><td class='mono'>chr4:148875025-148875174(-)</td><td class='num'>1508</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr4:169079655-169079781(+)</td><td class='num'>1073</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr4:175010058-175010200(-)</td><td class='num'>1052</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr4:175742864-175743010(+)</td><td class='num'>1083</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr4:184033211-184033359(-)</td><td class='num'>1438</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr5:23263856-23263989(+)</td><td class='num'>1012</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr5:34685099-34685245(+)</td><td class='num'>1261</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr5:35355183-35355324(-)</td><td class='num'>570</td><td>(no SINE-class RM call)</td></tr>
+<tr><td class='mono'>chr5:43224054-43224203(-)</td><td class='num'>1481</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr5:43400353-43400483(-)</td><td class='num'>1007</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr5:61181876-61182025(-)</td><td class='num'>1012</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr5:65459028-65459177(-)</td><td class='num'>1501</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr5:65686512-65686658(-)</td><td class='num'>1336</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr5:67143138-67143288(+)</td><td class='num'>1180</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr5:80427038-80427184(-)</td><td class='num'>1451</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr5:88975540-88975711(+)</td><td class='num'>1535</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr5:91438309-91438447(+)</td><td class='num'>770</td><td>AluJr</td></tr>
+<tr><td class='mono'>chr5:91574576-91574725(+)</td><td class='num'>1425</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr5:93113384-93113532(+)</td><td class='num'>1267</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr5:101625225-101625364(+)</td><td class='num'>1022</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr5:104089009-104089155(+)</td><td class='num'>1257</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr5:112755828-112755983(+)</td><td class='num'>1182</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr5:118942226-118942371(+)</td><td class='num'>1070</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr5:119229031-119229179(+)</td><td class='num'>1306</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr5:127044768-127044915(-)</td><td class='num'>1445</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr5:139562926-139563082(-)</td><td class='num'>998</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr5:140048124-140048271(+)</td><td class='num'>1327</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr5:140713684-140713831(-)</td><td class='num'>1238</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr5:140893374-140893506(+)</td><td class='num'>1127</td><td>AluJr</td></tr>
+<tr><td class='mono'>chr5:168335337-168335475(+)</td><td class='num'>1135</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr5:171347641-171347789(+)</td><td class='num'>1423</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr5@U@GL339449v2@U@alt:58857-58994(+)</td><td class='num'>1224</td><td>(no SINE-class RM call)</td></tr>
+<tr><td class='mono'>chr6:15223468-15223844(-)</td><td class='num'>1049</td><td>(no SINE-class RM call)</td></tr>
+<tr><td class='mono'>chr6:27797005-27797163(+)</td><td class='num'>1453</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr6:27923856-27924010(-)</td><td class='num'>1105</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr6:30577575-30577705(+)</td><td class='num'>947</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr6:35006862-35007009(+)</td><td class='num'>1261</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr6:35924258-35924408(+)</td><td class='num'>1174</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr6:36208353-36208493(+)</td><td class='num'>1075</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr6:37865983-37866102(-)</td><td class='num'>610</td><td>AluJr</td></tr>
+<tr><td class='mono'>chr6:45614886-45615023(+)</td><td class='num'>1225</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr6:70129568-70129715(+)</td><td class='num'>1308</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr6:73527972-73528120(+)</td><td class='num'>1440</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr6:73575394-73575542(-)</td><td class='num'>1073</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr6:75542224-75542376(+)</td><td class='num'>1319</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr6:79756011-79756155(-)</td><td class='num'>721</td><td>AluJr</td></tr>
+<tr><td class='mono'>chr6:87589228-87589373(+)</td><td class='num'>1306</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr6:88176031-88176182(+)</td><td class='num'>1474</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr6:106822303-106822449(+)</td><td class='num'>1337</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr6:107134791-107134944(+)</td><td class='num'>1288</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr6:113831334-113831502(+)</td><td class='num'>1099</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr6:116532253-116532401(-)</td><td class='num'>1424</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr6:122767627-122767774(+)</td><td class='num'>1218</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr6:124405531-124405678(-)</td><td class='num'>1357</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr6:124924868-124925021(-)</td><td class='num'>938</td><td>AluJr</td></tr>
+<tr><td class='mono'>chr6:127510939-127511082(+)</td><td class='num'>712</td><td>(no SINE-class RM call)</td></tr>
+<tr><td class='mono'>chr6:134253284-134253432(-)</td><td class='num'>1428</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr6:136787080-136787227(+)</td><td class='num'>1323</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr6:154441152-154441267(+)</td><td class='num'>363</td><td>(no SINE-class RM call)</td></tr>
+<tr><td class='mono'>chr6:157512559-157512706(+)</td><td class='num'>1174</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr6:169320764-169320904(-)</td><td class='num'>906</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr6@U@GL000251v2@U@alt:2057298-2057428(+)</td><td class='num'>947</td><td>(no SINE-class RM call)</td></tr>
+<tr><td class='mono'>chr6@U@GL000252v2@U@alt:1833406-1833536(+)</td><td class='num'>947</td><td>(no SINE-class RM call)</td></tr>
+<tr><td class='mono'>chr6@U@GL000253v2@U@alt:1887804-1887934(+)</td><td class='num'>948</td><td>(no SINE-class RM call)</td></tr>
+<tr><td class='mono'>chr6@U@GL000254v2@U@alt:1921621-1921751(+)</td><td class='num'>948</td><td>(no SINE-class RM call)</td></tr>
+<tr><td class='mono'>chr6@U@GL000255v2@U@alt:1832664-1832794(+)</td><td class='num'>948</td><td>(no SINE-class RM call)</td></tr>
+<tr><td class='mono'>chr6@U@GL000256v2@U@alt:1878335-1878465(+)</td><td class='num'>948</td><td>(no SINE-class RM call)</td></tr>
+<tr><td class='mono'>chr7:2466445-2466582(-)</td><td class='num'>1157</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr7:11089408-11089552(+)</td><td class='num'>1244</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr7:17277765-17277911(+)</td><td class='num'>1108</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr7:20943372-20943504(+)</td><td class='num'>1080</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr7:21780281-21780405(+)</td><td class='num'>1028</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr7:22810278-22810415(+)</td><td class='num'>1090</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr7:64987700-64987846(+)</td><td class='num'>1398</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr7:65067735-65067868(-)</td><td class='num'>801</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr7:65757263-65757396(-)</td><td class='num'>801</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr7:72235960-72236106(+)</td><td class='num'>1255</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr7:75533011-75533157(-)</td><td class='num'>1288</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr7:76461272-76461426(+)</td><td class='num'>824</td><td>AluJr</td></tr>
+<tr><td class='mono'>chr7:76959385-76959539(+)</td><td class='num'>824</td><td>AluJr</td></tr>
+<tr><td class='mono'>chr7:77446812-77446946(-)</td><td class='num'>1203</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr7:87228418-87228566(-)</td><td class='num'>1375</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr7:95884650-95884802(+)</td><td class='num'>1395</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr7:98859147-98859295(+)</td><td class='num'>1080</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr7:99627972-99628103(+)</td><td class='num'>1049</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr7:101848728-101848880(+)</td><td class='num'>1061</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr7:105634517-105634655(-)</td><td class='num'>1025</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr7:114223631-114223774(-)</td><td class='num'>855</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr7:127462498-127462645(-)</td><td class='num'>1231</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr7:131511607-131511754(-)</td><td class='num'>1424</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr7:134605938-134606093(-)</td><td class='num'>1388</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr7:135548475-135548621(+)</td><td class='num'>1310</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr7:152569997-152570140(-)</td><td class='num'>1182</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr7:153419026-153419170(-)</td><td class='num'>1075</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr8:15492653-15492794(+)</td><td class='num'>1385</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr8:21361669-21361816(-)</td><td class='num'>1196</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr8:25903186-25903332(-)</td><td class='num'>1265</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr8:26629746-26629896(-)</td><td class='num'>1515</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr8:32908875-32909022(-)</td><td class='num'>1343</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr8:38183675-38183821(-)</td><td class='num'>1315</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr8:42991740-42991887(-)</td><td class='num'>1265</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr8:53176173-53176321(-)</td><td class='num'>1091</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr8:77643026-77643179(+)</td><td class='num'>637</td><td>AluJr</td></tr>
+<tr><td class='mono'>chr8:83370753-83370912(+)</td><td class='num'>1245</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr8:84197645-84197797(+)</td><td class='num'>1457</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr8:98090479-98090626(+)</td><td class='num'>1185</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr8:100413780-100413930(-)</td><td class='num'>1303</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr8:102372996-102373143(-)</td><td class='num'>1432</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr8:102848393-102848539(-)</td><td class='num'>1029</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr8:123262490-123262644(-)</td><td class='num'>1000</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr8:124128263-124128411(-)</td><td class='num'>1131</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr8:125988644-125988814(-)</td><td class='num'>1415</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr8:128156751-128156900(+)</td><td class='num'>1482</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr8:143458364-143458996(+)</td><td class='num'>1179</td><td>(no SINE-class RM call)</td></tr>
+<tr><td class='mono'>chr9:7609588-7609736(-)</td><td class='num'>1365</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr9:16929927-16930071(+)</td><td class='num'>1045</td><td>AluJr4</td></tr>
+<tr><td class='mono'>chr9:31797334-31797492(+)</td><td class='num'>1160</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr9:73151251-73151428(+)</td><td class='num'>1188</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr9:76990442-76990593(-)</td><td class='num'>1347</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr9:81801959-81802092(-)</td><td class='num'>1157</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr9:90794509-90794642(+)</td><td class='num'>1068</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr9:94690282-94690444(-)</td><td class='num'>1378</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr9:99800575-99800727(+)</td><td class='num'>1160</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr9:112958766-112958911(-)</td><td class='num'>1103</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr9:116134703-116134847(+)</td><td class='num'>1356</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr9:124138851-124138999(+)</td><td class='num'>1336</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr9:124567480-124567629(+)</td><td class='num'>1102</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr9:125177414-125177570(+)</td><td class='num'>1117</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr9:128937130-128937282(+)</td><td class='num'>1376</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr9:129949578-129949725(+)</td><td class='num'>1049</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr9:131988633-131988776(-)</td><td class='num'>789</td><td>AluJo</td></tr>
+<tr><td class='mono'>chr9:133124399-133124533(+)</td><td class='num'>1064</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr9:136415123-136415258(+)</td><td class='num'>1103</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chrX:7149105-7149259(+)</td><td class='num'>1156</td><td>AluJo</td></tr>
+<tr><td class='mono'>chrX:8956295-8956442(-)</td><td class='num'>1094</td><td>AluJo</td></tr>
+<tr><td class='mono'>chrX:20188926-20189080(-)</td><td class='num'>1088</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chrX:21898305-21898481(+)</td><td class='num'>1322</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chrX:22159363-22159509(+)</td><td class='num'>1109</td><td>AluJo</td></tr>
+<tr><td class='mono'>chrX:24098753-24098897(+)</td><td class='num'>1175</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chrX:36168569-36168726(-)</td><td class='num'>1395</td><td>AluJo</td></tr>
+<tr><td class='mono'>chrX:40328315-40328442(+)</td><td class='num'>818</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chrX:40558553-40558696(+)</td><td class='num'>926</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chrX:47371357-47371503(+)</td><td class='num'>1284</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chrX:53934214-53934361(-)</td><td class='num'>1473</td><td>AluJo</td></tr>
+<tr><td class='mono'>chrX:56223922-56224069(-)</td><td class='num'>1282</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chrX:71728963-71729112(-)</td><td class='num'>1525</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chrX:71752413-71752562(+)</td><td class='num'>1525</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chrX:72771697-72771871(+)</td><td class='num'>1496</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chrX:72948953-72949127(-)</td><td class='num'>1496</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chrX:102085723-102085869(-)</td><td class='num'>1392</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chrX:110252300-110252441(+)</td><td class='num'>1081</td><td>AluJo</td></tr>
+<tr><td class='mono'>chrX:112087994-112088149(-)</td><td class='num'>1316</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chrX:117908072-117908181(-)</td><td class='num'>440</td><td>AluJb</td></tr>
+<tr><td class='mono'>chrX:123587131-123587275(-)</td><td class='num'>1414</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chrX:123904088-123904236(-)</td><td class='num'>1413</td><td>AluJo</td></tr>
+<tr><td class='mono'>chrX:130544284-130544429(-)</td><td class='num'>1396</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chrX:130790988-130791123(-)</td><td class='num'>1120</td><td>AluJo</td></tr>
+<tr><td class='mono'>chrX:134378760-134378910(-)</td><td class='num'>1344</td><td>AluJo</td></tr>
+<tr><td class='mono'>chrX:145437739-145437942(+)</td><td class='num'>1232</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chrX:148096117-148096261(-)</td><td class='num'>1264</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chrX:151285406-151285554(-)</td><td class='num'>1436</td><td>AluJo</td></tr>
+<tr><td class='mono'>chrX:152334546-152334692(-)</td><td class='num'>1013</td><td>AluJo</td></tr>
+<tr><td class='mono'>chrY:17111208-17111357(-)</td><td class='num'>1309</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chrY:25751031-25751163(-)</td><td class='num'>515</td><td>(no SINE-class RM call)</td></tr>
+</tbody>
+</table></div>
+
+<h2>RepeatMasker-only BC200 loci (108)</h2>
+<p class="count">RepeatMasker called BC200; shown is what SINEderella's full
+assignment (any subfamily) calls the same locus instead (or notes no SINEderella
+call exists there).</p>
+<div class="tablewrap"><table>
+<thead><tr><th>RepeatMasker locus</th><th>SW score</th><th>% div</th><th>% del</th>
+<th>% ins</th><th>Repeat-model span (left)</th><th>SINEderella calls this locus</th></tr></thead>
+<tbody><tr><td class='mono'>chr1:39168511-39168631(-)</td><td class='num'>921</td><td class='num'>3.4%</td><td class='num'>3.3%</td><td class='num'>3.3%</td><td class='mono'>-79..121 (left 2)</td><td>(no SINEderella call)</td></tr>
+<tr><td class='mono'>chr1:85533322-85533453(-)</td><td class='num'>463</td><td class='num'>20.8%</td><td class='num'>12.8%</td><td class='num'>0.8%</td><td class='mono'>-51..149 (left 1)</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr1:111625778-111625933(-)</td><td class='num'>581</td><td class='num'>16.1%</td><td class='num'>3.2%</td><td class='num'>3.9%</td><td class='mono'>-38..162 (left 9)</td><td>FLAM_A</td></tr>
+<tr><td class='mono'>chr1:114315439-114315502(-)</td><td class='num'>424</td><td class='num'>11.1%</td><td class='num'>3.1%</td><td class='num'>0.0%</td><td class='mono'>-135..65 (left 1)</td><td>(no SINEderella call)</td></tr>
+<tr><td class='mono'>chr1:145529553-145529684(+)</td><td class='num'>494</td><td class='num'>21.5%</td><td class='num'>12.8%</td><td class='num'>0.8%</td><td class='mono'>1..149 (left -51)</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr1:247342494-247342590(-)</td><td class='num'>448</td><td class='num'>17.7%</td><td class='num'>15.8%</td><td class='num'>0.0%</td><td class='mono'>-66..134 (left 21)</td><td>FLAM_A</td></tr>
+<tr><td class='mono'>chr10:69060895-69060993(-)</td><td class='num'>619</td><td class='num'>10.3%</td><td class='num'>1.0%</td><td class='num'>1.0%</td><td class='mono'>-54..146 (left 49)</td><td>(no SINEderella call)</td></tr>
+<tr><td class='mono'>chr10:114490804-114490967(-)</td><td class='num'>1221</td><td class='num'>8.0%</td><td class='num'>1.2%</td><td class='num'>0.0%</td><td class='mono'>-34..166 (left 2)</td><td>(no SINEderella call)</td></tr>
+<tr><td class='mono'>chr10_KN538367v1_fix:196016-196152(-)</td><td class='num'>1027</td><td class='num'>10.3%</td><td class='num'>0.7%</td><td class='num'>0.0%</td><td class='mono'>-8..137 (left 1)</td><td>(no SINEderella call)</td></tr>
+<tr><td class='mono'>chr11:3720423-3720535(+)</td><td class='num'>455</td><td class='num'>12.7%</td><td class='num'>8.3%</td><td class='num'>1.8%</td><td class='mono'>36..155 (left -45)</td><td>(no SINEderella call)</td></tr>
+<tr><td class='mono'>chr11:45770198-45770276(+)</td><td class='num'>440</td><td class='num'>12.0%</td><td class='num'>0.0%</td><td class='num'>3.9%</td><td class='mono'>73..147 (left -53)</td><td>(no SINEderella call)</td></tr>
+<tr><td class='mono'>chr11_KZ559109v1_fix:78528-78644(+)</td><td class='num'>625</td><td class='num'>15.5%</td><td class='num'>14.8%</td><td class='num'>0.9%</td><td class='mono'>2..136 (left -9)</td><td>(no SINEderella call)</td></tr>
+<tr><td class='mono'>chr12:6455652-6455761(+)</td><td class='num'>576</td><td class='num'>12.5%</td><td class='num'>3.7%</td><td class='num'>4.6%</td><td class='mono'>5..112 (left -88)</td><td>(no SINEderella call)</td></tr>
+<tr><td class='mono'>chr12:20448739-20448859(-)</td><td class='num'>414</td><td class='num'>18.3%</td><td class='num'>5.0%</td><td class='num'>4.2%</td><td class='mono'>-55..145 (left 25)</td><td>FLAM_A</td></tr>
+<tr><td class='mono'>chr12:50923434-50923588(-)</td><td class='num'>573</td><td class='num'>25.6%</td><td class='num'>2.6%</td><td class='num'>1.3%</td><td class='mono'>-42..158 (left 3)</td><td>FLAM_A</td></tr>
+<tr><td class='mono'>chr12:89515291-89515433(-)</td><td class='num'>694</td><td class='num'>20.0%</td><td class='num'>2.1%</td><td class='num'>1.4%</td><td class='mono'>-56..144 (left 2)</td><td>FLAM_A</td></tr>
+<tr><td class='mono'>chr12:110357179-110357257(+)</td><td class='num'>467</td><td class='num'>16.7%</td><td class='num'>2.5%</td><td class='num'>0.0%</td><td class='mono'>1..80 (left -120)</td><td>(no SINEderella call)</td></tr>
+<tr><td class='mono'>chr12:121666162-121666319(-)</td><td class='num'>1071</td><td class='num'>7.1%</td><td class='num'>4.3%</td><td class='num'>0.6%</td><td class='mono'>-36..164 (left 2)</td><td>(no SINEderella call)</td></tr>
+<tr><td class='mono'>chr12:122599106-122599244(-)</td><td class='num'>631</td><td class='num'>15.2%</td><td class='num'>5.0%</td><td class='num'>4.3%</td><td class='mono'>-40..160 (left 22)</td><td>FLAM_A</td></tr>
+<tr><td class='mono'>chr13:21089257-21089412(+)</td><td class='num'>585</td><td class='num'>20.9%</td><td class='num'>1.9%</td><td class='num'>1.3%</td><td class='mono'>2..157 (left -43)</td><td>FLAM_A</td></tr>
+<tr><td class='mono'>chr13:31164327-31164434(+)</td><td class='num'>514</td><td class='num'>19.8%</td><td class='num'>2.8%</td><td class='num'>0.9%</td><td class='mono'>2..110 (left -90)</td><td>(no SINEderella call)</td></tr>
+<tr><td class='mono'>chr13:65083939-65084045(-)</td><td class='num'>433</td><td class='num'>26.4%</td><td class='num'>1.9%</td><td class='num'>0.0%</td><td class='mono'>-91..109 (left 2)</td><td>FLAM_A</td></tr>
+<tr><td class='mono'>chr13:86927867-86927974(+)</td><td class='num'>556</td><td class='num'>14.9%</td><td class='num'>1.8%</td><td class='num'>0.0%</td><td class='mono'>32..140 (left -60)</td><td>(no SINEderella call)</td></tr>
+<tr><td class='mono'>chr13:112968141-112968264(-)</td><td class='num'>424</td><td class='num'>20.6%</td><td class='num'>4.5%</td><td class='num'>13.0%</td><td class='mono'>-79..121 (left 10)</td><td>FLAM_A</td></tr>
+<tr><td class='mono'>chr13_KI270840v1_alt:11358-11552(-)</td><td class='num'>1557</td><td class='num'>5.7%</td><td class='num'>1.5%</td><td class='num'>0.0%</td><td class='mono'>-3..197 (left 1)</td><td>(no SINEderella call)</td></tr>
+<tr><td class='mono'>chr14:57479263-57479387(-)</td><td class='num'>503</td><td class='num'>23.8%</td><td class='num'>2.4%</td><td class='num'>1.6%</td><td class='mono'>-74..126 (left 2)</td><td>FLAM_A</td></tr>
+<tr><td class='mono'>chr14:73538023-73538125(-)</td><td class='num'>702</td><td class='num'>9.8%</td><td class='num'>2.9%</td><td class='num'>0.0%</td><td class='mono'>-95..105 (left 1)</td><td>(no SINEderella call)</td></tr>
+<tr><td class='mono'>chr14:73569990-73570091(-)</td><td class='num'>762</td><td class='num'>5.9%</td><td class='num'>2.9%</td><td class='num'>0.0%</td><td class='mono'>-95..105 (left 2)</td><td>(no SINEderella call)</td></tr>
+<tr><td class='mono'>chr14:92696039-92696176(-)</td><td class='num'>552</td><td class='num'>21.3%</td><td class='num'>7.5%</td><td class='num'>0.7%</td><td class='mono'>-43..157 (left 11)</td><td>(no SINEderella call)</td></tr>
+<tr><td class='mono'>chr14:96134398-96134536(-)</td><td class='num'>706</td><td class='num'>18.1%</td><td class='num'>4.2%</td><td class='num'>0.0%</td><td class='mono'>-50..150 (left 7)</td><td>FLAM_A</td></tr>
+<tr><td class='mono'>chr15:90414172-90414364(+)</td><td class='num'>488</td><td class='num'>22.9%</td><td class='num'>0.6%</td><td class='num'>18.2%</td><td class='mono'>1..158 (left -42)</td><td>FLAM_C</td></tr>
+<tr><td class='mono'>chr16:19321446-19321598(-)</td><td class='num'>690</td><td class='num'>21.7%</td><td class='num'>1.3%</td><td class='num'>0.0%</td><td class='mono'>-38..162 (left 9)</td><td>(no SINEderella call)</td></tr>
+<tr><td class='mono'>chr16:29019496-29019565(+)</td><td class='num'>405</td><td class='num'>10.3%</td><td class='num'>4.2%</td><td class='num'>1.4%</td><td class='mono'>23..93 (left -107)</td><td>(no SINEderella call)</td></tr>
+<tr><td class='mono'>chr16:48633610-48633716(+)</td><td class='num'>517</td><td class='num'>19.8%</td><td class='num'>6.2%</td><td class='num'>0.0%</td><td class='mono'>15..127 (left -73)</td><td>FLAM_C_short_</td></tr>
+<tr><td class='mono'>chr16:72757892-72758032(-)</td><td class='num'>551</td><td class='num'>16.9%</td><td class='num'>6.8%</td><td class='num'>2.9%</td><td class='mono'>-43..157 (left 12)</td><td>FLAM_A</td></tr>
+<tr><td class='mono'>chr17:16396622-16396697(+)</td><td class='num'>416</td><td class='num'>8.1%</td><td class='num'>5.1%</td><td class='num'>1.3%</td><td class='mono'>76..153 (left -47)</td><td>(no SINEderella call)</td></tr>
+<tr><td class='mono'>chr17:30837001-30837120(-)</td><td class='num'>509</td><td class='num'>20.3%</td><td class='num'>3.3%</td><td class='num'>0.8%</td><td class='mono'>-73..127 (left 6)</td><td>FLAM_A</td></tr>
+<tr><td class='mono'>chr17:75127088-75127218(+)</td><td class='num'>427</td><td class='num'>25.2%</td><td class='num'>1.6%</td><td class='num'>5.4%</td><td class='mono'>2..126 (left -74)</td><td>FLAM_A</td></tr>
+<tr><td class='mono'>chr17_KV766198v1_alt:104760-104892(+)</td><td class='num'>982</td><td class='num'>11.4%</td><td class='num'>1.5%</td><td class='num'>0.0%</td><td class='mono'>3..136 (left -9)</td><td>(no SINEderella call)</td></tr>
+<tr><td class='mono'>chr18:22524328-22524439(+)</td><td class='num'>695</td><td class='num'>15.3%</td><td class='num'>3.5%</td><td class='num'>0.0%</td><td class='mono'>21..135 (left -65)</td><td>(no SINEderella call)</td></tr>
+<tr><td class='mono'>chr19:16105670-16105773(+)</td><td class='num'>465</td><td class='num'>19.2%</td><td class='num'>2.0%</td><td class='num'>3.9%</td><td class='mono'>44..144 (left -56)</td><td>(no SINEderella call)</td></tr>
+<tr><td class='mono'>chr19:17847226-17847351(+)</td><td class='num'>621</td><td class='num'>17.7%</td><td class='num'>2.4%</td><td class='num'>0.8%</td><td class='mono'>9..135 (left -65)</td><td>FLAM_A</td></tr>
+<tr><td class='mono'>chr19:33882681-33882703(-)</td><td class='num'>600</td><td class='num'>14.2%</td><td class='num'>1.6%</td><td class='num'>4.0%</td><td class='mono'>-39..161 (left 143)</td><td>(no SINEderella call)</td></tr>
+<tr><td class='mono'>chr19:33883022-33883124(-)</td><td class='num'>600</td><td class='num'>14.2%</td><td class='num'>1.6%</td><td class='num'>4.0%</td><td class='mono'>-58..142 (left 40)</td><td>(no SINEderella call)</td></tr>
+<tr><td class='mono'>chr19:40476886-40477017(-)</td><td class='num'>515</td><td class='num'>21.5%</td><td class='num'>12.2%</td><td class='num'>0.8%</td><td class='mono'>-51..149 (left 2)</td><td>(no SINEderella call)</td></tr>
+<tr><td class='mono'>chr19_GL949746v1_alt:126272-126379(+)</td><td class='num'>848</td><td class='num'>5.6%</td><td class='num'>1.8%</td><td class='num'>0.0%</td><td class='mono'>2..110 (left -90)</td><td>(no SINEderella call)</td></tr>
+<tr><td class='mono'>chr19_GL949747v2_alt:126272-126379(+)</td><td class='num'>848</td><td class='num'>5.6%</td><td class='num'>1.8%</td><td class='num'>0.0%</td><td class='mono'>2..110 (left -90)</td><td>(no SINEderella call)</td></tr>
+<tr><td class='mono'>chr19_GL949748v2_alt:126272-126379(+)</td><td class='num'>848</td><td class='num'>5.6%</td><td class='num'>1.8%</td><td class='num'>0.0%</td><td class='mono'>2..110 (left -90)</td><td>(no SINEderella call)</td></tr>
+<tr><td class='mono'>chr19_GL949749v2_alt:126272-126379(+)</td><td class='num'>848</td><td class='num'>5.6%</td><td class='num'>1.8%</td><td class='num'>0.0%</td><td class='mono'>2..110 (left -90)</td><td>(no SINEderella call)</td></tr>
+<tr><td class='mono'>chr19_GL949750v2_alt:126272-126379(+)</td><td class='num'>848</td><td class='num'>5.6%</td><td class='num'>1.8%</td><td class='num'>0.0%</td><td class='mono'>2..110 (left -90)</td><td>(no SINEderella call)</td></tr>
+<tr><td class='mono'>chr19_GL949751v2_alt:126272-126379(+)</td><td class='num'>848</td><td class='num'>5.6%</td><td class='num'>1.8%</td><td class='num'>0.0%</td><td class='mono'>2..110 (left -90)</td><td>(no SINEderella call)</td></tr>
+<tr><td class='mono'>chr19_GL949752v1_alt:126272-126379(+)</td><td class='num'>848</td><td class='num'>5.6%</td><td class='num'>1.8%</td><td class='num'>0.0%</td><td class='mono'>2..110 (left -90)</td><td>(no SINEderella call)</td></tr>
+<tr><td class='mono'>chr19_GL949753v2_alt:126272-126379(+)</td><td class='num'>848</td><td class='num'>5.6%</td><td class='num'>1.8%</td><td class='num'>0.0%</td><td class='mono'>2..110 (left -90)</td><td>(no SINEderella call)</td></tr>
+<tr><td class='mono'>chr19_KI270938v1_alt:126272-126379(+)</td><td class='num'>848</td><td class='num'>5.6%</td><td class='num'>1.8%</td><td class='num'>0.0%</td><td class='mono'>2..110 (left -90)</td><td>(no SINEderella call)</td></tr>
+<tr><td class='mono'>chr1_KI270712v1_random:111379-111507(-)</td><td class='num'>870</td><td class='num'>13.3%</td><td class='num'>1.5%</td><td class='num'>0.0%</td><td class='mono'>-57..143 (left 14)</td><td>(no SINEderella call)</td></tr>
+<tr><td class='mono'>chr2:10531304-10531427(+)</td><td class='num'>425</td><td class='num'>22.5%</td><td class='num'>0.0%</td><td class='num'>9.8%</td><td class='mono'>1..111 (left -89)</td><td>FLAM_A</td></tr>
+<tr><td class='mono'>chr2:28784452-28784549(-)</td><td class='num'>417</td><td class='num'>18.1%</td><td class='num'>6.9%</td><td class='num'>3.1%</td><td class='mono'>-87..113 (left 13)</td><td>FLAM_A</td></tr>
+<tr><td class='mono'>chr2:33551556-33551665(+)</td><td class='num'>531</td><td class='num'>18.5%</td><td class='num'>2.7%</td><td class='num'>0.9%</td><td class='mono'>3..113 (left -87)</td><td>FLAM_A</td></tr>
+<tr><td class='mono'>chr2:163534594-163534732(-)</td><td class='num'>430</td><td class='num'>22.8%</td><td class='num'>6.8%</td><td class='num'>1.4%</td><td class='mono'>-53..147 (left 2)</td><td>FLAM_A</td></tr>
+<tr><td class='mono'>chr2:166572277-166572417(-)</td><td class='num'>520</td><td class='num'>23.7%</td><td class='num'>2.8%</td><td class='num'>0.7%</td><td class='mono'>-55..145 (left 3)</td><td>FLAM_A</td></tr>
+<tr><td class='mono'>chr2:174941734-174941826(-)</td><td class='num'>520</td><td class='num'>16.3%</td><td class='num'>3.2%</td><td class='num'>0.0%</td><td class='mono'>-62..138 (left 44)</td><td>(no SINEderella call)</td></tr>
+<tr><td class='mono'>chr2:218052632-218052730(+)</td><td class='num'>509</td><td class='num'>18.6%</td><td class='num'>3.0%</td><td class='num'>1.0%</td><td class='mono'>20..119 (left -81)</td><td>FLAM_A</td></tr>
+<tr><td class='mono'>chr20:56006448-56006577(-)</td><td class='num'>510</td><td class='num'>20.6%</td><td class='num'>4.5%</td><td class='num'>2.3%</td><td class='mono'>-48..152 (left 21)</td><td>FLAM_A</td></tr>
+<tr><td class='mono'>chr22:28537879-28537980(+)</td><td class='num'>477</td><td class='num'>16.0%</td><td class='num'>7.4%</td><td class='num'>1.0%</td><td class='mono'>30..137 (left -63)</td><td>(no SINEderella call)</td></tr>
+<tr><td class='mono'>chr2_KI270894v1_alt:45796-45921(+)</td><td class='num'>872</td><td class='num'>12.0%</td><td class='num'>1.6%</td><td class='num'>0.0%</td><td class='mono'>14..140 (left -60)</td><td>(no SINEderella call)</td></tr>
+<tr><td class='mono'>chr2_KZ208908v1_alt:28235-28368(+)</td><td class='num'>862</td><td class='num'>18.1%</td><td class='num'>1.5%</td><td class='num'>0.0%</td><td class='mono'>2..136 (left -9)</td><td>(no SINEderella call)</td></tr>
+<tr><td class='mono'>chr3:44472391-44472509(-)</td><td class='num'>587</td><td class='num'>17.2%</td><td class='num'>2.5%</td><td class='num'>1.7%</td><td class='mono'>-80..120 (left 2)</td><td>FLAM_A</td></tr>
+<tr><td class='mono'>chr3:65516058-65516175(+)</td><td class='num'>468</td><td class='num'>23.3%</td><td class='num'>2.5%</td><td class='num'>0.8%</td><td class='mono'>2..120 (left -80)</td><td>FLAM_A</td></tr>
+<tr><td class='mono'>chr3:119800576-119800663(-)</td><td class='num'>513</td><td class='num'>12.9%</td><td class='num'>0.0%</td><td class='num'>2.3%</td><td class='mono'>-51..149 (left 65)</td><td>(no SINEderella call)</td></tr>
+<tr><td class='mono'>chr3:121784217-121784336(-)</td><td class='num'>499</td><td class='num'>18.6%</td><td class='num'>6.3%</td><td class='num'>0.8%</td><td class='mono'>-65..135 (left 10)</td><td>FLAM_A</td></tr>
+<tr><td class='mono'>chr3:180077168-180077274(-)</td><td class='num'>400</td><td class='num'>26.7%</td><td class='num'>2.8%</td><td class='num'>0.9%</td><td class='mono'>-91..109 (left 2)</td><td>FLAM_A</td></tr>
+<tr><td class='mono'>chr3:196265642-196265715(+)</td><td class='num'>467</td><td class='num'>11.0%</td><td class='num'>2.7%</td><td class='num'>0.0%</td><td class='mono'>3..77 (left -123)</td><td>(no SINEderella call)</td></tr>
+<tr><td class='mono'>chr3_KN196475v1_fix:44521-44641(-)</td><td class='num'>526</td><td class='num'>18.3%</td><td class='num'>12.8%</td><td class='num'>3.3%</td><td class='mono'>-8..137 (left 5)</td><td>(no SINEderella call)</td></tr>
+<tr><td class='mono'>chr4:31225565-31225674(-)</td><td class='num'>530</td><td class='num'>21.3%</td><td class='num'>2.7%</td><td class='num'>0.9%</td><td class='mono'>-88..112 (left 2)</td><td>FLAM_A</td></tr>
+<tr><td class='mono'>chr4:38960819-38960911(+)</td><td class='num'>555</td><td class='num'>14.3%</td><td class='num'>3.2%</td><td class='num'>1.1%</td><td class='mono'>6..99 (left -101)</td><td>(no SINEderella call)</td></tr>
+<tr><td class='mono'>chr4:102811772-102811869(+)</td><td class='num'>576</td><td class='num'>14.4%</td><td class='num'>2.0%</td><td class='num'>0.0%</td><td class='mono'>39..137 (left -63)</td><td>(no SINEderella call)</td></tr>
+<tr><td class='mono'>chr4:116644763-116644864(+)</td><td class='num'>524</td><td class='num'>17.0%</td><td class='num'>2.0%</td><td class='num'>1.0%</td><td class='mono'>12..113 (left -87)</td><td>(no SINEderella call)</td></tr>
+<tr><td class='mono'>chr4:122557608-122557739(-)</td><td class='num'>497</td><td class='num'>25.0%</td><td class='num'>1.5%</td><td class='num'>2.3%</td><td class='mono'>-69..131 (left 2)</td><td>FLAM_A</td></tr>
+<tr><td class='mono'>chr4:124317150-124317289(-)</td><td class='num'>637</td><td class='num'>23.4%</td><td class='num'>1.4%</td><td class='num'>1.4%</td><td class='mono'>-61..139 (left 1)</td><td>(no SINEderella call)</td></tr>
+<tr><td class='mono'>chr4_KV766193v1_alt:193126-193261(+)</td><td class='num'>565</td><td class='num'>28.1%</td><td class='num'>1.5%</td><td class='num'>0.0%</td><td class='mono'>2..138 (left -7)</td><td>(no SINEderella call)</td></tr>
+<tr><td class='mono'>chr5:114500623-114500734(+)</td><td class='num'>431</td><td class='num'>22.9%</td><td class='num'>5.2%</td><td class='num'>1.8%</td><td class='mono'>1..115 (left -85)</td><td>FLAM_A</td></tr>
+<tr><td class='mono'>chr5:134773123-134773235(-)</td><td class='num'>401</td><td class='num'>25.9%</td><td class='num'>2.6%</td><td class='num'>0.0%</td><td class='mono'>-85..115 (left 1)</td><td>FLAM_A</td></tr>
+<tr><td class='mono'>chr5:138324383-138324460(+)</td><td class='num'>474</td><td class='num'>18.2%</td><td class='num'>0.0%</td><td class='num'>0.0%</td><td class='mono'>65..141 (left -59)</td><td>(no SINEderella call)</td></tr>
+<tr><td class='mono'>chr5:141386396-141386520(+)</td><td class='num'>443</td><td class='num'>24.6%</td><td class='num'>3.9%</td><td class='num'>1.6%</td><td class='mono'>2..128 (left -72)</td><td>FLAM_A</td></tr>
+<tr><td class='mono'>chr5:146321032-146321139(+)</td><td class='num'>474</td><td class='num'>20.8%</td><td class='num'>2.8%</td><td class='num'>0.9%</td><td class='mono'>2..110 (left -90)</td><td>FLAM_A</td></tr>
+<tr><td class='mono'>chr5_GL339449v2_alt:58858-58982(+)</td><td class='num'>931</td><td class='num'>8.9%</td><td class='num'>1.6%</td><td class='num'>0.0%</td><td class='mono'>2..127 (left -73)</td><td>(no SINEderella call)</td></tr>
+<tr><td class='mono'>chr5_MU273355v1_fix:128555-128682(+)</td><td class='num'>878</td><td class='num'>11.8%</td><td class='num'>1.6%</td><td class='num'>0.0%</td><td class='mono'>10..138 (left -7)</td><td>(no SINEderella call)</td></tr>
+<tr><td class='mono'>chr6:26582669-26582776(-)</td><td class='num'>456</td><td class='num'>20.8%</td><td class='num'>5.4%</td><td class='num'>0.9%</td><td class='mono'>-87..113 (left 2)</td><td>(no SINEderella call)</td></tr>
+<tr><td class='mono'>chr6:60478344-60478487(+)</td><td class='num'>402</td><td class='num'>21.6%</td><td class='num'>0.0%</td><td class='num'>12.6%</td><td class='mono'>2..126 (left -74)</td><td>(no SINEderella call)</td></tr>
+<tr><td class='mono'>chr7:13922472-13922586(+)</td><td class='num'>496</td><td class='num'>22.1%</td><td class='num'>2.6%</td><td class='num'>0.9%</td><td class='mono'>9..124 (left -76)</td><td>FLAM_A</td></tr>
+<tr><td class='mono'>chr7:19207303-19207447(-)</td><td class='num'>514</td><td class='num'>21.1%</td><td class='num'>5.3%</td><td class='num'>1.4%</td><td class='mono'>-49..151 (left 2)</td><td>FLAM_A</td></tr>
+<tr><td class='mono'>chr7:21290793-21290880(+)</td><td class='num'>676</td><td class='num'>6.9%</td><td class='num'>0.0%</td><td class='num'>0.0%</td><td class='mono'>50..136 (left -64)</td><td>(no SINEderella call)</td></tr>
+<tr><td class='mono'>chr7:30293993-30294068(-)</td><td class='num'>409</td><td class='num'>9.5%</td><td class='num'>1.3%</td><td class='num'>1.3%</td><td class='mono'>-39..161 (left 87)</td><td>(no SINEderella call)</td></tr>
+<tr><td class='mono'>chr7:70918878-70918901(+)</td><td class='num'>807</td><td class='num'>12.4%</td><td class='num'>1.4%</td><td class='num'>8.1%</td><td class='mono'>2..19 (left -181)</td><td>(no SINEderella call)</td></tr>
+<tr><td class='mono'>chr7:74243708-74243822(+)</td><td class='num'>466</td><td class='num'>21.1%</td><td class='num'>4.2%</td><td class='num'>0.0%</td><td class='mono'>29..147 (left -53)</td><td>(no SINEderella call)</td></tr>
+<tr><td class='mono'>chr8:8700970-8701083(+)</td><td class='num'>488</td><td class='num'>16.3%</td><td class='num'>3.6%</td><td class='num'>8.2%</td><td class='mono'>13..119 (left -81)</td><td>FLAM_A</td></tr>
+<tr><td class='mono'>chr8:8701122-8701155(+)</td><td class='num'>488</td><td class='num'>16.3%</td><td class='num'>3.6%</td><td class='num'>8.2%</td><td class='mono'>120..151 (left -49)</td><td>(no SINEderella call)</td></tr>
+<tr><td class='mono'>chr8:9043716-9043832(-)</td><td class='num'>600</td><td class='num'>15.7%</td><td class='num'>3.4%</td><td class='num'>0.9%</td><td class='mono'>-61..139 (left 21)</td><td>FLAM_A</td></tr>
+<tr><td class='mono'>chr8:13977277-13977421(+)</td><td class='num'>408</td><td class='num'>24.6%</td><td class='num'>9.0%</td><td class='num'>1.4%</td><td class='mono'>1..156 (left -44)</td><td>FLAM_A</td></tr>
+<tr><td class='mono'>chr8:14486742-14486818(-)</td><td class='num'>422</td><td class='num'>17.1%</td><td class='num'>2.6%</td><td class='num'>0.0%</td><td class='mono'>-120..80 (left 3)</td><td>(no SINEderella call)</td></tr>
+<tr><td class='mono'>chr8:75240867-75240981(+)</td><td class='num'>489</td><td class='num'>20.4%</td><td class='num'>5.0%</td><td class='num'>0.9%</td><td class='mono'>2..120 (left -80)</td><td>FLAM_A</td></tr>
+<tr><td class='mono'>chr8:140938862-140938977(+)</td><td class='num'>583</td><td class='num'>19.3%</td><td class='num'>2.6%</td><td class='num'>0.9%</td><td class='mono'>3..119 (left -81)</td><td>FLAM_A</td></tr>
+<tr><td class='mono'>chr9:36259092-36259210(-)</td><td class='num'>454</td><td class='num'>18.6%</td><td class='num'>4.2%</td><td class='num'>4.2%</td><td class='mono'>-73..127 (left 10)</td><td>FLAM_A</td></tr>
+<tr><td class='mono'>chr9:105223813-105223895(-)</td><td class='num'>535</td><td class='num'>11.0%</td><td class='num'>2.4%</td><td class='num'>0.0%</td><td class='mono'>-73..127 (left 44)</td><td>(no SINEderella call)</td></tr>
+<tr><td class='mono'>chr9:112176893-112177058(+)</td><td class='num'>623</td><td class='num'>25.4%</td><td class='num'>3.5%</td><td class='num'>0.0%</td><td class='mono'>2..172 (left -28)</td><td>FLAM_A</td></tr>
+<tr><td class='mono'>chrX:68466825-68466934(+)</td><td class='num'>401</td><td class='num'>21.9%</td><td class='num'>4.5%</td><td class='num'>3.7%</td><td class='mono'>25..134 (left -66)</td><td>FLAM_A</td></tr>
+<tr><td class='mono'>chrX:107805220-107805332(-)</td><td class='num'>692</td><td class='num'>15.2%</td><td class='num'>1.8%</td><td class='num'>0.0%</td><td class='mono'>-85..115 (left 2)</td><td>(no SINEderella call)</td></tr>
+<tr><td class='mono'>chrX:139720578-139720775(+)</td><td class='num'>1811</td><td class='num'>1.0%</td><td class='num'>0.0%</td><td class='num'>0.0%</td><td class='mono'>1..197 (left -3)</td><td>(no SINEderella call)</td></tr>
+</tbody>
+</table></div>
+
+<footer>Raw intermediate TSVs on DRAGEN: <code>/staging/tmp/rmsk_compare/</code>.
+Coordinates are 0-based BED (start already -1 from the 1-based FASTA headers).</footer>
+</div>

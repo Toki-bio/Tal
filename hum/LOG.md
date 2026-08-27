@@ -142,6 +142,12 @@ side is rebuilt without that filter, restricted to just `repName == BC200`:
 - **142 (24.0%)** have no SINE-class RepeatMasker overlap at all — not
   investigated further, flagged as open.
 
+Full per-copy reconciliation (every SINEderella BC200 call and every
+RepeatMasker BC200 call, individually, with RepeatMasker's crossmatch
+alignment stats — SW score, %diverged/deleted/inserted, aligned span within
+the repeat model — attached wherever a RepeatMasker row is involved):
+[`bc200_detail.html`](bc200_detail.html).
+
 Lesson for future comparisons on this page: always check a name's actual
 `repClass` in RepeatMasker before concluding "not present" from a
 class-filtered search — `grep`-ing subfamily names within one filtered class
