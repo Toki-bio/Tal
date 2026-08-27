@@ -339,12 +339,26 @@ a { color:var(--accent); }
     tool (<a href="https://github.com/liaoherui/AnnoSINE_v2" target="_blank">AnnoSINE_v2</a>,
     Liao, Sun &amp; Ou, <i>Mobile DNA</i> 2024 &mdash; structure-based, needs no prior
     consensus library) find the same SINEs SINEderella finds against known or curated
-    libraries, and how much noise is in what it finds independently? Two legs so far:
-    zebrafish (an established Dfam library as ground truth) and Timema (AnnoSINE_v2's own
+    libraries, and how much noise is in what it finds independently? Three legs: human and
+    zebrafish (established Dfam libraries as ground truth) and Timema (AnnoSINE_v2's own
     55 candidates cross-checked against the curated <a href="tim/report.html">tim</a>
-    subfamilies). A third leg (human, hg38 + Dfam Alu library) is in progress.
+    subfamilies).
   </p>
   <div class="species-grid" style="margin-top:12px;">
+    <div class="sp-card">
+      <h3>hum <span class="tag tag-other-family">benchmark &middot; known library</span></h3>
+      <div class="sci">Homo sapiens &mdash; human (hg38)</div>
+      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;">
+        65 Dfam SINE consensuses (Alu/MIR/FLAM/7SL etc.) &middot; ~354,000 assigned copies
+        &middot; <a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000001405.40/" target="_blank">GRCh38</a>
+      </div>
+      <div class="actions">
+        <a class="btn" href="hum/report.html"><i>Homo sapiens</i> &mdash; benchmark report</a>
+        <a class="btn secondary" href="javascript:void(0)"
+           onclick="openMSA('hum/alignments/hum_consensuses.fa','hum all consensi')">All Consensi in MSA</a>
+        <a class="btn secondary" href="hum/LOG.md">Analysis Log</a>
+      </div>
+    </div>
     <div class="sp-card">
       <h3>zeb <span class="tag tag-other-family">benchmark &middot; known library</span></h3>
       <div class="sci">Danio rerio &mdash; zebrafish (danRer11/GRCz11)</div>
