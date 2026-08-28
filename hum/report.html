@@ -327,4 +327,14 @@ Plotly.newPlot('plot_sim_violins', [{"type": "violin", "y": [76.18, 73.75, 72.24
 </tbody>
 </table>
 </section>
+<section style="margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid #dcd5c2;">
+<h2>Independent cross-check: RepeatMasker concordance</h2>
+<p style="max-width:70ch;color:#5c665e;">SINEderella's assignment compared directly
+against RepeatMasker's own hg38 annotation (bedtools intersect, &ge;50% reciprocal
+overlap): 92.9% overlap rate, 85.0% subfamily-name concordance after normalizing
+for a Dfam-only naming split RepeatMasker doesn't use. Full methodology and
+per-subfamily breakdown in <a href="LOG.md">LOG.md</a>; full per-copy BC200
+reconciliation (every call from both tools, with RepeatMasker's crossmatch
+alignment stats) in <a href="bc200_detail.html">bc200_detail.html</a>.</p>
+</section>
 </body></html>
