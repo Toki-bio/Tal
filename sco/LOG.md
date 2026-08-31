@@ -10,6 +10,16 @@ just this genome's classification run and links to that source.*
 
 ---
 
+**Server locations** (all DRAGEN, `copilot@Biotech2024`, Tailscale
+`100.104.25.22`): base working directory `/staging/tmp/scorpion_sines/`,
+per-genome de novo scan results under `/staging/tmp/scorpion_sines/results/`
+(one subdir per NCBI accession), alignment output at
+`/staging/tmp/scorpion_sines/sco_extract_out/`. **The exact
+`step2/step2_output`-equivalent path for the classification run named
+`run_20260821_025634` in this log was not re-located/re-verified as part of
+this note** (2026-08-28) — don't assume it sits under any of the paths
+above without checking; flagged here rather than guessed at.
+
 ## Why scorpions, and why de novo
 
 No known SINE consensus library exists for Scorpiones, so `SINEderella`

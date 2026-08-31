@@ -7,6 +7,16 @@ the Talpidae species on this site, not a taxonomic relative. See
 [`index.html`](../index.html)'s explicit "unconfirmed candidate" framing
 for this section.*
 
+**Server locations** (all DRAGEN, `copilot@Biotech2024`, Tailscale
+`100.104.25.22` — run IDs below are referenced by name throughout this log
+without their paths; this section is the lookup table):
+- Original 8→6-subfamily runs: `/staging/tmp/timema_sines/run_20260821_132226`,
+  `/staging/tmp/timema_sines/run_20260821_145119`
+- v3 (15-subfamily, superseded): `/staging/tmp/timema_sines/v3_curated/run_20260823_063444`
+- **v4 (14-subfamily, current/live)**: `/staging/tmp/timema_sines/v4_curated/run_20260823_103133`
+- Cross-check intermediates: `/staging/tmp/timema_sines/cross_check/`
+- AnnoSINE_v2 raw output: `/staging/tmp/timema_sines/annosine2/out/Seed_SINE.fa`
+
 ---
 
 ## Why Timema, and why de novo

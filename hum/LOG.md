@@ -10,10 +10,17 @@ leg is the strongest ground-truth check of the set.*
 
 ## Method
 
-- Genome: hg38, downloaded from UCSC goldenPath.
+- **Server: DRAGEN** (`copilot@Biotech2024`, Tailscale `100.104.25.22`), not KIT.
+- **Run root**: `/staging/tmp/sinederella_benchmark/runs/human/run_20260822_231705`
+  — assignment output at `step2/step2_output/` (not the default
+  `step2/step2_output` symlink name; see the TMPDIR-crash note below for why),
+  alignments at `results/alignments/`, report at `results/report.html`.
+- Genome: hg38, downloaded from UCSC goldenPath, at `genome.clean.fa` inside
+  the run root.
 - Consensus library: 65 SINE consensuses extracted from Dfam via
   `famdb.py families -a -c --class SINE -f fasta_name 'Homo sapiens'`
-  (same `dfam/tetools` Docker approach as the zebrafish leg).
+  (same `dfam/tetools` Docker approach as the zebrafish leg), saved at
+  `consensuses.clean.fa` inside the run root.
 - Full `SINEderella` run (`run_20260822_231705`) against the whole genome.
 
 ## A real infrastructure incident during this run

@@ -23,6 +23,12 @@ for this taxon) converge on the same subfamilies the manual curation in
 
 ## Method
 
+- **Server: DRAGEN** (`copilot@Biotech2024`, Tailscale `100.104.25.22`).
+- **Run root**: `/staging/tmp/sinederella_benchmark/runs/timema/run_20260822_231705`
+  — assignment output at `step2/step2_output/`, alignments at
+  `results/alignments/`, report at `results/report.html`. Same genome file
+  (`GCA_050494535.1.fa`) as `tim/`, different consensus set (AnnoSINE_v2's
+  55 candidates, not the curated t1–t8).
 - AnnoSINE_v2 mode 3 (hybrid) run directly on the Timema genome —
   55 candidates, all independently tagged tRNA-derived, zero hits from its
   built-in homology/HMM library (no related family exists in it for this

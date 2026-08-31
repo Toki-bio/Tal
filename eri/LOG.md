@@ -3,6 +3,13 @@
 *Scoped to this species only — see the main [WORKFLOW.md](../WORKFLOW.md) for the
 shared Tal SINE pipeline this reuses. Genome: GCF_950295315.1 (mEriEur2.1).*
 
+**Server: KIT** (`toki@85.89.102.78`), **not DRAGEN** — a different server
+than every other species page on this site. **Current/live run root**:
+`/data/W/toki/Genomes/Mammalia/Eulipotyphla/Erniacidae/run_20260820_221537`
+(assignment output at `step2/step2_output/`, alignments/scripts at
+`/data/V/toki/tmp/` and `/data/V/toki/bin/`). The earlier `run_20260820_204827`
+referenced just below hit a real bug and was abandoned, superseded by this one.
+
 ---
 
 ## 2026-08-20 — Initial run: hit a real SubFam bug

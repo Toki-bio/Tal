@@ -18,6 +18,10 @@ tested — makes this a real benchmark, not a circular check.
 
 ## Method
 
+- **Server: DRAGEN** (`copilot@Biotech2024`, Tailscale `100.104.25.22`).
+- **Run root**: `/staging/tmp/sinederella_benchmark/runs/zebrafish/run_20260822_231705`
+  — assignment output at `step2/step2_output/`, alignments at
+  `results/alignments/`, report at `results/report.html`.
 - Genome: danRer11 (GRCz11), downloaded from UCSC goldenPath.
 - Consensus library: 15 SINE consensuses extracted from Dfam via
   `famdb.py families -a -c --class SINE -f fasta_name 'Danio rerio'`
