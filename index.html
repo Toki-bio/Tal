@@ -49,7 +49,7 @@ a { color:var(--accent); }
 </head><body>
 <header>
   <h1>Tal SINE — Talpidae Analysis</h1>
-  <div class="sub">tRNA-derived Short Interspersed Nuclear Elements across 6 Talpidae genomes &mdash; 2 moles, 2 Talpa, 2 desmans. This site also hosts two related-infrastructure, non-Talpidae projects kept separate below: confirmed Erinaceidae (hedgehog) SINEs, and unconfirmed candidate SINE-like elements from Scorpiones.</div>
+  <div class="sub">tRNA-derived Short Interspersed Nuclear Elements across 6 Talpidae genomes &mdash; 2 moles, 2 Talpa, 2 desmans. This site also hosts two related-infrastructure, non-Talpidae projects kept separate below: Erinaceidae (hedgehog/gymnure) SINEs &mdash; one confirmed (eri), two new assemblies still preliminary (ava, svk) &mdash; and unconfirmed candidate SINE-like elements from Scorpiones.</div>
 </header>
 <main>
 
@@ -155,11 +155,15 @@ a { color:var(--accent); }
 <section class="card" style="border-left:4px solid #2d2d8f;">
   <h2>Erinaceidae SINE &mdash; confirmed, but not Talpidae</h2>
   <p style="color:var(--muted);font-size:.9rem;margin-top:4px;">
-    <i>Erinaceus europaeus</i> (European hedgehog) belongs to Erinaceidae, a different
-    Eulipotyphla family from the 6 Talpidae species above &mdash; kept on this site for
-    infrastructure reuse, not because it is a Talpidae result. Unlike the scorpion work below,
-    this SINE family is a real, confirmed classification against known literature consensuses
-    (ERI-1/ERI-2, Borodulina 2001), not a de novo/unconfirmed candidate.
+    Erinaceidae is a different Eulipotyphla family from the 6 Talpidae species above
+    &mdash; kept on this site for infrastructure reuse, not because these are Talpidae
+    results. <i>Erinaceus europaeus</i> (European hedgehog) below is a real, confirmed
+    classification against known literature consensuses (ERI-1/ERI-2, Borodulina 2001).
+    <i>Neohylomys vietnamensis</i> (AVA) and <i>Neotetracus sinensis</i> (SVK), also
+    Erinaceidae (subfamily Galericinae, gymnures/moonrats), are new hybrid ONT+Illumina
+    assemblies at an earlier stage: the step1 genome search is done, but subfamilies have
+    not yet been manually defined, so there is no confirmed classification for them yet
+    &mdash; only a 30,000-locus sample alignment awaiting manual inspection.
   </p>
   <div class="species-grid" style="margin-top:12px;">
     <div class="sp-card">
@@ -177,6 +181,32 @@ a { color:var(--accent); }
            onclick="openMSA('eri/alignments/eri_candidate_consensuses_vs_sinebase.aln.fa','eri candidate consensi vs SINEbase ERI-1/ERI-2')">Candidate Consensi vs SINEbase ERI-1/ERI-2</a>
         <a class="btn secondary" href="eri/unique_flank_tribes.html">Unique-Flank Tribes search (0/48 pass — see writeup)</a>
         <a class="btn secondary" href="eri/LOG.md">Analysis Log</a>
+      </div>
+    </div>
+    <div class="sp-card">
+      <h3>ava <span class="tag tag-partial">preliminary &middot; pending manual review</span></h3>
+      <div class="sci">Neohylomys vietnamensis &mdash; Vietnam hedgehog / hairy hedgehog (Erinaceidae, Galericinae)</div>
+      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;">
+        step1 search complete &middot; 1,800,089 candidate loci &middot; no subfamilies
+        assigned yet &mdash; 30,000-locus sample ready for manual subfamily grouping
+      </div>
+      <div class="actions">
+        <a class="btn secondary" href="javascript:void(0)"
+           onclick="openMSA('ava/alignments/ava_subfam_input_30k.aln.fa','ava 30k-locus sample, 600 chunk consensi — for manual subfamily grouping')">30k-locus Sample (600 chunk consensi) — for manual grouping</a>
+        <a class="btn secondary" href="ava/LOG.md">Analysis Log</a>
+      </div>
+    </div>
+    <div class="sp-card">
+      <h3>svk <span class="tag tag-partial">preliminary &middot; pending manual review</span></h3>
+      <div class="sci">Neotetracus sinensis &mdash; shrew gymnure (Erinaceidae, Galericinae)</div>
+      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;">
+        step1 search complete &middot; 1,890,839 candidate loci &middot; no subfamilies
+        assigned yet &mdash; 30,000-locus sample ready for manual subfamily grouping
+      </div>
+      <div class="actions">
+        <a class="btn secondary" href="javascript:void(0)"
+           onclick="openMSA('svk/alignments/svk_subfam_input_30k.aln.fa','svk 30k-locus sample, 600 chunk consensi — for manual subfamily grouping')">30k-locus Sample (600 chunk consensi) — for manual grouping</a>
+        <a class="btn secondary" href="svk/LOG.md">Analysis Log</a>
       </div>
     </div>
   </div>
@@ -244,6 +274,22 @@ a { color:var(--accent); }
         <td><span class="tag tag-ok">✓</span></td>
         <td><span class="tag tag-ok"><a href="eri/report.html">HTML</a></span></td>
         <td><span class="tag tag-ok">top100 · rand100 · subfam</span></td>
+      </tr>
+      <tr>
+        <td><strong>ava</strong> <em>Neohylomys vietnamensis</em> <span class="tag tag-other-family" style="margin-left:4px;">not Talpidae</span></td>
+        <td><span class="tag tag-ok">✓</span></td>
+        <td><span class="tag tag-partial">pending manual review &middot; 1,800,089 loci</span></td>
+        <td><span class="tag tag-no">&mdash;</span></td>
+        <td><span class="tag tag-no">&mdash;</span></td>
+        <td><span class="tag tag-partial"><a href="javascript:void(0)" onclick="openMSA('ava/alignments/ava_subfam_input_30k.aln.fa','ava 30k-locus sample')">30k sample (600 chunks)</a></span></td>
+      </tr>
+      <tr>
+        <td><strong>svk</strong> <em>Neotetracus sinensis</em> <span class="tag tag-other-family" style="margin-left:4px;">not Talpidae</span></td>
+        <td><span class="tag tag-ok">✓</span></td>
+        <td><span class="tag tag-partial">pending manual review &middot; 1,890,839 loci</span></td>
+        <td><span class="tag tag-no">&mdash;</span></td>
+        <td><span class="tag tag-no">&mdash;</span></td>
+        <td><span class="tag tag-partial"><a href="javascript:void(0)" onclick="openMSA('svk/alignments/svk_subfam_input_30k.aln.fa','svk 30k-locus sample')">30k sample (600 chunks)</a></span></td>
       </tr>
     </tbody>
   </table>
