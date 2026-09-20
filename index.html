@@ -188,11 +188,16 @@ a { color:var(--accent); }
       <div class="sci">Neohylomys vietnamensis &mdash; Vietnam hedgehog / hairy hedgehog (Erinaceidae, Galericinae)</div>
       <div style="font-size:.82rem;color:var(--muted);margin-top:4px;">
         step1 search complete &middot; 1,800,089 candidate loci &middot; no subfamilies
-        assigned yet &mdash; 30,000-locus sample ready for manual subfamily grouping
+        assigned yet &mdash; 30,000-locus sample ready for manual subfamily grouping.
+        De novo arm (AnnoSINE2 + fragment scan) also complete: 64,355 candidates
+        &rarr; 59,391 kept after k-mer thinning &rarr; 1,187 chunk consensi, clustered
+        but NOT assigned &mdash; for manual review.
       </div>
       <div class="actions">
         <a class="btn secondary" href="javascript:void(0)"
            onclick="openMSA('ava/alignments/ava_subfam_input_30k.aln.fa','ava 30k-locus sample, 600 chunk consensi — for manual subfamily grouping')">30k-locus Sample (600 chunk consensi) — for manual grouping</a>
+        <a class="btn secondary" href="javascript:void(0)"
+           onclick="openMSA('ava/alignments/ava_denovo_candidates_1187chunks.aln.fa','ava de novo candidates (AnnoSINE2 + fragment scan), 1187 chunk consensi — for manual review')">De Novo Candidates (1187 chunk consensi) — for manual review</a>
         <a class="btn secondary" href="ava/LOG.md">Analysis Log</a>
       </div>
     </div>
