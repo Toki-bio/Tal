@@ -94,156 +94,151 @@ def load(g):
     return "done", vals, ("tag-ok", "full report"), "", acts
 
 
-def sine_cells(vals, status):
+def tal_style():
+    """The Tal main page's own <style> block, copied verbatim so both pages share one design."""
+    idx = open(os.path.join(ROOT, "index.html"), encoding="utf8").read()
+    return idx[idx.index("<style>"):idx.index("</style>") + len("</style>")]
+
+
+def copies_tag(v, status):
     if status == "running":
-        return '<td class="num muted" colspan="4">running</td>'
-    out = []
-    for s in SINES:
-        v = vals.get(s)
-        if v is None:
-            out.append('<td class="num muted" colspan="2">not searched</td>')
-        elif v[0] == 0:
-            out.append('<td class="num">0</td><td class="num">&ndash;</td>')
-        else:
-            out.append(f'<td class="num">{fmt(v[0])}<div class="sub">{fmt(v[1])} firm</div></td>'
-                       f'<td class="num">{v[2]:.2f}</td>')
-    return "".join(out)
+        return '<span class="tag tag-no">running</span>'
+    if v is None:
+        return '<span class="tag tag-no">not searched</span>'
+    if v[0] == 0:
+        return '<span class="tag tag-no">0</span>'
+    cls = "tag-ok" if v[0] >= 1000 else "tag-partial"
+    return f'<span class="tag {cls}">{fmt(v[0])} &middot; sim {v[2]:.2f}</span>'
 
 
 def main():
     with open(os.path.join(ROOT, "chiroptera", "genomes.tsv"), encoding="utf8") as fh:
         rows = list(csv.DictReader(fh, delimiter="\t"))
 
-    table, sections = [], []
-    n_done = n_gen = 0
-    suborders = []
+    groups = []  # (suborder, superfamily) in tree order
     for g in rows:
-        if g["suborder"] not in suborders:
-            suborders.append(g["suborder"])
+        k = (g["suborder"], g["superfamily"])
+        if k not in groups:
+            groups.append(k)
 
-    for so in suborders:
-        table.append(f'<tr class="so"><td colspan="9">{so}</td></tr>')
-        sfs = []
+    sections, trs = [], []
+    n_done = n_gen = 0
+    for so, sf in groups:
+        cards, notes = [], []
+        first = True
         for g in rows:
-            if g["suborder"] == so and g["superfamily"] not in sfs:
-                sfs.append(g["superfamily"])
-        sf_blocks = []
-        for sf in sfs:
-            table.append(f'<tr class="sf"><td colspan="9">{sf}</td></tr>')
-            cards, notes = [], []
-            for g in rows:
-                if g["superfamily"] != sf:
-                    continue
-                c, sp, fam = g["code"], g["species"], g["family"]
-                prior = esc(g["prior_evidence"]) or "&ndash;"
-                if c == "-":
-                    table.append(f'<tr><td>{fam}</td><td class="muted" colspan="2">not searched here</td>'
-                                 f'<td>{prior}</td><td class="muted" colspan="4">&ndash;</td><td></td></tr>')
-                    notes.append(f"<i>{fam}</i> is not searched here: VES was described from it, so it was left out.")
-                    continue
-                n_gen += 1
-                status, vals, tag, note, acts = load(g)
-                n_done += status == "done"
-                href = (next((a[1] for a in LEGACY[c]["acts"] if a[0] == "btn"), None) if c in LEGACY
-                        else f"{c}/report.html")
-                link = f'<a href="{href}">{c}</a>' if status == "done" and href else c
-                dn = ""
-                if glob.glob(os.path.join(ROOT, c, "alignments", f"{c}_denovo_candidates_*chunks.aln.fa")):
-                    dn = '<span class="tag tag-ok">ready</span>'
-                elif c in DENOVO_PENDING:
-                    dn = '<span class="tag tag-no">running</span>'
-                table.append(f'<tr><td>{fam}</td><td>{link}</td><td><i>{sp}</i></td><td>{prior}</td>'
-                             f'{sine_cells(vals, status)}<td>{dn}</td></tr>')
-                counts = ""
-                if status == "done":
-                    parts = [f"{s} {fmt(v[0])}" + (f" ({fmt(v[1])} firm)" if v[0] else "")
-                             for s, v in vals.items() if v is not None]
-                    counts = f'<div class="meta">{" &middot; ".join(parts)}</div>'
-                cards.append(
-                    f'    <div class="sp-card">\n'
+            if g["superfamily"] != sf:
+                continue
+            c, sp, fam = g["code"], g["species"], g["family"]
+            if c == "-":
+                notes.append(f"{fam} is not searched here: VES was described from it, so it was left out.")
+                continue
+            border = ' style="border-top:3px solid #2d2d8f;"' if first else ""
+            first = False
+            n_gen += 1
+            status, vals, tag, note, acts = load(g)
+            n_done += status == "done"
+            prior = esc(g["prior_evidence"])
+
+            meta = []
+            if status == "done":
+                meta.append(" &middot; ".join(f"{s} {fmt(v[0])}" for s, v in vals.items() if v is not None)
+                            + " copies")
+            meta.append(f'<a href="https://www.ncbi.nlm.nih.gov/datasets/genome/{g["accession"]}/" '
+                        f'target="_blank">{g["accession"]}</a>')
+            extra = ([f"prior evidence: {prior}"] if prior else []) + ([note] if note else [])
+            card = (f'    <div class="sp-card">\n'
                     f'      <h3>{c} <span class="tag {tag[0]}">{tag[1]}</span></h3>\n'
                     f'      <div class="sci">{sp} &mdash; {fam}</div>\n'
-                    f'      <div class="meta"><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/{g["accession"]}/" '
-                    f'target="_blank">{g["accession"]}</a> {g["assembly"]}'
-                    f'{" &middot; prior evidence: " + prior if g["prior_evidence"] else ""}</div>\n'
-                    f'      {counts}\n'
-                    f'      {f"<div class=meta>{note}</div>" if note else ""}\n'
-                    f'      <div class="actions">{" ".join(acts)}</div>\n'
-                    f'    </div>')
-            note_html = "".join(f'<p class="meta">{n}</p>' for n in notes)
-            sf_blocks.append(f'  <h3 class="sf">{sf}</h3>\n{note_html}\n  <div class="species-grid">\n'
-                             + "\n".join(cards) + "\n  </div>")
-        sections.append(f'<section class="card">\n  <h2>{so}</h2>\n' + "\n".join(sf_blocks) + "\n</section>")
+                    f'      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;">\n'
+                    f'        {" &middot; ".join(meta)}\n'
+                    f'      </div>\n')
+            if extra:
+                card += (f'      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;">'
+                         f'{"; ".join(extra)}</div>\n')
+            if acts:
+                card += '      <div class="actions">\n        ' + "\n        ".join(acts) + '\n      </div>\n'
+            cards.append(card + '    </div>\n')
 
-    page = f"""<!DOCTYPE html>
+            href = (next((a[1] for a in LEGACY[c]["acts"] if a[0] == "btn"), None) if c in LEGACY
+                    else f"{c}/report.html")
+            rep = (f'<span class="tag tag-ok"><a href="{href}">HTML</a></span>' if status == "done" and href
+                   else '<span class="tag tag-no">&mdash;</span>')
+            if status != "done":
+                aln = '<span class="tag tag-no">&mdash;</span>'
+            elif c in ("rre", "rda", "lly"):
+                aln = '<span class="tag tag-partial">SubFam input</span>'
+            else:
+                aln = '<span class="tag tag-ok">top100 · rand100 · subfam</span>'
+            if glob.glob(os.path.join(ROOT, c, "alignments", f"{c}_denovo_candidates_*chunks.aln.fa")):
+                dn = '<span class="tag tag-ok">ready</span>'
+            elif c in DENOVO_PENDING:
+                dn = '<span class="tag tag-partial">running</span>'
+            else:
+                dn = '<span class="tag tag-no">&mdash;</span>'
+            search = ('<span class="tag tag-ok">✓</span>' if status == "done"
+                      else '<span class="tag tag-no">running</span>')
+            trs.append(
+                f'      <tr{border}>\n'
+                f'        <td><strong>{c}</strong> <em>{sp}</em> '
+                f'<span class="tag tag-other-family" style="margin-left:4px;">{fam}</span></td>\n'
+                f'        <td>{prior or "&mdash;"}</td>\n'
+                f'        <td>{search}</td>\n'
+                f'        <td>{copies_tag(vals.get("Rhin-1"), status)}</td>\n'
+                f'        <td>{copies_tag(vals.get("VES"), status)}</td>\n'
+                f'        <td>{rep}</td>\n'
+                f'        <td>{aln}</td>\n'
+                f'        <td>{dn}</td>\n'
+                f'      </tr>')
+        note_html = "".join(f'  <p style="color:var(--muted);font-size:.9rem;margin-top:4px;">{n}</p>\n'
+                            for n in notes)
+        sections.append(
+            f'<section class="card">\n'
+            f'  <h2>{sf} &mdash; {so}</h2>\n'
+            f'{note_html}'
+            f'  <div class="species-grid">\n\n' + "\n".join(cards) + '\n  </div>\n</section>\n')
+
+    page = f"""<!doctype html>
 <html lang="en"><head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Chiroptera SINEs</title>
-<style>
-:root {{ --fg:#222; --bg:#f5f6f8; --card:#fff; --accent:#4C72B0; --muted:#666; --border:#e2e2e2; }}
-* {{ box-sizing: border-box; }}
-body {{ font-family: -apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; background:var(--bg); color:var(--fg); margin:0; padding:0; }}
-header {{ background: linear-gradient(135deg, #2c3e50, #4C72B0); color:#fff; padding:28px 36px; }}
-header h1 {{ margin:0 0 6px 0; font-size:1.7rem; }}
-header .sub {{ opacity:.85; font-size:.95rem; }}
-main {{ max-width:1150px; margin:0 auto; padding:28px 24px; }}
-section.card {{ background:var(--card); border:1px solid var(--border); border-radius:8px; padding:20px 24px; margin:18px 0; box-shadow:0 1px 3px rgba(0,0,0,0.05); }}
-section.card h2 {{ margin-top:0; font-size:1.2rem; color:#2c3e50; border-bottom:1px solid var(--border); padding-bottom:8px; }}
-h3.sf {{ font-size:1rem; color:#4C72B0; margin:18px 0 8px; }}
-.tbl {{ border-collapse:collapse; width:100%; font-size:.86rem; margin:8px 0; }}
-.tbl th,.tbl td {{ border:1px solid var(--border); padding:5px 9px; text-align:left; vertical-align:top; }}
-.tbl th {{ background:#f0f3f7; }}
-.tbl td.num {{ font-variant-numeric:tabular-nums; text-align:right; }}
-.tbl tr.so td {{ background:#2c3e50; color:#fff; font-weight:600; }}
-.tbl tr.sf td {{ background:#e8eef7; color:#2c3e50; font-weight:600; }}
-.tbl .sub {{ font-size:.74rem; color:var(--muted); }}
-.muted {{ color:var(--muted); }}
-.meta {{ font-size:.82rem; color:var(--muted); margin-top:4px; }}
-.tag {{ display:inline-block; border-radius:3px; padding:1px 6px; font-size:.78rem; font-weight:600; }}
-.tag-ok {{ background:#d4edda; color:#155724; }}
-.tag-partial {{ background:#fff3cd; color:#856404; }}
-.tag-no {{ background:#f0f0f0; color:#777; }}
-a.btn {{ display:inline-block; background:var(--accent); color:#fff; padding:4px 12px; border-radius:4px; font-size:.84rem; text-decoration:none; margin:2px 2px 2px 0; }}
-a.btn:hover {{ background:#2c3e50; }}
-a.btn.secondary {{ background:#6c757d; }}
-a.btn.green {{ background:#28a745; }}
-a {{ color:var(--accent); }}
-.species-grid {{ display:grid; gap:16px; grid-template-columns: repeat(auto-fit, minmax(320px,1fr)); }}
-.sp-card {{ border:1px solid var(--border); border-radius:7px; padding:14px 16px; background:#fff; }}
-.sp-card h3 {{ margin:0 0 4px; font-size:1rem; color:#2c3e50; }}
-.sp-card .sci {{ font-style:italic; color:var(--muted); font-size:.88rem; }}
-.sp-card .actions {{ margin-top:10px; }}
-</style>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Chiroptera SINE — bat analysis</title>
+{tal_style()}
 </head><body>
 <header>
-  <h1>Chiroptera &mdash; bat SINEs</h1>
-  <div class="sub">Rhin-1 and VES across bat families, one genome per family, grouped by clade.
+  <h1>Chiroptera SINE — bat analysis</h1>
+  <div class="sub">Rhin-1 and VES (SINEbase) searched in one genome per bat family, plus three <i>Rhinolophus</i> genomes.
+  Species are grouped by clade following the family tree of Hao et al. 2023 (<i>Integrative Zoology</i> 19:989&ndash;998, Fig. 3).
   <a href="index.html" style="color:#fff;">&larr; Tal SINE main page</a></div>
 </header>
 <main>
+
+<section class="card" style="padding:16px 24px;">
+  <h2 style="margin-bottom:10px;">Cross-species resources</h2>
+  <p style="margin:0 0 10px;font-size:.9rem;color:var(--muted);">Bank: SINEbase Rhin-1 (182 bp) and VES (220 bp), IUPAC codes resolved to a base. The earlier <i>Rhinolophus</i> runs used Rhin-1 alone (177 bp, codes deleted).</p>
+  <a class="btn secondary" href="chiroptera/LOG.md">Analysis Log</a>
+  <a class="btn secondary" href="rhin.html">Rhin-1 peel alignments (<i>R. sinicus</i>)</a>
+</section>
+
+{chr(10).join(sections)}
 <section class="card">
-  <h2>Overview</h2>
-  <p style="font-size:.9rem;">Clades and family order follow the time-calibrated family tree of Hao et al. 2023
-  (<i>Integrative Zoology</i> 19:989&ndash;998, Fig. 3). Every genome was searched with SINEbase <b>Rhin-1</b> and
-  <b>VES</b> as the only consensuses (IUPAC codes resolved to a base, so both keep full length); the earlier
-  <i>Rhinolophus</i> runs used Rhin-1 alone. <b>Copies</b> = firm + soft assigned (firm count below);
-  <b>sim</b> = median copy bitscore / consensus self-bitscore. <b>Prior evidence</b> is the SINE label on the
-  annotated copy of that figure. <b>De novo</b> = AnnoSINE2 + SINEbase-fragment scan candidates, clustered by SubFam
-  for manual review (run for hla and tbr first). {n_done} of {n_gen} genomes published.</p>
-  <div style="overflow-x:auto;">
+  <h2>Analysis Status</h2>
   <table class="tbl">
-    <thead><tr><th>Family</th><th>Code</th><th>Species</th><th>Prior evidence</th>
-      <th>Rhin-1 copies</th><th>Rhin-1 sim</th><th>VES copies</th><th>VES sim</th><th>De novo</th></tr></thead>
+    <thead>
+      <tr><th>Species</th><th>Prior evidence</th><th>Search</th><th>Rhin-1 &middot; copies</th><th>VES &middot; copies</th><th>Report</th><th>Alignments</th><th>De novo</th></tr>
+    </thead>
     <tbody>
-{chr(10).join('      ' + t for t in table)}
+{chr(10).join(trs)}
     </tbody>
   </table>
-  </div>
-  <p style="margin-top:10px;"><a class="btn secondary" href="chiroptera/LOG.md">Analysis log</a>
-  <a class="btn secondary" href="rhin.html">Rhin-1 peel alignments (<i>R. sinicus</i>)</a></p>
+  <p style="color:var(--muted);font-size:.82rem;margin-top:8px;">
+    {n_done} of {n_gen} genomes published. Rows are in tree order; a heavy line starts each superfamily.
+    Copies = firm + soft assigned; sim = median copy bitscore / consensus self-bitscore; green = 1,000 copies or more.
+    Prior evidence is the SINE label on the annotated copy of the Hao et al. figure.
+    De novo = AnnoSINE2 + SINEbase-fragment scan candidates, clustered by SubFam for manual review (hla and tbr first).
+  </p>
 </section>
-{chr(10).join(sections)}
+
 </main>
 <script>
 const RAW = 'https://raw.githubusercontent.com/Toki-bio/Tal/main/';
