@@ -1,0 +1,3 @@
+subfam	firm_assigned	soft_assigned	total_assigned	leak_n	conf_alt_n	firm_pct	total_pct	leak_pct	conf_alt_pct	sim_mean	sim_median
+VES	315798	141075	456873	0	109	69.08	99.94	0.00	0.03	0.9537	0.9509
+Rhin-1	227	44	271	90	5	0.05	0.06	39.65	2.20	0.1923	0.1922
