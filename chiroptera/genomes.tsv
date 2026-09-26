@@ -1,20 +1,25 @@
-code	species	family	accession	assembly	lineage	prior_evidence
-rle	Rousettus leschenaultii	Pteropodidae	GCA_053538355.2	ASM5353835v2	Pteropodidae	MEG-R, MEG-T seq
-tpe	Triaenops persicus	Rhinonycteridae	GCA_985607305.1	mTriPer1.1.hap1	Rhinolophoidea	
-hla	Hipposideros larvatus	Hipposideridae	GCA_031876335.1	mHipLar1.pri	Rhinolophoidea	Rhin hybrid
-mgi	Macroderma gigas	Megadermatidae	GCA_055471755.1	mMacGig1.2_20250303	Rhinolophoidea	
-cth	Craseonycteris thonglongyai	Craseonycteridae	GCA_985607335.1	mCraTho2.1.hap1	Rhinolophoidea	
-rmi	Rhinopoma microphyllum	Rhinopomatidae	GCA_043880545.1	ASM4388054v1	Rhinolophoidea	
-mau	Myzopoda aurita	Myzopodidae	GCA_985615965.1	mMyzAur1.1.pri	Emballonuroidea	
-nth	Nycteris thebaica	Nycteridae	GCA_985607365.1	mNycThe1.1.hap1	Emballonuroidea	
-rna	Rhynchonycteris naso	Emballonuridae	GCA_037038555.1	mRhyNas2.hap2	Emballonuroidea	Ves PCR*
-tni	Trinycteris nicefori	Phyllostomidae	GCA_985607355.1	mTriNic1.1.hap1	Noctilionoidea	Ves PCR*
-mme	Mormoops megalophylla	Mormoopidae	GCA_985614085.1	mMorMeg1.1.pri	Noctilionoidea	
-nle	Noctilio leporinus	Noctilionidae	GCA_985617315.1	mNocLep2.1.pri	Noctilionoidea	
-fho	Furipterus horrens	Furipteridae	GCA_987537825.1	mFurHor1.1.pri	Noctilionoidea	
-ttr	Thyroptera tricolor	Thyropteridae	GCA_985616965.1	mThyTri1.1.pri	Noctilionoidea	
-mtu	Mystacina tuberculata	Mystacinidae	GCA_985612315.1	mMysTub1.2.pri	Noctilionoidea	
-cse	Cistugo seabrae	Cistugidae	GCA_061228675.1	mCisSea1.1.hap1	Vespertilionoidea	
-msc	Miniopterus schreibersii	Miniopteridae	GCA_964146895.2	mMinSch1.hap1.2	Vespertilionoidea	
-tbr	Tadarida brasiliensis	Molossidae	GCA_030848825.1	DD_mTadBra1_pri	Vespertilionoidea	Ves hybrid, PCR
-ntu	Natalus tumidirostris	Natalidae	GCA_985614685.1	mNatTum1.1.pri	Vespertilionoidea	
+code	species	family	accession	assembly	suborder	superfamily	prior_evidence
+rle	Rousettus leschenaultii	Pteropodidae	GCA_053538355.2	ASM5353835v2	Yinpterochiroptera	Pteropodoidea	MEG-R, MEG-T seq
+tpe	Triaenops persicus	Rhinonycteridae	GCA_985607305.1	mTriPer1.1.hap1	Yinpterochiroptera	Rhinolophoidea	
+rsi	Rhinolophus sinicus	Rhinolophidae	GCF_057876585.1	RSI-T2T	Yinpterochiroptera	Rhinolophoidea	Rhin seq
+rre	Rhinolophus rex	Rhinolophidae	GCA_041825415.1		Yinpterochiroptera	Rhinolophoidea	Rhin seq
+rda	Rhinolophus darlingi	Rhinolophidae	GCA_057427945.1	mRhiDar1.hap1	Yinpterochiroptera	Rhinolophoidea	Rhin seq
+hla	Hipposideros larvatus	Hipposideridae	GCA_031876335.1	mHipLar1.pri	Yinpterochiroptera	Rhinolophoidea	Rhin hybrid
+mgi	Macroderma gigas	Megadermatidae	GCA_055471755.1	mMacGig1.2_20250303	Yinpterochiroptera	Rhinolophoidea	
+lly	Lyroderma lyra	Megadermatidae	GCA_004026885.1	MegLyr_v1_BIUU	Yinpterochiroptera	Rhinolophoidea	
+cth	Craseonycteris thonglongyai	Craseonycteridae	GCA_985607335.1	mCraTho2.1.hap1	Yinpterochiroptera	Rhinolophoidea	
+rmi	Rhinopoma microphyllum	Rhinopomatidae	GCA_043880545.1	ASM4388054v1	Yinpterochiroptera	Rhinolophoidea	
+mau	Myzopoda aurita	Myzopodidae	GCA_985615965.1	mMyzAur1.1.pri	Yangochiroptera	Emballonuroidea	
+nth	Nycteris thebaica	Nycteridae	GCA_985607365.1	mNycThe1.1.hap1	Yangochiroptera	Emballonuroidea	
+rna	Rhynchonycteris naso	Emballonuridae	GCA_037038555.1	mRhyNas2.hap2	Yangochiroptera	Emballonuroidea	Ves PCR*
+tni	Trinycteris nicefori	Phyllostomidae	GCA_985607355.1	mTriNic1.1.hap1	Yangochiroptera	Noctilionoidea	Ves PCR*
+mme	Mormoops megalophylla	Mormoopidae	GCA_985614085.1	mMorMeg1.1.pri	Yangochiroptera	Noctilionoidea	
+nle	Noctilio leporinus	Noctilionidae	GCA_985617315.1	mNocLep2.1.pri	Yangochiroptera	Noctilionoidea	
+fho	Furipterus horrens	Furipteridae	GCA_987537825.1	mFurHor1.1.pri	Yangochiroptera	Noctilionoidea	
+ttr	Thyroptera tricolor	Thyropteridae	GCA_985616965.1	mThyTri1.1.pri	Yangochiroptera	Noctilionoidea	
+mtu	Mystacina tuberculata	Mystacinidae	GCA_985612315.1	mMysTub1.2.pri	Yangochiroptera	Noctilionoidea	
+cse	Cistugo seabrae	Cistugidae	GCA_061228675.1	mCisSea1.1.hap1	Yangochiroptera	Vespertilionoidea	
+-		Vespertilionidae			Yangochiroptera	Vespertilionoidea	Ves seq
+msc	Miniopterus schreibersii	Miniopteridae	GCA_964146895.2	mMinSch1.hap1.2	Yangochiroptera	Vespertilionoidea	
+tbr	Tadarida brasiliensis	Molossidae	GCA_030848825.1	DD_mTadBra1_pri	Yangochiroptera	Vespertilionoidea	Ves hybrid, PCR
+ntu	Natalus tumidirostris	Natalidae	GCA_985614685.1	mNatTum1.1.pri	Yangochiroptera	Vespertilionoidea	

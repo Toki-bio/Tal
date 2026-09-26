@@ -1,47 +1,39 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en"><head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Chiroptera SINEs</title>
 <style>
-:root { --fg:#222; --bg:#f5f6f8; --card:#fff; --accent:#4C72B0;
-        --muted:#666; --border:#e2e2e2; }
+:root { --fg:#222; --bg:#f5f6f8; --card:#fff; --accent:#4C72B0; --muted:#666; --border:#e2e2e2; }
 * { box-sizing: border-box; }
-body { font-family: -apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-       background:var(--bg); color:var(--fg); margin:0; padding:0; }
-header { background: linear-gradient(135deg, #2c3e50, #4C72B0);
-         color:#fff; padding:28px 36px; }
+body { font-family: -apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; background:var(--bg); color:var(--fg); margin:0; padding:0; }
+header { background: linear-gradient(135deg, #2c3e50, #4C72B0); color:#fff; padding:28px 36px; }
 header h1 { margin:0 0 6px 0; font-size:1.7rem; }
 header .sub { opacity:.85; font-size:.95rem; }
-main { max-width:1100px; margin:0 auto; padding:28px 24px; }
-section.card { background:var(--card); border:1px solid var(--border);
-               border-radius:8px; padding:20px 24px; margin:18px 0;
-               box-shadow:0 1px 3px rgba(0,0,0,0.05); }
-section.card h2 { margin-top:0; font-size:1.1rem; color:#2c3e50;
-                  border-bottom:1px solid var(--border); padding-bottom:8px; }
-.tbl { border-collapse:collapse; width:100%; font-size:.88rem; margin:8px 0; }
-.tbl th,.tbl td { border:1px solid var(--border); padding:6px 10px; text-align:left; }
+main { max-width:1150px; margin:0 auto; padding:28px 24px; }
+section.card { background:var(--card); border:1px solid var(--border); border-radius:8px; padding:20px 24px; margin:18px 0; box-shadow:0 1px 3px rgba(0,0,0,0.05); }
+section.card h2 { margin-top:0; font-size:1.2rem; color:#2c3e50; border-bottom:1px solid var(--border); padding-bottom:8px; }
+h3.sf { font-size:1rem; color:#4C72B0; margin:18px 0 8px; }
+.tbl { border-collapse:collapse; width:100%; font-size:.86rem; margin:8px 0; }
+.tbl th,.tbl td { border:1px solid var(--border); padding:5px 9px; text-align:left; vertical-align:top; }
 .tbl th { background:#f0f3f7; }
-.tbl tbody tr:nth-child(even) { background:#fafbfd; }
 .tbl td.num { font-variant-numeric:tabular-nums; text-align:right; }
-.tag { display:inline-block; border-radius:3px; padding:1px 6px;
-       font-size:.78rem; font-weight:600; }
-.tag-ok  { background:#d4edda; color:#155724; }
+.tbl tr.so td { background:#2c3e50; color:#fff; font-weight:600; }
+.tbl tr.sf td { background:#e8eef7; color:#2c3e50; font-weight:600; }
+.tbl .sub { font-size:.74rem; color:var(--muted); }
+.muted { color:var(--muted); }
+.meta { font-size:.82rem; color:var(--muted); margin-top:4px; }
+.tag { display:inline-block; border-radius:3px; padding:1px 6px; font-size:.78rem; font-weight:600; }
+.tag-ok { background:#d4edda; color:#155724; }
 .tag-partial { background:#fff3cd; color:#856404; }
-.tag-candidate { background:#f8d7da; color:#721c24; }
-.tag-other-family { background:#e2e3ff; color:#2d2d8f; }
-.tag-no  { background:#f0f0f0; color:#777; }
-a.btn { display:inline-block; background:var(--accent); color:#fff;
-        padding:4px 12px; border-radius:4px; font-size:.84rem;
-        text-decoration:none; margin:2px 2px 2px 0; }
+.tag-no { background:#f0f0f0; color:#777; }
+a.btn { display:inline-block; background:var(--accent); color:#fff; padding:4px 12px; border-radius:4px; font-size:.84rem; text-decoration:none; margin:2px 2px 2px 0; }
 a.btn:hover { background:#2c3e50; }
 a.btn.secondary { background:#6c757d; }
-a.btn.green  { background:#28a745; }
+a.btn.green { background:#28a745; }
 a { color:var(--accent); }
-.species-grid { display:grid; gap:16px;
-                grid-template-columns: repeat(auto-fit, minmax(320px,1fr)); }
-.sp-card { border:1px solid var(--border); border-radius:7px;
-           padding:14px 16px; background:#fff; }
+.species-grid { display:grid; gap:16px; grid-template-columns: repeat(auto-fit, minmax(320px,1fr)); }
+.sp-card { border:1px solid var(--border); border-radius:7px; padding:14px 16px; background:#fff; }
 .sp-card h3 { margin:0 0 4px; font-size:1rem; color:#2c3e50; }
 .sp-card .sci { font-style:italic; color:var(--muted); font-size:.88rem; }
 .sp-card .actions { margin-top:10px; }
@@ -49,252 +41,271 @@ a { color:var(--accent); }
 </head><body>
 <header>
   <h1>Chiroptera &mdash; bat SINEs</h1>
-  <div class="sub">One page for bat genomes, filled as each species is searched. Separate from the Talpidae analysis. <a href="index.html" style="color:#fff;">&larr; Tal SINE main page</a></div>
+  <div class="sub">Rhin-1 and VES across bat families, one genome per family, grouped by clade.
+  <a href="index.html" style="color:#fff;">&larr; Tal SINE main page</a></div>
 </header>
 <main>
 <section class="card">
-  <h2>Bats</h2>
-  <p style="font-size:.9rem;">Each card is one genome. Rhinolophidae and Megadermatidae are both on this page. The Rhin-1 peel alignments for <i>R. sinicus</i> are in the <a href="rhin.html">Rhin-1 section</a>.</p>
-  <div class="species-grid">
-    <div class="sp-card">
-      <h3>rsi <span class="tag tag-ok">full report</span></h3>
-      <div class="sci">Rhinolophus sinicus &mdash; Rhinolophidae</div>
-      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;">
-        <a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_057876585.1/" target="_blank">GCF_057876585.1</a>
-        T2T
-      </div>
-      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;">30,081 Rhin-1 hits &middot; 23,545 firm + 6,534 soft &middot; sim_ratio median 0.48</div>
-      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;">Peel bank r1&ndash;r10: 10 subfamilies &middot; 67,162 assigned copies</div>
-      <div class="actions">
-        <a class="btn" href="rsi/report.html"><i>Rhinolophus sinicus</i> &mdash; full report</a>
-        <a class="btn secondary" href="javascript:void(0)" onclick="openMSA('rhin/alignments/rsi_subfam_input_30k.aln.fa','rsi (R. sinicus) Rhin-1 subfam input, 600 chunk consensi + anchor')">Subfam input (600 chunks)</a>
-        <a class="btn secondary" href="rhin.html">Peel alignments</a>
-      </div>
-    </div>
-    <div class="sp-card">
-      <h3>rre <span class="tag tag-partial">pending manual review</span></h3>
-      <div class="sci">Rhinolophus rex &mdash; Rhinolophidae</div>
-      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;">
-        <a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_041825415.1/" target="_blank">GCA_041825415.1</a>
-      </div>
-      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;">32,414 Rhin-1 hits &middot; 23,073 firm + 9,337 soft &middot; sim_ratio median 0.48</div>
-      <div class="actions">
-        <a class="btn" href="javascript:void(0)" onclick="openMSA('rhin/alignments/rre_subfam_input_30k.aln.fa','rre (R. rex) Rhin-1 subfam input, 600 chunk consensi + anchor')">Subfam input (600 chunks)</a>
-      </div>
-    </div>
-    <div class="sp-card">
-      <h3>rda <span class="tag tag-partial">pending manual review</span></h3>
-      <div class="sci">Rhinolophus darlingi &mdash; Rhinolophidae</div>
-      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;">
-        <a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_057427945.1/" target="_blank">GCA_057427945.1</a>
-        hap1
-      </div>
-      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;">30,170 Rhin-1 hits &middot; 23,850 firm + 6,319 soft &middot; sim_ratio median 0.48</div>
-      <div class="actions">
-        <a class="btn" href="javascript:void(0)" onclick="openMSA('rhin/alignments/rda_subfam_input_30k.aln.fa','rda (R. darlingi hap1) Rhin-1 subfam input, 600 chunk consensi + anchor')">Subfam input (600 chunks)</a>
-      </div>
-    </div>
-    <div class="sp-card">
-      <h3>lly <span class="tag tag-partial">Rhin-1 + VES</span></h3>
-      <div class="sci">Lyroderma lyra &mdash; Megadermatidae</div>
-      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;">
-        <a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_004026885.1/" target="_blank">GCA_004026885.1</a>
-        MegLyr_v1_BIUU
-      </div>
-      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;">301 merged loci &middot; Rhin-1 290 firm &middot; VES 11 firm &middot; no leak, no conflict</div>
-      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;">sim_ratio median 0.16 (Rhin-1) and 0.14 (VES). Bank was those two SINEbase consensuses only.</div>
-      <div class="actions">
-        <a class="btn" href="chiroptera/lly/report.html"><i>Lyroderma lyra</i> &mdash; report</a>
-        <a class="btn secondary" href="javascript:void(0)" onclick="openMSA('chiroptera/lly/lly_subfam_input.aln.fa','lly SubFam input, 6 chunk consensi + Rhin-1 + VES')">SubFam input (6 chunks)</a>
-      </div>
-    </div>
-  </div>
-  <p style="margin-top:14px;"><a class="btn secondary" href="chiroptera/LOG.md">Analysis log</a></p>
-</section>
-<section class="card">
-  <h2><i>L. lyra</i> &mdash; assigned copies</h2>
-  <p style="font-size:.9rem;">SINEderella full run <code>run_20260926_215400</code>, consensuses Rhin-1 and VES. Every hit that passed assignment is in this table. sim_ratio is the copy's bitscore divided by the consensus self-hit.</p>
-  <table class="tbl">
-    <thead><tr><th>Consensus</th><th>Firm</th><th>Soft</th><th>sim median</th></tr></thead>
-    <tbody>
-      <tr><td>Rhin-1</td><td class="num">290</td><td class="num">0</td><td class="num">0.16</td></tr>
-      <tr><td>VES</td><td class="num">11</td><td class="num">0</td><td class="num">0.14</td></tr>
-    </tbody>
-  </table>
-</section>
-<!-- LINEAGES START -->
-<section class="card">
-  <h2>One genome per family &mdash; Rhin-1 and VES</h2>
-  <p style="font-size:.9rem;">One representative genome for every family tip on the Hao et al. (2023) family tree,
-  except Rhinolophidae (cards above) and Vespertilionidae (left out by request), searched with SINEbase Rhin-1 and VES as the only
-  consensuses (IUPAC codes resolved to a base, so both keep full length). Families are in the tree's top-to-bottom order.
-  <b>Copies</b> = firm + soft assigned (firm count below); <b>sim</b> = median copy bitscore / consensus self-bitscore.
-  <b>Prior evidence</b> is the SINE label on the annotated copy of the figure (<code>Hao_24_IZ fig0003</code>). De novo candidates (AnnoSINE2 + fragment scan)
-  are run for hla and tbr first.</p>
+  <h2>Overview</h2>
+  <p style="font-size:.9rem;">Clades and family order follow the time-calibrated family tree of Hao et al. 2023
+  (<i>Integrative Zoology</i> 19:989&ndash;998, Fig. 3). Every genome was searched with SINEbase <b>Rhin-1</b> and
+  <b>VES</b> as the only consensuses (IUPAC codes resolved to a base, so both keep full length); the earlier
+  <i>Rhinolophus</i> runs used Rhin-1 alone. <b>Copies</b> = firm + soft assigned (firm count below);
+  <b>sim</b> = median copy bitscore / consensus self-bitscore. <b>Prior evidence</b> is the SINE label on the
+  annotated copy of that figure. <b>De novo</b> = AnnoSINE2 + SINEbase-fragment scan candidates, clustered by SubFam
+  for manual review (run for hla and tbr first). 8 of 23 genomes published.</p>
   <div style="overflow-x:auto;">
   <table class="tbl">
-    <thead><tr><th>Lineage</th><th>Family</th><th>Code</th><th>Species</th><th>Prior evidence</th>
-      <th>Rhin-1 copies</th><th>Rhin-1 sim</th><th>VES copies</th><th>VES sim</th></tr></thead>
+    <thead><tr><th>Family</th><th>Code</th><th>Species</th><th>Prior evidence</th>
+      <th>Rhin-1 copies</th><th>Rhin-1 sim</th><th>VES copies</th><th>VES sim</th><th>De novo</th></tr></thead>
     <tbody>
-        <tr><td>Pteropodidae</td><td>Pteropodidae</td><td><a href="rle/report.html">rle</a></td><td><i>Rousettus leschenaultii</i></td><td>MEG-R, MEG-T seq</td><td class="num">9<br><span style="font-size:.75rem;color:var(--muted)">9 firm</span></td><td class="num">0.14</td><td class="num">14<br><span style="font-size:.75rem;color:var(--muted)">14 firm</span></td><td class="num">0.12</td></tr>
-    <tr><td>Rhinolophoidea</td><td>Rhinonycteridae</td><td>tpe</td><td><i>Triaenops persicus</i></td><td>&ndash;</td><td class="num" colspan="2" style="color:var(--muted)">running</td><td class="num" colspan="2" style="color:var(--muted)">running</td></tr>
-    <tr><td>Rhinolophoidea</td><td>Hipposideridae</td><td><a href="hla/report.html">hla</a></td><td><i>Hipposideros larvatus</i></td><td>Rhin hybrid</td><td class="num">70,868<br><span style="font-size:.75rem;color:var(--muted)">20,518 firm</span></td><td class="num">0.57</td><td class="num">42<br><span style="font-size:.75rem;color:var(--muted)">22 firm</span></td><td class="num">0.15</td></tr>
-    <tr><td>Rhinolophoidea</td><td>Megadermatidae</td><td><a href="mgi/report.html">mgi</a></td><td><i>Macroderma gigas</i></td><td>&ndash;</td><td class="num">303<br><span style="font-size:.75rem;color:var(--muted)">303 firm</span></td><td class="num">0.16</td><td class="num">12<br><span style="font-size:.75rem;color:var(--muted)">12 firm</span></td><td class="num">0.13</td></tr>
-    <tr><td>Rhinolophoidea</td><td>Craseonycteridae</td><td>cth</td><td><i>Craseonycteris thonglongyai</i></td><td>&ndash;</td><td class="num" colspan="2" style="color:var(--muted)">running</td><td class="num" colspan="2" style="color:var(--muted)">running</td></tr>
-    <tr><td>Rhinolophoidea</td><td>Rhinopomatidae</td><td>rmi</td><td><i>Rhinopoma microphyllum</i></td><td>&ndash;</td><td class="num" colspan="2" style="color:var(--muted)">running</td><td class="num" colspan="2" style="color:var(--muted)">running</td></tr>
-    <tr><td>Emballonuroidea</td><td>Myzopodidae</td><td>mau</td><td><i>Myzopoda aurita</i></td><td>&ndash;</td><td class="num" colspan="2" style="color:var(--muted)">running</td><td class="num" colspan="2" style="color:var(--muted)">running</td></tr>
-    <tr><td>Emballonuroidea</td><td>Nycteridae</td><td>nth</td><td><i>Nycteris thebaica</i></td><td>&ndash;</td><td class="num" colspan="2" style="color:var(--muted)">running</td><td class="num" colspan="2" style="color:var(--muted)">running</td></tr>
-    <tr><td>Emballonuroidea</td><td>Emballonuridae</td><td>rna</td><td><i>Rhynchonycteris naso</i></td><td>Ves PCR*</td><td class="num" colspan="2" style="color:var(--muted)">running</td><td class="num" colspan="2" style="color:var(--muted)">running</td></tr>
-    <tr><td>Noctilionoidea</td><td>Phyllostomidae</td><td>tni</td><td><i>Trinycteris nicefori</i></td><td>Ves PCR*</td><td class="num" colspan="2" style="color:var(--muted)">running</td><td class="num" colspan="2" style="color:var(--muted)">running</td></tr>
-    <tr><td>Noctilionoidea</td><td>Mormoopidae</td><td>mme</td><td><i>Mormoops megalophylla</i></td><td>&ndash;</td><td class="num" colspan="2" style="color:var(--muted)">running</td><td class="num" colspan="2" style="color:var(--muted)">running</td></tr>
-    <tr><td>Noctilionoidea</td><td>Noctilionidae</td><td>nle</td><td><i>Noctilio leporinus</i></td><td>&ndash;</td><td class="num" colspan="2" style="color:var(--muted)">running</td><td class="num" colspan="2" style="color:var(--muted)">running</td></tr>
-    <tr><td>Noctilionoidea</td><td>Furipteridae</td><td>fho</td><td><i>Furipterus horrens</i></td><td>&ndash;</td><td class="num" colspan="2" style="color:var(--muted)">running</td><td class="num" colspan="2" style="color:var(--muted)">running</td></tr>
-    <tr><td>Noctilionoidea</td><td>Thyropteridae</td><td>ttr</td><td><i>Thyroptera tricolor</i></td><td>&ndash;</td><td class="num" colspan="2" style="color:var(--muted)">running</td><td class="num" colspan="2" style="color:var(--muted)">running</td></tr>
-    <tr><td>Noctilionoidea</td><td>Mystacinidae</td><td>mtu</td><td><i>Mystacina tuberculata</i></td><td>&ndash;</td><td class="num" colspan="2" style="color:var(--muted)">running</td><td class="num" colspan="2" style="color:var(--muted)">running</td></tr>
-    <tr><td>Vespertilionoidea</td><td>Cistugidae</td><td>cse</td><td><i>Cistugo seabrae</i></td><td>&ndash;</td><td class="num" colspan="2" style="color:var(--muted)">running</td><td class="num" colspan="2" style="color:var(--muted)">running</td></tr>
-    <tr><td>Vespertilionoidea</td><td>Miniopteridae</td><td>msc</td><td><i>Miniopterus schreibersii</i></td><td>&ndash;</td><td class="num" colspan="2" style="color:var(--muted)">running</td><td class="num" colspan="2" style="color:var(--muted)">running</td></tr>
-    <tr><td>Vespertilionoidea</td><td>Molossidae</td><td><a href="tbr/report.html">tbr</a></td><td><i>Tadarida brasiliensis</i></td><td>Ves hybrid, PCR</td><td class="num">461<br><span style="font-size:.75rem;color:var(--muted)">368 firm</span></td><td class="num">0.18</td><td class="num">640,291<br><span style="font-size:.75rem;color:var(--muted)">620,838 firm</span></td><td class="num">0.49</td></tr>
-    <tr><td>Vespertilionoidea</td><td>Natalidae</td><td>ntu</td><td><i>Natalus tumidirostris</i></td><td>&ndash;</td><td class="num" colspan="2" style="color:var(--muted)">running</td><td class="num" colspan="2" style="color:var(--muted)">running</td></tr>
+      <tr class="so"><td colspan="9">Yinpterochiroptera</td></tr>
+      <tr class="sf"><td colspan="9">Pteropodoidea</td></tr>
+      <tr><td>Pteropodidae</td><td><a href="rle/report.html">rle</a></td><td><i>Rousettus leschenaultii</i></td><td>MEG-R, MEG-T seq</td><td class="num">9<div class="sub">9 firm</div></td><td class="num">0.14</td><td class="num">14<div class="sub">14 firm</div></td><td class="num">0.12</td><td></td></tr>
+      <tr class="sf"><td colspan="9">Rhinolophoidea</td></tr>
+      <tr><td>Rhinonycteridae</td><td>tpe</td><td><i>Triaenops persicus</i></td><td>&ndash;</td><td class="num muted" colspan="4">running</td><td></td></tr>
+      <tr><td>Rhinolophidae</td><td><a href="rsi/report.html">rsi</a></td><td><i>Rhinolophus sinicus</i></td><td>Rhin seq</td><td class="num">30,079<div class="sub">23,545 firm</div></td><td class="num">0.48</td><td class="num muted" colspan="2">not searched</td><td></td></tr>
+      <tr><td>Rhinolophidae</td><td>rre</td><td><i>Rhinolophus rex</i></td><td>Rhin seq</td><td class="num">32,410<div class="sub">23,073 firm</div></td><td class="num">0.48</td><td class="num muted" colspan="2">not searched</td><td></td></tr>
+      <tr><td>Rhinolophidae</td><td>rda</td><td><i>Rhinolophus darlingi</i></td><td>Rhin seq</td><td class="num">30,169<div class="sub">23,850 firm</div></td><td class="num">0.48</td><td class="num muted" colspan="2">not searched</td><td></td></tr>
+      <tr><td>Hipposideridae</td><td><a href="hla/report.html">hla</a></td><td><i>Hipposideros larvatus</i></td><td>Rhin hybrid</td><td class="num">70,868<div class="sub">20,518 firm</div></td><td class="num">0.57</td><td class="num">42<div class="sub">22 firm</div></td><td class="num">0.15</td><td><span class="tag tag-no">running</span></td></tr>
+      <tr><td>Megadermatidae</td><td><a href="mgi/report.html">mgi</a></td><td><i>Macroderma gigas</i></td><td>&ndash;</td><td class="num">303<div class="sub">303 firm</div></td><td class="num">0.16</td><td class="num">12<div class="sub">12 firm</div></td><td class="num">0.13</td><td></td></tr>
+      <tr><td>Megadermatidae</td><td><a href="chiroptera/lly/report.html">lly</a></td><td><i>Lyroderma lyra</i></td><td>&ndash;</td><td class="num">290<div class="sub">290 firm</div></td><td class="num">0.16</td><td class="num">11<div class="sub">11 firm</div></td><td class="num">0.14</td><td></td></tr>
+      <tr><td>Craseonycteridae</td><td>cth</td><td><i>Craseonycteris thonglongyai</i></td><td>&ndash;</td><td class="num muted" colspan="4">running</td><td></td></tr>
+      <tr><td>Rhinopomatidae</td><td>rmi</td><td><i>Rhinopoma microphyllum</i></td><td>&ndash;</td><td class="num muted" colspan="4">running</td><td></td></tr>
+      <tr class="so"><td colspan="9">Yangochiroptera</td></tr>
+      <tr class="sf"><td colspan="9">Emballonuroidea</td></tr>
+      <tr><td>Myzopodidae</td><td>mau</td><td><i>Myzopoda aurita</i></td><td>&ndash;</td><td class="num muted" colspan="4">running</td><td></td></tr>
+      <tr><td>Nycteridae</td><td>nth</td><td><i>Nycteris thebaica</i></td><td>&ndash;</td><td class="num muted" colspan="4">running</td><td></td></tr>
+      <tr><td>Emballonuridae</td><td>rna</td><td><i>Rhynchonycteris naso</i></td><td>Ves PCR*</td><td class="num muted" colspan="4">running</td><td></td></tr>
+      <tr class="sf"><td colspan="9">Noctilionoidea</td></tr>
+      <tr><td>Phyllostomidae</td><td>tni</td><td><i>Trinycteris nicefori</i></td><td>Ves PCR*</td><td class="num muted" colspan="4">running</td><td></td></tr>
+      <tr><td>Mormoopidae</td><td>mme</td><td><i>Mormoops megalophylla</i></td><td>&ndash;</td><td class="num muted" colspan="4">running</td><td></td></tr>
+      <tr><td>Noctilionidae</td><td>nle</td><td><i>Noctilio leporinus</i></td><td>&ndash;</td><td class="num muted" colspan="4">running</td><td></td></tr>
+      <tr><td>Furipteridae</td><td>fho</td><td><i>Furipterus horrens</i></td><td>&ndash;</td><td class="num muted" colspan="4">running</td><td></td></tr>
+      <tr><td>Thyropteridae</td><td>ttr</td><td><i>Thyroptera tricolor</i></td><td>&ndash;</td><td class="num muted" colspan="4">running</td><td></td></tr>
+      <tr><td>Mystacinidae</td><td>mtu</td><td><i>Mystacina tuberculata</i></td><td>&ndash;</td><td class="num muted" colspan="4">running</td><td></td></tr>
+      <tr class="sf"><td colspan="9">Vespertilionoidea</td></tr>
+      <tr><td>Cistugidae</td><td>cse</td><td><i>Cistugo seabrae</i></td><td>&ndash;</td><td class="num muted" colspan="4">running</td><td></td></tr>
+      <tr><td>Vespertilionidae</td><td class="muted" colspan="2">not searched here</td><td>Ves seq</td><td class="muted" colspan="4">&ndash;</td><td></td></tr>
+      <tr><td>Miniopteridae</td><td>msc</td><td><i>Miniopterus schreibersii</i></td><td>&ndash;</td><td class="num muted" colspan="4">running</td><td></td></tr>
+      <tr><td>Molossidae</td><td><a href="tbr/report.html">tbr</a></td><td><i>Tadarida brasiliensis</i></td><td>Ves hybrid, PCR</td><td class="num">461<div class="sub">368 firm</div></td><td class="num">0.18</td><td class="num">640,291<div class="sub">620,838 firm</div></td><td class="num">0.49</td><td><span class="tag tag-no">running</span></td></tr>
+      <tr><td>Natalidae</td><td>ntu</td><td><i>Natalus tumidirostris</i></td><td>&ndash;</td><td class="num muted" colspan="4">running</td><td></td></tr>
     </tbody>
   </table>
   </div>
-  <div class="species-grid" style="margin-top:14px;">
+  <p style="margin-top:10px;"><a class="btn secondary" href="chiroptera/LOG.md">Analysis log</a>
+  <a class="btn secondary" href="rhin.html">Rhin-1 peel alignments (<i>R. sinicus</i>)</a></p>
+</section>
+<section class="card">
+  <h2>Yinpterochiroptera</h2>
+  <h3 class="sf">Pteropodoidea</h3>
+
+  <div class="species-grid">
     <div class="sp-card">
-      <h3>rle <span class="tag tag-ok">published</span></h3>
+      <h3>rle <span class="tag tag-ok">full report</span></h3>
       <div class="sci">Rousettus leschenaultii &mdash; Pteropodidae</div>
-      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;"><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_053538355.2/" target="_blank">GCA_053538355.2</a> ASM5353835v2</div>
-      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;">Rhin-1 9 &middot; VES 14 copies assigned</div>
-      <div class="actions"><a class="btn" href="rle/report.html"><i>Rousettus leschenaultii</i> &mdash; report</a> <a class="btn secondary" href="javascript:void(0)" onclick="openMSA('rle/alignments/rle_subfam_input_30k.aln.fa','rle (Rousettus leschenaultii) SubFam input, 1 chunk consensi + Rhin-1 + VES')">SubFam input (1 chunks)</a></div>
+      <div class="meta"><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_053538355.2/" target="_blank">GCA_053538355.2</a> ASM5353835v2 &middot; prior evidence: MEG-R, MEG-T seq</div>
+      <div class="meta">Rhin-1 9 (9 firm) &middot; VES 14 (14 firm)</div>
+      
+      <div class="actions"><a class="btn" href="rle/report.html"><i>Rousettus leschenaultii</i> &mdash; full report</a> <a class="btn secondary" href="javascript:void(0)" onclick="openMSA('rle/alignments/rle_subfam_input_30k.aln.fa','rle (Rousettus leschenaultii) SubFam input, 1 chunk consensi + Rhin-1 + VES')">SubFam input (1 chunk)</a></div>
     </div>
+  </div>
+  <h3 class="sf">Rhinolophoidea</h3>
+
+  <div class="species-grid">
     <div class="sp-card">
       <h3>tpe <span class="tag tag-no">running</span></h3>
       <div class="sci">Triaenops persicus &mdash; Rhinonycteridae</div>
-      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;"><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_985607305.1/" target="_blank">GCA_985607305.1</a> mTriPer1.1.hap1</div>
+      <div class="meta"><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_985607305.1/" target="_blank">GCA_985607305.1</a> mTriPer1.1.hap1</div>
+      
       
       <div class="actions"></div>
     </div>
     <div class="sp-card">
-      <h3>hla <span class="tag tag-ok">published</span></h3>
-      <div class="sci">Hipposideros larvatus &mdash; Hipposideridae</div>
-      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;"><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_031876335.1/" target="_blank">GCA_031876335.1</a> mHipLar1.pri</div>
-      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;">Rhin-1 70,868 &middot; VES 42 copies assigned</div>
-      <div class="actions"><a class="btn" href="hla/report.html"><i>Hipposideros larvatus</i> &mdash; report</a> <a class="btn secondary" href="javascript:void(0)" onclick="openMSA('hla/alignments/hla_subfam_input_30k.aln.fa','hla (Hipposideros larvatus) SubFam input, 600 chunk consensi + Rhin-1 + VES')">SubFam input (600 chunks)</a></div>
+      <h3>rsi <span class="tag tag-ok">full report</span></h3>
+      <div class="sci">Rhinolophus sinicus &mdash; Rhinolophidae</div>
+      <div class="meta"><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_057876585.1/" target="_blank">GCF_057876585.1</a> RSI-T2T &middot; prior evidence: Rhin seq</div>
+      <div class="meta">Rhin-1 30,079 (23,545 firm)</div>
+      <div class=meta>Rhin-1-only search; peel bank r1&ndash;r10: 10 subfamilies &middot; 67,162 assigned copies</div>
+      <div class="actions"><a class="btn" href="rsi/report.html"><i>Rhinolophus sinicus</i> &mdash; full report</a> <a class="btn secondary" href="javascript:void(0)" onclick="openMSA('rsi/alignments/rsi_consensuses.aln.fa','rsi all consensi (r1-r10 + Rhin-1)')">All Consensi in MSA</a> <a class="btn secondary" href="javascript:void(0)" onclick="openMSA('rhin/alignments/rsi_subfam_input_30k.aln.fa','rsi Rhin-1 SubFam input, 600 chunk consensi + anchor')">SubFam input (600 chunks)</a> <a class="btn secondary" href="rhin.html">Peel alignments</a></div>
     </div>
     <div class="sp-card">
-      <h3>mgi <span class="tag tag-ok">published</span></h3>
+      <h3>rre <span class="tag tag-partial">pending manual review</span></h3>
+      <div class="sci">Rhinolophus rex &mdash; Rhinolophidae</div>
+      <div class="meta"><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_041825415.1/" target="_blank">GCA_041825415.1</a>  &middot; prior evidence: Rhin seq</div>
+      <div class="meta">Rhin-1 32,410 (23,073 firm)</div>
+      <div class=meta>Rhin-1-only search</div>
+      <div class="actions"><a class="btn secondary" href="javascript:void(0)" onclick="openMSA('rhin/alignments/rre_subfam_input_30k.aln.fa','rre Rhin-1 SubFam input, 600 chunk consensi + anchor')">SubFam input (600 chunks)</a></div>
+    </div>
+    <div class="sp-card">
+      <h3>rda <span class="tag tag-partial">pending manual review</span></h3>
+      <div class="sci">Rhinolophus darlingi &mdash; Rhinolophidae</div>
+      <div class="meta"><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_057427945.1/" target="_blank">GCA_057427945.1</a> mRhiDar1.hap1 &middot; prior evidence: Rhin seq</div>
+      <div class="meta">Rhin-1 30,169 (23,850 firm)</div>
+      <div class=meta>Rhin-1-only search</div>
+      <div class="actions"><a class="btn secondary" href="javascript:void(0)" onclick="openMSA('rhin/alignments/rda_subfam_input_30k.aln.fa','rda (hap1) Rhin-1 SubFam input, 600 chunk consensi + anchor')">SubFam input (600 chunks)</a></div>
+    </div>
+    <div class="sp-card">
+      <h3>hla <span class="tag tag-ok">full report</span></h3>
+      <div class="sci">Hipposideros larvatus &mdash; Hipposideridae</div>
+      <div class="meta"><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_031876335.1/" target="_blank">GCA_031876335.1</a> mHipLar1.pri &middot; prior evidence: Rhin hybrid</div>
+      <div class="meta">Rhin-1 70,868 (20,518 firm) &middot; VES 42 (22 firm)</div>
+      
+      <div class="actions"><a class="btn" href="hla/report.html"><i>Hipposideros larvatus</i> &mdash; full report</a> <a class="btn secondary" href="javascript:void(0)" onclick="openMSA('hla/alignments/hla_subfam_input_30k.aln.fa','hla (Hipposideros larvatus) SubFam input, 600 chunk consensi + Rhin-1 + VES')">SubFam input (600 chunks)</a></div>
+    </div>
+    <div class="sp-card">
+      <h3>mgi <span class="tag tag-ok">full report</span></h3>
       <div class="sci">Macroderma gigas &mdash; Megadermatidae</div>
-      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;"><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_055471755.1/" target="_blank">GCA_055471755.1</a> mMacGig1.2_20250303</div>
-      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;">Rhin-1 303 &middot; VES 12 copies assigned</div>
-      <div class="actions"><a class="btn" href="mgi/report.html"><i>Macroderma gigas</i> &mdash; report</a> <a class="btn secondary" href="javascript:void(0)" onclick="openMSA('mgi/alignments/mgi_subfam_input_30k.aln.fa','mgi (Macroderma gigas) SubFam input, 7 chunk consensi + Rhin-1 + VES')">SubFam input (7 chunks)</a></div>
+      <div class="meta"><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_055471755.1/" target="_blank">GCA_055471755.1</a> mMacGig1.2_20250303</div>
+      <div class="meta">Rhin-1 303 (303 firm) &middot; VES 12 (12 firm)</div>
+      
+      <div class="actions"><a class="btn" href="mgi/report.html"><i>Macroderma gigas</i> &mdash; full report</a> <a class="btn secondary" href="javascript:void(0)" onclick="openMSA('mgi/alignments/mgi_subfam_input_30k.aln.fa','mgi (Macroderma gigas) SubFam input, 7 chunk consensi + Rhin-1 + VES')">SubFam input (7 chunks)</a></div>
+    </div>
+    <div class="sp-card">
+      <h3>lly <span class="tag tag-partial">Rhin-1 + VES</span></h3>
+      <div class="sci">Lyroderma lyra &mdash; Megadermatidae</div>
+      <div class="meta"><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_004026885.1/" target="_blank">GCA_004026885.1</a> MegLyr_v1_BIUU</div>
+      <div class="meta">Rhin-1 290 (290 firm) &middot; VES 11 (11 firm)</div>
+      <div class=meta>fragmented assembly (1.9 M scaffolds); <i>Macroderma</i> (mgi) is the better Megadermatidae genome</div>
+      <div class="actions"><a class="btn" href="chiroptera/lly/report.html"><i>Lyroderma lyra</i> &mdash; report</a> <a class="btn secondary" href="javascript:void(0)" onclick="openMSA('chiroptera/lly/lly_subfam_input.aln.fa','lly SubFam input, 6 chunk consensi + Rhin-1 + VES')">SubFam input (6 chunks)</a></div>
     </div>
     <div class="sp-card">
       <h3>cth <span class="tag tag-no">running</span></h3>
       <div class="sci">Craseonycteris thonglongyai &mdash; Craseonycteridae</div>
-      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;"><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_985607335.1/" target="_blank">GCA_985607335.1</a> mCraTho2.1.hap1</div>
+      <div class="meta"><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_985607335.1/" target="_blank">GCA_985607335.1</a> mCraTho2.1.hap1</div>
+      
       
       <div class="actions"></div>
     </div>
     <div class="sp-card">
       <h3>rmi <span class="tag tag-no">running</span></h3>
       <div class="sci">Rhinopoma microphyllum &mdash; Rhinopomatidae</div>
-      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;"><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_043880545.1/" target="_blank">GCA_043880545.1</a> ASM4388054v1</div>
+      <div class="meta"><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_043880545.1/" target="_blank">GCA_043880545.1</a> ASM4388054v1</div>
+      
       
       <div class="actions"></div>
     </div>
+  </div>
+</section>
+<section class="card">
+  <h2>Yangochiroptera</h2>
+  <h3 class="sf">Emballonuroidea</h3>
+
+  <div class="species-grid">
     <div class="sp-card">
       <h3>mau <span class="tag tag-no">running</span></h3>
       <div class="sci">Myzopoda aurita &mdash; Myzopodidae</div>
-      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;"><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_985615965.1/" target="_blank">GCA_985615965.1</a> mMyzAur1.1.pri</div>
+      <div class="meta"><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_985615965.1/" target="_blank">GCA_985615965.1</a> mMyzAur1.1.pri</div>
+      
       
       <div class="actions"></div>
     </div>
     <div class="sp-card">
       <h3>nth <span class="tag tag-no">running</span></h3>
       <div class="sci">Nycteris thebaica &mdash; Nycteridae</div>
-      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;"><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_985607365.1/" target="_blank">GCA_985607365.1</a> mNycThe1.1.hap1</div>
+      <div class="meta"><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_985607365.1/" target="_blank">GCA_985607365.1</a> mNycThe1.1.hap1</div>
+      
       
       <div class="actions"></div>
     </div>
     <div class="sp-card">
       <h3>rna <span class="tag tag-no">running</span></h3>
       <div class="sci">Rhynchonycteris naso &mdash; Emballonuridae</div>
-      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;"><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_037038555.1/" target="_blank">GCA_037038555.1</a> mRhyNas2.hap2</div>
+      <div class="meta"><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_037038555.1/" target="_blank">GCA_037038555.1</a> mRhyNas2.hap2 &middot; prior evidence: Ves PCR*</div>
+      
       
       <div class="actions"></div>
     </div>
+  </div>
+  <h3 class="sf">Noctilionoidea</h3>
+
+  <div class="species-grid">
     <div class="sp-card">
       <h3>tni <span class="tag tag-no">running</span></h3>
       <div class="sci">Trinycteris nicefori &mdash; Phyllostomidae</div>
-      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;"><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_985607355.1/" target="_blank">GCA_985607355.1</a> mTriNic1.1.hap1</div>
+      <div class="meta"><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_985607355.1/" target="_blank">GCA_985607355.1</a> mTriNic1.1.hap1 &middot; prior evidence: Ves PCR*</div>
+      
       
       <div class="actions"></div>
     </div>
     <div class="sp-card">
       <h3>mme <span class="tag tag-no">running</span></h3>
       <div class="sci">Mormoops megalophylla &mdash; Mormoopidae</div>
-      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;"><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_985614085.1/" target="_blank">GCA_985614085.1</a> mMorMeg1.1.pri</div>
+      <div class="meta"><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_985614085.1/" target="_blank">GCA_985614085.1</a> mMorMeg1.1.pri</div>
+      
       
       <div class="actions"></div>
     </div>
     <div class="sp-card">
       <h3>nle <span class="tag tag-no">running</span></h3>
       <div class="sci">Noctilio leporinus &mdash; Noctilionidae</div>
-      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;"><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_985617315.1/" target="_blank">GCA_985617315.1</a> mNocLep2.1.pri</div>
+      <div class="meta"><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_985617315.1/" target="_blank">GCA_985617315.1</a> mNocLep2.1.pri</div>
+      
       
       <div class="actions"></div>
     </div>
     <div class="sp-card">
       <h3>fho <span class="tag tag-no">running</span></h3>
       <div class="sci">Furipterus horrens &mdash; Furipteridae</div>
-      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;"><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_987537825.1/" target="_blank">GCA_987537825.1</a> mFurHor1.1.pri</div>
+      <div class="meta"><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_987537825.1/" target="_blank">GCA_987537825.1</a> mFurHor1.1.pri</div>
+      
       
       <div class="actions"></div>
     </div>
     <div class="sp-card">
       <h3>ttr <span class="tag tag-no">running</span></h3>
       <div class="sci">Thyroptera tricolor &mdash; Thyropteridae</div>
-      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;"><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_985616965.1/" target="_blank">GCA_985616965.1</a> mThyTri1.1.pri</div>
+      <div class="meta"><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_985616965.1/" target="_blank">GCA_985616965.1</a> mThyTri1.1.pri</div>
+      
       
       <div class="actions"></div>
     </div>
     <div class="sp-card">
       <h3>mtu <span class="tag tag-no">running</span></h3>
       <div class="sci">Mystacina tuberculata &mdash; Mystacinidae</div>
-      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;"><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_985612315.1/" target="_blank">GCA_985612315.1</a> mMysTub1.2.pri</div>
+      <div class="meta"><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_985612315.1/" target="_blank">GCA_985612315.1</a> mMysTub1.2.pri</div>
+      
       
       <div class="actions"></div>
     </div>
+  </div>
+  <h3 class="sf">Vespertilionoidea</h3>
+<p class="meta"><i>Vespertilionidae</i> is not searched here: VES was described from it, so it was left out.</p>
+  <div class="species-grid">
     <div class="sp-card">
       <h3>cse <span class="tag tag-no">running</span></h3>
       <div class="sci">Cistugo seabrae &mdash; Cistugidae</div>
-      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;"><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_061228675.1/" target="_blank">GCA_061228675.1</a> mCisSea1.1.hap1</div>
+      <div class="meta"><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_061228675.1/" target="_blank">GCA_061228675.1</a> mCisSea1.1.hap1</div>
+      
       
       <div class="actions"></div>
     </div>
     <div class="sp-card">
       <h3>msc <span class="tag tag-no">running</span></h3>
       <div class="sci">Miniopterus schreibersii &mdash; Miniopteridae</div>
-      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;"><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_964146895.2/" target="_blank">GCA_964146895.2</a> mMinSch1.hap1.2</div>
+      <div class="meta"><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_964146895.2/" target="_blank">GCA_964146895.2</a> mMinSch1.hap1.2</div>
+      
       
       <div class="actions"></div>
     </div>
     <div class="sp-card">
-      <h3>tbr <span class="tag tag-ok">published</span></h3>
+      <h3>tbr <span class="tag tag-ok">full report</span></h3>
       <div class="sci">Tadarida brasiliensis &mdash; Molossidae</div>
-      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;"><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_030848825.1/" target="_blank">GCA_030848825.1</a> DD_mTadBra1_pri</div>
-      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;">Rhin-1 461 &middot; VES 640,291 copies assigned</div>
-      <div class="actions"><a class="btn" href="tbr/report.html"><i>Tadarida brasiliensis</i> &mdash; report</a> <a class="btn secondary" href="javascript:void(0)" onclick="openMSA('tbr/alignments/tbr_subfam_input_30k.aln.fa','tbr (Tadarida brasiliensis) SubFam input, 600 chunk consensi + Rhin-1 + VES')">SubFam input (600 chunks)</a></div>
+      <div class="meta"><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_030848825.1/" target="_blank">GCA_030848825.1</a> DD_mTadBra1_pri &middot; prior evidence: Ves hybrid, PCR</div>
+      <div class="meta">Rhin-1 461 (368 firm) &middot; VES 640,291 (620,838 firm)</div>
+      
+      <div class="actions"><a class="btn" href="tbr/report.html"><i>Tadarida brasiliensis</i> &mdash; full report</a> <a class="btn secondary" href="javascript:void(0)" onclick="openMSA('tbr/alignments/tbr_subfam_input_30k.aln.fa','tbr (Tadarida brasiliensis) SubFam input, 600 chunk consensi + Rhin-1 + VES')">SubFam input (600 chunks)</a></div>
     </div>
     <div class="sp-card">
       <h3>ntu <span class="tag tag-no">running</span></h3>
       <div class="sci">Natalus tumidirostris &mdash; Natalidae</div>
-      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;"><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_985614685.1/" target="_blank">GCA_985614685.1</a> mNatTum1.1.pri</div>
+      <div class="meta"><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_985614685.1/" target="_blank">GCA_985614685.1</a> mNatTum1.1.pri</div>
+      
       
       <div class="actions"></div>
     </div>
   </div>
 </section>
-<!-- LINEAGES END -->
 </main>
 <script>
 const RAW = 'https://raw.githubusercontent.com/Toki-bio/Tal/main/';

@@ -49,7 +49,7 @@ a { color:var(--accent); }
 </head><body>
 <header>
   <h1>Tal SINE — Talpidae Analysis</h1>
-  <div class="sub">tRNA-derived Short Interspersed Nuclear Elements across 6 Talpidae genomes &mdash; 2 moles, 2 Talpa, 2 desmans. This site also hosts the Chiroptera SINE project (bats: Rhinolophidae and Megadermatidae), Erinaceidae (hedgehog/gymnure) SINEs &mdash; one confirmed (eri), two new assemblies still preliminary (ava, svk) &mdash; and unconfirmed candidate SINE-like elements from Scorpiones.</div>
+  <div class="sub">tRNA-derived Short Interspersed Nuclear Elements across 6 Talpidae genomes &mdash; 2 moles, 2 Talpa, 2 desmans. This site also hosts the Chiroptera SINE project (bats, one genome per family), Erinaceidae (hedgehog/gymnure) SINEs &mdash; one confirmed (eri), two new assemblies still preliminary (ava, svk) &mdash; and unconfirmed candidate SINE-like elements from Scorpiones.</div>
 </header>
 <main>
 
@@ -60,6 +60,7 @@ a { color:var(--accent); }
      onclick="openMSA('alignments/all_species_consensuses.aln.fa','All species — all consensi')">All Species · All Consensi in MSA</a>
   <a class="btn" href="figures/conservation_figure.html" style="background:#8B4513;">Conservation / Divergence Figure</a>
   <a class="btn" href="sicista.html" style="background:#2d2d8f;">Sicista SINEs (separate project) &rarr;</a>
+  <a class="btn" href="chiroptera.html" style="background:#2d2d8f;">Chiroptera SINEs (separate project) &rarr;</a>
 </section>
 
 <section class="card">
@@ -156,64 +157,11 @@ a { color:var(--accent); }
 <section class="card" style="border-left:4px solid #2d2d8f;">
   <h2>Chiroptera SINE</h2>
   <p style="color:var(--muted);font-size:.9rem;margin-top:4px;">
-    Bats, a separate project from the Talpidae genomes above. Rhinolophidae
-    (<i>Rhinolophus sinicus</i>, <i>R. rex</i>, <i>R. darlingi</i>) and Megadermatidae
-    (<i>Lyroderma lyra</i>) are both here.
-    <a href="chiroptera.html">Chiroptera project page</a>.
+    Bats, a separate project from the Talpidae genomes above: Rhin-1 and VES searched in one genome per
+    bat family (plus three <i>Rhinolophus</i> genomes), grouped by clade &mdash; Yinpterochiroptera
+    (Pteropodoidea, Rhinolophoidea) and Yangochiroptera (Emballonuroidea, Noctilionoidea, Vespertilionoidea).
   </p>
-  <div class="species-grid" style="margin-top:12px;">
-    <div class="sp-card">
-      <h3>rsi <span class="tag tag-ok">full report</span></h3>
-      <div class="sci">Rhinolophus sinicus &mdash; Chinese rufous horseshoe bat (Rhinolophidae)</div>
-      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;">
-        10 peel subfamilies &middot; 67,162 assigned copies
-        &middot; <a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_057876585.1/" target="_blank">GCF_057876585.1</a>
-      </div>
-      <div class="actions">
-        <a class="btn" href="rsi/report.html"><i>Rhinolophus sinicus</i> &mdash; full report</a>
-        <a class="btn secondary" href="javascript:void(0)"
-           onclick="openMSA('rsi/alignments/rsi_consensuses.aln.fa','rsi all consensi (r1-r10 + Rhin-1)')">All Consensi in MSA</a>
-        <a class="btn secondary" href="rhin.html">Peel alignments</a>
-      </div>
-    </div>
-    <div class="sp-card">
-      <h3>rre <span class="tag tag-partial">pending manual review</span></h3>
-      <div class="sci">Rhinolophus rex &mdash; king horseshoe bat (Rhinolophidae)</div>
-      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;">
-        32,414 Rhin-1 hits &middot; 23,073 firm + 9,337 soft
-        &middot; <a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_041825415.1/" target="_blank">GCA_041825415.1</a>
-      </div>
-      <div class="actions">
-        <a class="btn secondary" href="javascript:void(0)"
-           onclick="openMSA('rhin/alignments/rre_subfam_input_30k.aln.fa','rre (R. rex) Rhin-1 subfam input, 600 chunk consensi + anchor')">Subfam input (600 chunks)</a>
-      </div>
-    </div>
-    <div class="sp-card">
-      <h3>rda <span class="tag tag-partial">pending manual review</span></h3>
-      <div class="sci">Rhinolophus darlingi &mdash; Darling's horseshoe bat (Rhinolophidae)</div>
-      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;">
-        30,170 Rhin-1 hits &middot; 23,850 firm + 6,319 soft
-        &middot; <a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_057427945.1/" target="_blank">GCA_057427945.1</a>
-      </div>
-      <div class="actions">
-        <a class="btn secondary" href="javascript:void(0)"
-           onclick="openMSA('rhin/alignments/rda_subfam_input_30k.aln.fa','rda (R. darlingi hap1) Rhin-1 subfam input, 600 chunk consensi + anchor')">Subfam input (600 chunks)</a>
-      </div>
-    </div>
-    <div class="sp-card">
-      <h3>lly <span class="tag tag-partial">Rhin-1 + VES</span></h3>
-      <div class="sci">Lyroderma lyra &mdash; greater false vampire (Megadermatidae)</div>
-      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;">
-        Rhin-1 290 firm &middot; VES 11 firm
-        &middot; <a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_004026885.1/" target="_blank">GCA_004026885.1</a>
-      </div>
-      <div class="actions">
-        <a class="btn" href="chiroptera/lly/report.html"><i>Lyroderma lyra</i> &mdash; report</a>
-        <a class="btn secondary" href="javascript:void(0)"
-           onclick="openMSA('chiroptera/lly/lly_subfam_input.aln.fa','lly SubFam input, 6 chunk consensi + Rhin-1 + VES')">SubFam input (6 chunks)</a>
-      </div>
-    </div>
-  </div>
+  <a class="btn" href="chiroptera.html" style="background:#2d2d8f;">Chiroptera SINEs &rarr;</a>
 </section>
 
 <section class="card" style="border-left:4px solid #2d2d8f;">
@@ -360,43 +308,11 @@ a { color:var(--accent); }
         <td><span class="tag tag-no">&mdash;</span></td>
         <td><span class="tag tag-partial"><a href="javascript:void(0)" onclick="openMSA('svk/alignments/svk_subfam_input_30k.aln.fa','svk 30k-locus sample')">30k sample (600 chunks)</a></span></td>
       </tr>
-      <tr style="border-top:3px solid #2d2d8f;">
-        <td><strong>rsi</strong> <em>Rhinolophus sinicus</em> <span class="tag tag-other-family" style="margin-left:4px;">Chiroptera</span></td>
-        <td><span class="tag tag-ok">✓</span></td>
-        <td><span class="tag tag-ok">✓ 10 &middot; 67,162</span></td>
-        <td><span class="tag tag-ok">✓</span></td>
-        <td><span class="tag tag-ok"><a href="rsi/report.html">HTML</a></span></td>
-        <td><span class="tag tag-ok">top100 · rand100 · subfam</span></td>
-      </tr>
-      <tr>
-        <td><strong>rre</strong> <em>Rhinolophus rex</em> <span class="tag tag-other-family" style="margin-left:4px;">Chiroptera</span></td>
-        <td><span class="tag tag-ok">✓</span></td>
-        <td><span class="tag tag-partial">pending manual review &middot; 32,414 hits</span></td>
-        <td><span class="tag tag-no">&mdash;</span></td>
-        <td><span class="tag tag-no">&mdash;</span></td>
-        <td><span class="tag tag-partial"><a href="javascript:void(0)" onclick="openMSA('rhin/alignments/rre_subfam_input_30k.aln.fa','rre 30k sample')">30k sample (600 chunks)</a></span></td>
-      </tr>
-      <tr>
-        <td><strong>rda</strong> <em>Rhinolophus darlingi</em> <span class="tag tag-other-family" style="margin-left:4px;">Chiroptera</span></td>
-        <td><span class="tag tag-ok">✓</span></td>
-        <td><span class="tag tag-partial">pending manual review &middot; 30,170 hits</span></td>
-        <td><span class="tag tag-no">&mdash;</span></td>
-        <td><span class="tag tag-no">&mdash;</span></td>
-        <td><span class="tag tag-partial"><a href="javascript:void(0)" onclick="openMSA('rhin/alignments/rda_subfam_input_30k.aln.fa','rda 30k sample')">30k sample (600 chunks)</a></span></td>
-      </tr>
-      <tr>
-        <td><strong>lly</strong> <em>Lyroderma lyra</em> <span class="tag tag-other-family" style="margin-left:4px;">Chiroptera</span></td>
-        <td><span class="tag tag-ok">✓</span></td>
-        <td><span class="tag tag-partial">Rhin-1 290 &middot; VES 11</span></td>
-        <td><span class="tag tag-ok">✓</span></td>
-        <td><span class="tag tag-ok"><a href="chiroptera/lly/report.html">HTML</a></span></td>
-        <td><span class="tag tag-partial"><a href="javascript:void(0)" onclick="openMSA('chiroptera/lly/lly_subfam_input.aln.fa','lly SubFam input')">SubFam (6 chunks)</a></span></td>
-      </tr>
     </tbody>
   </table>
   <p style="color:var(--muted);font-size:.82rem;margin-top:8px;">
-    The eri row is Erinaceidae, a different family from the 6 Talpidae rows. The rsi&ndash;lly
-    rows are the Chiroptera SINE project. Scorpiones (sco) is not listed in this table at all;
+    The eri row is Erinaceidae, a different family from the 6 Talpidae rows. Bat genomes are on the
+    <a href="chiroptera.html">Chiroptera page</a>. Scorpiones (sco) is not listed in this table at all;
     it is an unrelated, unconfirmed-candidate project, see its own section further down.
   </p>
 </section>
