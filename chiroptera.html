@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Chiroptera SINEs</title>
+<style>
+:root { --fg:#222; --bg:#f5f6f8; --card:#fff; --accent:#4C72B0;
+        --muted:#666; --border:#e2e2e2; }
+* { box-sizing: border-box; }
+body { font-family: -apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+       background:var(--bg); color:var(--fg); margin:0; padding:0; }
+header { background: linear-gradient(135deg, #2c3e50, #4C72B0);
+         color:#fff; padding:28px 36px; }
+header h1 { margin:0 0 6px 0; font-size:1.7rem; }
+header .sub { opacity:.85; font-size:.95rem; }
+main { max-width:1100px; margin:0 auto; padding:28px 24px; }
+section.card { background:var(--card); border:1px solid var(--border);
+               border-radius:8px; padding:20px 24px; margin:18px 0;
+               box-shadow:0 1px 3px rgba(0,0,0,0.05); }
+section.card h2 { margin-top:0; font-size:1.1rem; color:#2c3e50;
+                  border-bottom:1px solid var(--border); padding-bottom:8px; }
+.tbl { border-collapse:collapse; width:100%; font-size:.88rem; margin:8px 0; }
+.tbl th,.tbl td { border:1px solid var(--border); padding:6px 10px; text-align:left; }
+.tbl th { background:#f0f3f7; }
+.tbl tbody tr:nth-child(even) { background:#fafbfd; }
+.tbl td.num { font-variant-numeric:tabular-nums; text-align:right; }
+.tag { display:inline-block; border-radius:3px; padding:1px 6px;
+       font-size:.78rem; font-weight:600; }
+.tag-ok  { background:#d4edda; color:#155724; }
+.tag-partial { background:#fff3cd; color:#856404; }
+.tag-candidate { background:#f8d7da; color:#721c24; }
+.tag-other-family { background:#e2e3ff; color:#2d2d8f; }
+.tag-no  { background:#f0f0f0; color:#777; }
+a.btn { display:inline-block; background:var(--accent); color:#fff;
+        padding:4px 12px; border-radius:4px; font-size:.84rem;
+        text-decoration:none; margin:2px 2px 2px 0; }
+a.btn:hover { background:#2c3e50; }
+a.btn.secondary { background:#6c757d; }
+a.btn.green  { background:#28a745; }
+a { color:var(--accent); }
+.species-grid { display:grid; gap:16px;
+                grid-template-columns: repeat(auto-fit, minmax(320px,1fr)); }
+.sp-card { border:1px solid var(--border); border-radius:7px;
+           padding:14px 16px; background:#fff; }
+.sp-card h3 { margin:0 0 4px; font-size:1rem; color:#2c3e50; }
+.sp-card .sci { font-style:italic; color:var(--muted); font-size:.88rem; }
+.sp-card .actions { margin-top:10px; }
+</style>
+</head><body>
+<header>
+  <h1>Chiroptera &mdash; bat SINEs</h1>
+  <div class="sub">One page for bat genomes, filled as each species is searched. Separate from the Talpidae analysis. <a href="index.html" style="color:#fff;">&larr; Tal SINE main page</a></div>
+</header>
+<main>
+<section class="card">
+  <h2>Bats</h2>
+  <p style="font-size:.9rem;">Each card is one genome. Rhinolophidae and Megadermatidae are both on this page. The Rhin-1 peel alignments for <i>R. sinicus</i> are in the <a href="rhin.html">Rhin-1 section</a>.</p>
+  <div class="species-grid">
+    <div class="sp-card">
+      <h3>rsi <span class="tag tag-ok">full report</span></h3>
+      <div class="sci">Rhinolophus sinicus &mdash; Rhinolophidae</div>
+      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;">
+        <a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_057876585.1/" target="_blank">GCF_057876585.1</a>
+        T2T
+      </div>
+      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;">30,081 Rhin-1 hits &middot; 23,545 firm + 6,534 soft &middot; sim_ratio median 0.48</div>
+      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;">Peel bank r1&ndash;r10: 10 subfamilies &middot; 67,162 assigned copies</div>
+      <div class="actions">
+        <a class="btn" href="rsi/report.html"><i>Rhinolophus sinicus</i> &mdash; full report</a>
+        <a class="btn secondary" href="javascript:void(0)" onclick="openMSA('rhin/alignments/rsi_subfam_input_30k.aln.fa','rsi (R. sinicus) Rhin-1 subfam input, 600 chunk consensi + anchor')">Subfam input (600 chunks)</a>
+        <a class="btn secondary" href="rhin.html">Peel alignments</a>
+      </div>
+    </div>
+    <div class="sp-card">
+      <h3>rre <span class="tag tag-partial">pending manual review</span></h3>
+      <div class="sci">Rhinolophus rex &mdash; Rhinolophidae</div>
+      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;">
+        <a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_041825415.1/" target="_blank">GCA_041825415.1</a>
+      </div>
+      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;">32,414 Rhin-1 hits &middot; 23,073 firm + 9,337 soft &middot; sim_ratio median 0.48</div>
+      <div class="actions">
+        <a class="btn" href="javascript:void(0)" onclick="openMSA('rhin/alignments/rre_subfam_input_30k.aln.fa','rre (R. rex) Rhin-1 subfam input, 600 chunk consensi + anchor')">Subfam input (600 chunks)</a>
+      </div>
+    </div>
+    <div class="sp-card">
+      <h3>rda <span class="tag tag-partial">pending manual review</span></h3>
+      <div class="sci">Rhinolophus darlingi &mdash; Rhinolophidae</div>
+      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;">
+        <a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_057427945.1/" target="_blank">GCA_057427945.1</a>
+        hap1
+      </div>
+      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;">30,170 Rhin-1 hits &middot; 23,850 firm + 6,319 soft &middot; sim_ratio median 0.48</div>
+      <div class="actions">
+        <a class="btn" href="javascript:void(0)" onclick="openMSA('rhin/alignments/rda_subfam_input_30k.aln.fa','rda (R. darlingi hap1) Rhin-1 subfam input, 600 chunk consensi + anchor')">Subfam input (600 chunks)</a>
+      </div>
+    </div>
+    <div class="sp-card">
+      <h3>lly <span class="tag tag-partial">Rhin-1 + VES</span></h3>
+      <div class="sci">Lyroderma lyra &mdash; Megadermatidae</div>
+      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;">
+        <a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_004026885.1/" target="_blank">GCA_004026885.1</a>
+        MegLyr_v1_BIUU
+      </div>
+      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;">301 merged loci &middot; Rhin-1 290 firm &middot; VES 11 firm &middot; no leak, no conflict</div>
+      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;">sim_ratio median 0.16 (Rhin-1) and 0.14 (VES). Bank was those two SINEbase consensuses only.</div>
+      <div class="actions">
+        <a class="btn" href="chiroptera/lly/report.html"><i>Lyroderma lyra</i> &mdash; report</a>
+        <a class="btn secondary" href="javascript:void(0)" onclick="openMSA('chiroptera/lly/lly_subfam_input.aln.fa','lly SubFam input, 6 chunk consensi + Rhin-1 + VES')">SubFam input (6 chunks)</a>
+      </div>
+    </div>
+  </div>
+  <p style="margin-top:14px;"><a class="btn secondary" href="chiroptera/LOG.md">Analysis log</a></p>
+</section>
+<section class="card">
+  <h2><i>L. lyra</i> &mdash; assigned copies</h2>
+  <p style="font-size:.9rem;">SINEderella full run <code>run_20260926_215400</code>, consensuses Rhin-1 and VES. Every hit that passed assignment is in this table. sim_ratio is the copy's bitscore divided by the consensus self-hit.</p>
+  <table class="tbl">
+    <thead><tr><th>Consensus</th><th>Firm</th><th>Soft</th><th>sim median</th></tr></thead>
+    <tbody>
+      <tr><td>Rhin-1</td><td class="num">290</td><td class="num">0</td><td class="num">0.16</td></tr>
+      <tr><td>VES</td><td class="num">11</td><td class="num">0</td><td class="num">0.14</td></tr>
+    </tbody>
+  </table>
+</section>
+</main>
+<script>
+const RAW = 'https://raw.githubusercontent.com/Toki-bio/Tal/main/';
+const MSA = 'https://toki-bio.github.io/MSA-viewer/';
+function openMSA(relPath, title) {
+  const url = RAW + relPath;
+  window.open(MSA + '?url=' + encodeURIComponent(url) + '&title=' + encodeURIComponent(title), '_blank');
+}
+</script>
+</body></html>
