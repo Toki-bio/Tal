@@ -93,3 +93,16 @@ Both exceed 1,000 copies -> de novo mode applies to both (`~/chiro/chiro_denovo.
 De novo only for hla and tbr for now; he reviews those two candidate alignments before the other 17 get one.
 Thread budget (cap 64): queue searches 3 x THREADS=10; each de novo chain AnnoSINE2 8 + scan 2 jobs x 4 = 16.
 `~/chiro/denovo_launch.sh` starts both chains when the hla/tbr searches finish, each with its own disk guard.
+
+### tbr published (2026-09-26)
+run `~/chiro/tbr/run_20260926_223621`, publish rerun with RAW_ALN_BASE (MSA-viewer links).
+| SINE | firm | soft | total | leak % | sim median |
+|---|---|---|---|---|---|
+| VES | 620,838 | 19,453 | 640,291 | 0.00 | 0.49 |
+| Rhin-1 | 368 | 93 | 461 | 50.00 | 0.18 |
+The discriminator calls both "SINE". Caution on Rhin-1: half its copies have VES within 10 % of the best score
+(leak), and sim to Rhin-1 is 0.18, so these may be VES copies matched through the shared tRNA-derived head.
+Not a verdict; to be judged on `tbr_Rhin-1_top100.aln.fa`.
+
+hla: Rhin-1 70,868 (20,518 firm; 50,370 soft = rejected_low_bitscore, median copy 156 bp vs 182 bp consensus;
+same 0.45 x 10th-best rule as rsi, 10th best 1,683 vs rsi 1,653). VES 42 copies, discriminator "No element".
