@@ -171,16 +171,16 @@ def tree_svg(rows):
         y0, y1 = ly[fams[0]] - STEP / 2, ly[fams[-1]] + STEP / 2
         defs.append(f'<linearGradient id="band_{sf}" x1="0" x2="1"><stop offset="0" stop-color="{col}" stop-opacity="0"/>'
                     f'<stop offset=".45" stop-color="{col}" stop-opacity=".35"/><stop offset="1" stop-color="{col}"/></linearGradient>')
-        out.append(f'<rect x="{X0}" y="{y0}" width="{1008 - X0}" height="{y1 - y0}" fill="url(#band_{sf})"/>')
+        out.append(f'<rect x="{X0}" y="{y0}" width="{1146 - X0}" height="{y1 - y0}" fill="url(#band_{sf})"/>')
         if y1 - y0 > 60:
             fs = min(15, round((y1 - y0 - 8) / (0.56 * len(sf)), 1))  # shrink to fit short bands
-            out.append(f'<text transform="translate(993,{(y0 + y1) / 2}) rotate(90)" text-anchor="middle" '
+            out.append(f'<text transform="translate(1132,{(y0 + y1) / 2}) rotate(90)" text-anchor="middle" '
                        f'dominant-baseline="central" font-size="{fs}" font-weight="700" fill="#222">{sf}</text>')
     for so, col in SUBORDER.items():
         fams = [g["family"] for g in rows if g["suborder"] == so]
         y0, y1 = ly[fams[0]] - STEP / 2, ly[fams[-1]] + STEP / 2
-        out.append(f'<rect x="1010" y="{y0 + 1}" width="42" height="{y1 - y0 - 2}" rx="12" fill="{col}"/>')
-        out.append(f'<text transform="translate(1031,{(y0 + y1) / 2}) rotate(90)" text-anchor="middle" '
+        out.append(f'<rect x="1148" y="{y0 + 1}" width="42" height="{y1 - y0 - 2}" rx="12" fill="{col}"/>')
+        out.append(f'<text transform="translate(1169,{(y0 + y1) / 2}) rotate(90)" text-anchor="middle" '
                    f'dominant-baseline="central" font-size="19" font-weight="700" fill="#fff">{so}</text>')
 
     # branches, crown triangles, node ages, red dots
@@ -208,7 +208,7 @@ def tree_svg(rows):
     out.append(f'<line x1="{x(65)}" y1="{ry}" x2="{rx}" y2="{ry}" stroke="#000" stroke-width="1.4"/>')
 
     # leaves: family name, one badge per SINE, genome codes linking to reports
-    BX = {"Rhin-1": 752, "VES": 822}
+    BX = {"Rhin-1": 972, "VES": 1036}
     for s, bx in BX.items():
         out.append(f'<text x="{bx + 30}" y="{TOP - 6}" text-anchor="middle" font-size="12" font-weight="700" '
                    f'fill="{SINE_COL[s]}">{"Rhin" if s == "Rhin-1" else "VES"}</text>')
@@ -238,14 +238,18 @@ def tree_svg(rows):
                        f'<rect x="{bx}" y="{y - 10}" width="60" height="20" rx="4" fill="{fill}" stroke="{stroke}"/>'
                        f'<text x="{bx + 30}" y="{y}" text-anchor="middle" dominant-baseline="central" '
                        f'font-size="12" font-weight="700" fill="{tc}">{label}</text></g>')
-        cx = 892
+        # species names, genus abbreviated after the first of the same genus; each links to its report
+        cx, prev_genus = 720, None
         for g, r in loaded:
             href = report_href(g, r[0])
-            t = (f'<text x="{cx}" y="{y}" dominant-baseline="central" font-size="12" '
-                 f'fill="{"#4C72B0" if href else "#888"}"{" text-decoration=" + chr(34) + "underline" + chr(34) if href else ""}>'
-                 f'{g["code"]}</text>')
+            genus, _, epi = g["species"].partition(" ")
+            name = f"{genus[0]}. {epi}" if genus == prev_genus else g["species"]
+            prev_genus = genus
+            t = (f'<text x="{cx}" y="{y}" dominant-baseline="central" font-size="13" font-style="italic" '
+                 f'fill="{"#4C72B0" if href else "#555"}"{" text-decoration=" + chr(34) + "underline" + chr(34) if href else ""}>'
+                 f'<title>{g["code"]}</title>{name}</text>')
             out.append(f'<a href="{href}">{t}</a>' if href else t)
-            cx += 30
+            cx += round(6.2 * len(name)) + 14
 
     # geological time bars and axis
     ya = H_TREE + 8
@@ -265,7 +269,7 @@ def tree_svg(rows):
                    f'<text x="{x(t)}" y="{yt + 17}" text-anchor="middle" font-size="11">{t}</text>')
     out.append(f'<text x="{tipx + 8}" y="{yt + 17}" font-size="11">(Ma)</text>')
     H = yt + 26
-    return (f'<svg viewBox="0 0 1060 {H}" width="100%" style="min-width:900px;display:block;" '
+    return (f'<svg viewBox="0 0 1198 {H}" width="100%" style="min-width:960px;display:block;" '
             f'xmlns="http://www.w3.org/2000/svg" role="img" '
             f'aria-label="Bat family tree (Hao et al. 2023) with Rhin-1 and VES copy numbers per family">'
             f'<defs>{"".join(defs)}</defs>{"".join(out)}</svg>')
@@ -379,7 +383,7 @@ def main():
   (MrBayes time tree; triangles = collapsed families from their crown age). Each leaf shows the copies found in that family's genome(s):
   <b style="color:#0070C0;">Rhin</b> = Rhin-1, <b style="color:#E00000;">VES</b> = VES; solid = 1,000 copies or more, pale = 1&ndash;999,
   NA = not searched, &hellip; = search running. Where a family has several genomes the largest count is shown (hover for all).
-  Codes link to the reports.</p>
+  Species names link to their reports.</p>
   <div style="overflow-x:auto;">
 {tree_svg(rows)}
   </div>
