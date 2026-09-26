@@ -127,3 +127,9 @@ GCA_056320405.1 mMyoEvo1.0, chromosome, NCBI reference, contig N50 101 Mb - the 
 and *Vespertilio murinus* (Vespertilioninae, vmu, GCA_963924515.2 mVesMur1.hap1.2, chromosome, reference,
 contig N50 49 Mb; the family's type genus). `~/chiro/vesp_queue.sh`: same bank and settings, starts when the
 main queue ends (thread budget), 2 in parallel.
+
+### 2026-09-27 fixes applied to all bat genomes
+All 25 genomes are published. The 13 published before the fix were republished with the orientation and
+shared-flank corrections (SINEderella ae764db, SINE-discriminator cedfe1b); later ones were published with them.
+The only edge change in the republish: cth Rhin-1 rand100 +56 bp at 3'. Assembly-QC tables in the run dirs
+were recomputed after a QC bug (SINEderella dd552e5); all 19 chromosome-level assemblies are SOLID.
