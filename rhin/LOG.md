@@ -48,3 +48,13 @@ Consensus rows land at: r1 6, r2 14, r5 30, r6 59, r3 272, r4 318, r7 393, r8 50
 
 `rsi/alignments/rsi_consensuses.aln.fa` (+ `.fa`): his 10 peel consensuses in bank order + SINEbase Rhin-1 as last row
 (the talpid `ccr_consensuses.aln.fa` pattern, anchor last), `mafft --auto`, 11 rows x 294 columns. Built on therioserver `~/rhin/rsi_cons/`.
+
+## 2026-09-26 — rsi peel-bank re-run published (talpid layout)
+
+SINEderella `--publish` on rsi with his 10 peel consensuses (r1_9seqs ... r10_19seqs), SKIP_CANONICALIZE=1,
+therioserver `~/rhin/rsi_peel10/run_20260926_161010`. 69,923 copies into step2, 67,162 labelled.
+Published: `rsi/report.html` (step6 + SINE-discriminator verdict columns), `rsi/summary.by_subfam.tsv`,
+`rsi/assignment_stats.tsv`, `rsi/alignments/rsi_<sf>_{top100,rand100,subfam}.aln.fa` (no subfam MSA for r2, r4 —
+the run wrote none for them).
+The publish stage needed two SINEderella fixes on therioserver (0223fe0 PATH/numpy, 1c8a63e `(+,-)` headers);
+before them the border scan never ran and "none flagged" was not a result. With them: 0 flagged.
