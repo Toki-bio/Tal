@@ -36,3 +36,12 @@ rsi step2 was killed once by an unrelated watcher and completed with `SINEderell
 `alignments/<code>_subfam_input_30k.aln.fa` — SubFam of the step1 sample: 600 chunk consensi
 (50 copies each) aligned together with the Rhin-1 anchor row (601 rows), from
 `genome.clean_step1/subfam_input/input.clw.al`. No subfamilies defined yet.
+
+## 2026-09-26 — rsi 600 chunks + his 10 peel consensuses
+
+`alignments/rsi_subfam_input_30k_peel10.aln.fa`: the 600 SubFam chunk representatives of the rsi Rhin-1 run
+(`input.clw`, run_20260926_142634) + his 10 peel consensuses (r1_9seqs ... r10_19seqs, named call# + his name),
+aligned with SubFam's own final command (`mafft --localpair --maxiterate 1000 --ep 0.123 --nuc --reorder`).
+610 rows x 512 columns. No Rhin-1 row (input.clw holds only the 600 chunks).
+Order vs the original page: 527/599 adjacent chunk pairs kept (88.0 %).
+Consensus rows land at: r1 6, r2 14, r5 30, r6 59, r3 272, r4 318, r7 393, r8 505, r9 565, r10 585.
