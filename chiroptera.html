@@ -53,7 +53,7 @@ a { color:var(--accent); }
   <i>Rhinolophus</i> runs used Rhin-1 alone. <b>Copies</b> = firm + soft assigned (firm count below);
   <b>sim</b> = median copy bitscore / consensus self-bitscore. <b>Prior evidence</b> is the SINE label on the
   annotated copy of that figure. <b>De novo</b> = AnnoSINE2 + SINEbase-fragment scan candidates, clustered by SubFam
-  for manual review (run for hla and tbr first). 8 of 23 genomes published.</p>
+  for manual review (run for hla and tbr first). 9 of 23 genomes published.</p>
   <div style="overflow-x:auto;">
   <table class="tbl">
     <thead><tr><th>Family</th><th>Code</th><th>Species</th><th>Prior evidence</th>
@@ -63,7 +63,7 @@ a { color:var(--accent); }
       <tr class="sf"><td colspan="9">Pteropodoidea</td></tr>
       <tr><td>Pteropodidae</td><td><a href="rle/report.html">rle</a></td><td><i>Rousettus leschenaultii</i></td><td>MEG-R, MEG-T seq</td><td class="num">9<div class="sub">9 firm</div></td><td class="num">0.14</td><td class="num">14<div class="sub">14 firm</div></td><td class="num">0.12</td><td></td></tr>
       <tr class="sf"><td colspan="9">Rhinolophoidea</td></tr>
-      <tr><td>Rhinonycteridae</td><td>tpe</td><td><i>Triaenops persicus</i></td><td>&ndash;</td><td class="num muted" colspan="4">running</td><td></td></tr>
+      <tr><td>Rhinonycteridae</td><td><a href="tpe/report.html">tpe</a></td><td><i>Triaenops persicus</i></td><td>&ndash;</td><td class="num">56,209<div class="sub">31,409 firm</div></td><td class="num">0.65</td><td class="num">90<div class="sub">36 firm</div></td><td class="num">0.13</td><td></td></tr>
       <tr><td>Rhinolophidae</td><td><a href="rsi/report.html">rsi</a></td><td><i>Rhinolophus sinicus</i></td><td>Rhin seq</td><td class="num">30,079<div class="sub">23,545 firm</div></td><td class="num">0.48</td><td class="num muted" colspan="2">not searched</td><td></td></tr>
       <tr><td>Rhinolophidae</td><td>rre</td><td><i>Rhinolophus rex</i></td><td>Rhin seq</td><td class="num">32,410<div class="sub">23,073 firm</div></td><td class="num">0.48</td><td class="num muted" colspan="2">not searched</td><td></td></tr>
       <tr><td>Rhinolophidae</td><td>rda</td><td><i>Rhinolophus darlingi</i></td><td>Rhin seq</td><td class="num">30,169<div class="sub">23,850 firm</div></td><td class="num">0.48</td><td class="num muted" colspan="2">not searched</td><td></td></tr>
@@ -114,12 +114,12 @@ a { color:var(--accent); }
 
   <div class="species-grid">
     <div class="sp-card">
-      <h3>tpe <span class="tag tag-no">running</span></h3>
+      <h3>tpe <span class="tag tag-ok">full report</span></h3>
       <div class="sci">Triaenops persicus &mdash; Rhinonycteridae</div>
       <div class="meta"><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_985607305.1/" target="_blank">GCA_985607305.1</a> mTriPer1.1.hap1</div>
+      <div class="meta">Rhin-1 56,209 (31,409 firm) &middot; VES 90 (36 firm)</div>
       
-      
-      <div class="actions"></div>
+      <div class="actions"><a class="btn" href="tpe/report.html"><i>Triaenops persicus</i> &mdash; full report</a> <a class="btn secondary" href="javascript:void(0)" onclick="openMSA('tpe/alignments/tpe_subfam_input_30k.aln.fa','tpe (Triaenops persicus) SubFam input, 600 chunk consensi + Rhin-1 + VES')">SubFam input (600 chunks)</a></div>
     </div>
     <div class="sp-card">
       <h3>rsi <span class="tag tag-ok">full report</span></h3>
