@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sicista SINEs</title>
+<style>
+:root { --fg:#222; --bg:#f5f6f8; --card:#fff; --accent:#4C72B0;
+        --muted:#666; --border:#e2e2e2; }
+* { box-sizing: border-box; }
+body { font-family: -apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+       background:var(--bg); color:var(--fg); margin:0; padding:0; }
+header { background: linear-gradient(135deg, #2c3e50, #4C72B0);
+         color:#fff; padding:28px 36px; }
+header h1 { margin:0 0 6px 0; font-size:1.7rem; }
+header .sub { opacity:.85; font-size:.95rem; }
+main { max-width:1100px; margin:0 auto; padding:28px 24px; }
+section.card { background:var(--card); border:1px solid var(--border);
+               border-radius:8px; padding:20px 24px; margin:18px 0;
+               box-shadow:0 1px 3px rgba(0,0,0,0.05); }
+section.card h2 { margin-top:0; font-size:1.1rem; color:#2c3e50;
+                  border-bottom:1px solid var(--border); padding-bottom:8px; }
+.tbl { border-collapse:collapse; width:100%; font-size:.88rem; margin:8px 0; }
+.tbl th,.tbl td { border:1px solid var(--border); padding:6px 10px; text-align:left; }
+.tbl th { background:#f0f3f7; }
+.tbl tbody tr:nth-child(even) { background:#fafbfd; }
+.tbl td.num { font-variant-numeric:tabular-nums; text-align:right; }
+.tag { display:inline-block; border-radius:3px; padding:1px 6px;
+       font-size:.78rem; font-weight:600; }
+.tag-ok  { background:#d4edda; color:#155724; }
+.tag-partial { background:#fff3cd; color:#856404; }
+.tag-candidate { background:#f8d7da; color:#721c24; }
+.tag-other-family { background:#e2e3ff; color:#2d2d8f; }
+.tag-no  { background:#f0f0f0; color:#777; }
+a.btn { display:inline-block; background:var(--accent); color:#fff;
+        padding:4px 12px; border-radius:4px; font-size:.84rem;
+        text-decoration:none; margin:2px 2px 2px 0; }
+a.btn:hover { background:#2c3e50; }
+a.btn.secondary { background:#6c757d; }
+a.btn.green  { background:#28a745; }
+a { color:var(--accent); }
+.species-grid { display:grid; gap:16px;
+                grid-template-columns: repeat(auto-fit, minmax(320px,1fr)); }
+.sp-card { border:1px solid var(--border); border-radius:7px;
+           padding:14px 16px; background:#fff; }
+.sp-card h3 { margin:0 0 4px; font-size:1rem; color:#2c3e50; }
+.sp-card .sci { font-style:italic; color:var(--muted); font-size:.88rem; }
+.sp-card .actions { margin-top:10px; }
+</style>
+</head><body>
+<header>
+  <h1>Sicista &mdash; SINEs, SINEderella database arm</h1>
+  <div class="sub">Step 1 of SINEderella on the Sicista Medaka assembly with the 58 SINEbase Mammalia consensuses. <a href="index.html" style="color:#fff;">&larr; Tal SINE main page</a></div>
+</header>
+<main>
+<section class="card">
+  <h2>Subfamily input alignment &mdash; for manual grouping</h2>
+  <p style="font-size:.9rem;">SubFam's view of a 30,000-copy sample of all hits: 600 chunk consensi (50 copies each) aligned together with the
+  58 bank consensuses (658 rows). No subfamilies have been defined yet; the run was stopped after step 1 on purpose.</p>
+  <div class="species-grid">
+    <div class="sp-card">
+      <h3>sicista <span class="tag tag-partial">pending manual review</span></h3>
+      <div class="sci">Sicista &mdash; Medaka assembly (~/Sicista2026/assembly/consensus.fasta)</div>
+      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;">2,170,177 merged hits &middot; 58 Mammalia consensuses &middot; 30,000-copy sample</div>
+      <div class="actions"><a class="btn" href="javascript:void(0)" onclick="openMSA('sicista/alignments/sicista_subfam_input_30k.aln.fa','Sicista subfam input, 600 chunk consensi + 58 Mammalia consensuses')">Subfam input (600 chunks + 58 consi)</a></div>
+    </div>
+  </div>
+  <p style="margin-top:14px;"><a class="btn secondary" href="sicista/LOG.md">Analysis log</a> <a class="btn secondary" href="sicista/alignments/sicista_consensuses.fa">Bank: 58 Mammalia consensuses</a></p>
+</section>
+<section class="card">
+  <h2>Hits per bank consensus (step 1, before merging)</h2>
+  <p style="font-size:.9rem;">Raw sear hits per consensus as logged by step 1. A locus can be hit by several consensuses, so these add up to far more than the 2,170,177 merged loci; they say which consensuses find something, not how many copies each family has.</p>
+  <div style="overflow-x:auto;"><table class="tbl"><thead><tr><th>Consensus</th><th>Hits</th></tr></thead><tbody>
+      <tr><td>DIP</td><td class="num">1,208,915</td></tr>
+      <tr><td>B1</td><td class="num">717,360</td></tr>
+      <tr><td>pB1</td><td class="num">637,402</td></tr>
+      <tr><td>ERI-2</td><td class="num">555,980</td></tr>
+      <tr><td>VES</td><td class="num">441,733</td></tr>
+      <tr><td>B2</td><td class="num">426,993</td></tr>
+      <tr><td>MyrSINE</td><td class="num">321,200</td></tr>
+      <tr><td>B4</td><td class="num">183,728</td></tr>
+      <tr><td>DAS-I</td><td class="num">163,085</td></tr>
+      <tr><td>B1-dID</td><td class="num">160,731</td></tr>
+      <tr><td>SOR</td><td class="num">141,018</td></tr>
+      <tr><td>ERI-1</td><td class="num">131,884</td></tr>
+      <tr><td>MEN</td><td class="num">80,620</td></tr>
+      <tr><td>TUB</td><td class="num">46,388</td></tr>
+      <tr><td>Tu-III</td><td class="num">45,545</td></tr>
+      <tr><td>SP-D-Geo</td><td class="num">43,247</td></tr>
+      <tr><td>RSINE1</td><td class="num">39,013</td></tr>
+      <tr><td>CAN</td><td class="num">29,365</td></tr>
+      <tr><td>IDL-Geo</td><td class="num">29,147</td></tr>
+      <tr><td>STRIDM</td><td class="num">25,452</td></tr>
+      <tr><td>Mar3</td><td class="num">15,546</td></tr>
+      <tr><td>Tu-II</td><td class="num">13,545</td></tr>
+      <tr><td>vic-1</td><td class="num">12,686</td></tr>
+      <tr><td>SINE_type_II</td><td class="num">10,308</td></tr>
+      <tr><td>DAS-IIa</td><td class="num">9,523</td></tr>
+      <tr><td>Tu-I</td><td class="num">8,379</td></tr>
+      <tr><td>C</td><td class="num">7,530</td></tr>
+      <tr><td>CHRS-1</td><td class="num">4,673</td></tr>
+      <tr><td>TAL</td><td class="num">3,540</td></tr>
+      <tr><td>Ped-2</td><td class="num">1,830</td></tr>
+      <tr><td>SINE_type_III</td><td class="num">1,552</td></tr>
+      <tr><td>Mon-1</td><td class="num">1,068</td></tr>
+      <tr><td>ERE-B1</td><td class="num">468</td></tr>
+      <tr><td>CYN-I</td><td class="num">435</td></tr>
+      <tr><td>Mar1</td><td class="num">336</td></tr>
+      <tr><td>CYN-III</td><td class="num">268</td></tr>
+      <tr><td>Bov-tA</td><td class="num">266</td></tr>
+      <tr><td>WallSI4</td><td class="num">264</td></tr>
+      <tr><td>Opo-1</td><td class="num">208</td></tr>
+      <tr><td>DAS-IIb</td><td class="num">194</td></tr>
+      <tr><td>Mac1</td><td class="num">173</td></tr>
+      <tr><td>AfroSINE</td><td class="num">165</td></tr>
+      <tr><td>MEG-TR</td><td class="num">145</td></tr>
+      <tr><td>MEG-T2</td><td class="num">136</td></tr>
+      <tr><td>Fc-1</td><td class="num">136</td></tr>
+      <tr><td>Rhin-1</td><td class="num">112</td></tr>
+      <tr><td>CYN-II</td><td class="num">97</td></tr>
+      <tr><td>Bovc-tA2</td><td class="num">74</td></tr>
+      <tr><td>CHRS-2</td><td class="num">60</td></tr>
+      <tr><td>SS-1</td><td class="num">57</td></tr>
+      <tr><td>PRE-1</td><td class="num">47</td></tr>
+      <tr><td>ERE-B2</td><td class="num">37</td></tr>
+      <tr><td>ERE-A</td><td class="num">19</td></tr>
+      <tr><td>DAS-III</td><td class="num">14</td></tr>
+      <tr><td>Ped-1</td><td class="num">10</td></tr>
+      <tr><td>AfroLA</td><td class="num">5</td></tr>
+      <tr><td>Pca-1</td><td class="num">2</td></tr>
+      <tr><td>EC-1</td><td class="num">2</td></tr>
+  </tbody></table></div>
+</section>
+</main>
+<script>
+const RAW = 'https://raw.githubusercontent.com/Toki-bio/Tal/main/';
+const MSA = 'https://toki-bio.github.io/MSA-viewer/';
+function openMSA(relPath, title) {
+  const url = RAW + relPath;
+  window.open(MSA + '?url=' + encodeURIComponent(url) + '&title=' + encodeURIComponent(title), '_blank');
+}
+</script>
+</body></html>
