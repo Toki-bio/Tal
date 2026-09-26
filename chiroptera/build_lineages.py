@@ -111,6 +111,166 @@ def copies_tag(v, status):
     return f'<span class="tag {cls}">{fmt(v[0])} &middot; sim {v[2]:.2f}</span>'
 
 
+# Hao et al. 2023 Fig. 3 topology. Internal node = (age Ma, [children]); leaf = (family, crown age or None).
+TREE = (61.4, [
+    (54.8, [("Pteropodidae", 28.5),
+            (48.4, [(38.3, [(35.2, [("Rhinonycteridae", None), ("Rhinolophidae", 17.7)]),
+                            ("Hipposideridae", 14.7)]),
+                    (45.8, [(41.0, [("Megadermatidae", 20.2), ("Craseonycteridae", None)]),
+                            ("Rhinopomatidae", None)])])]),
+    (58.9, [(57.2, [("Myzopodidae", None),
+                    (54.7, [("Nycteridae", 15.4), ("Emballonuridae", 46.7)])]),
+            (58.0, [(50.6, [(47.2, [(43.0, [("Phyllostomidae", 36.8), ("Mormoopidae", 21.0)]),
+                                    (44.0, [(31.1, [("Noctilionidae", 3.7), ("Furipteridae", None)]),
+                                            ("Thyropteridae", None)])]),
+                            ("Mystacinidae", None)]),
+                    (54.9, [(53.0, [(51.1, [(46.5, [("Cistugidae", None), ("Vespertilionidae", 39.0)]),
+                                            ("Miniopteridae", 10.3)]),
+                                    ("Molossidae", 24.8)]),
+                            ("Natalidae", 11.8)])])])])
+RED_DOTS = {54.8, 58.9}  # MRCAs of the two suborders, as in the figure
+BANDS = {"Pteropodoidea": "#f3ea7a", "Rhinolophoidea": "#a8d69c", "Emballonuroidea": "#f7c29a",
+         "Noctilionoidea": "#a9dfe3", "Vespertilionoidea": "#d9b3d9"}
+SUBORDER = {"Yinpterochiroptera": "#2b7a3b", "Yangochiroptera": "#1c3c6e"}
+SINE_COL = {"Rhin-1": "#0070C0", "VES": "#E00000"}  # label colours on the annotated figure
+SINE_PALE = {"Rhin-1": "#d7e8f7", "VES": "#fbd6d6"}  # opaque tints, so clade bands do not show through
+EPOCHS = [  # (row, name, from Ma, to Ma, ICS colour)
+    ("Epoch", "Paleocene", 66, 56, "#FDA75F"), ("Epoch", "Eocene", 56, 33.9, "#FDB46C"),
+    ("Epoch", "Oligocene", 33.9, 23.03, "#FDC07A"), ("Epoch", "Miocene", 23.03, 5.33, "#FFFF00"),
+    ("Epoch", "Pl.", 5.33, 2.58, "#FFFF99"), ("Epoch", "", 2.58, 0, "#FFF2AE"),
+    ("Period", "Paleogene", 66, 23.03, "#FD9A52"), ("Period", "Neogene", 23.03, 2.58, "#FFE619"),
+    ("Period", "Qu.", 2.58, 0, "#F9F97F"), ("Era", "Cenozoic", 66, 0, "#F2F91D")]
+
+
+def short(n):
+    return f"{n / 1000:.0f}k" if n >= 10000 else f"{n / 1000:.1f}k" if n >= 1000 else str(n)
+
+
+def report_href(g, status):
+    if g["code"] in LEGACY:
+        return next((a[1] for a in LEGACY[g["code"]]["acts"] if a[0] == "btn"), None)
+    return f'{g["code"]}/report.html' if status == "done" else None
+
+
+def tree_svg(rows):
+    """Hao et al. Fig. 3 redrawn; each leaf carries this project's Rhin-1 / VES result."""
+    leaves = []
+    for g in rows:
+        if g["family"] not in leaves:
+            leaves.append(g["family"])
+    STEP, TOP, X0, S = 34, 22, 18, 8.0
+    x = lambda age: round(X0 + (66 - age) * S, 1)
+    tipx = x(0)
+    ly = {f: TOP + STEP / 2 + i * STEP for i, f in enumerate(leaves)}
+    H_TREE = TOP + STEP * len(leaves)
+    out, defs = [], []
+
+    # clade bands, fading in from the left as in the figure, and the suborder bars
+    for sf, col in BANDS.items():
+        fams = [g["family"] for g in rows if g["superfamily"] == sf]
+        y0, y1 = ly[fams[0]] - STEP / 2, ly[fams[-1]] + STEP / 2
+        defs.append(f'<linearGradient id="band_{sf}" x1="0" x2="1"><stop offset="0" stop-color="{col}" stop-opacity="0"/>'
+                    f'<stop offset=".45" stop-color="{col}" stop-opacity=".35"/><stop offset="1" stop-color="{col}"/></linearGradient>')
+        out.append(f'<rect x="{X0}" y="{y0}" width="{1008 - X0}" height="{y1 - y0}" fill="url(#band_{sf})"/>')
+        if y1 - y0 > 60:
+            fs = min(15, round((y1 - y0 - 8) / (0.56 * len(sf)), 1))  # shrink to fit short bands
+            out.append(f'<text transform="translate(993,{(y0 + y1) / 2}) rotate(90)" text-anchor="middle" '
+                       f'dominant-baseline="central" font-size="{fs}" font-weight="700" fill="#222">{sf}</text>')
+    for so, col in SUBORDER.items():
+        fams = [g["family"] for g in rows if g["suborder"] == so]
+        y0, y1 = ly[fams[0]] - STEP / 2, ly[fams[-1]] + STEP / 2
+        out.append(f'<rect x="1010" y="{y0 + 1}" width="42" height="{y1 - y0 - 2}" rx="12" fill="{col}"/>')
+        out.append(f'<text transform="translate(1031,{(y0 + y1) / 2}) rotate(90)" text-anchor="middle" '
+                   f'dominant-baseline="central" font-size="19" font-weight="700" fill="#fff">{so}</text>')
+
+    # branches, crown triangles, node ages, red dots
+    def draw(node):
+        if isinstance(node[0], str):
+            fam, crown = node
+            y = ly[fam]
+            if crown:
+                out.append(f'<polygon points="{x(crown)},{y} {tipx},{y - 12} {tipx},{y + 12}" '
+                           f'fill="#fff" stroke="#000" stroke-width="1.2"/>')
+                return x(crown), y
+            return tipx, y
+        age, kids = node
+        pts = [draw(k) for k in kids]
+        nx, ys = x(age), [p[1] for p in pts]
+        for kx, ky in pts:
+            out.append(f'<line x1="{nx}" y1="{ky}" x2="{kx}" y2="{ky}" stroke="#000" stroke-width="1.4"/>')
+        out.append(f'<line x1="{nx}" y1="{min(ys)}" x2="{nx}" y2="{max(ys)}" stroke="#000" stroke-width="1.4"/>')
+        ny = (min(ys) + max(ys)) / 2
+        out.append(f'<text x="{nx + 3}" y="{ny - 4}" font-size="10.5" font-weight="700" fill="#222">{age}</text>')
+        if age in RED_DOTS:
+            out.append(f'<circle cx="{nx}" cy="{ny}" r="4.5" fill="#e8202a"/>')
+        return nx, ny
+    rx, ry = draw(TREE)
+    out.append(f'<line x1="{x(65)}" y1="{ry}" x2="{rx}" y2="{ry}" stroke="#000" stroke-width="1.4"/>')
+
+    # leaves: family name, one badge per SINE, genome codes linking to reports
+    BX = {"Rhin-1": 752, "VES": 822}
+    for s, bx in BX.items():
+        out.append(f'<text x="{bx + 30}" y="{TOP - 6}" text-anchor="middle" font-size="12" font-weight="700" '
+                   f'fill="{SINE_COL[s]}">{"Rhin" if s == "Rhin-1" else "VES"}</text>')
+    for fam in leaves:
+        y = ly[fam]
+        gs = [g for g in rows if g["family"] == fam and g["code"] != "-"]
+        loaded = [(g, load(g)) for g in gs]
+        out.append(f'<text x="{tipx + 10}" y="{y}" dominant-baseline="central" font-size="16" fill="#111">{fam}</text>')
+        for s, bx in BX.items():
+            col = SINE_COL[s]
+            vals = [(g["code"], r[1][s]) for g, r in loaded if r[0] == "done" and r[1].get(s) is not None]
+            running = any(r[0] == "running" for g, r in loaded)
+            tip = "; ".join(f"{c}: {fmt(v[0])} copies" + (f", sim {v[2]:.2f}" if v[0] else "") for c, v in vals)
+            if vals:
+                n = max(v[0] for _, v in vals)
+                if n >= 1000:
+                    fill, stroke, tc, label = col, col, "#fff", short(n)
+                elif n > 0:
+                    fill, stroke, tc, label = SINE_PALE[s], col, col, short(n)
+                else:
+                    fill, stroke, tc, label = "#fff", "#999", "#777", "0"
+            elif running:
+                fill, stroke, tc, label, tip = "#f4f4f4", "#ccc", "#999", "…", "search running"
+            else:
+                fill, stroke, tc, label, tip = "#e4e4e4", "#bbb", "#777", "NA", "not searched"
+            out.append(f'<g><title>{fam} {s}: {tip}</title>'
+                       f'<rect x="{bx}" y="{y - 10}" width="60" height="20" rx="4" fill="{fill}" stroke="{stroke}"/>'
+                       f'<text x="{bx + 30}" y="{y}" text-anchor="middle" dominant-baseline="central" '
+                       f'font-size="12" font-weight="700" fill="{tc}">{label}</text></g>')
+        cx = 892
+        for g, r in loaded:
+            href = report_href(g, r[0])
+            t = (f'<text x="{cx}" y="{y}" dominant-baseline="central" font-size="12" '
+                 f'fill="{"#4C72B0" if href else "#888"}"{" text-decoration=" + chr(34) + "underline" + chr(34) if href else ""}>'
+                 f'{g["code"]}</text>')
+            out.append(f'<a href="{href}">{t}</a>' if href else t)
+            cx += 30
+
+    # geological time bars and axis
+    ya = H_TREE + 8
+    rowy = {"Epoch": ya, "Period": ya + 16, "Era": ya + 32}
+    for row, name, a, b, col in EPOCHS:
+        out.append(f'<rect x="{x(a)}" y="{rowy[row]}" width="{round(x(b) - x(a), 1)}" height="16" '
+                   f'fill="{col}" stroke="#fff" stroke-width=".6"/>')
+        if name:
+            out.append(f'<text x="{(x(a) + x(b)) / 2}" y="{rowy[row] + 8}" text-anchor="middle" '
+                       f'dominant-baseline="central" font-size="10.5">{name}</text>')
+    for row, yy in rowy.items():
+        out.append(f'<text x="{tipx + 8}" y="{yy + 8}" dominant-baseline="central" font-size="10.5">{row}</text>')
+    yt = ya + 50
+    out.append(f'<line x1="{x(66)}" y1="{yt}" x2="{tipx}" y2="{yt}" stroke="#000"/>')
+    for t in [66, 60, 50, 40, 30, 20, 10, 0]:
+        out.append(f'<line x1="{x(t)}" y1="{yt}" x2="{x(t)}" y2="{yt + 5}" stroke="#000"/>'
+                   f'<text x="{x(t)}" y="{yt + 17}" text-anchor="middle" font-size="11">{t}</text>')
+    out.append(f'<text x="{tipx + 8}" y="{yt + 17}" font-size="11">(Ma)</text>')
+    H = yt + 26
+    return (f'<svg viewBox="0 0 1060 {H}" width="100%" style="min-width:900px;display:block;" '
+            f'xmlns="http://www.w3.org/2000/svg" role="img" '
+            f'aria-label="Bat family tree (Hao et al. 2023) with Rhin-1 and VES copy numbers per family">'
+            f'<defs>{"".join(defs)}</defs>{"".join(out)}</svg>')
+
+
 def main():
     with open(os.path.join(ROOT, "chiroptera", "genomes.tsv"), encoding="utf8") as fh:
         rows = list(csv.DictReader(fh, delimiter="\t"))
@@ -212,6 +372,18 @@ def main():
   <a href="index.html" style="color:#fff;">&larr; Tal SINE main page</a></div>
 </header>
 <main>
+
+<section class="card">
+  <h2>Family tree &mdash; Rhin-1 and VES per family</h2>
+  <p style="margin:0 0 10px;font-size:.9rem;color:var(--muted);">Topology, node ages and colours redrawn from Hao et al. 2023, Fig. 3
+  (MrBayes time tree; triangles = collapsed families from their crown age). Each leaf shows the copies found in that family's genome(s):
+  <b style="color:#0070C0;">Rhin</b> = Rhin-1, <b style="color:#E00000;">VES</b> = VES; solid = 1,000 copies or more, pale = 1&ndash;999,
+  NA = not searched, &hellip; = search running. Where a family has several genomes the largest count is shown (hover for all).
+  Codes link to the reports.</p>
+  <div style="overflow-x:auto;">
+{tree_svg(rows)}
+  </div>
+</section>
 
 <section class="card" style="padding:16px 24px;">
   <h2 style="margin-bottom:10px;">Cross-species resources</h2>
