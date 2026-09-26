@@ -392,10 +392,14 @@ a { color:var(--accent); }
     </div>
 
     <div class="sp-card">
-      <h3>ntu <span class="tag tag-no">running</span></h3>
+      <h3>ntu <span class="tag tag-ok">full report</span></h3>
       <div class="sci">Natalus tumidirostris &mdash; Natalidae</div>
       <div style="font-size:.82rem;color:var(--muted);margin-top:4px;">
-        <a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_985614685.1/" target="_blank">GCA_985614685.1</a>
+        Rhin-1 716 &middot; VES 366,064 copies &middot; <a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_985614685.1/" target="_blank">GCA_985614685.1</a>
+      </div>
+      <div class="actions">
+        <a class="btn" href="ntu/report.html"><i>Natalus tumidirostris</i> &mdash; full report</a>
+        <a class="btn secondary" href="javascript:void(0)" onclick="openMSA('ntu/alignments/ntu_subfam_input_30k.aln.fa','ntu (Natalus tumidirostris) SubFam input, 600 chunk consensi + Rhin-1 + VES')">SubFam input (600 chunks)</a>
       </div>
     </div>
 
@@ -652,17 +656,17 @@ a { color:var(--accent); }
       <tr>
         <td><strong>ntu</strong> <em>Natalus tumidirostris</em> <span class="tag tag-other-family" style="margin-left:4px;">Natalidae</span></td>
         <td>&mdash;</td>
-        <td><span class="tag tag-no">running</span></td>
-        <td><span class="tag tag-no">running</span></td>
-        <td><span class="tag tag-no">running</span></td>
-        <td><span class="tag tag-no">&mdash;</span></td>
-        <td><span class="tag tag-no">&mdash;</span></td>
+        <td><span class="tag tag-ok">✓</span></td>
+        <td><span class="tag tag-partial">716 &middot; sim 0.21</span></td>
+        <td><span class="tag tag-ok">366,064 &middot; sim 0.55</span></td>
+        <td><span class="tag tag-ok"><a href="ntu/report.html">HTML</a></span></td>
+        <td><span class="tag tag-ok">top100 · rand100 · subfam</span></td>
         <td><span class="tag tag-no">&mdash;</span></td>
       </tr>
     </tbody>
   </table>
   <p style="color:var(--muted);font-size:.82rem;margin-top:8px;">
-    22 of 25 genomes published. Rows are in tree order; a heavy line starts each superfamily.
+    23 of 25 genomes published. Rows are in tree order; a heavy line starts each superfamily.
     Copies = firm + soft assigned; sim = median copy bitscore / consensus self-bitscore; green = 1,000 copies or more.
     Prior evidence is the SINE label on the annotated copy of the Hao et al. figure.
     De novo = AnnoSINE2 + SINEbase-fragment scan candidates, clustered by SubFam for manual review (hla and tbr first).
