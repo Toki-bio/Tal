@@ -383,17 +383,11 @@ def main():
   (MrBayes time tree; triangles = collapsed families from their crown age). Each leaf shows the copies found in that family's genome(s):
   <b style="color:#0070C0;">Rhin</b> = Rhin-1, <b style="color:#E00000;">VES</b> = VES; solid = 1,000 copies or more, pale = 1&ndash;999,
   NA = not searched, &hellip; = search running. Where a family has several genomes the largest count is shown (hover for all).
-  Species names link to their reports.</p>
+  Species names link to their reports. Bank: SINEbase Rhin-1 (182 bp) and VES (220 bp), IUPAC codes resolved to a base;
+  the earlier <i>Rhinolophus</i> runs used Rhin-1 alone (177 bp, codes deleted).</p>
   <div style="overflow-x:auto;">
 {tree_svg(rows)}
   </div>
-</section>
-
-<section class="card" style="padding:16px 24px;">
-  <h2 style="margin-bottom:10px;">Cross-species resources</h2>
-  <p style="margin:0 0 10px;font-size:.9rem;color:var(--muted);">Bank: SINEbase Rhin-1 (182 bp) and VES (220 bp), IUPAC codes resolved to a base. The earlier <i>Rhinolophus</i> runs used Rhin-1 alone (177 bp, codes deleted).</p>
-  <a class="btn secondary" href="chiroptera/LOG.md">Analysis Log</a>
-  <a class="btn secondary" href="rhin.html">Rhin-1 peel alignments (<i>R. sinicus</i>)</a>
 </section>
 
 {chr(10).join(sections)}
@@ -413,6 +407,8 @@ def main():
     Prior evidence is the SINE label on the annotated copy of the Hao et al. figure.
     De novo = AnnoSINE2 + SINEbase-fragment scan candidates, clustered by SubFam for manual review (hla and tbr first).
   </p>
+  <a class="btn secondary" href="chiroptera/LOG.md">Analysis Log</a>
+  <a class="btn secondary" href="rhin.html">Rhin-1 peel alignments (<i>R. sinicus</i>)</a>
 </section>
 
 </main>
