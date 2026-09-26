@@ -188,10 +188,14 @@ a { color:var(--accent); }
     </div>
 
     <div class="sp-card">
-      <h3>rmi <span class="tag tag-no">running</span></h3>
+      <h3>rmi <span class="tag tag-ok">full report</span></h3>
       <div class="sci">Rhinopoma microphyllum &mdash; Rhinopomatidae</div>
       <div style="font-size:.82rem;color:var(--muted);margin-top:4px;">
-        <a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_043880545.1/" target="_blank">GCA_043880545.1</a>
+        Rhin-1 288 &middot; VES 27,159 copies &middot; <a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_043880545.1/" target="_blank">GCA_043880545.1</a>
+      </div>
+      <div class="actions">
+        <a class="btn" href="rmi/report.html"><i>Rhinopoma microphyllum</i> &mdash; full report</a>
+        <a class="btn secondary" href="javascript:void(0)" onclick="openMSA('rmi/alignments/rmi_subfam_input_30k.aln.fa','rmi (Rhinopoma microphyllum) SubFam input, 549 chunk consensi + Rhin-1 + VES')">SubFam input (549 chunks)</a>
       </div>
     </div>
 
@@ -431,11 +435,11 @@ a { color:var(--accent); }
       <tr>
         <td><strong>rmi</strong> <em>Rhinopoma microphyllum</em> <span class="tag tag-other-family" style="margin-left:4px;">Rhinopomatidae</span></td>
         <td>&mdash;</td>
-        <td><span class="tag tag-no">running</span></td>
-        <td><span class="tag tag-no">running</span></td>
-        <td><span class="tag tag-no">running</span></td>
-        <td><span class="tag tag-no">&mdash;</span></td>
-        <td><span class="tag tag-no">&mdash;</span></td>
+        <td><span class="tag tag-ok">✓</span></td>
+        <td><span class="tag tag-partial">288 &middot; sim 0.14</span></td>
+        <td><span class="tag tag-ok">27,159 &middot; sim 0.12</span></td>
+        <td><span class="tag tag-ok"><a href="rmi/report.html">HTML</a></span></td>
+        <td><span class="tag tag-ok">top100 · rand100 · subfam</span></td>
         <td><span class="tag tag-no">&mdash;</span></td>
       </tr>
       <tr style="border-top:3px solid #2d2d8f;">
@@ -571,7 +575,7 @@ a { color:var(--accent); }
     </tbody>
   </table>
   <p style="color:var(--muted);font-size:.82rem;margin-top:8px;">
-    10 of 23 genomes published. Rows are in tree order; a heavy line starts each superfamily.
+    11 of 23 genomes published. Rows are in tree order; a heavy line starts each superfamily.
     Copies = firm + soft assigned; sim = median copy bitscore / consensus self-bitscore; green = 1,000 copies or more.
     Prior evidence is the SINE label on the annotated copy of the Hao et al. figure.
     De novo = AnnoSINE2 + SINEbase-fragment scan candidates, clustered by SubFam for manual review (hla and tbr first).
