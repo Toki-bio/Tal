@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rhin-1 SINE — Rhinolophidae</title>
+<style>
+:root { --fg:#222; --bg:#f5f6f8; --card:#fff; --accent:#4C72B0;
+        --muted:#666; --border:#e2e2e2; }
+* { box-sizing: border-box; }
+body { font-family: -apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+       background:var(--bg); color:var(--fg); margin:0; padding:0; }
+header { background: linear-gradient(135deg, #2c3e50, #4C72B0);
+         color:#fff; padding:28px 36px; }
+header h1 { margin:0 0 6px 0; font-size:1.7rem; }
+header .sub { opacity:.85; font-size:.95rem; }
+main { max-width:1100px; margin:0 auto; padding:28px 24px; }
+section.card { background:var(--card); border:1px solid var(--border);
+               border-radius:8px; padding:20px 24px; margin:18px 0;
+               box-shadow:0 1px 3px rgba(0,0,0,0.05); }
+section.card h2 { margin-top:0; font-size:1.1rem; color:#2c3e50;
+                  border-bottom:1px solid var(--border); padding-bottom:8px; }
+.tbl { border-collapse:collapse; width:100%; font-size:.88rem; margin:8px 0; }
+.tbl th,.tbl td { border:1px solid var(--border); padding:6px 10px; text-align:left; }
+.tbl th { background:#f0f3f7; }
+.tbl tbody tr:nth-child(even) { background:#fafbfd; }
+.tbl td.num { font-variant-numeric:tabular-nums; text-align:right; }
+.tag { display:inline-block; border-radius:3px; padding:1px 6px;
+       font-size:.78rem; font-weight:600; }
+.tag-ok  { background:#d4edda; color:#155724; }
+.tag-partial { background:#fff3cd; color:#856404; }
+.tag-candidate { background:#f8d7da; color:#721c24; }
+.tag-other-family { background:#e2e3ff; color:#2d2d8f; }
+.tag-no  { background:#f0f0f0; color:#777; }
+a.btn { display:inline-block; background:var(--accent); color:#fff;
+        padding:4px 12px; border-radius:4px; font-size:.84rem;
+        text-decoration:none; margin:2px 2px 2px 0; }
+a.btn:hover { background:#2c3e50; }
+a.btn.secondary { background:#6c757d; }
+a.btn.green  { background:#28a745; }
+a { color:var(--accent); }
+.species-grid { display:grid; gap:16px;
+                grid-template-columns: repeat(auto-fit, minmax(320px,1fr)); }
+.sp-card { border:1px solid var(--border); border-radius:7px;
+           padding:14px 16px; background:#fff; }
+.sp-card h3 { margin:0 0 4px; font-size:1rem; color:#2c3e50; }
+.sp-card .sci { font-style:italic; color:var(--muted); font-size:.88rem; }
+.sp-card .actions { margin-top:10px; }
+</style>
+</head><body>
+<header>
+  <h1>Rhin-1 SINE &mdash; Rhinolophidae</h1>
+  <div class="sub">SINEderella runs of Rhin-1 (Borodulina 2005) in three horseshoe-bat genomes. Separate from the Talpidae analysis. <a href="index.html" style="color:#fff;">&larr; Tal SINE main page</a></div>
+</header>
+<main>
+<section class="card">
+  <h2>Subfamily input alignments &mdash; for manual grouping</h2>
+  <p style="font-size:.9rem;">Each alignment is SubFam's view of a 30,000-copy sample: 600 chunk consensi (50 copies each)
+  aligned with the Rhin-1 anchor row. No subfamilies have been defined yet.
+  Note: SINEderella deleted Rhin-1's five IUPAC codes, so the anchor row and the searched consensus are 177 bp (the SINEbase consensus is 182 bp).</p>
+  <div class="species-grid">
+    <div class="sp-card">
+      <h3>rsi <span class="tag tag-partial">pending manual review</span></h3>
+      <div class="sci">Rhinolophus sinicus &mdash; GCF_057876585.1 (T2T)</div>
+      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;">30,081 Rhin-1 hits &middot; 23,545 firm + 6,534 soft assigned &middot; sim_ratio median 0.48</div>
+      <div class="actions"><a class="btn" href="javascript:void(0)" onclick="openMSA('rhin/alignments/rsi_subfam_input_30k.aln.fa','rsi (R. sinicus) Rhin-1 subfam input, 600 chunk consensi + anchor')">Subfam input (600 chunks)</a></div>
+    </div>
+    <div class="sp-card">
+      <h3>rre <span class="tag tag-partial">pending manual review</span></h3>
+      <div class="sci">Rhinolophus rex &mdash; GCA_041825415.1</div>
+      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;">32,414 Rhin-1 hits &middot; 23,073 firm + 9,337 soft assigned &middot; sim_ratio median 0.48</div>
+      <div class="actions"><a class="btn" href="javascript:void(0)" onclick="openMSA('rhin/alignments/rre_subfam_input_30k.aln.fa','rre (R. rex) Rhin-1 subfam input, 600 chunk consensi + anchor')">Subfam input (600 chunks)</a></div>
+    </div>
+    <div class="sp-card">
+      <h3>rda <span class="tag tag-partial">pending manual review</span></h3>
+      <div class="sci">Rhinolophus darlingi &mdash; GCA_057427945.1 (hap1)</div>
+      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;">30,170 Rhin-1 hits &middot; 23,850 firm + 6,319 soft assigned &middot; sim_ratio median 0.48</div>
+      <div class="actions"><a class="btn" href="javascript:void(0)" onclick="openMSA('rhin/alignments/rda_subfam_input_30k.aln.fa','rda (R. darlingi hap1) Rhin-1 subfam input, 600 chunk consensi + anchor')">Subfam input (600 chunks)</a></div>
+    </div>
+  </div>
+  <p style="margin-top:14px;"><a class="btn secondary" href="rhin/LOG.md">Analysis log</a> <a class="btn secondary" href="rhin/alignments/rhin_consensuses.fa">Rhin-1 consensus (SINEbase)</a></p>
+</section>
+</main>
+<script>
+const RAW = 'https://raw.githubusercontent.com/Toki-bio/Tal/main/';
+const MSA = 'https://toki-bio.github.io/MSA-viewer/';
+function openMSA(relPath, title) {
+  const url = RAW + relPath;
+  window.open(MSA + '?url=' + encodeURIComponent(url) + '&title=' + encodeURIComponent(title), '_blank');
+}
+</script>
+</body></html>
