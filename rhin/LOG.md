@@ -58,3 +58,6 @@ Published: `rsi/report.html` (step6 + SINE-discriminator verdict columns), `rsi/
 the run wrote none for them).
 The publish stage needed two SINEderella fixes on therioserver (0223fe0 PATH/numpy, 1c8a63e `(+,-)` headers);
 before them the border scan never ran and "none flagged" was not a result. With them: 0 flagged.
+
+`rhin.html` lists every published rsi alignment (top100, rand100, and subfam where the run wrote one)
+in peel order r1–r10. The same links are in `rsi/report.html`.

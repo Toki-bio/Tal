@@ -55,8 +55,9 @@ a { color:var(--accent); }
 <section class="card">
   <h2>Subfamily input alignments &mdash; for manual grouping</h2>
   <p style="font-size:.9rem;">Each alignment is SubFam's view of a 30,000-copy sample: 600 chunk consensi (50 copies each)
-  aligned with the Rhin-1 anchor row. No subfamilies have been defined yet.
-  Note: SINEderella deleted Rhin-1's five IUPAC codes, so the anchor row and the searched consensus are 177 bp (the SINEbase consensus is 182 bp).</p>
+  aligned with the Rhin-1 anchor row. These are the pre-peel samples.
+  Note: SINEderella deleted Rhin-1's five IUPAC codes, so the anchor row and the searched consensus are 177 bp (the SINEbase consensus is 182 bp).
+  For <i>R. sinicus</i> the 10 peel subfamilies and their copy alignments are in the next section.</p>
   <div class="species-grid">
     <div class="sp-card">
       <h3>rsi <span class="tag tag-ok">full report</span></h3>
@@ -79,6 +80,27 @@ a { color:var(--accent); }
     </div>
   </div>
   <p style="margin-top:14px;"><a class="btn secondary" href="rhin/LOG.md">Analysis log</a> <a class="btn secondary" href="rhin/alignments/rhin_consensuses.fa">Rhin-1 consensus (SINEbase)</a></p>
+</section>
+<section class="card">
+  <h2><i>R. sinicus</i> peel subfamilies &mdash; copy alignments</h2>
+  <p style="font-size:.9rem;">Publish of the 10 peel consensuses (run_20260926_161010): 67,162 labelled copies.
+  Each link opens a MAFFT alignment with 50&nbsp;bp left and 70&nbsp;bp right flanks; the consensus is row&nbsp;1.
+  Same files as the <a href="rsi/report.html">full report</a>. SubFam was not written for r2 and r4.</p>
+  <table class="tbl">
+    <thead><tr><th>Subfamily</th><th>Copies</th><th>Top 100</th><th>100 random</th><th>SubFam</th><th>Overall</th></tr></thead>
+    <tbody>
+      <tr><td><code>r1_9seqs</code></td><td class="num">4,038</td><td><a href="javascript:void(0)" onclick="openMSA('rsi/alignments/rsi_r1_9seqs_top100.aln.fa','rsi r1_9seqs top 100')">top 100</a></td><td><a href="javascript:void(0)" onclick="openMSA('rsi/alignments/rsi_r1_9seqs_rand100.aln.fa','rsi r1_9seqs 100 random')">100 random</a></td><td><a href="javascript:void(0)" onclick="openMSA('rsi/alignments/rsi_r1_9seqs_subfam.aln.fa','rsi r1_9seqs SubFam')">SubFam</a></td><td><span class="tag tag-candidate">Not SINE</span></td></tr>
+      <tr><td><code>r2_3seqs</code></td><td class="num">468</td><td><a href="javascript:void(0)" onclick="openMSA('rsi/alignments/rsi_r2_3seqs_top100.aln.fa','rsi r2_3seqs top 100')">top 100</a></td><td><a href="javascript:void(0)" onclick="openMSA('rsi/alignments/rsi_r2_3seqs_rand100.aln.fa','rsi r2_3seqs 100 random')">100 random</a></td><td>&mdash;</td><td><span class="tag tag-candidate">Not SINE</span></td></tr>
+      <tr><td><code>r3_58seqs</code></td><td class="num">23,037</td><td><a href="javascript:void(0)" onclick="openMSA('rsi/alignments/rsi_r3_58seqs_top100.aln.fa','rsi r3_58seqs top 100')">top 100</a></td><td><a href="javascript:void(0)" onclick="openMSA('rsi/alignments/rsi_r3_58seqs_rand100.aln.fa','rsi r3_58seqs 100 random')">100 random</a></td><td><a href="javascript:void(0)" onclick="openMSA('rsi/alignments/rsi_r3_58seqs_subfam.aln.fa','rsi r3_58seqs SubFam')">SubFam</a></td><td><span class="tag tag-candidate">Not SINE</span></td></tr>
+      <tr><td><code>r4_32seqs</code></td><td class="num">58</td><td><a href="javascript:void(0)" onclick="openMSA('rsi/alignments/rsi_r4_32seqs_top100.aln.fa','rsi r4_32seqs top 100')">top 100</a></td><td><a href="javascript:void(0)" onclick="openMSA('rsi/alignments/rsi_r4_32seqs_rand100.aln.fa','rsi r4_32seqs 100 random')">100 random</a></td><td>&mdash;</td><td><span class="tag tag-ok">SINE</span></td></tr>
+      <tr><td><code>r5_27seqs</code></td><td class="num">4,050</td><td><a href="javascript:void(0)" onclick="openMSA('rsi/alignments/rsi_r5_27seqs_top100.aln.fa','rsi r5_27seqs top 100')">top 100</a></td><td><a href="javascript:void(0)" onclick="openMSA('rsi/alignments/rsi_r5_27seqs_rand100.aln.fa','rsi r5_27seqs 100 random')">100 random</a></td><td><a href="javascript:void(0)" onclick="openMSA('rsi/alignments/rsi_r5_27seqs_subfam.aln.fa','rsi r5_27seqs SubFam')">SubFam</a></td><td><span class="tag tag-ok">SINE</span></td></tr>
+      <tr><td><code>r6_210seqs</code></td><td class="num">14,057</td><td><a href="javascript:void(0)" onclick="openMSA('rsi/alignments/rsi_r6_210seqs_top100.aln.fa','rsi r6_210seqs top 100')">top 100</a></td><td><a href="javascript:void(0)" onclick="openMSA('rsi/alignments/rsi_r6_210seqs_rand100.aln.fa','rsi r6_210seqs 100 random')">100 random</a></td><td><a href="javascript:void(0)" onclick="openMSA('rsi/alignments/rsi_r6_210seqs_subfam.aln.fa','rsi r6_210seqs SubFam')">SubFam</a></td><td><span class="tag tag-ok">SINE</span></td></tr>
+      <tr><td><code>r7_133seqs</code></td><td class="num">7,229</td><td><a href="javascript:void(0)" onclick="openMSA('rsi/alignments/rsi_r7_133seqs_top100.aln.fa','rsi r7_133seqs top 100')">top 100</a></td><td><a href="javascript:void(0)" onclick="openMSA('rsi/alignments/rsi_r7_133seqs_rand100.aln.fa','rsi r7_133seqs 100 random')">100 random</a></td><td><a href="javascript:void(0)" onclick="openMSA('rsi/alignments/rsi_r7_133seqs_subfam.aln.fa','rsi r7_133seqs SubFam')">SubFam</a></td><td><span class="tag tag-ok">SINE</span></td></tr>
+      <tr><td><code>r8_83seqs</code></td><td class="num">4,297</td><td><a href="javascript:void(0)" onclick="openMSA('rsi/alignments/rsi_r8_83seqs_top100.aln.fa','rsi r8_83seqs top 100')">top 100</a></td><td><a href="javascript:void(0)" onclick="openMSA('rsi/alignments/rsi_r8_83seqs_rand100.aln.fa','rsi r8_83seqs 100 random')">100 random</a></td><td><a href="javascript:void(0)" onclick="openMSA('rsi/alignments/rsi_r8_83seqs_subfam.aln.fa','rsi r8_83seqs SubFam')">SubFam</a></td><td><span class="tag tag-ok">SINE</span></td></tr>
+      <tr><td><code>r9_15seqs</code></td><td class="num">7,223</td><td><a href="javascript:void(0)" onclick="openMSA('rsi/alignments/rsi_r9_15seqs_top100.aln.fa','rsi r9_15seqs top 100')">top 100</a></td><td><a href="javascript:void(0)" onclick="openMSA('rsi/alignments/rsi_r9_15seqs_rand100.aln.fa','rsi r9_15seqs 100 random')">100 random</a></td><td><a href="javascript:void(0)" onclick="openMSA('rsi/alignments/rsi_r9_15seqs_subfam.aln.fa','rsi r9_15seqs SubFam')">SubFam</a></td><td><span class="tag tag-ok">SINE</span></td></tr>
+      <tr><td><code>r10_19seqs</code></td><td class="num">5,466</td><td><a href="javascript:void(0)" onclick="openMSA('rsi/alignments/rsi_r10_19seqs_top100.aln.fa','rsi r10_19seqs top 100')">top 100</a></td><td><a href="javascript:void(0)" onclick="openMSA('rsi/alignments/rsi_r10_19seqs_rand100.aln.fa','rsi r10_19seqs 100 random')">100 random</a></td><td><a href="javascript:void(0)" onclick="openMSA('rsi/alignments/rsi_r10_19seqs_subfam.aln.fa','rsi r10_19seqs SubFam')">SubFam</a></td><td><span class="tag tag-candidate">Not SINE</span></td></tr>
+    </tbody>
+  </table>
 </section>
 </main>
 <script>
