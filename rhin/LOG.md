@@ -45,3 +45,6 @@ aligned with SubFam's own final command (`mafft --localpair --maxiterate 1000 --
 610 rows x 512 columns. No Rhin-1 row (input.clw holds only the 600 chunks).
 Order vs the original page: 527/599 adjacent chunk pairs kept (88.0 %).
 Consensus rows land at: r1 6, r2 14, r5 30, r6 59, r3 272, r4 318, r7 393, r8 505, r9 565, r10 585.
+
+`rsi/alignments/rsi_consensuses.aln.fa` (+ `.fa`): his 10 peel consensuses in bank order + SINEbase Rhin-1 as last row
+(the talpid `ccr_consensuses.aln.fa` pattern, anchor last), `mafft --auto`, 11 rows x 294 columns. Built on therioserver `~/rhin/rsi_cons/`.
