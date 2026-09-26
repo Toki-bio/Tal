@@ -120,3 +120,10 @@ epoch colours). Each leaf has a Rhin (blue #0070C0) and VES (red #E00000) badge 
 solid >= 1,000 copies, pale 1-999, NA not searched, ... running; max over the family's genomes, hover lists all.
 Caution recorded: badges encode copy number only. cth VES 96,273 copies at sim 0.18 and rmi VES 27,159 at sim 0.12
 are solid red but far below tbr's 0.49; they need checking on the alignments before being read as VES presence.
+
+### Vespertilionidae added (his request 2026-09-27)
+Two distinct vespertilionid lineages, as positive controls for VES: *Myotis evotis* (Myotinae, mev,
+GCA_056320405.1 mMyoEvo1.0, chromosome, NCBI reference, contig N50 101 Mb - the best vespertilionid assembly)
+and *Vespertilio murinus* (Vespertilioninae, vmu, GCA_963924515.2 mVesMur1.hap1.2, chromosome, reference,
+contig N50 49 Mb; the family's type genus). `~/chiro/vesp_queue.sh`: same bank and settings, starts when the
+main queue ends (thread budget), 2 in parallel.

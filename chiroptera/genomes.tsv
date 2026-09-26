@@ -19,7 +19,8 @@ fho	Furipterus horrens	Furipteridae	GCA_987537825.1	mFurHor1.1.pri	Yangochiropte
 ttr	Thyroptera tricolor	Thyropteridae	GCA_985616965.1	mThyTri1.1.pri	Yangochiroptera	Noctilionoidea	
 mtu	Mystacina tuberculata	Mystacinidae	GCA_985612315.1	mMysTub1.2.pri	Yangochiroptera	Noctilionoidea	
 cse	Cistugo seabrae	Cistugidae	GCA_061228675.1	mCisSea1.1.hap1	Yangochiroptera	Vespertilionoidea	
--		Vespertilionidae			Yangochiroptera	Vespertilionoidea	Ves seq
+mev	Myotis evotis	Vespertilionidae	GCA_056320405.1	mMyoEvo1.0	Yangochiroptera	Vespertilionoidea	Ves seq
+vmu	Vespertilio murinus	Vespertilionidae	GCA_963924515.2	mVesMur1.hap1.2	Yangochiroptera	Vespertilionoidea	Ves seq
 msc	Miniopterus schreibersii	Miniopteridae	GCA_964146895.2	mMinSch1.hap1.2	Yangochiroptera	Vespertilionoidea	
 tbr	Tadarida brasiliensis	Molossidae	GCA_030848825.1	DD_mTadBra1_pri	Yangochiroptera	Vespertilionoidea	Ves hybrid, PCR
 ntu	Natalus tumidirostris	Natalidae	GCA_985614685.1	mNatTum1.1.pri	Yangochiroptera	Vespertilionoidea	
