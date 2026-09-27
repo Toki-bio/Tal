@@ -44,9 +44,11 @@ LEGACY = {
             # full report with alignments since the MEG add (2026-09-27)
             "acts": [("btn", "rre/report.html", "<i>Rhinolophus rex</i> &mdash; full report"),
                      ("msa", "rhin/alignments/rre_subfam_input_30k.aln.fa", "rre Rhin-1 SubFam input, 600 chunk consensi + anchor", "SubFam input (600 chunks)")]},
-    "rda": {"Rhin-1": (30169, 23850, 0.48), "VES": None, "tag": ("tag-partial", "pending manual review"),
-            "note": "Rhin-1-only search",
-            "acts": [("msa", "rhin/alignments/rda_subfam_input_30k.aln.fa", "rda (hap1) Rhin-1 SubFam input, 600 chunk consensi + anchor", "SubFam input (600 chunks)")]},
+    "rda": {"Rhin-1": (30169, 23850, 0.48), "VES": None, "tag": ("tag-ok", "full report"),
+            "note": "Rhin-1 + MEG search (no VES)",
+            # full report with alignments since the MEG add (2026-09-27)
+            "acts": [("btn", "rda/report.html", "<i>Rhinolophus darlingi</i> &mdash; full report"),
+                     ("msa", "rhin/alignments/rda_subfam_input_30k.aln.fa", "rda (hap1) Rhin-1 SubFam input, 600 chunk consensi + anchor", "SubFam input (600 chunks)")]},
     "lly": {"Rhin-1": (290, 290, 0.16), "VES": (11, 11, 0.14), "tag": ("tag-ok", "full report"),
             "note": "fragmented assembly (1.9 M scaffolds); <i>Macroderma</i> (mgi) is the better Megadermatidae genome",
             # full report with alignments since the MEG add (2026-09-27); the old chiroptera/lly report had none

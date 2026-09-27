@@ -213,3 +213,4 @@ Reports and the new plates are in each species directory. Rhin-1 and VES counts 
 
 
 - 2026-09-27: rre (*Rhinolophus rex*) MEG add published (run_add_20260927_181142): Rhin-1 32,408 (firm 23,305, sim median 0.50); MEG-T2 114, MEG-TR 53, MEG-RS 37, MEG-RL 19, all at sim median 0.10-0.22. Card now links rre/report.html (dbe04cd). rda still pending.
+- 2026-09-27: rda (*Rhinolophus darlingi*) MEG add published; card links rda/report.html. rsi MEG add published (run in ~/rhin/rsi/run_add_20260927_180847, from the peel10 bank; bundler fixed to look there): MEG-RS 1,586 (sim median 0.22), MEG-TR 170, MEG-T2 116, MEG-RL 22. Only the MEG plates were copied; hand-corrected r1-r10 plates kept.
