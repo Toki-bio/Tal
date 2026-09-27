@@ -211,3 +211,5 @@ moved past it, because the MEG badge sat on the superfamily text and the three *
 
 Reports and the new plates are in each species directory. Rhin-1 and VES counts are the carried-forward assignments (tbr VES 640,224; tpe Rhin-1 56,208; hla Rhin-1 70,867).
 
+
+- 2026-09-27: rre (*Rhinolophus rex*) MEG add published (run_add_20260927_181142): Rhin-1 32,408 (firm 23,305, sim median 0.50); MEG-T2 114, MEG-TR 53, MEG-RS 37, MEG-RL 19, all at sim median 0.10-0.22. Card now links rre/report.html (dbe04cd). rda still pending.
