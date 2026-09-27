@@ -144,3 +144,56 @@ were recomputed after a QC bug (SINEderella dd552e5); all 19 chromosome-level as
 | tbr | 1,097 | 20,318 | 21,415 | 9,532 | 190 |
 Published: `hla/alignments/hla_denovo_candidates_119chunks.aln.fa`, `tbr/alignments/tbr_denovo_candidates_190chunks.aln.fa`.
 Clustered, not assigned or classified: input for manual review, not a result.
+
+### MEG families added (2026-09-27)
+
+Gogolevsky, Vassetzky & Kramerov 2009, Genomics 93:494–500. Four SINEs described from megabats and
+reported absent from microbats and other mammals: MEG-RL (5S rRNA, paper consensus 213 bp), MEG-RS
+(5S rRNA, 135 bp; nearly the 5′ part of MEG-RL, but copies carry their own TSDs), MEG-TR (tRNA/5S hybrid),
+MEG-T2 (tRNA-derived, variable CNCCRGG tandem region). Paper copy estimates in *Pteropus vampyrus*:
+about 10^4 MEG-RL, 7×10^3 MEG-RS, 5×10^3 MEG-TR, 4×10^3 MEG-T2.
+
+Taken from the SINEbase download `~/SINEs_post2015.fas`, not retyped from the paper figures.
+Lengths in that file: MEG-RL 207 bp (six shorter than the paper's 213; the SINEbase record is what was
+searched), MEG-RS 135 (matches the paper), MEG-T2 232, MEG-TR 196. MEG-RL, MEG-RS and MEG-TR are ACGT.
+MEG-T2 had three IUPAC codes, resolved the same way as Rhin-1 and VES (a base, not a deletion):
+
+| site | code | base | reason |
+|---|---|---|---|
+| 121 | K (G/T) | T | the paper's inter-repeat linker is written `tg` (`CCCCRGGtgCGCCAGG`) |
+| 127 | R (A/G) | A | that same linker continues `tgCGCCAGG`, so the R in `CGCCRGG` is A |
+| 172 | R (A/G) | A | the paper's tail is AT-rich; A continues the A stretch |
+
+Bank: `~/chiro/MEG.resolved.fa`. Names kept as MEG-RL, MEG-RS, MEG-T2, MEG-TR.
+`SKIP_CANONICALIZE=1`: canonicalize merges seeds at 80% identity and rewrites every sequence's orientation.
+MEG-RS is almost MEG-RL, and the old Rhin-1 and VES consensuses must stay byte-for-byte the ones already searched.
+
+Add, not a new search. `SINEderella --add` copies the finished run, runs `sear` only for the new names
+(0.8, 65, 50, same as step 1), rebuilds the merged intervals, and re-votes only loci that overlap a new
+hit plus anything that was not a 10/10 assignment. Old 10/10 assignments that do not overlap a MEG hit
+are carried forward. `~/chiro/meg_add.sh`, three genomes at a time, THREADS=10.
+*Rousettus leschenaultii* (rle) is the positive control: the paper found MEG-RL in this species.
+A microbat with a real VES signal (mev or tbr) is the negative control: the paper found no MEG outside Pteropodidae.
+
+The page is still `build_lineages.py`. A MEG column and a purple tree badge appear only once a summary
+contains the four names; until then the badge is NA, not a false zero. The badge is the sum of the four
+assigned totals. The old SubFam plate is not rebuilt: `--add` does not rerun SubFam, so that button stays
+the Rhin-1/VES plate.
+
+### MEG results pushed (2026-09-27): rle, tbr, tpe, hla
+
+Search of the four new consensuses was the fast part (about 10 minutes). The wall clock after that is
+publish: boundary walk, then `mafft --localpair --maxiterate 1000` on each plate of ~100 copies.
+On mev, MEG-RS 5′ was still shared at the 1000 bp cap (`STILL_BAD`, island fraction 0.33) and that
+extension is in the sequences being aligned (median length 1640 bp, consensus 135 bp). mev is still
+in that MAFFT. mgi has started. The queue is two adds at a time because `disk_guard` holds a job slot.
+
+| code | MEG-RL | MEG-RS | MEG-T2 | MEG-TR | note |
+|---|---|---|---|---|---|
+| rle | 9,897 sim 0.73 | 7,383 sim 0.72 | 2,324 sim 0.41 | 2,775 sim 0.80 | positive control; order of magnitude matches Gogolevsky 2009. MEG-RL conflict 95%, MEG-TR 94%: MEG-RS is nearly the 5′ of MEG-RL, so the four counts are winning labels, not four clean populations |
+| tbr | 14 sim 0.16 | 273 sim 0.79 | 92 sim 0.07 | 26 sim 0.16 | MEG-RS at 0.79 is not background. Look at `tbr_MEG-RS_top100.aln.fa` before calling MEG absent from this molossid |
+| tpe | 16 sim 0.19 | 57 sim 0.24 | 118 sim 0.09 | 26 sim 0.12 | MEG here is weak |
+| hla | 4,034 sim 0.27 | 113 sim 0.63 | 90 sim 0.07 | 766 sim 0.31 | MEG-RL count is large and the similarity is low; MEG-TR conflict 97% |
+
+Reports and the new plates are in each species directory. Rhin-1 and VES counts are the carried-forward assignments (tbr VES 640,224; tpe Rhin-1 56,208; hla Rhin-1 70,867).
+
