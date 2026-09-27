@@ -1,3 +1,7 @@
 Subfamily	Assigned	TopN_Bitscore	Threshold
 Rhin-1	303	443	199
+MEG-T2	70	315	142
+MEG-TR	16	343	154
 VES	12	381	171
+MEG-RS	9	332	149
+MEG-RL	7	367	165

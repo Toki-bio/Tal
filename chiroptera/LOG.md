@@ -180,13 +180,16 @@ contains the four names; until then the badge is NA, not a false zero. The badge
 assigned totals. The old SubFam plate is not rebuilt: `--add` does not rerun SubFam, so that button stays
 the Rhin-1/VES plate.
 
-### MEG results pushed (2026-09-27): rle, tbr, tpe, hla
+### MEG results pushed (2026-09-27): rle, tbr, tpe, hla, mgi, mev
 
-Search of the four new consensuses was the fast part (about 10 minutes). The wall clock after that is
-publish: boundary walk, then `mafft --localpair --maxiterate 1000` on each plate of ~100 copies.
-On mev, MEG-RS 5′ was still shared at the 1000 bp cap (`STILL_BAD`, island fraction 0.33) and that
-extension is in the sequences being aligned (median length 1640 bp, consensus 135 bp). mev is still
-in that MAFFT. mgi has started. The queue is two adds at a time because `disk_guard` holds a job slot.
+Search of the four new consensuses is the fast part: on mev, `sear` for all four took 4 minutes and the
+incremental re-vote 2 minutes. The wall clock after that is publish. On mev the border loop walked MEG-RS
+5′ out to the 1000 bp cap and it was still shared (`STILL_BAD`, island fraction 0.33): 54 minutes. step8a
+then aligned those widened copies (median 1640 bp around a 135 bp consensus) with
+`mafft --localpair --maxiterate 1000`: 9 minutes for MEG-RS alone. Whole add: mev 79 min, tbr 43, hla 23,
+rle 10, tpe 9, mgi 7. On hla the border loop raised `IndexError` in `border_loop_subfam.py` for two small MEG
+sets; the pipeline logged WARN and published those plates without extension.
+The queue is two adds at a time because `disk_guard` holds a job slot.
 
 | code | MEG-RL | MEG-RS | MEG-T2 | MEG-TR | note |
 |---|---|---|---|---|---|
@@ -194,6 +197,8 @@ in that MAFFT. mgi has started. The queue is two adds at a time because `disk_gu
 | tbr | 14 sim 0.16 | 273 sim 0.79 | 92 sim 0.07 | 26 sim 0.16 | MEG-RS at 0.79 is not background. Look at `tbr_MEG-RS_top100.aln.fa` before calling MEG absent from this molossid |
 | tpe | 16 sim 0.19 | 57 sim 0.24 | 118 sim 0.09 | 26 sim 0.12 | MEG here is weak |
 | hla | 4,034 sim 0.27 | 113 sim 0.63 | 90 sim 0.07 | 766 sim 0.31 | MEG-RL count is large and the similarity is low; MEG-TR conflict 97% |
+| mgi | 19 sim 0.18 | 310 sim 0.20 | 70 sim 0.09 | 39 sim 0.14 | background; MEG-RS firm only 9 of 310 |
+| mev | 8 sim 0.21 | 372 sim 0.77 | 128 sim 0.11 | 27 sim 0.14 | MEG-RS like tbr: high similarity, and its 5′ flank is shared past 1000 bp, so these hits sit inside a longer common sequence. Not called a MEG family until the plate is read |
 
 Reports and the new plates are in each species directory. Rhin-1 and VES counts are the carried-forward assignments (tbr VES 640,224; tpe Rhin-1 56,208; hla Rhin-1 70,867).
 
