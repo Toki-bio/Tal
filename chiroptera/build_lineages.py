@@ -45,9 +45,10 @@ LEGACY = {
     "rda": {"Rhin-1": (30169, 23850, 0.48), "VES": None, "tag": ("tag-partial", "pending manual review"),
             "note": "Rhin-1-only search",
             "acts": [("msa", "rhin/alignments/rda_subfam_input_30k.aln.fa", "rda (hap1) Rhin-1 SubFam input, 600 chunk consensi + anchor", "SubFam input (600 chunks)")]},
-    "lly": {"Rhin-1": (290, 290, 0.16), "VES": (11, 11, 0.14), "tag": ("tag-partial", "Rhin-1 + VES"),
+    "lly": {"Rhin-1": (290, 290, 0.16), "VES": (11, 11, 0.14), "tag": ("tag-ok", "full report"),
             "note": "fragmented assembly (1.9 M scaffolds); <i>Macroderma</i> (mgi) is the better Megadermatidae genome",
-            "acts": [("btn", "chiroptera/lly/report.html", "<i>Lyroderma lyra</i> &mdash; report"),
+            # full report with alignments since the MEG add (2026-09-27); the old chiroptera/lly report had none
+            "acts": [("btn", "lly/report.html", "<i>Lyroderma lyra</i> &mdash; full report"),
                      ("msa", "chiroptera/lly/lly_subfam_input.aln.fa", "lly SubFam input, 6 chunk consensi + Rhin-1 + VES", "SubFam input (6 chunks)")]},
 }
 
