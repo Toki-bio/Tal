@@ -133,3 +133,14 @@ All 25 genomes are published. The 13 published before the fix were republished w
 shared-flank corrections (SINEderella ae764db, SINE-discriminator cedfe1b); later ones were published with them.
 The only edge change in the republish: cth Rhin-1 rand100 +56 bp at 3'. Assembly-QC tables in the run dirs
 were recomputed after a QC bug (SINEderella dd552e5); all 19 chromosome-level assemblies are SOLID.
+
+### De novo candidates, hla and tbr (finished 2026-09-27 06:16 / 06:46 MSK)
+`~/chiro/chiro_denovo.sh`: AnnoSINE2 mode 3 (`-a 2`, 8 threads, `-temd` on /home, HMM watchdog - no stalls)
++ sine_scan.sh (2a1dfa0, v2 SINEbase+literature fragment bank, 1764 fragments) -> merge -> k-mer thinning
+(kmer_thin_singletons.py) -> SubFam 50. Stops at the candidate alignment for his review.
+| code | AnnoSINE2 seeds | scan candidates | combined | kept after thinning | SubFam chunks |
+|---|---|---|---|---|---|
+| hla | 220 | 13,866 | 14,086 | 5,994 | 119 |
+| tbr | 1,097 | 20,318 | 21,415 | 9,532 | 190 |
+Published: `hla/alignments/hla_denovo_candidates_119chunks.aln.fa`, `tbr/alignments/tbr_denovo_candidates_190chunks.aln.fa`.
+Clustered, not assigned or classified: input for manual review, not a result.

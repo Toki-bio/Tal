@@ -22,7 +22,7 @@ import sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PAGE = os.path.join(ROOT, "chiroptera.html")
 SINES = ["Rhin-1", "VES"]
-DENOVO_PENDING = {"hla", "tbr"}  # de novo chains launched 2026-09-26
+DENOVO_PENDING = set()  # hla, tbr de novo chains finished 2026-09-27
 
 # (copies, firm, sim median) per SINE; None = not searched. Earlier runs: Rhin-1 was the
 # 177 bp sanitised consensus (IUPAC codes deleted), and rsi/rre/rda had no VES in the bank.
