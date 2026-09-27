@@ -231,16 +231,16 @@ def tree_svg(rows):
         y0, y1 = ly[fams[0]] - STEP / 2, ly[fams[-1]] + STEP / 2
         defs.append(f'<linearGradient id="band_{sf}" x1="0" x2="1"><stop offset="0" stop-color="{col}" stop-opacity="0"/>'
                     f'<stop offset=".45" stop-color="{col}" stop-opacity=".35"/><stop offset="1" stop-color="{col}"/></linearGradient>')
-        out.append(f'<rect x="{X0}" y="{y0}" width="{1146 - X0}" height="{y1 - y0}" fill="url(#band_{sf})"/>')
+        out.append(f'<rect x="{X0}" y="{y0}" width="{1212 - X0}" height="{y1 - y0}" fill="url(#band_{sf})"/>')
         if y1 - y0 > 60:
             fs = min(15, round((y1 - y0 - 8) / (0.56 * len(sf)), 1))  # shrink to fit short bands
-            out.append(f'<text transform="translate(1132,{(y0 + y1) / 2}) rotate(90)" text-anchor="middle" '
+            out.append(f'<text transform="translate(1198,{(y0 + y1) / 2}) rotate(90)" text-anchor="middle" '
                        f'dominant-baseline="central" font-size="{fs}" font-weight="700" fill="#222">{sf}</text>')
     for so, col in SUBORDER.items():
         fams = [g["family"] for g in rows if g["suborder"] == so]
         y0, y1 = ly[fams[0]] - STEP / 2, ly[fams[-1]] + STEP / 2
-        out.append(f'<rect x="1148" y="{y0 + 1}" width="42" height="{y1 - y0 - 2}" rx="12" fill="{col}"/>')
-        out.append(f'<text transform="translate(1169,{(y0 + y1) / 2}) rotate(90)" text-anchor="middle" '
+        out.append(f'<rect x="1214" y="{y0 + 1}" width="42" height="{y1 - y0 - 2}" rx="12" fill="{col}"/>')
+        out.append(f'<text transform="translate(1235,{(y0 + y1) / 2}) rotate(90)" text-anchor="middle" '
                    f'dominant-baseline="central" font-size="19" font-weight="700" fill="#fff">{so}</text>')
 
     # branches, crown triangles, node ages, red dots
@@ -269,7 +269,7 @@ def tree_svg(rows):
 
     # leaves: family name, one badge per SINE, genome codes linking to reports.
     # MEG is one badge: the sum of the four families. Each locus is assigned to one family.
-    BX = {"Rhin-1": 972, "VES": 1036, "MEG": 1100}
+    BX = {"Rhin-1": 992, "VES": 1056, "MEG": 1120}
     LABEL = {"Rhin-1": "Rhin", "VES": "VES", "MEG": "MEG"}
     for s, bx in BX.items():
         out.append(f'<text x="{bx + 30}" y="{TOP - 6}" text-anchor="middle" font-size="12" font-weight="700" '

@@ -180,7 +180,7 @@ contains the four names; until then the badge is NA, not a false zero. The badge
 assigned totals. The old SubFam plate is not rebuilt: `--add` does not rerun SubFam, so that button stays
 the Rhin-1/VES plate.
 
-### MEG results pushed (2026-09-27): rle, tbr, tpe, hla, mgi, mev
+### MEG results pushed (2026-09-27): rle, tbr, tpe, hla, mgi, mev, cth, rmi
 
 Search of the four new consensuses is the fast part: on mev, `sear` for all four took 4 minutes and the
 incremental re-vote 2 minutes. The wall clock after that is publish. On mev the border loop walked MEG-RS
@@ -199,6 +199,15 @@ The queue is two adds at a time because `disk_guard` holds a job slot.
 | hla | 4,034 sim 0.27 | 113 sim 0.63 | 90 sim 0.07 | 766 sim 0.31 | MEG-RL count is large and the similarity is low; MEG-TR conflict 97% |
 | mgi | 19 sim 0.18 | 310 sim 0.20 | 70 sim 0.09 | 39 sim 0.14 | background; MEG-RS firm only 9 of 310 |
 | mev | 8 sim 0.21 | 372 sim 0.77 | 128 sim 0.11 | 27 sim 0.14 | MEG-RS like tbr: high similarity, and its 5′ flank is shared past 1000 bp, so these hits sit inside a longer common sequence. Not called a MEG family until the plate is read |
+| cth | 21 sim 0.12 | 245 sim 0.19 | 68 sim 0.08 | 34 sim 0.14 | background; MEG-RS firm only 4 of 245 |
+| rmi | 8 sim 0.13 | 162 sim 0.19 | 222 sim 0.09 | 87 sim 0.13 | background |
+
+On the page, NA means that SINE has not been searched in that genome yet; a searched SINE with no copies shows 0.
+MEG NA marks genomes still in the add queue. VES NA on Rhinolophidae is permanent for the current runs:
+rsi, rre and rda were searched with Rhin-1 only. lly had no plates because its report was built without publish;
+its MEG add runs with `--publish`, which writes them.
+The tree's badge column was moved right (Rhin 992, VES 1056, MEG 1120) and the superfamily labels and suborder bars
+moved past it, because the MEG badge sat on the superfamily text and the three *Rhinolophus* names reached the Rhin badge.
 
 Reports and the new plates are in each species directory. Rhin-1 and VES counts are the carried-forward assignments (tbr VES 640,224; tpe Rhin-1 56,208; hla Rhin-1 70,867).
 
