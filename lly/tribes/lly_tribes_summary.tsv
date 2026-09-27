@@ -1,0 +1,25 @@
+rank	tribe_id	cluster_id	seq_count	assigned_count	unassigned_or_missing_count	dominant_subfamily	dominant_subfamily_count	dominant_subfamily_pct_total	dominant_subfamily_pct_assigned	subfamily_breakdown	soft_count	soft_dominant	soft_breakdown
+1	tribe01	544	29	0	29	NA	0	0.0	0.0		29	MEG-RS	MEG-RS:29
+2	tribe02	483	24	0	24	NA	0	0.0	0.0		20	MEG-RS	MEG-RS:20
+3	tribe03	281	17	0	17	NA	0	0.0	0.0		17	MEG-RS	MEG-RS:9,MEG-TR:8
+4	tribe04	748	16	0	16	NA	0	0.0	0.0		16	MEG-RS	MEG-RS:16
+5	tribe05	543	15	0	15	NA	0	0.0	0.0		12	MEG-RS	MEG-RS:12
+6	tribe06	547	14	0	14	NA	0	0.0	0.0		14	MEG-RS	MEG-RS:14
+7	tribe07	269	12	0	12	NA	0	0.0	0.0		11	MEG-TR	MEG-TR:8,MEG-RS:3
+8	tribe08	589	12	0	12	NA	0	0.0	0.0		12	MEG-RS	MEG-RS:12
+9	tribe09	638	12	0	12	NA	0	0.0	0.0		12	MEG-RS	MEG-RS:12
+10	tribe10	290	9	0	9	NA	0	0.0	0.0		9	MEG-RS	MEG-RS:8,MEG-TR:1
+11	tribe11	575	8	0	8	NA	0	0.0	0.0		6	MEG-RS	MEG-RS:6
+12	tribe12	584	8	0	8	NA	0	0.0	0.0		8	MEG-RS	MEG-RS:8
+13	tribe13	596	8	0	8	NA	0	0.0	0.0		8	MEG-RS	MEG-RS:8
+14	tribe14	643	8	0	8	NA	0	0.0	0.0		8	MEG-RS	MEG-RS:8
+15	tribe15	690	8	0	8	NA	0	0.0	0.0		8	MEG-RS	MEG-RS:8
+16	tribe16	713	8	0	8	NA	0	0.0	0.0		8	MEG-RS	MEG-RS:8
+17	tribe17	745	7	0	7	NA	0	0.0	0.0		7	MEG-RS	MEG-RS:7
+18	tribe18	283	6	0	6	NA	0	0.0	0.0		6	MEG-TR	MEG-TR:4,MEG-RS:2
+19	tribe19	302	6	0	6	NA	0	0.0	0.0		6	MEG-TR	MEG-TR:6
+20	tribe20	509	6	0	6	NA	0	0.0	0.0		6	MEG-RS	MEG-RS:6
+21	tribe21	542	5	0	5	NA	0	0.0	0.0		5	MEG-RS	MEG-RS:5
+22	tribe22	581	5	0	5	NA	0	0.0	0.0		5	MEG-RS	MEG-RS:5
+23	tribe23	702	5	0	5	NA	0	0.0	0.0		5	MEG-RS	MEG-RS:5
+24	tribe24	706	5	5	0	MEG-RS	5	100.0	100.0	MEG-RS:5	0		

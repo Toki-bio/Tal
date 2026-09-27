@@ -1,0 +1,98 @@
+rank	tribe_id	cluster_id	seq_count	assigned_count	unassigned_or_missing_count	dominant_subfamily	dominant_subfamily_count	dominant_subfamily_pct_total	dominant_subfamily_pct_assigned	subfamily_breakdown	soft_count	soft_dominant	soft_breakdown
+1	tribe01	35362	37	37	0	Rhin-1	37	100.0	100.0	Rhin-1:37	37	Rhin-1	Rhin-1:37
+2	tribe02	28665	31	31	0	Rhin-1	31	100.0	100.0	Rhin-1:31	31	Rhin-1	Rhin-1:31
+3	tribe03	55047	25	0	25	NA	0	0.0	0.0		25	MEG-RS	MEG-RS:25
+4	tribe04	35405	21	21	0	Rhin-1	21	100.0	100.0	Rhin-1:21	21	Rhin-1	Rhin-1:21
+5	tribe05	26082	20	20	0	Rhin-1	20	100.0	100.0	Rhin-1:20	0		
+6	tribe06	43786	18	18	0	Rhin-1	18	100.0	100.0	Rhin-1:18	0		
+7	tribe07	44822	18	18	0	Rhin-1	18	100.0	100.0	Rhin-1:18	0		
+8	tribe08	14535	17	17	0	Rhin-1	17	100.0	100.0	Rhin-1:17	0		
+9	tribe09	35411	17	17	0	Rhin-1	17	100.0	100.0	Rhin-1:17	17	Rhin-1	Rhin-1:17
+10	tribe10	30094	16	16	0	Rhin-1	16	100.0	100.0	Rhin-1:16	16	Rhin-1	Rhin-1:16
+11	tribe11	39569	15	15	0	Rhin-1	15	100.0	100.0	Rhin-1:15	15	Rhin-1	Rhin-1:15
+12	tribe12	2138	14	14	0	Rhin-1	14	100.0	100.0	Rhin-1:14	0		
+13	tribe13	35347	14	14	0	Rhin-1	14	100.0	100.0	Rhin-1:14	14	Rhin-1	Rhin-1:14
+14	tribe14	35354	14	14	0	Rhin-1	14	100.0	100.0	Rhin-1:14	14	Rhin-1	Rhin-1:14
+15	tribe15	43787	14	14	0	Rhin-1	14	100.0	100.0	Rhin-1:14	14	Rhin-1	Rhin-1:14
+16	tribe16	35406	13	13	0	Rhin-1	13	100.0	100.0	Rhin-1:13	13	Rhin-1	Rhin-1:13
+17	tribe17	35339	11	11	0	Rhin-1	11	100.0	100.0	Rhin-1:11	11	Rhin-1	Rhin-1:11
+18	tribe18	35348	11	11	0	Rhin-1	11	100.0	100.0	Rhin-1:11	11	Rhin-1	Rhin-1:11
+19	tribe19	39748	11	11	0	Rhin-1	11	100.0	100.0	Rhin-1:11	11	Rhin-1	Rhin-1:11
+20	tribe20	28856	10	10	0	Rhin-1	10	100.0	100.0	Rhin-1:10	0		
+21	tribe21	36889	10	10	0	Rhin-1	10	100.0	100.0	Rhin-1:10	10	Rhin-1	Rhin-1:10
+22	tribe22	20295	9	9	0	Rhin-1	9	100.0	100.0	Rhin-1:9	9	Rhin-1	Rhin-1:9
+23	tribe23	27212	9	9	0	Rhin-1	9	100.0	100.0	Rhin-1:9	0		
+24	tribe24	36854	9	9	0	Rhin-1	9	100.0	100.0	Rhin-1:9	9	Rhin-1	Rhin-1:9
+25	tribe25	36857	9	9	0	Rhin-1	9	100.0	100.0	Rhin-1:9	9	Rhin-1	Rhin-1:9
+26	tribe26	36899	9	9	0	Rhin-1	9	100.0	100.0	Rhin-1:9	9	Rhin-1	Rhin-1:9
+27	tribe27	7975	8	8	0	Rhin-1	8	100.0	100.0	Rhin-1:8	0		
+28	tribe28	27214	8	8	0	Rhin-1	8	100.0	100.0	Rhin-1:8	8	Rhin-1	Rhin-1:8
+29	tribe29	28664	8	8	0	Rhin-1	8	100.0	100.0	Rhin-1:8	8	Rhin-1	Rhin-1:8
+30	tribe30	32883	8	8	0	Rhin-1	8	100.0	100.0	Rhin-1:8	8	Rhin-1	Rhin-1:8
+31	tribe31	36888	8	8	0	Rhin-1	8	100.0	100.0	Rhin-1:8	8	Rhin-1	Rhin-1:8
+32	tribe32	42355	8	8	0	Rhin-1	8	100.0	100.0	Rhin-1:8	8	Rhin-1	Rhin-1:8
+33	tribe33	45539	8	8	0	Rhin-1	8	100.0	100.0	Rhin-1:8	0		
+34	tribe34	45779	8	8	0	Rhin-1	8	100.0	100.0	Rhin-1:8	8	Rhin-1	Rhin-1:8
+35	tribe35	46980	8	8	0	Rhin-1	8	100.0	100.0	Rhin-1:8	8	Rhin-1	Rhin-1:8
+36	tribe36	14539	7	7	0	Rhin-1	7	100.0	100.0	Rhin-1:7	0		
+37	tribe37	16468	7	7	0	Rhin-1	7	100.0	100.0	Rhin-1:7	0		
+38	tribe38	19147	7	7	0	Rhin-1	7	100.0	100.0	Rhin-1:7	0		
+39	tribe39	19963	7	7	0	Rhin-1	7	100.0	100.0	Rhin-1:7	0		
+40	tribe40	21760	7	7	0	Rhin-1	7	100.0	100.0	Rhin-1:7	0		
+41	tribe41	25496	7	7	0	Rhin-1	7	100.0	100.0	Rhin-1:7	7	Rhin-1	Rhin-1:7
+42	tribe42	29535	7	7	0	Rhin-1	7	100.0	100.0	Rhin-1:7	0		
+43	tribe43	30974	7	7	0	Rhin-1	7	100.0	100.0	Rhin-1:7	0		
+44	tribe44	39679	7	7	0	Rhin-1	7	100.0	100.0	Rhin-1:7	7	Rhin-1	Rhin-1:7
+45	tribe45	413	6	6	0	Rhin-1	6	100.0	100.0	Rhin-1:6	6	Rhin-1	Rhin-1:6
+46	tribe46	8965	6	6	0	Rhin-1	6	100.0	100.0	Rhin-1:6	0		
+47	tribe47	12899	6	6	0	Rhin-1	6	100.0	100.0	Rhin-1:6	0		
+48	tribe48	14536	6	6	0	Rhin-1	6	100.0	100.0	Rhin-1:6	0		
+49	tribe49	16021	6	6	0	Rhin-1	6	100.0	100.0	Rhin-1:6	0		
+50	tribe50	17103	6	6	0	Rhin-1	6	100.0	100.0	Rhin-1:6	0		
+51	tribe51	19148	6	6	0	Rhin-1	6	100.0	100.0	Rhin-1:6	0		
+52	tribe52	27459	6	6	0	Rhin-1	6	100.0	100.0	Rhin-1:6	0		
+53	tribe53	31371	6	6	0	Rhin-1	6	100.0	100.0	Rhin-1:6	6	Rhin-1	Rhin-1:6
+54	tribe54	32310	6	6	0	Rhin-1	6	100.0	100.0	Rhin-1:6	0		
+55	tribe55	35464	6	6	0	Rhin-1	6	100.0	100.0	Rhin-1:6	6	Rhin-1	Rhin-1:6
+56	tribe56	36868	6	6	0	Rhin-1	6	100.0	100.0	Rhin-1:6	6	Rhin-1	Rhin-1:6
+57	tribe57	36915	6	6	0	Rhin-1	6	100.0	100.0	Rhin-1:6	6	Rhin-1	Rhin-1:6
+58	tribe58	36925	6	6	0	Rhin-1	6	100.0	100.0	Rhin-1:6	6	Rhin-1	Rhin-1:6
+59	tribe59	36934	6	6	0	Rhin-1	6	100.0	100.0	Rhin-1:6	6	Rhin-1	Rhin-1:6
+60	tribe60	37592	6	6	0	Rhin-1	6	100.0	100.0	Rhin-1:6	6	Rhin-1	Rhin-1:6
+61	tribe61	39524	6	6	0	Rhin-1	6	100.0	100.0	Rhin-1:6	6	Rhin-1	Rhin-1:6
+62	tribe62	39561	6	6	0	Rhin-1	6	100.0	100.0	Rhin-1:6	6	Rhin-1	Rhin-1:6
+63	tribe63	39565	6	6	0	Rhin-1	6	100.0	100.0	Rhin-1:6	6	Rhin-1	Rhin-1:6
+64	tribe64	45778	6	6	0	Rhin-1	6	100.0	100.0	Rhin-1:6	6	Rhin-1	Rhin-1:6
+65	tribe65	47352	6	6	0	Rhin-1	6	100.0	100.0	Rhin-1:6	6	Rhin-1	Rhin-1:6
+66	tribe66	6011	5	5	0	Rhin-1	5	100.0	100.0	Rhin-1:5	0		
+67	tribe67	7437	5	5	0	Rhin-1	5	100.0	100.0	Rhin-1:5	0		
+68	tribe68	7978	5	5	0	Rhin-1	5	100.0	100.0	Rhin-1:5	0		
+69	tribe69	8458	5	5	0	Rhin-1	5	100.0	100.0	Rhin-1:5	0		
+70	tribe70	8816	5	5	0	Rhin-1	5	100.0	100.0	Rhin-1:5	0		
+71	tribe71	11540	5	5	0	Rhin-1	5	100.0	100.0	Rhin-1:5	0		
+72	tribe72	15236	5	5	0	Rhin-1	5	100.0	100.0	Rhin-1:5	0		
+73	tribe73	15976	5	5	0	Rhin-1	5	100.0	100.0	Rhin-1:5	0		
+74	tribe74	17084	5	5	0	Rhin-1	5	100.0	100.0	Rhin-1:5	0		
+75	tribe75	22925	5	5	0	Rhin-1	5	100.0	100.0	Rhin-1:5	0		
+76	tribe76	26091	5	5	0	Rhin-1	5	100.0	100.0	Rhin-1:5	0		
+77	tribe77	27230	5	5	0	Rhin-1	5	100.0	100.0	Rhin-1:5	0		
+78	tribe78	27446	5	5	0	Rhin-1	5	100.0	100.0	Rhin-1:5	5	Rhin-1	Rhin-1:5
+79	tribe79	30984	5	5	0	Rhin-1	5	100.0	100.0	Rhin-1:5	0		
+80	tribe80	35346	5	5	0	Rhin-1	5	100.0	100.0	Rhin-1:5	5	Rhin-1	Rhin-1:5
+81	tribe81	35408	5	5	0	Rhin-1	5	100.0	100.0	Rhin-1:5	5	Rhin-1	Rhin-1:5
+82	tribe82	35413	5	5	0	Rhin-1	5	100.0	100.0	Rhin-1:5	5	Rhin-1	Rhin-1:5
+83	tribe83	36855	5	5	0	Rhin-1	5	100.0	100.0	Rhin-1:5	5	Rhin-1	Rhin-1:5
+84	tribe84	36890	5	5	0	Rhin-1	5	100.0	100.0	Rhin-1:5	5	Rhin-1	Rhin-1:5
+85	tribe85	36937	5	5	0	Rhin-1	5	100.0	100.0	Rhin-1:5	5	Rhin-1	Rhin-1:5
+86	tribe86	39651	5	5	0	Rhin-1	5	100.0	100.0	Rhin-1:5	5	Rhin-1	Rhin-1:5
+87	tribe87	41122	5	5	0	Rhin-1	5	100.0	100.0	Rhin-1:5	5	Rhin-1	Rhin-1:5
+88	tribe88	43017	5	5	0	Rhin-1	5	100.0	100.0	Rhin-1:5	5	Rhin-1	Rhin-1:5
+89	tribe89	43793	5	5	0	Rhin-1	5	100.0	100.0	Rhin-1:5	5	Rhin-1	Rhin-1:5
+90	tribe90	43806	5	5	0	Rhin-1	5	100.0	100.0	Rhin-1:5	5	Rhin-1	Rhin-1:5
+91	tribe91	44253	5	5	0	Rhin-1	5	100.0	100.0	Rhin-1:5	5	Rhin-1	Rhin-1:5
+92	tribe92	44254	5	5	0	Rhin-1	5	100.0	100.0	Rhin-1:5	5	Rhin-1	Rhin-1:5
+93	tribe93	44259	5	5	0	Rhin-1	5	100.0	100.0	Rhin-1:5	5	Rhin-1	Rhin-1:5
+94	tribe94	47334	5	5	0	Rhin-1	5	100.0	100.0	Rhin-1:5	5	Rhin-1	Rhin-1:5
+95	tribe95	49043	5	5	0	Rhin-1	5	100.0	100.0	Rhin-1:5	5	Rhin-1	Rhin-1:5
+96	tribe96	49508	5	5	0	Rhin-1	5	100.0	100.0	Rhin-1:5	5	Rhin-1	Rhin-1:5
+97	tribe97	52916	5	5	0	Rhin-1	5	100.0	100.0	Rhin-1:5	5	Rhin-1	Rhin-1:5

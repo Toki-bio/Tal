@@ -1,0 +1,66 @@
+rank	tribe_id	cluster_id	seq_count	assigned_count	unassigned_or_missing_count	dominant_subfamily	dominant_subfamily_count	dominant_subfamily_pct_total	dominant_subfamily_pct_assigned	subfamily_breakdown	soft_count	soft_dominant	soft_breakdown
+1	tribe01	64480	173	0	173	NA	0	0.0	0.0		173	MEG-RS	MEG-RS:173
+2	tribe02	64416	156	0	156	NA	0	0.0	0.0		156	MEG-RS	MEG-RS:156
+3	tribe03	64468	155	0	155	NA	0	0.0	0.0		155	MEG-RS	MEG-RS:155
+4	tribe04	64476	153	0	153	NA	0	0.0	0.0		153	MEG-RS	MEG-RS:153
+5	tribe05	64469	149	0	149	NA	0	0.0	0.0		149	MEG-RS	MEG-RS:149
+6	tribe06	54395	139	0	139	NA	0	0.0	0.0		139	MEG-RS	MEG-RS:138,MEG-TR:1
+7	tribe07	64486	97	0	97	NA	0	0.0	0.0		97	MEG-RS	MEG-RS:97
+8	tribe08	64478	75	0	75	NA	0	0.0	0.0		75	MEG-RS	MEG-RS:75
+9	tribe09	64488	75	0	75	NA	0	0.0	0.0		75	MEG-RS	MEG-RS:75
+10	tribe10	54379	49	0	49	NA	0	0.0	0.0		49	MEG-TR	MEG-TR:49
+11	tribe11	649	44	44	0	r3_58seqs	44	100.0	100.0	r3_58seqs:44	0		
+12	tribe12	53794	43	0	43	NA	0	0.0	0.0		43	MEG-TR	MEG-TR:43
+13	tribe13	51695	36	0	36	NA	0	0.0	0.0		36	MEG-RS	MEG-RS:35,MEG-TR:1
+14	tribe14	64471	36	0	36	NA	0	0.0	0.0		36	MEG-RS	MEG-RS:36
+15	tribe15	64485	35	0	35	NA	0	0.0	0.0		35	MEG-RS	MEG-RS:35
+16	tribe16	28968	34	34	0	r3_58seqs	34	100.0	100.0	r3_58seqs:34	0		
+17	tribe17	64499	30	0	30	NA	0	0.0	0.0		30	MEG-RS	MEG-RS:30
+18	tribe18	64479	28	0	28	NA	0	0.0	0.0		28	MEG-RS	MEG-RS:28
+19	tribe19	38617	25	25	0	r6_210seqs	25	100.0	100.0	r6_210seqs:25	0		
+20	tribe20	51694	24	0	24	NA	0	0.0	0.0		24	MEG-TR	MEG-TR:20,MEG-RS:4
+21	tribe21	59676	23	23	0	r8_83seqs	23	100.0	100.0	r8_83seqs:23	0		
+22	tribe22	64494	23	0	23	NA	0	0.0	0.0		23	MEG-RS	MEG-RS:23
+23	tribe23	4627	22	22	0	r3_58seqs	22	100.0	100.0	r3_58seqs:22	0		
+24	tribe24	44166	21	21	0	r8_83seqs	21	100.0	100.0	r8_83seqs:21	0		
+25	tribe25	48465	21	0	21	NA	0	0.0	0.0		21	MEG-RS	MEG-RS:20,MEG-TR:1
+26	tribe26	54226	21	21	0	r8_83seqs	21	100.0	100.0	r8_83seqs:21	21	r10_19seqs	r10_19seqs:11,r8_83seqs:10
+27	tribe27	64495	20	0	20	NA	0	0.0	0.0		20	MEG-RS	MEG-RS:20
+28	tribe28	18492	19	19	0	r6_210seqs	19	100.0	100.0	r6_210seqs:19	0		
+29	tribe29	54372	19	0	19	NA	0	0.0	0.0		19	MEG-TR	MEG-TR:19
+30	tribe30	536	16	16	0	r3_58seqs	16	100.0	100.0	r3_58seqs:16	0		
+31	tribe31	64496	16	0	16	NA	0	0.0	0.0		16	MEG-RS	MEG-RS:16
+32	tribe32	575	15	14	1	r3_58seqs	14	93.33	100.0	r3_58seqs:14	1	r6_210seqs	r6_210seqs:1
+33	tribe33	1639	15	7	8	r2_3seqs	4	26.67	57.14	r2_3seqs:4,r3_58seqs:3	8	r6_210seqs	r6_210seqs:8
+34	tribe34	64492	14	0	14	NA	0	0.0	0.0		14	MEG-RS	MEG-RS:14
+35	tribe35	64477	13	0	13	NA	0	0.0	0.0		13	MEG-RS	MEG-RS:13
+36	tribe36	64572	13	0	13	NA	0	0.0	0.0		13	MEG-RS	MEG-RS:13
+37	tribe37	64484	12	0	12	NA	0	0.0	0.0		12	MEG-RS	MEG-RS:12
+38	tribe38	1506	11	11	0	r3_58seqs	11	100.0	100.0	r3_58seqs:11	0		
+39	tribe39	586	10	10	0	r3_58seqs	10	100.0	100.0	r3_58seqs:10	0		
+40	tribe40	64481	10	0	10	NA	0	0.0	0.0		10	MEG-RS	MEG-RS:10
+41	tribe41	582	9	9	0	r3_58seqs	9	100.0	100.0	r3_58seqs:9	0		
+42	tribe42	6380	9	9	0	r3_58seqs	9	100.0	100.0	r3_58seqs:9	0		
+43	tribe43	16262	8	8	0	r6_210seqs	8	100.0	100.0	r6_210seqs:8	0		
+44	tribe44	64568	8	0	8	NA	0	0.0	0.0		8	MEG-RS	MEG-RS:8
+45	tribe45	428	7	7	0	r3_58seqs	7	100.0	100.0	r3_58seqs:7	0		
+46	tribe46	1946	7	7	0	r3_58seqs	7	100.0	100.0	r3_58seqs:7	0		
+47	tribe47	32365	7	7	0	r6_210seqs	7	100.0	100.0	r6_210seqs:7	0		
+48	tribe48	42726	7	7	0	r7_133seqs	7	100.0	100.0	r7_133seqs:7	0		
+49	tribe49	53718	7	7	0	r1_9seqs	7	100.0	100.0	r1_9seqs:7	0		
+50	tribe50	680	6	6	0	r3_58seqs	6	100.0	100.0	r3_58seqs:6	0		
+51	tribe51	1782	6	5	1	r3_58seqs	5	83.33	100.0	r3_58seqs:5	1	r1_9seqs	r1_9seqs:1
+52	tribe52	49325	6	6	0	r5_27seqs	6	100.0	100.0	r5_27seqs:6	0		
+53	tribe53	54380	6	0	6	NA	0	0.0	0.0		6	MEG-TR	MEG-TR:5,MEG-RS:1
+54	tribe54	64483	6	0	6	NA	0	0.0	0.0		6	MEG-RS	MEG-RS:6
+55	tribe55	538	5	4	1	r3_58seqs	4	80.0	100.0	r3_58seqs:4	1	r6_210seqs	r6_210seqs:1
+56	tribe56	1493	5	1	4	r3_58seqs	1	20.0	100.0	r3_58seqs:1	4	r6_210seqs	r6_210seqs:4
+57	tribe57	5823	5	5	0	r3_58seqs	5	100.0	100.0	r3_58seqs:5	0		
+58	tribe58	11108	5	5	0	r3_58seqs	4	80.0	80.0	r3_58seqs:4,r1_9seqs:1	0		
+59	tribe59	12819	5	5	0	r3_58seqs	5	100.0	100.0	r3_58seqs:5	0		
+60	tribe60	15986	5	5	0	r3_58seqs	5	100.0	100.0	r3_58seqs:5	0		
+61	tribe61	17595	5	5	0	r6_210seqs	5	100.0	100.0	r6_210seqs:5	0		
+62	tribe62	19591	5	5	0	r6_210seqs	5	100.0	100.0	r6_210seqs:5	0		
+63	tribe63	35279	5	5	0	r6_210seqs	5	100.0	100.0	r6_210seqs:5	0		
+64	tribe64	37073	5	5	0	r8_83seqs	5	100.0	100.0	r8_83seqs:5	0		
+65	tribe65	52514	5	5	0	r8_83seqs	5	100.0	100.0	r8_83seqs:5	0		

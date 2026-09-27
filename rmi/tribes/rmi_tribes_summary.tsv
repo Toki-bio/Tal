@@ -1,0 +1,22 @@
+rank	tribe_id	cluster_id	seq_count	assigned_count	unassigned_or_missing_count	dominant_subfamily	dominant_subfamily_count	dominant_subfamily_pct_total	dominant_subfamily_pct_assigned	subfamily_breakdown	soft_count	soft_dominant	soft_breakdown
+1	tribe01	27381	70	70	0	MEG-RS	70	100.0	100.0	MEG-RS:70	0		
+2	tribe02	27307	69	0	69	NA	0	0.0	0.0		69	MEG-TR	MEG-TR:42,MEG-RS:27
+3	tribe03	14678	22	22	0	VES	22	100.0	100.0	VES:22	0		
+4	tribe04	24051	21	21	0	VES	21	100.0	100.0	VES:21	0		
+5	tribe05	6831	16	16	0	VES	16	100.0	100.0	VES:16	0		
+6	tribe06	1070	11	11	0	VES	11	100.0	100.0	VES:11	0		
+7	tribe07	12253	11	11	0	Rhin-1	11	100.0	100.0	Rhin-1:11	0		
+8	tribe08	5505	9	9	0	VES	9	100.0	100.0	VES:9	0		
+9	tribe09	13879	9	9	0	VES	9	100.0	100.0	VES:9	0		
+10	tribe10	6127	8	8	0	VES	8	100.0	100.0	VES:8	0		
+11	tribe11	13878	8	8	0	VES	8	100.0	100.0	VES:8	0		
+12	tribe12	6130	7	7	0	VES	7	100.0	100.0	VES:7	0		
+13	tribe13	26350	7	7	0	VES	7	100.0	100.0	VES:7	0		
+14	tribe14	6128	6	6	0	VES	6	100.0	100.0	VES:6	0		
+15	tribe15	8377	6	6	0	VES	6	100.0	100.0	VES:6	0		
+16	tribe16	19457	6	6	0	VES	6	100.0	100.0	VES:6	0		
+17	tribe17	27189	6	0	6	NA	0	0.0	0.0		6	MEG-TR	MEG-TR:6
+18	tribe18	8740	5	5	0	VES	5	100.0	100.0	VES:5	0		
+19	tribe19	10347	5	5	0	VES	5	100.0	100.0	VES:5	0		
+20	tribe20	18054	5	5	0	VES	5	100.0	100.0	VES:5	0		
+21	tribe21	18645	5	5	0	VES	5	100.0	100.0	VES:5	0		

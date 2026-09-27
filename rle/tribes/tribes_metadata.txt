@@ -1,0 +1,11 @@
+species=rle
+run_root=/home/toki/chiro/rle/run_add_20260927_143901
+input=/home/toki/chiro/rle/run_add_20260927_143901/genome.clean_step1/extracted.fasta
+method=SINEtribes-compatible vsearch --cluster_fast --id 0.99 --strand plus
+min_cluster_size=5
+top_alignment_tribes=10
+max_alignment_sequences=500
+sampling=python random.sample, seed 42
+alignment_flanks=50bp_left_70bp_right
+alignment_flank_method=strand-aware genome.clean.fa extraction via bedtools slop+getfasta
+alignment_flank_source=genome.clean.fa

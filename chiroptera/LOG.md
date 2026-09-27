@@ -214,3 +214,20 @@ Reports and the new plates are in each species directory. Rhin-1 and VES counts 
 
 - 2026-09-27: rre (*Rhinolophus rex*) MEG add published (run_add_20260927_181142): Rhin-1 32,408 (firm 23,305, sim median 0.50); MEG-T2 114, MEG-TR 53, MEG-RS 37, MEG-RL 19, all at sim median 0.10-0.22. Card now links rre/report.html (dbe04cd). rda still pending.
 - 2026-09-27: rda (*Rhinolophus darlingi*) MEG add published; card links rda/report.html. rsi MEG add published (run in ~/rhin/rsi/run_add_20260927_180847, from the peel10 bank; bundler fixed to look there): MEG-RS 1,586 (sim median 0.22), MEG-TR 170, MEG-T2 116, MEG-RL 22. Only the MEG plates were copied; hand-corrected r1-r10 plates kept.
+
+## 2026-09-27 — SINE Tribes on all 25 species pages
+
+Same method as the Tal species (eri `scripts/extract_tribes.sh`): vsearch `--cluster_fast --id 0.99 --strand plus`
+on each run's Step1 extracted pool, tribes >= 5 copies, the 10 largest aligned (<= 500 copies, 50L/70R flanks).
+Changes: the summary lists every tribe (eri kept 10), sampling seed 42, and soft-call columns
+(`soft_count/soft_dominant/soft_breakdown`, from results/unassigned.tsv). Section injected by
+`chiroptera/inject_tribes.py` (saq/ccr layout without the hand-annotation columns). Scripts in
+`chiroptera/tribes_scripts/`; server outputs `~/chiro/tribes/<code>/`.
+
+- Top tribes follow the lineages: VES in vespertilionoids (vmu largest 2,538, cth 1,823), Rhin-1 in rhinolophoids,
+  MEG-RL/MEG-RS in hla, rle, mev.
+- rsi, lly, mgi top tribes had NO firmly assigned member: they are MEG-RS/MEG-TR copies that failed 10/10
+  unanimity. Cause: MEG-RS (135 bp) = MEG-RL 1-134 at 97.8 %, so short copies split their votes
+  (rsi: 1,556 of 1,570 soft MEG-RS voted MEG-RL 6-7/10). Also why rsi MEG-RS top100 holds only 16 copies.
+  Open: exclude MEG-RS vs build MEG plates from firm+soft — his call.
+- Not done: eri's per-tribe tandem-repeat check (TRF), which found 3/10 eri tribes inside satellites.
