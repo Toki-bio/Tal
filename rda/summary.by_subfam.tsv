@@ -1,0 +1,6 @@
+subfam	firm_assigned	soft_assigned	total_assigned	leak_n	conf_alt_n	firm_pct	total_pct	leak_pct	conf_alt_pct	sim_mean	sim_median
+Rhin-1	23946	6223	30169	0	2	78.86	99.36	0.00	0.01	0.5020	0.4975
+MEG-T2	103	8	111	0	0	0.34	0.37	0.00	0.00	0.0832	0.0821
+MEG-TR	18	19	37	0	0	0.06	0.12	0.00	0.00	0.1263	0.1225
+MEG-RL	13	2	15	0	2	0.04	0.05	0.00	15.38	0.1706	0.1377
+MEG-RS	10	22	32	0	0	0.03	0.11	0.00	0.00	0.2233	0.2017
