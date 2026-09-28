@@ -18,6 +18,9 @@ republished 2026-09-28 on the fast step8a (SINEderella 332f9fe).
   `report.html`, dropping the blocks Tal injects. Re-injected; the nav block now also carries
   species · family · accession (from `chiroptera/genomes.tsv`). Run `chiroptera/after_pull.sh` after
   every pull of republished reports.
+- The header fix first did not reach the pages: `publish_run.sh` ran a copy of step6 frozen in each
+  run dir. It now always publishes with the installed step6 (SINEderella `d730836`). All 25 pages
+  rebuilt 2026-09-28 21:33 MSK (Tal `aa2d292`): seed 42 shown, plain-language comments, headers filled.
 
 ## 1. r9_15seqs — the reference case
 
