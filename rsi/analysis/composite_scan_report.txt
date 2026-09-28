@@ -1,0 +1,33 @@
+subfamily    assigned   scan | single   left  right middle |  inLoc   near |  base | cut(mode)    top partners
+r3_58seqs      22352  22352 |  47.2%  18.3%  29.6%   4.9% |  51.4%  69.7% | 0.73% | 160-169 (4101) down r3_58seqs same 5062, up r2_3seqs same 2969, up r10_19seqs same 2530
+r6_210seqs     13375  13375 |  58.7%   0.7%  40.3%   0.3% |  32.7%   5.6% | 0.80% | 220-229 (86) up r5_27seqs same 5120, up r8_83seqs same 171, up r6_210seqs same 46
+r7_133seqs      6955   6955 |  99.1%   0.5%   0.3%   0.0% |   0.2%   4.2% | 0.58% | 150-159 (30) down r8_83seqs same 7, up r6_210seqs same 7, down r1_9seqs same 6
+r9_15seqs       6937   6937 |  99.1%   0.5%   0.4%   0.0% |   0.1%   3.6% | 0.42% | 100-109 (33) up r6_210seqs same 9, down r1_9seqs same 7, down r10_groupB same 6
+r10_groupB      4181   4181 |  98.0%   0.7%   1.1%   0.2% |   0.8%   5.3% | 1.32% | 390-399 (19) up r6_210seqs same 13, down r1_9seqs same 11, up r8_83seqs same 8
+r8_83seqs       3992   3992 |  89.1%   3.7%   7.1%   0.1% |   6.3%   9.2% | 0.66% | 130-139 (96) up r8_83seqs same 177, down r8_83seqs same 102, up r5_27seqs same 86
+r1_9seqs        3573   3573 |  94.5%   4.5%   0.8%   0.2% |   3.3%  70.2% | 0.58% | 150-159 (144) down r3_58seqs same 74, down r2_3seqs same 41, down r8_83seqs same 40
+r5_27seqs       3472   3472 |  60.4%  35.5%   3.9%   0.2% |   5.9%   5.7% | 0.65% | 120-129 (756) down r6_210seqs same 971, up r5_27seqs same 121, down r5_27seqs same 92
+r10_19seqs      1072   1072 |  83.1%  13.8%   2.8%   0.1% |   7.6%  14.2% | 0.55% | 140-149 (109) down r10_groupB same 123, down r8_83seqs same 21, up r10_19seqs same 16
+r2_3seqs         386    386 |   6.5%  64.8%   8.8%  19.9% |  79.5%  72.3% | 0.55% | 140-149 (311) down r3_58seqs same 280, up r5_27seqs same 52, up r2_3seqs same 33
+MEG-T2           110    110 |   0.0%   0.0%   0.0%   0.0% |   0.0%   0.0% | 0.82% | -            
+r4_32seqs         34     34 |  44.1%  26.5%  23.5%   5.9% |  41.2%  55.9% | 0.55% | 140-149 (8)  down r3_58seqs same 10, up r5_27seqs same 4, up r1_9seqs same 3
+MEG-RS            24     24 |  41.7%   0.0%   0.0%   0.0% |   0.0%   0.0% | 0.52% | -            
+MEG-RL            21     21 |  57.1%   0.0%   0.0%   0.0% |   0.0%   0.0% | 0.74% | -            
+MEG-TR            17     17 |   0.0%   0.0%   0.0%   0.0% |   0.0%   0.0% | 0.71% | -            
+
+nearest other copy 30-200 bp away (top 3) and adjacent-partner gap quartiles:
+  r3_58seqs    gap p25/med/p75 -2/0/0     near: up r1_9seqs 13848, down r3_58seqs 652, up r5_27seqs 334
+  r6_210seqs   gap p25/med/p75 1/9/10     near: up r5_27seqs 168, up r8_83seqs 110, down r1_9seqs 60
+  r7_133seqs   gap p25/med/p75 12/18/23   near: up r3_58seqs 37, down r1_9seqs 33, up r1_9seqs 23
+  r9_15seqs    gap p25/med/p75 13/19/26   near: up r3_58seqs 32, down r1_9seqs 31, down r3_58seqs 19
+  r10_groupB   gap p25/med/p75 4/16/26    near: up r10_19seqs 37, up r6_210seqs 26, up r3_58seqs 22
+  r8_83seqs    gap p25/med/p75 8/9/14     near: up r8_83seqs 164, down r8_83seqs 39, up r5_27seqs 32
+  r1_9seqs     gap p25/med/p75 11/22/27   near: down r3_58seqs 1838, down r2_3seqs 247, down r8_83seqs 233
+  r5_27seqs    gap p25/med/p75 4/10/10    near: down r6_210seqs 46, down r3_58seqs 45, up r3_58seqs 18
+  r10_19seqs   gap p25/med/p75 -2/6/16    near: down r10_groupB 88, down r8_83seqs 16, up r1_9seqs 6
+  r2_3seqs     gap p25/med/p75 -2/0/2     near: up r1_9seqs 249, down r3_58seqs 14, up r5_27seqs 6
+  MEG-T2                                  near: 
+  r4_32seqs    gap p25/med/p75 0/1/23     near: up r1_9seqs 17, down r3_58seqs 1, up r4_32seqs 1
+  MEG-RS                                  near: 
+  MEG-RL                                  near: 
+  MEG-TR                                  near: 

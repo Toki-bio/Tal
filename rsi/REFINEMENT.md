@@ -165,8 +165,10 @@ unclear 471. Directly downstream (≤ 300 bp) of 200 random copies of each:
 - subgroup B: **182 / 200 have another SINE starting at 0–25 bp**, 160 of them r5 from position 1;
 - full-length r5: 1 / 200.
 
-So subgroup B is a **5′ unit (~133 bp, own 3′ end) immediately followed by a full r5**: the left half
-of a head-to-tail r5–r5 dimer, which SINEderella splits into two loci. The r6 tandems (§5) start
+So subgroup B is a **5′ unit (~133 bp, own 3′ end) immediately followed by another copy**, which
+SINEderella splits into two loci. **Correction (§11):** the partner is mostly **r6**, not r5 — this first
+test took the first hit by position, and r5 and r6 share their 5′ part; scored by best match, r5
+left halves are followed by r6 (827), r5 (146) or r3 (72). The r6 tandems (§5) start
 with an r5 head that is slightly closer to this subgroup than to r5 (91.2 vs 89.3 %) — the same left
 unit may pair with several right units; not yet shown.
 
@@ -276,6 +278,61 @@ New run: therioserver `~/rhin/rsi_gB/run_add_20260928_214348` (not published; th
 - r5 (−468) and r1 (−378) also gave copies to r10_groupB — *not yet examined* (r5's dimer halves?).
 - r10_groupB mean sim_ratio 0.59 (vs 0.74 for r10 before): many copies are shorter than 391 bp or
   diverged; its plates are the next thing to look at.
+
+## 11. Composite copies, tested genome-wide (2026-09-29)
+
+**Tool:** SINEderella `tools/composite_scan.py` (analysis only, not in the pipeline). For every
+assigned copy of the run (66 501 in `~/rhin/rsi_gB/run_add_20260928_214348`, i.e. with
+r10_groupB), the locus ± 400 bp is searched with every consensus (ssearch36, both strands);
+non-overlapping hits are kept best-first and written out in genome order as a **chain**, each unit
+tagged `h` (starts at its consensus 5′ end), `e` (reaches its 3′ end) or `mid`; links `+` ≤ 30 bp,
+`~` 30–200 bp, `..` further. A `mid` unit right after another is one element matched piecewise by
+two consensuses, not a new copy. Random expectation of a neighbouring copy within 30 bp on a given
+side: 0.4–1.3 % (copy density × element length). Validated on the cases found by hand (r5 left
+halves, r6 with an r5 head, r9 clean). Outputs: `analysis/composite_chains.tsv`,
+`composite_summary.tsv`, `composite_loci.tsv.gz`, `composite_scan_report.txt`.
+
+**Most common layouts** (share of that subfamily's copies):
+
+| subfamily | layout | share |
+|---|---|---|
+| r9 | `r9[he]` single | 91 % |
+| r10_groupB | `r10_groupB[he]` single | 83 % |
+| r7 | single | 99 % |
+| **r6** (13 375) | `r6[he]` single | 51 % |
+| | **`r5[h] + r6[he]`** — r5 head (cut at ~130) + full r6 | **33 %** |
+| **r5** (3 472) | `r5[he]` single | 48 % |
+| | `r5[h] + r6[he]` (the same structure, seen from the r5 side) | 24 % |
+| | `r5[h] + r5[he]` | 4 % |
+| **r3** (22 352) | **`r1[he] ~ r3[he]`** — full r1, spacer, full r3 | **31.5 %** |
+| | `r1[he] ~ r3[h] + r3[e]` — same, r3 with an internal repeat | 15.5 % |
+| | `r10[h] + r3[e]` — r3 whose head matches r10 better (piecewise) | 9.5 % |
+| | `r5[h] + r3[he]` | 4.6 % |
+| | `r1[he] ~ r2[he] + r3[he]` (+ variants) | 6 % |
+| | `r3[he]` alone | only 2.3 % |
+| **r1** (3 573) | `r1[he] ~ r3…` | ~50 % |
+| | `r1[he]` alone | 22 % |
+| **r2** (386) | `r1[he] ~ r2[he] + r3…` | ~50 % |
+
+**The r1–r3 spacer is fixed:** 13 848 r3 copies have r1 30–200 bp upstream; the gap is 39 bp at the
+median (p25 39, p75 42; 8 551 in 30–39 bp) — a linker, not chance proximity. A second mode at
+170–180 bp is the variant with r2 between them.
+
+**What this says about rsi's families:**
+1. **r1 + 39 bp + r3 (~395 bp)** is the main element behind r3 (≥ 47 % of r3 copies, 13.8 k with r1
+   nearby) — r3 as searched is its right part, r1 its left part; a variant carries r2 in between.
+2. **r5 head (~130 bp) + r6 (~360 bp)** is ~⅓ of r6; the ~130 bp cut is fixed (a left unit, like the
+   r8 / r5 cuts at 128–132 seen before).
+3. **r10 + 105 bp + group B** — already rebuilt as r10_groupB (§10); 83 % of its copies now read as
+   one full unit, so that rebuild worked.
+4. **r3 carries an internal repeat** in ~20 % of copies (`r3[h] + r3[e]`: r3 1–163 then 115–201,
+   ~50 bp duplicated) that the consensus lacks.
+5. Clean single families: r9, r7, r10_groupB (and r8 at 89 %).
+
+**Next (proposed):** rebuild r1+linker+r3 and r5head+r6 as full consensuses the way r10_groupB was
+built (60 best copies of the layout, majority), add them, re-run assignment, re-scan; wire a short
+form of the scan into the report (per subfamily: % single, top layouts) and mark composite rows
+on the plates.
 
 ## Viewer links
 
