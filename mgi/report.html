@@ -123,15 +123,19 @@ iframe.embed { width: 100%; height: 800px; border: 1px solid var(--border);
 </div>
 
 <header>
+  <!-- BACKNAV START -->
+  <div style="font-size:1.05rem;margin:0 0 8px 0"><i>Macroderma gigas</i> &middot; Megadermatidae &middot; GCA_055471755.1 (mMacGig1.2_20250303) &middot; code mgi</div><div><a href="../chiroptera.html" style="display:inline-block;background:#2d2d8f;color:#fff;padding:4px 12px;border-radius:4px;font-size:.84rem;text-decoration:none;margin:0 6px 10px 0;">&larr; Chiroptera SINEs</a><a href="../index.html" style="display:inline-block;background:#4C72B0;color:#fff;padding:4px 12px;border-radius:4px;font-size:.84rem;text-decoration:none;margin:0 6px 10px 0;">Tal SINE main page</a></div>
+  <!-- BACKNAV END -->
   <h1>SINEderella run report &mdash; run_add_20260927_155406</h1>
-  <div class="sub">Genome: <code>?</code> &middot;
-       Consensus: <code>?</code> &middot;
+  <div class="sub">Genome: <code>mgi.fna</code> &middot;
+       Consensus: <code>chiro_bank.fa + MEG.resolved.fa</code> &middot;
        Generated 2026-09-28 15:02 UTC &middot; plotly.js: CDN</div>
 </header>
 <main>
   <nav class="toc">
     <strong>Sections:</strong>
     <a href="#alignments">Alignments</a>
+    <a href="#tribes">Tribes</a>
     <a href="#overview">Overview</a>
     <a href="#composition">Composition</a>
     <a href="#divergence">Divergence&thinsp;/&thinsp;Similarity</a>
@@ -229,6 +233,10 @@ Proposed edits to the original:
 - 3&#x27;: 2 bp proposed in lowercase (copies&#x27; identity to them 0.50; ~0.25 is unrelated DNA)'>12 random</a></td><td><span class='muted small'>&mdash;</span></td><td><span class='vchip v-muted' title='Alignment carries no flank sequence.'>No flanks</span></td><td><span class='vchip v-ok' title='No shared-flank clusters above threshold.'>Independent</span></td><td><span class='vchip v-warn' title='No element: too few copies support the consensus above background.'>No element</span></td><td><span class='vchip v-warn' title='Too little evidence for a score: only 12 copies (a score needs about 30); no flank sequence could be measured.
 What the copies do show is negative:
 - the copies do not support the consensus above background (0/12 copies support it)'>Doubtful</span></td></tr></tbody></table></section>
+
+  <!-- SINE_TRIBES_SECTION_START -->
+  <section class='card' id='tribes'><h2>SINE Tribes &mdash; 99% copy clusters</h2><p class='intro'>SINEtribes-style clustering of the full Step1 extracted hit bank (<code>genome.clean_step1/extracted.fasta</code>) using <code>vsearch --cluster_fast --id 0.99 --strand plus</code>, independent of subfamily assignment; the dominant subfamily is read from the assignment afterwards (<i>soft</i>: members that failed the 10/10 vote, labelled by the query that found them). Tribes require at least 5 copies. The 10 largest are aligned from up to 500 copies (random sample, seed 42), each re-extracted with 50 bp upstream and 70 bp downstream genomic flanks from <code>genome.clean.fa</code> and aligned with MAFFT (<code>--localpair --maxiterate 1000</code>). <a class='aln-link green' href='tribes/mgi_tribes_summary.tsv' target='_blank'>Full TSV</a></p><div class='metrics'><div class='metric'><div class='num'>2</div><div class='lbl'>Tribes found</div></div><div class='metric'><div class='num'>198</div><div class='lbl'>Copies in tribes</div></div><div class='metric'><div class='num'>169</div><div class='lbl'>Largest tribe copies</div></div><div class='metric'><div class='num'>MEG-RS (soft)</div><div class='lbl'>Largest tribe subfamily</div></div></div><table class='tbl'><thead><tr><th>Rank</th><th>Tribe</th><th class='hl'>Sequences</th><th>Assigned</th><th>Dominant subfamily</th><th>Dominant count</th><th>Dominant % total</th><th>Assigned breakdown</th><th>Alignment</th></tr></thead><tbody><tr><td>1</td><td><code>tribe01</code></td><td class='hl'>169</td><td>0</td><td>MEG-RS (soft)</td><td>0</td><td>0.0%</td><td>soft MEG-RS:169</td><td><a class='aln-link' href='https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Fmgi%2Ftribes%2Fmgi_tribe01_169seqs.aln.fa&title=mgi%20tribe01%20tribe%20alignment' target='_blank'>open (169 seqs)</a></td></tr><tr><td>2</td><td><code>tribe02</code></td><td class='hl'>29</td><td>0</td><td>MEG-RS (soft)</td><td>0</td><td>0.0%</td><td>soft MEG-RS:29</td><td><a class='aln-link' href='https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Fmgi%2Ftribes%2Fmgi_tribe02_29seqs.aln.fa&title=mgi%20tribe02%20tribe%20alignment' target='_blank'>open (29 seqs)</a></td></tr></tbody></table></section>
+  <!-- SINE_TRIBES_SECTION_END -->
 
   <section class="card" id="overview">
     <h2>Overview</h2>

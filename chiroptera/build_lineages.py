@@ -383,7 +383,14 @@ def add_back_nav(report_rel):
     up = "../" * report_rel.count("/")
     btn = ("display:inline-block;background:{bg};color:#fff;padding:4px 12px;border-radius:4px;"
            "font-size:.84rem;text-decoration:none;margin:0 6px 10px 0;")
-    nav = (f'{NAV_START}\n  <div>'
+    # species line from genomes.tsv: step6 knows only the run, the page must say whose genome it is
+    code = report_rel.split("/")[0]
+    g = next((r for r in csv.DictReader(open(os.path.join(ROOT, "chiroptera", "genomes.tsv"), encoding="utf8"),
+                                         delimiter="\t") if r["code"] == code), None)
+    who = (f'<div style="font-size:1.05rem;margin:0 0 8px 0"><i>{esc(g["species"])}</i> &middot; '
+           f'{esc(g["family"])} &middot; {esc(g["accession"])} ({esc(g["assembly"])}) &middot; code {esc(code)}</div>'
+           if g else "")
+    nav = (f'{NAV_START}\n  {who}<div>'
            f'<a href="{up}chiroptera.html" style="{btn.format(bg="#2d2d8f")}">&larr; Chiroptera SINEs</a>'
            f'<a href="{up}index.html" style="{btn.format(bg="#4C72B0")}">Tal SINE main page</a>'
            f'</div>\n  {NAV_END}')
