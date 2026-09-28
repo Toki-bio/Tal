@@ -78,14 +78,6 @@ AGTCCTTGGATGAGAAACACCTGG-------------GTGCCCAGCTGCCGAAAGCCCCTTGGCTCAGCATCTTCTGTGT
 -----------CGGGAGACGA------------------------------------GTGGCTCACCACTTACCAAGCAA
 A---CCCCAATCCTCG----------------------------------------------------------------
 ---------------------------------
->CM061257.1:220162485-220162726(-)
--------------------------------------------------------------aaagttttctcattcagta
-atggaaaaacaaagc----atacatTATTGCAGTAATA-AC----ACCCT---CACTTCTGA----------TCTTGTCA
-TT--------------------TCACAAGAATCTTAAAG--------------------CAGAAGTTTGGC---TGAGTT
-ATTACTTAGAGGCGAGAA---------------------------CTTCAGAGAAAAGGCATGTGCTGT-----------
------------AAGAACAAATGGAAATGCTGT-----TGTTTGCATTTTTCTT---TTCTTTTTATTATAAATTAAACAA
-AA--TCTTGGAACTTTGGAAGGGCTA------------------------------------------------------
----------------------------------
 >CM061262.1:70698258-70698559(+)
 ------------------atttcatgtatgaattctgccctgaaattaggggaaacactttggcatcattcagagccagg
 agaaccaggttcaaacccccattctGCCAGCGGCTTGC-TCGGTGACCTTGAACAAGTCAGA--------AGAACTGCCT
@@ -93,6 +85,14 @@ CA---------------------GCTGGGAAGTGAAGCAT----------------CGTGTGGGCCCTGGC---TGCTTC
 GGTGGGTGGAGACCACAA---------------------------TTATACAGAGCACGTGAAGGACTT-----------
 -----------CGTAAACTTTAAAAGTGCTGTACAAATGTTATCATTGTACTCAAGAGATTTTTATGACACATTAGATGG
 AA--TAAAATAGAATTGAA-------------------------------------------------------------
+---------------------------------
+>CM061257.1:220162485-220162726(-)
+-------------------------------------------------------------aaagttttctcattcagta
+atggaaaaacaaagc----atacatTATTGCAGTAATA-AC----ACCCT---CACTTCTGA----------TCTTGTCA
+TT--------------------TCACAAGAATCTTAAAG--------------------CAGAAGTTTGGC---TGAGTT
+ATTACTTAGAGGCGAGAA---------------------------CTTCAGAGAAAAGGCATGTGCTGT-----------
+-----------AAGAACAAATGGAAATGCTGT-----TGTTTGCATTTTTCTT---TTCTTTTTATTATAAATTAAACAA
+AA--TCTTGGAACTTTGGAAGGGCTA------------------------------------------------------
 ---------------------------------
 >CM061259.1:15909538-15909824(+) [soft]
 --------------------------------------------------------------------------------

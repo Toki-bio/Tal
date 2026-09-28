@@ -8,7 +8,7 @@ C-CCCCTGGCTAG-G-TCAAA-A-G--CCT---A-GA-CTTA-ACC-AGTTA-C--T-CCCTG-GAAATCAATAAAATAT
 ATTTTTAAAAA-----------------
 >VES
 ---------------------------------------GCCCTAACCG-------GTTTGGCTCAGTGGATAGAGCGTC
-GGCCTGCRGACTGAAGGGTCCCAGGTTCGATTCCG-----------------------GTCAAGGGCATGTACCTTGG--
+GGCCTGCRGACTGAAGGGTCCCAGGTTCGATTCCGGT-----------------------CAAGGGCATGTACCTTGG--
 ---------------------------------TTGCGGGCACATC----CCCAGTAGGG--------------------
 -----GGTGTGCAGG---AGGCAGCTGATCGA------------------------------------------------
 ------------------------------------------------TGTTTCTCTCT-------------CATTGATG
@@ -48,7 +48,7 @@ TCCCCCATGCCTGCACACACACACACACCAAGGAAAGGCT------------------CCATGAGGATGAGAAAGGGCGA
 CTGTCCACAA------------------
 >PVJL010166694.1:121-467(-)
 -------------tgggaacgcttagcactgtagtagctgtaggggtggaagcagtacAAGATCCCTTACAGGTGGGGCT
-CAGTTGAAATGTGGGGTGTCTTACCCT---GACTA-----------------------TTTGGCAAGATTTGAG------
+CAGTTGAAATGTGGGGTGTCTTACCCT---GACTATT-----------------------TGGCAAGATTTGAG------
 ---------------------------------AG--AAATGGAAT----GCCCCGAAAATGAGCTTAATACAGAATAGG
 TGGCACCTGTCTTAAAGCAGTCAGTGATTGAGTTTTGTCCCTTATTCT--------------------------------
 ---------------------------------ATTGTTTCCCCCACCCTTTCCCTCCT-------------CTTCCTCA
@@ -72,7 +72,7 @@ TTCTCTTGTTTAAAAGAGAGGCCAGGGCCTCTTAGGGCCTAGAAGCATACCG-------------GTAGGGATGGAACGA
 GACATAAAGAAagtgtca----------
 >PVJL010347735.1:110-399(-)
 -------------------------------cgcagggacctttggttgtttccatgtTTTGGCCACTGTAAACAGTGCT
-GCAATGAACATTGGGGTACATAAGTCT---TTGCG-----------------------GACAAAGGTTTTCAAGTTGT--
+GCAATGAACATTGGGGTACATAAGTCT---TTGCGGA-----------------------CAAAGGTTTTCAAGTTGT--
 ---------------------------------TT--GGGTAGATC----CCCAGAAGGG--------------------
 -----GGATTGCTGGGTCAAATGGCAGCTCCATTCCCAATTTTCTGAGGAACT---------------------------
 -------------------------------ATTTTCTTAAATACACTTATTTCTTTCC-------------CTTGCATG
@@ -88,7 +88,7 @@ C-------------------------------------------------------------------------------
 ----------------------------
 >_R_PVJL010002513.1:49999-50319(-)
 -------------------------------------------------------ctaTTTGTTCTTGACATATGAATCC
-TTGCTGTTGGTTTATTTATCCTGCAGC---TTAAAA-------------------TGAAGCAAAATATTTTGAACATTTA
+TTGCTGTTGGTTTATTTATCCTGCAGC---TTAAAAT-------------------GAAGCAAAATATTTTGAACATTTA
 ATTTGTATTAATTTTTATGATTAACTGAGAG-AGA--GAGCGAGAG----AGCGAGAGAGCGAGA---------------
 ----GAGAGAGAGAGAGAAATGAAACATGTTGGTTTGGCTGGT-------------------------------------
 -----------------------------------TAAAAGTCTCTTGCTACCACAGTCAAAG-------TCCCGCTTAC

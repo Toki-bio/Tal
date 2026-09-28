@@ -16,15 +16,6 @@ AAGCTAAGCAGG----------------------GTCGGGCCTGGTTAGTACTTGGATGGGAGACC--------------
 -----ACCTAGGAAGACCAGGTG----------------CTGTAGGCATAAATAATAATAA------TAA----------
 --------------------------------------------------------------------------------
 --------
->CFOAXD010000016.1:1180171-1180555(-) [soft]
-cattggaggatgtggcaggagagcgatccacaggaggtggggggagcccagactgatgtgctctggggactagaggc---
----tggaggtgtggcCAAGCTTTGCAGCAGGGGCCGTTGGAGTTCCTGGTC-----------------------------
----------------ACAGCTG------------CCAATGCCTGTGGCC-----------------ATGCCCCCTTCAGG
-ACACCCGGTGTCT--------------------------------------------------------CCTGATCTCAG
-AAGCTAATTAGC----------------------GTCCAGCCTGGTGAGATCTTGGTTGGGGAGCC--------------
------ACAAGGGCATGCTGGGTG----------------TGGTGGGCTGTTGCCACGTGCCtcttcttttctccatctcc
-ttgtgtctcgtcctccttttgcaacctcccagcctcacaagaggtctctttggccagatcccatcccttgcagatttcag
-caaagttc
 >CFOAXD010000016.1:5771053-5771436(+) [soft]
 tcggaggctgtggcaggagagcgatccacaggaggtggggagagcccagactctgatgtgctctggggactagaggc---
 ---tggaggtgtggcCGAGCTTTGCAGCAGGGGCTGTTGGAGTGCCTGGTC-----------------------------
@@ -42,6 +33,15 @@ ACACCCACTGGCT--------------------------------------------------------TCTGATCTCAG
 AAGCCAATTAGT----------------------GTCCAGCCTGGTGAAAACTT-GTTGGGGAGCC--------------
 -----ACTAGGGATTGCTGGGTG----------------TGGTGGGCTGTGGCCACGTGCCtctccttttctccatctcc
 ttgtgtcttgtcctcctcttgcaacctcccagtctcacaagaggtctctttagccagatcccatcccttgcagatttcac
+caaagttc
+>CFOAXD010000016.1:1180171-1180555(-) [soft]
+cattggaggatgtggcaggagagcgatccacaggaggtggggggagcccagactgatgtgctctggggactagaggc---
+---tggaggtgtggcCAAGCTTTGCAGCAGGGGCCGTTGGAGTTCCTGGTC-----------------------------
+---------------ACAGCTG------------CCAATGCCTGTGGCC-----------------ATGCCCCCTTCAGG
+ACACCCGGTGTCT--------------------------------------------------------CCTGATCTCAG
+AAGCTAATTAGC----------------------GTCCAGCCTGGTGAGATCTTGGTTGGGGAGCC--------------
+-----ACAAGGGCATGCTGGGTG----------------TGGTGGGCTGTTGCCACGTGCCtcttcttttctccatctcc
+ttgtgtctcgtcctccttttgcaacctcccagcctcacaagaggtctctttggccagatcccatcccttgcagatttcag
 caaagttc
 >CFOAXD010000016.1:6247956-6248340(+) [soft]
 tcgggggctgtggcaggagagcgatccacaggaggtgaggggagcccagactctgatgtgctctggggactagaggc---
@@ -178,15 +178,6 @@ AGGCTGCACACAG---------------------GGTTGGTCCTGGGTGCATGGGCACAGCCAATA--------------
 ---GCCTGAGCAGAGACCAGAAATGGCGTCAAGGCCCACTTGTGCATGCCATGCAATCCAAttggcccttgatccctgca
 gctgaacgcctatgatggaaggcagggagctccgaggaggggaaggggcagaaggtcctttatggggcaaaatgta----
 --------
->_R_CFOAXD010000008.1:92863705-92864089(-)
--------tccagagggctgggagggaactggcatttgaaacggttgttcctcgttttgctcccaagttgctagggtaaag
-ctctagaaacacactGATTGACTTCATTACAGATGAATGAGCTCCAGCTTT-----------------------------
----------------ATGTCTGACAACCCTTGGACTTGAACCAGGTGGTTC--------------CCTGCTACTCCTAAC
-AGCAGGTTCAAAGC-------------------------------------------------------TTTGTGCTTCT
-CCTACAGCCCC-----------------------AGGCTCCCACAGGGCAGTATGGGCAGATAACTGG--------GCCC
-TCCTACTCCACTGAGGCCTGGTG--------------------------AACTCAGCTCCTgtatctccatttgcctatt
-aggtctttcctcatttagagactggttgggtgtgcccttgaaccatctctgaggcctaacaggatttgcctggtctctct
-t-------
 >CFOAXD010000004.1:11724409-11724807(-)
 ttccacttgttcccaggaggacccggaaatctctagatgttgtcaccactgtttttcttaagtcatttgtgaaatttcaa
 cttggaagacagattGAACGTGTGCTTTACAAGAAGGGGAAGCCTGCCTGGG---------------------CACGCCC
@@ -196,6 +187,15 @@ GGATGAGCCTCTGTGGTCTT--------------GGACTCCTCGGTGACAACCTCGGCAAGATCCT--------------
 --------GGGCCGGGCCAGAGGATCTGCTC------------------TGTGGAGGCCCCgccatcctcaaaaaccaga
 ttttgctcctgggcacccagtgaccagacctgggtcatcccagagcctaaggctcctgtcaccaaggtctgtg-------
 --------
+>_R_CFOAXD010000008.1:92863705-92864089(-)
+-------tccagagggctgggagggaactggcatttgaaacggttgttcctcgttttgctcccaagttgctagggtaaag
+ctctagaaacacactGATTGACTTCATTACAGATGAATGAGCTCCAGCTTT-----------------------------
+---------------ATGTCTGACAACCCTTGGACTTGAACCAGGTGGTTC--------------CCTGCTACTCCTAAC
+AGCAGGTTCAAAGC-------------------------------------------------------TTTGTGCTTCT
+CCTACAGCCCC-----------------------AGGCTCCCACAGGGCAGTATGGGCAGATAACTGG--------GCCC
+TCCTACTCCACTGAGGCCTGGTG--------------------------AACTCAGCTCCTgtatctccatttgcctatt
+aggtctttcctcatttagagactggttgggtgtgcccttgaaccatctctgaggcctaacaggatttgcctggtctctct
+t-------
 >CFOAXD010000005.1:32429589-32429992(+)
 -------------------------------------------------------------------------------c
 tacaagatccagcccCAGCAGCCCTGCTTGGCAAGACTGCAGCCTGCATTTGACCAAAACCAAACGCTTATGAGGGGCCC

@@ -52,17 +52,17 @@ GCCCATTCTCGTC-TGATCTTGGAAGCTA--------------AGCAGGGTAGGGCCTGG--------------------
 ---------TTAGTACTCGGAGGGGAGAATGGC----ACCCCCAT-----------GGCCAGGGGTGGTTGAGAtaaaga
 ttcttg---gaatcaaatgctttgtgagcaggaaggaatcttagatctcctctggtttagtcctcccctttta-------
 -
->CM171740.1:151043-151283(-) [soft]
---tgaggctggcctggagggagctcttggggtgccctgtgccaggttcttatGTCTA-AGGTTATA-TTACCCTGAACAT
-GCTGGATCTCCTC-TGATCTCGGAAGTTA--------------AGGAGGGT-GGGCCGGT--------------------
----------TTAGTACTTGAGTGGGATTCCG------CCTGGGAA-----------TACCCGGTGCTGTTAGCTtttgcc
-gacc-----ctggcaggggctccctccgaaacctcctgccccttgcccctctgcagctgcccacccccact---------
--
 >CM171743.1:829770-830010(-) [soft]
 --tgaggctggcctggagggagctcctggggtgccctgcgccaggttcttatGTCTA-AGGTCATA-TTACCCTGAACGT
 GCTGGATCTCCTC-TGATCTCGGAAGTTA--------------AGCAGGGT-GGGCCGGT--------------------
 ---------TTAGTACTTGAGTGCGATTCCG------CCTGGGAA-----------TACCCGGTGCTGTTAGCTtttgcc
 gacc-----ctggcaggggctccctccgaaacctcccgccccttgcccctctgcagccgcccacccccgct---------
+-
+>CM171740.1:151043-151283(-) [soft]
+--tgaggctggcctggagggagctcttggggtgccctgtgccaggttcttatGTCTA-AGGTTATA-TTACCCTGAACAT
+GCTGGATCTCCTC-TGATCTCGGAAGTTA--------------AGGAGGGT-GGGCCGGT--------------------
+---------TTAGTACTTGAGTGGGATTCCG------CCTGGGAA-----------TACCCGGTGCTGTTAGCTtttgcc
+gacc-----ctggcaggggctccctccgaaacctcctgccccttgcccctctgcagctgcccacccccact---------
 -
 >CM171725.1:83406449-83406681(+)
 -----gggccatgcatcataggcttctggcggacccggcctcggctgccaatGCT------CTATG-ACCACCGTGAAGT
