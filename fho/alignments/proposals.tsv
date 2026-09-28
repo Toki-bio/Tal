@@ -1,0 +1,14 @@
+plate	subfamily	orig_len	add5_bp	add5_ungapped	add5_support	add5_null	add3_bp	add3_ungapped	add3_support	add3_null	trim5_bp	trim5_support	trim3_bp	trim3_support	copies	rebuilt_vs_orig
+fho_MEG-RL_rand100.aln.fa	MEG-RL	207	4	0.62	0.62	0.38	45	0.31	0.51	0.47	0		0		8	0.68
+fho_MEG-RL_top100.aln.fa	MEG-RL	207	4	0.62	0.62	0.38	32	0.31	0.47	0.47	0		0		8	0.67
+fho_MEG-RS_rand100.aln.fa	MEG-RS	135	894	0.32	0.83	0.53	0				0		7	0.00	100	0.90
+fho_MEG-RS_top100.aln.fa	MEG-RS	135	69	0.35	0.67	0.48	40	0.33	0.55	0.50	0		0		100	0.88
+fho_MEG-T2_rand100.aln.fa	MEG-T2	232	0				2	0.50	0.50	0.50	6	0.33	0		100	0.63
+fho_MEG-T2_top100.aln.fa	MEG-T2	232	6	0.33	0.50	0.50	0				0		0		100	0.62
+fho_MEG-TR_rand100.aln.fa	MEG-TR	194	4	0.25	0.50	0.50	1	0.00	0.00	0.00	0		0		23	0.72
+fho_MEG-TR_top100.aln.fa	MEG-TR	196	7	0.43	0.57	0.43	27	0.26	0.48	0.44	0		9	0.25	23	0.78
+fho_Rhin-1_rand100.aln.fa	Rhin-1	182	14	0.50	0.57	0.43	3	0.33	0.33	0.33	4	0.00	0		100	0.64
+fho_Rhin-1_top100.aln.fa	Rhin-1	178	4	1.00	1.00	0.75	6	0.67	0.83	0.67	0		0		100	0.66
+fho_VES_rand100.aln.fa	VES	220	7	0.43	0.43	0.43	1	1.00	1.00	1.00	0		0		100	0.79
+fho_VES_subfam.aln.fa	VES	220	0				0				0		0		200	0.80
+fho_VES_top100.aln.fa	VES	220	9	0.33	0.44	0.33	8	0.62	0.62	0.62	0		0		100	0.83
