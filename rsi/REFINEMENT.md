@@ -359,37 +359,40 @@ r10_groupB run: therioserver `~/rhin/rsi_comp/run_add_20260928_222535` (not publ
 ## 13. What the parts derive from — tRNA, 5S, 7SL? (2026-09-29)
 
 Queries: every consensus of the current run plus the parts of the three rebuilt elements (part
-boundaries from the piece-by-piece matches, ± a few bp). Tools on therioserver (conda env
-`rnatools`): **Infernal cmscan against all of Rfam** (8 454 models; tRNA RF00005, 5S RF00001, 7SL
-RF00017, U6, 7SK, vault, Y RNA …), E ≤ 1e-3, and **tRNAscan-SE -E** (eukaryotic; reports tRNA type
-and flags degenerate ones "pseudo"). Files: therioserver `~/refs/smallrna/q/`.
+boundaries from the piece-by-piece matches, ± a few bp). Three independent searches:
+**Infernal cmscan against all of Rfam** (8 454 models: tRNA, 5S, 7SL, U6, 7SK, vault, Y RNA …;
+E ≤ 1e-3, relaxed to E ≤ 1 for the parts without a hit), **tRNAscan-SE -E**, and **Dfam**
+(transposon families incl. tRNA-related SINE heads; curated, `--cut_ga`, taxa *Homo sapiens* and
+*Myotis lucifugus* — identical results; "Chiroptera" is rejected by the service). Files: therioserver
+`~/refs/smallrna/q/` (`cm.tbl`, `trnascan.out`, `dfam_*.json`).
 
 **Controls behave as their names say** (Gogolevsky et al. 2009: R = rRNA-related, T = tRNA-related):
-MEG-RL and MEG-RS → **5S rRNA** (positions 1–119, E ≈ 1e-24); MEG-T2 → **tRNA** (tRNAscan
-Val-TAC, not pseudo, score 70); MEG-TR → **tRNA (1–55) then 5S (65–180)**.
+MEG-RL, MEG-RS → **5S rRNA** (1–118; Dfam E ≈ 1e-36, Rfam 1e-24); MEG-T2 → **tRNA-Val** (Dfam
+tRNA-Val-GTA, tRNAscan Val, not pseudo); MEG-TR → **tRNA-Val (1–56) + 5S (65–179)**.
 
-| query | Rfam (E ≤ 1e-3) | tRNAscan-SE (type, score, note) | reading |
+| query | Dfam (human / *Myotis*, same) | Rfam | tRNAscan-SE |
 |---|---|---|---|
-| r9 | tRNA 5–78, E 3e-11 | Ile-AAT 65.4, isotype model Ile 95.8, **not pseudo** | clear tRNA(Ile)-derived head |
-| r8 | tRNA 5–78, E 5e-7 | Met-CAT 47.7 (Ile 71.4), pseudo | tRNA head |
-| r7 | tRNA 5–78, E 3e-6 | Lys-CTT 44.8 (Ile 69.5), pseudo | tRNA head |
-| r10 | tRNA 1–74, E 7e-6 | Arg-CCT 44.2 (Ile 53.9), pseudo | tRNA head |
-| r1, r5 | — | Ser-CGA 28–29, pseudo | weak tRNA head |
-| r6 | — | Leu-CAA 20.3, pseudo | very weak tRNA-like head |
-| **r3, r2, r4** | — | — | **no head** |
-| r1_r3 | — | tRNA only at 1–75 (the r1 part) | tRNA head + linker + r3 body |
-| r5h_r6 | — | **two** tRNA-like regions, 5–77 and 139–223 | **tRNA–tRNA dimer** |
-| r10_groupB | — | tRNA only at 8–77 (the r10 part) | tRNA head + middle + group-B body |
+| r9 | tRNA-Ile 5–79, E 1e-23 | tRNA, E 3e-11 | Ile-AAT 65.4, **not pseudo** |
+| r7, r8 | tRNA-Ile 5–79, E 1e-18 – 1e-19 | tRNA | Lys / Met, pseudo |
+| r5, r6 | tRNA-Ile 5–77, E 1e-10 – 1e-11 | — | Ser / Leu, pseudo |
+| r10 | tRNA-Ile 2–74 (8e-11) **and MamSINE1** 8–104 (1e-09) | tRNA | Arg, pseudo |
+| r1, r2, r3, r4 | tRNA-Ile 2–75, E 1e-6 – 1e-7 | — | r1 Ser (pseudo); r2–r4 none |
+| **r1_r3** | **tRNA-Ile at 2–75 and at 195–262** | — | 1–75 only |
+| **r5h_r6** | **tRNA-Ile at 5–77 and at 141–210** | — | 5–77 and 139–223 |
+| r10_groupB | MamSINE1 15–106 (the r10 part) | — | 8–77 (Undet) |
+| linker (r1_r3 157–195), middle (r10_groupB 147–251), group-B part | **nothing** in any of the three | | |
 
-- **No 7SL, 5S or other small-RNA part in any rsi r-family**, even at E ≤ 1 for the headless parts
-  (only a plastid-gene model at E 0.8 — noise). All heads are tRNA-derived.
-- The named tRNA types of degenerate heads are unreliable (the isotype-specific model says Ile for
-  most); only r9's call (Ile) is solid.
-- **r3, r2, r4 have no head of their own:** consistent with §11–12 — r3 is the body behind r1's
-  tRNA head (r1_r3), not an independent SINE. The same for group B behind r10, which also lacks the
-  B box (§2a).
-- The bodies (r3 part, linker, r10_groupB middle, group-B part, r6 part) match nothing in Rfam;
-  a Dfam search (transposon families, e.g. LINE 3′ ends) is running.
+- **Every rsi head is tRNA-derived** (Dfam's model and tRNAscan's isotype model both say Ile; the
+  anticodon calls of degenerate heads — Ser, Lys, Met, Arg, Leu — are not reliable; r9 is the one
+  clean tRNA(Ile)). **No 7SL, 5S or other small-RNA part in any rsi r-family** (the 5S in the bank
+  is only in MEG-R*/MEG-TR).
+- **Correction to the first version of this section:** r2, r3 and r4 *do* have a tRNA head — Rfam and
+  tRNAscan missed it, Dfam's more sensitive tRNA model finds it. So **r1_r3 and r5h_r6 are both
+  tRNA–tRNA dimers**: two tRNA-derived units head to tail (r1_r3 with a 39 bp linker, r5h_r6 with
+  the first unit cut at ~130). Whether r3 and r6 also exist as independent monomers is what the
+  residual r3 (4 985) and r6 (7 734, 98.5 % single) copies show — r6 does, clearly.
+- **r10's head resembles MamSINE1** (Dfam), a family not in the rsi bank; group B (no B box) and the
+  105 bp middle match nothing known.
 
 ## Viewer links
 
