@@ -334,6 +334,28 @@ built (60 best copies of the layout, majority), add them, re-run assignment, re-
 form of the scan into the report (per subfamily: % single, top layouts) and mark composite rows
 on the plates.
 
+## 12. r1_r3 and r5h_r6 rebuilt and reassigned (2026-09-29)
+
+Built with `tools/build_composite.py` (60 best copies of one exact layout, cut first unit to last
+unit, L-INS-i, majority): **r1_r3** 396 bp from `r1[he] ~ r3[he]` (copies 388/396/397 bp,
+p10/median/p90); **r5h_r6** 360 bp from `r5[h] + r6[he]` (359/360/361 bp). Added to the
+r10_groupB run: therioserver `~/rhin/rsi_comp/run_add_20260928_222535` (not published).
+
+| subfamily | firm before | firm after | read as one full unit after |
+|---|---|---|---|
+| r1_r3 | — | **18 329** | 49.5 % (`r1_r3[he]`); 22.5 % `r1_r3[h] + r3[e]` |
+| r5h_r6 | — | **7 294** | **84.8 %** |
+| r3_58seqs | 22 352 | 4 985 | mixed (r1_r3 pieces, r10 + r3) |
+| r6_210seqs | 13 375 | 7 734 | 86 % (98.5 % single) |
+| r5_27seqs | 3 472 | 2 220 | 98 % single |
+| r1_9seqs | 3 573 | 1 674 | mostly r1_r3 pieces |
+| r2_3seqs | 386 | 44 | |
+
+- **r5h_r6 works:** one full unit for 85 % of its copies, and what is left of r6 and r5 is clean.
+- **r1_r3 half works:** a quarter of its copies have an r3 part that r1_r3 does not represent —
+  the r3 variant with the ~50 bp internal repeat (§11 point 4). *Next:* a second consensus from the
+  `r1[he] ~ r3[h] + r3[e]` layout.
+
 ## Viewer links
 
 - group B, 60 best copies: <https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Frsi%2Fanalysis%2Frsi_r8_groupB_top60.aln.fa&title=rsi%20r8%20group%20B%20top60>
