@@ -356,6 +356,41 @@ r10_groupB run: therioserver `~/rhin/rsi_comp/run_add_20260928_222535` (not publ
   the r3 variant with the ~50 bp internal repeat (§11 point 4). *Next:* a second consensus from the
   `r1[he] ~ r3[h] + r3[e]` layout.
 
+## 13. What the parts derive from — tRNA, 5S, 7SL? (2026-09-29)
+
+Queries: every consensus of the current run plus the parts of the three rebuilt elements (part
+boundaries from the piece-by-piece matches, ± a few bp). Tools on therioserver (conda env
+`rnatools`): **Infernal cmscan against all of Rfam** (8 454 models; tRNA RF00005, 5S RF00001, 7SL
+RF00017, U6, 7SK, vault, Y RNA …), E ≤ 1e-3, and **tRNAscan-SE -E** (eukaryotic; reports tRNA type
+and flags degenerate ones "pseudo"). Files: therioserver `~/refs/smallrna/q/`.
+
+**Controls behave as their names say** (Gogolevsky et al. 2009: R = rRNA-related, T = tRNA-related):
+MEG-RL and MEG-RS → **5S rRNA** (positions 1–119, E ≈ 1e-24); MEG-T2 → **tRNA** (tRNAscan
+Val-TAC, not pseudo, score 70); MEG-TR → **tRNA (1–55) then 5S (65–180)**.
+
+| query | Rfam (E ≤ 1e-3) | tRNAscan-SE (type, score, note) | reading |
+|---|---|---|---|
+| r9 | tRNA 5–78, E 3e-11 | Ile-AAT 65.4, isotype model Ile 95.8, **not pseudo** | clear tRNA(Ile)-derived head |
+| r8 | tRNA 5–78, E 5e-7 | Met-CAT 47.7 (Ile 71.4), pseudo | tRNA head |
+| r7 | tRNA 5–78, E 3e-6 | Lys-CTT 44.8 (Ile 69.5), pseudo | tRNA head |
+| r10 | tRNA 1–74, E 7e-6 | Arg-CCT 44.2 (Ile 53.9), pseudo | tRNA head |
+| r1, r5 | — | Ser-CGA 28–29, pseudo | weak tRNA head |
+| r6 | — | Leu-CAA 20.3, pseudo | very weak tRNA-like head |
+| **r3, r2, r4** | — | — | **no head** |
+| r1_r3 | — | tRNA only at 1–75 (the r1 part) | tRNA head + linker + r3 body |
+| r5h_r6 | — | **two** tRNA-like regions, 5–77 and 139–223 | **tRNA–tRNA dimer** |
+| r10_groupB | — | tRNA only at 8–77 (the r10 part) | tRNA head + middle + group-B body |
+
+- **No 7SL, 5S or other small-RNA part in any rsi r-family**, even at E ≤ 1 for the headless parts
+  (only a plastid-gene model at E 0.8 — noise). All heads are tRNA-derived.
+- The named tRNA types of degenerate heads are unreliable (the isotype-specific model says Ile for
+  most); only r9's call (Ile) is solid.
+- **r3, r2, r4 have no head of their own:** consistent with §11–12 — r3 is the body behind r1's
+  tRNA head (r1_r3), not an independent SINE. The same for group B behind r10, which also lacks the
+  B box (§2a).
+- The bodies (r3 part, linker, r10_groupB middle, group-B part, r6 part) match nothing in Rfam;
+  a Dfam search (transposon families, e.g. LINE 3′ ends) is running.
+
 ## Viewer links
 
 - group B, 60 best copies: <https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Frsi%2Fanalysis%2Frsi_r8_groupB_top60.aln.fa&title=rsi%20r8%20group%20B%20top60>
