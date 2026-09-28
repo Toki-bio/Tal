@@ -101,13 +101,107 @@ them because single full copies score higher.
 (the same machinery as `[array]`); leave them out of the continuation decision and put them last,
 or split the locus at the junction. *Proposed.*
 
-## Open questions from the republish (2026-09-28)
+## 3. r8 group B, second pass — a candidate new group; the consensus lacks its left part
 
-1. `continuation.tsv` counts `[array]` rows, which step8a's extension decision skips — array-heavy
-   plates (cse MEG-RS rand100, 55 % array) are reported `unresolved`. Count independent copies only?
-2. Subfam plates (chunk consensuses, no flanks) get meaningless `unresolved 0 bp` entries — drop them?
-3. rand100 is drawn unseeded (`shuf`), so it changes every republish (cse MEG-RS rand100 3′ went
-   `ends 647` → `unresolved 652`). Fix the seed?
+**His call:** a candidate for a new group, but it needs more work: the copies share their left
+flank, and the consensus is not properly extended to the left.
+
+**Measured** (60 best group-B copies, 600 bp upstream, column-majority agreement read outward):
+0.78–0.90 for **~300 bp to the left** of the current consensus start, then 0.40–0.50 (unrelated
+flank) from ~330 bp. So the shared "left flank" is part of the element, and there is proper unique
+flank beyond it, well inside step8a's +600 bp limit.
+
+**Left-extended consensus** (`analysis/rsi_r8_groupB_extended_consensus.fa`, 391 bp, majority of the
+60 copies with 310 bp upstream):
+
+| positions | what it is |
+|---|---|
+| 8–146 | **r10** (r10_19seqs 1–145, 99.3 % identity) |
+| 147–251 | ~105 bp GC-rich middle — no hit in the bank |
+| 252–374 | group B (the 123 bp consensus, 100 %) |
+| 375–391 | G/A (purine) tail |
+
+**r10 and group B are one element:** 85 % of r10 copies (3 198 of 3 761 checked) have group B
+0–250 bp downstream (mostly 50–150 bp, matching the ~105 bp middle); 76 % of group-B copies
+(395 / 521) have r10 upstream. The bank holds this ~390 bp element as two pieces: r10 (its left
+part) and group B (its right part, hidden inside r8). *Next:* rebuild it as one consensus, re-run
+assignment with it, and see what r10 and r8 become.
+
+## 4. r7 — almost perfect (his call). Nothing to fix.
+
+## 5. r6 — left-side extensions in subfam and top100: tandems with an r5 head
+
+**His call:** subfam contains individual left-side extensions; in top100 the right flank is fine,
+but several copies extend further left — tandems? some are nearly identical in flanks. Do these
+extended copies exceed the discriminator's maximum length, and if not, do they have proper flank
+further away?
+
+**Measured** (`rsi_r6_210seqs_top100.aln.fa`): 22 of 100 copies carry ~236 bp before the element
+(the rest 101 bp); their loci start ~135 bp further upstream, and that extra stretch agrees between
+copies (0.64–0.75, vs ~0.45 for unrelated flank).
+- **What it is:** in all 22 the extra segment is an **r5 head, r5 positions 1–~127** (85–92 %). So
+  these are head-to-tail tandems: a 5′ r5 fragment + r6 — the "nearly identical flanks" are SINE
+  sequence. (The new Flank context text on the page says it: top 100 left side, 34 of 100 copies
+  share flanking DNA, largest group 34.)
+- **Length:** the shared part is ~135 bp — far inside step8a's +600 bp continuation limit (the only
+  length cap in the pipeline; the discriminator has no separate maximum element length).
+- **Proper flank beyond:** yes. Over the next 800 bp upstream agreement is 0.42–0.50 (unrelated) and
+  no two far flanks are ≥ 0.8 identical (highest pair 0.59) — independent loci, not segmental
+  duplicates.
+
+## 6. r5 — two subgroups; the second is the left half of an r5–r5 dimer
+
+**His call:** even from subfam, r5 has at least two subgroups; what is the other one?
+
+**Measured** (`rsi_r5_27seqs_subfam.aln.fa`): ~40 chunk rows are full length (~178 bp, 0.98–0.99 to
+r5); ~36 rows (`input_040`–`074`) are **132–134 bp at 0.83–0.91**. Their consensus
+(`r5_subgroupB`, 133 bp) is r5's first ~110 bp followed by a different end,
+`…GATTGAAGACAATGAGCTGCCGCTGAGCTTCCG` (r5: `…GATTGAAGGACAACGACTTGGAGCTGATGG…`).
+Split of the 4 062 r5 members by score (> 10 bits): **subgroup B 1 546**, full-length 2 045,
+unclear 471. Directly downstream (≤ 300 bp) of 200 random copies of each:
+- subgroup B: **182 / 200 have another SINE starting at 0–25 bp**, 160 of them r5 from position 1;
+- full-length r5: 1 / 200.
+
+So subgroup B is a **5′ unit (~133 bp, own 3′ end) immediately followed by a full r5**: the left half
+of a head-to-tail r5–r5 dimer, which SINEderella splits into two loci. The r6 tandems (§5) start
+with an r5 head that is slightly closer to this subgroup than to r5 (91.2 vs 89.3 %) — the same left
+unit may pair with several right units; not yet shown.
+
+**Proposal (P3, now broader):** a locus followed within ~30 bp by the head of another copy is part
+of a compound element (tandem or dimer). Mark such rows (`[tandem]`), and report on the page how
+many copies of each subfamily are such left or right halves; a subfamily that is mostly left halves
+(r5 subgroup B, r10) should be rebuilt together with its partner.
+
+## 7. Verdict comments rewritten (Flank context, Overall) — done 2026-09-28
+
+One fixed layout, no internal codes (DISC `8124186`):
+- **Flank context:** "Are the copies independent insertions? Checked by comparing the DNA just outside
+  each copy." · per plate and side: "left side: 34 of 100 copies share flanking DNA with another copy
+  (largest group: 34 copies)" or "all 100 copies have their own flanking DNA" · one-sentence reading.
+- **Overall:** "Score 96 of 100: SINE." · "The score is held down because: …" (was
+  "capped: SMALL_CORE") · "Evidence against:" · "Also noted (does not change the call): …".
+- Fixed on the way: a "group" of one copy counted as shared when few copies were measured
+  (cse MEG-TR rand100: 6 unique copies was flagged "Shared context").
+
+## 8. The three questions from the first pass
+
+1. **`continuation.tsv` and `[array]` rows.** step8a asks "do the copies still agree where their
+   flank runs out? if so, extract more" — but only over copies that are *not* tandem-array units,
+   because array units share flank for their whole length and would make every plate extend to the
+   cap. The published `continuation.tsv` / page note re-measures the same thing **over all rows,
+   array units included**. On array-heavy plates (cse MEG-RS rand100: 55 of 100 rows are array
+   units) the array units alone make it say "unresolved", although step8a, looking at the
+   independent copies, correctly decided there was nothing to extend. Proposal: measure the
+   published status on independent copies too, and say how many array rows were set aside.
+   *Awaiting his decision.*
+2. **Subfam plates in `continuation.tsv`.** The subfam plate is not copies with flanks: each row is
+   the consensus of a chunk of 50 copies, element only. "Do copies stay similar past the element's
+   end" has no meaning there — its rows simply stop where the element stops, so it reads as
+   "unresolved, 0 bp". Proposal: leave subfam plates out of `continuation.tsv`. *Awaiting his
+   decision.*
+3. **rand100 seed — done** (his call: fix and indicate). step8a draws rand100 with a fixed seed
+   (`RAND_SEED`, default 42; SINEderella `785895d`); the page column reads "100 random copies
+   (seed 42)" and the button's rule says the same copies come back on every rebuild.
 
 ## Viewer links
 
