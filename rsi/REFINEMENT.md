@@ -254,6 +254,29 @@ Three kinds, one example each to look at (rows marked `[array]` in the viewer):
 
 All 18 are MEG-RS / MEG-TR plates (the families with tandem arrays). *Awaiting his decision.*
 
+## 10. r10 + group B rebuilt as one consensus and reassigned (2026-09-28)
+
+`r10_groupB` (391 bp, `analysis/rsi_r8_groupB_extended_consensus.fa`) added to the rsi run with
+`SINEderella --add` (incremental: an old 10/10 call is re-voted only where the new consensus hits).
+New run: therioserver `~/rhin/rsi_gB/run_add_20260928_214348` (not published; the rsi page is unchanged).
+
+| subfamily | firm before | firm after |
+|---|---|---|
+| r10_groupB | — | **4 181** (+669 soft) |
+| r10_19seqs | 5 188 | **1 072** |
+| r8_83seqs | 3 951 | 3 992 |
+| r5_27seqs | 3 940 | 3 472 |
+| r1_9seqs | 3 951 | 3 573 |
+| others | | within ±1 % |
+
+- ~4 100 of the 5 188 "r10" copies are the compound element: r10 was its left part.
+- Of r8's 521 group-B copies, **505 now lie in an r10_groupB locus**, 11 stay r8, 5 elsewhere.
+- r8's total nevertheless stays ~4 000: it lost the group-B copies and gained about as many from
+  elsewhere — *not yet traced*.
+- r5 (−468) and r1 (−378) also gave copies to r10_groupB — *not yet examined* (r5's dimer halves?).
+- r10_groupB mean sim_ratio 0.59 (vs 0.74 for r10 before): many copies are shorter than 391 bp or
+  diverged; its plates are the next thing to look at.
+
 ## Viewer links
 
 - group B, 60 best copies: <https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Frsi%2Fanalysis%2Frsi_r8_groupB_top60.aln.fa&title=rsi%20r8%20group%20B%20top60>
