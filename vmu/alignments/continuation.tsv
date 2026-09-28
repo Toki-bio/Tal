@@ -5,8 +5,6 @@ vmu_MEG-RL_top100.aln.fa	3	none	0	0.43
 vmu_MEG-RL_top100.aln.fa	5	none	0	1.0
 vmu_MEG-RS_rand100.aln.fa	3	unresolved	302	0.05
 vmu_MEG-RS_rand100.aln.fa	5	unresolved	895	0.49
-vmu_MEG-RS_subfam.aln.fa	3	none	0	0.0
-vmu_MEG-RS_subfam.aln.fa	5	unresolved	14	0.46
 vmu_MEG-RS_top100.aln.fa	3	unresolved	25	0.49
 vmu_MEG-RS_top100.aln.fa	5	unresolved	632	0.43
 vmu_MEG-T2_rand100.aln.fa	3	ends	57	0.77
@@ -23,7 +21,5 @@ vmu_Rhin-1_top100.aln.fa	3	ends	9	0.99
 vmu_Rhin-1_top100.aln.fa	5	none	0	1.0
 vmu_VES_rand100.aln.fa	3	none	0	1.0
 vmu_VES_rand100.aln.fa	5	none	0	1.0
-vmu_VES_subfam.aln.fa	3	none	0	0.0
-vmu_VES_subfam.aln.fa	5	none	0	0.0
 vmu_VES_top100.aln.fa	3	none	0	1.0
 vmu_VES_top100.aln.fa	5	none	0	1.0

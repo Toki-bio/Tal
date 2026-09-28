@@ -21,7 +21,5 @@ rmi_Rhin-1_top100.aln.fa	3	ends	8	0.92
 rmi_Rhin-1_top100.aln.fa	5	none	0	0.97
 rmi_VES_rand100.aln.fa	3	none	0	1.0
 rmi_VES_rand100.aln.fa	5	ends	64	1.0
-rmi_VES_subfam.aln.fa	3	none	0	0.0
-rmi_VES_subfam.aln.fa	5	none	0	0.0
 rmi_VES_top100.aln.fa	3	none	0	1.0
 rmi_VES_top100.aln.fa	5	ends	1	0.99

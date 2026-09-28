@@ -17,13 +17,9 @@ msc_MEG-TR_top100.aln.fa	3	none	0	1.0
 msc_MEG-TR_top100.aln.fa	5	none	0	0.79
 msc_Rhin-1_rand100.aln.fa	3	none	0	0.99
 msc_Rhin-1_rand100.aln.fa	5	none	0	0.99
-msc_Rhin-1_subfam.aln.fa	3	unresolved	1	0.44
-msc_Rhin-1_subfam.aln.fa	5	none	0	0.0
 msc_Rhin-1_top100.aln.fa	3	ends	11	1.0
 msc_Rhin-1_top100.aln.fa	5	none	0	1.0
 msc_VES_rand100.aln.fa	3	none	0	1.0
 msc_VES_rand100.aln.fa	5	none	0	1.0
-msc_VES_subfam.aln.fa	3	none	0	0.0
-msc_VES_subfam.aln.fa	5	none	0	0.0
 msc_VES_top100.aln.fa	3	ends	2	1.0
 msc_VES_top100.aln.fa	5	none	0	1.0

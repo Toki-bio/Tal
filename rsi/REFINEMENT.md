@@ -197,7 +197,8 @@ One fixed layout, no internal codes (DISC `8124186`):
    independent copies, correctly decided there was nothing to extend. Proposal: measure the
    published status on independent copies too, and say how many array rows were set aside.
    *Awaiting his decision.*
-2. **Subfam plates in `continuation.tsv`.** The subfam plate is not copies with flanks: each row is
+2. **Subfam plates in `continuation.tsv` — done** (his call: leave them out; DISC `02370dc`, 84 rows
+   removed from the 25 published tsv files). The subfam plate is not copies with flanks: each row is
    the consensus of a chunk of 50 copies, element only. "Do copies stay similar past the element's
    end" has no meaning there — its rows simply stop where the element stops, so it reads as
    "unresolved, 0 bp". Proposal: leave subfam plates out of `continuation.tsv`. *Awaiting his
@@ -205,6 +206,51 @@ One fixed layout, no internal codes (DISC `8124186`):
 3. **rand100 seed — done** (his call: fix and indicate). step8a draws rand100 with a fixed seed
    (`RAND_SEED`, default 42; SINEderella `785895d`); the page column reads "100 random copies
    (seed 42)" and the button's rule says the same copies come back on every rebuild.
+
+## 9. Array rows and the published continuation status — concrete examples (for his decision)
+
+What is compared, for each published top100 / rand100 plate that has `[array]` rows (all 25 bats):
+the published status (all rows) against the same measurement with the `[array]` rows set aside
+(what step8a uses to decide on extension). The status is read at the element's edge: `none` = the
+copies stop agreeing right at the edge; `ends N` = they keep agreeing for N bp, then stop while
+≥ 50 % of copies still have sequence; `unresolved` = the copies run out of sequence (cover < 50 %)
+while still agreeing. **18 plate sides change** (of the plates with array rows); in bp the
+differences are small (0–25 bp) — what flips is mostly the *cover* at the edge, i.e. how many rows
+still have sequence there.
+
+| plate | side | array rows | all rows (published) | independent copies only |
+|---|---|---|---|---|
+| tbr MEG-RS rand100 | 3′ | 73 / 100 | unresolved 10 bp, cover 0.49 | none, cover 0.74 |
+| nth MEG-RS rand100 | 5′ | 34 / 100 | unresolved 4 bp, cover 0.39 | none, cover 0.79 |
+| tni MEG-RS rand100 | 5′ | 63 / 100 | unresolved 1 bp, cover 0.43 | none, cover 0.70 |
+| mgi MEG-TR top100 | 3′ | 14 / 39 | unresolved 6 bp, cover 0.41 | none, cover 0.76 |
+| fho MEG-RS top100 | 5′ | 41 / 100 | unresolved 1 bp, cover 0.49 | none, cover 0.15 |
+| nth MEG-TR top100 | 5′ + 3′ | 35 / 75 | unresolved 0 bp | none |
+| rsi MEG-TR rand100 | 3′ | 76 / 100 | unresolved 0 bp, cover 0.07 | none, cover 0.00 |
+| vmu MEG-TR top100 | 3′ | 18 / 90 | unresolved 10 bp, cover 0.48 | none, cover 0.60 |
+| mev MEG-RS rand100 | 5′ | 42 / 100 | ends 8 bp | none |
+| rmi MEG-RS top100 | 3′ | 33 / 100 | ends 4 bp | none |
+| vmu MEG-RS rand100 | 5′ | 74 / 100 | unresolved 0 bp, cover 0.24 | **unresolved 25 bp**, cover 0.46 |
+| vmu MEG-RS rand100 | 3′ | 74 / 100 | unresolved 0 bp, cover 0.38 | none, cover 0.19 |
+| rsi MEG-TR top100 | 5′ | 73 / 100 | none, cover 0.03 | unresolved 0 bp, cover 0.11 |
+| hla MEG-TR rand100 | 5′ | 72 / 100 | none, cover 0.04 | unresolved 0 bp, cover 0.14 |
+| rmi MEG-TR rand100 | 3′ | 49 / 87 | none, cover 0.24 | unresolved 0 bp, cover 0.37 |
+| lly MEG-RS rand100 | 3′ | 3 / 100 | none, cover 0.44 | unresolved 0 bp, cover 0.42 |
+| nle MEG-RS rand100 | 3′ | 3 / 100 | none, cover 0.24 | unresolved 0 bp, cover 0.24 |
+
+Three kinds, one example each to look at (rows marked `[array]` in the viewer):
+1. **Array rows create the "unresolved"** — tbr MEG-RS rand100 3′: 73 array units run on past the
+   edge with shared (tandem) sequence; the 27 independent copies stop at the edge (cover 0.74).
+   <https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftbr%2Falignments%2Ftbr_MEG-RS_rand100.aln.fa&title=tbr_MEG-RS_rand100>
+   (also nth MEG-RS rand100 5′: <https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Fnth%2Falignments%2Fnth_MEG-RS_rand100.aln.fa&title=nth_MEG-RS_rand100>)
+2. **Array rows hide a real extension** — vmu MEG-RS rand100 5′: the independent copies agree for
+   25 bp past the edge; with the 74 array rows mixed in, it reads 0 bp.
+   <https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Fvmu%2Falignments%2Fvmu_MEG-RS_rand100.aln.fa&title=vmu_MEG-RS_rand100>
+3. **Too few independent copies left** — rsi MEG-TR top100 5′: 73 of 100 rows are array units;
+   the 27 left barely reach the edge (cover 0.11), so either reading is weak.
+   <https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Frsi%2Falignments%2Frsi_MEG-TR_top100.aln.fa&title=rsi_MEG-TR_top100>
+
+All 18 are MEG-RS / MEG-TR plates (the families with tandem arrays). *Awaiting his decision.*
 
 ## Viewer links
 

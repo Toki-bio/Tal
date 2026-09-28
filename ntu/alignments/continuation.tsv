@@ -17,13 +17,9 @@ ntu_MEG-TR_top100.aln.fa	3	none	0	0.19
 ntu_MEG-TR_top100.aln.fa	5	none	0	0.88
 ntu_Rhin-1_rand100.aln.fa	3	ends	3	0.98
 ntu_Rhin-1_rand100.aln.fa	5	none	0	1.0
-ntu_Rhin-1_subfam.aln.fa	3	unresolved	0	0.4
-ntu_Rhin-1_subfam.aln.fa	5	none	0	0.0
 ntu_Rhin-1_top100.aln.fa	3	ends	11	1.0
 ntu_Rhin-1_top100.aln.fa	5	none	0	0.99
 ntu_VES_rand100.aln.fa	3	ends	2	0.99
 ntu_VES_rand100.aln.fa	5	none	0	1.0
-ntu_VES_subfam.aln.fa	3	none	0	0.0
-ntu_VES_subfam.aln.fa	5	none	0	0.0
 ntu_VES_top100.aln.fa	3	ends	2	1.0
 ntu_VES_top100.aln.fa	5	none	0	1.0
