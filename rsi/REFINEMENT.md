@@ -239,8 +239,10 @@ still have sequence there.
 | nle MEG-RS rand100 | 3′ | 3 / 100 | none, cover 0.24 | unresolved 0 bp, cover 0.24 |
 
 Three kinds, one example each to look at (rows marked `[array]` in the viewer):
-1. **Array rows create the "unresolved"** — tbr MEG-RS rand100 3′: 73 array units run on past the
-   edge with shared (tandem) sequence; the 27 independent copies stop at the edge (cover 0.74).
+1. **Array rows create the "unresolved"** — tbr MEG-RS rand100 3′: with the 73 array units in, only
+   49 % of rows still have sequence at the edge, so "the copies ran out while still agreeing" is
+   triggered; the 27 independent copies still have sequence there (74 %) and stop agreeing right at
+   the edge (`none`). Why the array units run out there is not yet measured.
    <https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Ftbr%2Falignments%2Ftbr_MEG-RS_rand100.aln.fa&title=tbr_MEG-RS_rand100>
    (also nth MEG-RS rand100 5′: <https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Fnth%2Falignments%2Fnth_MEG-RS_rand100.aln.fa&title=nth_MEG-RS_rand100>)
 2. **Array rows hide a real extension** — vmu MEG-RS rand100 5′: the independent copies agree for
