@@ -231,3 +231,20 @@ Changes: the summary lists every tribe (eri kept 10), sampling seed 42, and soft
   (rsi: 1,556 of 1,570 soft MEG-RS voted MEG-RL 6-7/10). Also why rsi MEG-RS top100 holds only 16 copies.
   Open: exclude MEG-RS vs build MEG plates from firm+soft — his call.
 - Not done: eri's per-tribe tandem-repeat check (TRF), which found 3/10 eri tribes inside satellites.
+
+## 2026-09-28 — Rebuilt consensi across species (chiroptera.html, new card)
+
+His note: in many alignments a low-copy "Rhin" is actually something else once its consensus is rebuilt
+in that species. Collected row 1 (the consensus rebuilt from that species' copies) of every top100 plate
+in all 25 species — 106 plates with an element, 50 without (mostly MEG-T2/MEG-TR) left out — and aligned
+them with the 16 queries (Rhin-1, VES, MEG-RL/RS/T2/TR, rsi r1–r10): `chiroptera/recreated/`.
+Source: the 312-plate corpus re-run through the current chain on therioserver (`~/tmp/bw/new`), element
+as the verdict judges it. Scripts in `chiroptera/recreated/scripts/`, page card by `build_section.py`.
+
+Groups at ≥ 80 % identity (single linkage):
+- **"Rhin-1" in 15 non-rhinolophoid bats is one other element** (cse, fho, mau, mev, mme, msc, mtu,
+  nle, nth, ntu, rna, tbr, tni, ttr, vmu; with nth "VES"): ≥ 0.90 to each other, 0.58–0.66 to Rhin-1,
+  no query in its group.
+- Real Rhin-1 only in the Rhinolophoidea: rsi (r1–r10), rda, rre, hla, tpe.
+- lly + mgi (Megadermatidae) "Rhin-1": their own pair. rmi "Rhin-1" = rmi "VES".
+- VES real in 14 species; MEG-RS/RL/TR one group across species; MEG-T2 real only in rle.
