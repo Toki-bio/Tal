@@ -385,8 +385,9 @@ def add_back_nav(report_rel):
            "font-size:.84rem;text-decoration:none;margin:0 6px 10px 0;")
     # species line from genomes.tsv: step6 knows only the run, the page must say whose genome it is
     code = report_rel.split("/")[0]
-    g = next((r for r in csv.DictReader(open(os.path.join(ROOT, "chiroptera", "genomes.tsv"), encoding="utf8"),
-                                         delimiter="\t") if r["code"] == code), None)
+    rows = list(csv.DictReader(open(os.path.join(ROOT, "chiroptera", "genomes.tsv"), encoding="utf8"), delimiter="\t"))
+    # a derived page (rsi_v2: rebuilt consensuses) takes the species of its base code
+    g = next((r for r in rows if r["code"] == code), None) or next((r for r in rows if r["code"] == code.split("_")[0]), None)
     who = (f'<div style="font-size:1.05rem;margin:0 0 8px 0"><i>{esc(g["species"])}</i> &middot; '
            f'{esc(g["family"])} &middot; {esc(g["accession"])} ({esc(g["assembly"])}) &middot; code {esc(code)}</div>'
            if g else "")

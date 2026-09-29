@@ -394,6 +394,13 @@ tRNA-Val-GTA, tRNAscan Val, not pseudo); MEG-TR → **tRNA-Val (1–56) + 5S (65
 - **r10's head resembles MamSINE1** (Dfam), a family not in the rsi bank; group B (no B box) and the
   105 bp middle match nothing known.
 
+## 14. Round 2 of manual inspection — page with the rebuilt consensuses (2026-09-29)
+
+<https://toki-bio.github.io/Tal/rsi_v2/report.html> — the run with r10_groupB, r1_r3 and r5h_r6 added
+(therioserver `~/rhin/rsi_comp/run_add_20260928_222535`), published on the current code (seed 42,
+plain comments). The original page stays at `rsi/`. Not yet on it: composite marks on plate rows,
+the r1_r3 variant with r3's internal repeat.
+
 ## Viewer links
 
 - group B, 60 best copies: <https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Frsi%2Fanalysis%2Frsi_r8_groupB_top60.aln.fa&title=rsi%20r8%20group%20B%20top60>
