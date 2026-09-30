@@ -401,6 +401,34 @@ tRNA-Val-GTA, tRNAscan Val, not pseudo); MEG-TR → **tRNA-Val (1–56) + 5S (65
 plain comments). The original page stays at `rsi/`. Not yet on it: composite marks on plate rows,
 the r1_r3 variant with r3's internal repeat.
 
+## 15. Composite candidates found automatically by flankscan (2026-09-30)
+
+flankscan stages 1-6 (SINEderella/flankscan) on the original run (`~/rhin/rsi/run_add_20260927_180847`,
+no hand rebuilds in the bank), output therioserver `~/tmp/fs_rsi4`: 50 junction peaks -> 14 distinct
+candidate consensuses (`rsi_v2/composites/`: `*.aln.fa` = 60 copies of the layout, `*.fa` = candidate,
+`candidates.tsv`, `reassign.tsv`). Stage 6 adds all candidates once and re-assigns; "accept" = >= 70 % of the
+peak's elements now read as one full unit of the candidate.
+
+| candidate | type | peak copies | full-unit share | verdict | = hand result |
+|---|---|---|---|---|---|
+| r1__r3_P1 | composite (39 bp linker) | 9 158 | 71.3 % | accept | r1_r3 (99.75 %) |
+| r5__r6_P26 | composite (r5 cut ~127) | 3 518 | 89.8 % | accept | r5h_r6 (100 %) |
+| r10__r8_P18 | piecewise (r10 + group B) | 90 | 98.3 % | accept | ~r10_groupB (97.2 %, ~30 bp indel) |
+| r1__r3_P2 | piecewise (r1 1-79 + r3 from 29) | 3 427 | 91.9 % | accept | prototype "r10[h]+r3[e]" |
+| r1__r3_P21 | piecewise | 1 454 | 76.4 % | accept | new |
+| r2__r3_P6 | composite (gap 0) | 5 725 | 19.4 % | check | r1~r2+r3 variant |
+| r1__r2_P40 | composite (gap 31) | 236 | 61.0 % | check | r1~r2 part |
+| r3__r3_P13 | homodimer | 270 | 53.7 % | check | |
+| r8__r8_P43 | homodimer | 139 | 54.5 % | check | |
+| r3__r3_P9 | piecewise (r3 1-161 + 114-201) | 4 300 | 2.1 % | check | r3 internal repeat; its copies go to r1_r3 |
+| r1__r2_P39 | piecewise | 387 | 2.0 % | check | |
+| r10__r6_P41 | piecewise | 101 | 7.9 % | check | |
+| r7__r3_P20 | piecewise | 329 | 0 % | check | artifact: r7's real 3' tail TAAATAA(A)TAAAAGTT + A run beyond the r7 consensus end (boundary note for r7) |
+| r9__r8_P33 | composite | 55 | 0 % | check | |
+
+Open: the 3-part element r1 + 39 bp + r3-with-internal-repeat needs a second round (stages 3-4 again with
+the kept candidates in the bank). All calls on these alignments are his.
+
 ## Viewer links
 
 - group B, 60 best copies: <https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Frsi%2Fanalysis%2Frsi_r8_groupB_top60.aln.fa&title=rsi%20r8%20group%20B%20top60>
