@@ -455,6 +455,17 @@ the clean control); ends from column conservation (ViewAlign auto mode), one TSD
 - r10 "singles": 3' end +217 like the composites; partner 3' 82 % -> they are r10 + group B.
 Open (his call on the alignments): are the r3 and r1 singles partly standalone (TSD above chance, below r9)?
 
+**His calls on the stage-8 alignments (2026-09-30, verbatim):**
+- r3: "singles alignment is with gappy flanks which are too lengthy, and its consensus needs to be longer on
+  right end. overall looks like an interspersed element worth considering. inside composites - element look
+  like good sine at first glance."
+- r1: "singles - looks ok. inside composites - right flank is bad, keeping similarity to the end, needs extending."
+- r10: "singles - right flank not good. inside composites - right flank not good but oligo-g tail appears (interesting)."
+- Agreed next step: for any moved end, report what percentage of copies actually carry the extension.
+Actions taken: plates for stage 8 to show packed (degapped) flanks of limited length beyond the detected ends;
+flank continuing similar to its end -> extend (re-extract longer) instead of stopping; per-copy carrying %;
+consensus end extension from the copies (>= 60 % agree) proposed for r3's right end.
+
 ## Viewer links
 
 - group B, 60 best copies: <https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Frsi%2Fanalysis%2Frsi_r8_groupB_top60.aln.fa&title=rsi%20r8%20group%20B%20top60>
