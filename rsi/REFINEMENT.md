@@ -466,6 +466,21 @@ Actions taken: plates for stage 8 to show packed (degapped) flanks of limited le
 flank continuing similar to its end -> extend (re-extract longer) instead of stopping; per-copy carrying %;
 consensus end extension from the copies (>= 60 % agree) proposed for r3's right end.
 
+**Stage 8 rerun with packed flanks, extension and carrying % (2026-09-30, Tal rsi_v3/singletons/*/{S,B,A}.plate.aln.fa):**
+| family / group | copies | 5' end / 3' end vs unit (bp) | carrying 5' / 3' | TSD (chance) | proposed consensus |
+|---|---|---|---|---|---|
+| r3 composites (B) | 200 | +200 / +39 | 99 / 96 % | 52.5 % (4.5) | 443 bp, ends ...CCCCAATAAAATCTTAAAAAAAAAA |
+| r3 singles (S) | 200 | 0 / +25 | 31 / 96 % | 8.0 % (3.5); r9 19.5 % | 225 bp, 3' extended by ...CCCCTTCCCCAATAAAA |
+| r1 composites (B) | 200 | +5 / +295 | 75 / 99 % | 34 % (0) | 459 bp |
+| r1 singles (S) | 142 | +5 / 0 | 25 / 0 % | 15.5 % (4.2); r9 30 % | 142 bp |
+| r10 composites (B) | 150 | +5 / +243 | 29 / 100 % | **66.7 % (4.7)** | 404 bp, ends in G16 tail (...GGGGGGGGGGGGGGGGAGAAAGG) |
+| r10 singles (S) | 200 | +5 / +148 | 70 / 94 % | 4.5 % (4.0); r9 39 % | 300 bp |
+| r2 (S) | 3 | - | - | - | too few |
+Reading: r10 + group B is a real element with TSDs at both ends (66.7 % vs 4.7 % chance) and a G-rich tail
+(his oligo-G note). r3 composites 52.5 % TSD, r1 composites 34 %. r3 singles: the 3' end is longer for 96 % of
+copies (consensus extension is carried), the 5' end is at the unit. Carrying % is meaningful only for an end that
+moved (offset >= ~20 bp); for ends at the unit (r9 control, r1 S) it rests on few copies.
+
 ## Viewer links
 
 - group B, 60 best copies: <https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Frsi%2Fanalysis%2Frsi_r8_groupB_top60.aln.fa&title=rsi%20r8%20group%20B%20top60>
