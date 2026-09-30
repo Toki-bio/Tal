@@ -442,6 +442,19 @@ P42 into P26 (r5h_r6, 90.6 %) because P26 came from the larger peak; the fold sh
 candidate (P43, 99 %). Stage 6: P43 54.5 % one full unit (check). Alignments: rsi_v2/composites/v2/cand/ P43,
 P42, P37, P38.
 
+## 16. Singletons: do r1, r2, r3, r10 exist alone? (2026-09-30, flankscan stage 8)
+
+Per family three groups aligned with 250 bp flanks (S = singles, B = copies in composites, A = r9 singles as
+the clean control); ends from column conservation (ViewAlign auto mode), one TSD per copy at those ends
+(ViewAlign detector, 3' slack 25 bp, minimum calibrated on shuffled pairs). Alignments: Tal rsi_v3/singletons/.
+- Controls: r9 singles end at the unit, TSD 19-42 % vs 3.5-5 % chance -> rsi SINEs make TSDs. Composite members'
+  ends move to the partner by themselves (r3 5' +197 = r1 + 39 bp; r1 3' +225; r2 +192 / +223; r10 3' +232).
+- r3 singles (529): end at the unit, 3' end ~23 bp beyond the consensus + tail; TSD 7.5 % (chance 3 %, r9 19.5 %).
+- r1 singles (142): end at the unit; TSD 15.5 % (chance 3.5 %, r9 30.5 %); 56 % full-length; relaxed partner 3' 30 %.
+- r2: 3 singles only, and they are composites -> r2 never occurs alone.
+- r10 "singles": 3' end +217 like the composites; partner 3' 82 % -> they are r10 + group B.
+Open (his call on the alignments): are the r3 and r1 singles partly standalone (TSD above chance, below r9)?
+
 ## Viewer links
 
 - group B, 60 best copies: <https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Frsi%2Fanalysis%2Frsi_r8_groupB_top60.aln.fa&title=rsi%20r8%20group%20B%20top60>
