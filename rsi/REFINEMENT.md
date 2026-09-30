@@ -429,6 +429,12 @@ peak's elements now read as one full unit of the candidate.
 Open: the 3-part element r1 + 39 bp + r3-with-internal-repeat needs a second round (stages 3-4 again with
 the kept candidates in the bank). All calls on these alignments are his.
 
+**Update 2026-09-30 (stage 5 fixed):** candidate consensuses are now built from copies cut with 100 bp flanks and
+extended while >= 60 % of copies agree (the element cut had stopped short in r3's simple-repeat tail and before
+GGGCC at the r1 5' end). Rerun (therioserver `~/tmp/fs_rsi5`, Tal `rsi_v2/composites/v2/`): 17 candidates,
+7 accept - P1 r1+r3 82.3 % (was 71.3), P26 87.1, P2 89.7, P34 r5+r3 83.6 (new), P12 r3 homodimer 89.0 (new),
+P18 96.6; P21 fell to 63.3 and P40 to 9.0 (check). P1 = 431 bp.
+
 ## Viewer links
 
 - group B, 60 best copies: <https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Frsi%2Fanalysis%2Frsi_r8_groupB_top60.aln.fa&title=rsi%20r8%20group%20B%20top60>
