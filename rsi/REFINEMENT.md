@@ -435,6 +435,13 @@ GGGCC at the r1 5' end). Rerun (therioserver `~/tmp/fs_rsi5`, Tal `rsi_v2/compos
 7 accept - P1 r1+r3 82.3 % (was 71.3), P26 87.1, P2 89.7, P34 r5+r3 83.6 (new), P12 r3 homodimer 89.0 (new),
 P18 96.6; P21 fell to 63.3 and P40 to 9.0 (check). P1 = 431 bp.
 
+**r8 dimers (2026-09-30):** the "10 % r8 homodimers" are ONE element seen through two junction splits:
+P42 r8(1-132) + 9 bp + r8 and P43 r8(1-83) + 35 bp + r8 are 99.0 % identical over 325 bp; P38 (r8 head + unit
+assigned r6) = P43 100 %. The element (P43, 300 bp) is ~88 % to r5h_r6 - related, not the same. Stage 5 folded
+P42 into P26 (r5h_r6, 90.6 %) because P26 came from the larger peak; the fold should go to the MOST similar
+candidate (P43, 99 %). Stage 6: P43 54.5 % one full unit (check). Alignments: rsi_v2/composites/v2/cand/ P43,
+P42, P37, P38.
+
 ## Viewer links
 
 - group B, 60 best copies: <https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Frsi%2Fanalysis%2Frsi_r8_groupB_top60.aln.fa&title=rsi%20r8%20group%20B%20top60>
