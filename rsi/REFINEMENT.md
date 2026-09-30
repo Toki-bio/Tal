@@ -481,6 +481,14 @@ Reading: r10 + group B is a real element with TSDs at both ends (66.7 % vs 4.7 %
 copies (consensus extension is carried), the 5' end is at the unit. Carrying % is meaningful only for an end that
 moved (offset >= ~20 bp); for ends at the unit (r9 control, r1 S) it rests on few copies.
 
+**His call on P12 (2026-09-30, verbatim):** "P12 homodimer r3 1-144 + r3 3-201, 153 copies, 88 % accept, 444 bp -
+open - but its apparently bad in flanks!"
+Checked: the copies are dispersed (9 contigs, none within 10 kb, median gap 12 Mb), the flank columns are conserved
+(top-base share 0.8-0.9 for 25-40 columns beyond the consensus). Flanks searched against the bank (250 bp each, ssearch36
+E <= 1e-3): 5' flank = r1 in 57 / 60 copies, 3' flank = r3 in 41 / 60. Controls P1 and P26: flanks match nothing
+(0-2 of 60). So P12 is the middle of a longer chain r1 + r3 + r3 (+ r3), not a closed homodimer; flankscan pairs each copy
+with its nearest neighbour per side and stage 6 counts full units only, so the truncated pair was "accepted".
+
 ## Viewer links
 
 - group B, 60 best copies: <https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Frsi%2Fanalysis%2Frsi_r8_groupB_top60.aln.fa&title=rsi%20r8%20group%20B%20top60>
