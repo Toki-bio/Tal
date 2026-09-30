@@ -1,0 +1,15 @@
+name	peak_elements	now_main	full	pct_full	verdict	from_full	from_part
+r1_9seqs__r3_58seqs_P1	7176	5739	5114	71.3	accept	r2_3seqs 9, r10_19seqs 1, r3_58seqs 7046, r1_9seqs 427, r9_15seqs 1, r6_210seqs 15	r2_3seqs 13, r3_58seqs 2596, r1_9seqs 319, r8_83seqs 8, r9_15seqs 2, r6_210seqs 3, r5_27seqs 5, r7_133seqs 4
+r2_3seqs__r3_58seqs_P6	5323	1202	1032	19.4	check	r2_3seqs 38, r10_19seqs 3, r3_58seqs 1062, r1_9seqs 1, r5_27seqs 5, r6_210seqs 10	r2_3seqs 23, r9_15seqs 1, r3_58seqs 412, r8_83seqs 2, r5_27seqs 1, r6_210seqs 2
+r3_58seqs__r3_58seqs_P9	4924	189	103	2.1	check	r6_210seqs 5, r3_58seqs 175	r1_9seqs 18, r3_58seqs 196
+r5_27seqs__r6_210seqs_P26	5329	5144	4784	89.8	accept	r9_15seqs 2, r8_83seqs 48, r10_19seqs 1, r5_27seqs 804, r3_58seqs 985, r2_3seqs 4, r6_210seqs 4577, r7_133seqs 8	r9_15seqs 13, r8_83seqs 67, r10_19seqs 2, r5_27seqs 326, r3_58seqs 76, r2_3seqs 18, r6_210seqs 429, r7_133seqs 5
+r1_9seqs__r3_58seqs_P2	4094	3800	3761	91.9	accept	r3_58seqs 3968, r6_210seqs 6, r1_9seqs 150	r3_58seqs 141, r7_133seqs 1, r1_9seqs 151
+r1_9seqs__r3_58seqs_P21	1589	1249	1214	76.4	accept	r1_9seqs 1639, r6_210seqs 8, r3_58seqs 186	r1_9seqs 119, r6_210seqs 1, r3_58seqs 15
+r1_9seqs__r2_3seqs_P39	402	8	8	2.0	check	r2_3seqs 2, r1_9seqs 26	r1_9seqs 112
+r7_133seqs__r3_58seqs_P20	329	0	0	0.0	check	-	r8_83seqs 1, r9_15seqs 103, r7_133seqs 182
+r3_58seqs__r3_58seqs_P13	270	145	145	53.7	check	r1_9seqs 229, r6_210seqs 1, r3_58seqs 3414	r9_15seqs 1, r2_3seqs 3, r1_9seqs 39, r7_133seqs 1, r3_58seqs 48
+r1_9seqs__r2_3seqs_P40	400	375	244	61.0	check	r3_58seqs 1391, r2_3seqs 195, r1_9seqs 81, r6_210seqs 3	r3_58seqs 5, r9_15seqs 1, r2_3seqs 9, r5_27seqs 2, r1_9seqs 203
+r8_83seqs__r8_83seqs_P43	222	220	121	54.5	check	r9_15seqs 2, r6_210seqs 31, r8_83seqs 313, r5_27seqs 1, r7_133seqs 1	r10_19seqs 11, r9_15seqs 22, r1_9seqs 1, r6_210seqs 121, r8_83seqs 582, r7_133seqs 2, r5_27seqs 6
+r10_19seqs__r6_210seqs_P41	101	12	8	7.9	check	r10_19seqs 230	r10_19seqs 179
+r10_19seqs__r8_83seqs_P18	295	295	290	98.3	accept	r9_15seqs 1, r7_133seqs 2, r6_210seqs 1, r8_83seqs 3, r10_19seqs 3727	r7_133seqs 2, r1_9seqs 1, r8_83seqs 3, r10_19seqs 514
+r9_15seqs__r8_83seqs_P33	55	47	0	0.0	check	-	r9_15seqs 4952
