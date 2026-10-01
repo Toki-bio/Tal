@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>rsi SINE Composition</title>
+<style>
+:root{
+  color-scheme:light;
+  --bg:#faf8f4; --surface:#ffffff; --surface-2:#f3efe6;
+  --ink:#1f2420; --ink-soft:#5b625c; --ink-faint:#8a9088;
+  --accent:#0f6e6a; --accent-soft:#e4f2f0; --accent-ink:#0a4d4a;
+  --warn:#a8631a; --warn-soft:#fbeee0; --good:#2f7d4f; --good-soft:#e7f3ea;
+  --bad:#a23b3b; --bad-soft:#f7e6e4; --mute:#7a6f66; --mute-soft:#eeebe6;
+  --rule:#dcd6c9; --code-bg:#f2efe4;
+  --bar-ink:#ffffff; --gap:#d9d3c5;
+  --f-r1:#3b6ea5; --f-r2:#7a5aa6; --f-r3:#2f8a6d; --f-r4:#6b7280; --f-r5:#b0643a;
+  --f-r6:#b08a22; --f-r7:#5e7d3a; --f-r8:#8a4f6e; --f-r9:#35798a; --f-r10:#4f6a8f; --f-B:#8d8a7c;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#13181a; --surface:#1b2224; --surface-2:#212a2c;
+    --ink:#e8e6df; --ink-soft:#a8ada6; --ink-faint:#767d78;
+    --accent:#57d6c9; --accent-soft:#173634; --accent-ink:#8fe9de;
+    --warn:#e2a662; --warn-soft:#3a2c19; --good:#7ad19d; --good-soft:#1c3226;
+    --bad:#e58c86; --bad-soft:#3a1f1d; --mute:#a9a198; --mute-soft:#2a2826;
+    --rule:#333c3d; --code-bg:#0f1517;
+    --bar-ink:#10161a; --gap:#3a4446;
+    --f-r1:#8fb6e3; --f-r2:#bba3e0; --f-r3:#7fcfb0; --f-r4:#aab0b8; --f-r5:#e6a67e;
+    --f-r6:#e3c46a; --f-r7:#a9c98a; --f-r8:#d59ab8; --f-r9:#86c6d6; --f-r10:#9fb6da; --f-B:#c4c0b0;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#13181a; --surface:#1b2224; --surface-2:#212a2c;
+  --ink:#e8e6df; --ink-soft:#a8ada6; --ink-faint:#767d78;
+  --accent:#57d6c9; --accent-soft:#173634; --accent-ink:#8fe9de;
+  --warn:#e2a662; --warn-soft:#3a2c19; --good:#7ad19d; --good-soft:#1c3226;
+  --bad:#e58c86; --bad-soft:#3a1f1d; --mute:#a9a198; --mute-soft:#2a2826;
+  --rule:#333c3d; --code-bg:#0f1517;
+  --bar-ink:#10161a; --gap:#3a4446;
+  --f-r1:#8fb6e3; --f-r2:#bba3e0; --f-r3:#7fcfb0; --f-r4:#aab0b8; --f-r5:#e6a67e;
+  --f-r6:#e3c46a; --f-r7:#a9c98a; --f-r8:#d59ab8; --f-r9:#86c6d6; --f-r10:#9fb6da; --f-B:#c4c0b0;
+}
+*{box-sizing:border-box;}
+body{ background:var(--bg); color:var(--ink); font-family: Iowan Old Style, Palatino Linotype, Palatino, Georgia, serif; margin:0; padding:0 20px 100px; line-height:1.6; }
+.wrap{ max-width:960px; margin:0 auto; }
+.sansf, h2, table, .chip, .dek, .meta, .eyebrow, .note{ font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+header.top{ padding:52px 0 24px; border-bottom:1px solid var(--rule); }
+.eyebrow{ font-size:0.72rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent-ink); font-weight:600; margin-bottom:12px; }
+h1{ font-size:2.2rem; line-height:1.14; margin:0 0 12px; text-wrap:balance; font-weight:600; }
+.dek{ font-size:1rem; color:var(--ink-soft); max-width:70ch; margin:0 0 14px; }
+.meta{ font-size:0.82rem; color:var(--ink-faint); display:flex; gap:18px; flex-wrap:wrap; }
+section{ padding:32px 0; border-bottom:1px solid var(--rule); }
+section:last-of-type{ border-bottom:none; }
+h2{ font-size:1.25rem; font-weight:600; margin:0 0 4px; text-wrap:balance; }
+.sub-h{ font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size:0.84rem; color:var(--ink-faint); margin:0 0 16px; max-width:74ch; }
+p{ margin:0 0 12px; max-width:72ch; }
+.scroll{ overflow-x:auto; margin:10px 0 6px; }
+svg{ display:block; max-width:none; }
+svg .grid{ stroke:var(--rule); stroke-width:1; }
+svg .tick{ fill:var(--ink-faint); font:11px -apple-system, "Segoe UI", Roboto, sans-serif; }
+svg .lab{ fill:var(--ink); font:600 12.5px ui-monospace, "Cascadia Mono", Consolas, monospace; }
+svg .sub{ fill:var(--ink-faint); font:11px -apple-system, "Segoe UI", Roboto, sans-serif; }
+svg .in{ fill:var(--bar-ink); font:600 11px -apple-system, "Segoe UI", Roboto, sans-serif; }
+svg .gaplab{ fill:var(--ink-soft); font:10.5px -apple-system, "Segoe UI", Roboto, sans-serif; }
+svg .gap{ fill:var(--gap); }
+svg .u.approx{ stroke:var(--ink); stroke-width:1.2; stroke-dasharray:4 3; }
+.u.r1{ fill:var(--f-r1); } .u.r2{ fill:var(--f-r2); } .u.r3{ fill:var(--f-r3); } .u.r4{ fill:var(--f-r4); } .u.r5{ fill:var(--f-r5); }
+.u.r6{ fill:var(--f-r6); } .u.r7{ fill:var(--f-r7); } .u.r8{ fill:var(--f-r8); } .u.r9{ fill:var(--f-r9); } .u.r10{ fill:var(--f-r10); } .u.B{ fill:var(--f-B); }
+.sw{ display:inline-block; width:10px; height:10px; border-radius:2px; margin-right:7px; vertical-align:0; }
+.sw.r1{ background:var(--f-r1); } .sw.r2{ background:var(--f-r2); } .sw.r3{ background:var(--f-r3); } .sw.r4{ background:var(--f-r4); } .sw.r5{ background:var(--f-r5); }
+.sw.r6{ background:var(--f-r6); } .sw.r7{ background:var(--f-r7); } .sw.r8{ background:var(--f-r8); } .sw.r9{ background:var(--f-r9); } .sw.r10{ background:var(--f-r10); }
+table{ width:100%; border-collapse:collapse; font-size:0.84rem; }
+th, td{ text-align:left; vertical-align:top; padding:8px 12px 8px 0; border-bottom:1px solid var(--rule); color:var(--ink-soft); }
+th{ color:var(--ink-faint); font-weight:600; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.05em; white-space:nowrap; }
+td.mono{ font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; color:var(--ink); white-space:nowrap; }
+.n{ text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap; }
+tr:last-child td{ border-bottom:none; }
+a{ color:var(--accent-ink); }
+a:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+.chip{ display:inline-block; font-size:0.68rem; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; padding:2px 8px; border-radius:20px; white-space:nowrap; }
+.chip.ok{ color:var(--good); background:var(--good-soft); } .chip.warn{ color:var(--warn); background:var(--warn-soft); }
+.chip.bad{ color:var(--bad); background:var(--bad-soft); } .chip.mute{ color:var(--mute); background:var(--mute-soft); }
+.note{ background:var(--surface-2); border-left:3px solid var(--warn); padding:12px 16px; border-radius:2px; margin:16px 0 0; font-size:0.88rem; color:var(--ink-soft); max-width:78ch; }
+.note b{ color:var(--ink); }
+code{ font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; font-size:0.8rem; background:var(--code-bg); color:var(--ink); padding:1px 5px; border-radius:3px; }
+footer{ padding:28px 0 0; color:var(--ink-faint); font-family: -apple-system, "Segoe UI", Roboto, sans-serif; font-size:0.78rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <div class="eyebrow">rsi &middot; flank scan fs_rsi14 &middot; 2026-10-01</div>
+  <h1>Three decisions for you</h1>
+  <p class="dek">Everything else I settled by logic (list at the bottom). For each decision below the data is next to it.</p>
+</header>
+
+<section>
+  <h2>1. r8 + r8: a dimer element or not?</h2>
+  <p>The rule is now: a tandem of one unit is its own element and is never merged into a composite of other units. r8 + r8 therefore appears on its own (<b>P42</b>, 154 copies in the junction peak plus 139 in a second peak, P43, with a 35 bp gap instead of 9 that was folded into it). After re-assignment <b>62 %</b> of its elements read as r8 (1&ndash;132) + 9 bp + r8 (1&ndash;181) in full; the accept line is 70 %. The first r8 copy is shorter than the second (132 of 181), which is what a dimer made from a truncated and a full copy looks like.</p>
+  <div class="scroll"><svg viewBox="0 0 1053 80" width="1053" role="img" aria-label="parts drawn to scale">
+<line x1="150.0" y1="16" x2="150.0" y2="76" class="grid"/>
+<text x="150.0" y="11" class="tick" text-anchor="middle">0</text>
+<line x1="227.5" y1="16" x2="227.5" y2="76" class="grid"/>
+<text x="227.5" y="11" class="tick" text-anchor="middle">50</text>
+<line x1="305.0" y1="16" x2="305.0" y2="76" class="grid"/>
+<text x="305.0" y="11" class="tick" text-anchor="middle">100</text>
+<line x1="382.5" y1="16" x2="382.5" y2="76" class="grid"/>
+<text x="382.5" y="11" class="tick" text-anchor="middle">150</text>
+<line x1="460.0" y1="16" x2="460.0" y2="76" class="grid"/>
+<text x="460.0" y="11" class="tick" text-anchor="middle">200</text>
+<line x1="537.5" y1="16" x2="537.5" y2="76" class="grid"/>
+<text x="537.5" y="11" class="tick" text-anchor="middle">250</text>
+<line x1="615.0" y1="16" x2="615.0" y2="76" class="grid"/>
+<text x="615.0" y="11" class="tick" text-anchor="middle">300</text>
+<line x1="692.5" y1="16" x2="692.5" y2="76" class="grid"/>
+<text x="692.5" y="11" class="tick" text-anchor="middle">350</text>
+<line x1="770.0" y1="16" x2="770.0" y2="76" class="grid"/>
+<text x="770.0" y="11" class="tick" text-anchor="middle">400</text>
+<line x1="847.5" y1="16" x2="847.5" y2="76" class="grid"/>
+<text x="847.5" y="11" class="tick" text-anchor="middle">450</text>
+<line x1="925.0" y1="16" x2="925.0" y2="76" class="grid"/>
+<text x="925.0" y="11" class="tick" text-anchor="middle">500</text>
+<line x1="1002.5" y1="16" x2="1002.5" y2="76" class="grid"/>
+<text x="1002.5" y="11" class="tick" text-anchor="middle">550</text>
+<text x="0" y="44" class="lab">r8</text>
+<text x="0" y="58" class="sub">r8 + r8, gap 9 (P42: 154 copies, 62 % full)</text>
+<rect x="150.0" y="30" width="204.6" height="20" rx="2" class="u r8"/>
+<text x="252.3" y="44" class="in" text-anchor="middle">r8 1-132</text>
+<rect x="354.6" y="34" width="14.0" height="12" class="gap"/>
+<text x="361.6" y="62" class="gaplab" text-anchor="middle">9 bp</text>
+<rect x="368.6" y="30" width="280.6" height="20" rx="2" class="u r8"/>
+<text x="508.8" y="44" class="in" text-anchor="middle">r8</text>
+</svg></div>
+  <div class="note"><b>For comparison:</b> r5 + r5 (73 copies) passes at 87 %. <b>Choose:</b> (a) keep r8 + r8 as a dimer element with verdict check; (b) call it r8 with an extra copy, a variant of the monomer (not an element); (c) look at the plate first: <a href="rsi_v5/composites/cand/r8_83seqs__r8_83seqs_P42.aln.fa" target="_blank" rel="noopener">open the P42 plate</a>. My logic would be (a) until the plate says otherwise.</div>
+</section>
+
+<section>
+  <h2>2. The G-rich 3&prime; end of r10 + group B (P18)</h2>
+  <p>The consensus of P18 ends <code>GGGGGGGAGGCGGAAGAAGGGGG</code>. In the 60 plate copies the last 30 element bases are <b>57 % G</b> (median), the next 30 flank bases 40 % G. A run of six or more G is present in only <b>2 of 60</b> copies, so the tail is G-rich but not a fixed oligo-G: the consensus draws a run that no single copy carries. A poly-A SINE end is absent here.</p>
+  <div class="note"><b>Choose:</b> (a) cut the consensus where the G richness starts (before the last ~25 bp), (b) keep it and mark it as a G-rich end (as it is in the genome), (c) leave it open until the 3&prime; end of r10 on its own is examined. My logic: (b), because the copies end there and the unit is accepted at 83 %. <a href="rsi_v5/composites/cand/r10_19seqs__r8_83seqs_P18.aln.fa" target="_blank" rel="noopener">open the P18 plate</a>.</div>
+</section>
+
+<section>
+  <h2>3. D2: CpG-adjusted divergence in the plates</h2>
+  <p>Over 371 plates the median CpG-adjusted divergence is 10 % lower than the raw one (mammal sets 27&ndash;35 %, invertebrates about 5 %). Two example plates, the same five bins on one scale for raw and adjusted (copies per bin, low divergence to high):</p>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px">
+    <div><b>rsi r6, 101 copies</b> (median raw 4.4 %, adjusted 2.9 %)<br><small>raw</small><div style="display:flex;align-items:flex-end;gap:4px;height:90px"><div style="flex:1;text-align:center"><div style="background:#c0554d;height:2px;border-radius:2px 2px 0 0"></div><div style="font-size:11px">1</div></div><div style="flex:1;text-align:center"><div style="background:#c0554d;height:2px;border-radius:2px 2px 0 0"></div><div style="font-size:11px">1</div></div><div style="flex:1;text-align:center"><div style="background:#c0554d;height:16px;border-radius:2px 2px 0 0"></div><div style="font-size:11px">15</div></div><div style="flex:1;text-align:center"><div style="background:#c0554d;height:70px;border-radius:2px 2px 0 0"></div><div style="font-size:11px">64</div></div><div style="flex:1;text-align:center"><div style="background:#c0554d;height:21px;border-radius:2px 2px 0 0"></div><div style="font-size:11px">20</div></div></div><small>adjusted</small><div style="display:flex;align-items:flex-end;gap:4px;height:90px"><div style="flex:1;text-align:center"><div style="background:#3f8f6b;height:10px;border-radius:2px 2px 0 0"></div><div style="font-size:11px">8</div></div><div style="flex:1;text-align:center"><div style="background:#3f8f6b;height:40px;border-radius:2px 2px 0 0"></div><div style="font-size:11px">31</div></div><div style="flex:1;text-align:center"><div style="background:#3f8f6b;height:70px;border-radius:2px 2px 0 0"></div><div style="font-size:11px">53</div></div><div style="flex:1;text-align:center"><div style="background:#3f8f6b;height:10px;border-radius:2px 2px 0 0"></div><div style="font-size:11px">8</div></div><div style="flex:1;text-align:center"><div style="background:#3f8f6b;height:2px;border-radius:2px 2px 0 0"></div><div style="font-size:11px">1</div></div></div></div>
+    <div><b>Timema t1-2, 100 copies</b> (median raw 12.2 %, adjusted 10.4 %)<br><small>raw</small><div style="display:flex;align-items:flex-end;gap:4px;height:90px"><div style="flex:1;text-align:center"><div style="background:#c0554d;height:2px;border-radius:2px 2px 0 0"></div><div style="font-size:11px">0</div></div><div style="flex:1;text-align:center"><div style="background:#c0554d;height:7px;border-radius:2px 2px 0 0"></div><div style="font-size:11px">5</div></div><div style="flex:1;text-align:center"><div style="background:#c0554d;height:16px;border-radius:2px 2px 0 0"></div><div style="font-size:11px">11</div></div><div style="flex:1;text-align:center"><div style="background:#c0554d;height:70px;border-radius:2px 2px 0 0"></div><div style="font-size:11px">47</div></div><div style="flex:1;text-align:center"><div style="background:#c0554d;height:55px;border-radius:2px 2px 0 0"></div><div style="font-size:11px">37</div></div></div><small>adjusted</small><div style="display:flex;align-items:flex-end;gap:4px;height:90px"><div style="flex:1;text-align:center"><div style="background:#3f8f6b;height:2px;border-radius:2px 2px 0 0"></div><div style="font-size:11px">1</div></div><div style="flex:1;text-align:center"><div style="background:#3f8f6b;height:21px;border-radius:2px 2px 0 0"></div><div style="font-size:11px">17</div></div><div style="flex:1;text-align:center"><div style="background:#3f8f6b;height:70px;border-radius:2px 2px 0 0"></div><div style="font-size:11px">55</div></div><div style="flex:1;text-align:center"><div style="background:#3f8f6b;height:33px;border-radius:2px 2px 0 0"></div><div style="font-size:11px">26</div></div><div style="flex:1;text-align:center"><div style="background:#3f8f6b;height:2px;border-radius:2px 2px 0 0"></div><div style="font-size:11px">1</div></div></div></div>
+  </div>
+  <p style="margin-top:12px">Adjusting moves the rsi copies by about two bins (the histogram slides left) and the Timema copies by one. Rank order is kept (median Spearman 0.96) but 26 % of the copies change bin.</p>
+  <div class="note"><b>Choose:</b> (a) show both profiles in every report, raw as the main one; (b) show the adjusted one in mammals only; (c) show the raw only and mention the effect in the text. My logic: (a).</div>
+</section>
+
+<section>
+  <h2>Settled by logic (for the record)</h2>
+  <ul>
+    <li><b>r1 + r3 and its truncated form</b> are two accepted elements (P1, 84 %; P2, r1 1&ndash;79 + r3, 93 %).</li>
+    <li><b>Four-part element</b> r1 + 31 bp + r2 + r3 + r3 repeat (C11, 53 copies, 85 %) is separate from the three-part one because the extra 49 bp are r3.</li>
+    <li><b>r4</b> stage 8: not testable (29 copies). <b>P20, P33, C5</b>: do not read as units (0&ndash;14 %), no element.</li>
+    <li><b>GLM</b>: CpG test merged; LEAK-vs-divergence and candidate-ends tools rejected (they do not work on real data).</li>
+  </ul>
+</section>
+</div>
+</body>
+</html>
