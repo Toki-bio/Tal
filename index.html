@@ -377,6 +377,31 @@ a { color:var(--accent); }
       </div>
     </div>
   </div>
+
+  <h3 style="margin-top:22px;">Full de novo chain on DRAGEN, nine genomes (2026-10-01)</h3>
+  <p style="color:var(--muted);font-size:.9rem;">
+    <strong style="color:#c0392b;">Still not confirmed SINEs.</strong> Every genome was run through the same chain with no hand curation:
+    the de novo scan with the query bank, plus the AnnoSINE_v2 seeds of that genome (structure-based candidates), merged; then k-mer thinning of
+    singletons (kept = copies that share k-mers with others, singletons = those that do not), then SubFam: the kept copies are split into chunks
+    of up to 50, aligned with MAFFT and reduced to one consensus per chunk. The alignments below hold those chunk consensi, one row per chunk.
+    The chain stops there: no assignment to a bank, no verdicts &mdash; the next step is manual peeling and review, as for <code>sco</code> above.
+    Tables and alignments: <a href="https://github.com/Toki-bio/Tal/tree/main/sco/denovo_dragen" target="_blank">sco/denovo_dragen/</a>
+    (<a href="sco/denovo_dragen/summary.tsv">summary.tsv</a>). Run files on DRAGEN: <code>/staging/tmp/scorpions_denovo/&lt;code&gt;/</code>.
+  </p>
+  <div style="overflow-x:auto;"><table class="tbl">
+      <tr><th>Code</th><th>Species</th><th class="num">Genome, Gb</th><th class="num">AnnoSINE seeds</th><th class="num">Scan candidates</th><th class="num">Kept</th><th class="num">Singletons</th><th class="num">Chunk consensi</th><th>Alignment</th></tr>
+      <tr><td><code>aeg</code></td><td><i>Aegaeobuthus cyprius</i></td><td class="num">1.16</td><td class="num">22</td><td class="num">3,856</td><td class="num">2,449</td><td class="num">1,429</td><td class="num">49</td><td><a href="javascript:void(0)" onclick="openMSA('sco/denovo_dragen/aeg_chunk_consensi.aln.fa','aeg: 49 chunk consensi (de novo chain, DRAGEN)')">open</a></td></tr>
+      <tr><td><code>amu</code></td><td><i>Androctonus mauritanicus</i></td><td class="num">1.15</td><td class="num">35</td><td class="num">10,170</td><td class="num">6,752</td><td class="num">3,453</td><td class="num">136</td><td><a href="javascript:void(0)" onclick="openMSA('sco/denovo_dragen/amu_chunk_consensi.aln.fa','amu: 136 chunk consensi (de novo chain, DRAGEN)')">open</a></td></tr>
+      <tr><td><code>bku</code></td><td><i>Buthus kunti</i></td><td class="num">1.18</td><td class="num">26</td><td class="num">7,901</td><td class="num">5,062</td><td class="num">2,865</td><td class="num">102</td><td><a href="javascript:void(0)" onclick="openMSA('sco/denovo_dragen/bku_chunk_consensi.aln.fa','bku: 102 chunk consensi (de novo chain, DRAGEN)')">open</a></td></tr>
+      <tr><td><code>bxa</code></td><td><i>Belisarius xambeui</i></td><td class="num">4.03</td><td class="num">34</td><td class="num">39,447</td><td class="num">27,470</td><td class="num">12,011</td><td class="num">550</td><td><a href="javascript:void(0)" onclick="openMSA('sco/denovo_dragen/bxa_chunk_consensi.aln.fa','bxa: 550 chunk consensi (de novo chain, DRAGEN)')">open</a></td></tr>
+      <tr><td><code>csc</code></td><td><i>Centruroides sculpturatus</i></td><td class="num">0.94</td><td class="num">37</td><td class="num">8,533</td><td class="num">4,799</td><td class="num">3,771</td><td class="num">96</td><td><a href="javascript:void(0)" onclick="openMSA('sco/denovo_dragen/csc_chunk_consensi.aln.fa','csc: 96 chunk consensi (de novo chain, DRAGEN)')">open</a></td></tr>
+      <tr><td><code>cvi</code></td><td><i>Centruroides vittatus</i></td><td class="num">0.77</td><td class="num">15</td><td class="num">6,884</td><td class="num">3,568</td><td class="num">3,331</td><td class="num">72</td><td><a href="javascript:void(0)" onclick="openMSA('sco/denovo_dragen/cvi_chunk_consensi.aln.fa','cvi: 72 chunk consensi (de novo chain, DRAGEN)')">open</a></td></tr>
+      <tr><td><code>efe</code></td><td><i>Euscorpius feti</i></td><td class="num">4.43</td><td class="num">112</td><td class="num">21,717</td><td class="num">16,477</td><td class="num">5,352</td><td class="num">330</td><td><a href="javascript:void(0)" onclick="openMSA('sco/denovo_dragen/efe_chunk_consensi.aln.fa','efe: 330 chunk consensi (de novo chain, DRAGEN)')">open</a></td></tr>
+      <tr><td><code>hta</code></td><td><i>Hottentotta tamulus</i></td><td class="num">0.87</td><td class="num">33</td><td class="num">7,480</td><td class="num">4,118</td><td class="num">3,395</td><td class="num">83</td><td><a href="javascript:void(0)" onclick="openMSA('sco/denovo_dragen/hta_chunk_consensi.aln.fa','hta: 83 chunk consensi (de novo chain, DRAGEN)')">open</a></td></tr>
+      <tr><td><code>oma</code></td><td><i>Olivierus martensii</i></td><td class="num">0.94</td><td class="num">33</td><td class="num">8,976</td><td class="num">6,535</td><td class="num">2,474</td><td class="num">131</td><td><a href="javascript:void(0)" onclick="openMSA('sco/denovo_dragen/oma_chunk_consensi.aln.fa','oma: 131 chunk consensi (de novo chain, DRAGEN)')">open</a></td></tr>
+  </table></div>
+  <p style="color:var(--muted);font-size:.85rem;"><i>Belisarius xambeui</i> (<code>bxa</code>) is the same species as the <code>sco</code> card above, but this is a different run (new bank, no manual SubFam), so the chunk numbers are not comparable with its 29 manual subfamilies.</p>
+
 </section>
 
 <section class="card" style="border-left:4px solid #c0392b;">

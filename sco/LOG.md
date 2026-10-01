@@ -273,3 +273,13 @@ themselves.
   classification run against a consensus bank yet — this genome was
   picked first because it had the most raw hits, not because the others
   are less interesting.
+
+## 2026-10-01: full de novo chain on DRAGEN, nine scorpion genomes
+
+Not a replacement for the manual `sco` work above: a second, unattended pass over nine genomes (`aeg amu bku bxa csc cvi efe hta oma`), run on DRAGEN
+(`/staging/tmp/scorpions_denovo/<code>/`, scripts in `tools/`, `denovo_chain_dragen.sh` per genome, `run_all_scorpions.sh` two genomes at a time).
+Per genome: (1) de novo scan with the query bank (`bank/step0bank.query.fa`) -> merged loci; (2) AnnoSINE_v2 seeds of the same genome added as candidates;
+(3) `kmer_thin_singletons.py`: copies that share no k-mers with others are set aside as singletons; (4) SubFam on the kept copies: chunks of up to 50, MAFFT, one consensus per chunk
+-> `thinned.kept.msf`. The chain stops there. Counts and the alignments (one row per chunk consensus) are in `sco/denovo_dragen/` (`summary.tsv`, `<code>_chunk_consensi.aln.fa`).
+All nine finished on 2026-10-01 (04:23-11:09 PDT). `bxa` (Belisarius xambeui) is the species of the manual run above, but with a new bank and no manual SubFam the 550 chunk consensi cannot be compared with its 29 subfamilies.
+Next (not done): manual peeling of the chunk alignments, then SINEderella assignment against a bank made of the accepted consensi, per genome.
