@@ -1,0 +1,6 @@
+name	parent	peak	side5_unit	s5_qs	s5_qe	s5_gap	side3_unit	s3_qs	s3_qe	s3_gap	copies
+chain_C1	r2_3seqs__r3_58seqs_P6	C1	r1_9seqs	1	154	31	-	-	-	-	57
+chain_C2	r1_9seqs__r2_3seqs_P39	C2	-	-	-	-	r3_58seqs	3	177	1	52
+chain_C3	r1_9seqs__r2_3seqs_P40	C3	-	-	-	-	r3_58seqs	3	176	0	60
+chain_C4	r3_58seqs__r3_58seqs_P12	C4	r1_9seqs	1	154	31	-	-	-	-	57
+chain_C5	chain_C3	C5	-	-	-	-	r3_58seqs	130	201	0	52
