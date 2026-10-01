@@ -1,0 +1,5 @@
+VERDICT: SINGLE_MODE
+copies 284, 5'-complete 193, consensus 201 bp
+  mode at 198 (window 198-204)
+  note: 1 end mode(s): no second length version; copies ending away from it are decay or a variable end
+(284 hits used, 0 with mixed strand skipped)

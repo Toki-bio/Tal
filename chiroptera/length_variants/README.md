@@ -1,0 +1,1 @@
+Positive control for SINEderella `tools/length_variants.py`: *Rousettus leschenaultii* (rle) MEG-RL + MEG-RS, firm copies of run `~/chiro/rle/run_add_20260927_143901`. `*.report.txt` is the verdict, `*.ends.tsv` the end histogram, `*.copies.tsv` the per-copy consensus start/end and assigned family.
