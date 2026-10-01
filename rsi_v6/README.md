@@ -9,7 +9,7 @@ Files
 - `alignments/` — plates of every unit and element: top 100, random 100, subfamily consensi (open in [MSA viewer](https://toki-bio.github.io/MSA-viewer/)).
 - `stage8_plates/<family>_<S|B|A>.plate.aln.fa` — stage 8: singles (S), the same family inside composites (B), control singles (A); consensus row 1, 100 bp raw flank each side, element in upper case.
 - `stage8_tsd/<family>/` — `summary.tsv`, `tsd_calibration.tsv` (real vs shuffled by minimum length), `ends.tsv`, `copies.tsv`.
-- `consensus_pairs/` — pairwise alignments of the consensuses that the bank cleaning merged (r9→r7, r4→r2, MEG-RS→MEG-RL).
+- `consensus_pairs/` — pairwise alignments (original bank sequences) of the consensuses that the bank cleaning had merged by mistake (r9/r7, r4/r2, MEG-RS/MEG-RL). **In this v6 report the row 1 of the r7 plates is the r9 sequence and that of the MEG-RL plates the MEG-RS sequence** (bug in `canonicalize_consensus_bank.py`, fixed 2026-10-02); the rsi_v7 report replaces it.
 - `summary.by_subfam.tsv`, `assignment_stats.tsv` — report tables.
 
 Method notes: SINEderella `flankscan/HANDOFF.md` (stage 8: TSD search with a 45 bp 3′ allowance, flanks cut from the raw copy).
