@@ -489,6 +489,13 @@ E <= 1e-3): 5' flank = r1 in 57 / 60 copies, 3' flank = r3 in 41 / 60. Controls 
 (0-2 of 60). So P12 is the middle of a longer chain r1 + r3 + r3 (+ r3), not a closed homodimer; flankscan pairs each copy
 with its nearest neighbour per side and stage 6 counts full units only, so the truncated pair was "accepted".
 
+**Chain extension (flankscan stage 6c, 2026-10-01; Tal rsi_v2/composites/chains/):** every candidate whose end continues
+into a bank unit is extended over that unit and rebuilt (up to 3 rounds). P12, P6, P39, P40 (+ P40's second round) became chains and
+merged into ONE family, chain_C5 = r1:1-154 + 31 bp + r2:1-146 + r3:3-176 + r3:130-201 (589 bp, 53 copies, 84.6 % of its
+elements read as one full unit; 1 925 r3, 140 r1 and 136 r2 elements re-assign to it). That is the 3-part element r1 ~ r2 + r3 with
+r3's internal repeat that §11 (point 4) and the first rsi_v2 round left open. chain_C2 (r1 + r2[106-146] + r3, 15 %) is a check.
+Still open ends: P9, P10 (5'), P21, P41 (3'). Accepted candidates now: P1, P26, P2, P34, P18, C5.
+
 ## Viewer links
 
 - group B, 60 best copies: <https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Frsi%2Fanalysis%2Frsi_r8_groupB_top60.aln.fa&title=rsi%20r8%20group%20B%20top60>

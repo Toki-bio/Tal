@@ -44,5 +44,5 @@ r1_9seqs__r6_210seqs_P44	P44	piecewise	r1_9seqs	r6_210seqs	51	-	51	51	196	202	23
 chain_C1	C1	chain	r1_9seqs	r3_58seqs	57	-	57	57	530	535	545	568	same_as:chain_C3
 chain_C2	C2	chain	r1_9seqs	r3_58seqs	52	-	52	52	310	366	414	367	kept
 chain_C3	C3	chain	r1_9seqs	r3_58seqs	60	-	60	60	491	506	532	512	extended:chain_C5
-chain_C4	C4	chain	r1_9seqs	r3_58seqs	57	-	57	57	490	511	582	550	same_as:chain_C3
-chain_C5	C5	chain	r1_9seqs	r3_58seqs	52	-	52	52	549	580	597	589	kept
+chain_C4	C4	chain	r1_9seqs	r3_58seqs	57	-	57	57	490	511	582	557	same_as:chain_C3
+chain_C5	C5	chain	r1_9seqs	r3_58seqs	53	-	53	53	549	580	597	589	kept
