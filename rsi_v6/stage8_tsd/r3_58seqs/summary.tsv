@@ -1,4 +1,4 @@
 group	what	copies	full_pct	partner5_pct	partner3_pct	tsd_pct	tsd_shuffled_pct	tsd_min_len	median_bp_5end_before_unit	median_bp_3end_after_unit	carry5_pct	carry3_pct	flank_bp
-A	singles of the control	200	98.0	0.5	1.0	23.0	4.5	13	1	4	0	30	250
-B	family copies in composites	200	88.5	96.5	17.5	50.5	5.0	14	200	39	99	96	500
-S	singles of the family	200	79.0	18.5	10.5	7.0	3.5	11	0	25	25	96	250
+A	singles of the control	200	98.0	0.5	1.0	23.0	4.5	13	1	4	0	30	100
+B	family copies in composites	200	88.5	96.5	17.5	72.0	0.0	14	200	18	98	96	400
+S	singles of the family	200	79.0	18.5	10.5	28.5	4.0	11	1	21	14	95	100
