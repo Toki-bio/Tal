@@ -173,15 +173,5 @@ footer{ padding:28px 0 0; color:var(--ink-faint); font-family: -apple-system, "S
   </ul>
 </section>
 </div>
-<script>
-document.querySelectorAll('a[href*="toki-bio.github.io"]').forEach(function(a){
-  var b=document.createElement('button'); b.textContent='copy link'; b.type='button';
-  b.style.cssText='margin-left:6px;font:inherit;font-size:11px;padding:1px 6px;cursor:pointer';
-  b.onclick=function(){var u=a.href;
-    function ok(){b.textContent='copied';setTimeout(function(){b.textContent='copy link'},1500)}
-    try{navigator.clipboard.writeText(u).then(ok,function(){window.prompt('Copy this link and open it in a new tab:',u)})}catch(e){window.prompt('Copy this link and open it in a new tab:',u)}};
-  a.insertAdjacentElement('afterend',b);
-});
-</script>
 </body>
 </html>
