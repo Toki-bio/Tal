@@ -1,3 +1,8 @@
 chain_C1	r1_9seqs,r2_3seqs,r3_58seqs
-chain_C2	r1_9seqs,r2_3seqs,r3_58seqs
-chain_C3	r1_9seqs,r2_3seqs,r3_58seqs
+chain_C2	r1_9seqs,r3_58seqs
+chain_C3	r1_9seqs,r3_58seqs
+chain_C4	r1_9seqs,r2_3seqs,r3_58seqs
+chain_C5	r1_9seqs,r2_3seqs,r3_58seqs
+chain_C6	r10_19seqs,r6_210seqs,r8_83seqs
+chain_C7	r1_9seqs,r3_58seqs
+chain_C8	r1_9seqs,r2_3seqs,r3_58seqs
