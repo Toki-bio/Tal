@@ -30,6 +30,6 @@ One complete SINEderella run (assembly `GCF_057876585.1`) started from the **21 
 MEG-RS: keep as a tandem-array family or test on a bat genome where it is dispersed; r8 + r8 dimer; accept the four new pairs; peel subfamilies and rerun with `--add`; G-rich 3' end of P18; CpG-corrected divergence; r4 / r2 on another species.
 
 ## Known limits
-* Plate step logs `border scan failed: No module named 'boundary'` (also in the original run): the border loop ran for 1 subfamily only; not yet investigated.
+* The border scan used to fail silently (`No module named 'boundary'`: the SINE-discriminator path was not exported to the scan process), so only 1 subfamily got the border loop. Fixed in SINEderella `3f19933`; with it the loop runs for MEG-RS and MEG-RL. MEG-RS extends 1 038 bp on the 5' side and still ends with both sides unresolved (its flanks never reach genomic background: the array context); the MEG-RL plates changed (+48 bp on the left, 12 firm copies, filled with soft ones); all other plates are identical.
 * `r3_58seqs_S` plate: one element column differs from the plain column majority (a tie, not an error).
 * Earlier folders (`rsi/`, `rsi_v2` ... `rsi_v7`, `rsi_fresh`, `rsi_fresh2`) are superseded; `rsi_fresh2` is this run before the flank scan and plates.
