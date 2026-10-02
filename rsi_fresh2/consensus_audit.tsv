@@ -1,8 +1,3 @@
-r5_r3_P34 done
-r5_r6_P26 done
-r10_r8_P18 done
-r1_r3_P1 done
-r1_r2_r3_r3_C11 done
 family	copies	bank_bp	run1_bp	run1_mm	run1_gaps	run2_bp	run2_mm	run2_gaps	run1_vs_run2_mm
 MEG-RL	12	207	-	-	-	-	-	-	-
 MEG-RS	1733	135	113	9	24	113	9	24	0
