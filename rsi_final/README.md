@@ -17,16 +17,19 @@ One complete SINEderella run (assembly `GCF_057876585.1`) started from the **21 
 | `consensus_audit/` | each consensus rebuilt from its own copies (`summary.tsv`, `rebuilt.fa`) |
 | `consensus_pairs/` | alignments of the pairs that matter for the length-version and subfamily questions |
 | `r8_dimer_P42_P43_earlier_run.aln.fa` | combined alignment of the r8 + r8 dimer candidates from the earlier flank-scan run (in this run those copies are labelled with other composites) |
+| `array_flag.tsv` | share of each family's copies in tandem arrays of regular spacing (SINEderella `tools/array_flag.py`): MEG-RS 92.8 % (21 arrays), every other family ~0 % |
 | `assignment_stats.tsv`, `consensus_blocks.tsv` | per-subfamily assignment numbers; shared blocks between consensuses |
 
 ## Results in one place
 * Length versions: r9 / r7, r9 / r8, r7 / r8 are separate SINEs (TWO_VERSIONS); r7 / r5 one SINE with a variable end; MEG-RS / MEG-RL and r4 / r3 not testable here (few copies).
 * Audit: 11 MATCH, 5 SHORTER, 1 LONGER (r7 rebuilds 179 bp against 154: copies carry the r8 stretch), 1 DIVERGED (MEG-RS), 3 SKIPPED (MEG-RL, r2, r4).
+* **MEG-RS is a tandem array in rsi** (1 592 of 1 715 copies in 21 arrays, median spacing 2 160 bp, flanks 90-92 % identical): the report says "Tandem array", the plates take independent copies first (top 100: 23 contigs, 32 rows marked `[array]`, still 2.8 kb wide). Not judgeable as a dispersed SINE from this genome.
 * Flank scan on the bank with its composites: four new pairs of units pass the 70 % rule (r10 + P48, P48 + r8, C11 + P1, P26 + P34); nothing is added to the bank without your decision.
 
 ## Open (yours)
-r8 + r8 dimer; accept the four new pairs; peel subfamilies and rerun with `--add`; G-rich 3' end of P18; CpG-corrected divergence; r4 / r2 on another species.
+MEG-RS: keep as a tandem-array family or test on a bat genome where it is dispersed; r8 + r8 dimer; accept the four new pairs; peel subfamilies and rerun with `--add`; G-rich 3' end of P18; CpG-corrected divergence; r4 / r2 on another species.
 
 ## Known limits
+* Plate step logs `border scan failed: No module named 'boundary'` (also in the original run): the border loop ran for 1 subfamily only; not yet investigated.
 * `r3_58seqs_S` plate: one element column differs from the plain column majority (a tie, not an error).
 * Earlier folders (`rsi/`, `rsi_v2` ... `rsi_v7`, `rsi_fresh`, `rsi_fresh2`) are superseded; `rsi_fresh2` is this run before the flank scan and plates.
