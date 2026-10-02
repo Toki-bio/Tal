@@ -1,0 +1,8 @@
+short	long	consensus_identity	extra_bp	verdict	copies_5prime_complete	mode_ends	valley_ratio	linkage_index	diagnostic_columns	tsd_excess_points	notes
+r9_15seqs	r7_133seqs	89.5	49	TWO_VERSIONS	13468	114,151	0.034	0.97	11	46,46	
+r9_15seqs	r8_83seqs	85.7	76	TWO_VERSIONS	10051	113,178	0.036	0.96	13	46,48	
+r7_133seqs	r5_27seqs	89.0	24	UNLINKED_ENDS	8560	147,175	0.026	0.33	1	46,52	internal bases do not follow the length (index 0.33, 1 diagnostic columns)
+r7_133seqs	r8_83seqs	93.5	27	TWO_VERSIONS	9991	152,178	0.028	0.56	7	48,50	
+r5_r5_P48	r5_r6_P26	88.0	68	SINGLE_MODE	5865	373			0		1 end mode(s): no second length version; copies ending away from it are decay or a variable end
+MEG-RS	MEG-RL	97.0	72	NOT_TESTED							too few assigned copies (MEG-RS: 1695, MEG-RL: 15; need 100 each): test on another species with more copies
+r4_32seqs	r3_58seqs	92.4	57	NOT_TESTED							too few assigned copies (r4_32seqs: 12, r3_58seqs: 50; need 100 each): test on another species with more copies
