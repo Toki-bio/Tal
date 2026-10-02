@@ -1,0 +1,14 @@
+name	side5_share	side5_unit	side5_second	side3_share	side3_unit	side3_second	open
+r7_133seqs__r1_r2_r3_r3_C11_P1	0.02	r1_r2_r3_r3_C11	-	0.02	r9_15seqs	-	-
+r1_r3_P1__r1_r2_r3_r3_C11_P9	0.02	r6_210seqs	-	0.12	r5_r3_P34	r1_r2_r3_r3_C11:1	-
+r10_19seqs__r5_r5_P48_P10	0.02	r1_r2_r3_r3_C11	-	0.02	r10_r8_P18	-	-
+r1_r3_P1__r6_210seqs_P12	0.03	r1_r3_P2	r8_83seqs:1	0.02	MEG-RS	-	-
+r1_r3_P2__r1_r2_r3_r3_C11_P11	0.02	r5_27seqs	-	0.02	r9_15seqs	-	-
+r5_r5_P48__r7_133seqs_P13	0.00	-	-	0.00	-	-	-
+r5_r5_P48__r8_83seqs_P15	0.02	r8_83seqs	-	0.02	r6_210seqs	-	-
+r1_r2_r3_r3_C11__r5_r6_P26_P18	0.05	r5_r6_P26	r9_15seqs:1	0.00	-	-	-
+r1_r2_r3_r3_C11__r1_r3_P1_P4	0.45	r5_r3_P34	r9_15seqs:1	0.03	r6_210seqs	r1_9seqs:1	-
+r1_r3_P1__r7_133seqs_P16	0.03	r1_r2_r3_r3_C11	r9_15seqs:1	0.00	-	-	-
+r5_r6_P26__r5_r3_P34_P8	0.03	r1_r3_P1	r2_3seqs:1	0.02	r1_r3_P1	-	-
+r9_15seqs__r8_83seqs_P6	0.00	-	-	0.00	-	-	-
+r1_r2_r3_r3_C11__r1_r3_P1_P3	0.04	r5_27seqs	r10_r8_P18:1	0.10	r6_210seqs	r5_27seqs:1	-
