@@ -1,0 +1,4 @@
+consensus	hits	hits_in_A	pct_A	loci_A	hits_in_B	pct_B	null_B	excess_B	loci_B	largest_locus	flag
+gja-Squam3A	216438	152	0.1	36	31502	14.6	6.9	7.6	5026	24	-
+gja-Squam3B	185230	108	0.1	24	27530	14.9	4.7	10.2	4372	26	-
+gja-sq3di	173427	79	0.0	19	19698	11.4	3.9	7.5	3224	26	-
