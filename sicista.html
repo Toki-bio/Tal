@@ -67,6 +67,28 @@ a { color:var(--accent); }
   <p style="margin-top:14px;"><a class="btn secondary" href="sicista/LOG.md">Analysis log</a> <a class="btn secondary" href="sicista/alignments/sicista_consensuses.fa">Bank: 58 Mammalia consensuses</a></p>
 </section>
 <section class="card">
+  <h2>De novo scan &mdash; <em>S. betulina</em> and <em>S. trizona</em> (2026-10-03, preliminary)</h2>
+  <p style="font-size:.9rem;">De novo candidates from SINE-de-novo-genome-scan (50 bp SINEbase + literature fragments, ssearch36, identity &ge;65%, query coverage &ge;0.90) merged with AnnoSINE2 seeds,
+  k-mer thinned (singletons dropped), then a 30,000-copy random sample (all AnnoSINE seeds kept) chunked by SubFam. Each row is a chunk consensus of ~50 similar copies, ordered by similarity, for manual grouping.
+  <b>The scan and AnnoSINE2 ran on a random 10% of each genome (300 &times; 1 Mb windows, seed 42), not the whole genome</b>: the full-genome scan was projected at over 20 h per genome. No subfamilies have been defined.</p>
+  <div class="species-grid">
+    <div class="sp-card">
+      <h3>sbet <span class="tag tag-partial">pending manual review</span></h3>
+      <div class="sci">Sicista betulina &mdash; hifiasm primary (1,144 contigs, 2.99 Gb)</div>
+      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;">279,697 scan candidates &middot; 1,090 AnnoSINE2 seeds &middot; 269,166 after thinning &middot; 621 chunk rows</div>
+      <div class="actions"><a class="btn" href="javascript:void(0)" onclick="openMSA('sicista/alignments/sbet_denovo_30k.aln.fa','S. betulina de novo, chunk consensi (30k sample)')">De novo alignment</a>
+      <a class="btn secondary" href="sicista/alignments/sbet_annosine_seeds.fa">AnnoSINE2 seeds</a></div>
+    </div>
+    <div class="sp-card">
+      <h3>str <span class="tag tag-partial">pending manual review</span></h3>
+      <div class="sci">Sicista trizona &mdash; GCA_982266845.1 (mSicTri.1, chromosome-level)</div>
+      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;">273,316 scan candidates &middot; 818 AnnoSINE2 seeds &middot; 262,623 after thinning &middot; 616 chunk rows</div>
+      <div class="actions"><a class="btn" href="javascript:void(0)" onclick="openMSA('sicista/alignments/str_denovo_30k.aln.fa','S. trizona de novo, chunk consensi (30k sample)')">De novo alignment</a>
+      <a class="btn secondary" href="sicista/alignments/str_annosine_seeds.fa">AnnoSINE2 seeds</a></div>
+    </div>
+  </div>
+</section>
+<section class="card">
   <h2>Hits per bank consensus (step 1, before merging)</h2>
   <p style="font-size:.9rem;">Raw sear hits per consensus as logged by step 1. A locus can be hit by several consensuses, so these add up to far more than the 2,170,177 merged loci; they say which consensuses find something, not how many copies each family has.</p>
   <div style="overflow-x:auto;"><table class="tbl"><thead><tr><th>Consensus</th><th>Hits</th></tr></thead><tbody>
