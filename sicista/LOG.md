@@ -28,3 +28,16 @@
   without it the thinned sets would give ~5,000 chunks. Alignments: `alignments/sbet_denovo_30k.aln.fa` (621 rows),
   `alignments/str_denovo_30k.aln.fa` (616 rows), row names `<sp>_dn_NNN`; seeds in `*_annosine_seeds.fa`.
 - Status: preliminary, pending manual review. Not a finished result.
+
+## 2026-10-03 — de novo scan on the Dip-depleted genome (minus bank), whole genome
+
+- Dip loci = every hit of the Dip bank (SINEbase DIP + literature Dip_a1, Dip_a2, Dip_b1, Dip_b2) from the full SINEderella
+  run on each genome (`~/sine_runs/{Sbet,Stri}/dip/run_*/results/all_hits.labeled.bed`), merged strand-agnostically:
+  betulina 1,221,306 loci / 258.1 Mb, trizona 1,244,136 loci / 263.5 Mb. Complement of the genome, pieces >= 100 bp:
+  betulina 1,052,242 pieces / 2,729 Mb, trizona 1,076,261 pieces / 2,530 Mb (`minus.fa`, headers `chrom:start-end()`).
+- `sine_scan.sh` on the whole minus bank (not subsampled; 25 Mb chunks, TARGET_GENOME = original genome for coordinates),
+  same query bank and thresholds as the subsample scan (MIN_ID 65, MIN_COV 0.90). It took about 2 h per genome, against a projected
+  >20 h for the full genome with Dip included. Candidates: betulina 92,161, trizona 98,540 (against 279,697 / 273,316 on the 10% subsample with Dip).
+- Thinning (singletons dropped): 71,856 / 78,108 kept. 30,000 random copies (seed 42), SubFam (BnkSz 50). AnnoSINE2 not run on the minus bank.
+  Alignments: `alignments/sbe_minus_denovo_30k.aln.fa`, `alignments/str_minus_denovo_30k.aln.fa` (600 rows each, `<sp>_mn_NNN`).
+- Status: preliminary, pending manual review. Not a finished result.

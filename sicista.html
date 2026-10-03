@@ -89,6 +89,26 @@ a { color:var(--accent); }
   </div>
 </section>
 <section class="card">
+  <h2>De novo scan on the Dip-depleted genome (minus bank) &mdash; whole genome (2026-10-03, preliminary)</h2>
+  <p style="font-size:.9rem;">The same de novo search as above, but on the <b>whole genome with every Dip-bank SINEderella hit removed</b> (all Dip_a1/a2/b1/b2 and SINEbase DIP hits merged and cut out,
+  pieces &ge;100 bp kept), so that the abundant Dip family no longer dominates the candidates. SINE-de-novo-genome-scan fragments (SINEbase + literature), merged candidates thinned (singletons dropped),
+  30,000-copy random sample, SubFam chunks of 50. AnnoSINE2 was not run on this bank. No subfamilies have been defined.</p>
+  <div class="species-grid">
+    <div class="sp-card">
+      <h3>sbe &mdash; minus bank <span class="tag tag-partial">pending manual review</span></h3>
+      <div class="sci">Sicista betulina &mdash; hifiasm primary</div>
+      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;">258 Mb (1,221,306 loci) removed &middot; 92,161 scan candidates &middot; 71,856 after thinning &middot; 600 chunk rows</div>
+      <div class="actions"><a class="btn" href="javascript:void(0)" onclick="openMSA('sicista/alignments/sbe_minus_denovo_30k.aln.fa','S. betulina de novo, Dip-depleted genome (30k sample)')">Minus-bank alignment</a></div>
+    </div>
+    <div class="sp-card">
+      <h3>str &mdash; minus bank <span class="tag tag-partial">pending manual review</span></h3>
+      <div class="sci">Sicista trizona &mdash; GCA_982266845.1 (mSicTri.1)</div>
+      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;">264 Mb (1,244,136 loci) removed &middot; 98,540 scan candidates &middot; 78,108 after thinning &middot; 600 chunk rows</div>
+      <div class="actions"><a class="btn" href="javascript:void(0)" onclick="openMSA('sicista/alignments/str_minus_denovo_30k.aln.fa','S. trizona de novo, Dip-depleted genome (30k sample)')">Minus-bank alignment</a></div>
+    </div>
+  </div>
+</section>
+<section class="card">
   <h2>Hits per bank consensus (step 1, before merging)</h2>
   <p style="font-size:.9rem;">Raw sear hits per consensus as logged by step 1. A locus can be hit by several consensuses, so these add up to far more than the 2,170,177 merged loci; they say which consensuses find something, not how many copies each family has.</p>
   <div style="overflow-x:auto;"><table class="tbl"><thead><tr><th>Consensus</th><th>Hits</th></tr></thead><tbody>
