@@ -1,0 +1,9 @@
+VERDICT: TWO_VERSIONS
+copies 10194, 5'-complete 10049, consensus 181 bp
+  mode at 113 (window 95-119)
+  mode at 178 (window 175-184), valley ratio to the previous mode 0.036 (2609 copies between the peaks)
+  linkage: 13 diagnostic columns [4, 13, 32, 33, 39, 53, 65, 69, 95, 96, 99, 100]; P(short allele | short mode) 0.9900729335494327, P(short allele | long mode) 0.031958762886597936, index 0.9581141706628348
+  TSD (>=7 bp) mode 113: n=4951 real 78.4 % shuffled 31.6 % excess 46.800000000000004
+  TSD (>=7 bp) mode 178: n=2910 real 86.26666666666667 % shuffled 36.86666666666667 % excess 49.4
+  residual similarity past the short mode: {'median_real': 0.4, 'median_shuffled': 0.4, 'frac75_real': 0.0, 'frac75_shuffled': 0.0}
+(10194 hits used, 1 with mixed strand skipped)
