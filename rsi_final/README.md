@@ -18,6 +18,7 @@ One complete SINEderella run (assembly `GCF_057876585.1`) started from the **21 
 | `consensus_pairs/` | alignments of the pairs that matter for the length-version and subfamily questions |
 | `r8_dimer_P42_P43_earlier_run.aln.fa` | combined alignment of the r8 + r8 dimer candidates from the earlier flank-scan run (in this run those copies are labelled with other composites) |
 | `array_flag.tsv` | share of each family's copies in tandem arrays of regular spacing (SINEderella `tools/array_flag.py`): MEG-RS 92.8 % (21 arrays), every other family ~0 % |
+| `MEG-RS_array_unit_2155bp.fa` | consensus of the MEG-RS tandem-array unit (12 consecutive units of the 307-copy array on NC_142506.1, 99.9 % identical, 67.6 % GC); only positions 2-108 are MEG-like (85 % to MEG-RS/RL/TR), the other 2 kb match nothing in the bank. Design for a satellite screen: SINEderella `docs/SATELLITES.md` |
 | `assignment_stats.tsv`, `consensus_blocks.tsv` | per-subfamily assignment numbers; shared blocks between consensuses |
 
 ## Results in one place
