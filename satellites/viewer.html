@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SINE satellite loci</title>
+<style>
+:root{
+  color-scheme:light;
+  --bg:#faf8f4; --surface:#ffffff; --surface-2:#f3efe6;
+  --ink:#1f2420; --ink-soft:#5b625c; --ink-faint:#8a9088;
+  --accent:#0f6e6a; --accent-soft:#e4f2f0; --accent-ink:#0a4d4a;
+  --warn:#a8631a; --warn-soft:#fbeee0; --good:#2f7d4f; --good-soft:#e7f3ea;
+  --bad:#a23b3b; --bad-soft:#f7e6e4; --mute:#7a6f66; --mute-soft:#eeebe6;
+  --rule:#dcd6c9; --code-bg:#f2efe4;
+  --bar-ink:#ffffff; --gap:#d9d3c5;
+  --f-r1:#3b6ea5; --f-r2:#7a5aa6; --f-r3:#2f8a6d; --f-r4:#6b7280; --f-r5:#b0643a;
+  --f-r6:#b08a22; --f-r7:#5e7d3a; --f-r8:#8a4f6e; --f-r9:#35798a; --f-r10:#4f6a8f; --f-B:#8d8a7c;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#13181a; --surface:#1b2224; --surface-2:#212a2c;
+    --ink:#e8e6df; --ink-soft:#a8ada6; --ink-faint:#767d78;
+    --accent:#57d6c9; --accent-soft:#173634; --accent-ink:#8fe9de;
+    --warn:#e2a662; --warn-soft:#3a2c19; --good:#7ad19d; --good-soft:#1c3226;
+    --bad:#e58c86; --bad-soft:#3a1f1d; --mute:#a9a198; --mute-soft:#2a2826;
+    --rule:#333c3d; --code-bg:#0f1517;
+    --bar-ink:#10161a; --gap:#3a4446;
+    --f-r1:#8fb6e3; --f-r2:#bba3e0; --f-r3:#7fcfb0; --f-r4:#aab0b8; --f-r5:#e6a67e;
+    --f-r6:#e3c46a; --f-r7:#a9c98a; --f-r8:#d59ab8; --f-r9:#86c6d6; --f-r10:#9fb6da; --f-B:#c4c0b0;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#13181a; --surface:#1b2224; --surface-2:#212a2c;
+  --ink:#e8e6df; --ink-soft:#a8ada6; --ink-faint:#767d78;
+  --accent:#57d6c9; --accent-soft:#173634; --accent-ink:#8fe9de;
+  --warn:#e2a662; --warn-soft:#3a2c19; --good:#7ad19d; --good-soft:#1c3226;
+  --bad:#e58c86; --bad-soft:#3a1f1d; --mute:#a9a198; --mute-soft:#2a2826;
+  --rule:#333c3d; --code-bg:#0f1517;
+  --bar-ink:#10161a; --gap:#3a4446;
+  --f-r1:#8fb6e3; --f-r2:#bba3e0; --f-r3:#7fcfb0; --f-r4:#aab0b8; --f-r5:#e6a67e;
+  --f-r6:#e3c46a; --f-r7:#a9c98a; --f-r8:#d59ab8; --f-r9:#86c6d6; --f-r10:#9fb6da; --f-B:#c4c0b0;
+}
+*{box-sizing:border-box;}
+body{ background:var(--bg); color:var(--ink); font-family: Iowan Old Style, Palatino Linotype, Palatino, Georgia, serif; margin:0; padding:0 20px 100px; line-height:1.6; }
+.wrap{ max-width:960px; margin:0 auto; }
+.sansf, h2, table, .chip, .dek, .meta, .eyebrow, .note{ font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+header.top{ padding:52px 0 24px; border-bottom:1px solid var(--rule); }
+.eyebrow{ font-size:0.72rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent-ink); font-weight:600; margin-bottom:12px; }
+h1{ font-size:2.2rem; line-height:1.14; margin:0 0 12px; text-wrap:balance; font-weight:600; }
+.dek{ font-size:1rem; color:var(--ink-soft); max-width:70ch; margin:0 0 14px; }
+.meta{ font-size:0.82rem; color:var(--ink-faint); display:flex; gap:18px; flex-wrap:wrap; }
+section{ padding:32px 0; border-bottom:1px solid var(--rule); }
+section:last-of-type{ border-bottom:none; }
+h2{ font-size:1.25rem; font-weight:600; margin:0 0 4px; text-wrap:balance; }
+.sub-h{ font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size:0.84rem; color:var(--ink-faint); margin:0 0 16px; max-width:74ch; }
+p{ margin:0 0 12px; max-width:72ch; }
+.scroll{ overflow-x:auto; margin:10px 0 6px; }
+svg{ display:block; max-width:none; }
+svg .grid{ stroke:var(--rule); stroke-width:1; }
+svg .tick{ fill:var(--ink-faint); font:11px -apple-system, "Segoe UI", Roboto, sans-serif; }
+svg .lab{ fill:var(--ink); font:600 12.5px ui-monospace, "Cascadia Mono", Consolas, monospace; }
+svg .sub{ fill:var(--ink-faint); font:11px -apple-system, "Segoe UI", Roboto, sans-serif; }
+svg .in{ fill:var(--bar-ink); font:600 11px -apple-system, "Segoe UI", Roboto, sans-serif; }
+svg .gaplab{ fill:var(--ink-soft); font:10.5px -apple-system, "Segoe UI", Roboto, sans-serif; }
+svg .gap{ fill:var(--gap); }
+svg .u.approx{ stroke:var(--ink); stroke-width:1.2; stroke-dasharray:4 3; }
+.u.r1{ fill:var(--f-r1); } .u.r2{ fill:var(--f-r2); } .u.r3{ fill:var(--f-r3); } .u.r4{ fill:var(--f-r4); } .u.r5{ fill:var(--f-r5); }
+.u.r6{ fill:var(--f-r6); } .u.r7{ fill:var(--f-r7); } .u.r8{ fill:var(--f-r8); } .u.r9{ fill:var(--f-r9); } .u.r10{ fill:var(--f-r10); } .u.B{ fill:var(--f-B); }
+.sw{ display:inline-block; width:10px; height:10px; border-radius:2px; margin-right:7px; vertical-align:0; }
+.sw.r1{ background:var(--f-r1); } .sw.r2{ background:var(--f-r2); } .sw.r3{ background:var(--f-r3); } .sw.r4{ background:var(--f-r4); } .sw.r5{ background:var(--f-r5); }
+.sw.r6{ background:var(--f-r6); } .sw.r7{ background:var(--f-r7); } .sw.r8{ background:var(--f-r8); } .sw.r9{ background:var(--f-r9); } .sw.r10{ background:var(--f-r10); }
+table{ width:100%; border-collapse:collapse; font-size:0.84rem; }
+th, td{ text-align:left; vertical-align:top; padding:8px 12px 8px 0; border-bottom:1px solid var(--rule); color:var(--ink-soft); }
+th{ color:var(--ink-faint); font-weight:600; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.05em; white-space:nowrap; }
+td.mono{ font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; color:var(--ink); white-space:nowrap; }
+.n{ text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap; }
+tr:last-child td{ border-bottom:none; }
+a{ color:var(--accent-ink); }
+a:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+.chip{ display:inline-block; font-size:0.68rem; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; padding:2px 8px; border-radius:20px; white-space:nowrap; }
+.chip.ok{ color:var(--good); background:var(--good-soft); } .chip.warn{ color:var(--warn); background:var(--warn-soft); }
+.chip.bad{ color:var(--bad); background:var(--bad-soft); } .chip.mute{ color:var(--mute); background:var(--mute-soft); }
+.note{ background:var(--surface-2); border-left:3px solid var(--warn); padding:12px 16px; border-radius:2px; margin:16px 0 0; font-size:0.88rem; color:var(--ink-soft); max-width:78ch; }
+.note b{ color:var(--ink); }
+code{ font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; font-size:0.8rem; background:var(--code-bg); color:var(--ink); padding:1px 5px; border-radius:3px; }
+footer{ padding:28px 0 0; color:var(--ink-faint); font-family: -apple-system, "Segoe UI", Roboto, sans-serif; font-size:0.78rem; }
+
+.ctl{display:flex;gap:14px;flex-wrap:wrap;align-items:end;margin:10px 0 14px;font-family:-apple-system,"Segoe UI",Roboto,sans-serif;font-size:.84rem}
+.ctl label{display:flex;flex-direction:column;gap:3px;color:var(--ink-faint)}
+.ctl input,.ctl select{font:inherit;padding:4px 6px;border:1px solid var(--rule);border-radius:4px;background:var(--surface);color:var(--ink)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:12px 0}
+.card{background:var(--surface-2);border-radius:6px;padding:10px 12px}.card b{display:block;font-size:1.3rem}.card span{font-size:.78rem;color:var(--ink-faint)}
+table.tbl th{cursor:pointer;user-select:none}table.tbl th.asc:after{content:" \25B4"}table.tbl th.desc:after{content:" \25BE"}
+.map{margin:6px 0 14px}.map .lab{font:600 12px ui-monospace,Consolas,monospace;fill:var(--ink)}.map .tick{font:10px -apple-system,sans-serif;fill:var(--ink-faint)}
+#msg{color:var(--warn)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <div class="eyebrow">SINEderella &middot; satellite screen</div>
+  <h1>SINE satellite loci</h1>
+  <p class="dek">Tandem arrays that carry SINE sequence, as found by the satellite stage before the SINE analysis: loci whose monomer is a part of the SINE (kind A, verified by TRF and alignment) and arrays of regular spacing whose unit is longer than the SINE (kind B). Every number here can be checked at the level of one locus.</p>
+  <div class="meta"><span id="src"></span></div>
+</header>
+
+<section>
+  <h2>Data</h2>
+  <div class="ctl">
+    <label><span>loci file (stage <code>loci.bed</code> or verify <code>*.loci.tsv</code>)</span><input id="u_loci" size="70"></label>
+    <label><span>indication.tsv (optional)</span><input id="u_ind" size="40"></label>
+    <label>&nbsp;<button id="go">Load</button></label>
+  </div>
+  <p class="sub-h">Paths are relative to the Tal repository (raw GitHub) or full URLs. Examples: <a href="#" class="ex" data-l="satellites/gate_trf_test/nna_final.loci.tsv">cobra Squam3C</a> &middot; <a href="#" class="ex" data-l="satellites/gate_trf_test/gja_final.loci.tsv">gecko Squam3A</a> &middot; <a href="#" class="ex" data-l="satellites/bats_test/rle_loci.bed" data-i="satellites/bats_test/rle_indication.tsv">rle (bats)</a> &middot; <a href="#" class="ex" data-l="satellites/bats_test/tbr_loci.bed" data-i="satellites/bats_test/tbr_indication.tsv">tbr</a></p>
+  <p id="msg"></p>
+</section>
+
+<section>
+  <h2>Summary</h2>
+  <div class="cards" id="cards"></div>
+  <div id="indtab"></div>
+</section>
+
+<section>
+  <h2>Where the monomers sit on the SINE</h2>
+  <p class="sub-h">For each consensus: how many kind-A loci cover each position of the SINE (from the aligned part of the monomer). A satellite derived from one part of the SINE shows as one block; the paper's sSat3 of snakes covers Squam3 positions 42&ndash;108.</p>
+  <div id="maps"></div>
+</section>
+
+<section>
+  <h2>Monomers per locus</h2>
+  <p class="sub-h">Kind-A loci by monomer count. Satellites that have amplified show a tail of long loci; "nuclei" of 4&ndash;9 monomers dominate everywhere.</p>
+  <div id="hist"></div>
+</section>
+
+<section>
+  <h2>Locus table</h2>
+  <div class="ctl">
+    <label><span>consensus</span><select id="f_cons"><option value="">all</option></select></label>
+    <label><span>kind</span><select id="f_kind"><option value="">all</option><option>A</option><option>B</option></select></label>
+    <label><span>min monomers / units</span><input id="f_min" type="number" value="4" style="width:70px"></label>
+    <label><span>contig contains</span><input id="f_ctg" size="14"></label>
+    <span id="count" style="align-self:center;color:var(--ink-faint)"></span>
+  </div>
+  <div class="scroll"><table class="tbl" id="loci"><thead></thead><tbody></tbody></table></div>
+  <p class="sub-h">Click a column to sort. Coordinates are 0-based BED starts; copy them into a genome browser or <code>samtools faidx</code>.</p>
+</section>
+<footer>SINEderella <code>tools/satellite_stage.py</code>, <code>tools/satellite_trf_verify.py</code>, <code>tools/satellite_screen.py</code> &middot; design: <code>docs/SATELLITES.md</code></footer>
+</div>
+<script>
+const RAW='https://raw.githubusercontent.com/Toki-bio/Tal/main/';
+const $=s=>document.querySelector(s);
+let LOCI=[], IND=[], sortKey='monomers', sortDir=-1;
+function url(p){return /^https?:/.test(p)?p:RAW+p}
+function tsv(t){const L=t.split(/\r?\n/).filter(x=>x.trim()&&!x.startsWith('##'));if(!L.length)return[];const h=L[0].replace(/^#/,'').split('\t');return L.slice(1).map(l=>{const f=l.split('\t'),o={};h.forEach((k,i)=>o[k]=f[i]);return o})}
+function norm(rows){ // stage loci.bed or verify loci.tsv -> common rows
+  return rows.map(r=>{
+    if('kind' in r) return {kind:r.kind,cons:r.consensus,contig:r.contig,start:+r.start,end:+r.end,period:+r.period_or_unit,monomers:+r.monomers_or_hits,part:r.sine_part||'-'};
+    return {kind:'A',cons:r.consensus||'',contig:r.contig,start:+r.start,end:+r.end,period:+r.period,monomers:+r.copies,part:(r.cons_start?r.cons_start+'-'+r.cons_end:'-'),pid:r.pct_id,span_ok:r.span_ok};
+  }).filter(r=>r.contig);
+}
+async function load(){
+  const lp=$('#u_loci').value.trim(), ip=$('#u_ind').value.trim(); if(!lp)return;
+  $('#msg').textContent='loading…';
+  try{
+    const t=await (await fetch(url(lp))).text(); LOCI=norm(tsv(t));
+    IND= ip? tsv(await (await fetch(url(ip))).text()) : [];
+    if(!LOCI.some(r=>r.cons)){const nm=lp.split('/').pop().replace(/\.(loci\.tsv|bed)$/,'');LOCI.forEach(r=>r.cons=nm)}
+    $('#src').textContent=lp+(ip?' · '+ip:'');
+    history.replaceState(null,'','?loci='+encodeURIComponent(lp)+(ip?'&ind='+encodeURIComponent(ip):''));
+    $('#msg').textContent=''; render();
+  }catch(e){$('#msg').textContent='could not load: '+e}
+}
+function render(){
+  const A=LOCI.filter(r=>r.kind==='A'), B=LOCI.filter(r=>r.kind==='B');
+  const cons=[...new Set(LOCI.map(r=>r.cons))];
+  $('#cards').innerHTML=[['consensuses',cons.length],['kind-A loci',A.length],['monomers (A)',Math.round(A.reduce((s,r)=>s+r.monomers,0))],['largest A locus',Math.round(Math.max(0,...A.map(r=>r.monomers)))+' monomers'],['kind-B runs',B.length],['largest B run',Math.max(0,...B.map(r=>r.monomers))+' units']].map(([k,v])=>`<div class="card"><b>${v}</b><span>${k}</span></div>`).join('');
+  const sel=$('#f_cons'); sel.innerHTML='<option value="">all</option>'+cons.map(c=>`<option>${c}</option>`).join('');
+  $('#indtab').innerHTML= IND.length? '<table class="tbl"><tr>'+Object.keys(IND[0]).map(k=>`<th>${k}</th>`).join('')+'</tr>'+IND.map(r=>'<tr>'+Object.values(r).map(v=>`<td class="${isNaN(v)?'':'n'}">${v}</td>`).join('')+'</tr>').join('')+'</table>' : '';
+  // maps
+  const W=640,X0=110;let h='';
+  cons.forEach(c=>{const rows=A.filter(r=>r.cons===c&&r.part!=='-');if(!rows.length)return;
+    const ind=IND.find(i=>i.consensus===c); let L=ind&&ind.cons_len?+ind.cons_len:0; rows.forEach(r=>{const e=+r.part.split('-')[1];if(e>L)L=e});
+    const bins=new Array(Math.ceil(L/5)).fill(0); rows.forEach(r=>{const [s,e]=r.part.split('-').map(Number);for(let p=s;p<=e;p+=5)bins[Math.min(bins.length-1,Math.floor((p-1)/5))]++});
+    const mx=Math.max(1,...bins), sc=W/L;
+    let svg=`<svg viewBox="0 0 ${X0+W+20} 70" width="100%" style="max-width:${X0+W+20}px"><text x="0" y="40" class="lab">${c}</text><rect x="${X0}" y="20" width="${W}" height="24" fill="var(--gap)" rx="2"/>`;
+    bins.forEach((v,i)=>{if(v)svg+=`<rect x="${(X0+i*5*sc).toFixed(1)}" y="${(44-24*v/mx).toFixed(1)}" width="${(5*sc).toFixed(1)}" height="${(24*v/mx).toFixed(1)}" fill="var(--accent)"><title>positions ${i*5+1}-${i*5+5}: ${v} loci</title></rect>`});
+    for(let t=0;t<=L;t+=50)svg+=`<line x1="${X0+t*sc}" y1="44" x2="${X0+t*sc}" y2="48" stroke="var(--ink-faint)"/><text x="${X0+t*sc}" y="60" class="tick" text-anchor="middle">${t}</text>`;
+    svg+=`<text x="${X0+W+4}" y="30" class="tick">${L} bp</text></svg>`; h+=`<div class="map">${svg}<div class="sub-h">${rows.length} loci with an aligned SINE part; highest bar = ${mx} loci</div></div>`});
+  $('#maps').innerHTML=h||'<p class="sub-h">no kind-A loci with an aligned SINE part</p>';
+  // histogram
+  const bl=[[4,5],[5,10],[10,20],[20,50],[50,100],[100,1e9]], lab=['4','5–9','10–19','20–49','50–99','≥100'];
+  const cnt=bl.map(([a,b])=>A.filter(r=>r.monomers>=a&&r.monomers<b).length), m=Math.max(1,...cnt);
+  $('#hist').innerHTML=A.length?`<svg viewBox="0 0 480 150" width="100%" style="max-width:480px">${cnt.map((v,i)=>`<rect x="${20+i*75}" y="${120-100*v/m}" width="60" height="${100*v/m}" fill="var(--accent)"/><text x="${50+i*75}" y="${114-100*v/m}" text-anchor="middle" font-size="11" fill="var(--ink)">${v}</text><text x="${50+i*75}" y="138" text-anchor="middle" font-size="11" fill="var(--ink-faint)">${lab[i]}</text>`).join('')}</svg>`:'';
+  table();
+}
+function table(){
+  const fc=$('#f_cons').value, fk=$('#f_kind').value, mn=+$('#f_min').value||0, ct=$('#f_ctg').value.trim();
+  let rows=LOCI.filter(r=>(!fc||r.cons===fc)&&(!fk||r.kind===fk)&&r.monomers>=mn&&(!ct||r.contig.includes(ct)));
+  rows.sort((a,b)=>{const x=a[sortKey],y=b[sortKey];return (typeof x==='number'?x-y:String(x).localeCompare(String(y)))*sortDir});
+  const cols=[['kind','kind'],['cons','consensus'],['contig','contig'],['start','start'],['end','end'],['len','bp'],['period','period / unit bp'],['monomers','monomers / units'],['part','SINE part']];
+  $('#loci thead').innerHTML='<tr>'+cols.map(([k,l])=>`<th data-k="${k}" class="${k===sortKey?(sortDir>0?'asc':'desc'):''}">${l}</th>`).join('')+'</tr>';
+  $('#loci tbody').innerHTML=rows.slice(0,3000).map(r=>`<tr><td>${r.kind}</td><td class="mono">${r.cons}</td><td class="mono">${r.contig}</td><td class="n">${r.start}</td><td class="n">${r.end}</td><td class="n">${r.end-r.start}</td><td class="n">${r.period}</td><td class="n">${Math.round(r.monomers)}</td><td class="mono">${r.part}</td></tr>`).join('');
+  $('#count').textContent=rows.length+' loci'+(rows.length>3000?' (first 3000 shown)':'');
+  document.querySelectorAll('#loci th').forEach(th=>th.onclick=()=>{const k=th.dataset.k==='len'?'end':th.dataset.k; if(sortKey===k)sortDir=-sortDir; else {sortKey=k;sortDir=k==='monomers'?-1:1} table()});
+}
+['#f_cons','#f_kind','#f_min','#f_ctg'].forEach(s=>$(s).addEventListener('input',table));
+$('#go').onclick=load; document.querySelectorAll('a.ex').forEach(a=>a.onclick=e=>{e.preventDefault();$('#u_loci').value=a.dataset.l;$('#u_ind').value=a.dataset.i||'';load()});
+const q=new URLSearchParams(location.search); $('#u_loci').value=q.get('loci')||'satellites/gate_trf_test/nna_final.loci.tsv'; $('#u_ind').value=q.get('ind')||''; load();
+</script>
+</body>
+</html>
