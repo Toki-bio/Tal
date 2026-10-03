@@ -48,10 +48,88 @@ a { color:var(--accent); }
 </style>
 </head><body>
 <header>
-  <h1>Sicista &mdash; SINEs, SINEderella database arm</h1>
-  <div class="sub">Step 1 of SINEderella on the Sicista Medaka assembly with the 58 SINEbase Mammalia consensuses. <a href="index.html" style="color:#fff;">&larr; Tal SINE main page</a></div>
+  <h1>Sicista SINE &mdash; Sicista betulina and S. trizona</h1>
+  <div class="sub">The Dip SINE and de novo SINE candidates in two birch-mouse genomes (Dipodoidea). <a href="index.html" style="color:#fff;">&larr; Tal SINE main page</a></div>
 </header>
 <main>
+<section class="card">
+  <h2>Species</h2>
+  <div class="species-grid">
+    <div class="sp-card">
+      <h3>sbe <span class="tag tag-ok">full report</span></h3>
+      <div class="sci">Sicista betulina &mdash; northern birch mouse, ZBS2026-Sb1 &mdash; hifiasm primary assembly (1,144 contigs, 2.99 Gb)</div>
+      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;">5 Dip-bank subfamilies &middot; 1,032,760 firm assigned copies (1,221,306 with soft assignments) &middot; assembly not yet in a public archive</div>
+      <div class="actions">
+        <a class="btn" href="sicista/sbe/report.html"><i>Sicista betulina</i> &mdash; full report (Dip bank)</a>
+        <a class="btn secondary" href="javascript:void(0)" onclick="openMSA('sicista/alignments/dip_consensuses.aln.fa','Dip bank consensi (as searched)')">Dip consensi in MSA</a>
+        <a class="btn secondary" href="javascript:void(0)" onclick="openMSA('sicista/alignments/sbet_denovo_30k.aln.fa','sbe de novo (scan + AnnoSINE2, 10% of genome), 30k sample')">De novo, 10% subsample</a>
+        <a class="btn secondary" href="javascript:void(0)" onclick="openMSA('sicista/alignments/sbe_minus_denovo_30k.aln.fa','sbe de novo on the Dip-depleted genome, 30k sample')">De novo, Dip-depleted genome</a>
+      </div>
+    </div>
+    <div class="sp-card">
+      <h3>str <span class="tag tag-ok">full report</span></h3>
+      <div class="sci">Sicista trizona &mdash; mSicTri.1 (chromosome level, 2.80 Gb)</div>
+      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;">5 Dip-bank subfamilies &middot; 1,036,280 firm assigned copies (1,244,136 with soft assignments) &middot; <a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_982266845.1/" target="_blank">GCA_982266845.1</a></div>
+      <div class="actions">
+        <a class="btn" href="sicista/str/report.html"><i>Sicista trizona</i> &mdash; full report (Dip bank)</a>
+        <a class="btn secondary" href="javascript:void(0)" onclick="openMSA('sicista/alignments/dip_consensuses.aln.fa','Dip bank consensi (as searched)')">Dip consensi in MSA</a>
+        <a class="btn secondary" href="javascript:void(0)" onclick="openMSA('sicista/alignments/str_denovo_30k.aln.fa','str de novo (scan + AnnoSINE2, 10% of genome), 30k sample')">De novo, 10% subsample</a>
+        <a class="btn secondary" href="javascript:void(0)" onclick="openMSA('sicista/alignments/str_minus_denovo_30k.aln.fa','str de novo on the Dip-depleted genome, 30k sample')">De novo, Dip-depleted genome</a>
+      </div>
+    </div>
+  </div>
+  <p style="margin-top:14px;"><a class="btn secondary" href="sicista/LOG.md">Analysis log</a> <a class="btn secondary" href="sicista/alignments/dip_consensuses.fa">Dip bank (5 consensuses, as searched)</a></p>
+</section>
+<section class="card">
+  <h2>Dip SINE &mdash; SINEderella on the whole genome</h2>
+  <p style="font-size:.9rem;">SINEderella steps 1&ndash;4 and the report on the whole genome, searched with five consensuses: SINEbase <b>DIP</b> and the literature subfamilies <b>Dip_a1, Dip_a2, Dip_b1, Dip_b2</b> (as searched: IUPAC codes removed, so DIP is 206 bp, Dip_a1 224, Dip_b1 240). Assignment is by the 10-cycle unanimous vote; <i>firm</i> copies passed it, <i>soft</i> copies did not but have a best-scoring query. The subfamilies share most of their sequence, so most copies are also hit by the others (the leak and conflict columns in the full report). Alignments carry 50&nbsp;bp left and 70&nbsp;bp right flanks, the consensus is row&nbsp;1 and the sequence as searched is row&nbsp;2; a subfamily with fewer than 100 firm copies has its 100-copy plates filled with soft copies (marked <code>[soft]</code>). No subfamilies have been curated by hand yet.</p>
+  <h3 style="margin:16px 0 4px;font-size:1rem;color:#2c3e50;"><i>Sicista betulina</i> (sbe)</h3>
+  <table class="tbl">
+    <thead><tr><th>Subfamily</th><th>Firm</th><th>Soft</th><th>sim_ratio median</th><th>Top 100</th><th>100 random</th><th>SubFam</th></tr></thead>
+    <tbody>
+      <tr><td><code>DIP</code></td><td class="num">112,492</td><td class="num">18,305</td><td class="num">0.63</td><td><a href="javascript:void(0)" onclick="openMSA('sicista/sbe/alignments/sbe_DIP_top100.aln.fa','sbe DIP top 100')">top 100</a></td><td><a href="javascript:void(0)" onclick="openMSA('sicista/sbe/alignments/sbe_DIP_rand100.aln.fa','sbe DIP 100 random')">100 random</a></td><td><a href="javascript:void(0)" onclick="openMSA('sicista/sbe/alignments/sbe_DIP_subfam.aln.fa','sbe DIP SubFam')">SubFam</a></td></tr>
+      <tr><td><code>Dip_a1</code></td><td class="num">846,431</td><td class="num">36,005</td><td class="num">0.69</td><td><a href="javascript:void(0)" onclick="openMSA('sicista/sbe/alignments/sbe_Dip_a1_top100.aln.fa','sbe Dip_a1 top 100')">top 100</a></td><td><a href="javascript:void(0)" onclick="openMSA('sicista/sbe/alignments/sbe_Dip_a1_rand100.aln.fa','sbe Dip_a1 100 random')">100 random</a></td><td><a href="javascript:void(0)" onclick="openMSA('sicista/sbe/alignments/sbe_Dip_a1_subfam.aln.fa','sbe Dip_a1 SubFam')">SubFam</a></td></tr>
+      <tr><td><code>Dip_a2</code></td><td class="num">73,613</td><td class="num">54,601</td><td class="num">0.55</td><td><a href="javascript:void(0)" onclick="openMSA('sicista/sbe/alignments/sbe_Dip_a2_top100.aln.fa','sbe Dip_a2 top 100')">top 100</a></td><td><a href="javascript:void(0)" onclick="openMSA('sicista/sbe/alignments/sbe_Dip_a2_rand100.aln.fa','sbe Dip_a2 100 random')">100 random</a></td><td><a href="javascript:void(0)" onclick="openMSA('sicista/sbe/alignments/sbe_Dip_a2_subfam.aln.fa','sbe Dip_a2 SubFam')">SubFam</a></td></tr>
+      <tr><td><code>Dip_b1</code></td><td class="num">93</td><td class="num">64,817</td><td class="num">0.29</td><td><a href="javascript:void(0)" onclick="openMSA('sicista/sbe/alignments/sbe_Dip_b1_top100.aln.fa','sbe Dip_b1 top 100')">top 100</a></td><td><a href="javascript:void(0)" onclick="openMSA('sicista/sbe/alignments/sbe_Dip_b1_rand100.aln.fa','sbe Dip_b1 100 random')">100 random</a></td><td>&ndash;</td></tr>
+      <tr><td><code>Dip_b2</code></td><td class="num">131</td><td class="num">14,818</td><td class="num">0.13</td><td><a href="javascript:void(0)" onclick="openMSA('sicista/sbe/alignments/sbe_Dip_b2_top100.aln.fa','sbe Dip_b2 top 100')">top 100</a></td><td><a href="javascript:void(0)" onclick="openMSA('sicista/sbe/alignments/sbe_Dip_b2_rand100.aln.fa','sbe Dip_b2 100 random')">100 random</a></td><td>&ndash;</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:.85rem;margin:4px 0 0;">SubFam alignments exist only for subfamilies with at least 400 copies. Same files as the <a href="sicista/sbe/report.html">full report</a>.</p>
+  <h3 style="margin:16px 0 4px;font-size:1rem;color:#2c3e50;"><i>Sicista trizona</i> (str)</h3>
+  <table class="tbl">
+    <thead><tr><th>Subfamily</th><th>Firm</th><th>Soft</th><th>sim_ratio median</th><th>Top 100</th><th>100 random</th><th>SubFam</th></tr></thead>
+    <tbody>
+      <tr><td><code>DIP</code></td><td class="num">117,228</td><td class="num">22,268</td><td class="num">0.60</td><td><a href="javascript:void(0)" onclick="openMSA('sicista/str/alignments/str_DIP_top100.aln.fa','str DIP top 100')">top 100</a></td><td><a href="javascript:void(0)" onclick="openMSA('sicista/str/alignments/str_DIP_rand100.aln.fa','str DIP 100 random')">100 random</a></td><td><a href="javascript:void(0)" onclick="openMSA('sicista/str/alignments/str_DIP_subfam.aln.fa','str DIP SubFam')">SubFam</a></td></tr>
+      <tr><td><code>Dip_a1</code></td><td class="num">845,550</td><td class="num">48,792</td><td class="num">0.65</td><td><a href="javascript:void(0)" onclick="openMSA('sicista/str/alignments/str_Dip_a1_top100.aln.fa','str Dip_a1 top 100')">top 100</a></td><td><a href="javascript:void(0)" onclick="openMSA('sicista/str/alignments/str_Dip_a1_rand100.aln.fa','str Dip_a1 100 random')">100 random</a></td><td><a href="javascript:void(0)" onclick="openMSA('sicista/str/alignments/str_Dip_a1_subfam.aln.fa','str Dip_a1 SubFam')">SubFam</a></td></tr>
+      <tr><td><code>Dip_a2</code></td><td class="num">73,114</td><td class="num">60,058</td><td class="num">0.54</td><td><a href="javascript:void(0)" onclick="openMSA('sicista/str/alignments/str_Dip_a2_top100.aln.fa','str Dip_a2 top 100')">top 100</a></td><td><a href="javascript:void(0)" onclick="openMSA('sicista/str/alignments/str_Dip_a2_rand100.aln.fa','str Dip_a2 100 random')">100 random</a></td><td><a href="javascript:void(0)" onclick="openMSA('sicista/str/alignments/str_Dip_a2_subfam.aln.fa','str Dip_a2 SubFam')">SubFam</a></td></tr>
+      <tr><td><code>Dip_b1</code></td><td class="num">211</td><td class="num">60,099</td><td class="num">0.21</td><td><a href="javascript:void(0)" onclick="openMSA('sicista/str/alignments/str_Dip_b1_top100.aln.fa','str Dip_b1 top 100')">top 100</a></td><td><a href="javascript:void(0)" onclick="openMSA('sicista/str/alignments/str_Dip_b1_rand100.aln.fa','str Dip_b1 100 random')">100 random</a></td><td>&ndash;</td></tr>
+      <tr><td><code>Dip_b2</code></td><td class="num">177</td><td class="num">16,639</td><td class="num">0.13</td><td><a href="javascript:void(0)" onclick="openMSA('sicista/str/alignments/str_Dip_b2_top100.aln.fa','str Dip_b2 top 100')">top 100</a></td><td><a href="javascript:void(0)" onclick="openMSA('sicista/str/alignments/str_Dip_b2_rand100.aln.fa','str Dip_b2 100 random')">100 random</a></td><td>&ndash;</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:.85rem;margin:4px 0 0;">SubFam alignments exist only for subfamilies with at least 400 copies. Same files as the <a href="sicista/str/report.html">full report</a>.</p>
+</section>
+<section class="card">
+  <h2>De novo SINE search</h2>
+  <p style="font-size:.9rem;">SINE-de-novo-genome-scan (50&nbsp;bp fragments of SINEbase and literature consensuses, ssearch36, identity &ge;65%, query coverage &ge;0.90, hits merged within 500&nbsp;bp) merged with AnnoSINE2 seeds where run, k-mer thinned (singletons dropped), a random 30,000-copy sample, and SubFam chunks of 50 (rows are chunk consensuses ordered by similarity). Two searches per genome:</p>
+  <ul style="font-size:.9rem;">
+    <li><b>10% subsample, with AnnoSINE2.</b> A seeded random 300 &times; 1&nbsp;Mb windows of each genome (the full-genome scan with Dip present was projected at over 20 h per genome). All AnnoSINE2 seeds are kept in the sample.</li>
+    <li><b>Dip-depleted whole genome, scan only.</b> Every Dip-bank hit (about 258&nbsp;Mb in <i>S. betulina</i>, 264&nbsp;Mb in <i>S. trizona</i>) is cut out first, pieces &ge;100&nbsp;bp are scanned; about 2 h per genome.</li>
+  </ul>
+  <table class="tbl">
+    <thead><tr><th>Genome</th><th>Search</th><th>Candidates</th><th>After thinning</th><th>Rows</th><th>Alignment</th></tr></thead>
+    <tbody>
+      <tr><td><i>S. betulina</i></td><td>10% subsample + AnnoSINE2</td><td class="num">279,697 + 1,090 seeds</td><td class="num">269,166</td><td class="num">621</td><td><a class="btn" href="javascript:void(0)" onclick="openMSA('sicista/alignments/sbet_denovo_30k.aln.fa','S. betulina 10% subsample + AnnoSINE2, 30k sample')">open in MSA</a></td></tr>
+      <tr><td><i>S. betulina</i></td><td>Dip-depleted genome</td><td class="num">92,161</td><td class="num">71,856</td><td class="num">600</td><td><a class="btn" href="javascript:void(0)" onclick="openMSA('sicista/alignments/sbe_minus_denovo_30k.aln.fa','S. betulina Dip-depleted genome, 30k sample')">open in MSA</a></td></tr>
+      <tr><td><i>S. trizona</i></td><td>10% subsample + AnnoSINE2</td><td class="num">273,316 + 818 seeds</td><td class="num">262,623</td><td class="num">616</td><td><a class="btn" href="javascript:void(0)" onclick="openMSA('sicista/alignments/str_denovo_30k.aln.fa','S. trizona 10% subsample + AnnoSINE2, 30k sample')">open in MSA</a></td></tr>
+      <tr><td><i>S. trizona</i></td><td>Dip-depleted genome</td><td class="num">98,540</td><td class="num">78,108</td><td class="num">600</td><td><a class="btn" href="javascript:void(0)" onclick="openMSA('sicista/alignments/str_minus_denovo_30k.aln.fa','S. trizona Dip-depleted genome, 30k sample')">open in MSA</a></td></tr>
+    </tbody>
+  </table>
+  <p style="margin-top:10px;"><a class="btn secondary" href="sicista/alignments/sbet_annosine_seeds.fa">AnnoSINE2 seeds, S. betulina (1,090)</a> <a class="btn secondary" href="sicista/alignments/str_annosine_seeds.fa">AnnoSINE2 seeds, S. trizona (818)</a></p>
+</section>
+<section class="card">
+  <h2>Earlier run &mdash; SINEderella step 1 on the Medaka assembly (superseded by the primary assembly)</h2>
+  <p style="font-size:.9rem;">First pass, 2026-09-26, with the 58 SINEbase Mammalia consensuses on the Medaka assembly (8,737 scaffolds). Kept for the per-consensus hit counts; the runs above use the hifiasm primary assembly.</p>
+</section>
 <section class="card">
   <h2>Subfamily input alignment &mdash; for manual grouping</h2>
   <p style="font-size:.9rem;">SubFam's view of a 30,000-copy sample of all hits: 600 chunk consensi (50 copies each) aligned together with the
@@ -65,48 +143,6 @@ a { color:var(--accent); }
     </div>
   </div>
   <p style="margin-top:14px;"><a class="btn secondary" href="sicista/LOG.md">Analysis log</a> <a class="btn secondary" href="sicista/alignments/sicista_consensuses.fa">Bank: 58 Mammalia consensuses</a></p>
-</section>
-<section class="card">
-  <h2>De novo scan &mdash; <em>S. betulina</em> and <em>S. trizona</em> (2026-10-03, preliminary)</h2>
-  <p style="font-size:.9rem;">De novo candidates from SINE-de-novo-genome-scan (50 bp SINEbase + literature fragments, ssearch36, identity &ge;65%, query coverage &ge;0.90) merged with AnnoSINE2 seeds,
-  k-mer thinned (singletons dropped), then a 30,000-copy random sample (all AnnoSINE seeds kept) chunked by SubFam. Each row is a chunk consensus of ~50 similar copies, ordered by similarity, for manual grouping.
-  <b>The scan and AnnoSINE2 ran on a random 10% of each genome (300 &times; 1 Mb windows, seed 42), not the whole genome</b>: the full-genome scan was projected at over 20 h per genome. No subfamilies have been defined.</p>
-  <div class="species-grid">
-    <div class="sp-card">
-      <h3>sbet <span class="tag tag-partial">pending manual review</span></h3>
-      <div class="sci">Sicista betulina &mdash; hifiasm primary (1,144 contigs, 2.99 Gb)</div>
-      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;">279,697 scan candidates &middot; 1,090 AnnoSINE2 seeds &middot; 269,166 after thinning &middot; 621 chunk rows</div>
-      <div class="actions"><a class="btn" href="javascript:void(0)" onclick="openMSA('sicista/alignments/sbet_denovo_30k.aln.fa','S. betulina de novo, chunk consensi (30k sample)')">De novo alignment</a>
-      <a class="btn secondary" href="sicista/alignments/sbet_annosine_seeds.fa">AnnoSINE2 seeds</a></div>
-    </div>
-    <div class="sp-card">
-      <h3>str <span class="tag tag-partial">pending manual review</span></h3>
-      <div class="sci">Sicista trizona &mdash; GCA_982266845.1 (mSicTri.1, chromosome-level)</div>
-      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;">273,316 scan candidates &middot; 818 AnnoSINE2 seeds &middot; 262,623 after thinning &middot; 616 chunk rows</div>
-      <div class="actions"><a class="btn" href="javascript:void(0)" onclick="openMSA('sicista/alignments/str_denovo_30k.aln.fa','S. trizona de novo, chunk consensi (30k sample)')">De novo alignment</a>
-      <a class="btn secondary" href="sicista/alignments/str_annosine_seeds.fa">AnnoSINE2 seeds</a></div>
-    </div>
-  </div>
-</section>
-<section class="card">
-  <h2>De novo scan on the Dip-depleted genome (minus bank) &mdash; whole genome (2026-10-03, preliminary)</h2>
-  <p style="font-size:.9rem;">The same de novo search as above, but on the <b>whole genome with every Dip-bank SINEderella hit removed</b> (all Dip_a1/a2/b1/b2 and SINEbase DIP hits merged and cut out,
-  pieces &ge;100 bp kept), so that the abundant Dip family no longer dominates the candidates. SINE-de-novo-genome-scan fragments (SINEbase + literature), merged candidates thinned (singletons dropped),
-  30,000-copy random sample, SubFam chunks of 50. AnnoSINE2 was not run on this bank. No subfamilies have been defined.</p>
-  <div class="species-grid">
-    <div class="sp-card">
-      <h3>sbe &mdash; minus bank <span class="tag tag-partial">pending manual review</span></h3>
-      <div class="sci">Sicista betulina &mdash; hifiasm primary</div>
-      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;">258 Mb (1,221,306 loci) removed &middot; 92,161 scan candidates &middot; 71,856 after thinning &middot; 600 chunk rows</div>
-      <div class="actions"><a class="btn" href="javascript:void(0)" onclick="openMSA('sicista/alignments/sbe_minus_denovo_30k.aln.fa','S. betulina de novo, Dip-depleted genome (30k sample)')">Minus-bank alignment</a></div>
-    </div>
-    <div class="sp-card">
-      <h3>str &mdash; minus bank <span class="tag tag-partial">pending manual review</span></h3>
-      <div class="sci">Sicista trizona &mdash; GCA_982266845.1 (mSicTri.1)</div>
-      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;">264 Mb (1,244,136 loci) removed &middot; 98,540 scan candidates &middot; 78,108 after thinning &middot; 600 chunk rows</div>
-      <div class="actions"><a class="btn" href="javascript:void(0)" onclick="openMSA('sicista/alignments/str_minus_denovo_30k.aln.fa','S. trizona de novo, Dip-depleted genome (30k sample)')">Minus-bank alignment</a></div>
-    </div>
-  </div>
 </section>
 <section class="card">
   <h2>Hits per bank consensus (step 1, before merging)</h2>
