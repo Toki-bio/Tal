@@ -14,3 +14,12 @@ Built on therioserver, `~/Sicista2026/mito/aln/` (inputs: `genbank/`, `units/`, 
 
 Fragments are placed with `--keeplength`, so insertions relative to the backbone are dropped. Results and methods:
 C:\work\hylomys_ont\SICISTA_MITO_FINDINGS.md.
+
+## 2026-10-04: gene track (BED) for the ViewAlign pages
+
+ViewAlign v233 draws a BED annotation track above the alignment (`?bed=` URL parameter; Settings > Annotation). Files in `sicista/mito/annotations/`:
+
+- `sicista_mitogenomes.NC_069019_genes.bed`: the GenBank feature table of NC_069019.1 (RefSeq *S. betulina* DK_BMNT: 13 CDS, 22 tRNA, 2 rRNA, O_L, control region; `gene` features dropped as duplicates) on the row `Sbet_NC_069019_DK_BMNT`, 0-based half-open, itemRgb by feature class, column 13 = feature type and /product. Made with `gb2bed.py genbank/NC_069019.1.gb Sbet_NC_069019_DK_BMNT` on therioserver.
+- `strizona_numts.OZ418355_genes_lifted.bed`, `sb1_numts.ptg633_unit2_genes_lifted.bed`: the same features lifted onto OZ418355.1 and onto Sb1 `ptg633_unit2` through `units/six.aln` (the six-mitogenome MAFFT alignment used earlier for `genes_tri.tsv` / `genes_unit2.tsv`) with `lift_bed.py`; 0 intervals dropped. OZ418355.1 has no feature table in its GenBank record, so the trizona track is a transfer, not an official annotation. These serve the NUMT alignments, whose first row is the mtDNA backbone.
+
+The viewer maps the BED coordinates through the backbone row's gaps on every redraw, so the track is correct in all three alignments that share a backbone.

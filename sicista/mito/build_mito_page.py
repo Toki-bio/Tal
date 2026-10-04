@@ -10,16 +10,32 @@ import os, re, html
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 ref = open(os.path.join(ROOT, 'sicista.html'), encoding='utf-8').read()
 css = re.search(r'<style>.*?</style>', ref, re.S).group(0)
-js = re.search(r'<script>.*?</script>', ref, re.S).group(0)
+# Same RAW/MSA constants as sicista.html, plus an optional BED (gene track, ViewAlign ?bed=)
+js = '''<script>
+const RAW = 'https://raw.githubusercontent.com/Toki-bio/Tal/main/';
+const MSA = 'https://toki-bio.github.io/MSA-viewer/';
+function openMSA(relPath, title, bed) {
+  let u = MSA + '?url=' + encodeURIComponent(RAW + relPath) + '&title=' + encodeURIComponent(title);
+  if (bed) u += '&bed=' + encodeURIComponent(RAW + bed);
+  window.open(u, '_blank');
+}
+</script>'''
 
 A = 'sicista/mito/alignments/'
+B = 'sicista/mito/annotations/'
+BED_MITO = B + 'sicista_mitogenomes.NC_069019_genes.bed'      # GenBank annotation of NC_069019.1, on that row
+BED_TRI = B + 'strizona_numts.OZ418355_genes_lifted.bed'       # the same, lifted onto OZ418355.1 through units/six.aln
+BED_SB1 = B + 'sb1_numts.ptg633_unit2_genes_lifted.bed'        # the same, lifted onto Sb1 ptg633_unit2
 
-def msa(fn, title, label, cls='btn'):
-    return ('<a class="%s" href="javascript:void(0)" onclick="openMSA(\'%s%s\',\'%s\')">%s</a>'
-            % (cls, A, fn, html.escape(title, quote=True).replace("'", ''), label))
+def msa(fn, title, label, cls='btn', bed=None):
+    return ('<a class="%s" href="javascript:void(0)" onclick="openMSA(\'%s%s\',\'%s\'%s)">%s</a>'
+            % (cls, A, fn, html.escape(title, quote=True).replace("'", ''), (",'%s'" % bed) if bed else '', label))
 
 def dl(fn, label):
     return '<a class="btn secondary" href="%s%s">%s</a>' % (A, fn, label)
+
+def dl2(path, label):
+    return '<a class="btn secondary" href="%s">%s</a>' % (path, label)
 
 def card(h3, tag, sci, small, buttons):
     return ('    <div class="sp-card">\n      <h3>%s %s</h3>\n      <div class="sci">%s</div>\n'
@@ -33,8 +49,8 @@ mito_cards = [
     card('All Sicista mitogenomes', TAG,
          '61 GenBank mitochondrial records of five species plus the Sb1 mtDNA',
          '62 rows &middot; 16,808 columns &middot; MAFFT, reverse-complemented rows are prefixed <code>_R_</code>',
-         [msa('sicista_mitogenomes.aln.fa', 'Sicista mitogenomes: 61 GenBank records + Sb1 own mtDNA', 'Open in MSA'),
-          dl('sicista_mitogenomes.aln.fa', 'FASTA')]),
+         [msa('sicista_mitogenomes.aln.fa', 'Sicista mitogenomes: 61 GenBank records + Sb1 own mtDNA', 'Open in MSA', bed=BED_MITO),
+          dl('sicista_mitogenomes.aln.fa', 'FASTA'), dl2(BED_MITO, 'genes BED')]),
     card('Control region', TAG,
          'Region after tRNA-Pro to the end of each record, realigned on its own (L-INS-i)',
          '62 rows &middot; 1,294 columns &middot; the 6-bp ATACGC microsatellite is in Sb1 (x52), <i>S. trizona</i> and <i>S. caudata</i> (x56); not in the published <i>S. betulina</i> records',
@@ -43,7 +59,7 @@ mito_cards = [
     card('Sb1 mt-like contigs', TAG,
          'S. betulina ZBS2026-Sb1, hifiasm primary assembly: every segment of the 83 mt-like contigs aligned to Sb1\'s own mtDNA',
          '161 rows (own mtDNA + 160 segments) &middot; 151 segments are &ge;99.9% identical to the own mtDNA &middot; 2 outliers (84% and 86%) are not mtDNA proper &middot; <code>ptg000633l</code> carries five copies',
-         [msa('sb1_mtlike_contigs.aln.fa', 'Sb1 mt-like contigs vs own mtDNA', 'Open in MSA'),
+         [msa('sb1_mtlike_contigs.aln.fa', 'Sb1 mt-like contigs vs own mtDNA', 'Open in MSA', bed=BED_SB1),
           dl('sb1_mtlike_contigs.aln.fa', 'FASTA')]),
 ]
 
@@ -51,17 +67,17 @@ numt_cards = [
     card('S. trizona', TAG,
          'Sicista trizona &mdash; mSicTri.1, GCA_982266845.1, nuclear copies of OZ418355.1',
          '57 of 141 loci (aligned &ge;500 bp, or &ge;95% identity and &ge;100 bp) &middot; backbone row = the mtDNA, fragments clipped to its coordinates &middot; youngest: ND2 844 bp, 99.2% (OZ418345.1:183,346,458-183,347,301)',
-         [msa('strizona_numts.aln.fa', 'S. trizona nuclear mt copies on OZ418355.1', 'Open in MSA'),
-          dl('strizona_numts.aln.fa', 'FASTA')]),
+         [msa('strizona_numts.aln.fa', 'S. trizona nuclear mt copies on OZ418355.1', 'Open in MSA', bed=BED_TRI),
+          dl('strizona_numts.aln.fa', 'FASTA'), dl2(BED_TRI, 'genes BED')]),
     card('Sb1 nuclear copies, lineage-B family', TAG,
          'Sicista betulina Sb1 &mdash; 30 of the &ge;82 assembled full-length copies (16 kb), two young own-lineage copies, three GenBank references',
          '36 rows &middot; copies are 99.5-99.97% identical to each other, 99.3% to NC_069019 (lineage B) and ~94% to Sb1\'s own mtDNA (lineage A) &middot; about 200 haploid copies by read depth',
-         [msa('sb1_nuclear_lineageB_family.aln.fa', 'Sb1 nuclear lineage-B mt family on own mtDNA', 'Open in MSA'),
-          dl('sb1_nuclear_lineageB_family.aln.fa', 'FASTA')]),
+         [msa('sb1_nuclear_lineageB_family.aln.fa', 'Sb1 nuclear lineage-B mt family on own mtDNA', 'Open in MSA', bed=BED_SB1),
+          dl('sb1_nuclear_lineageB_family.aln.fa', 'FASTA'), dl2(BED_SB1, 'genes BED')]),
     card('Sb1 nuclear copies, other loci', TAG,
          'Sicista betulina Sb1 &mdash; the 84 largest non-family loci (&ge;1 kb, or &ge;95% identity and &ge;100 bp)',
          '85 rows &middot; names carry contig, coordinates, percent identity and the mtDNA interval covered',
-         [msa('sb1_nuclear_other_numts.aln.fa', 'Sb1 other nuclear mt copies on own mtDNA', 'Open in MSA'),
+         [msa('sb1_nuclear_other_numts.aln.fa', 'Sb1 other nuclear mt copies on own mtDNA', 'Open in MSA', bed=BED_SB1),
           dl('sb1_nuclear_other_numts.aln.fa', 'FASTA')]),
 ]
 
@@ -99,6 +115,9 @@ body = '''<header>
     <li>Row names in the NUMT alignments are <code>species_NUMT_contig:start-end_percent-identity[_mtstart-mtend]</code>; the percent is blastn identity over the merged locus.</li>
     <li>A leading <code>_R_</code> means MAFFT reverse-complemented that row.</li>
     <li>Mitogenomes and control regions are full records; Sb1 own mtDNA is the unit of <code>ptg000633l</code> (5 tandem copies, 0-2 differences).</li>
+    <li>The gene track above the alignments is the GenBank annotation of NC_069019.1 (RefSeq <i>S. betulina</i>: 13 CDS, 22 tRNA, 2 rRNA, O<sub>L</sub>, control region),
+      placed on that row and mapped through its gaps; for the NUMT alignments it was lifted onto OZ418355.1 and Sb1 <code>ptg633_unit2</code> through the six-mitogenome alignment
+      (<code>gb2bed.py</code>, <code>lift_bed.py</code> in <code>sicista/mito/</code>). Hover a gene for its coordinates, click it to select its columns, hide it under Annotation in the viewer's settings.</li>
     <li>Sb1 alignments come from ONT reads (104 Gb, 35x) assembled with hifiasm; the Sb1 assembly is not in a public archive yet.</li>
   </ul>
   <p style="margin-top:14px;"><a class="btn secondary" href="sicista/mito/LOG.md">Analysis log</a>
