@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sicista mitogenomes and pseudogenes</title>
+<style>
+:root { --fg:#222; --bg:#f5f6f8; --card:#fff; --accent:#4C72B0;
+        --muted:#666; --border:#e2e2e2; }
+* { box-sizing: border-box; }
+body { font-family: -apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+       background:var(--bg); color:var(--fg); margin:0; padding:0; }
+header { background: linear-gradient(135deg, #2c3e50, #4C72B0);
+         color:#fff; padding:28px 36px; }
+header h1 { margin:0 0 6px 0; font-size:1.7rem; }
+header .sub { opacity:.85; font-size:.95rem; }
+main { max-width:1100px; margin:0 auto; padding:28px 24px; }
+section.card { background:var(--card); border:1px solid var(--border);
+               border-radius:8px; padding:20px 24px; margin:18px 0;
+               box-shadow:0 1px 3px rgba(0,0,0,0.05); }
+section.card h2 { margin-top:0; font-size:1.1rem; color:#2c3e50;
+                  border-bottom:1px solid var(--border); padding-bottom:8px; }
+.tbl { border-collapse:collapse; width:100%; font-size:.88rem; margin:8px 0; }
+.tbl th,.tbl td { border:1px solid var(--border); padding:6px 10px; text-align:left; }
+.tbl th { background:#f0f3f7; }
+.tbl tbody tr:nth-child(even) { background:#fafbfd; }
+.tbl td.num { font-variant-numeric:tabular-nums; text-align:right; }
+.tag { display:inline-block; border-radius:3px; padding:1px 6px;
+       font-size:.78rem; font-weight:600; }
+.tag-ok  { background:#d4edda; color:#155724; }
+.tag-partial { background:#fff3cd; color:#856404; }
+.tag-candidate { background:#f8d7da; color:#721c24; }
+.tag-other-family { background:#e2e3ff; color:#2d2d8f; }
+.tag-no  { background:#f0f0f0; color:#777; }
+a.btn { display:inline-block; background:var(--accent); color:#fff;
+        padding:4px 12px; border-radius:4px; font-size:.84rem;
+        text-decoration:none; margin:2px 2px 2px 0; }
+a.btn:hover { background:#2c3e50; }
+a.btn.secondary { background:#6c757d; }
+a.btn.green  { background:#28a745; }
+a { color:var(--accent); }
+.species-grid { display:grid; gap:16px;
+                grid-template-columns: repeat(auto-fit, minmax(320px,1fr)); }
+.sp-card { border:1px solid var(--border); border-radius:7px;
+           padding:14px 16px; background:#fff; }
+.sp-card h3 { margin:0 0 4px; font-size:1rem; color:#2c3e50; }
+.sp-card .sci { font-style:italic; color:var(--muted); font-size:.88rem; }
+.sp-card .actions { margin-top:10px; }
+</style>
+</head><body>
+<header>
+  <h1>Sicista mitogenomes and mitochondrial pseudogenes</h1>
+  <div class="sub">Alignments of mtDNA and its nuclear copies (NUMTs) in <i>Sicista betulina</i> Sb1 and <i>S. trizona</i>, opened in ViewAlign. <a href="sicista.html" style="color:#fff;">&larr; Sicista SINE page</a> &middot; <a href="index.html" style="color:#fff;">Tal SINE main page</a></div>
+</header>
+<main>
+<section class="card">
+  <h2>Mitogenomes</h2>
+  <p style="font-size:.9rem;">Standard 37-gene mammalian arrangement in all five species; the control region is what differs (938 bp in published
+  <i>S. betulina</i>, 982 in <i>S. strandi</i>, 1,044 in <i>S. concolor</i>, 1,206 in <i>S. caudata</i>, 1,217 in <i>S. trizona</i>, 1,199 in Sb1).
+  The Sb1 mtDNA was found as repeated copies in the hifiasm primary assembly (no single mt contig) and is 99.2% identical to GenBank MZ570955 (one of two published <i>S. betulina</i> lineages).</p>
+  <div class="species-grid">
+    <div class="sp-card">
+      <h3>All Sicista mitogenomes <span class="tag tag-partial">unpublished, for review</span></h3>
+      <div class="sci">61 GenBank mitochondrial records of five species plus the Sb1 mtDNA</div>
+      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;">62 rows &middot; 16,808 columns &middot; MAFFT, reverse-complemented rows are prefixed <code>_R_</code></div>
+      <div class="actions">
+        <a class="btn" href="javascript:void(0)" onclick="openMSA('sicista/mito/alignments/sicista_mitogenomes.aln.fa','Sicista mitogenomes: 61 GenBank records + Sb1 own mtDNA')">Open in MSA</a>
+        <a class="btn secondary" href="sicista/mito/alignments/sicista_mitogenomes.aln.fa">FASTA</a>
+      </div>
+    </div>
+    <div class="sp-card">
+      <h3>Control region <span class="tag tag-partial">unpublished, for review</span></h3>
+      <div class="sci">Region after tRNA-Pro to the end of each record, realigned on its own (L-INS-i)</div>
+      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;">62 rows &middot; 1,294 columns &middot; the 6-bp ATACGC microsatellite is in Sb1 (x52), <i>S. trizona</i> and <i>S. caudata</i> (x56); not in the published <i>S. betulina</i> records</div>
+      <div class="actions">
+        <a class="btn" href="javascript:void(0)" onclick="openMSA('sicista/mito/alignments/sicista_control_region.aln.fa','Sicista control regions (ATACGC repeat)')">Open in MSA</a>
+        <a class="btn secondary" href="sicista/mito/alignments/sicista_control_region.aln.fa">FASTA</a>
+      </div>
+    </div>
+    <div class="sp-card">
+      <h3>Sb1 mt-like contigs <span class="tag tag-partial">unpublished, for review</span></h3>
+      <div class="sci">S. betulina ZBS2026-Sb1, hifiasm primary assembly: every segment of the 83 mt-like contigs aligned to Sb1's own mtDNA</div>
+      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;">161 rows (own mtDNA + 160 segments) &middot; 151 segments are &ge;99.9% identical to the own mtDNA &middot; 2 outliers (84% and 86%) are not mtDNA proper &middot; <code>ptg000633l</code> carries five copies</div>
+      <div class="actions">
+        <a class="btn" href="javascript:void(0)" onclick="openMSA('sicista/mito/alignments/sb1_mtlike_contigs.aln.fa','Sb1 mt-like contigs vs own mtDNA')">Open in MSA</a>
+        <a class="btn secondary" href="sicista/mito/alignments/sb1_mtlike_contigs.aln.fa">FASTA</a>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="card">
+  <h2>Mitochondrial pseudogenes in the nuclear genome</h2>
+  <p style="font-size:.9rem;">Nuclear copies were found by blastn of the species' mtDNA against the nuclear contigs (mt-like contigs excluded), loci merged within 2 kb.
+  Each alignment has the mtDNA as its first row; the other rows are the nuclear copies placed on its coordinates, so a column is one mtDNA position.
+  Insertions relative to the mtDNA are not shown.</p>
+  <div class="species-grid">
+    <div class="sp-card">
+      <h3>S. trizona <span class="tag tag-partial">unpublished, for review</span></h3>
+      <div class="sci">Sicista trizona &mdash; mSicTri.1, GCA_982266845.1, nuclear copies of OZ418355.1</div>
+      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;">57 of 141 loci (aligned &ge;500 bp, or &ge;95% identity and &ge;100 bp) &middot; backbone row = the mtDNA, fragments clipped to its coordinates &middot; youngest: ND2 844 bp, 99.2% (OZ418345.1:183,346,458-183,347,301)</div>
+      <div class="actions">
+        <a class="btn" href="javascript:void(0)" onclick="openMSA('sicista/mito/alignments/strizona_numts.aln.fa','S. trizona nuclear mt copies on OZ418355.1')">Open in MSA</a>
+        <a class="btn secondary" href="sicista/mito/alignments/strizona_numts.aln.fa">FASTA</a>
+      </div>
+    </div>
+    <div class="sp-card">
+      <h3>Sb1 nuclear copies, lineage-B family <span class="tag tag-partial">unpublished, for review</span></h3>
+      <div class="sci">Sicista betulina Sb1 &mdash; 30 of the &ge;82 assembled full-length copies (16 kb), two young own-lineage copies, three GenBank references</div>
+      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;">36 rows &middot; copies are 99.5-99.97% identical to each other, 99.3% to NC_069019 (lineage B) and ~94% to Sb1's own mtDNA (lineage A) &middot; about 200 haploid copies by read depth</div>
+      <div class="actions">
+        <a class="btn" href="javascript:void(0)" onclick="openMSA('sicista/mito/alignments/sb1_nuclear_lineageB_family.aln.fa','Sb1 nuclear lineage-B mt family on own mtDNA')">Open in MSA</a>
+        <a class="btn secondary" href="sicista/mito/alignments/sb1_nuclear_lineageB_family.aln.fa">FASTA</a>
+      </div>
+    </div>
+    <div class="sp-card">
+      <h3>Sb1 nuclear copies, other loci <span class="tag tag-partial">unpublished, for review</span></h3>
+      <div class="sci">Sicista betulina Sb1 &mdash; the 84 largest non-family loci (&ge;1 kb, or &ge;95% identity and &ge;100 bp)</div>
+      <div style="font-size:.82rem;color:var(--muted);margin-top:4px;">85 rows &middot; names carry contig, coordinates, percent identity and the mtDNA interval covered</div>
+      <div class="actions">
+        <a class="btn" href="javascript:void(0)" onclick="openMSA('sicista/mito/alignments/sb1_nuclear_other_numts.aln.fa','Sb1 other nuclear mt copies on own mtDNA')">Open in MSA</a>
+        <a class="btn secondary" href="sicista/mito/alignments/sb1_nuclear_other_numts.aln.fa">FASTA</a>
+      </div>
+    </div>
+  </div>
+  <table class="tbl" style="margin-top:14px;">
+    <thead><tr><th>Genome</th><th>Nuclear mt loci</th><th>mt covered</th><th>Largest / youngest</th></tr></thead>
+    <tbody>
+      <tr><td><i>S. trizona</i></td><td class="num">141</td><td class="num">95.5%</td><td>4 copies of ~12 kb on OZ418342.1 at ~76%; ND2 844 bp at 99.2%</td></tr>
+      <tr><td><i>S. betulina</i> Sb1</td><td class="num">305</td><td class="num">100%</td><td>&ge;82 full-length copies on 43 contigs (lineage B, ~94% to own mtDNA); 16.3 kb at 99.0% on ptg000319l; 12 kb at 99.8% on ptg000880l</td></tr>
+    </tbody>
+  </table>
+</section>
+<section class="card">
+  <h2>Reading the alignments</h2>
+  <ul style="font-size:.9rem;">
+    <li>Row names in the NUMT alignments are <code>species_NUMT_contig:start-end_percent-identity[_mtstart-mtend]</code>; the percent is blastn identity over the merged locus.</li>
+    <li>A leading <code>_R_</code> means MAFFT reverse-complemented that row.</li>
+    <li>Mitogenomes and control regions are full records; Sb1 own mtDNA is the unit of <code>ptg000633l</code> (5 tandem copies, 0-2 differences).</li>
+    <li>Sb1 alignments come from ONT reads (104 Gb, 35x) assembled with hifiasm; the Sb1 assembly is not in a public archive yet.</li>
+  </ul>
+  <p style="margin-top:14px;"><a class="btn secondary" href="sicista/mito/LOG.md">Analysis log</a>
+  <a class="btn secondary" href="sicista.html">Sicista SINE page</a></p>
+</section>
+</main>
+<script>
+const RAW = 'https://raw.githubusercontent.com/Toki-bio/Tal/main/';
+const MSA = 'https://toki-bio.github.io/MSA-viewer/';
+function openMSA(relPath, title) {
+  const url = RAW + relPath;
+  window.open(MSA + '?url=' + encodeURIComponent(url) + '&title=' + encodeURIComponent(title), '_blank');
+}
+</script>
+</body></html>

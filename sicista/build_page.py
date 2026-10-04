@@ -87,7 +87,8 @@ def build():
                 out.append('        ' + msa('sicista/alignments/' + nm, ttl, lab) + '\n')
         out.append('      </div>\n    </div>\n')
     out.append('  </div>\n  <p style="margin-top:14px;"><a class="btn secondary" href="sicista/LOG.md">Analysis log</a> '
-               '<a class="btn secondary" href="sicista/alignments/dip_consensuses.fa">Dip bank (5 consensuses, as searched)</a></p>\n</section>\n')
+               '<a class="btn secondary" href="sicista/alignments/dip_consensuses.fa">Dip bank (5 consensuses, as searched)</a> '
+               '<a class="btn secondary" href="sicista_mito.html">Mitogenomes and mt pseudogenes</a></p>\n</section>\n')
 
     # ---- Dip SINEderella, per-subfamily table
     out.append('<section class="card">\n  <h2>Dip SINE &mdash; SINEderella on the whole genome</h2>\n'
