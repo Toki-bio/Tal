@@ -1,0 +1,47 @@
+{
+ "PM": {
+  "n": 48110,
+  "sim_ratio_n": 15588,
+  "sim_median": 0.6672,
+  "sim_q25": 0.5556,
+  "sim_q75": 0.6879,
+  "by_subfamily": {
+   "Dip_a1": 38961,
+   "Dip_a2": 8713,
+   "DIP": 265,
+   "(no firm Dip locus overlapping)": 160,
+   "Dip_b2": 8,
+   "Dip_b1": 3
+  }
+ },
+ "MP": {
+  "n": 44891,
+  "sim_ratio_n": 14249,
+  "sim_median": 0.5964,
+  "sim_q25": 0.538,
+  "sim_q75": 0.6532,
+  "by_subfamily": {
+   "Dip_a1": 36194,
+   "Dip_a2": 8074,
+   "DIP": 384,
+   "(no firm Dip locus overlapping)": 202,
+   "Dip_b2": 17,
+   "Dip_b1": 20
+  }
+ },
+ "SINE": {
+  "n": 381134,
+  "sim_ratio_n": 39272,
+  "sim_median": 0.6684,
+  "sim_q25": 0.606,
+  "sim_q75": 0.6903,
+  "by_subfamily": {
+   "DIP": 39855,
+   "Dip_a1": 281061,
+   "(no firm Dip locus overlapping)": 50271,
+   "Dip_a2": 9896,
+   "Dip_b2": 22,
+   "Dip_b1": 29
+  }
+ }
+}

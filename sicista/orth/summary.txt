@@ -1,0 +1,45 @@
+SINE Orthologous Loci Analysis Summary
+======================================
+
+Run Date: Sat Oct  3 11:51:30 PM MSK 2026
+Pipeline Version: 2.0
+
+Input Files:
+  Genome 1: /home/toki/orth/in_sbe/sbe.fa
+  Genome 2: /home/toki/orth/in_str/str.fa
+  SINE:     /home/toki/orth/sbe-str/Dip_a1.fa
+  BED 1:    /home/toki/orth/in_sbe/sbe_Dip.bed
+  BED 2:    /home/toki/orth/in_str/str_Dip.bed
+
+Analysis Names:
+  Species 1: sbe
+  Species 2: str
+  SINE:      Dip_a1
+
+Results:
+
+Classification Summary:
+  44891 MP
+  48110 PM
+ 381134 SINE
+
+Alignments (bundled in results/alignments/aln_sbe-str_*.aln.gz):
+  Plus-Minus (PM):  48110
+  Minus-Plus (MP):  44891
+  Both have SINE:   381134
+
+Output Directory Structure:
+  /home/toki/orth/sbe-str/res/
+    ├── results/
+    │   ├── statbed_sbe-str.bed    (Genomic coordinates)
+    │   ├── statbed_str-sbe.bed    (Reciprocal coordinates)
+    │   ├── MP_PM_SINE_sbe-str.txt (Summary statistics)
+    │   ├── stat_doubles_sbe-str   (Detailed stats - doubles)
+    │   ├── stat_multi_sbe-str     (Detailed stats - multis)
+    │   ├── orth_sbe-str.tsv       (Locus pairs for sine_registry.py)
+    │   ├── alignments/                      (Alignment bundles, *.aln.gz)
+    │   └── summary.txt                      (This file)
+    ├── work/                                (Intermediate files)
+    └── pipeline.log                         (Complete log)
+
+Intermediate files were removed (run with --keep-intermediates to preserve)
