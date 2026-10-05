@@ -179,6 +179,12 @@ kept it, as the mini genome showed. The current code verifies it and excludes it
 `run_20261005_085343` are not the answer for the focus case. A rerun on `d2d9e6a` was started 2026-10-06 00:06 in
 `therioserver ~/tmp/kbspeed/rsi_fast/` (CPUs 64-95, then publish; marker `DONE_FAST`).
 
+Result (`run_20261006_000626`, full run 67 min including the 11.5 min satellite stage, publish 8 min, both exit 0): 2 543 hits excluded;
+**MEG-RS 96 assigned** (the 7f32adb run: 227; the release-check run of 10-04: 129); MEG-RL 11, MEG-T2 107, MEG-TR 20 as before. Flank
+twins (stage 9, now in the run) on the 96 MEG-RS copies: 77 twins (75 twin1, 2 twin2), 3 masked, **16 unique**. So after the arrays
+are gone four in five remaining MEG-RS copies still share their flanks with another copy (segmental duplicates or array remnants), and
+16 are candidates for independent insertions. Plates: `results/alignments/rsi_MEG-RS_{top100,rand100}.aln.fa` of that run.
+
 ## 6. Scorpions
 
 Three different things exist, none run with the current code:
