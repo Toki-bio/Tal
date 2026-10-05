@@ -283,3 +283,7 @@ Per genome: (1) de novo scan with the query bank (`bank/step0bank.query.fa`) -> 
 -> `thinned.kept.msf`. The chain stops there. Counts and the alignments (one row per chunk consensus) are in `sco/denovo_dragen/` (`summary.tsv`, `<code>_chunk_consensi.aln.fa`).
 All nine finished on 2026-10-01 (04:23-11:09 PDT). `bxa` (Belisarius xambeui) is the species of the manual run above, but with a new bank and no manual SubFam the 550 chunk consensi cannot be compared with its 29 subfamilies.
 Next (not done): manual peeling of the chunk alignments, then SINEderella assignment against a bank made of the accepted consensi, per genome.
+
+## 2026-10-05 — state of the scorpion runs versus the current code
+
+None of the three scorpion data sets (this sco/bxa run of 2026-08-21, the oma run repaired 2026-09-08, the nine-genome chain of 2026-10-01) has been run with the current SINEderella (satellite stage, canonicalization rules, length versions, consensus audit). DRAGEN did not answer on 2026-10-05 08:03. Options and what each needs: `../OLD_VS_NEW_RUNS_2026-10-05.md` section 6.

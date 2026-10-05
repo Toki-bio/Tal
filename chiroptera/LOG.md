@@ -248,3 +248,7 @@ Groups at ≥ 80 % identity (single linkage):
 - Real Rhin-1 only in the Rhinolophoidea: rsi (r1–r10), rda, rre, hla, tpe.
 - lly + mgi (Megadermatidae) "Rhin-1": their own pair. rmi "Rhin-1" = rmi "VES".
 - VES real in 14 species; MEG-RS/RL/TR one group across species; MEG-T2 real only in rle.
+
+## 2026-10-05 — old versus new runs, reruns of 19 species on SINEderella 13093c9
+
+See `../OLD_VS_NEW_RUNS_2026-10-05.md`: what changed in the code since the 09-27 runs (satellite stage, length versions, consensus audit, array flag with chance null, reproducible plates), the measured rsi/tbr/rle deltas (only MEG-RS moves, where it forms arrays), the 7 kb-period MEG-RS array missed by the 6 kb rule (13093c9), and the rerun of the other 19 bats running on therioserver (`~/tmp/release_check/bats/`).
