@@ -143,6 +143,25 @@ same-contig partner within 50 kb (the 7 kb array and the fringe copies) and 8 ar
 copies sharing 5' sequence at 85-90 % with array units (old satellite-unit remnants). So after the arrays are gone, the twin
 check is what remains to separate duplicates from insertions, and it now runs on every family.
 
+### 5b. MEG-RS mini genome (11.4 Mb of real rsi sequence: +-50 kb around every MEG-RS hit; `therioserver ~/tmp/megrs_mini/`)
+
+Built so that each fix is checked in minutes instead of 85 min on the whole genome (a full run with publish takes 9 + 2.5 min).
+What it found:
+
+1. **The 30 kb array tier (13093c9) let a real array back in.** It joined a 2 168 bp-unit MEG-RS array (89 % alone) with the
+   dispersed copies 2-35 kb beyond it into one 144-hit run at 82 %, verdict COPIES, so the array was not excluded and filled the
+   plates. Fixed in `ed86b68` (narrow runs verified on their own too): the array is now excluded (134 hits, 89 %), MEG-RS keeps
+   130 of 1 756 hits after the screen, and 143 of the 236 split-vote loci of the first mini run were in that array.
+2. **The same copies get a different vote in a small run.** Of the 129 copies that are firm MEG-RS in the whole-genome run, on the
+   mini 89 are MEG-RL with 5 of 10 votes, 6 MEG-RS with 6-7 of 10, 34 not extracted (outside the windows' merged loci); none firm.
+   Step 2 searches the consensuses against the copies in library parts of 20 000; with `-z 11` the significance statistics are
+   estimated from shuffles of the library, i.e. from 20 000 copies on the whole genome and 351 on the mini. MEG-RS and MEG-RL are
+   97 % identical, so with the noisier estimate their order flips between cycles. The strength of the unanimity filter therefore
+   depends on how many copies share a library part: the last part of every run, small genomes and the `--add` re-vote (only the
+   affected loci) all vote with a weaker or different filter. Not changed: this is the core filter; decision needed.
+3. MEG-RS plates on the mini are mostly soft copies (5 firm), so the twin check (firm copies, >= 20) did not cover them: 0 `[twin]`
+   marks while 15 of 55 non-array rows share flanks.
+
 The focused rsi run was restarted a second time at 08:53 on `7f32adb` (the 08:29 run lacked the region exclusion); it is read
 with the same checks when it finishes, and its MEG-RS plates with `[twin]` marks are the material for the call.
 
