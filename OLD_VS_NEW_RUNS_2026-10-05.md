@@ -111,9 +111,40 @@ marked `[array]` by spacing nor counted in the flag. Fixed in SINEderella `26d0c
 18 array tests pass). The three species that started before the pull (cse, cth, fho) get `array_flag.py` re-run
 on their finished runs.
 
-## 5. Rerun results
+## 5. Focus case: MEG-RS in *R. sinicus* (his decision 2026-10-05: one case fixed completely before the next)
 
-(filled in as `summary.txt` files appear; see also `SINEderella/docs/RELEASE_CHECK_2026-10-05.md` for rsi, tbr, rle)
+The 19-species reruns of section 4 were stopped after 10 minutes (parked in `bats/_stopped_focus_2026-10-05/`). Work
+moved to one case. State after the first measurements (yesterday's run `~/tmp/release_check/tal/rsi/run_20261004_233045`,
+129 MEG-RS copies left after the 21 verified arrays were removed; stage 9 run on them in `tal/rsi/megrs_fs9/`):
+
+| what | number | meaning |
+|---|---|---|
+| copies inside a verified array span, not removed | 6 | the exclusion removes only the run members; a hit inside the span that is off the regular spacing stays |
+| copies 2-35 kb from a verified array | 27 | array fringes: 50 of them are the "7 kb array" (NC_142507.1:30.57-30.65 Mb, right after the 1 936 bp-unit array ending at 30.56 Mb); five lie 30.6-31.2 kb beyond an array end on five different contigs (a recurring ~31 kb higher-order unit), just past the new 30 kb cap |
+| copies > 100 kb from any array or on contigs without one | 82 | the dispersed candidates |
+| stage 9 twins (tier 1) | 4 | one group on four contigs, flanks 99-100 % over 93-100 bp, unmasked sequence |
+| stage 9 "unique" with the whole 100 bp flank soft-masked on both sides | 11 of the 16 plate rows that share flanks at 96-100 % | fs9 turns soft-masked bases into N and then has nothing to compare, and reports "unique" instead of "untestable"; 79 % of the rsi assembly is soft-masked |
+| stage 9 k-mer repeat filter | off in every run so far | `fs9_twins.sh` split the jellyfish dump on tabs, the dump is space-separated; fixed in `5cc42a0` |
+
+Plates (numeric check, `plate_flank_check.py`): rsi_sat top-100: 50 array rows, 16 of the 50 others with a flank partner at
+>= 0.96; the release-check top-100: 50 array rows (the 7 kb array), 10 of the 50 others; rand-100: 67 array rows, 9 of 33 others.
+
+Fixes made from this (SINEderella commits of 2026-10-05, each toy-tested on the server before use):
+
+| commit | change | toy check |
+|---|---|---|
+| `5cc42a0` | `fs9_twins.sh` reads the jellyfish dump split on whitespace (the tab split had left the repeat mask empty in every run) | 4-line dump parsed |
+| `7f32adb` | the satellite stage writes `satellites/exclude_regions.bed` and step 1 removes every merged locus inside a kind-A locus or a verified array, whatever consensus found it (the per-consensus filter let array units re-enter through other consensuses' hits); `fs9_twins.sh` keeps soft-masked bases testable by default (SOFTMASK=1 restores) and reports copies with too few testable flank bases as `masked`, not `unique` | planted B1 array gone from the extracted loci, dispersed copies kept; fs9 toy suite passes |
+| `c9df4c2` | `flankscan/fs9_run.sh`: stage 9 over every family after assignment, called by the orchestrator (`results/flank_twins.tsv`, per-family `copy_status.tsv`; jellyfish 20-mer mask for genomes > 300 Mb, jellyfish added to the sinederella env); step8a marks twin copies `[twin]` and takes one copy per twin group first | planted segmental duplication (3 copies x 2) = exactly 6 twins, 0 false among 217; marks appear on the toy plates |
+| `89607ac` | report table "Are the flanks of the copies unique?" | rendered |
+
+Stage 9 on the 129 old-run copies with the soft-mask lifted: 109 twins (84.5 %), 2 masked, 16 unique. Of the 109, 101 have a
+same-contig partner within 50 kb (the 7 kb array and the fringe copies) and 8 are cross-contig: the 4-copy duplicate group and
+copies sharing 5' sequence at 85-90 % with array units (old satellite-unit remnants). So after the arrays are gone, the twin
+check is what remains to separate duplicates from insertions, and it now runs on every family.
+
+The focused rsi run was restarted a second time at 08:53 on `7f32adb` (the 08:29 run lacked the region exclusion); it is read
+with the same checks when it finishes, and its MEG-RS plates with `[twin]` marks are the material for the call.
 
 ## 6. Scorpions
 
