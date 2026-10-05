@@ -165,6 +165,20 @@ What it found:
 The focused rsi run was restarted a second time at 08:53 on `7f32adb` (the 08:29 run lacked the region exclusion); it is read
 with the same checks when it finishes, and its MEG-RS plates with `[twin]` marks are the material for the call.
 
+### 5c. 2026-10-06: the focus run, why its satellite stage took 13 h, and a rerun on the fast code
+
+The focus run `~/tmp/release_check/tal/rsi/run_20261005_085343` (7f32adb, started 08:53) finished at 23:17 (`DONE_MEGRS`; the follow-up
+`~/tmp/rc_megrs_after.sh` was not run). Its satellite stage took 13 h 24 min against 23 min the night before. All of it was the kind-B unit
+check, not TRF (TRF cannot see units above 2 000 bp): ssearch36 with statistics searched alternative alignments of every unit pair, all
+units against all, one run after the other, with units up to 30 kb since the wide tier. SINEderella `2b4d35a` aligns only the pairs the
+verdict uses, without statistics, in parallel: the 2 739 kind-B runs of this run in 9.5 min, 0 verdicts changed, the 47 ARRAY identities
+identical; the whole stage 12 min (details `SINEderella/docs/SATELLITES.md` 5i).
+
+The 7f32adb run lacks ed86b68: it judged the 2 168 bp MEG-RS array on NC_142509.1 (134 hits, 89 % alone) COPIES inside a wide run and
+kept it, as the mini genome showed. The current code verifies it and excludes it (excluded hits 2 404 -> 2 543). So the MEG-RS numbers of
+`run_20261005_085343` are not the answer for the focus case. A rerun on `d2d9e6a` was started 2026-10-06 00:06 in
+`therioserver ~/tmp/kbspeed/rsi_fast/` (CPUs 64-95, then publish; marker `DONE_FAST`).
+
 ## 6. Scorpions
 
 Three different things exist, none run with the current code:
