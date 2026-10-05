@@ -1,0 +1,10 @@
+satellite_stage: DIP: 81787 regularly spaced runs, unit check on the 2000 longest (--max-verify-runs); 79787 runs of <= 35 hits untested
+satellite_stage: DIP: 1196303 full hits; kind A 646 loci (3108 monomers); kind B 81787 runs (31 verified arrays, 2481 long), excess 5.2 % SAT_A 
+satellite_stage: Dip_a1: 78021 regularly spaced runs, unit check on the 2000 longest (--max-verify-runs); 76021 runs of <= 32 hits untested
+satellite_stage: Dip_a1: 1140859 full hits; kind A 613 loci (2927 monomers); kind B 78021 runs (29 verified arrays, 2281 long), excess 4.3 % SAT_A 
+satellite_stage: Dip_a2: 74582 regularly spaced runs, unit check on the 2000 longest (--max-verify-runs); 72582 runs of <= 30 hits untested
+satellite_stage: Dip_a2: 1084788 full hits; kind A 443 loci (2163 monomers); kind B 74582 runs (24 verified arrays, 2094 long), excess 5.0 % SAT_A 
+satellite_stage: Dip_b1: 19334 regularly spaced runs, unit check on the 2000 longest (--max-verify-runs); 17334 runs of <= 10 hits untested
+satellite_stage: Dip_b1: 442373 full hits; kind A 109 loci (522 monomers); kind B 19334 runs (15 verified arrays, 356 long), excess 8.1 % SAT_A 
+satellite_stage: Dip_b2: 83425 full hits; kind A 63 loci (378 monomers); kind B 121 runs (13 verified arrays, 4 long), excess 0.7 % SAT_A 
+satellite_stage: 5 consensuses, 774 kind-A loci (774 distinct; 591 found through more than one consensus), 0 consensuses SAT_B, 0 hits excluded -> /home/toki/tmp/sat_sicista/Stri

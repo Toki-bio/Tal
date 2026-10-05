@@ -1,0 +1,6 @@
+consensus	cons_len	full_hits	kindA_loci	kindA_monomers	kindA_largest	kindB_runs	kindB_pct	kindB_excess_pct	kindB_long_min	kindB_long_runs	kindB_verified_arrays	flag_A	flag_B
+DIP	206	1128525	156	846	15	74768	64.0	2.8	30	2287	2	SAT_A	-
+Dip_a1	224	1094070	112	558	14	72399	62.6	2.6	29	2151	2	SAT_A	-
+Dip_a2	219	1061909	100	542	25	71092	62.8	3.7	28	2195	1	SAT_A	-
+Dip_b1	240	447323	4	22	7	19294	29.6	9.3	15	486	5	SAT_A	-
+Dip_b2	266	73724	30	196	16	61	0.5	0.4	7	4	5	SAT_A	-

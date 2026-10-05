@@ -69,3 +69,34 @@
 - NCBI check: the S. trizona side of a locus can be fetched by coordinates from NCBI efetch (accession, start+1, end, strand): 5 of 5 test loci identical to the local genome;
   eutils sends `Access-Control-Allow-Origin: *`, so the page fetches in the browser. S. betulina is not public.
 - Page: `sicista/build_orth_section.py` writes `sicista/orth/section.html`, included by `sicista/build_page.py`.
+
+## 2026-10-05 — SINE satellite screen on the Dip runs (tables only; nothing removed from the runs)
+
+- Tool: SINEderella `tools/satellite_stage.py` (the step-1 satellite screen, docs/SATELLITES.md; repo at `e1e6116`), run by hand with
+  `--no-exclude` on the two whole-genome Dip runs (`~/sine_runs/Sbet/dip/run_20261003_044818`, `~/sine_runs/Stri/dip/run_20261003_044700`),
+  16 threads, about 2 h per genome (the unit check capped at the 2 000 longest regularly spaced runs per consensus). These runs predate
+  the stage, so kind A worked on the length-filtered hits (no raw hits): monomers shorter than 80 % of a Dip consensus were found only
+  where a full-length hit opened a TRF window. Output on therioserver `~/tmp/sat_sicista/{Sbet,Stri}/`, copies here in `satellites/sbe`,
+  `satellites/str`: `indication.tsv`, `loci.bed` (kind A loci + regularly spaced runs with a unit verdict; the 230–245 k runs the cap left
+  `untested` are in `loci.all.bed.gz`), `units.fa` (TRF monomer consensus per kind-A locus), `*.stage.log`.
+- Kind A (SINE-derived tandem loci, TRF period 55–300 bp, ≥ 4 monomers, unit aligned to a Dip consensus): betulina 402 loci,
+  trizona 774. Per consensus (loci / monomers; a locus is credited to one consensus, the others listed as also_matches):
+  sbe DIP 156/846, Dip_a1 112/558, Dip_a2 100/542, Dip_b1 4/22, Dip_b2 30/196; str DIP 437/2 102, Dip_a1 184/883, Dip_a2 124/640,
+  Dip_b1 5/24, Dip_b2 24/158. The monomers differ between the genomes: in betulina the commonest periods are 103–105 and 218–225 bp
+  (a whole Dip as the monomer, SINE part 1–206 / 1–224 / 1–219: tandem Dip copies); in trizona **212 loci have a 62 bp monomer** (58–67 bp
+  in 346 loci) that is the **3′ end of DIP, positions 161–206** (154 loci; Dip_a1 162–209 in 42 more): a DIP-derived satellite in the
+  sense of Vassetzky et al. 2023, concentrated on three sequences (CEVFMK010000010.1 154 loci, CEVFMK010000001.1 102, CEVFMK010000023.1 83;
+  a few on OZ418351.1 and OZ418346.1).
+- Kind B (regularly spaced full-length hits whose units are near-identical, median unit identity ≥ 85 %): **trizona 112 verified arrays
+  with 8 528 units; betulina 15 arrays with 561 units**. The trizona arrays are mostly DIP with 342–689 bp units and up to 330 units per
+  array (the eight largest: 689 bp × 330, 359 × 325, 342 × 308, 353 × 293, 361 × 281, 358 × 274, 362 × 257, 374 × 221); in betulina the
+  largest are Dip_a2 3 609 bp × 139, Dip_a1 4 916 × 117, DIP 4 918 × 99 (long units with a Dip inside). No consensus reaches the family
+  share flag (SAT_B needs ≥ 20 % excess over chance; here 0.4–8 %), as expected for a million-copy family: the arrays are a fraction of a
+  percent of the copies.
+- Reading, with a caveat: trizona carries a DIP-derived satellite (62 bp monomer, 3′ end of DIP) and about seven times the array content
+  of betulina. The betulina assembly is an ONT hifiasm primary and the trizona one a public reference (GCA_982266845.1); tandem arrays
+  collapse or expand with assembly method, so the difference needs a check on the reads (array copy depth) before it is called a species
+  difference. The array loci are in the tables for that.
+- Not done: the Dip runs were not re-run with the stage on (exclusion), so the published Dip counts and the orth_loc classes still include
+  the array units (in trizona ~8.5 k of 1.04 M firm loci). The orth_loc PM/MP classes should be checked against `str/loci.bed` for array
+  loci before they are read as insertions or deletions.
