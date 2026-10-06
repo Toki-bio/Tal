@@ -85,7 +85,7 @@ codon_cards = [
           dl(C + 'viewer_all_13genes.aln.fa', 'FASTA'), dl(C + 'viewer_all_13genes.bed', 'genes BED')]),
     card('Sb1 nuclear lineage-B family, 13 genes', NO,
          'Sb1 polished mtDNA + all 82 full-length nuclear copies of the lineage-B family',
-         '83 rows &middot; the family shares its disablements (same stop, same frameshift in almost every copy); viewer frameshift marks follow the family majority here, so row 1 itself is marked where the family shares an indel',
+         '83 rows &middot; the family shares its disablements (same stop, same frameshift in almost every copy); set <b>Frameshifts vs: Row 1</b> (next to Code; ViewAlign v240+) to judge frameshifts against row 1: with the default (most rows) the family majority wins and row 1 itself gets marked where the family shares an indel',
          [msa(C + 'viewer_numtB_family_13genes.aln.fa', 'Sb1 nuclear lineage-B family, 13 genes (codon)', 'Open in MSA', bed=C + 'viewer_numtB_family_13genes.bed'),
           dl(C + 'viewer_numtB_family_13genes.aln.fa', 'FASTA'), dl(C + 'viewer_numtB_family_13genes.bed', 'genes BED')]),
 ]
@@ -185,7 +185,7 @@ body = '''<header>
     <li>Open the <b>Display</b> menu and tick <b>Codon analysis</b>. A <b>Codon</b> panel appears in the top bar; leave it on <b>Auto</b>, which reads each gene of the track in its own frame.
       The genetic code switches to <b>Vertebrate Mito (2)</b> by itself; check the code selector next to the Codon analysis box.</li>
     <li>Under every row is its translation, one box per codon; <b>red boxes are stop codons</b>. A stop is normal only at a gene end (or a single T / TA left there: a stop completed by polyadenylation).</li>
-    <li>A <b>!</b> under a row marks a frameshift. An insertion and a deletion a few columns apart is a divergent stretch (common in the other species), not a broken gene. After a real frameshift the viewer keeps translating the row in its shifted frame, so stops pile up downstream.</li>
+    <li>A <b>!</b> under a row marks a frameshift. For the nuclear-family view set <b>Frameshifts vs</b> (next to Code) to <b>Row 1</b>, so frameshifts are judged against the polished mtDNA. An insertion and a deletion a few columns apart is a divergent stretch (common in the other species), not a broken gene. After a real frameshift the viewer keeps translating the row in its shifted frame, so stops pile up downstream.</li>
     <li>Coloured bases mark substitutions against row 1 (the polished Sb1 mtDNA), synonymous or not; functional genes show mostly synonymous changes.</li>
     <li>Row names end in <code>|group|fs&lt;n&gt;|stop&lt;n&gt;</code>: the frameshifts and premature stops counted for that sequence (reference frame, as in the table).</li>
     <li>Example: in the overview, any <code>Sb1_NUMTB_*</code> row has a red stop at COX1 codon 179, which no mitogenome row has.</li>
@@ -194,8 +194,8 @@ body = '''<header>
                                                 dl(C + 'genbank_annotation.tsv', 'GenBank annotation check (TSV)'), dl('https://github.com/Toki-bio/Tal/tree/main/sicista/mito/codon/scripts', 'Scripts')]) + '''</p>
   <p style="font-size:.85rem;color:var(--muted);">Method notes. (1) The 82 near-identical nuclear copies must not be aligned together with the mitogenomes in one MACSE run: they outnumber them, and MACSE then places the family's ND3 indel as a
   frameshift in every mitogenome. (2) In a multiple MACSE run of the <i>S. betulina</i> records, marking them "less reliable" makes MACSE shift ND3 of every row over about 75 codons; with all rows reliable it is correct.
-  Both happen identically in MACSE v2.07 itself. Hence the pairwise, reference-anchored design above and the all-reliable mitogenome view. (3) ViewAlign marks frameshifts against the codon phase of the column majority,
-  so the overview keeps only 5 of the 82 family copies; with all of them the viewer would mark the mitogenomes instead.
+  Both happen identically in MACSE v2.07 itself. Hence the pairwise, reference-anchored design above and the all-reliable mitogenome view. (3) By default ViewAlign marks frameshifts against the codon phase of the column majority,
+  so the overview keeps only 5 of the 82 family copies; with all of them the viewer would mark the mitogenomes instead. ViewAlign v240 adds <b>Frameshifts vs: Row 1</b>; with it the 82-copy family view marks all 82 copies and not row 1, in agreement with the table.
   Checks: the port gave alignments identical to MACSE v2.07 (same rows, order, every gap and frameshift mark) on all 13 genes of the <i>S. betulina</i> set and on the 9 genes compared in a run with less-reliable rows; the viewer's per-row stop and synonymous/non-synonymous counts equal an independent count on every row of the three views.</p>
 </section>
 <section class="card">
