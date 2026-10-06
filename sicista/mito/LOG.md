@@ -23,3 +23,18 @@ ViewAlign v233 draws a BED annotation track above the alignment (`?bed=` URL par
 - `strizona_numts.OZ418355_genes_lifted.bed`, `sb1_numts.ptg633_unit2_genes_lifted.bed`: the same features lifted onto OZ418355.1 and onto Sb1 `ptg633_unit2` through `units/six.aln` (the six-mitogenome MAFFT alignment used earlier for `genes_tri.tsv` / `genes_unit2.tsv`) with `lift_bed.py`; 0 intervals dropped. OZ418355.1 has no feature table in its GenBank record, so the trizona track is a transfer, not an official annotation. These serve the NUMT alignments, whose first row is the mtDNA backbone.
 
 The viewer maps the BED coordinates through the backbone row's gaps on every redraw, so the track is correct in all three alignments that share a backbone.
+
+## 2026-10-06: page revised on the read-polished Sb1 mtDNA; codon-level pseudogene check
+
+- The Sb1 mtDNA used so far (unit of `ptg000633l`, `ptg633_unit2`) has ONT indel errors: COX1 +CT, COX3 +TTTTC, ND5 -ACTC (read-proven, 80-85% of
+  ~5,300-6,100 lineage-A reads), a non-coding +AAA, and a probable ND2 C-run C5->C6 (reads split 53/32/15%). Polished sequence:
+  `sb1_own_mtDNA_polished.fa` (samtools consensus -X r10.4_sup + the ND2 C6), 16,661 bp, all 13 CDS stop-free.
+- `aln_v2.sh` (therioserver `~/Sicista2026/mito/aln_v2/`) rebuilt the five Sb1 alignments with the polished sequence as the Sb1 row / backbone
+  (same fragment sets as before); `strizona_numts.aln.fa` unchanged. Gene track for the Sb1 backbone: `annotations/sb1_own_mtDNA_polished_genes.bed`
+  (NC_069019 features lifted through the new mitogenome alignment; the 13 CDS match the read-checked coordinates); the old
+  `sb1_numts.ptg633_unit2_genes_lifted.bed` was removed.
+- `codon/`: codon-level check of the 61 GenBank records against pseudogene controls (82-copy nuclear lineage-B family, young/old Sb1 copies,
+  29 S. trizona loci), ViewAlign MACSE v2.07 port, vertebrate mito code, pairwise against the polished Sb1 mtDNA (therioserver
+  `~/Sicista2026/mito/pseudo_check/`; scripts in `codon/scripts/`). GenBank S. betulina: 0 frameshifts, 0 premature stops, pN/pS 0.088 (A) / 0.078 (B);
+  nuclear family: every copy disabled, pN/pS 1.01, shared stop COX1 codon 179 (82/82). N calls in lineage-B records enriched 4.4x at
+  positions where the nuclear family differs (P 8e-9). Details: C:\work\hylomys_ont\SICISTA_MITO_FINDINGS.md sections 5-6.

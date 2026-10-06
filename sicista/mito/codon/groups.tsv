@@ -1,0 +1,21 @@
+group	n_seqs	frameshifts	seqs_with_frameshift	internal_stops	seqs_with_stop	syn_diff	nonsyn_diff	pS	pN	pN_pS	ts	tv	stop_changes_vs_consensus
+REF_own_mtDNA	1	0	0	0	0								
+GB_betulina_A	37	0	0	0	0	2873.5	815.5	0.0290	0.0025	0.088	3186	503	26
+GB_betulina_B	17	0	0	0	0	1036.8	260.2	0.0228	0.0018	0.078	1117	180	2
+GB_other_species	7	0	0	0	0	7245.8	2176.2	0.3859	0.0359	0.093	6247	3175	10
+NUMT_A_young	2	4	2	0	0	86.0	24.0	0.0176	0.0015	0.086	100	10	1
+NUMT_B_family	82	649	82	258	82	361.2	1174.8	0.0017	0.0017	1.009	785	751	75
+NUMT_old	1	31	1	3	1								
+NUMT_trizona	29	100	13	78	13	1573.5	1826.5	0.1807	0.0647	0.358	1979	1421	77
+
+# between consensus sequences
+# GenBank A consensus vs GenBank B consensus: syn 343.5, nonsyn 66.5, pS 0.1280, pN 0.0077, pN/pS 0.060
+# GenBank B consensus vs nuclear B-family consensus: syn 179.3, nonsyn 65.7, pS 0.0672, pN 0.0076, pN/pS 0.114
+# GenBank A consensus vs nuclear B-family consensus: syn 518.8, nonsyn 130.2, pS 0.1944, pN 0.0151, pN/pS 0.078
+# own mtDNA vs GenBank A consensus: syn 154.5, nonsyn 44.5, pS 0.0577, pN 0.0051, pN/pS 0.089
+# A/B diagnostic positions (mosaic scan): 410; NUMT-private positions: 250
+# N placement (observed N at the tested sites vs expected from the sites fraction; one-sided Poisson P)
+# lineage-B records: N at sites where nuclear family differs from B consensus: N 286, at tested sites 31, expected 6.4, enrichment 4.9x, P 2.3e-12
+# lineage-B records: same, only sites invariant within GenBank B: N 262, at tested sites 23, expected 5.2, enrichment 4.4x, P 7.9e-09
+# lineage-B records, control: N at sites variable within GenBank B: N 402, at tested sites 43, expected 23.5, enrichment 1.8x, P 2.0e-04
+# lineage-A records: N at sites where nuclear family differs from A consensus: N 120, at tested sites 9, expected 7.0, enrichment 1.3x, P 2.7e-01

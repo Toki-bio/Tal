@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
-"""Build sicista_mito.html: Sicista mitogenome and mitochondrial-pseudogene (NUMT) alignments, opened in ViewAlign.
+"""Build sicista_mito.html: Sicista mitogenomes, the codon-level pseudogene check, and the mitochondrial-pseudogene
+(NUMT) alignments, opened in ViewAlign.
 
 Run from the Tal repo root:  python sicista/mito/build_mito_page.py
-The <style> block and the openMSA() script are copied from sicista.html at build time, so the page follows the
-other Tal pages. Alignment files are in sicista/mito/alignments/ (built on therioserver, ~/Sicista2026/mito/aln/).
+The <style> block is copied from sicista.html at build time, so the page follows the other Tal pages.
+Files: sicista/mito/alignments/ (rebuilt 2026-10-06 on the read-polished Sb1 mtDNA by aln_v2.sh, therioserver
+~/Sicista2026/mito/aln_v2/), sicista/mito/annotations/ (gene BEDs), sicista/mito/codon/ (codon check, therioserver
+~/Sicista2026/mito/pseudo_check/; scripts in codon/scripts/).
 """
 import os, re, html
 
@@ -21,21 +24,23 @@ function openMSA(relPath, title, bed) {
 }
 </script>'''
 
-A = 'sicista/mito/alignments/'
-B = 'sicista/mito/annotations/'
+M = 'sicista/mito/'
+A = M + 'alignments/'
+B = M + 'annotations/'
+C = M + 'codon/'
 BED_MITO = B + 'sicista_mitogenomes.NC_069019_genes.bed'      # GenBank annotation of NC_069019.1, on that row
-BED_TRI = B + 'strizona_numts.OZ418355_genes_lifted.bed'       # the same, lifted onto OZ418355.1 through units/six.aln
-BED_SB1 = B + 'sb1_numts.ptg633_unit2_genes_lifted.bed'        # the same, lifted onto Sb1 ptg633_unit2
+BED_TRI = B + 'strizona_numts.OZ418355_genes_lifted.bed'       # the same, lifted onto OZ418355.1
+BED_SB1 = B + 'sb1_own_mtDNA_polished_genes.bed'               # the same, lifted onto the polished Sb1 mtDNA
 
-def msa(fn, title, label, cls='btn', bed=None):
-    return ('<a class="%s" href="javascript:void(0)" onclick="openMSA(\'%s%s\',\'%s\'%s)">%s</a>'
-            % (cls, A, fn, html.escape(title, quote=True).replace("'", ''), (",'%s'" % bed) if bed else '', label))
 
-def dl(fn, label):
-    return '<a class="btn secondary" href="%s%s">%s</a>' % (A, fn, label)
+def msa(path, title, label, bed=None):
+    return ('<a class="btn" href="javascript:void(0)" onclick="openMSA(\'%s\',\'%s\'%s)">%s</a>'
+            % (path, html.escape(title, quote=True).replace("'", ''), (",'%s'" % bed) if bed else '', label))
 
-def dl2(path, label):
+
+def dl(path, label):
     return '<a class="btn secondary" href="%s">%s</a>' % (path, label)
+
 
 def card(h3, tag, sci, small, buttons):
     return ('    <div class="sp-card">\n      <h3>%s %s</h3>\n      <div class="sci">%s</div>\n'
@@ -43,82 +48,181 @@ def card(h3, tag, sci, small, buttons):
             '      <div class="actions">\n        %s\n      </div>\n    </div>\n'
             % (h3, tag, sci, small, '\n        '.join(buttons)))
 
+
 TAG = '<span class="tag tag-partial">unpublished, for review</span>'
+OK = '<span class="tag tag-ok">functional mtDNA</span>'
+NO = '<span class="tag tag-no">pseudogenes</span>'
+MIX = '<span class="tag tag-candidate">reference + controls</span>'
 
 mito_cards = [
     card('All Sicista mitogenomes', TAG,
-         '61 GenBank mitochondrial records of five species plus the Sb1 mtDNA',
-         '62 rows &middot; 16,808 columns &middot; MAFFT, reverse-complemented rows are prefixed <code>_R_</code>',
-         [msa('sicista_mitogenomes.aln.fa', 'Sicista mitogenomes: 61 GenBank records + Sb1 own mtDNA', 'Open in MSA', bed=BED_MITO),
-          dl('sicista_mitogenomes.aln.fa', 'FASTA'), dl2(BED_MITO, 'genes BED')]),
+         '61 GenBank mitochondrial records of five species plus the Sb1 mtDNA (read-polished)',
+         '62 rows &middot; 16,804 columns &middot; MAFFT, reverse-complemented rows are prefixed <code>_R_</code>',
+         [msa(A + 'sicista_mitogenomes.aln.fa', 'Sicista mitogenomes: 61 GenBank records + Sb1 polished mtDNA', 'Open in MSA', bed=BED_MITO),
+          dl(A + 'sicista_mitogenomes.aln.fa', 'FASTA'), dl(BED_MITO, 'genes BED')]),
     card('Control region', TAG,
          'Region after tRNA-Pro to the end of each record, realigned on its own (L-INS-i)',
-         '62 rows &middot; 1,294 columns &middot; the 6-bp ATACGC microsatellite is in Sb1 (x52), <i>S. trizona</i> and <i>S. caudata</i> (x56); not in the published <i>S. betulina</i> records',
-         [msa('sicista_control_region.aln.fa', 'Sicista control regions (ATACGC repeat)', 'Open in MSA'),
-          dl('sicista_control_region.aln.fa', 'FASTA')]),
+         '62 rows &middot; 1,294 columns &middot; the 6-bp ATACGC microsatellite is in Sb1 (&times;52), <i>S. trizona</i> and <i>S. caudata</i> (&times;56); not in the published <i>S. betulina</i> records, whose control regions are partly N',
+         [msa(A + 'sicista_control_region.aln.fa', 'Sicista control regions (ATACGC repeat)', 'Open in MSA'),
+          dl(A + 'sicista_control_region.aln.fa', 'FASTA')]),
     card('Sb1 mt-like contigs', TAG,
-         'S. betulina ZBS2026-Sb1, hifiasm primary assembly: every segment of the 83 mt-like contigs aligned to Sb1\'s own mtDNA',
-         '161 rows (own mtDNA + 160 segments) &middot; 151 segments are &ge;99.9% identical to the own mtDNA &middot; 2 outliers (84% and 86%) are not mtDNA proper &middot; <code>ptg000633l</code> carries five copies',
-         [msa('sb1_mtlike_contigs.aln.fa', 'Sb1 mt-like contigs vs own mtDNA', 'Open in MSA', bed=BED_SB1),
-          dl('sb1_mtlike_contigs.aln.fa', 'FASTA')]),
+         'S. betulina ZBS2026-Sb1, hifiasm primary assembly: every segment of the 83 mt-like contigs aligned to the polished Sb1 mtDNA',
+         '161 rows (polished mtDNA + 160 segments) &middot; 151 segments are &ge;99.9% identical to it; the lowest is 84% (not mtDNA proper) &middot; <code>ptg000633l</code> carries five copies',
+         [msa(A + 'sb1_mtlike_contigs.aln.fa', 'Sb1 mt-like contigs vs polished mtDNA', 'Open in MSA', bed=BED_SB1),
+          dl(A + 'sb1_mtlike_contigs.aln.fa', 'FASTA')]),
+]
+
+codon_cards = [
+    card('S. betulina mitogenomes, 13 genes', OK,
+         'Sb1 polished mtDNA (row 1) + the 54 GenBank <i>S. betulina</i> records; MACSE v2.07 (ViewAlign port), vertebrate mitochondrial code',
+         '55 rows &middot; 11,385 columns &middot; 13 protein-coding genes end to end, ND6 reverse-complemented (read in its own direction) &middot; no frameshifts, no premature stops',
+         [msa(C + 'viewer_mitogenomes_13genes.aln.fa', 'Sicista betulina mitogenomes, 13 genes (codon)', 'Open in MSA', bed=C + 'viewer_mitogenomes_13genes.bed'),
+          dl(C + 'viewer_mitogenomes_13genes.aln.fa', 'FASTA'), dl(C + 'viewer_mitogenomes_13genes.bed', 'genes BED')]),
+    card('Overview: mitogenomes and nuclear copies', MIX,
+         'Sb1 polished mtDNA + 61 GenBank records (5 species) + 5 lineage-B nuclear copies + 2 young own-lineage copies + 1 old copy + 29 <i>S. trizona</i> NUMT loci',
+         '99 rows &middot; each sequence aligned alone with row 1 (MACSE port), merged with insertion columns kept &middot; nuclear copies (bottom) carry stops and frameshifts, mitogenomes do not',
+         [msa(C + 'viewer_all_13genes.aln.fa', 'Sicista mitogenomes and nuclear copies, 13 genes (codon)', 'Open in MSA', bed=C + 'viewer_all_13genes.bed'),
+          dl(C + 'viewer_all_13genes.aln.fa', 'FASTA'), dl(C + 'viewer_all_13genes.bed', 'genes BED')]),
+    card('Sb1 nuclear lineage-B family, 13 genes', NO,
+         'Sb1 polished mtDNA + all 82 full-length nuclear copies of the lineage-B family',
+         '83 rows &middot; the family shares its disablements (same stop, same frameshift in almost every copy); viewer frameshift marks follow the family majority here, so row 1 itself is marked where the family shares an indel',
+         [msa(C + 'viewer_numtB_family_13genes.aln.fa', 'Sb1 nuclear lineage-B family, 13 genes (codon)', 'Open in MSA', bed=C + 'viewer_numtB_family_13genes.bed'),
+          dl(C + 'viewer_numtB_family_13genes.aln.fa', 'FASTA'), dl(C + 'viewer_numtB_family_13genes.bed', 'genes BED')]),
 ]
 
 numt_cards = [
     card('S. trizona', TAG,
          'Sicista trizona &mdash; mSicTri.1, GCA_982266845.1, nuclear copies of OZ418355.1',
          '57 of 141 loci (aligned &ge;500 bp, or &ge;95% identity and &ge;100 bp) &middot; backbone row = the mtDNA, fragments clipped to its coordinates &middot; youngest: ND2 844 bp, 99.2% (OZ418345.1:183,346,458-183,347,301)',
-         [msa('strizona_numts.aln.fa', 'S. trizona nuclear mt copies on OZ418355.1', 'Open in MSA', bed=BED_TRI),
-          dl('strizona_numts.aln.fa', 'FASTA'), dl2(BED_TRI, 'genes BED')]),
+         [msa(A + 'strizona_numts.aln.fa', 'S. trizona nuclear mt copies on OZ418355.1', 'Open in MSA', bed=BED_TRI),
+          dl(A + 'strizona_numts.aln.fa', 'FASTA'), dl(BED_TRI, 'genes BED')]),
     card('Sb1 nuclear copies, lineage-B family', TAG,
-         'Sicista betulina Sb1 &mdash; 30 of the &ge;82 assembled full-length copies (16 kb), two young own-lineage copies, three GenBank references',
-         '36 rows &middot; copies are 99.5-99.97% identical to each other, 99.3% to NC_069019 (lineage B) and ~94% to Sb1\'s own mtDNA (lineage A) &middot; about 200 haploid copies by read depth',
-         [msa('sb1_nuclear_lineageB_family.aln.fa', 'Sb1 nuclear lineage-B mt family on own mtDNA', 'Open in MSA', bed=BED_SB1),
-          dl('sb1_nuclear_lineageB_family.aln.fa', 'FASTA'), dl2(BED_SB1, 'genes BED')]),
+         'Sicista betulina Sb1 &mdash; 30 of the 82 assembled full-length copies (16 kb), two young own-lineage copies, three GenBank references',
+         '36 rows on the polished mtDNA &middot; copies are 99.5-99.97% identical to each other, 99.3% to NC_069019 (lineage B), median 94.0% to the own mtDNA (lineage A) &middot; about 200 haploid copies by read depth',
+         [msa(A + 'sb1_nuclear_lineageB_family.aln.fa', 'Sb1 nuclear lineage-B mt family on polished mtDNA', 'Open in MSA', bed=BED_SB1),
+          dl(A + 'sb1_nuclear_lineageB_family.aln.fa', 'FASTA'), dl(BED_SB1, 'genes BED')]),
     card('Sb1 nuclear copies, other loci', TAG,
          'Sicista betulina Sb1 &mdash; the 84 largest non-family loci (&ge;1 kb, or &ge;95% identity and &ge;100 bp)',
-         '85 rows &middot; names carry contig, coordinates, percent identity and the mtDNA interval covered',
-         [msa('sb1_nuclear_other_numts.aln.fa', 'Sb1 other nuclear mt copies on own mtDNA', 'Open in MSA', bed=BED_SB1),
-          dl('sb1_nuclear_other_numts.aln.fa', 'FASTA')]),
+         '85 rows on the polished mtDNA &middot; names carry contig, coordinates, percent identity and the mtDNA interval covered',
+         [msa(A + 'sb1_nuclear_other_numts.aln.fa', 'Sb1 other nuclear mt copies on polished mtDNA', 'Open in MSA', bed=BED_SB1),
+          dl(A + 'sb1_nuclear_other_numts.aln.fa', 'FASTA')]),
 ]
 
 body = '''<header>
   <h1>Sicista mitogenomes and mitochondrial pseudogenes</h1>
-  <div class="sub">Alignments of mtDNA and its nuclear copies (NUMTs) in <i>Sicista betulina</i> Sb1 and <i>S. trizona</i>, opened in ViewAlign. <a href="sicista.html" style="color:#fff;">&larr; Sicista SINE page</a> &middot; <a href="index.html" style="color:#fff;">Tal SINE main page</a></div>
+  <div class="sub">mtDNA and its nuclear copies (NUMTs) in <i>Sicista betulina</i> Sb1 and <i>S. trizona</i>, and a codon-level check of the published <i>Sicista</i> mitogenomes, opened in ViewAlign. Revised 2026-10-06. <a href="sicista.html" style="color:#fff;">&larr; Sicista SINE page</a> &middot; <a href="index.html" style="color:#fff;">Tal SINE main page</a></div>
 </header>
 <main>
+<section class="card">
+  <h2>Summary</h2>
+  <ul style="font-size:.92rem;">
+    <li>The Sb1 mtDNA as assembled (one unit of contig <code>ptg000633l</code>) had nanopore indel errors that frameshift COX1, COX3 and ND5, and probably ND2.
+      Every alignment on this page now uses the read-polished sequence (16,661 bp; 99.42% identical to GenBank MZ570955, 95.10% to NC_069019).</li>
+    <li>The published <i>Sicista</i> mitogenomes are functional mtDNA, not pseudogenes: the 54 <i>S. betulina</i> records have no frameshifts and no premature stops
+      in their 13 protein-coding genes, and pN/pS within each lineage is 0.08-0.09.</li>
+    <li>The Sb1 nuclear lineage-B family (82 full-length copies) is a pseudogene family: every copy has frameshifts and premature stops, pN/pS is 1.01, and the copies
+      share the same disablements (a stop at COX1 codon 179 in all 82). No GenBank record carries any of them.</li>
+    <li>Lineage-B GenBank records do show a footprint of nuclear copies: their N calls fall 4.4 times more often than expected on positions where the nuclear family differs (P = 8e-9).
+      The bases they do call are mitochondrial.</li>
+  </ul>
+</section>
+<section class="card">
+  <h2>Sb1 mtDNA: assembly errors corrected</h2>
+  <p style="font-size:.9rem;">The Sb1 mtDNA came from the hifiasm assembly of ONT reads. Its indels were never checked against the reads before (the earlier check covered substitutions only).
+  <code>samtools consensus -X r10.4_sup</code> on the 18,700 lineage-A reads (about 5,300-6,100&times;) differs from the assembly at four indels and at no substitution; a fifth site is a homopolymer the consensus kept.</p>
+  <div style="overflow-x:auto;"><table class="tbl">
+    <thead><tr><th>Assembly position</th><th>Gene</th><th>Reads vs assembly</th><th>Read support</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><td class="num">4,896</td><td>ND2</td><td>C-run C5 &rarr; C6</td><td>C5 53%, C6 32%, C4 15% of 6,141</td><td>probable: C5 gives an internal stop; C6 in the 33 GenBank records with the same flanks (MZ570947 has C5); needs Sanger or Illumina</td></tr>
+      <tr><td class="num">5,192</td><td>non-coding (A-run)</td><td>+AAA</td><td>split (+AAAA 1,285, +AAA 782 of 5,636)</td><td>corrected</td></tr>
+      <tr><td class="num">6,639</td><td>COX1</td><td>+CT</td><td>4,766 of 5,932 (80%)</td><td>corrected (frameshift)</td></tr>
+      <tr><td class="num">8,895</td><td>COX3</td><td>+TTTTC</td><td>3,130 +TTTTC, 974 +TTTC, 381 +TTTTCT of 6,131</td><td>corrected (frameshift)</td></tr>
+      <tr><td class="num">12,471-12,474</td><td>ND5</td><td>&minus;ACTC</td><td>4,521 of 5,298 (85%)</td><td>corrected (frameshift)</td></tr>
+    </tbody>
+  </table></div>
+  <p style="font-size:.9rem;margin-top:10px;">With these changes all 13 protein-coding genes translate without internal stops and have the standard lengths (COX1 1,545, COX3 784, ND5 1,803, ND2 1,033 bp).
+  The control region (1,199 bp) is unchanged. Any submission of the Sb1 mitogenome should use the polished sequence.</p>
+  <p>''' + dl(M + 'sb1_own_mtDNA_polished.fa', 'Polished Sb1 mtDNA (FASTA)') + ' ' + dl(BED_SB1, 'its genes (BED)') + '''</p>
+</section>
 <section class="card">
   <h2>Mitogenomes</h2>
   <p style="font-size:.9rem;">Standard 37-gene mammalian arrangement in all five species; the control region is what differs (938 bp in published
   <i>S. betulina</i>, 982 in <i>S. strandi</i>, 1,044 in <i>S. concolor</i>, 1,206 in <i>S. caudata</i>, 1,217 in <i>S. trizona</i>, 1,199 in Sb1).
-  The Sb1 mtDNA was found as repeated copies in the hifiasm primary assembly (no single mt contig) and is 99.2% identical to GenBank MZ570955 (one of two published <i>S. betulina</i> lineages).</p>
+  The Sb1 mtDNA was found as repeated copies in the hifiasm primary assembly (no single mt contig); its closest GenBank records are MZ570955 (99.42%), MZ570959 and MZ570961 (lineage A of the two published <i>S. betulina</i> lineages).</p>
   <div class="species-grid">
 ''' + ''.join(mito_cards) + '''  </div>
 </section>
 <section class="card">
+  <h2>Are the published mitogenomes pseudogenes? Codon-level check</h2>
+  <p style="font-size:.9rem;">A mitochondrial pseudogene (NUMT) that ends up in a "mitogenome" shows itself in the coding genes: frameshifts, premature stop codons, and
+  amino-acid changes as frequent as silent ones (pN/pS near 1), where functional mtDNA has pN/pS near 0.1. The 13 protein-coding genes were cut out of 176 sequences
+  (Sb1 polished mtDNA, 61 GenBank records, 85 Sb1 nuclear copies, 29 <i>S. trizona</i> NUMT loci of at least 1 kb) and each sequence was aligned alone with the Sb1 polished mtDNA by
+  ViewAlign's port of MACSE v2.07 (vertebrate mitochondrial code; the reference reliable, the other sequence less reliable). All counts are in the reference's codon coordinates:
+  a frameshift is a shift that lasts more than 10 codons and does not sit at the gene end; a stop is a premature stop at a homologous codon. pN/pS compares each member of a group with the group's consensus (Nei-Gojobori counting).</p>
+  <div style="overflow-x:auto;"><table class="tbl">
+    <thead><tr><th>Group</th><th class="num">Sequences</th><th class="num">With frameshift</th><th class="num">Frameshifts</th><th class="num">With premature stop</th><th class="num">Stops</th><th class="num">pN/pS</th></tr></thead>
+    <tbody>
+      <tr><td>GenBank <i>S. betulina</i>, lineage A (closer to Sb1)</td><td class="num">37</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0.088</td></tr>
+      <tr><td>GenBank <i>S. betulina</i>, lineage B (closer to the nuclear family)</td><td class="num">17</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0.078</td></tr>
+      <tr><td>GenBank, four other species</td><td class="num">7</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0.093</td></tr>
+      <tr><td>Sb1 nuclear lineage-B family</td><td class="num">82</td><td class="num">82</td><td class="num">649</td><td class="num">82</td><td class="num">258</td><td class="num">1.01</td></tr>
+      <tr><td>Sb1 young own-lineage nuclear copies</td><td class="num">2</td><td class="num">2</td><td class="num">4</td><td class="num">0</td><td class="num">0</td><td class="num">0.086</td></tr>
+      <tr><td><i>S. trizona</i> nuclear copies</td><td class="num">29</td><td class="num">13</td><td class="num">100</td><td class="num">13</td><td class="num">78</td><td class="num">0.36</td></tr>
+    </tbody>
+  </table></div>
+  <p style="font-size:.9rem;margin-top:12px;"><b>Shared disablements of the nuclear lineage-B family</b> (inherited from the one insertion the family was amplified from; absent from all 61 GenBank records):
+  stop at COX1 codon 179 (82 of 82 copies) and ND1 codon 255 (80); frameshifts at ND1 nt 261, COX2 nt 449 and ND5 nt 1,684 (79 each), COX3 nt 730 (75), ND4 nt 912 (74), ND3 nt 42 (73).
+  In 79 of the 82 copies only about 47 bp of ND4L is present: the copies are cut at the same junction. Positions count from the gene's first base of the polished Sb1 mtDNA.</p>
+  <p style="font-size:.9rem;"><b>Nuclear-copy footprint in lineage-B records.</b> In the 17 lineage-B records, N calls fall on positions where the nuclear family differs from the lineage-B consensus
+  4.4 times more often than expected (23 against 5.2 on positions invariant among the B records, P = 8e-9; 31 against 6.4 over all such positions). The control (positions variable among the B records) gives 1.8&times;,
+  and the 37 lineage-A records show nothing (9 against 7.0, P = 0.27). In lineage-B animals the nuclear family is close enough to the mtDNA (about 98% in the coding genes) for its reads to mix into the assemblies;
+  positions in conflict were called N. Records with alleles otherwise found only in the family (EST_5 19, DK_34NT 15, DK_26NT 11; 10-12 of them in ND3) keep an intact ND3 without the family's ND3 frameshift, so these alleles are shared ancestry, not nuclear sequence.</p>
+  <div class="species-grid">
+''' + ''.join(codon_cards) + '''  </div>
+  <h3 style="margin-top:16px;font-size:1rem;">How to look at the codon views</h3>
+  <ol style="font-size:.9rem;">
+    <li>Open a view. The gene track (black bars above the ruler, one per gene) loads with it.</li>
+    <li>Open the <b>Display</b> menu and tick <b>Codon analysis</b>. A <b>Codon</b> panel appears in the top bar; leave it on <b>Auto</b>, which reads each gene of the track in its own frame.
+      The genetic code switches to <b>Vertebrate Mito (2)</b> by itself; check the code selector next to the Codon analysis box.</li>
+    <li>Under every row is its translation, one box per codon; <b>red boxes are stop codons</b>. A stop is normal only at a gene end (or a single T / TA left there: a stop completed by polyadenylation).</li>
+    <li>A <b>!</b> under a row marks a frameshift. An insertion and a deletion a few columns apart is a divergent stretch (common in the other species), not a broken gene. After a real frameshift the viewer keeps translating the row in its shifted frame, so stops pile up downstream.</li>
+    <li>Coloured bases mark substitutions against row 1 (the polished Sb1 mtDNA), synonymous or not; functional genes show mostly synonymous changes.</li>
+    <li>Row names end in <code>|group|fs&lt;n&gt;|stop&lt;n&gt;</code>: the frameshifts and premature stops counted for that sequence (reference frame, as in the table).</li>
+    <li>Example: in the overview, any <code>Sb1_NUMTB_*</code> row has a red stop at COX1 codon 179, which no mitogenome row has.</li>
+  </ol>
+  <p style="margin-top:10px;">''' + ' '.join([dl(C + 'per_sequence.tsv', 'Per sequence (TSV)'), dl(C + 'groups.tsv', 'Groups and tests (TSV)'),
+                                                dl(C + 'genbank_annotation.tsv', 'GenBank annotation check (TSV)'), dl('https://github.com/Toki-bio/Tal/tree/main/sicista/mito/codon/scripts', 'Scripts')]) + '''</p>
+  <p style="font-size:.85rem;color:var(--muted);">Method notes. (1) The 82 near-identical nuclear copies must not be aligned together with the mitogenomes in one MACSE run: they outnumber them, and MACSE then places the family's ND3 indel as a
+  frameshift in every mitogenome. (2) In a multiple MACSE run of the <i>S. betulina</i> records, marking them "less reliable" makes MACSE shift ND3 of every row over about 75 codons; with all rows reliable it is correct.
+  Both happen identically in MACSE v2.07 itself. Hence the pairwise, reference-anchored design above and the all-reliable mitogenome view. (3) ViewAlign marks frameshifts against the codon phase of the column majority,
+  so the overview keeps only 5 of the 82 family copies; with all of them the viewer would mark the mitogenomes instead.
+  Checks: the port gave alignments identical to MACSE v2.07 (same rows, order, every gap and frameshift mark) on all 13 genes of the <i>S. betulina</i> set and on the 9 genes compared in a run with less-reliable rows; the viewer's per-row stop and synonymous/non-synonymous counts equal an independent count on every row of the three views.</p>
+</section>
+<section class="card">
   <h2>Mitochondrial pseudogenes in the nuclear genome</h2>
   <p style="font-size:.9rem;">Nuclear copies were found by blastn of the species' mtDNA against the nuclear contigs (mt-like contigs excluded), loci merged within 2 kb.
-  Each alignment has the mtDNA as its first row; the other rows are the nuclear copies placed on its coordinates, so a column is one mtDNA position.
-  Insertions relative to the mtDNA are not shown.</p>
+  Each alignment has the mtDNA as its first row (for Sb1 the polished sequence); the other rows are the nuclear copies placed on its coordinates, so a column is one mtDNA position.
+  Insertions relative to the mtDNA are not shown here; the codon views above keep them.</p>
   <div class="species-grid">
 ''' + ''.join(numt_cards) + '''  </div>
-  <table class="tbl" style="margin-top:14px;">
+  <div style="overflow-x:auto;"><table class="tbl" style="margin-top:14px;">
     <thead><tr><th>Genome</th><th>Nuclear mt loci</th><th>mt covered</th><th>Largest / youngest</th></tr></thead>
     <tbody>
       <tr><td><i>S. trizona</i></td><td class="num">141</td><td class="num">95.5%</td><td>4 copies of ~12 kb on OZ418342.1 at ~76%; ND2 844 bp at 99.2%</td></tr>
-      <tr><td><i>S. betulina</i> Sb1</td><td class="num">305</td><td class="num">100%</td><td>&ge;82 full-length copies on 43 contigs (lineage B, ~94% to own mtDNA); 16.3 kb at 99.0% on ptg000319l; 12 kb at 99.8% on ptg000880l</td></tr>
+      <tr><td><i>S. betulina</i> Sb1</td><td class="num">305</td><td class="num">100%</td><td>82 full-length copies on 43 contigs (lineage B, median 94% to own mtDNA); 16.3 kb at 99.0% on ptg000319l; 12 kb at 99.8% on ptg000880l</td></tr>
     </tbody>
-  </table>
+  </table></div>
 </section>
 <section class="card">
   <h2>Reading the alignments</h2>
   <ul style="font-size:.9rem;">
-    <li>Row names in the NUMT alignments are <code>species_NUMT_contig:start-end_percent-identity[_mtstart-mtend]</code>; the percent is blastn identity over the merged locus.</li>
+    <li>Row names in the NUMT alignments are <code>species_NUMT_contig:start-end_percent-identity[_mtstart-mtend]</code>; the percent is blastn identity over the merged locus (against the assembled Sb1 mtDNA when the loci were found).</li>
     <li>A leading <code>_R_</code> means MAFFT reverse-complemented that row.</li>
-    <li>Mitogenomes and control regions are full records; Sb1 own mtDNA is the unit of <code>ptg000633l</code> (5 tandem copies, 0-2 differences).</li>
-    <li>The gene track above the alignments is the GenBank annotation of NC_069019.1 (RefSeq <i>S. betulina</i>: 13 CDS, 22 tRNA, 2 rRNA, O<sub>L</sub>, control region),
-      placed on that row and mapped through its gaps; for the NUMT alignments it was lifted onto OZ418355.1 and Sb1 <code>ptg633_unit2</code> through the six-mitogenome alignment
-      (<code>gb2bed.py</code>, <code>lift_bed.py</code> in <code>sicista/mito/</code>). Hover a gene for its coordinates, click it to select its columns, hide it under Annotation in the viewer's settings.</li>
-    <li>Sb1 alignments come from ONT reads (104 Gb, 35x) assembled with hifiasm; the Sb1 assembly is not in a public archive yet.</li>
+    <li>Mitogenomes and control regions are full records. The Sb1 row is the read-polished mtDNA (<code>Sb1_own_mtDNA_polished</code>); the assembly unit of <code>ptg000633l</code> it replaces is in the git history of this page (before 2026-10-06).</li>
+    <li>The gene track is the GenBank annotation of NC_069019.1 (RefSeq <i>S. betulina</i>: 13 CDS, 22 tRNA, 2 rRNA, O<sub>L</sub>, control region), placed on that row and mapped through its gaps;
+      for the NUMT alignments it was lifted onto OZ418355.1 and onto the polished Sb1 mtDNA (<code>gb2bed.py</code>, <code>lift_bed.py</code>, <code>aln_v2.sh</code> in <code>sicista/mito/</code>).
+      Hover a gene for its coordinates, click it to select its columns, hide it under Annotation in the viewer's settings.</li>
+    <li>Sb1 data are ONT reads (104 Gb, 35&times;) assembled with hifiasm; the Sb1 assembly is not in a public archive yet.</li>
   </ul>
   <p style="margin-top:14px;"><a class="btn secondary" href="sicista/mito/LOG.md">Analysis log</a>
   <a class="btn secondary" href="sicista.html">Sicista SINE page</a></p>

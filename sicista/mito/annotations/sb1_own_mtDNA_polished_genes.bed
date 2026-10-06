@@ -1,0 +1,40 @@
+track name="NC_069019 genes" description="GenBank annotation of NC_069019" itemRgb="On" lifted_to="Sb1_own_mtDNA_polished"
+Sb1_own_mtDNA_polished	0	72	tRNA-Phe	0	+	0	72	124,179,66	1	72	0	tRNA: tRNA-Phe
+Sb1_own_mtDNA_polished	72	1031	12S rRNA	0	+	72	1031	251,140,0	1	959	0	rRNA: 12S ribosomal RNA
+Sb1_own_mtDNA_polished	1031	1097	tRNA-Val	0	+	1031	1097	124,179,66	1	66	0	tRNA: tRNA-Val
+Sb1_own_mtDNA_polished	1097	2685	16S rRNA	0	+	1097	2685	251,140,0	1	1588	0	rRNA: 16S ribosomal RNA
+Sb1_own_mtDNA_polished	2685	2760	tRNA-Leu	0	+	2685	2760	124,179,66	1	75	0	tRNA: tRNA-Leu
+Sb1_own_mtDNA_polished	2764	3719	ND1	0	+	2764	3719	30,136,229	1	955	0	CDS: NADH dehydrogenase subunit 1
+Sb1_own_mtDNA_polished	3719	3788	tRNA-Ile	0	+	3719	3788	124,179,66	1	69	0	tRNA: tRNA-Ile
+Sb1_own_mtDNA_polished	3786	3857	tRNA-Gln	0	-	3786	3857	124,179,66	1	71	0	tRNA: tRNA-Gln
+Sb1_own_mtDNA_polished	3856	3925	tRNA-Met	0	+	3856	3925	124,179,66	1	69	0	tRNA: tRNA-Met
+Sb1_own_mtDNA_polished	3925	4958	ND2	0	+	3925	4958	30,136,229	1	1033	0	CDS: NADH dehydrogenase subunit 2
+Sb1_own_mtDNA_polished	4964	5033	tRNA-Trp	0	+	4964	5033	124,179,66	1	69	0	tRNA: tRNA-Trp
+Sb1_own_mtDNA_polished	5033	5104	tRNA-Ala	0	-	5033	5104	124,179,66	1	71	0	tRNA: tRNA-Ala
+Sb1_own_mtDNA_polished	5106	5180	tRNA-Asn	0	-	5106	5180	124,179,66	1	74	0	tRNA: tRNA-Asn
+Sb1_own_mtDNA_polished	5180	5211	OL	0	-	5180	5211	189,189,189	1	31	0	rep_origin; replication origin L-strand
+Sb1_own_mtDNA_polished	5212	5277	tRNA-Cys	0	-	5212	5277	124,179,66	1	65	0	tRNA: tRNA-Cys
+Sb1_own_mtDNA_polished	5279	5346	tRNA-Tyr	0	-	5279	5346	124,179,66	1	67	0	tRNA: tRNA-Tyr
+Sb1_own_mtDNA_polished	5346	6891	COX1	0	+	5346	6891	0,151,167	1	1545	0	CDS: cytochrome c oxidase subunit I
+Sb1_own_mtDNA_polished	6890	6958	tRNA-Ser	0	-	6890	6958	124,179,66	1	68	0	tRNA: tRNA-Ser
+Sb1_own_mtDNA_polished	6962	7033	tRNA-Asp	0	+	6962	7033	124,179,66	1	71	0	tRNA: tRNA-Asp
+Sb1_own_mtDNA_polished	7032	7716	COX2	0	+	7032	7716	0,151,167	1	684	0	CDS: cytochrome c oxidase subunit II
+Sb1_own_mtDNA_polished	7719	7787	tRNA-Lys	0	+	7719	7787	124,179,66	1	68	0	tRNA: tRNA-Lys
+Sb1_own_mtDNA_polished	7788	7992	ATP8	0	+	7788	7992	126,87,194	1	204	0	CDS: ATP synthase F0 subunit 8
+Sb1_own_mtDNA_polished	7949	8630	ATP6	0	+	7949	8630	126,87,194	1	681	0	CDS: ATP synthase F0 subunit 6
+Sb1_own_mtDNA_polished	8629	9413	COX3	0	+	8629	9413	0,151,167	1	784	0	CDS: cytochrome c oxidase subunit III
+Sb1_own_mtDNA_polished	9413	9482	tRNA-Gly	0	+	9413	9482	124,179,66	1	69	0	tRNA: tRNA-Gly
+Sb1_own_mtDNA_polished	9482	9830	ND3	0	+	9482	9830	30,136,229	1	348	0	CDS: NADH dehydrogenase subunit 3
+Sb1_own_mtDNA_polished	9836	9903	tRNA-Arg	0	+	9836	9903	124,179,66	1	67	0	tRNA: tRNA-Arg
+Sb1_own_mtDNA_polished	9904	10201	ND4L	0	+	9904	10201	30,136,229	1	297	0	CDS: NADH dehydrogenase subunit 4L
+Sb1_own_mtDNA_polished	10194	11572	ND4	0	+	10194	11572	30,136,229	1	1378	0	CDS: NADH dehydrogenase subunit 4
+Sb1_own_mtDNA_polished	11572	11641	tRNA-His	0	+	11572	11641	124,179,66	1	69	0	tRNA: tRNA-His
+Sb1_own_mtDNA_polished	11641	11700	tRNA-Ser	0	+	11641	11700	124,179,66	1	59	0	tRNA: tRNA-Ser
+Sb1_own_mtDNA_polished	11701	11770	tRNA-Leu	0	+	11701	11770	124,179,66	1	69	0	tRNA: tRNA-Leu
+Sb1_own_mtDNA_polished	11770	13573	ND5	0	+	11770	13573	30,136,229	1	1803	0	CDS: NADH dehydrogenase subunit 5
+Sb1_own_mtDNA_polished	13569	14094	ND6	0	-	13569	14094	30,136,229	1	525	0	CDS: NADH dehydrogenase subunit 6
+Sb1_own_mtDNA_polished	14094	14165	tRNA-Glu	0	-	14094	14165	124,179,66	1	71	0	tRNA: tRNA-Glu
+Sb1_own_mtDNA_polished	14165	15305	CYTB	0	+	14165	15305	57,73,171	1	1140	0	CDS: cytochrome b
+Sb1_own_mtDNA_polished	15311	15381	tRNA-Thr	0	+	15311	15381	124,179,66	1	70	0	tRNA: tRNA-Thr
+Sb1_own_mtDNA_polished	15383	15449	tRNA-Pro	0	-	15383	15449	124,179,66	1	66	0	tRNA: tRNA-Pro
+Sb1_own_mtDNA_polished	15459	16658	control region	0	+	15459	16658	158,158,158	1	1199	0	misc_feature; putative control region
