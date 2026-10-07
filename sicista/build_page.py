@@ -48,6 +48,46 @@ def head():
     css = css.group(0) if css else ''
     return css
 
+def full_bank_section():
+    """SINEderella with the whole 58-consensus Mammalia bank on the hifiasm primary (code sbe58): per-subfamily plates and the 30k SubFam alignment"""
+    c = 'sbe58'
+    rows = read_summary(c)
+    if not rows:
+        return ''
+    rows.sort(key=lambda r: -int(float(r['firm_assigned'])))
+    rep = os.path.exists(os.path.join(S, c, 'report.html'))
+    tot = sum(int(float(r['firm_assigned'])) for r in rows)
+    totall = sum(int(float(r['total_assigned'])) for r in rows)
+    o = ['<section class="card" id="full-bank">\n  <h2>All mammalian SINEs &mdash; SINEderella with the 58-consensus SINEbase bank, <i>S. betulina</i> hifiasm primary</h2>\n'
+         '  <p style="font-size:.9rem;">Whole-genome run (2026-10-06/07, therioserver, SINEderella 2fac340) of the 58 SINEbase consensuses classed Mammalia on the primary assembly '
+         '(1,144 contigs, 2.99&nbsp;Gb). Before assignment the satellite screen removed 8,134 hits that lie in 1,359 SINE-derived satellite loci and 210 verified tandem arrays; '
+         'the remaining %s copies were assigned by the 10-cycle vote (%s firm, the rest soft). Plates carry 50&nbsp;bp left and 70&nbsp;bp right flanks, '
+         'the consensus is row&nbsp;1 and the sequence as searched row&nbsp;2. <b>SubFam 30k</b> is the SubFam alignment of the random 30,000-copy sample '
+         '(600 chunk consensi plus the 58 bank consensuses); the per-family <b>SubFam</b> plates exist for families with at least 400 copies. '
+         'Not yet curated by hand.</p>\n' % (num(totall), num(tot))]
+    o.append('  <p>')
+    if rep:
+        o.append('<a class="btn" href="sicista/%s/report.html">Full report (58 consensuses)</a> ' % c)
+    nm = 'sbe58_subfam_input_30k.aln.fa'
+    if has(c, nm):
+        o.append(msa('sicista/%s/alignments/%s' % (c, nm), 'sbe58 SubFam of the 30,000-copy sample (600 chunk consensi + bank)', 'SubFam 30k &mdash; all families', 'btn') + ' ')
+    o.append('<a class="btn secondary" href="sicista/%s/consensuses.clean.fa">Bank as searched</a></p>\n' % c)
+    o.append('  <table class="tbl">\n    <thead><tr><th>Consensus</th><th>Firm</th><th>Soft</th><th>sim_ratio median</th><th>Top 100</th><th>100 random</th><th>SubFam</th></tr></thead>\n    <tbody>\n')
+    for r in rows:
+        sf = r['subfam']
+        cells = []
+        for kind, lab in (('top100', 'top 100'), ('rand100', '100 random'), ('subfam', 'SubFam')):
+            fn = '%s_%s_%s.aln.fa' % (c, sf, kind)
+            if has(c, fn):
+                cells.append('<a href="javascript:void(0)" onclick="openMSA(\'sicista/%s/alignments/%s\',\'%s %s %s\')">%s</a>' % (c, fn, c, sf, lab, lab))
+            else:
+                cells.append('&ndash;')
+        o.append('      <tr><td><code>%s</code></td><td class="num">%s</td><td class="num">%s</td><td class="num">%.2f</td><td>%s</td><td>%s</td><td>%s</td></tr>\n'
+                 % (sf, num(r['firm_assigned']), num(r['soft_assigned']), float(r.get('sim_median', 0) or 0), cells[0], cells[1], cells[2]))
+    o.append('    </tbody>\n  </table>\n</section>\n')
+    return ''.join(o)
+
+
 def old_sections():
     t = open(os.path.join(S, '_old_sections.html'), encoding='utf-8').read()
     a = t.index('<!--OLD_A-->'); b = t.index('<!--/OLD_A-->')
@@ -90,6 +130,8 @@ def build():
                '<a class="btn secondary" href="sicista/alignments/dip_consensuses.fa">Dip bank (5 consensuses, as searched)</a> '
                '<a class="btn secondary" href="sicista_mito.html">Mitogenomes and mt pseudogenes</a> '
                '<a class="btn secondary" href="sicista_qc.html">Sb1 assembly QC and the Illumina decision</a></p>\n</section>\n')
+
+    out.append(full_bank_section())
 
     # ---- Dip SINEderella, per-subfamily table
     out.append('<section class="card">\n  <h2>Dip SINE &mdash; SINEderella on the whole genome</h2>\n'
