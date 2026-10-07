@@ -71,7 +71,16 @@ def full_bank_section():
     nm = 'sbe58_subfam_input_30k.aln.fa'
     if has(c, nm):
         o.append(msa('sicista/%s/alignments/%s' % (c, nm), 'sbe58 SubFam of the 30,000-copy sample (600 chunk consensi + bank)', 'SubFam 30k &mdash; all families', 'btn') + ' ')
-    o.append('<a class="btn secondary" href="sicista/%s/consensuses.clean.fa">Bank as searched</a></p>\n' % c)
+    fam = [(f, 'sbe58_%s_subfam30k.aln.fa' % f) for f in ('DIP', 'B1', 'B4') if has(c, 'sbe58_%s_subfam30k.aln.fa' % f)]
+    if fam:
+        o.append('<a class="btn secondary" href="sicista/%s/consensuses.clean.fa">Bank as searched</a></p>\n' % c)
+        o.append('  <p style="font-size:.9rem;"><b>Peeling, layer 1: SubFam of 30,000 copies of one family at a time</b> (firm copies, random sample seed 42, chunks of 50, '
+                 '600 chunk consensi plus the family consensus): ')
+        for f, nm in fam:
+            o.append(msa('sicista/%s/alignments/%s' % (c, nm), 'sbe58 %s: SubFam of 30,000 copies' % f, '%s 30k' % f, 'btn') + ' ')
+        o.append('</p>\n')
+    else:
+        o.append('<a class="btn secondary" href="sicista/%s/consensuses.clean.fa">Bank as searched</a></p>\n' % c)
     o.append('  <table class="tbl">\n    <thead><tr><th>Consensus</th><th>Firm</th><th>Soft</th><th>sim_ratio median</th><th>Top 100</th><th>100 random</th><th>SubFam</th></tr></thead>\n    <tbody>\n')
     for r in rows:
         sf = r['subfam']
