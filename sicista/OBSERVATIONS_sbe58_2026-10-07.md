@@ -38,14 +38,13 @@ misattributed scattered artifacts.
 
 ## 2. His plan for the peeling (layered)
 
-1. **Layer 1: clear the major families first**: Dip, B2 (as written; see the note below), and perhaps B4. Each of the three is treated separately and he wants
+1. **Layer 1: clear the major families first**: Dip, B1 and perhaps B4. Each of the three is treated separately and he wants
    **a SubFam of 30,000 copies of each of the three families alone**; he then tells which subfamilies each consists of.
 2. **Layer 2: deplete the genome of these majors**, treat the remaining genome the same way: re-run SINEderella to remove what is left of the three majors plus
    several next significant families.
 3. Re-analysis with updated consensuses, then a re-evaluation of how the consensuses relate (overlaps).
 
-*Note on names.* He wrote "dip, b2, and maybe b4". In this run the big rodent family is **B1** (538,486 firm), B2 has 1,717 firm / 10,294 soft and is
-one he calls "OK old SINE, matches the original consensus poorly". To confirm with him whether the three majors are DIP, B1, B4 or DIP, B2, B4.
+*Names (his answer 2026-10-07).* "b2" in his plan was a typo: **the three majors are DIP, B1 and B4.** B2 (1,717 firm / 10,294 soft) is one of the small old families.
 
 ## 3. Is the two-layer scheme (families first, subfamilies within families) implemented? (read 2026-10-07, SINEderella 2fac340)
 
@@ -61,13 +60,16 @@ one he calls "OK old SINE, matches the original consensus poorly". To confirm wi
 
 ## 4. Leads for his open questions (not verified, no verdicts)
 
-* **Extended flanks of top100 copies (B1, B1-dID, pB1).** The publish step's border loop extends a plate's flanks while the copies stay similar where the flank ends
-  (`publish_sbe58.log`: "copies still similar where their flank ends - extending by +150/+0 bp" for several families). An extension can therefore reflect a shared flank
-  (segmental duplication, tandem neighbours, a nested or composite element) rather than the SINE itself. The flank-twin table of this run (`results/flank_twins.tsv`;
-  B1-dID 12.5 % twins, pB1 8.0 %, B4 9.3 %) is the first thing to check against the plates. **It has no row for B1 or DIP:** stage 9 (`fs9_twins.sh`) was killed
-  by the system (gawk, out of memory) on the 538,486 B1 and the 1,185,121 DIP copies (`results/flank_twins/{B1,DIP}/fs9.log`; the run log says "B1 failed", "DIP failed"
-  and the report simply has no row for them). The twin question for B1, the family he asks about, is therefore unanswered; it needs stage 9 in chunks (or on a
-  sample of the family), which is a code change not made yet.
+* **Left flanks that stick out of the alignment (B1 top100; B1-dID, pB1 not measured yet).** His reading: the flanks protrude from the alignment (the opposite of
+  shared, extended flanks). Measured on `sbe58_B1_top100.aln.fa` (100 copies): 12 rows carry 79-96 bases to the left of the columns where at least half of the rows have
+  sequence, the other 88 rows carry none (the plate columns 0-95 are occupied by 11-18 rows). These 12 copies are **longer loci**: 448-680 bp against a median of 364 bp
+  for the other 88 (359-579). Their protruding left sequences are **unrelated to each other** (pairwise identity median 25 %, range 16-35 %, the background level), so they
+  are not a shared flank, and they lie on 12 different contigs (7 of the 12 carry the `[array]` tag). The same measurement on `sbe58_B1_rand100.aln.fa` finds no row with
+  more than 18 bases left of the core (6 rows locus > 470 bp on the right). So what sticks out is extra sequence belonging to the locus (nested insertion, composite element or a
+  merged neighbour), not an artefact of the publish border loop. *My first lead (shared flanks from segmental duplication, extended by the border loop) was not supported
+  and is withdrawn.* Still open: what that extra left sequence is (search it against the bank and the genome); the 12 rows are listed in the plate by name.
+* **Flank-twin check (stage 9) for B1 and DIP.** The run's table has no B1 or DIP row: stage 9 was killed by the system (gawk out of memory) on the 538,486 B1 and the 1,185,121
+  DIP copies. Rewritten (SINEderella d418439: the candidate step streams) and tested: identical output to the old script on the real B1-dID (40,941 copies), 11.9 GB -> 1.6 GB.
 * **TC motifs in left flanks (B1 random100, TUB SubFam, CAN).** Possibly a low-complexity or microsatellite-prone neighbourhood; the satellite screen only removes kind-A
   satellites of the SINE and kind-B arrays, not simple repeats beside copies.
 * **Consensus mismatch (B2, Mar3, MyrSINE).** The plates' row 1 is rebuilt from the copies and compared with the bank consensus in the consensus audit
