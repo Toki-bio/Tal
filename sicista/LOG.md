@@ -122,3 +122,16 @@
   bank consensus (same recipe as step 1). Script `fam30k.sh` (therioserver `~/tmp/fam30k.sh`), work dirs `<run>/peel/<family>/`. No search repeated. Took 10-26 min per family.
 - Files: `sicista/sbe58/alignments/sbe58_{DIP,B1,B4}_subfam30k.aln.fa` (601 rows each); buttons "DIP 30k", "B1 30k", "B4 30k" in the sbe58 section of sicista.html.
 - Stage 9 (flank twins) rewritten to stream (SINEderella d418439): identical output on the real B1-dID (40,941 copies), 11.9 GB -> 1.6 GB peak; the real B1 (535,042 copies) and DIP runs are in progress.
+
+## 2026-10-13 - why reverse-complemented DIP copies sit at the bottom of the all-copies SubFam (rows 596-601 = chunks input_595..600)
+
+Sample: `peel/DIP_all` of run_20261006_143837 (30,000 random copies with best vote DIP, any status). The 300 copies of chunks 595-600 were compared with the DIP
+consensus by `ssearch36` (both strands, all hits): 172 of 300 run reverse (random 300 copies of the same sample: 1 of 300). Header strand of those 300: 190
+"+,-", 53 "-", 57 "+" (random 300: 1 "+,-"). Of the 172 reverse copies 169 carry "+,-" (98 %); of the 190 "+,-" copies 169 are reverse (89 %).
+
+Mechanism (step1_search_extract.sh): hits of ALL 58 consensuses are merged with `bedtools merge -c 4,5,6 -o max,max,distinct` (no -s), so a DIP hit on "-" that touches or
+overlaps a hit of another family on "+" (B1, pB1, MEN, B1-dID ... adjacent or nested insertions) becomes ONE interval with strand "+,-". `bedtools getfasta -s` flips
+only a pure "-", so the interval is written forward: the DIP part comes out reverse-complemented, and the piece is longer than a DIP copy (370-570 bp in the four
+examples traced: ptg000073l:6755806-6756230, ptg000001l:1932647-1933190, ptg000082l:669073-669443, ptg000021l:12668714-12669281; each has DIP "-" next to B1/pB1/MEN/B1-dID "+").
+Scale: 29,205 of 2,172,946 extracted copies are "+,-" (1.3 %); among DIP-best-vote copies 24,570 of 1,248,280 (2.0 %). These are also the known CONFLICT / "+,-" set
+(step8a coerces "+,-" to "+"). Not fixed in the code yet.
