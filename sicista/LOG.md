@@ -135,3 +135,7 @@ only a pure "-", so the interval is written forward: the DIP part comes out reve
 examples traced: ptg000073l:6755806-6756230, ptg000001l:1932647-1933190, ptg000082l:669073-669443, ptg000021l:12668714-12669281; each has DIP "-" next to B1/pB1/MEN/B1-dID "+").
 Scale: 29,205 of 2,172,946 extracted copies are "+,-" (1.3 %); among DIP-best-vote copies 24,570 of 1,248,280 (2.0 %). These are also the known CONFLICT / "+,-" set
 (step8a coerces "+,-" to "+"). Not fixed in the code yet.
+
+Remaining outliers (128 forward ones of the 300 in chunks 595-600): 56 have NO DIP hit overlapping (53 of them rejected_low_bitscore copies of RSINE1, IDL-Geo, B4, STRIDM, B2 ...: an "all copies = best vote DIP, any status" sample takes in copies of other
+families whose closest bank consensus is DIP); 37 are diverged DIP (< 80 % identity to the consensus); 30 are DIP plus another element on the same strand (350-380 bp pieces); 3 normal; 2 truncated.
+Fix of the strand problem in SINEderella (2026-10-13): `tools/merge_hits.py`, docs/STRAND_AWARE_MERGE.md; the Sicista run itself has not been redone.
