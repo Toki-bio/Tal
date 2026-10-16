@@ -6,7 +6,9 @@
 - Code: SINEderella `main` 296fa33 (2026-10-14 audit fixes, strand-aware merge, kind-B array check with short pieces,
   satellite screen on, SubFam 1.5.0). Assembly `GCF_057876585.1`. THREADS 32, run 1 h 26 min.
 - Server: therioserver `/home/toki/rhin/rsi_main_20261016/run_20261016_194647` (launcher `../launch.sh`).
-- Not in this run (they were added to `rsi_final` by hand): the separate flank scan (stages 1-7) and the stage-8 plates.
+- Flank scan stages 1-7 (`flankscan/fs_all.sh`, 18 min) were run on this run afterwards, as for `rsi_final`, and the report was
+  rebuilt with them: it has the **Element hierarchy** section again (`flankscan/hierarchy.tsv`, 14 elements; `rsi_final` 13).
+  Stage-8 plates were not made for this run.
 - The unit-vs-composite fix (branch `coverage-tiebreak`) is NOT in this run; it is not ready (see
   `rsi_composites_test/`).
 
@@ -15,7 +17,8 @@
 |---|---|
 | `composites.html` | scheme of the 7 composites (parts at their placed positions) and the units, with tracks for stretches similar to differently named units, and the alignment of all 21 consensuses (draft design, 2026-10-17) |
 | `consensuses.aln.fa` | MAFFT L-INS-i alignment of the 21 consensuses |
-| `report.html` | full report (assignment, divergence, plates linking to `alignments/`, length versions, consensus audit) |
+| `report.html` | full report (assignment, divergence, plates linking to `alignments/`, element hierarchy, length versions, consensus audit) |
+| `flankscan/` | hierarchy, peaks, candidates, re-assignment and chain tables, accepted candidates (`cand/` alignments) |
 | `alignments/` | top 100, random 100 and subfamily plates (60 files) |
 | `assignment_stats.tsv`, `summary.by_subfam.tsv` | per-consensus numbers |
 | `satellites/indication.tsv`, `satellites/loci.bed` | satellite screen: SINE-derived tandem loci (kind A) and verified arrays (kind B) per consensus |
