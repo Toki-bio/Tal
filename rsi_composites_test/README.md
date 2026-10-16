@@ -5,4 +5,4 @@ declared composites table (`therioserver:/home/toki/rhin/rsi_tiebreak_20261016/r
 step-1 copies (`/home/toki/rhin/rsi_main_20261016/run_20261016_194647`). Up to 60 copies per file, evenly sampled.
 Rows: consensus rows `CONS_*`, then copies `<locus>|main=<call>|fix=<call>|reach=<bp>`; `~` = not firm;
 reach = bp of composite sequence the copy's alignment covers upstream (5') of the unit's interval in the composite
-(for r10 vs P18 the extra lies 3', so reach is 0 there). Rows are sorted by reach.
+(for r10 vs P18 the extra lies 3', so reach is 0 there). Rows are sorted by reach; -1 = not measured (no alignment reported by the reach check).
