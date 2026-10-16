@@ -13,6 +13,8 @@
 ## Contents
 | Path | What |
 |---|---|
+| `composites.html` | scheme of the 7 composites (parts at their placed positions) and the units, with tracks for stretches similar to differently named units, and the alignment of all 21 consensuses (draft design, 2026-10-17) |
+| `consensuses.aln.fa` | MAFFT L-INS-i alignment of the 21 consensuses |
 | `report.html` | full report (assignment, divergence, plates linking to `alignments/`, length versions, consensus audit) |
 | `alignments/` | top 100, random 100 and subfamily plates (60 files) |
 | `assignment_stats.tsv`, `summary.by_subfam.tsv` | per-consensus numbers |
