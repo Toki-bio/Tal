@@ -1,0 +1,22 @@
+RUN	/home/toki/rhin/rsi_main_20261016/run_20261016_194647
+PWD	/home/toki/rhin/rsi_main_20261016
+SCRIPT_DIR	/home/toki/SINEderella_main_20261016
+GENOME_IN	/home/toki/rhin/genomes/rsi.fna
+CONS_IN	/home/toki/rhin/rsi_main_20261016/bank21.fa
+THREADS	32
+CHUNK_BP	30000
+FLANK	50
+MODE	full
+COMMAND	/home/toki/SINEderella_main_20261016/SINEderella /home/toki/rhin/genomes/rsi.fna /home/toki/rhin/rsi_main_20261016/bank21.fa
+INVOKED_FROM	/home/toki/rhin/rsi_main_20261016
+PIPELINE_COMMIT	296fa33
+SUBFAM_VERSION	1.5.0
+VERSION	ssearch36	 version: 36.3.8g Dec, 2017
+VERSION	mafft	v7.526 (2024/Apr/26)
+VERSION	bedtools	bedtools v2.31.1
+VERSION	samtools	samtools 1.24
+VERSION	seqkit	seqkit v2.13.0
+VERSION	trf	Tandem Repeats Finder
+VERSION	dustmasker	dustmasker: 1.0.0
+VERSION	python3	Python 3.11.16
+DATE	Fri Oct 16 07:46:49 PM MSK 2026
