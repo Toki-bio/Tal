@@ -1,80 +1,74 @@
-id	family	side	copies	contigs	other_side_shared	partner_len	partner_match	carriers	carriers_by_family	verdict
-MEG-RS_5p1	MEG-RS	5	47	9	0.13	254	unknown	658	MEG-RS:656,MEG-RL:2	check
-r10_r8_P18_5p1	r10_r8_P18	5	14	8	0.14	0	unknown	0	-	check
-r1_r2_r3_r3_C11_5p1	r1_r2_r3_r3_C11	5	14	8	0.00	0	unknown	0	-	check
-r1_r2_r3_r3_C11_5p2	r1_r2_r3_r3_C11	5	17	11	0.00	1	unknown	0	-	check
-r1_r2_r3_r3_C11_5p3	r1_r2_r3_r3_C11	5	10	6	0.00	602	unknown	170	r5_27seqs:6,r6_210seqs:18,r10_r8_P18:7,r7_133seqs:10,r1_r3_P1:59,r1_r3_P2:19,r5_r6_P26:18,r1_r2_r3_r3_C11:15,r10_19seqs:2,r9_15seqs:6,r8_83seqs:7,r5_r3_P34:3	check
-r1_r2_r3_r3_C11_5p4	r1_r2_r3_r3_C11	5	15	6	0.00	600	x.HAL1b_3end (60 % over 330 of 600 bp)	32	r10_r8_P18:1,r1_r3_P1:10,r7_133seqs:2,r1_r3_P2:1,r5_r6_P26:1,r1_r2_r3_r3_C11:15,r9_15seqs:1,r8_83seqs:1	check
-r1_r3_P1_5p1	r1_r3_P1	5	12	9	0.00	70	x.L1MB2_3end (87 % over 69 of 70 bp)	18	r10_r8_P18:1,r6_210seqs:1,r7_133seqs:1,r1_r3_P1:9,r5_r6_P26:2,r1_r3_P2:2,r1_r2_r3_r3_C11:1,r9_15seqs:1	check
-r1_r3_P1_5p10	r1_r3_P1	5	12	6	0.00	80	unknown	39	r5_27seqs:1,r10_r8_P18:2,r6_210seqs:4,r7_133seqs:1,r1_r3_P1:15,r5_r6_P26:3,r1_r3_P2:5,r10_19seqs:1,r8_83seqs:2,r9_15seqs:3,r5_r3_P34:2	check
-r1_r3_P1_5p11	r1_r3_P1	5	11	7	0.00	600	unknown	17	r10_r8_P18:1,r6_210seqs:2,r7_133seqs:1,r1_r3_P1:10,r5_r6_P26:2,r9_15seqs:1	check
-r1_r3_P1_5p12	r1_r3_P1	5	10	8	0.00	159	unknown	11	r6_210seqs:1,r7_133seqs:1,r1_r3_P1:7,r5_r6_P26:1,r8_83seqs:1	check
-r1_r3_P1_5p13	r1_r3_P1	5	30	15	0.00	58	unknown	42	r5_27seqs:2,r10_r8_P18:4,r6_210seqs:3,r7_133seqs:3,r1_r3_P1:13,r1_r3_P2:2,r5_r6_P26:3,r1_r2_r3_r3_C11:3,r9_15seqs:4,r8_83seqs:5	check
-r1_r3_P1_5p14	r1_r3_P1	5	10	6	0.00	135	unknown	2	r1_r3_P1:2	check
-r1_r3_P1_5p15	r1_r3_P1	5	16	8	0.00	278	unknown	56	r5_27seqs:2,r6_210seqs:5,r10_r8_P18:3,r7_133seqs:4,r1_r3_P1:15,r1_r3_P2:6,r5_r6_P26:6,r1_r2_r3_r3_C11:3,r8_83seqs:2,r9_15seqs:7,r5_r3_P34:3	check
-r1_r3_P1_5p16	r1_r3_P1	5	10	9	0.00	99	unknown	24	r6_210seqs:1,r5_r5_P48:1,r7_133seqs:3,r1_r3_P1:9,r5_r6_P26:3,r1_r3_P2:2,r1_r2_r3_r3_C11:2,r9_15seqs:1,r8_83seqs:1,r1_9seqs:1	check
-r1_r3_P1_5p17	r1_r3_P1	5	16	9	0.00	473	unknown	11	r10_r8_P18:1,r7_133seqs:1,r1_r3_P1:4,r1_r3_P2:1,r5_r6_P26:3,r9_15seqs:1	check
-r1_r3_P1_5p18	r1_r3_P1	5	13	10	0.00	0	unknown	0	-	check
-r1_r3_P1_5p19	r1_r3_P1	5	24	13	0.00	0	unknown	0	-	check
-r1_r3_P1_5p2	r1_r3_P1	5	11	10	0.00	602	unknown	55	r5_27seqs:1,r10_r8_P18:2,r6_210seqs:9,r7_133seqs:5,r1_r3_P1:17,r1_r3_P2:3,r5_r6_P26:9,r1_r2_r3_r3_C11:3,r9_15seqs:4,r8_83seqs:2	check
-r1_r3_P1_5p20	r1_r3_P1	5	25	9	0.00	106	unknown	91	r5_27seqs:3,r6_210seqs:15,r10_r8_P18:4,r7_133seqs:11,r1_r3_P1:24,r5_r6_P26:3,r1_r3_P2:15,r1_r2_r3_r3_C11:5,r8_83seqs:1,r9_15seqs:8,r5_r3_P34:2	check
-r1_r3_P1_5p21	r1_r3_P1	5	29	13	0.00	0	unknown	0	-	check
-r1_r3_P1_5p22	r1_r3_P1	5	11	8	0.00	602	unknown	36	r6_210seqs:3,r10_r8_P18:3,r5_r5_P48:1,r7_133seqs:4,r1_r3_P1:11,r5_r6_P26:3,r1_r3_P2:5,r1_r2_r3_r3_C11:3,r9_15seqs:1,r8_83seqs:2	check
-r1_r3_P1_5p23	r1_r3_P1	5	64	15	0.00	308	x.L1MB1_3end (80 % over 299 of 308 bp)	212	r5_27seqs:8,r10_r8_P18:10,r6_210seqs:16,r5_r5_P48:3,r7_133seqs:14,r1_r3_P1:58,r3_58seqs:1,r5_r6_P26:20,r1_r3_P2:26,r1_r2_r3_r3_C11:25,r10_19seqs:2,r9_15seqs:8,r8_83seqs:11,r5_r3_P34:10	check
-r1_r3_P1_5p24	r1_r3_P1	5	11	8	0.00	489	unknown	27	r10_r8_P18:1,r6_210seqs:2,r7_133seqs:1,r1_r3_P1:10,r5_r6_P26:3,r1_r3_P2:6,r1_r2_r3_r3_C11:3,r8_83seqs:1	check
-r1_r3_P1_5p25	r1_r3_P1	5	66	17	0.00	75	unknown	176	r5_27seqs:7,r6_210seqs:19,r10_r8_P18:8,r7_133seqs:11,r1_r3_P1:58,r1_r3_P2:21,r5_r6_P26:21,r1_r2_r3_r3_C11:13,r10_19seqs:2,r9_15seqs:7,r8_83seqs:7,r5_r3_P34:2	check
-r1_r3_P1_5p26	r1_r3_P1	5	23	11	0.00	50	unknown	75	r5_27seqs:4,r6_210seqs:2,r10_r8_P18:2,r5_r5_P48:1,r7_133seqs:5,r1_r3_P1:23,r5_r6_P26:7,r1_r3_P2:11,r1_r2_r3_r3_C11:5,r8_83seqs:5,r9_15seqs:7,r5_r3_P34:3	check
-r1_r3_P1_5p27	r1_r3_P1	5	13	6	0.00	601	unknown	22	r6_210seqs:2,r7_133seqs:2,r1_r3_P1:13,r5_r6_P26:1,r1_r3_P2:1,r1_r2_r3_r3_C11:2,r9_15seqs:1	check
-r1_r3_P1_5p28	r1_r3_P1	5	10	9	0.00	157	unknown	46	r5_27seqs:2,r10_r8_P18:2,r6_210seqs:4,r1_r3_P1:11,r7_133seqs:6,r1_r3_P2:3,r3_58seqs:1,r5_r6_P26:3,r1_r2_r3_r3_C11:3,r10_19seqs:2,r9_15seqs:1,r8_83seqs:5,r5_r3_P34:3	check
-r1_r3_P1_5p29	r1_r3_P1	5	20	11	0.00	78	unknown	69	r5_27seqs:2,r6_210seqs:5,r10_r8_P18:7,r5_r5_P48:2,r7_133seqs:8,r1_r3_P1:18,r5_r6_P26:3,r1_r3_P2:9,r1_r2_r3_r3_C11:2,r8_83seqs:4,r9_15seqs:8,r5_r3_P34:1	check
-r1_r3_P1_5p3	r1_r3_P1	5	10	7	0.00	300	unknown	23	r5_27seqs:1,r6_210seqs:2,r1_r3_P1:10,r7_133seqs:2,r5_r6_P26:1,r1_r3_P2:1,r1_r2_r3_r3_C11:2,r8_83seqs:1,r9_15seqs:3	check
-r1_r3_P1_5p30	r1_r3_P1	5	25	16	0.00	69	unknown	11	r6_210seqs:1,r7_133seqs:1,r1_r3_P1:8,r1_r3_P2:1	check
-r1_r3_P1_5p31	r1_r3_P1	5	14	9	0.00	527	unknown	44	r6_210seqs:6,r10_r8_P18:4,r7_133seqs:1,r1_r3_P1:11,r1_r3_P2:5,r5_r6_P26:5,r1_r2_r3_r3_C11:4,r8_83seqs:4,r9_15seqs:3,r5_r3_P34:1	check
-r1_r3_P1_5p32	r1_r3_P1	5	23	11	0.00	202	unknown	26	r10_r8_P18:2,r7_133seqs:1,r1_r3_P1:12,r5_r6_P26:2,r1_r3_P2:1,r1_r2_r3_r3_C11:4,r9_15seqs:1,r5_r3_P34:3	check
-r1_r3_P1_5p33	r1_r3_P1	5	13	7	0.00	1	unknown	0	-	check
-r1_r3_P1_5p34	r1_r3_P1	5	43	13	0.00	0	unknown	0	-	check
-r1_r3_P1_5p35	r1_r3_P1	5	32	12	0.00	90	x.L1ME4c_3end (81 % over 90 of 90 bp)	78	r5_27seqs:3,r6_210seqs:2,r5_r5_P48:1,r7_133seqs:9,r1_r3_P1:23,r1_r3_P2:9,r5_r6_P26:10,r1_r2_r3_r3_C11:8,r9_15seqs:5,r8_83seqs:5,r5_r3_P34:3	check
-r1_r3_P1_5p36	r1_r3_P1	5	43	16	0.00	74	unknown	57	r10_r8_P18:4,r6_210seqs:2,r7_133seqs:2,r1_r3_P1:36,r5_r6_P26:1,r1_r3_P2:8,r1_r2_r3_r3_C11:4	check
-r1_r3_P1_5p37	r1_r3_P1	5	24	13	0.00	170	unknown	50	r5_27seqs:1,r10_r8_P18:3,r6_210seqs:2,r7_133seqs:3,r1_r3_P1:20,r1_r3_P2:5,r5_r6_P26:4,r8_83seqs:3,r9_15seqs:6,r5_r3_P34:3	check
-r1_r3_P1_5p38	r1_r3_P1	5	17	11	0.00	146	unknown	19	r6_210seqs:1,r10_r8_P18:1,r7_133seqs:1,r1_r3_P1:7,r5_r6_P26:1,r1_r3_P2:2,r1_r2_r3_r3_C11:1,r8_83seqs:1,r9_15seqs:4	check
-r1_r3_P1_5p4	r1_r3_P1	5	13	9	0.00	559	unknown	32	r10_r8_P18:1,r1_r3_P1:10,r7_133seqs:2,r5_r6_P26:1,r1_r3_P2:1,r1_r2_r3_r3_C11:15,r9_15seqs:1,r8_83seqs:1	check
-r1_r3_P1_5p5	r1_r3_P1	5	64	17	0.00	268	x.L1MB7_3end (65 % over 242 of 268 bp)	90	r5_27seqs:1,r6_210seqs:5,r10_r8_P18:10,r7_133seqs:6,r1_r3_P1:26,r5_r6_P26:6,r1_r3_P2:15,r1_r2_r3_r3_C11:9,r10_19seqs:2,r9_15seqs:4,r8_83seqs:4,r5_r3_P34:2	check
-r1_r3_P1_5p6	r1_r3_P1	5	67	17	0.00	208	unknown	151	r6_210seqs:11,r10_r8_P18:4,r7_133seqs:14,r1_r3_P1:52,r5_r6_P26:22,r1_r3_P2:16,r1_r2_r3_r3_C11:14,r10_19seqs:1,r8_83seqs:4,r9_15seqs:11,r5_r3_P34:2	check
-r1_r3_P1_5p7	r1_r3_P1	5	29	13	0.07	144	x.L1MB3_3end (99 % over 143 of 144 bp)	101	r5_27seqs:7,r10_r8_P18:3,r6_210seqs:9,r5_r5_P48:1,r7_133seqs:8,r1_r3_P1:30,r5_r6_P26:8,r1_r3_P2:16,r1_r2_r3_r3_C11:5,r8_83seqs:5,r9_15seqs:7,r5_r3_P34:2	check
-r1_r3_P1_5p8	r1_r3_P1	5	10	9	0.00	4	unknown	0	-	check
-r1_r3_P1_5p9	r1_r3_P1	5	25	10	0.00	65	unknown	91	r5_27seqs:1,r10_r8_P18:4,r6_210seqs:9,r7_133seqs:8,r1_r3_P1:26,r1_r3_P2:7,r5_r6_P26:15,r1_r2_r3_r3_C11:5,r9_15seqs:7,r8_83seqs:5,r5_r3_P34:4	check
-r1_r3_P2_5p1	r1_r3_P2	5	11	6	0.00	58	unknown	77	r5_27seqs:4,r6_210seqs:2,r10_r8_P18:2,r5_r5_P48:1,r7_133seqs:5,r1_r3_P1:24,r5_r6_P26:7,r1_r3_P2:12,r1_r2_r3_r3_C11:5,r9_15seqs:7,r8_83seqs:5,r5_r3_P34:3	check
-r1_r3_P2_5p2	r1_r3_P2	5	17	12	0.00	27	unknown	0	-	check
-r1_r3_P2_5p3	r1_r3_P2	5	25	12	0.00	0	unknown	0	-	check
-r1_r3_P2_5p4	r1_r3_P2	5	26	12	0.00	334	unknown	174	r5_27seqs:7,r6_210seqs:19,r10_r8_P18:8,r1_r3_P1:58,r7_133seqs:11,r5_r6_P26:20,r1_r3_P2:21,r1_r2_r3_r3_C11:13,r10_19seqs:2,r9_15seqs:6,r8_83seqs:7,r5_r3_P34:2	check
-r1_r3_P2_5p5	r1_r3_P2	5	13	11	0.00	0	unknown	0	-	check
-r1_r3_P2_5p6	r1_r3_P2	5	29	13	0.00	225	x.L1MB1_3end (76 % over 184 of 225 bp)	180	r5_27seqs:8,r10_r8_P18:8,r6_210seqs:12,r5_r5_P48:3,r7_133seqs:12,r1_r3_P1:53,r3_58seqs:1,r5_r6_P26:17,r1_r3_P2:24,r1_r2_r3_r3_C11:20,r10_19seqs:2,r9_15seqs:5,r8_83seqs:8,r5_r3_P34:7	check
-r1_r3_P2_5p7	r1_r3_P2	5	32	14	0.09	175	unknown	88	r5_27seqs:1,r6_210seqs:5,r10_r8_P18:8,r7_133seqs:7,r1_r3_P1:25,r5_r6_P26:6,r1_r3_P2:16,r1_r2_r3_r3_C11:9,r10_19seqs:2,r9_15seqs:4,r8_83seqs:4,r5_r3_P34:1	check
-r1_r3_P2_5p8	r1_r3_P2	5	12	9	0.00	79	unknown	58	r6_210seqs:2,r10_r8_P18:4,r7_133seqs:2,r1_r3_P1:37,r5_r6_P26:1,r1_r3_P2:8,r1_r2_r3_r3_C11:4	check
-r1_r3_P2_5p9	r1_r3_P2	5	14	9	0.00	154	unknown	7	r5_r6_P26:1,r1_r3_P2:3,r1_r2_r3_r3_C11:2,r9_15seqs:1	check
-r5_r6_P26_5p1	r5_r6_P26	5	30	13	0.20	98	unknown	32	r6_210seqs:4,r1_r3_P1:2,r7_133seqs:4,r5_r6_P26:19,r9_15seqs:1,r8_83seqs:2	check
-r5_r6_P26_5p2	r5_r6_P26	5	24	10	0.00	122	unknown	178	r5_27seqs:7,r6_210seqs:19,r10_r8_P18:8,r7_133seqs:12,r1_r3_P1:58,r5_r6_P26:22,r1_r3_P2:21,r1_r2_r3_r3_C11:13,r10_19seqs:2,r9_15seqs:7,r8_83seqs:7,r5_r3_P34:2	check
-r5_r6_P26_5p3	r5_r6_P26	5	15	9	0.00	0	unknown	0	-	check
-r5_r6_P26_5p4	r5_r6_P26	5	21	12	0.00	158	x.L1ME5_3end (69 % over 152 of 158 bp)	197	r5_27seqs:8,r10_r8_P18:9,r6_210seqs:16,r5_r5_P48:3,r7_133seqs:11,r1_r3_P1:56,r3_58seqs:1,r1_r3_P2:26,r5_r6_P26:17,r1_r2_r3_r3_C11:22,r10_19seqs:2,r9_15seqs:7,r8_83seqs:9,r5_r3_P34:10	check
-r5_r6_P26_5p5	r5_r6_P26	5	25	10	0.00	142	x.L1ME4c_3end (80 % over 136 of 142 bp)	39	r5_27seqs:1,r10_r8_P18:2,r6_210seqs:3,r7_133seqs:3,r1_r3_P1:9,r5_r6_P26:9,r1_r3_P2:3,r1_r2_r3_r3_C11:1,r10_19seqs:1,r9_15seqs:7	check
-r5_r6_P26_5p6	r5_r6_P26	5	13	7	0.00	0	unknown	0	-	check
-r5_r6_P26_5p7	r5_r6_P26	5	27	13	0.00	420	x.L1MC3_3end (63 % over 278 of 420 bp)	138	r6_210seqs:9,r10_r8_P18:4,r7_133seqs:12,r1_r3_P1:48,r5_r6_P26:23,r1_r3_P2:13,r1_r2_r3_r3_C11:12,r10_19seqs:1,r8_83seqs:4,r9_15seqs:11,r5_r3_P34:1	check
-r5_r6_P26_5p8	r5_r6_P26	5	12	6	0.00	73	unknown	91	r5_27seqs:1,r10_r8_P18:4,r6_210seqs:9,r7_133seqs:8,r1_r3_P1:26,r1_r3_P2:7,r5_r6_P26:15,r1_r2_r3_r3_C11:5,r9_15seqs:7,r8_83seqs:5,r5_r3_P34:4	check
-r5_r6_P26_5p9	r5_r6_P26	5	10	7	0.00	512	unknown	55	r5_27seqs:1,r10_r8_P18:2,r6_210seqs:9,r7_133seqs:4,r1_r3_P1:17,r1_r3_P2:3,r5_r6_P26:9,r1_r2_r3_r3_C11:3,r8_83seqs:2,r9_15seqs:5	check
-r6_210seqs_5p1	r6_210seqs	5	14	11	0.00	59	unknown	92	r5_27seqs:3,r6_210seqs:15,r10_r8_P18:4,r7_133seqs:11,r1_r3_P1:24,r5_r6_P26:3,r1_r3_P2:16,r1_r2_r3_r3_C11:5,r8_83seqs:1,r9_15seqs:8,r5_r3_P34:2	check
-r6_210seqs_5p2	r6_210seqs	5	10	8	0.00	94	unknown	46	r5_27seqs:3,r10_r8_P18:2,r6_210seqs:9,r7_133seqs:5,r1_r3_P1:9,r5_r6_P26:4,r1_r3_P2:5,r1_r2_r3_r3_C11:3,r8_83seqs:2,r9_15seqs:2,r5_r3_P34:2	check
-r6_210seqs_5p3	r6_210seqs	5	11	5	0.00	2	unknown	0	-	check
-r6_210seqs_5p4	r6_210seqs	5	11	7	0.00	2	unknown	0	-	check
-r6_210seqs_5p5	r6_210seqs	5	19	11	0.00	115	unknown	176	r5_27seqs:7,r6_210seqs:19,r10_r8_P18:8,r7_133seqs:11,r1_r3_P1:58,r1_r3_P2:21,r5_r6_P26:21,r1_r2_r3_r3_C11:13,r10_19seqs:2,r9_15seqs:7,r8_83seqs:7,r5_r3_P34:2	check
-r6_210seqs_5p6	r6_210seqs	5	10	7	0.00	1	unknown	0	-	check
-r6_210seqs_5p7	r6_210seqs	5	10	8	0.00	0	unknown	0	-	check
-r6_210seqs_5p8	r6_210seqs	5	10	7	0.00	280	x.L1MB1_3end (81 % over 171 of 280 bp)	20	r10_r8_P18:1,r6_210seqs:5,r5_r5_P48:1,r7_133seqs:2,r1_r3_P1:4,r3_58seqs:1,r1_r3_P2:3,r5_r6_P26:1,r1_r2_r3_r3_C11:1,r9_15seqs:1	check
-r7_133seqs_5p1	r7_133seqs	5	11	7	0.00	288	x.L1MB1_3end (75 % over 251 of 288 bp)	173	r5_27seqs:7,r10_r8_P18:8,r6_210seqs:13,r5_r5_P48:3,r1_r3_P1:49,r7_133seqs:11,r3_58seqs:1,r5_r6_P26:13,r1_r3_P2:24,r1_r2_r3_r3_C11:20,r10_19seqs:2,r9_15seqs:8,r8_83seqs:6,r5_r3_P34:8	check
-r7_133seqs_5p2	r7_133seqs	5	17	12	0.00	0	unknown	0	-	check
-r7_133seqs_5p3	r7_133seqs	5	12	6	0.00	121	unknown	178	r5_27seqs:7,r6_210seqs:19,r10_r8_P18:8,r7_133seqs:12,r1_r3_P1:58,r1_r3_P2:21,r5_r6_P26:21,r1_r2_r3_r3_C11:13,r10_19seqs:2,r9_15seqs:7,r8_83seqs:7,r5_r3_P34:3	check
-r7_133seqs_5p4	r7_133seqs	5	10	7	0.00	111	unknown	91	r5_27seqs:3,r6_210seqs:15,r10_r8_P18:4,r7_133seqs:11,r1_r3_P1:24,r5_r6_P26:3,r1_r3_P2:15,r1_r2_r3_r3_C11:5,r8_83seqs:1,r9_15seqs:8,r5_r3_P34:2	check
-r7_133seqs_5p5	r7_133seqs	5	22	11	0.00	0	unknown	0	-	check
-r9_15seqs_5p1	r9_15seqs	5	10	7	0.00	77	unknown	67	r5_27seqs:1,r6_210seqs:6,r10_r8_P18:7,r5_r5_P48:2,r7_133seqs:8,r1_r3_P1:18,r5_r6_P26:2,r1_r3_P2:9,r1_r2_r3_r3_C11:2,r8_83seqs:3,r9_15seqs:8,r5_r3_P34:1	check
-r9_15seqs_5p2	r9_15seqs	5	12	9	0.00	0	unknown	0	-	check
-r9_15seqs_5p3	r9_15seqs	5	19	12	0.00	14	unknown	0	-	check
-r9_15seqs_5p4	r9_15seqs	5	15	8	0.00	370	x.L1MC3_3end (67 % over 279 of 370 bp)	148	r6_210seqs:11,r10_r8_P18:4,r7_133seqs:12,r1_r3_P1:51,r1_r3_P2:16,r5_r6_P26:23,r1_r2_r3_r3_C11:12,r10_19seqs:1,r8_83seqs:4,r9_15seqs:13,r5_r3_P34:1	check
+id	family	side	copies	contigs	removed_duplicates	partner_len	partner_match	carriers	carriers_by_family	verdict
+MEG-RS_5p1	MEG-RS	5	41	9	6	321	unknown	658	MEG-RS:656,MEG-RL:2	check
+r1_r2_r3_r3_C11_5p1	r1_r2_r3_r3_C11	5	14	8	0	0	unknown	0	-	check
+r1_r2_r3_r3_C11_5p2	r1_r2_r3_r3_C11	5	15	9	2	0	unknown	0	-	check
+r1_r3_P1_5p1	r1_r3_P1	5	10	7	2	67	x.L1MB2_3end (95 % over 66 of 67 bp)	18	r6_210seqs:1,r7_133seqs:1,r1_r3_P1:10,r5_r6_P26:1,r1_r3_P2:1,r1_r2_r3_r3_C11:1,r9_15seqs:2,r5_r3_P34:1	check
+r1_r3_P1_5p10	r1_r3_P1	5	12	6	0	80	unknown	39	r5_27seqs:1,r10_r8_P18:2,r6_210seqs:4,r7_133seqs:1,r1_r3_P1:15,r1_r3_P2:5,r5_r6_P26:3,r10_19seqs:1,r8_83seqs:2,r9_15seqs:3,r5_r3_P34:2	check
+r1_r3_P1_5p11	r1_r3_P1	5	11	7	0	600	unknown	17	r10_r8_P18:1,r6_210seqs:2,r7_133seqs:1,r1_r3_P1:10,r5_r6_P26:2,r9_15seqs:1	check
+r1_r3_P1_5p12	r1_r3_P1	5	30	15	0	58	unknown	42	r5_27seqs:2,r10_r8_P18:4,r6_210seqs:3,r7_133seqs:3,r1_r3_P1:13,r1_r3_P2:2,r5_r6_P26:3,r1_r2_r3_r3_C11:3,r9_15seqs:4,r8_83seqs:5	check
+r1_r3_P1_5p13	r1_r3_P1	5	10	6	0	135	unknown	2	r1_r3_P1:2	check
+r1_r3_P1_5p14	r1_r3_P1	5	16	8	0	278	unknown	56	r5_27seqs:2,r6_210seqs:5,r10_r8_P18:3,r7_133seqs:4,r1_r3_P1:15,r1_r3_P2:6,r5_r6_P26:6,r1_r2_r3_r3_C11:3,r8_83seqs:2,r9_15seqs:7,r5_r3_P34:3	check
+r1_r3_P1_5p15	r1_r3_P1	5	16	9	0	473	unknown	12	r10_r8_P18:1,r7_133seqs:1,r1_r3_P1:5,r1_r3_P2:1,r5_r6_P26:3,r9_15seqs:1	check
+r1_r3_P1_5p16	r1_r3_P1	5	13	10	0	0	unknown	0	-	check
+r1_r3_P1_5p17	r1_r3_P1	5	24	13	0	0	unknown	0	-	check
+r1_r3_P1_5p18	r1_r3_P1	5	25	9	0	106	unknown	90	r5_27seqs:3,r6_210seqs:15,r10_r8_P18:4,r7_133seqs:11,r1_r3_P1:23,r5_r6_P26:3,r1_r3_P2:15,r1_r2_r3_r3_C11:5,r8_83seqs:1,r9_15seqs:8,r5_r3_P34:2	check
+r1_r3_P1_5p19	r1_r3_P1	5	24	13	5	109	unknown	76	r5_27seqs:1,r10_r8_P18:1,r6_210seqs:7,r7_133seqs:2,r1_r3_P1:27,r1_r3_P2:11,r5_r6_P26:8,r1_r2_r3_r3_C11:3,r10_19seqs:1,r8_83seqs:2,r9_15seqs:10,r5_r3_P34:3	check
+r1_r3_P1_5p2	r1_r3_P1	5	11	10	0	602	unknown	55	r5_27seqs:1,r10_r8_P18:2,r6_210seqs:9,r7_133seqs:5,r1_r3_P1:17,r1_r3_P2:3,r5_r6_P26:9,r1_r2_r3_r3_C11:3,r9_15seqs:4,r8_83seqs:2	check
+r1_r3_P1_5p20	r1_r3_P1	5	11	8	0	602	unknown	36	r6_210seqs:3,r10_r8_P18:3,r5_r5_P48:1,r7_133seqs:4,r1_r3_P1:11,r5_r6_P26:3,r1_r3_P2:5,r1_r2_r3_r3_C11:3,r9_15seqs:1,r8_83seqs:2	check
+r1_r3_P1_5p21	r1_r3_P1	5	64	15	0	308	x.L1MB1_3end (80 % over 299 of 308 bp)	212	r5_27seqs:8,r10_r8_P18:10,r6_210seqs:16,r5_r5_P48:3,r7_133seqs:14,r1_r3_P1:58,r3_58seqs:1,r5_r6_P26:20,r1_r3_P2:26,r1_r2_r3_r3_C11:25,r10_19seqs:2,r9_15seqs:8,r8_83seqs:11,r5_r3_P34:10	check
+r1_r3_P1_5p22	r1_r3_P1	5	11	8	0	489	unknown	27	r10_r8_P18:1,r6_210seqs:2,r7_133seqs:1,r1_r3_P1:10,r5_r6_P26:3,r1_r3_P2:6,r1_r2_r3_r3_C11:3,r8_83seqs:1	check
+r1_r3_P1_5p23	r1_r3_P1	5	62	16	4	149	unknown	176	r5_27seqs:7,r6_210seqs:19,r10_r8_P18:8,r7_133seqs:11,r1_r3_P1:58,r1_r3_P2:21,r5_r6_P26:21,r1_r2_r3_r3_C11:13,r10_19seqs:2,r9_15seqs:7,r8_83seqs:7,r5_r3_P34:2	check
+r1_r3_P1_5p24	r1_r3_P1	5	23	11	0	50	unknown	76	r5_27seqs:4,r6_210seqs:2,r10_r8_P18:2,r5_r5_P48:1,r7_133seqs:5,r1_r3_P1:23,r5_r6_P26:7,r1_r3_P2:11,r1_r2_r3_r3_C11:5,r8_83seqs:6,r9_15seqs:7,r5_r3_P34:3	check
+r1_r3_P1_5p25	r1_r3_P1	5	13	6	0	601	unknown	22	r6_210seqs:2,r7_133seqs:2,r1_r3_P1:13,r5_r6_P26:1,r1_r3_P2:1,r1_r2_r3_r3_C11:2,r9_15seqs:1	check
+r1_r3_P1_5p26	r1_r3_P1	5	10	9	0	157	unknown	46	r5_27seqs:2,r10_r8_P18:2,r6_210seqs:4,r7_133seqs:6,r1_r3_P1:11,r1_r3_P2:3,r3_58seqs:1,r5_r6_P26:3,r1_r2_r3_r3_C11:3,r10_19seqs:2,r9_15seqs:1,r8_83seqs:5,r5_r3_P34:3	check
+r1_r3_P1_5p27	r1_r3_P1	5	20	11	0	78	unknown	69	r5_27seqs:2,r6_210seqs:5,r10_r8_P18:7,r5_r5_P48:2,r7_133seqs:8,r1_r3_P1:18,r5_r6_P26:3,r1_r3_P2:9,r1_r2_r3_r3_C11:2,r8_83seqs:4,r9_15seqs:8,r5_r3_P34:1	check
+r1_r3_P1_5p28	r1_r3_P1	5	24	16	1	69	unknown	11	r6_210seqs:1,r7_133seqs:1,r1_r3_P1:8,r1_r3_P2:1	check
+r1_r3_P1_5p29	r1_r3_P1	5	14	9	0	527	unknown	44	r6_210seqs:6,r10_r8_P18:4,r1_r3_P1:11,r7_133seqs:1,r1_r3_P2:5,r5_r6_P26:5,r1_r2_r3_r3_C11:4,r8_83seqs:4,r9_15seqs:3,r5_r3_P34:1	check
+r1_r3_P1_5p3	r1_r3_P1	5	10	7	0	300	unknown	23	r5_27seqs:1,r6_210seqs:2,r7_133seqs:2,r1_r3_P1:10,r5_r6_P26:1,r1_r3_P2:1,r1_r2_r3_r3_C11:2,r8_83seqs:1,r9_15seqs:3	check
+r1_r3_P1_5p30	r1_r3_P1	5	21	11	2	207	unknown	27	r6_210seqs:1,r10_r8_P18:2,r7_133seqs:1,r1_r3_P1:12,r5_r6_P26:2,r1_r3_P2:1,r1_r2_r3_r3_C11:4,r9_15seqs:1,r5_r3_P34:3	check
+r1_r3_P1_5p31	r1_r3_P1	5	13	7	0	1	unknown	0	-	check
+r1_r3_P1_5p32	r1_r3_P1	5	42	13	1	0	unknown	0	-	check
+r1_r3_P1_5p33	r1_r3_P1	5	30	12	2	90	x.L1ME4c_3end (81 % over 90 of 90 bp)	79	r5_27seqs:3,r6_210seqs:2,r5_r5_P48:1,r7_133seqs:9,r1_r3_P1:23,r1_r3_P2:9,r5_r6_P26:11,r1_r2_r3_r3_C11:8,r9_15seqs:5,r8_83seqs:5,r5_r3_P34:3	check
+r1_r3_P1_5p34	r1_r3_P1	5	41	16	2	74	unknown	57	r10_r8_P18:4,r6_210seqs:2,r7_133seqs:2,r1_r3_P1:36,r5_r6_P26:1,r1_r3_P2:8,r1_r2_r3_r3_C11:4	check
+r1_r3_P1_5p35	r1_r3_P1	5	24	13	0	170	unknown	50	r5_27seqs:1,r10_r8_P18:3,r6_210seqs:2,r7_133seqs:3,r1_r3_P1:20,r1_r3_P2:5,r5_r6_P26:4,r8_83seqs:3,r9_15seqs:6,r5_r3_P34:3	check
+r1_r3_P1_5p36	r1_r3_P1	5	15	9	2	149	unknown	19	r6_210seqs:1,r10_r8_P18:1,r7_133seqs:1,r1_r3_P1:7,r5_r6_P26:1,r1_r3_P2:2,r1_r2_r3_r3_C11:1,r8_83seqs:1,r9_15seqs:4	check
+r1_r3_P1_5p4	r1_r3_P1	5	13	9	0	559	unknown	32	r10_r8_P18:1,r1_r3_P1:10,r7_133seqs:2,r5_r6_P26:1,r1_r3_P2:1,r1_r2_r3_r3_C11:15,r8_83seqs:1,r9_15seqs:1	check
+r1_r3_P1_5p5	r1_r3_P1	5	57	17	7	268	x.L1MB7_3end (65 % over 242 of 268 bp)	87	r5_27seqs:1,r6_210seqs:5,r10_r8_P18:9,r7_133seqs:6,r1_r3_P1:24,r5_r6_P26:6,r1_r3_P2:14,r1_r2_r3_r3_C11:9,r10_19seqs:2,r9_15seqs:5,r8_83seqs:4,r5_r3_P34:2	check
+r1_r3_P1_5p6	r1_r3_P1	5	66	17	1	599	unknown	150	r6_210seqs:11,r10_r8_P18:4,r7_133seqs:14,r1_r3_P1:51,r5_r6_P26:22,r1_r3_P2:16,r1_r2_r3_r3_C11:14,r10_19seqs:1,r8_83seqs:4,r9_15seqs:11,r5_r3_P34:2	check
+r1_r3_P1_5p7	r1_r3_P1	5	25	13	4	383	x.L1MB3_3end (99 % over 359 of 383 bp)	108	r5_27seqs:8,r10_r8_P18:3,r6_210seqs:10,r5_r5_P48:1,r7_133seqs:9,r1_r3_P1:32,r1_r3_P2:17,r5_r6_P26:9,r1_r2_r3_r3_C11:6,r8_83seqs:5,r9_15seqs:6,r5_r3_P34:2	check
+r1_r3_P1_5p8	r1_r3_P1	5	10	9	0	4	unknown	0	-	check
+r1_r3_P1_5p9	r1_r3_P1	5	25	10	0	65	unknown	91	r5_27seqs:1,r10_r8_P18:4,r6_210seqs:9,r7_133seqs:8,r1_r3_P1:26,r1_r3_P2:7,r5_r6_P26:15,r1_r2_r3_r3_C11:5,r9_15seqs:7,r8_83seqs:5,r5_r3_P34:4	check
+r1_r3_P2_5p1	r1_r3_P2	5	11	6	4	199	unknown	94	r5_27seqs:3,r6_210seqs:14,r10_r8_P18:5,r7_133seqs:11,r1_r3_P1:24,r5_r6_P26:4,r1_r3_P2:15,r1_r2_r3_r3_C11:7,r8_83seqs:1,r9_15seqs:8,r5_r3_P34:2	check
+r1_r3_P2_5p10	r1_r3_P2	5	14	9	0	154	unknown	8	r5_r6_P26:1,r1_r3_P2:4,r1_r2_r3_r3_C11:2,r9_15seqs:1	check
+r1_r3_P2_5p2	r1_r3_P2	5	11	6	0	58	unknown	77	r5_27seqs:4,r6_210seqs:2,r10_r8_P18:2,r5_r5_P48:1,r7_133seqs:5,r1_r3_P1:24,r5_r6_P26:7,r1_r3_P2:12,r1_r2_r3_r3_C11:5,r9_15seqs:7,r8_83seqs:5,r5_r3_P34:3	check
+r1_r3_P2_5p3	r1_r3_P2	5	15	12	2	107	x.L1ME4c_3end (78 % over 102 of 107 bp)	75	r5_27seqs:3,r6_210seqs:2,r5_r5_P48:1,r7_133seqs:8,r1_r3_P1:24,r5_r6_P26:9,r1_r3_P2:7,r1_r2_r3_r3_C11:8,r8_83seqs:5,r9_15seqs:5,r5_r3_P34:3	check
+r1_r3_P2_5p4	r1_r3_P2	5	25	12	0	0	unknown	0	-	check
+r1_r3_P2_5p5	r1_r3_P2	5	26	12	0	334	unknown	175	r5_27seqs:7,r6_210seqs:19,r10_r8_P18:8,r1_r3_P1:58,r7_133seqs:11,r5_r6_P26:20,r1_r3_P2:21,r1_r2_r3_r3_C11:13,r10_19seqs:2,r9_15seqs:7,r8_83seqs:7,r5_r3_P34:2	check
+r1_r3_P2_5p6	r1_r3_P2	5	13	11	0	0	unknown	0	-	check
+r1_r3_P2_5p7	r1_r3_P2	5	26	13	3	183	x.L1MB1_3end (76 % over 142 of 183 bp)	180	r5_27seqs:8,r10_r8_P18:8,r6_210seqs:12,r5_r5_P48:3,r7_133seqs:12,r1_r3_P1:53,r3_58seqs:1,r5_r6_P26:17,r1_r3_P2:24,r1_r2_r3_r3_C11:20,r10_19seqs:2,r9_15seqs:5,r8_83seqs:8,r5_r3_P34:7	check
+r1_r3_P2_5p8	r1_r3_P2	5	29	14	3	2	unknown	0	-	check
+r1_r3_P2_5p9	r1_r3_P2	5	12	9	0	79	unknown	58	r6_210seqs:2,r10_r8_P18:4,r7_133seqs:2,r1_r3_P1:37,r5_r6_P26:1,r1_r3_P2:8,r1_r2_r3_r3_C11:4	check
+r5_r6_P26_5p1	r5_r6_P26	5	21	13	9	168	unknown	30	r6_210seqs:4,r1_r3_P1:1,r7_133seqs:4,r5_r6_P26:18,r9_15seqs:1,r8_83seqs:2	check
+r5_r6_P26_5p2	r5_r6_P26	5	24	10	0	122	unknown	178	r5_27seqs:7,r6_210seqs:19,r10_r8_P18:8,r7_133seqs:12,r1_r3_P1:58,r5_r6_P26:22,r1_r3_P2:21,r1_r2_r3_r3_C11:13,r10_19seqs:2,r9_15seqs:7,r8_83seqs:7,r5_r3_P34:2	check
+r5_r6_P26_5p3	r5_r6_P26	5	14	9	1	0	unknown	0	-	check
+r5_r6_P26_5p4	r5_r6_P26	5	17	12	4	323	x.L1MB1_3end (82 % over 265 of 323 bp)	178	r5_27seqs:8,r10_r8_P18:8,r6_210seqs:13,r5_r5_P48:3,r7_133seqs:11,r1_r3_P1:51,r3_58seqs:1,r5_r6_P26:18,r1_r3_P2:25,r1_r2_r3_r3_C11:17,r10_19seqs:2,r9_15seqs:5,r8_83seqs:8,r5_r3_P34:8	check
+r5_r6_P26_5p5	r5_r6_P26	5	25	10	0	142	x.L1ME4c_3end (80 % over 136 of 142 bp)	37	r5_27seqs:1,r10_r8_P18:1,r6_210seqs:2,r7_133seqs:3,r1_r3_P1:9,r5_r6_P26:9,r1_r3_P2:3,r1_r2_r3_r3_C11:1,r10_19seqs:1,r9_15seqs:7	check
+r5_r6_P26_5p6	r5_r6_P26	5	13	7	0	0	unknown	0	-	check
+r5_r6_P26_5p7	r5_r6_P26	5	27	13	0	420	unknown	138	r6_210seqs:9,r10_r8_P18:4,r7_133seqs:12,r1_r3_P1:48,r5_r6_P26:23,r1_r3_P2:13,r1_r2_r3_r3_C11:12,r10_19seqs:1,r8_83seqs:4,r9_15seqs:11,r5_r3_P34:1	check
+r5_r6_P26_5p8	r5_r6_P26	5	12	6	0	73	unknown	91	r5_27seqs:1,r10_r8_P18:4,r6_210seqs:9,r7_133seqs:8,r1_r3_P1:26,r1_r3_P2:7,r5_r6_P26:15,r1_r2_r3_r3_C11:5,r9_15seqs:7,r8_83seqs:5,r5_r3_P34:4	check
+r5_r6_P26_5p9	r5_r6_P26	5	10	7	0	512	unknown	56	r5_27seqs:1,r10_r8_P18:2,r6_210seqs:9,r7_133seqs:4,r1_r3_P1:18,r1_r3_P2:3,r5_r6_P26:9,r1_r2_r3_r3_C11:3,r8_83seqs:2,r9_15seqs:5	check
+r6_210seqs_5p1	r6_210seqs	5	14	11	0	59	unknown	91	r5_27seqs:3,r6_210seqs:15,r10_r8_P18:4,r7_133seqs:11,r1_r3_P1:24,r5_r6_P26:3,r1_r3_P2:15,r1_r2_r3_r3_C11:5,r8_83seqs:1,r9_15seqs:8,r5_r3_P34:2	check
+r6_210seqs_5p2	r6_210seqs	5	10	8	0	94	unknown	46	r5_27seqs:3,r10_r8_P18:2,r6_210seqs:9,r7_133seqs:5,r1_r3_P1:9,r5_r6_P26:4,r1_r3_P2:5,r1_r2_r3_r3_C11:3,r8_83seqs:2,r9_15seqs:2,r5_r3_P34:2	check
+r6_210seqs_5p3	r6_210seqs	5	11	7	0	2	unknown	0	-	check
+r6_210seqs_5p4	r6_210seqs	5	19	11	0	115	unknown	176	r5_27seqs:7,r6_210seqs:19,r10_r8_P18:8,r7_133seqs:11,r1_r3_P1:58,r1_r3_P2:21,r5_r6_P26:21,r1_r2_r3_r3_C11:13,r10_19seqs:2,r9_15seqs:7,r8_83seqs:7,r5_r3_P34:2	check
+r6_210seqs_5p5	r6_210seqs	5	10	7	0	1	unknown	0	-	check
+r6_210seqs_5p6	r6_210seqs	5	10	8	0	0	unknown	0	-	check
+r7_133seqs_5p1	r7_133seqs	5	11	7	0	288	x.L1MB1_3end (75 % over 251 of 288 bp)	173	r5_27seqs:7,r10_r8_P18:8,r6_210seqs:13,r5_r5_P48:3,r1_r3_P1:49,r7_133seqs:11,r3_58seqs:1,r5_r6_P26:13,r1_r3_P2:24,r1_r2_r3_r3_C11:20,r10_19seqs:2,r9_15seqs:8,r8_83seqs:6,r5_r3_P34:8	check
+r7_133seqs_5p2	r7_133seqs	5	15	12	2	0	unknown	0	-	check
+r7_133seqs_5p3	r7_133seqs	5	12	6	0	121	unknown	177	r5_27seqs:7,r6_210seqs:19,r10_r8_P18:8,r7_133seqs:12,r1_r3_P1:58,r1_r3_P2:21,r5_r6_P26:21,r1_r2_r3_r3_C11:13,r10_19seqs:2,r9_15seqs:7,r8_83seqs:7,r5_r3_P34:2	check
+r7_133seqs_5p4	r7_133seqs	5	10	7	0	111	unknown	92	r5_27seqs:3,r6_210seqs:15,r10_r8_P18:4,r7_133seqs:11,r1_r3_P1:24,r5_r6_P26:3,r1_r3_P2:16,r1_r2_r3_r3_C11:5,r8_83seqs:1,r9_15seqs:8,r5_r3_P34:2	check
+r7_133seqs_5p5	r7_133seqs	5	20	10	2	0	unknown	0	-	check
+r9_15seqs_5p1	r9_15seqs	5	10	7	0	77	unknown	67	r5_27seqs:1,r6_210seqs:6,r10_r8_P18:7,r5_r5_P48:2,r7_133seqs:8,r1_r3_P1:18,r5_r6_P26:2,r1_r3_P2:9,r1_r2_r3_r3_C11:2,r8_83seqs:3,r9_15seqs:8,r5_r3_P34:1	check
+r9_15seqs_5p2	r9_15seqs	5	12	9	0	0	unknown	0	-	check
+r9_15seqs_5p3	r9_15seqs	5	17	12	2	182	unknown	56	r5_27seqs:1,r6_210seqs:1,r10_r8_P18:7,r7_133seqs:4,r1_r3_P1:16,r5_r6_P26:3,r1_r3_P2:9,r1_r2_r3_r3_C11:6,r10_19seqs:2,r9_15seqs:2,r8_83seqs:4,r5_r3_P34:1	check
+r9_15seqs_5p4	r9_15seqs	5	15	8	0	370	x.L1MC3_3end (67 % over 279 of 370 bp)	150	r6_210seqs:11,r10_r8_P18:4,r7_133seqs:12,r1_r3_P1:51,r5_r6_P26:23,r1_r3_P2:16,r1_r2_r3_r3_C11:12,r10_19seqs:1,r8_83seqs:4,r9_15seqs:14,r5_r3_P34:2	check
