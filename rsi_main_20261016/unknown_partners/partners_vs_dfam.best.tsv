@@ -1,0 +1,56 @@
+MEG-RS_5p1	len321	DF000276192	64.4%	312bp	q18-321	s447-735 +	DF000276192	DasNov-1.257	Dasypus novemcinctus	Amniota; Mammalia; Theria; Eutheria; Xenarthra; Cingulata; Dasypodidae; Dasypus.	787
+r1_r2_r3_r3_C11_5p3	len602	DF000280527	99.3%	602bp	q1-602	s5230-5831 +	DF000280527	RhiSin-6.330	Rhinolophus sinicus	; Yinpterochiroptera; Rhinolophoidea; Rhinolophidae; Rhinolophinae; Rhinolophus.	6428
+r1_r2_r3_r3_C11_5p4	len600	DF000277421	92.5%	602bp	q1-600	s2723-3324 +	DF000277421	HipArm-3.36	Hipposideros armiger	a; Chiroptera; Yinpterochiroptera; Rhinolophoidea; Hipposideridae; Hipposideros.	6600
+r1_r3_P1_5p10	len80	DF000280217	98.7%	80bp	q1-80	s5285-5364 +	DF000280217	PteAle-1.37	Pteropus alecto	optera; Yinpterochiroptera; Pteropodoidea; Pteropodidae; Pteropodinae; Pteropus.	6223
+r1_r3_P1_5p11	len600	DF000275876	97.5%	600bp	q1-600	s1083-1682 +	DF000275876	CraTho-5.192	Craseonycteris thonglongyai	hiroptera; Yinpterochiroptera; Rhinolophoidea; Craseonycteridae; Craseonycteris.	3164
+r1_r3_P1_5p12	len58	DF000277407	96.2%	53bp	q6-58	s1-53 +	DF000277407	HipArm-1.33	Hipposideros armiger	a; Chiroptera; Yinpterochiroptera; Rhinolophoidea; Hipposideridae; Hipposideros.	918
+r1_r3_P1_5p13	len135	DF000280509	94.7%	133bp	q1-133	s914-1046 +	DF000280509	RhiSin-4.121	Rhinolophus sinicus	; Yinpterochiroptera; Rhinolophoidea; Rhinolophidae; Rhinolophinae; Rhinolophus.	2844
+r1_r3_P1_5p14	len278	DF000277402	98.2%	278bp	q1-278	s2577-2854 +	DF000277402	HipArm-1.18	Hipposideros armiger	a; Chiroptera; Yinpterochiroptera; Rhinolophoidea; Hipposideridae; Hipposideros.	3954
+r1_r3_P1_5p15	len473	DF000277461	95.5%	470bp	q1-470	s1531-2000 +	DF000277461	HipGal-1.40	Hipposideros galeritus	a; Chiroptera; Yinpterochiroptera; Rhinolophoidea; Hipposideridae; Hipposideros.	3947
+r1_r3_P1_5p18	len106	DF000000268	97.2%	106bp	q1-106	s83-188 +	DF000000268	L1MB2_3end	Boreoeutheria	opterygii; Dipnotetrapodomorpha; Tetrapoda; Amniota; Mammalia; Theria; Eutheria.	918
+r1_r3_P1_5p19	len109	DF000276412	96.3%	109bp	q1-109	s266-374 +	DF000276412	DicBic-1.40	Diceros bicornis michaeli	eria; Laurasiatheria; Perissodactyla; Rhinocerotidae; Diceros; Diceros bicornis.	1208
+r1_r3_P1_5p1	len67	DF000000268	95.5%	66bp	q1-66	s589-654 +	DF000000268	L1MB2_3end	Boreoeutheria	opterygii; Dipnotetrapodomorpha; Tetrapoda; Amniota; Mammalia; Theria; Eutheria.	918
+r1_r3_P1_5p20	len602	DF000275876	98.3%	602bp	q1-602	s1122-1723 +	DF000275876	CraTho-5.192	Craseonycteris thonglongyai	hiroptera; Yinpterochiroptera; Rhinolophoidea; Craseonycteridae; Craseonycteris.	3164
+r1_r3_P1_5p21	len308	DF000277459	98.7%	309bp	q1-308	s187-495 +	DF000277459	HipGal-1.28	Hipposideros galeritus	a; Chiroptera; Yinpterochiroptera; Rhinolophoidea; Hipposideridae; Hipposideros.	713
+r1_r3_P1_5p22	len489	DF000280527	99.6%	489bp	q1-489	s4064-4552 +	DF000280527	RhiSin-6.330	Rhinolophus sinicus	; Yinpterochiroptera; Rhinolophoidea; Rhinolophidae; Rhinolophinae; Rhinolophus.	6428
+r1_r3_P1_5p23	len149	DF000277450	96.0%	149bp	q1-149	s5821-5969 +	DF000277450	HipGal-1.199	Hipposideros galeritus	a; Chiroptera; Yinpterochiroptera; Rhinolophoidea; Hipposideridae; Hipposideros.	6566
+r1_r3_P1_5p25	len601	DF003445692	74.7%	601bp	q1-601	s1590-2190 +	DF003445692	Pman_ALU_5.1881	Peromyscus maniculatus	ires; Glires; Rodentia; Myomorpha; Muroidea; Cricetidae; Neotominae; Peromyscus.	3073
+r1_r3_P1_5p26	len157	DF000277468	97.4%	159bp	q2-156	s3-161 +	DF000277468	HipGal-1.74	Hipposideros galeritus	a; Chiroptera; Yinpterochiroptera; Rhinolophoidea; Hipposideridae; Hipposideros.	571
+r1_r3_P1_5p28	len69	DF000276959	98.5%	68bp	q1-68	s1320-1387 +	DF000276959	EubJap-3.578	Eubalaena japonica	iatheria; Artiodactyla; Whippomorpha; Cetacea; Mysticeti; Balaenidae; Eubalaena.	2378
+r1_r3_P1_5p29	len527	DF000278123	98.4%	187bp	q1-187	s3-189 +	DF000278123	MegLyr-1.28	Lyroderma lyra	eria; Chiroptera; Yinpterochiroptera; Rhinolophoidea; Megadermatidae; Lyroderma.	476
+r1_r3_P1_5p2	len602	DF000277402	94.2%	603bp	q1-602	s1181-1783 +	DF000277402	HipArm-1.18	Hipposideros armiger	a; Chiroptera; Yinpterochiroptera; Rhinolophoidea; Hipposideridae; Hipposideros.	3954
+r1_r3_P1_5p30	len207	DF000280527	98.1%	207bp	q1-207	s2234-2440 +	DF000280527	RhiSin-6.330	Rhinolophus sinicus	; Yinpterochiroptera; Rhinolophoidea; Rhinolophidae; Rhinolophinae; Rhinolophus.	6428
+r1_r3_P1_5p33	len90	DF000276948	94.4%	90bp	q1-90	s1087-1176 +	DF000276948	EubJap-1.21	Eubalaena japonica	iatheria; Artiodactyla; Whippomorpha; Cetacea; Mysticeti; Balaenidae; Eubalaena.	1667
+r1_r3_P1_5p34	len74	DF000280508	100.0%	74bp	q1-74	s3-76 +	DF000280508	RhiSin-2.11	Rhinolophus sinicus	; Yinpterochiroptera; Rhinolophoidea; Rhinolophidae; Rhinolophinae; Rhinolophus.	212
+r1_r3_P1_5p35	len170	DF000276603	95.9%	169bp	q2-170	s5733-5901 +	DF000276603	EidHel-4.176	Eidolon helvum	roptera; Yinpterochiroptera; Pteropodoidea; Pteropodidae; Pteropodinae; Eidolon.	6852
+r1_r3_P1_5p36	len149	DF000278146	97.3%	149bp	q1-149	s272-420 +	DF000278146	MegLyr-4.196	Lyroderma lyra	eria; Chiroptera; Yinpterochiroptera; Rhinolophoidea; Megadermatidae; Lyroderma.	1008
+r1_r3_P1_5p37	len170	DF000276603	95.9%	169bp	q2-170	s5733-5901 +	DF000276603	EidHel-4.176	Eidolon helvum	roptera; Yinpterochiroptera; Pteropodoidea; Pteropodidae; Pteropodinae; Eidolon.	6852
+r1_r3_P1_5p38	len146	DF000276916	95.9%	146bp	q1-146	s221-366 +	DF000276916	EscRob-1.66	Eschrichtius robustus	a; Artiodactyla; Whippomorpha; Cetacea; Mysticeti; Eschrichtiidae; Eschrichtius.	1342
+r1_r3_P1_5p3	len300	DF000275477	93.0%	300bp	q1-300	s5177-5476 +	DF000275477	CerSim-5.16	Ceratotherium simum	a; Boreoeutheria; Laurasiatheria; Perissodactyla; Rhinocerotidae; Ceratotherium.	7017
+r1_r3_P1_5p4	len559	DF000280527	99.1%	559bp	q1-559	s2598-3156 +	DF000280527	RhiSin-6.330	Rhinolophus sinicus	; Yinpterochiroptera; Rhinolophoidea; Rhinolophidae; Rhinolophinae; Rhinolophus.	6428
+r1_r3_P1_5p5	len268	DF000280527	99.2%	259bp	q1-259	s6170-6428 +	DF000280527	RhiSin-6.330	Rhinolophus sinicus	; Yinpterochiroptera; Rhinolophoidea; Rhinolophidae; Rhinolophinae; Rhinolophus.	6428
+r1_r3_P1_5p6	len599	DF000277411	98.0%	599bp	q1-599	s1887-2485 +	DF000277411	HipArm-1.48	Hipposideros armiger	a; Chiroptera; Yinpterochiroptera; Rhinolophoidea; Hipposideridae; Hipposideros.	3351
+r1_r3_P1_5p7	len383	DF000000269	99.0%	383bp	q1-383	s507-889 +	DF000000269	L1MB3_3end	Boreoeutheria	opterygii; Dipnotetrapodomorpha; Tetrapoda; Amniota; Mammalia; Theria; Eutheria.	930
+r1_r3_P1_5p9	len65	DF000280498	96.9%	64bp	q1-64	s191-254 +	DF000280498	RhiSin-1.46	Rhinolophus sinicus	; Yinpterochiroptera; Rhinolophoidea; Rhinolophidae; Rhinolophinae; Rhinolophus.	563
+r1_r3_P2_5p10	len154	DF000277429	96.1%	154bp	q1-154	s3330-3483 +	DF000277429	HipArm-5.71	Hipposideros armiger	a; Chiroptera; Yinpterochiroptera; Rhinolophoidea; Hipposideridae; Hipposideros.	4287
+r1_r3_P2_5p1	len199	DF000281328	94.9%	199bp	q1-199	s4089-4287 +	DF000281328	VulLag-6.460	Vulpes lagopus	Eutheria; Boreoeutheria; Laurasiatheria; Carnivora; Caniformia; Canidae; Vulpes.	5030
+r1_r3_P2_5p3	len107	DF000280527	92.5%	107bp	q1-107	s5901-6007 +	DF000280527	RhiSin-6.330	Rhinolophus sinicus	; Yinpterochiroptera; Rhinolophoidea; Rhinolophidae; Rhinolophinae; Rhinolophus.	6428
+r1_r3_P2_5p5	len334	DF000277458	97.6%	334bp	q1-334	s2540-2873 +	DF000277458	HipGal-1.23	Hipposideros galeritus	a; Chiroptera; Yinpterochiroptera; Rhinolophoidea; Hipposideridae; Hipposideros.	3470
+r1_r3_P2_5p7	len183	DF000278101	98.4%	183bp	q1-183	s2929-3111 +	DF000278101	MegLyr-1.16	Lyroderma lyra	eria; Chiroptera; Yinpterochiroptera; Rhinolophoidea; Megadermatidae; Lyroderma.	3744
+r1_r3_P2_5p9	len79	DF000280508	98.7%	76bp	q4-79	s1-76 +	DF000280508	RhiSin-2.11	Rhinolophus sinicus	; Yinpterochiroptera; Rhinolophoidea; Rhinolophidae; Rhinolophinae; Rhinolophus.	212
+r5_r6_P26_5p1	len168	DF000280481	95.5%	161bp	q8-168	s82-237 +	DF000280481	RhiSin-1.14	Rhinolophus sinicus	; Yinpterochiroptera; Rhinolophoidea; Rhinolophidae; Rhinolophinae; Rhinolophus.	237
+r5_r6_P26_5p2	len122	DF000275432	97.5%	122bp	q1-122	s1866-1987 +	DF000275432	CerCot-1.61	Ceratotherium simum cottoni	rasiatheria; Perissodactyla; Rhinocerotidae; Ceratotherium; Ceratotherium simum.	2702
+r5_r6_P26_5p4	len323	DF000277459	96.9%	323bp	q1-323	s180-502 +	DF000277459	HipGal-1.28	Hipposideros galeritus	a; Chiroptera; Yinpterochiroptera; Rhinolophoidea; Hipposideridae; Hipposideros.	713
+r5_r6_P26_5p5	len142	DF000276823	96.4%	140bp	q1-140	s5831-5970 +	DF000276823	EquPrz-2.27	Equus przewalskii	Theria; Eutheria; Boreoeutheria; Laurasiatheria; Perissodactyla; Equidae; Equus.	6306
+r5_r6_P26_5p7	len420	DF000277411	98.0%	419bp	q1-419	s2074-2484 +	DF000277411	HipArm-1.48	Hipposideros armiger	a; Chiroptera; Yinpterochiroptera; Rhinolophoidea; Hipposideridae; Hipposideros.	3351
+r5_r6_P26_5p8	len73	DF003440300	97.2%	72bp	q1-72	s534-605 +	DF003440300	nMar5_rFer	Rhinolophus ferrumequinum	; Yinpterochiroptera; Rhinolophoidea; Rhinolophidae; Rhinolophinae; Rhinolophus.	914
+r5_r6_P26_5p9	len512	DF000275876	96.1%	512bp	q1-512	s1096-1607 +	DF000275876	CraTho-5.192	Craseonycteris thonglongyai	hiroptera; Yinpterochiroptera; Rhinolophoidea; Craseonycteridae; Craseonycteris.	3164
+r6_210seqs_5p1	len59	DF000000267	100.0%	59bp	q1-59	s130-188 +	DF000000267	L1MB1_3end	Boreoeutheria	opterygii; Dipnotetrapodomorpha; Tetrapoda; Amniota; Mammalia; Theria; Eutheria.	915
+r6_210seqs_5p2	len94	DF000278168	94.4%	90bp	q4-93	s1247-1336 +	DF000278168	MegLyr-5.537	Lyroderma lyra	eria; Chiroptera; Yinpterochiroptera; Rhinolophoidea; Megadermatidae; Lyroderma.	1351
+r6_210seqs_5p4	len115	DF000275432	98.3%	115bp	q1-115	s1872-1986 +	DF000275432	CerCot-1.61	Ceratotherium simum cottoni	rasiatheria; Perissodactyla; Rhinocerotidae; Ceratotherium; Ceratotherium simum.	2702
+r6_210seqs_5p8	len280	DF000277421	92.0%	276bp	q5-280	s6065-6340 +	DF000277421	HipArm-3.36	Hipposideros armiger	a; Chiroptera; Yinpterochiroptera; Rhinolophoidea; Hipposideridae; Hipposideros.	6600
+r7_133seqs_5p1	len288	DF000277461	96.8%	287bp	q1-287	s3028-3313 +	DF000277461	HipGal-1.40	Hipposideros galeritus	a; Chiroptera; Yinpterochiroptera; Rhinolophoidea; Hipposideridae; Hipposideros.	3947
+r7_133seqs_5p3	len121	DF000276412	100.0%	120bp	q1-120	s372-491 +	DF000276412	DicBic-1.40	Diceros bicornis michaeli	eria; Laurasiatheria; Perissodactyla; Rhinocerotidae; Diceros; Diceros bicornis.	1208
+r7_133seqs_5p4	len111	DF000000267	96.4%	110bp	q1-110	s79-188 +	DF000000267	L1MB1_3end	Boreoeutheria	opterygii; Dipnotetrapodomorpha; Tetrapoda; Amniota; Mammalia; Theria; Eutheria.	915
+r9_15seqs_5p3	len182	DF000280527	97.1%	173bp	q1-173	s6256-6428 +	DF000280527	RhiSin-6.330	Rhinolophus sinicus	; Yinpterochiroptera; Rhinolophoidea; Rhinolophidae; Rhinolophinae; Rhinolophus.	6428
+r9_15seqs_5p4	len370	DF000277411	98.4%	370bp	q1-370	s2121-2486 +	DF000277411	HipArm-1.48	Hipposideros armiger	a; Chiroptera; Yinpterochiroptera; Rhinolophoidea; Hipposideridae; Hipposideros.	3351

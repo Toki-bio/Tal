@@ -27,3 +27,17 @@ A 237 bp TcMar-Tc2 family is a non-autonomous (MITE-like) element; its terminal 
 X 91-115 found just upstream of X in 6 copies. The (TATTA)n tract at the start of X lies inside the family (positions
 ~82-90 on), not at an element's end. The 700 bp upstream of one member (NC_142518.1:59695071-59695800) is an L1 ORF2
 fragment (L1M4_orf2 82 % over 410 bp): local context only.
+
+## Why the candidates could not be decided: the partners are known repeats, and the other side was untested (2026-10-17)
+All 60 partners (>= 30 bp) searched against Dfam curated (ssearch36 -z 11, E <= 1e-3): 56 are named, mostly bat L1s and
+mariner / Tc2 MITEs at 92-100 % (`partners_vs_dfam.best.tsv`). For every group, the members' OTHER side (300 bp after the
+element) was searched against the partner's own Dfam family (`partners_dfam_otherside.tsv`: hits >= 70 % over >= 50 bp, and
+the median start of the hit on the family). In most groups the other side continues the same repeat where the partner
+stops (within ~20 bp, the target-site duplication): the copies sit INSIDE an older repeat, i.e. an insertion hot spot,
+shared on both sides. Stage 9 did not see the other side because those flanks were untestable (copy_status "masked": the
+repeat filter blanks bases of 20-mers frequent in the genome), and fs9b read "no other-side pair" as "other side unique".
+Family-specific candidates: r1_r3_P1_5p34 other side inside RhiSin-2.11 (MITE) in 38/41 (masked 38/41); 5p15 15/16 (L1,
+masked 12/16); 5p13 9/10; 5p28 20/24; 5p25 11/13; r1_r3_P2_5p10 11/14. MEG-RS_5p1: array family (array_flag.tsv: 85.9 % of
+MEG-RS in arrays), members regularly spaced (3.6, 6.2, 10.2 kb; 4.8 + 1.4 kb), 39/41 other sides masked; stage 9's array
+class needs neighbours < 2 kb apart. Only the X group (r5_r6_P26_5p1) has a tested-unique other side (21/21 "unique",
+other sides unrelated): its partner ends at RhiSin-1.14's own 3' end (237 of 237).

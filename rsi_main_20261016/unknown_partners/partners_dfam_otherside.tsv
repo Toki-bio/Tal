@@ -1,0 +1,57 @@
+group	n	dfam	class	flen	partner_on_fam	other_side_hits_same_fam	other_side_fam_start_median
+MEG-RS_5p1	41	Dasypus novemcinctus	LINE/L1	787	447-735	0/41	-
+r1_r2_r3_r3_C11_5p3	10	Rhinolophus sinicus	LINE/L1	6428	5230-5831	9/10	5822
+r1_r2_r3_r3_C11_5p4	15	Hipposideros armiger	LINE/L1	6600	2723-3324	15/15	3311
+r1_r3_P1_5p10	12	Pteropus alecto	LINE/L1	6223	5285-5364	11/12	5354
+r1_r3_P1_5p11	11	Craseonycteris thonglongyai	LINE/L1	3164	1083-1682	11/11	1671
+r1_r3_P1_5p12	30	Hipposideros armiger	DNA/TcMar-Mariner	918	1-53	29/30	46
+r1_r3_P1_5p13	10	Rhinolophus sinicus	LINE/L1	2844	914-1046	9/10	1037
+r1_r3_P1_5p14	16	Hipposideros armiger	LINE/L1	3954	2577-2854	10/16	2828
+r1_r3_P1_5p15	16	Hipposideros galeritus	LINE/L1	3947	1531-2000	15/16	2003
+r1_r3_P1_5p18	25	Boreoeutheria	LINE/L1	918	83-188	21/25	171
+r1_r3_P1_5p19	24	Diceros bicornis michaeli	LINE/L1	1208	266-374	24/24	364
+r1_r3_P1_5p1	10	Boreoeutheria	LINE/L1	918	589-654	4/10	642
+r1_r3_P1_5p20	11	Craseonycteris thonglongyai	LINE/L1	3164	1122-1723	10/11	1712
+r1_r3_P1_5p21	64	Hipposideros galeritus	LINE/L1	713	187-495	61/64	483
+r1_r3_P1_5p22	11	Rhinolophus sinicus	LINE/L1	6428	4064-4552	11/11	4543
+r1_r3_P1_5p23	62	Hipposideros galeritus	LINE/L1	6566	5821-5969	53/62	5960
+r1_r3_P1_5p25	13	Peromyscus maniculatus	SINE/Alu	3073	1590-2190	11/13	2187
+r1_r3_P1_5p26	10	Hipposideros galeritus	DNA/TcMar-Mariner	571	3-161	9/10	153
+r1_r3_P1_5p28	24	Eubalaena japonica	LINE/L1	2378	1320-1387	20/24	1367
+r1_r3_P1_5p29	14	Lyroderma lyra	DNA/TcMar-Mariner	476	3-189	1/14	238
+r1_r3_P1_5p2	11	Hipposideros armiger	LINE/L1	3954	1181-1783	11/11	1774
+r1_r3_P1_5p30	21	Rhinolophus sinicus	LINE/L1	6428	2234-2440	15/21	2431
+r1_r3_P1_5p33	30	Eubalaena japonica	LINE/L1	1667	1087-1176	25/30	1161
+r1_r3_P1_5p34	41	Rhinolophus sinicus	DNA/TcMar-Tc2	212	3-76	38/41	67
+r1_r3_P1_5p35	24	Eidolon helvum	LINE/L1	6852	5733-5901	18/24	5892
+r1_r3_P1_5p36	15	Lyroderma lyra	LINE/L1	1008	272-420	11/15	411
+r1_r3_P1_5p37	24	Eidolon helvum	LINE/L1	6852	5733-5901	18/24	5892
+r1_r3_P1_5p38	17	Eschrichtius robustus	LINE/L1	1342	221-366	13/17	357
+r1_r3_P1_5p3	10	Ceratotherium simum	LINE/L1	7017	5177-5476	10/10	5462
+r1_r3_P1_5p4	13	Rhinolophus sinicus	LINE/L1	6428	2598-3156	12/13	3143
+r1_r3_P1_5p5	57	Rhinolophus sinicus	LINE/L1	6428	6170-6428	5/57	3663
+r1_r3_P1_5p6	66	Hipposideros armiger	LINE/L1	3351	1887-2485	58/66	2475
+r1_r3_P1_5p7	25	Boreoeutheria	LINE/L1	930	507-889	10/25	875
+r1_r3_P1_5p9	25	Rhinolophus sinicus	DNA/TcMar-Mariner	563	191-254	25/25	247
+r1_r3_P2_5p10	14	Hipposideros armiger	LINE/L1	4287	3330-3483	11/14	3477
+r1_r3_P2_5p1	11	Vulpes lagopus	LINE/L1	5030	4089-4287	8/11	4269
+r1_r3_P2_5p3	15	Rhinolophus sinicus	LINE/L1	6428	5901-6007	12/15	5994
+r1_r3_P2_5p5	26	Hipposideros galeritus	LINE/L1	3470	2540-2873	23/26	2863
+r1_r3_P2_5p7	26	Lyroderma lyra	LINE/L1	3744	2929-3111	26/26	3261
+r1_r3_P2_5p9	12	Rhinolophus sinicus	DNA/TcMar-Tc2	212	1-76	10/12	64
+r5_r6_P26_5p1	21	Rhinolophus sinicus	DNA/TcMar-Tc2	237	82-237	0/21	-
+r5_r6_P26_5p2	24	Ceratotherium simum cottoni	LINE/L1	2702	1866-1987	22/24	1980
+r5_r6_P26_5p4	17	Hipposideros galeritus	LINE/L1	713	180-502	17/17	484
+r5_r6_P26_5p5	25	Equus przewalskii	LINE/L1	6306	5831-5970	21/25	5966
+r5_r6_P26_5p7	27	Hipposideros armiger	LINE/L1	3351	2074-2484	26/27	2479
+r5_r6_P26_5p8	12	Rhinolophus ferrumequinum	DNA/TcMar-Mariner	914	534-605	12/12	595
+r5_r6_P26_5p9	10	Craseonycteris thonglongyai	LINE/L1	3164	1096-1607	9/10	1593
+r6_210seqs_5p1	14	Boreoeutheria	LINE/L1	915	130-188	14/14	169
+r6_210seqs_5p2	10	Lyroderma lyra	DNA/TcMar-Tc1	1351	1247-1336	2/10	4
+r6_210seqs_5p4	19	Ceratotherium simum cottoni	LINE/L1	2702	1872-1986	18/19	1976
+r6_210seqs_5p8	10	Hipposideros armiger	LINE/L1	6600	6065-6340	5/10	6330
+r7_133seqs_5p1	11	Hipposideros galeritus	LINE/L1	3947	3028-3313	11/11	3464
+r7_133seqs_5p3	12	Diceros bicornis michaeli	LINE/L1	1208	372-491	11/12	494
+r7_133seqs_5p4	10	Boreoeutheria	LINE/L1	915	79-188	8/10	181
+r9_15seqs_5p3	17	Rhinolophus sinicus	LINE/L1	6428	6256-6428	2/17	79
+r9_15seqs_5p4	15	Hipposideros armiger	LINE/L1	3351	2121-2486	15/15	2471
