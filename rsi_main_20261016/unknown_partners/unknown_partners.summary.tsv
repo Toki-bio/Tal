@@ -1,0 +1,36 @@
+cluster	groups	families	copies_in_groups	partner_len	partner_match	carriers	own_share	enrichment	specific_family	kind
+r1_r2_r3_r3_C11_5p3	r1_r2_r3_r3_C11_5p3	r1_r2_r3_r3_C11	10	602	unknown	170	0.00	0.0	-	all families: background
+r1_r3_P1_5p10	r1_r3_P1_5p10	r1_r3_P1	12	80	unknown	39	0.00	0.0	-	all families: background
+r1_r3_P1_5p13	r1_r3_P1_5p13	r1_r3_P1	30	58	unknown	42	0.00	0.0	-	all families: background
+r1_r3_P1_5p15	r1_r3_P1_5p15	r1_r3_P1	16	278	unknown	56	0.00	0.0	-	all families: background
+r1_r3_P1_5p16	r1_r3_P1_5p16	r1_r3_P1	10	99	unknown	24	0.00	0.0	-	all families: background
+r1_r3_P1_5p20	r1_r3_P1_5p20,r7_133seqs_5p4	r1_r3_P1,r7_133seqs	35	111	unknown	91	0.00	0.0	-	all families: background
+r1_r3_P1_5p24	r1_r3_P1_5p24	r1_r3_P1	11	489	unknown	27	0.00	0.0	-	all families: background
+r1_r3_P1_5p26	r1_r3_P1_5p26,r1_r3_P2_5p1	r1_r3_P1,r1_r3_P2	34	58	unknown	77	0.00	0.0	-	all families: background
+r1_r3_P1_5p28	r1_r3_P1_5p28	r1_r3_P1	10	157	unknown	46	0.00	0.0	-	all families: background
+r1_r3_P1_5p29	r1_r3_P1_5p29,r9_15seqs_5p1	r1_r3_P1,r9_15seqs	30	78	unknown	69	0.00	0.0	-	all families: background
+r1_r3_P1_5p3	r1_r3_P1_5p3	r1_r3_P1	10	300	unknown	23	0.00	0.0	-	all families: background
+r1_r3_P1_5p31	r1_r3_P1_5p31	r1_r3_P1	14	527	unknown	44	0.00	0.0	-	all families: background
+r1_r3_P1_5p32	r1_r3_P1_5p32	r1_r3_P1	23	202	unknown	26	0.00	0.0	-	all families: background
+r1_r3_P1_5p38	r1_r3_P1_5p38	r1_r3_P1	17	146	unknown	19	0.00	0.0	-	all families: background
+r1_r3_P1_5p6	r1_r3_P1_5p6	r1_r3_P1	67	208	unknown	151	0.00	0.0	-	all families: background
+r1_r3_P2_5p4	r1_r3_P2_5p4	r1_r3_P2	26	334	unknown	174	0.00	0.0	-	all families: background
+r1_r3_P2_5p9	r1_r3_P1_5p37,r1_r3_P2_5p9	r1_r3_P1,r1_r3_P2	38	170	unknown	50	0.00	0.0	-	all families: background
+r5_r6_P26_5p2	r1_r3_P1_5p25,r5_r6_P26_5p2,r6_210seqs_5p5,r7_133seqs_5p3	r1_r3_P1,r5_r6_P26,r6_210seqs,r7_133seqs	121	122	unknown	178	0.00	0.0	-	all families: background
+r5_r6_P26_5p8	r1_r3_P1_5p9,r5_r6_P26_5p8	r1_r3_P1,r5_r6_P26	37	73	unknown	91	0.00	0.0	-	all families: background
+r6_210seqs_5p1	r6_210seqs_5p1	r6_210seqs	14	59	unknown	92	0.00	0.0	-	all families: background
+r6_210seqs_5p2	r6_210seqs_5p2	r6_210seqs	10	94	unknown	46	0.00	0.0	-	all families: background
+MEG-RS_5p1	MEG-RS_5p1	MEG-RS	47	254	unknown	658	1.00	87.4	MEG-RS	family-specific: composite candidate
+r1_r3_P1_5p36	r1_r3_P1_5p36,r1_r3_P2_5p8,r5_r6_P26_5p1	r1_r3_P1,r1_r3_P2,r5_r6_P26	85	98	unknown	58	0.59	6.7	r5_r6_P26	family-specific: composite candidate
+r1_r3_P1_5p14	r1_r3_P1_5p14	r1_r3_P1	10	135	unknown	2	1.00	4.4	r1_r3_P1	family-specific: composite candidate
+r1_r3_P1_5p30	r1_r3_P1_5p30	r1_r3_P1	25	69	unknown	11	0.73	3.2	r1_r3_P1	family-specific: composite candidate
+r1_r3_P1_5p12	r1_r3_P1_5p12	r1_r3_P1	10	159	unknown	11	0.64	2.8	r1_r3_P1	family-specific: composite candidate
+r1_r3_P1_5p17	r1_r3_P1_5p11,r1_r3_P1_5p17,r1_r3_P1_5p2,r1_r3_P1_5p22,r5_r6_P26_5p9	r1_r3_P1,r5_r6_P26	59	602	unknown	55	0.59	2.6	r1_r3_P1	family-specific: composite candidate
+r1_r3_P1_5p27	r1_r3_P1_5p27	r1_r3_P1	13	601	unknown	22	0.59	2.6	r1_r3_P1	family-specific: composite candidate
+r1_r3_P1_5p1	r1_r3_P1_5p1	r1_r3_P1	12	70	x.L1MB2_3end (87 % over 69 of 70 bp)	18	0.50	2.2	r1_r3_P1	known partner
+r1_r2_r3_r3_C11_5p4	r1_r2_r3_r3_C11_5p4,r1_r3_P1_5p4	r1_r2_r3_r3_C11,r1_r3_P1	28	600	x.HAL1b_3end (60 % over 330 of 600 bp)	32	0.00	0.0	-	known partner
+r1_r3_P1_5p35	r1_r3_P1_5p35,r5_r6_P26_5p5	r1_r3_P1,r5_r6_P26	57	142	x.L1ME4c_3end (80 % over 136 of 142 bp)	78	0.00	0.0	-	known partner
+r1_r3_P1_5p7	r1_r3_P1_5p7	r1_r3_P1	29	144	x.L1MB3_3end (99 % over 143 of 144 bp)	101	0.00	0.0	-	known partner
+r1_r3_P2_5p7	r1_r3_P1_5p5,r1_r3_P2_5p7	r1_r3_P1,r1_r3_P2	96	268	x.L1MB7_3end (65 % over 242 of 268 bp)	90	0.00	0.0	-	known partner
+r5_r6_P26_5p7	r5_r6_P26_5p7,r9_15seqs_5p4	r5_r6_P26,r9_15seqs	42	420	x.L1MC3_3end (67 % over 279 of 370 bp)	148	0.00	0.0	-	known partner
+r7_133seqs_5p1	r1_r3_P1_5p23,r1_r3_P2_5p6,r5_r6_P26_5p4,r6_210seqs_5p8,r7_133seqs_5p1	r1_r3_P1,r1_r3_P2,r5_r6_P26,r6_210seqs,r7_133seqs	135	308	x.L1MB1_3end (75 % over 251 of 288 bp)	212	0.00	0.0	-	known partner
