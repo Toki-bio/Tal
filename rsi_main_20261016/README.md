@@ -33,3 +33,17 @@ Every family within ~1 % except:
 - **r6 6,585 -> 7,019 (+434)**: r6 is the family whose copies flip most between runs of the voting step (294 copies
   firm -> not firm between two step-2 runs on identical input, 2026-10-16); the strand-aware merge also changes loci.
 - Total assigned 64,555 -> 63,997.
+
+## Status against SINEderella's aim (2026-10-18)
+Measured on this run (docs/AIM.md: SINE loci = copies with tested-unique flanks; untested is not a pass):
+- **Usable as is:** the bank and its alignment (`consensuses.clean.fa`, `consensuses.aln.fa`), the assignment of copies to
+  consensuses (step 2), the composite scheme as a consensus-level hypothesis.
+- **Needs reanalysis:** copy numbers, divergence and leak in `report.html` (all assigned copies, no flank verdict: this run
+  predates the flank-verdict fix, SINEderella 3ad4675; with it, MEG-RS 730 and MEG-RL / r2_3seqs / r4_32seqs 44 copies are
+  not SINE loci); the top100 / rand100 plates in `alignments/`: of 3,600 rows, 2,452 (68 %) have flanks tested unique by
+  flankscan stage 9, 399 have masked (untested) flanks, 63 are twins, 686 could not be matched to a stage-9 result; the
+  length-version test and the consensus audit, computed from the same copies.
+- **Not SINEderella output:** `unknown_partners/` (fs9b side tool, groups of copies with shared flanks), and the folders
+  `rsi_composites_test/`, `composite_toy/` (experiments on the unmerged coverage-tiebreak branch).
+- **Blocks the rerun:** a per-copy flank gate (copies with shared or untested flanks inside otherwise interspersed
+  subfamilies), which needs the owner's rule for masked flanks.
