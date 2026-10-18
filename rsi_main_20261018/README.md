@@ -42,3 +42,17 @@ give the SINE / grey / not-SINE split.
 | `consensuses.clean.fa`, `manifest.txt` | the bank; tool versions and the command |
 
 Not yet in this run: the unit-vs-composite assignment change (branch `coverage-tiebreak`, unmerged).
+
+## What happened to r2 and r4 (checked 2026-10-18 against the peel's own loci)
+The peel (2026-09-26) was made on chunks of a run that searched with **Rhin-1 only** (therioserver
+`~/rhin/rsi/run_20260926_142634`; chunk loci in `genome.clean_step1/subfam_input/input_NNN.bnk`). Its loci are ~150 bp
+monomer-length pieces. r2 = chunks 008, 312, 313 (150 loci); r4 = 32 chunks (1,600 loci). In this run 147 / 1,595 of them
+are found (bedtools, >= 50 % overlap), but as parts of **whole composite copies**: median copy length 618 bp (C11, 608 bp
+consensus) and 482 bp (P1, 448 bp), not ~150 bp.
+- r2 loci -> C11 105, P1 32, P2 3, P34 1 (plus 6 unassigned). r2's consensus = C11 positions 193-338 at 99.3 %, i.e. C11's
+  second module.
+- r4 loci -> P1 1,111, P34 195, C11 156, P2 46, r5 8, r3 4 (plus 75 unassigned). r4's consensus = P1 200-335 at 97.8 %,
+  C11 336-471 at 97.1 %, P34 140-275 at 96.3 %, r3 1-135 at 97.0 %: the r3-like module inside the composites.
+So r2 and r4 were module-level groups sampled from inside composite elements; once the composites are in the bank, those
+loci are assigned to the composites. Copies of r2 / r4 length on their own remain: 18 and 12 (too few for the flank
+expansion test, hence grey). Verdicts of the peel loci in this run: r2 120 SINE / 17 grey / 10 not SINE; r4 1,242 / 195 / 158.
