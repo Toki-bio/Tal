@@ -1,0 +1,186 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1163 924" width="1163" font-family="Segoe UI,Roboto,Arial,sans-serif">
+<defs><pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" fill="#fff" fill-opacity="0.0"/><line x1="0" y1="0" x2="0" y2="6" stroke="#fff" stroke-width="2" stroke-opacity="0.55"/></pattern></defs>
+<rect width="100%%" height="100%%" fill="#fff"/>
+<text x="10" y="24" font-size="17" font-weight="700" fill="#222">rsi consensus bank as elementary blocks</text>
+<text x="10" y="42" font-size="11.5" fill="#555">to scale (bp); from consensus sequences only (ssearch36), 2026-10-18 - to be judged on the copies' alignments</text>
+<text x="10" y="62" font-size="13.5" font-weight="700" fill="#222">Units (length versions grouped into blocks)</text>
+<line x1="150.0" y1="74" x2="150.0" y2="82" stroke="#eee"/><text x="150.0" y="72" font-size="9.5" fill="#999" text-anchor="middle">0</text>
+<line x1="217.5" y1="74" x2="217.5" y2="82" stroke="#eee"/><text x="217.5" y="72" font-size="9.5" fill="#999" text-anchor="middle">50</text>
+<line x1="285.0" y1="74" x2="285.0" y2="82" stroke="#eee"/><text x="285.0" y="72" font-size="9.5" fill="#999" text-anchor="middle">100</text>
+<line x1="352.5" y1="74" x2="352.5" y2="82" stroke="#eee"/><text x="352.5" y="72" font-size="9.5" fill="#999" text-anchor="middle">150</text>
+<line x1="420.0" y1="74" x2="420.0" y2="82" stroke="#eee"/><text x="420.0" y="72" font-size="9.5" fill="#999" text-anchor="middle">200</text>
+<line x1="487.5" y1="74" x2="487.5" y2="82" stroke="#eee"/><text x="487.5" y="72" font-size="9.5" fill="#999" text-anchor="middle">250</text>
+<text x="142" y="99" font-size="11.5" fill="#222" text-anchor="end">r9_15seqs</text>
+<rect x="150.0" y="86" width="141.8" height="18" rx="2" fill="#e15759" stroke="#fff" stroke-width="1"><title>r9_15seqs 1-105: A (5&#x27; part) 92%</title></rect>
+<text x="220.9" y="98" font-size="10" font-weight="600" fill="#fff" text-anchor="middle">A (5&#x27; part) 92%</text>
+<text x="297.8" y="99" font-size="10" fill="#888">105 bp</text>
+<text x="142" y="125" font-size="11.5" fill="#222" text-anchor="end">r7_133seqs</text>
+<rect x="150.0" y="112" width="207.9" height="18" rx="2" fill="#e15759" stroke="#fff" stroke-width="1"><title>r7_133seqs 1-154: A core</title></rect>
+<text x="253.9" y="124" font-size="10" font-weight="600" fill="#fff" text-anchor="middle">A core</text>
+<text x="363.9" y="125" font-size="10" fill="#888">154 bp</text>
+<text x="142" y="151" font-size="11.5" fill="#222" text-anchor="end">r5_27seqs</text>
+<rect x="150.0" y="138" width="199.8" height="18" rx="2" fill="#e15759" stroke="#fff" stroke-width="1"><title>r5_27seqs 1-148: A 94.5%</title></rect>
+<text x="249.9" y="150" font-size="10" font-weight="600" fill="#fff" text-anchor="middle">A 94.5%</text>
+<rect x="349.8" y="138" width="40.5" height="18" rx="2" fill="#e15759" stroke="#fff" stroke-width="1"><title>r5_27seqs 149-178: +30</title></rect>
+<rect x="349.8" y="138" width="40.5" height="18" fill="url(#hatch)"/>
+<text x="370.1" y="150" font-size="10" font-weight="600" fill="#fff" text-anchor="middle">+30</text>
+<text x="396.3" y="151" font-size="10" fill="#888">178 bp</text>
+<text x="142" y="177" font-size="11.5" fill="#222" text-anchor="end">r8_83seqs</text>
+<rect x="150.0" y="164" width="206.6" height="18" rx="2" fill="#e15759" stroke="#fff" stroke-width="1"><title>r8_83seqs 1-153: A 95.4%</title></rect>
+<text x="253.3" y="176" font-size="10" font-weight="600" fill="#fff" text-anchor="middle">A 95.4%</text>
+<rect x="356.6" y="164" width="37.8" height="18" rx="2" fill="#e15759" stroke="#fff" stroke-width="1"><title>r8_83seqs 154-181: +28</title></rect>
+<rect x="356.6" y="164" width="37.8" height="18" fill="url(#hatch)"/>
+<text x="375.4" y="176" font-size="10" font-weight="600" fill="#fff" text-anchor="middle">+28</text>
+<text x="400.4" y="177" font-size="10" fill="#888">181 bp</text>
+<text x="142" y="203" font-size="11.5" fill="#222" text-anchor="end">r6_210seqs</text>
+<rect x="150.0" y="190" width="240.3" height="18" rx="2" fill="#e15759" stroke="#fff" stroke-width="1"><title>r6_210seqs 1-178: r5 97.7%</title></rect>
+<text x="270.1" y="202" font-size="10" font-weight="600" fill="#fff" text-anchor="middle">r5 97.7%</text>
+<rect x="390.3" y="190" width="63.5" height="18" rx="2" fill="#e15759" stroke="#fff" stroke-width="1"><title>r6_210seqs 179-225: +47</title></rect>
+<rect x="390.3" y="190" width="63.5" height="18" fill="url(#hatch)"/>
+<text x="422.0" y="202" font-size="10" font-weight="600" fill="#fff" text-anchor="middle">+47</text>
+<text x="459.8" y="203" font-size="10" fill="#888">225 bp</text>
+<text x="142" y="229" font-size="11.5" fill="#222" text-anchor="end">r4_32seqs</text>
+<rect x="150.0" y="216" width="194.4" height="18" rx="2" fill="#4e79a7" stroke="#fff" stroke-width="1"><title>r4_32seqs 1-144: B core</title></rect>
+<text x="247.2" y="228" font-size="10" font-weight="600" fill="#fff" text-anchor="middle">B core</text>
+<text x="350.4" y="229" font-size="10" fill="#888">144 bp</text>
+<text x="142" y="255" font-size="11.5" fill="#222" text-anchor="end">r3_58seqs</text>
+<rect x="150.0" y="242" width="182.2" height="18" rx="2" fill="#4e79a7" stroke="#fff" stroke-width="1"><title>r3_58seqs 1-135: r4 97.0%</title></rect>
+<text x="241.1" y="254" font-size="10" font-weight="600" fill="#fff" text-anchor="middle">r4 97.0%</text>
+<rect x="332.2" y="242" width="89.1" height="18" rx="2" fill="#e15759" stroke="#fff" stroke-width="1"><title>r3_58seqs 136-201: A-like tail 88%</title></rect>
+<text x="376.8" y="254" font-size="10" font-weight="600" fill="#fff" text-anchor="middle">A-like tail 88%</text>
+<text x="427.4" y="255" font-size="10" fill="#888">201 bp</text>
+<text x="142" y="281" font-size="11.5" fill="#222" text-anchor="end">r2_3seqs</text>
+<rect x="150.0" y="268" width="197.1" height="18" rx="2" fill="#b07aa1" stroke="#fff" stroke-width="1"><title>r2_3seqs 1-146: r2</title></rect>
+<text x="248.6" y="280" font-size="10" font-weight="600" fill="#fff" text-anchor="middle">r2</text>
+<text x="353.1" y="281" font-size="10" fill="#888">146 bp</text>
+<text x="142" y="307" font-size="11.5" fill="#222" text-anchor="end">r10_19seqs</text>
+<rect x="150.0" y="294" width="197.1" height="18" rx="2" fill="#f28e2b" stroke="#fff" stroke-width="1"><title>r10_19seqs 1-146: Head</title></rect>
+<text x="248.6" y="306" font-size="10" font-weight="600" fill="#fff" text-anchor="middle">Head</text>
+<text x="353.1" y="307" font-size="10" fill="#888">146 bp</text>
+<text x="142" y="333" font-size="11.5" fill="#222" text-anchor="end">r1_9seqs</text>
+<rect x="150.0" y="320" width="109.4" height="18" rx="2" fill="#f28e2b" stroke="#fff" stroke-width="1"><title>r1_9seqs 1-81: r10-like 91%</title></rect>
+<text x="204.7" y="332" font-size="10" font-weight="600" fill="#fff" text-anchor="middle">r10-like 91%</text>
+<rect x="259.4" y="320" width="99.9" height="18" rx="2" fill="#4e79a7" stroke="#fff" stroke-width="1"><title>r1_9seqs 82-155: B-like 95%</title></rect>
+<text x="309.3" y="332" font-size="10" font-weight="600" fill="#fff" text-anchor="middle">B-like 95%</text>
+<text x="365.2" y="333" font-size="10" fill="#888">155 bp</text>
+<text x="142" y="359" font-size="11.5" fill="#222" text-anchor="end">MEG-RS</text>
+<rect x="150.0" y="346" width="182.2" height="18" rx="2" fill="#76b7b2" stroke="#fff" stroke-width="1"><title>MEG-RS 1-135: MEG core</title></rect>
+<text x="241.1" y="358" font-size="10" font-weight="600" fill="#fff" text-anchor="middle">MEG core</text>
+<text x="338.2" y="359" font-size="10" fill="#888">135 bp</text>
+<text x="142" y="385" font-size="11.5" fill="#222" text-anchor="end">MEG-RL</text>
+<rect x="150.0" y="372" width="180.9" height="18" rx="2" fill="#76b7b2" stroke="#fff" stroke-width="1"><title>MEG-RL 1-134: core 97.8%</title></rect>
+<text x="240.4" y="384" font-size="10" font-weight="600" fill="#fff" text-anchor="middle">core 97.8%</text>
+<rect x="330.9" y="372" width="98.6" height="18" rx="2" fill="#9c755f" stroke="#fff" stroke-width="1"><title>MEG-RL 135-207: +73</title></rect>
+<rect x="330.9" y="372" width="98.6" height="18" fill="url(#hatch)"/>
+<text x="380.2" y="384" font-size="10" font-weight="600" fill="#fff" text-anchor="middle">+73</text>
+<text x="435.5" y="385" font-size="10" fill="#888">207 bp</text>
+<text x="142" y="411" font-size="11.5" fill="#222" text-anchor="end">MEG-TR</text>
+<rect x="150.0" y="398" width="86.4" height="18" rx="2" fill="#edc948" stroke="#fff" stroke-width="1"><title>MEG-TR 1-64: T-head</title></rect>
+<text x="193.2" y="410" font-size="10" font-weight="600" fill="#333" text-anchor="middle">T-head</text>
+<rect x="236.4" y="398" width="178.2" height="18" rx="2" fill="#76b7b2" stroke="#fff" stroke-width="1"><title>MEG-TR 65-196: core 94.7%</title></rect>
+<text x="325.5" y="410" font-size="10" font-weight="600" fill="#fff" text-anchor="middle">core 94.7%</text>
+<text x="420.6" y="411" font-size="10" fill="#888">196 bp</text>
+<text x="142" y="437" font-size="11.5" fill="#222" text-anchor="end">MEG-T2</text>
+<rect x="150.0" y="424" width="117.5" height="18" rx="2" fill="#edc948" stroke="#fff" stroke-width="1"><title>MEG-T2 1-87: T-head 97%</title></rect>
+<text x="208.7" y="436" font-size="10" font-weight="600" fill="#333" text-anchor="middle">T-head 97%</text>
+<rect x="267.4" y="424" width="195.8" height="18" rx="2" fill="#9c755f" stroke="#fff" stroke-width="1"><title>MEG-T2 88-232: own 145 bp</title></rect>
+<text x="365.3" y="436" font-size="10" font-weight="600" fill="#fff" text-anchor="middle">own 145 bp</text>
+<text x="469.2" y="437" font-size="10" fill="#888">232 bp</text>
+<text x="10" y="470" font-size="13.5" font-weight="700" fill="#222">Composites of the bank, re-read in blocks</text>
+<line x1="150.0" y1="482" x2="150.0" y2="490" stroke="#eee"/><text x="150.0" y="480" font-size="9.5" fill="#999" text-anchor="middle">0</text>
+<line x1="217.5" y1="482" x2="217.5" y2="490" stroke="#eee"/><text x="217.5" y="480" font-size="9.5" fill="#999" text-anchor="middle">50</text>
+<line x1="285.0" y1="482" x2="285.0" y2="490" stroke="#eee"/><text x="285.0" y="480" font-size="9.5" fill="#999" text-anchor="middle">100</text>
+<line x1="352.5" y1="482" x2="352.5" y2="490" stroke="#eee"/><text x="352.5" y="480" font-size="9.5" fill="#999" text-anchor="middle">150</text>
+<line x1="420.0" y1="482" x2="420.0" y2="490" stroke="#eee"/><text x="420.0" y="480" font-size="9.5" fill="#999" text-anchor="middle">200</text>
+<line x1="487.5" y1="482" x2="487.5" y2="490" stroke="#eee"/><text x="487.5" y="480" font-size="9.5" fill="#999" text-anchor="middle">250</text>
+<line x1="555.0" y1="482" x2="555.0" y2="490" stroke="#eee"/><text x="555.0" y="480" font-size="9.5" fill="#999" text-anchor="middle">300</text>
+<line x1="622.5" y1="482" x2="622.5" y2="490" stroke="#eee"/><text x="622.5" y="480" font-size="9.5" fill="#999" text-anchor="middle">350</text>
+<line x1="690.0" y1="482" x2="690.0" y2="490" stroke="#eee"/><text x="690.0" y="480" font-size="9.5" fill="#999" text-anchor="middle">400</text>
+<line x1="757.5" y1="482" x2="757.5" y2="490" stroke="#eee"/><text x="757.5" y="480" font-size="9.5" fill="#999" text-anchor="middle">450</text>
+<line x1="825.0" y1="482" x2="825.0" y2="490" stroke="#eee"/><text x="825.0" y="480" font-size="9.5" fill="#999" text-anchor="middle">500</text>
+<line x1="892.5" y1="482" x2="892.5" y2="490" stroke="#eee"/><text x="892.5" y="480" font-size="9.5" fill="#999" text-anchor="middle">550</text>
+<line x1="960.0" y1="482" x2="960.0" y2="490" stroke="#eee"/><text x="960.0" y="480" font-size="9.5" fill="#999" text-anchor="middle">600</text>
+<text x="142" y="508" font-size="11.5" font-weight="600" fill="#222" text-anchor="end">r1_r3_P1</text>
+<rect x="150.0" y="494" width="6.8" height="22" rx="2" fill="#cfcfcf" stroke="#fff" stroke-width="1"><title>r1_r3_P1 1-5: no unit explains this stretch</title></rect>
+<rect x="156.8" y="494" width="210.6" height="22" rx="2" fill="#59a14f" stroke="#fff" stroke-width="1"><title>r1_r3_P1 6-161: r1_9seqs 96.8 % (block r1); next: r2_3seqs 94.3, r10_19seqs 90.1</title></rect>
+<text x="262.1" y="508" font-size="10" font-weight="600" fill="#fff" text-anchor="middle">r1 96.8</text>
+<rect x="367.4" y="494" width="52.7" height="22" rx="2" fill="#b07aa1" stroke="#fff" stroke-width="1"><title>r1_r3_P1 162-200: r2_3seqs 94.3 % (block r2); next: r4_32seqs 86.2, r3_58seqs 85.4</title></rect>
+<text x="393.7" y="508" font-size="10" font-weight="600" fill="#fff" text-anchor="middle">r2</text>
+<rect x="420.0" y="494" width="271.4" height="22" rx="2" fill="#4e79a7" stroke="#fff" stroke-width="1"><title>r1_r3_P1 201-401: r3_58seqs 99.5 % (block B); next: r4_32seqs 97.8, r2_3seqs 88.5</title></rect>
+<text x="555.7" y="508" font-size="10" font-weight="600" fill="#fff" text-anchor="middle">r3 99.5</text>
+<rect x="691.4" y="494" width="63.5" height="22" rx="2" fill="#cfcfcf" stroke="#fff" stroke-width="1"><title>r1_r3_P1 402-448: no unit explains this stretch</title></rect>
+<text x="723.1" y="508" font-size="10" font-weight="600" fill="#333" text-anchor="middle">?</text>
+<text x="762.8" y="509" font-size="11" font-weight="600" fill="#333">r1 + B</text>
+<text x="762.8" y="522" font-size="9.5" fill="#999">448 bp</text>
+<text x="142" y="548" font-size="11.5" font-weight="600" fill="#222" text-anchor="end">r1_r3_P2</text>
+<rect x="150.0" y="534" width="6.8" height="22" rx="2" fill="#cfcfcf" stroke="#fff" stroke-width="1"><title>r1_r3_P2 1-5: no unit explains this stretch</title></rect>
+<rect x="156.8" y="534" width="108.0" height="22" rx="2" fill="#59a14f" stroke="#fff" stroke-width="1"><title>r1_r3_P2 6-85: r1_9seqs 97.3 % (block r1); next: r8_83seqs 83.2, r10_19seqs 82.7</title></rect>
+<text x="210.8" y="548" font-size="10" font-weight="600" fill="#fff" text-anchor="middle">r1 97.3</text>
+<rect x="264.8" y="534" width="233.6" height="22" rx="2" fill="#4e79a7" stroke="#fff" stroke-width="1"><title>r1_r3_P2 86-258: r3_58seqs 98.8 % (block B); next: r4_32seqs 96.4, r2_3seqs 88.1</title></rect>
+<text x="381.5" y="548" font-size="10" font-weight="600" fill="#fff" text-anchor="middle">r3 98.8</text>
+<rect x="498.3" y="534" width="48.6" height="22" rx="2" fill="#e15759" stroke="#fff" stroke-width="1"><title>r1_r3_P2 259-294: r5_27seqs 89.9 % (block A); next: -</title></rect>
+<text x="522.6" y="548" font-size="10" font-weight="600" fill="#fff" text-anchor="middle">r5</text>
+<rect x="546.9" y="534" width="13.5" height="22" rx="2" fill="#cfcfcf" stroke="#fff" stroke-width="1"><title>r1_r3_P2 295-304: no unit explains this stretch</title></rect>
+<text x="568.4" y="549" font-size="11" font-weight="600" fill="#333">r1 + B + A-like tail</text>
+<text x="568.4" y="562" font-size="9.5" fill="#999">304 bp</text>
+<text x="142" y="588" font-size="11.5" font-weight="600" fill="#222" text-anchor="end">r1_r2_r3_r3_C11</text>
+<rect x="150.0" y="574" width="6.8" height="22" rx="2" fill="#cfcfcf" stroke="#fff" stroke-width="1"><title>r1_r2_r3_r3_C11 1-5: no unit explains this stretch</title></rect>
+<rect x="156.8" y="574" width="210.6" height="22" rx="2" fill="#59a14f" stroke="#fff" stroke-width="1"><title>r1_r2_r3_r3_C11 6-161: r1_9seqs 96.1 % (block r1); next: r2_3seqs 93.8, r10_19seqs 91.4</title></rect>
+<text x="262.1" y="588" font-size="10" font-weight="600" fill="#fff" text-anchor="middle">r1 96.1</text>
+<rect x="367.4" y="574" width="239.0" height="22" rx="2" fill="#b07aa1" stroke="#fff" stroke-width="1"><title>r1_r2_r3_r3_C11 162-338: r2_3seqs 99.3 % (block r2); next: r6_210seqs 92.0, r4_32seqs 89.5</title></rect>
+<text x="486.8" y="588" font-size="10" font-weight="600" fill="#fff" text-anchor="middle">r2 99.3</text>
+<rect x="606.3" y="574" width="179.6" height="22" rx="2" fill="#4e79a7" stroke="#fff" stroke-width="1"><title>r1_r2_r3_r3_C11 339-471: r4_32seqs 97.1 % (block B); next: r3_58seqs 92.1, r6_210seqs 87.2</title></rect>
+<text x="696.1" y="588" font-size="10" font-weight="600" fill="#fff" text-anchor="middle">r4 97.1</text>
+<rect x="785.9" y="574" width="159.3" height="22" rx="2" fill="#4e79a7" stroke="#fff" stroke-width="1"><title>r1_r2_r3_r3_C11 472-589: r3_58seqs 90.8 % (block B); next: r6_210seqs 84.4, r8_83seqs 82.3</title></rect>
+<text x="865.5" y="588" font-size="10" font-weight="600" fill="#fff" text-anchor="middle">r3 90.8</text>
+<rect x="945.2" y="574" width="25.7" height="22" rx="2" fill="#cfcfcf" stroke="#fff" stroke-width="1"><title>r1_r2_r3_r3_C11 590-608: no unit explains this stretch</title></rect>
+<text x="978.8" y="589" font-size="11" font-weight="600" fill="#333">r1 + r2 + B + B</text>
+<text x="978.8" y="602" font-size="9.5" fill="#999">608 bp</text>
+<text x="142" y="628" font-size="11.5" font-weight="600" fill="#222" text-anchor="end">r5_r3_P34</text>
+<rect x="150.0" y="614" width="1.4" height="22" rx="2" fill="#cfcfcf" stroke="#fff" stroke-width="1"><title>r5_r3_P34 1-1: no unit explains this stretch</title></rect>
+<rect x="151.3" y="614" width="187.7" height="22" rx="2" fill="#e15759" stroke="#fff" stroke-width="1"><title>r5_r3_P34 2-140: r5_27seqs 85.4 % (block A); next: r6_210seqs 84.1, r7_133seqs 80.0</title></rect>
+<text x="245.2" y="628" font-size="10" font-weight="600" fill="#fff" text-anchor="middle">r5 85.4</text>
+<rect x="339.0" y="614" width="268.7" height="22" rx="2" fill="#4e79a7" stroke="#fff" stroke-width="1"><title>r5_r3_P34 141-339: r3_58seqs 99.0 % (block B); next: r4_32seqs 96.3, r2_3seqs 88.8</title></rect>
+<text x="473.3" y="628" font-size="10" font-weight="600" fill="#fff" text-anchor="middle">r3 99.0</text>
+<rect x="607.7" y="614" width="41.9" height="22" rx="2" fill="#e15759" stroke="#fff" stroke-width="1"><title>r5_r3_P34 340-370: r5_27seqs 82.4 % (block A); next: -</title></rect>
+<text x="628.6" y="628" font-size="10" font-weight="600" fill="#fff" text-anchor="middle">r5</text>
+<text x="657.5" y="629" font-size="11" font-weight="600" fill="#333">A + B + A-like tail</text>
+<text x="657.5" y="642" font-size="9.5" fill="#999">370 bp</text>
+<text x="142" y="668" font-size="11.5" font-weight="600" fill="#222" text-anchor="end">r5_r6_P26</text>
+<rect x="150.0" y="654" width="1.4" height="22" rx="2" fill="#cfcfcf" stroke="#fff" stroke-width="1"><title>r5_r6_P26 1-1: no unit explains this stretch</title></rect>
+<rect x="151.3" y="654" width="183.6" height="22" rx="2" fill="#e15759" stroke="#fff" stroke-width="1"><title>r5_r6_P26 2-137: r5_27seqs 96.8 % (block A); next: r7_133seqs 89.8, r8_83seqs 89.2</title></rect>
+<text x="243.2" y="668" font-size="10" font-weight="600" fill="#fff" text-anchor="middle">r5 96.8</text>
+<rect x="335.0" y="654" width="322.7" height="22" rx="2" fill="#e15759" stroke="#fff" stroke-width="1"><title>r5_r6_P26 138-376: r6_210seqs 100.0 % (block A); next: r5_27seqs 97.2, r2_3seqs 92.0</title></rect>
+<text x="496.3" y="668" font-size="10" font-weight="600" fill="#fff" text-anchor="middle">r6 100.0</text>
+<text x="665.6" y="669" font-size="11" font-weight="600" fill="#333">A + A</text>
+<text x="665.6" y="682" font-size="9.5" fill="#999">376 bp</text>
+<text x="142" y="708" font-size="11.5" font-weight="600" fill="#222" text-anchor="end">r5_r5_P48</text>
+<rect x="150.0" y="694" width="183.6" height="22" rx="2" fill="#e15759" stroke="#fff" stroke-width="1"><title>r5_r5_P48 1-136: r5_27seqs 96.8 % (block A); next: r7_133seqs 89.8, r8_83seqs 89.2</title></rect>
+<text x="241.8" y="708" font-size="10" font-weight="600" fill="#fff" text-anchor="middle">r5 96.8</text>
+<rect x="333.6" y="694" width="232.2" height="22" rx="2" fill="#e15759" stroke="#fff" stroke-width="1"><title>r5_r5_P48 137-308: r6_210seqs 100.0 % (block A); next: r5_27seqs 95.9, r7_133seqs 92.5</title></rect>
+<text x="449.7" y="708" font-size="10" font-weight="600" fill="#fff" text-anchor="middle">r6 100.0</text>
+<text x="573.8" y="709" font-size="11" font-weight="600" fill="#333">A + A (shorter 3&#x27;)</text>
+<text x="573.8" y="722" font-size="9.5" fill="#999">308 bp</text>
+<text x="142" y="748" font-size="11.5" font-weight="600" fill="#222" text-anchor="end">r10_r8_P18</text>
+<rect x="150.0" y="734" width="6.8" height="22" rx="2" fill="#cfcfcf" stroke="#fff" stroke-width="1"><title>r10_r8_P18 1-5: no unit explains this stretch</title></rect>
+<rect x="156.8" y="734" width="195.8" height="22" rx="2" fill="#f28e2b" stroke="#fff" stroke-width="1"><title>r10_r8_P18 6-150: r10_19seqs 100.0 % (block Head); next: r1_9seqs 91.4, r8_83seqs 85.5</title></rect>
+<text x="254.6" y="748" font-size="10" font-weight="600" fill="#fff" text-anchor="middle">r10 100.0</text>
+<rect x="352.5" y="734" width="190.4" height="22" rx="2" fill="#cfcfcf" stroke="#fff" stroke-width="1"><title>r10_r8_P18 151-291: no unit explains this stretch</title></rect>
+<text x="447.7" y="748" font-size="10" font-weight="600" fill="#333" text-anchor="middle">?</text>
+<rect x="542.9" y="734" width="156.6" height="22" rx="2" fill="#e15759" stroke="#fff" stroke-width="1"><title>r10_r8_P18 292-407: r8_83seqs 78.3 % (block A); next: r7_133seqs 78.1, r5_27seqs 77.1</title></rect>
+<text x="621.2" y="748" font-size="10" font-weight="600" fill="#fff" text-anchor="middle">r8 78.3</text>
+<rect x="699.5" y="734" width="25.7" height="22" rx="2" fill="#cfcfcf" stroke="#fff" stroke-width="1"><title>r10_r8_P18 408-426: no unit explains this stretch</title></rect>
+<text x="733.1" y="749" font-size="11" font-weight="600" fill="#333">Head + ? + weak A</text>
+<text x="733.1" y="762" font-size="9.5" fill="#999">426 bp</text>
+<text x="10" y="790" font-size="12.5" font-weight="700" fill="#222">Blocks</text>
+<rect x="10" y="800" width="16" height="14" rx="2" fill="#e15759"/><text x="32" y="811" font-size="11" fill="#333">A  (r7 core; r5, r8 = r7 + ~25 bp; r6 = r5 + 47 bp; r9 = 5&#x27;-truncated)</text>
+<rect x="430" y="800" width="16" height="14" rx="2" fill="#4e79a7"/><text x="452" y="811" font-size="11" fill="#333">B  (r4 core; r3 = r4 + 63 bp A-like tail)</text>
+<rect x="850" y="800" width="16" height="14" rx="2" fill="#b07aa1"/><text x="872" y="811" font-size="11" fill="#333">r2  (between A and B: 92 % to r6, 89.5 % to r4)</text>
+<rect x="10" y="822" width="16" height="14" rx="2" fill="#f28e2b"/><text x="32" y="833" font-size="11" fill="#333">Head  (r10)</text>
+<rect x="430" y="822" width="16" height="14" rx="2" fill="#59a14f"/><text x="452" y="833" font-size="11" fill="#333">r1  (mosaic: r10-like 5&#x27; half + B-like 3&#x27; half)</text>
+<rect x="850" y="822" width="16" height="14" rx="2" fill="#76b7b2"/><text x="872" y="833" font-size="11" fill="#333">MEG core (MEG-RS)</text>
+<rect x="10" y="844" width="16" height="14" rx="2" fill="#edc948"/><text x="32" y="855" font-size="11" fill="#333">MEG T-head</text>
+<rect x="430" y="844" width="16" height="14" rx="2" fill="#9c755f"/><text x="452" y="855" font-size="11" fill="#333">sequence of its own</text>
+<rect x="850" y="844" width="16" height="14" rx="2" fill="#cfcfcf"/><text x="872" y="855" font-size="11" fill="#333">no unit explains it</text>
+<text x="10" y="876" font-size="10.5" fill="#777">hatched = length-version extension beyond the block core; label number = identity to the unit (%)</text>
+</svg>
