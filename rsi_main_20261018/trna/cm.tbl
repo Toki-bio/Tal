@@ -1,0 +1,71 @@
+#target name         accession query name           accession mdl mdl from   mdl to seq from   seq to strand trunc pass   gc  bias  score   E-value inc description of target
+#------------------- --------- -------------------- --------- --- -------- -------- -------- -------- ------ ----- ---- ---- ----- ------ --------- --- ---------------------
+5S_rRNA              RF00001   MEG-RL               -          cm        1      120        1      119      +    no    1 0.60   0.0  105.3   1.5e-24 !   5S ribosomal RNA
+snoR121              RF01425   MEG-RL               -          cm        1       88      115      197      +    no    1 0.43   0.0   20.2      0.11 ?   small nucleolar RNA snoR121
+Ocean-VII            RF03092   MEG-RL               -          cm        1       41       55        1      -    no    1 0.58   0.0   13.0      0.18 ?   Ocean-VII RNA
+5S_rRNA              RF00001   MEG-RS               -          cm        1      120        1      119      +    no    1 0.61   0.0  108.4   1.5e-25 !   5S ribosomal RNA
+Ocean-VII            RF03092   MEG-RS               -          cm        1       41       55        1      -    no    1 0.60   0.0   13.0      0.12 ?   Ocean-VII RNA
+scr4677              RF02673   MEG-RS               -          cm        1       35      101      135      +    3'    3 0.34   0.1   11.9      0.17 ?   Streptomyces sRNA 4677
+tRNA                 RF00005   MEG-T2               -          cm        1       71        6       79      +    no    1 0.59   0.0   59.6   8.3e-13 !   tRNA
+mascRNA-menRNA       RF01684   MEG-T2               -          cm        1       56        6       78      +    no    1 0.60   0.0   21.6     0.028 ?   MALAT1-associated small cytoplasmic RNA/MEN beta RNA
+5S_rRNA              RF00001   MEG-TR               -          cm        1      120       65      180      +    no    1 0.58   0.0   89.1   2.8e-20 !   5S ribosomal RNA
+tRNA                 RF00005   MEG-TR               -          cm       19       71        1       55      +    5'    2 0.60   0.0   34.4   6.1e-06 !   tRNA
+Ocean-VII            RF03092   MEG-TR               -          cm        1       41      116       65      -    no    1 0.56   0.0   12.0      0.39 ?   Ocean-VII RNA
+tRNA                 RF00005   r10_19seqs           -          cm        1       71        1       74      +    no    1 0.69   0.0   33.8   6.7e-06 !   tRNA
+Plastid-ycf2         RF04354   r10_19seqs           -          cm        1       75       75        1      -    no    1 0.69   0.0   24.2    0.0032 !   Plastid-ycf2 5UTR RNA
+tRNA-Sec             RF01852   r10_19seqs           -          cm        1       91        1       73      +    no    1 0.70   0.0   15.5      0.89 ?   Selenocysteine transfer RNA
+tRNA                 RF00005   r10_r8_P18           -          cm        1       71        6       79      +    no    1 0.69   0.0   33.8   1.9e-05 !   tRNA
+Plastid-ycf2         RF04354   r10_r8_P18           -          cm        1       75       80        6      -    no    1 0.69   0.0   24.2    0.0094 !   Plastid-ycf2 5UTR RNA
+tRNA                 RF00005   r1_9seqs             -          cm        1       71        1       75      +    no    1 0.65   0.0   21.0     0.023 ?   tRNA
+Plastid-ycf2         RF04354   r1_9seqs             -          cm        1       75       76        1      -    no    1 0.66   0.0   17.7       0.2 ?   Plastid-ycf2 5UTR RNA
+tRNA                 RF00005   r1_r2_r3_r3_C11      -          cm        1       71        6       80      +    no    1 0.65   0.0   29.5   0.00042 !   tRNA
+Plastid-ycf2         RF04354   r1_r2_r3_r3_C11      -          cm        1       75       81        6      -    no    1 0.66   0.0   21.8     0.059 ?   Plastid-ycf2 5UTR RNA
+mir-1911             RF03268   r1_r2_r3_r3_C11      -          cm        1       59      118      146      +    no    1 0.69   0.0   18.9      0.39 ?   mir-1911 microRNA precursor family
+tRNA                 RF00005   r1_r3_P1             -          cm        1       71        6       80      +    no    1 0.64   0.0   24.6    0.0067 !   tRNA
+Plastid-ycf2         RF04354   r1_r3_P1             -          cm        1       75       81        6      -    no    1 0.64   0.0   20.1      0.13 ?   Plastid-ycf2 5UTR RNA
+mir-1911             RF03268   r1_r3_P1             -          cm        1       59      118      146      +    no    1 0.69   0.0   18.9      0.28 ?   mir-1911 microRNA precursor family
+mir-27               RF00644   r1_r3_P1             -          cm        1       80      417      344      -    no    1 0.43   0.0   17.1       0.3 ?   mir-27 microRNA precursor family
+tRNA                 RF00005   r1_r3_P2             -          cm        1       71        6       80      +    no    1 0.64   0.0   24.6    0.0046 !   tRNA
+Plastid-ycf2         RF04354   r1_r3_P2             -          cm        1       75       81        6      -    no    1 0.64   0.0   20.1     0.086 ?   Plastid-ycf2 5UTR RNA
+Tymo_tRNA-like       RF00233   r1_r3_P2             -          cm        1       84       96      168      +    no    1 0.62   0.0   17.6      0.16 ?   Tymovirus/Pomovirus/Furovirus tRNA-like 3' UTR element
+mir-27               RF00644   r1_r3_P2             -          cm        1       80      274      201      -    no    1 0.43   0.0   17.1      0.21 ?   mir-27 microRNA precursor family
+tRNA                 RF00005   r5_27seqs            -          cm        1       71        5       77      +    no    1 0.60   0.0   19.1     0.092 ?   tRNA
+mir-27               RF00644   r5_r3_P34            -          cm        1       80      355      284      -    no    1 0.44   0.0   16.0      0.52 ?   mir-27 microRNA precursor family
+tRNA                 RF00005   r5_r5_P48            -          cm        1       71        5       77      +    no    1 0.60   0.0   19.1      0.16 ?   tRNA
+tRNA                 RF00005   r5_r6_P26            -          cm        1       71        6       78      +    no    1 0.60   0.0   19.1      0.19 ?   tRNA
+Plastid-ycf2         RF04354   r6_210seqs           -          cm        1       75       71       11      -    no    1 0.51   0.0   16.0      0.82 ?   Plastid-ycf2 5UTR RNA
+tRNA                 RF00005   r7_133seqs           -          cm        1       71        5       78      +    no    1 0.58   0.0   35.2   2.9e-06 !   tRNA
+tRNA                 RF00005   r8_83seqs            -          cm        1       71        5       78      +    no    1 0.59   0.0   38.3   4.8e-07 !   tRNA
+Plastid-ycf2         RF04354   r8_83seqs            -          cm        1       75       79        5      -    no    1 0.60   0.0   16.5      0.48 ?   Plastid-ycf2 5UTR RNA
+tRNA                 RF00005   r9_15seqs            -          cm        1       71        5       78      +    no    1 0.58   0.0   52.7     3e-11 !   tRNA
+tRNA-Sec             RF01852   r9_15seqs            -          cm        1       91        4       78      +    no    1 0.57   0.0   15.0      0.86 ?   Selenocysteine transfer RNA
+tRNA                 RF00005   r10_r8_P18:6-150|r10_19seqs -          cm        1       71        1       74      +    no    1 0.69   0.0   33.8   6.6e-06 !   tRNA
+Plastid-ycf2         RF04354   r10_r8_P18:6-150|r10_19seqs -          cm        1       75       75        1      -    no    1 0.69   0.0   24.2    0.0032 !   Plastid-ycf2 5UTR RNA
+tRNA-Sec             RF01852   r10_r8_P18:6-150|r10_19seqs -          cm        1       91        1       73      +    no    1 0.70   0.0   15.5      0.88 ?   Selenocysteine transfer RNA
+mir-563              RF01003   r10_r8_P18:151-291|- -          cm        1       69       52       78      +    no    1 0.67   0.0   16.1      0.79 ?   mir-563 microRNA precursor family
+tRNA                 RF00005   r1_r2_r3_r3_C11:6-161|r1_9seqs -          cm        1       71        1       75      +    no    1 0.65   0.0   29.5   0.00011 !   tRNA
+Plastid-ycf2         RF04354   r1_r2_r3_r3_C11:6-161|r1_9seqs -          cm        1       75       76        1      -    no    1 0.66   0.0   21.8     0.015 ?   Plastid-ycf2 5UTR RNA
+mir-1911             RF03268   r1_r2_r3_r3_C11:6-161|r1_9seqs -          cm        1       59      113      141      +    no    1 0.69   0.0   18.9     0.099 ?   mir-1911 microRNA precursor family
+tRNA-Sec             RF01852   r1_r2_r3_r3_C11:6-161|r1_9seqs -          cm        1       91        1       74      +    no    1 0.66   0.0   17.0      0.38 ?   Selenocysteine transfer RNA
+tRNA                 RF00005   r1_r3_P1:6-161|r1_9seqs -          cm        1       71        1       75      +    no    1 0.64   0.0   24.6    0.0023 !   tRNA
+Plastid-ycf2         RF04354   r1_r3_P1:6-161|r1_9seqs -          cm        1       75       76        1      -    no    1 0.64   0.0   20.1     0.044 ?   Plastid-ycf2 5UTR RNA
+mir-1911             RF03268   r1_r3_P1:6-161|r1_9seqs -          cm        1       59      113      141      +    no    1 0.69   0.0   18.9     0.099 ?   mir-1911 microRNA precursor family
+tRNA                 RF00005   r1_r3_P2:6-85|r1_9seqs -          cm        1       71        1       75      +    no    1 0.64   0.0   24.6    0.0012 !   tRNA
+Plastid-ycf2         RF04354   r1_r3_P2:6-85|r1_9seqs -          cm        1       75       76        1      -    no    1 0.64   0.0   20.1     0.023 ?   Plastid-ycf2 5UTR RNA
+Tymo_tRNA-like       RF00233   r1_r3_P2:86-258|r3_58seqs -          cm        1       84       11       83      +    no    1 0.62   0.0   17.6     0.093 ?   Tymovirus/Pomovirus/Furovirus tRNA-like 3' UTR element
+ACAT                 RF01495   r5_r3_P34:2-140|r5_27seqs -          cm        1      147       12      105      +    no    1 0.64   0.0   15.9      0.23 ?   Human acetyl-coA cholesterol acyltransferase mRNA
+tRNA                 RF00005   r5_r3_P34:2-140|r5_27seqs -          cm        1       71        5       77      +    no    1 0.66   0.0   15.7      0.61 ?   tRNA
+tRNA                 RF00005   r5_r5_P48:1-136|r5_27seqs -          cm        1       71        5       77      +    no    1 0.60   0.0   19.1      0.07 ?   tRNA
+Plastid-ycf2         RF04354   r5_r5_P48:137-308|r6_210seqs -          cm        1       75       71       11      -    no    1 0.51   0.0   16.0      0.63 ?   Plastid-ycf2 5UTR RNA
+tRNA                 RF00005   r5_r6_P26:2-137|r5_27seqs -          cm        1       71        5       77      +    no    1 0.60   0.0   19.1      0.07 ?   tRNA
+Plastid-ycf2         RF04354   r5_r6_P26:138-376|r6_210seqs -          cm        1       75       71       11      -    no    1 0.51   0.0   16.0      0.88 ?   Plastid-ycf2 5UTR RNA
+#
+# Program:         cmscan
+# Version:         1.1.5 (Sep 2023)
+# Pipeline mode:   SCAN
+# Query file:      queries.fa
+# Target file:     /home/toki/refs/smallrna/Rfam.cm
+# Option settings: cmscan -o /dev/null --tblout cm.tbl -E 1 --cpu 16 /home/toki/refs/smallrna/Rfam.cm queries.fa 
+# Current dir:     /home/toki/rhin/rsi_main_20261018/trna
+# Date:            Sun Oct 18 15:37:11 2026
+# [ok]

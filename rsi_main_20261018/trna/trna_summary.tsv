@@ -1,0 +1,43 @@
+query	len	best_tRNA	ident%	aln_bp	q_span	bits	null_max_bits	SINEBase_60/60	2nd_isotype	Rfam	tRNAscan	A_box	B_box
+MEG-RL	207	-	-	-	-	-	24.8	no	-	5S_rRNA 1-119 E=1e-24; snoR121 115-197 E=1e-01	-	-	-
+MEG-RS	135	-	-	-	-	-	24.3	no	-	5S_rRNA 1-119 E=1e-25; Ocean-VII 55-1 E=1e-01	-	-	-
+MEG-T2	232	Val-TAC	94.5	74	6-79	57.3	22.1	yes	Met-CAT 30.8	tRNA 6-79 E=8e-13; mascRNA-menRNA 6-78 E=3e-02	Val-TAC 6-79 70.3 47.00 23.30 Val 80.9	13	-
+MEG-TR	196	Val-TAC	94.5	55	1-55	57.8	25.3	no	Ala-AGC 33.6	5S_rRNA 65-180 E=3e-20; tRNA 1-55 E=6e-06	-	-	-
+r10_19seqs	146	Ile-AAT	79.7	74	1-74	56.8	22.0	yes	Thr-CGT 39.4	tRNA 1-74 E=7e-06; Plastid-ycf2 75-1 E=3e-03	Arg-CCT 1-74 44.2 53.60 -9.40 Ile 53.9 pseudo,IPD:-17.40	-	53
+r10_r8_P18	426	Ile-AAT	79.7	74	6-79	47.6	27.8	yes	Thr-CGT 33.7	tRNA 6-79 E=2e-05; Plastid-ycf2 80-6 E=9e-03	Arg-CCT 6-79 44.2 53.60 -9.40 Ile 53.9 pseudo,IPD:-17.40	-	58
+r1_9seqs	155	Ile-AAT	73.0	75	1-75	42.6	23.5	yes	Thr-CGT 33.5	tRNA 1-75 E=2e-02; Plastid-ycf2 76-1 E=2e-01	Ser-CGA 1-75 28.4 45.90 -17.50 Ile 21.9 pseudo,IPD:-21.90	-	54
+r1_r2_r3_r3_C11	608	Ile-AAT	75.7	75	6-80	45.2	23.5	yes	Lys-CTT 33.5	tRNA 6-80 E=4e-04; Plastid-ycf2 81-6 E=6e-02	Arg-CCT 6-80 37.8 54.20 -16.40 Ile 38.0 pseudo,IPD:-12.10 | Glu-CTC 191-265 19.1 36.60 -17.50 Ile 12.7 pseudo,IPD:-12.70 | Undet-NNN 334-405 15.7 33.80 -18.10 Lys 24.0 pseudo	-	59,385
+r1_r3_P1	448	Ile-AAT	74.3	75	6-80	43.5	23.8	yes	Thr-CGT 33.1	tRNA 6-80 E=7e-03; Plastid-ycf2 81-6 E=1e-01	Ser-CGA 6-80 36.6 53.90 -17.30 Ile 30.3 pseudo,IPD:-30.30 | Undet-NNN 198-269 16.4 38.80 -22.40 Lys 24.3 pseudo	-	59,249
+r1_r3_P2	304	Ile-AAT	74.3	75	6-80	44.0	23.8	yes	Lys-CTT 31.9	tRNA 6-80 E=5e-03; Plastid-ycf2 81-6 E=9e-02	Ser-CGA 6-80 36.6 53.90 -17.30 Ile 30.3 pseudo,IPD:-30.30	-	59
+r2_3seqs	146	Ile-AAT	74.2	67	1-66	41.6	22.4	yes	Asn-GTT 30.9	-	Glu-CTC 3-70 12.3 21.60 -9.30 Asn 12.1 pseudo,IPD:-12.10,trunc_start:4,trunc_end:3	-	-
+r3_58seqs	201	Ile-GAT	74.6	68	1-67	39.3	25.1	yes	Thr-CGT 32.9	-	-	-	49
+r4_32seqs	144	Ile-AAT	75.8	67	1-66	41.4	23.2	yes	Asn-GTT 31.1	-	-	-	-
+r5_27seqs	178	Ile-AAT	78.1	74	5-77	53.0	27.9	yes	Lys-CTT 42.4	tRNA 5-77 E=9e-02	Ser-CGA 5-77 29.4 50.20 -20.80 Ile 38.7 pseudo,IPD:-38.70	-	56
+r5_r3_P34	370	Ile-GAT	75.7	71	138-207	42.0	22.8	yes	Thr-CGT 33.5	mir-27 355-284 E=5e-01	Pro-GGG 6-78 20.5 43.70 -23.20 Ile 23.2 pseudo,IPD:-39.80	-	57,189
+r5_r5_P48	308	Ile-AAT	78.1	74	5-77	49.0	24.3	yes	Lys-CTT 39.5	tRNA 5-77 E=2e-01	Ser-CGA 5-77 29.4 50.20 -20.80 Ile 38.7 pseudo,IPD:-38.70 | Leu-CAA 139-223 20.3 46.30 -26.00 Lys 24.4 pseudo,IPD:-24.40	-	56,192
+r5_r6_P26	376	Ile-AAT	78.1	74	6-78	48.8	26.4	yes	Lys-CTT 39.3	tRNA 6-78 E=2e-01	Ser-CGA 6-78 29.4 50.20 -20.80 Ile 38.7 pseudo,IPD:-38.70 | Leu-CAA 140-224 20.3 46.30 -26.00 Lys 24.4 pseudo,IPD:-24.40	-	57,193
+r6_210seqs	225	Ile-AAT	77.1	71	5-74	50.6	26.1	yes	Lys-CTT 38.6	Plastid-ycf2 71-11 E=8e-01	Leu-CAA 3-87 20.3 46.30 -26.00 Lys 24.4 pseudo,IPD:-24.40	-	56
+r7_133seqs	154	Ile-AAT	86.5	74	5-78	71.6	23.6	yes	Lys-CTT 47.8	tRNA 5-78 E=3e-06	Lys-CTT 5-78 44.8 55.10 -10.30 Ile 69.5 pseudo,IPD:-38.40	-	57
+r8_83seqs	181	Ile-AAT	86.5	74	5-78	74.6	25.2	yes	Lys-CTT 45.0	tRNA 5-78 E=5e-07; Plastid-ycf2 79-5 E=5e-01	Met-CAT 5-78 47.7 57.60 -9.90 Ile 71.4 pseudo,IPD:-36.20	-	57
+r9_15seqs	105	Ile-AAT	93.2	74	5-78	81.5	25.8	yes	Lys-CTT 45.0	tRNA 5-78 E=3e-11; tRNA-Sec 4-78 E=9e-01	Ile-AAT 5-78 65.4 56.60 8.80 Ile 95.8	-	57
+r10_r8_P18:6-150|r10_19seqs	145	Ile-AAT	79.7	74	1-74	57.2	22.2	yes	Thr-CGT 39.6	tRNA 1-74 E=7e-06; Plastid-ycf2 75-1 E=3e-03	Arg-CCT 1-74 44.2 53.60 -9.40 Ile 53.9 pseudo,IPD:-17.40	-	53
+r10_r8_P18:151-291|-	141	-	-	-	-	-	24.2	no	-	mir-563 52-78 E=8e-01	-	-	-
+r10_r8_P18:292-407|r8_83seqs	116	Lys-CTT	72.7	45	4-48	25.9	23.0	no	Ile-GAT 21.1	-	-	-	-
+r1_r2_r3_r3_C11:6-161|r1_9seqs	156	Ile-AAT	75.7	75	1-75	48.3	25.1	yes	Lys-CTT 35.3	tRNA 1-75 E=1e-04; Plastid-ycf2 76-1 E=1e-02	Arg-CCT 1-75 37.8 54.20 -16.40 Ile 38.0 pseudo,IPD:-12.10	-	54
+r1_r2_r3_r3_C11:162-338|r2_3seqs	177	Ile-AAT	74.2	67	32-97	41.1	24.4	yes	Asn-GTT 30.6	-	Glu-CTC 30-104 19.1 36.60 -17.50 Ile 12.7 pseudo,IPD:-12.70	-	-
+r1_r2_r3_r3_C11:339-471|r4_32seqs	133	Ile-GAT	75.4	66	1-65	40.6	22.2	yes	Thr-CGT 32.1	-	-	-	47
+r1_r2_r3_r3_C11:472-589|r3_58seqs	118	Ala-AGC	70.8	24	91-114	20.3	25.3	no	Leu-TAA 19.1	-	-	-	-
+r1_r3_P1:6-161|r1_9seqs	156	Ile-AAT	74.3	75	1-75	46.0	27.2	yes	Lys-CTT 33.1	tRNA 1-75 E=2e-03; Plastid-ycf2 76-1 E=4e-02	Ser-CGA 1-75 36.6 53.90 -17.30 Ile 30.3 pseudo,IPD:-30.30	-	54
+r1_r3_P1:162-200|r2_3seqs	39	-	-	-	-	-	23.6	no	-	-	-	-	-
+r1_r3_P1:201-401|r3_58seqs	201	Ile-GAT	76.1	68	1-67	41.3	23.6	yes	Thr-CGT 32.7	-	-	-	49
+r1_r3_P1:402-448|-	47	Ala-AGC	70.8	24	1-24	22.0	22.0	no	-	-	-	-	-
+r1_r3_P2:6-85|r1_9seqs	80	Ile-AAT	74.3	75	1-75	48.1	29.4	yes	Lys-CTT 34.4	tRNA 1-75 E=1e-03; Plastid-ycf2 76-1 E=2e-02	Ser-CGA 1-75 36.6 53.90 -17.30 Ile 30.3 pseudo,IPD:-30.30	-	54
+r1_r3_P2:86-258|r3_58seqs	173	Ile-GAT	73.5	34	6-39	23.4	21.2	no	Trp-CCA 23.0	Tymo_tRNA-like 11-83 E=9e-02	-	-	-
+r1_r3_P2:259-294|r5_27seqs	36	Ala-AGC	70.8	24	1-24	21.3	21.6	no	Phe-GAA 17.7	-	-	-	-
+r5_r3_P34:2-140|r5_27seqs	139	Ile-AAT	71.2	74	5-77	38.0	23.8	yes	Thr-CGT 33.8	ACAT 12-105 E=2e-01; tRNA 5-77 E=6e-01	Pro-GGG 5-77 20.5 43.70 -23.20 Ile 23.2 pseudo,IPD:-39.80	-	56
+r5_r3_P34:141-339|r3_58seqs	199	Ile-GAT	74.6	68	1-67	40.5	23.1	yes	Thr-CGT 33.5	-	-	-	49
+r5_r3_P34:340-370|r5_27seqs	31	Ala-AGC	70.8	24	1-24	21.4	23.4	no	-	-	-	-	-
+r5_r5_P48:1-136|r5_27seqs	136	Ile-AAT	78.1	74	5-77	52.2	24.0	yes	Lys-CTT 41.7	tRNA 5-77 E=7e-02	Ser-CGA 5-77 29.4 50.20 -20.80 Ile 38.7 pseudo,IPD:-38.70	-	56
+r5_r5_P48:137-308|r6_210seqs	172	Ile-AAT	77.1	71	5-74	51.4	24.1	yes	Lys-CTT 39.2	Plastid-ycf2 71-11 E=6e-01	Leu-CAA 3-87 20.3 46.30 -26.00 Lys 24.4 pseudo,IPD:-24.40	-	56
+r5_r6_P26:2-137|r5_27seqs	136	Ile-AAT	78.1	74	5-77	52.0	25.9	yes	Lys-CTT 41.6	tRNA 5-77 E=7e-02	Ser-CGA 5-77 29.4 50.20 -20.80 Ile 38.7 pseudo,IPD:-38.70	-	56
+r5_r6_P26:138-376|r6_210seqs	239	Ile-AAT	77.1	71	5-74	50.1	22.5	yes	Lys-CTT 38.3	Plastid-ycf2 71-11 E=9e-01	Leu-CAA 3-87 20.3 46.30 -26.00 Lys 24.4 pseudo,IPD:-24.40	-	56
