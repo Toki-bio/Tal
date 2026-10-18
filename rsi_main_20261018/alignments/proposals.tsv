@@ -1,14 +1,20 @@
 plate	subfamily	orig_len	add5_bp	add5_ungapped	add5_support	add5_null	add3_bp	add3_ungapped	add3_support	add3_null	trim5_bp	trim5_support	trim3_bp	trim3_support	copies	rebuilt_vs_orig
-rsi_MEG-T2_rand100.aln.fa	MEG-T2	232	0				0				1		0		96	0.67
-rsi_MEG-T2_top100.aln.fa	MEG-T2	232	0				6	0.33	0.50	0.50	0		0		96	0.63
+rsi_MEG-RL_rand100.aln.fa	MEG-RL	207	3	0.00	0.33	0.33	0				0		0		9	0.82
+rsi_MEG-RL_top100.aln.fa	MEG-RL	207	2	0.50	0.50	0.50	1	1.00	1.00	1.00	0		0		9	0.80
+rsi_MEG-RS_rand100.aln.fa	MEG-RS	135	106	0.94	0.94	0.55	643	0.39	0.94	0.53	0		0		100	0.81
+rsi_MEG-RS_top100.aln.fa	MEG-RS	135	797	0.40	0.83	0.55	617	0.41	0.71	0.53	0		0		100	0.92
+rsi_MEG-T2_rand100.aln.fa	MEG-T2	232	5	0.20	0.40	0.40	0				4	0.25	1	0.00	97	0.60
+rsi_MEG-T2_top100.aln.fa	MEG-T2	232	1	0.00	0.00	0.00	0				0		6		97	0.64
+rsi_MEG-TR_rand100.aln.fa	MEG-TR	196	9	0.28	0.33	0.33	9	0.22	0.44	0.44	0		0		16	0.75
+rsi_MEG-TR_top100.aln.fa	MEG-TR	196	15	0.27	0.47	0.47	5	0.40	0.40	0.40	0		0		16	0.77
 rsi_r10_19seqs_rand100.aln.fa	r10_19seqs	146	11	0.55	0.55	0.36	15	0.33	0.53	0.47	0		0		100	0.99
 rsi_r10_19seqs_subfam.aln.fa	r10_19seqs	146	4	1.00	1.00	0.75	0				0		1	0.00	12	1.00
 rsi_r10_19seqs_top100.aln.fa	r10_19seqs	146	12	0.58	0.58	0.33	18	0.56	0.67	0.50	0		0		100	0.99
 rsi_r10_r8_P18_rand100.aln.fa	r10_r8_P18	426	7	0.29	0.29	0.29	16	0.56	0.62	0.56	0		0		100	1.00
 rsi_r10_r8_P18_subfam.aln.fa	r10_r8_P18	426	0				0				0		0		71	0.99
 rsi_r10_r8_P18_top100.aln.fa	r10_r8_P18	426	5	0.40	0.40	0.40	12	0.67	0.67	0.67	0		0		100	0.99
-rsi_r1_9seqs_rand100.aln.fa	r1_9seqs	155	17	0.41	0.53	0.47	33	0.33	0.41	0.48	0		0		14	0.93
-rsi_r1_9seqs_top100.aln.fa	r1_9seqs	155	17	0.41	0.53	0.47	33	0.33	0.41	0.48	0		0		14	0.93
+rsi_r1_9seqs_rand100.aln.fa	r1_9seqs	155	24	0.44	0.54	0.46	0				0		0		24	0.97
+rsi_r1_9seqs_top100.aln.fa	r1_9seqs	155	24	0.44	0.54	0.46	0				0		0		24	0.97
 rsi_r1_r2_r3_r3_C11_rand100.aln.fa	r1_r2_r3_r3_C11	608	7	0.29	0.29	0.29	3	0.33	0.33	0.33	0		0		100	0.99
 rsi_r1_r2_r3_r3_C11_subfam.aln.fa	r1_r2_r3_r3_C11	608	0				0				0		0		46	0.98
 rsi_r1_r2_r3_r3_C11_top100.aln.fa	r1_r2_r3_r3_C11	608	8	0.38	0.38	0.38	15	0.73	0.73	0.73	0		0		100	1.00
@@ -18,8 +24,12 @@ rsi_r1_r3_P1_top100.aln.fa	r1_r3_P1	448	8	0.38	0.38	0.38	6	0.50	0.50	0.50	0		0		
 rsi_r1_r3_P2_rand100.aln.fa	r1_r3_P2	304	9	0.33	0.44	0.44	6	0.50	0.50	0.50	0		0		100	0.99
 rsi_r1_r3_P2_subfam.aln.fa	r1_r3_P2	304	0				0				0		0		115	0.99
 rsi_r1_r3_P2_top100.aln.fa	r1_r3_P2	304	7	0.29	0.29	0.29	4	0.50	0.50	0.50	0		0		100	1.00
-rsi_r3_58seqs_rand100.aln.fa	r3_58seqs	201	4	0.25	0.50	0.50	43	0.59	0.70	0.48	0		0		26	0.99
-rsi_r3_58seqs_top100.aln.fa	r3_58seqs	201	4	0.25	0.50	0.50	43	0.59	0.70	0.48	0		0		26	0.99
+rsi_r2_3seqs_rand100.aln.fa	r2_3seqs	136	0				1	0.00	0.00	0.00	0		0		18	0.95
+rsi_r2_3seqs_top100.aln.fa	r2_3seqs	146	0				0				0		2	0.25	18	0.90
+rsi_r3_58seqs_rand100.aln.fa	r3_58seqs	201	4	0.25	0.50	0.50	43	0.65	0.71	0.49	0		0		48	0.99
+rsi_r3_58seqs_top100.aln.fa	r3_58seqs	201	4	0.25	0.50	0.50	43	0.65	0.71	0.49	0		0		48	0.99
+rsi_r4_32seqs_rand100.aln.fa	r4_32seqs	144	26	0.25	0.44	0.46	3	0.33	0.33	0.33	3	0.33	0		12	0.98
+rsi_r4_32seqs_top100.aln.fa	r4_32seqs	144	26	0.25	0.44	0.46	3	0.33	0.33	0.33	3	0.33	0		12	0.98
 rsi_r5_27seqs_rand100.aln.fa	r5_27seqs	178	7	0.29	0.36	0.29	1	1.00	1.00	1.00	0		0		100	0.99
 rsi_r5_27seqs_subfam.aln.fa	r5_27seqs	178	0				0				0		0		32	0.99
 rsi_r5_27seqs_top100.aln.fa	r5_27seqs	178	7	0.36	0.43	0.29	16	0.62	0.62	0.62	0		0		100	0.99
