@@ -1,0 +1,75 @@
+>r4_32seqs_extended
+----------------------------------g--C-GGA-G-C----TTG-TAGGAGC-CGTG-TCTC-A--AC-A-
+---GCC--------C-ACTT--A---CTC---TCC-G-AAGGG-TGG----TGG-TTG--------TGC--CCTGCA-C-
+AG-----------AACGGC-ACTGGACC-----------------GGAGCT-AGCTGC--CCT-CAC-A---ag--tga-
+a--acaa----gct--t--aa----a----------------------------
+>r4_32seqs
+-------------------------------------CCGGATGGCTCAGTTGGTTGGAGCGCGTGCTCTCAACCACAAG
+GTTGCC----------AGTTCGATTCCTCGACTCCCGCAAGGGATGG----TGGGCTG--------TGCCCCCTGCAACT
+AGC----------AACGGCAACTGGACCT----------------GGAGCTGAGCTGCGCCCTCCACAA-----------
+------------------------------------------------------
+>NC_142503.1:118801021-118801278(-) [grey]
+agattttttttttaattttattgtgggggaaggggaaCAGGAC--TTTATTGGAGAACAGTGTGTACTTCCAA-GACTTT
+TTCCAA----------ATTTCTGTGGTTTGACTCCCGCAAGGGATGG----TAGGTTG--------TGCCTCCTGCAACT
+GAC----------AACGGCAACTGGACCT----------------GGAGCTGAGCTGTGCCCTCCACAActaagattgaa
+aggacgatgtgctctcttgaaggttaatacccccttcgagggttattacttctg
+>NC_142503.1:194848094-194848376(+) [grey]
+cttagaccaatgtgatgtgattgaaaggctccttattGGGGCTGGCCCTGTGGTTGGAGCTCCGTGCTCCTAACTCCGAA
+G----------------------------ACTGCCCGCAAGGGATGG----TGGGCTG--------TGCCCCCTGCAACT
+AGC----------AACAGCAACTGGACCT----------------GGAGCTGAGCTGTGACCTGGA-AGtacacactgtt
+cccccaataaagtcctaaaaaaaaaaaaatctccttatggaacactaatttttt
+>NC_142516.1:104890895-104891135(-) [grey]
+ttataaaccagtttgaattgattttcctggcatt--------------------TGCAACATAATGACCTCTGACACAAG
+AACAGC--------CTGCGACTCCCGACTCCCTCCCGCAAGGGATGG----TGGGCTG--------TGCCCCCTGCAACT
+AGA---------AAACGGCAACTGGACCT----------------GGAGCTGAGCTGCGCCCTCCACAActaagactgaa
+aggacaacttgacttggaaaaaagt-cctggaagtacacactgttccccaataa
+>NC_142502.1:80750965-80751222(-) [grey]
+agaatgaagacaatgagctgcagctgagctcccagggCCGGATGACTCAGTTGGTAGGAGCACGTGCTTTCAACCACAAG
+ATTGCT----------AGTTCGAC-TCTCAACTACTGAATGGCTGGG----TGGCTCCATTGGTTAGAGTGCTTGCTCTC
+AAAC-------CACAAGGTTGCTGGTTTGACTCCAAGGCAACCGGGTGACTCAGTTGATTAGAATGCTAgttggcatgag
+agattattt-----------------aagtcacactgctac-------------
+>NC_142505.1:11684730-11684970(-) [grey]
+gtcttaagggtcacattaagaaataaattgacgggcgCCGGATGGCTCAGTTGGTTAGAGCGCATGCTCTCGGTGACGCC
+CCAGGAAC---CAGCAACAGTTACCACCCTGAGGCCCGAAGTGCCAGGGA-AGGAATG--------TGTTGCCGGAGACT
+AGAA-------AGAGCTGCCACCA---------------------GGGAAAAGGGGACCCCTGACAGGAactgtagtga-
+--------------------------tacaggaatccagccactgccagaacca
+>NC_142516.1:140048353-140048589(+) [grey]
+ctgcataagtctctggtcaaatatcaactgactc------AAAATCTTCCTGCTCAGGAATGCGCGGTCACAACTCCCAG
+GCTGAC--------GTATTTTCATACCTCGTGGTATGCAAGGGGTGG----GGGTCAGAAGGACATTGCAGCCTTCACCC
+CAC----------AAGGCCAGCTGGACCAGCTG----ACTCAGAGGGAGCTGCTCTTCCTCCTGTTACAccccacggggg
+--------------------------ttcctgagccctgccacctgctggcctt
+>NC_142505.1:3155577-3155832(+) [grey]
+atgacagacaggcctgttctctgaagggcgcgat------GAGGCTGCAGCTGGTTCGAGCTCGTCTCCTCAAGAAGCAG
+AGCGCC----------AGTCATCTCAGTCGTCTCAAGGACAGATCGAGTC-TGGGTTG--------AGTCACCAGCCGGC
+ACA----------------CACTGGATGCCT--------------TGCACTGAGCAGTGACCCGCATCAgacaaggtcag
+agcacagtggggctgaggtggggatggactgggaccaagtcacgggtgctacct
+>NC_142502.1:161413257-161413501(+) [grey]
+----cagaaaccagaggtggtcagaaccggcatg----------------------GGGGTCCGTATCCTTCTTCCCTCT
+GACCCAGAATGAAGCAACTCCCAGAGCTCTGTCATCGGAAGGCCTGAGGAGGGGGTTCTGT-----GGCTCCCTGCTACT
+CGG--------GATGAGGCGACTGGACCTA---------------AGAGTCCAGCCATGCCCTCCTCAGggaaactcgca
+ccttcatcctgggctcttttctccttcctccatctccttccttttgggggtaaa
+>NC_142508.1:46795363-46795624(-) [grey]
+gtgccatgcgtgagatgaatggtgagtgaggcctcccCTAGGGAAAGCGCGTGTGATGGGCGTGTGGCCAAAACCCCAAG
+CCTGAC------------CTTGAATCCTCCATTCCCACAGGGAAGTATGT-GGGCTCG--------CGCCCCATCAAGCT
+GCG---------CAAAAGCATGTGGAAGGATC-------------GGAACCTGGATGTGGTGCGCAAGAagcagaaggag
+aagaagaagttgggcctgagatagg-gtctggggccgggcacccgctcccaccc
+>NC_142505.1:12210505-12210751(+) [grey]
+ccctttagatccaacctcttcctgtctacaccagcccAAGAAGCTGATCTTTGGGAGAAGCCAATGGTTTCTCTCACCAA
+CAGGCT-------GCCGGTTGGGTTCAGCCTCTCAGGCAAGGCCA------TTGGTCA--------AGCCCCCTGCACAG
+AGC--------CTCTCTGTCCCTGGATTC--------------TGAAAGCTCTCCCTCCCTTTGCTCTTttaggggtgat
+aagtgagccctgctattctaactccaggggactacaccccccccccatc-----
+>_R_NC_142508.1:66338275-66338546(+) [grey]
+cctctcccgtttggcctgagtccagccatctgtg------GGCGCCAGCCTGGAGGGCAGCAGATGACCTACAGAACCTG
+GGTGCC-------------------GCTGAGCCTCAGGCAGCCCTGC----CAATCCA--------GGCTTCCTGTGCTG
+AGGGGGTAGGGGAAGCGTCCACTGGCCTT-------------GAACGGGTTAAGCTGCCCGTGCTACAGtctggacctga
+gcaattgtgctgctaaacaagggccggacatgggggcaggaagccagagggggc
+>_R_NC_142506.1:4828003-4828249(+) [grey]
+----------------------------------------ATCTCCTTCCTCCCTGGGGGCCCACATGGGCGCTCACGGT
+GCTGGGTA-CCTGCCCTCTTGGAAGGTTCTGTGAGAAGGAGGGGAGAACAGAAGATTCAGTGCCTTTGCTGTTGACATCC
+TGG--------TGCACAGCCCTCCTCCCCAGCT------GTTGGCGAGACGTCTCTGCCAACTGTTTAGatgaaggcagg
+ggatagagccagtcaccagtgtcacagattgctacctgggagggcagaactcag
+>_R_NC_142516.1:4889565-4889820(+) [grey]
+-------agaaacaagcgcggtggagatggggctggcTGGTCCTTGGACTGTGGTATTGGCACCTGTTCTCCTGGAGGAA
+GGGCCCAG-TTCA-GGACCTCAGCCAGGCCCTTCTGGTGGGAGCTGGG---TGGTCAGAC------TACTTTCCCTGGTG
+GGC--------AGAGGGACAATCA---------------------GGACACTGACAACCTGTGAAAGGGgacaggctgct
+ttgacaaccaccctcttggagggtgcacgtgcacagtgctttacagtttgcaaa
