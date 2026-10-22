@@ -1,4 +1,4 @@
->r10_19seqs
+>r10_19seqs R. sinicus SINE consensus r10_19seqs (bank21, rsi_main_20261021b consensuses.clean.fa)
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -15,7 +15,7 @@ TGCGCCCTCTACAGCTAAGATTGTGAACAACAGCTCTCCCTGGAGCTGGGCTGC------
 ------------------------------------------------------------
 ------------------------------------------------------------
 ---------------------------------
->r10_r8_P18
+>r10_r8_P18 R. sinicus SINE consensus r10_r8_P18 (bank21, rsi_main_20261021b consensuses.clean.fa)
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -32,7 +32,7 @@ TGAGTGGCCGGCAGCCGGCGAGAGCTGCCGTGAGCTGCTGTGAGCGGCCGACCGACGACT
 GGCGACCGACTGCCTCAGCCGGGGGGAGCGCAAGGCTCATAATACCAGCATGGGCCAGGG
 AGC------------------TGTGTCCTACACAACTAGACTGAGAAACAACGGCTTGAA
 CTGGAGTGGGGGGGGGGAGGCGGAAGAAGGGGG
->r1_9seqs
+>r1_9seqs R. sinicus SINE consensus r1_9seqs (bank21, rsi_main_20261021b consensuses.clean.fa)
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -49,7 +49,7 @@ TGTGCCCCCTGCAACTAACAA---------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
 ---------------------------------
->r1_r2_r3_r3_C11
+>r1_r2_r3_r3_C11 R. sinicus SINE consensus r1_r2_r3_r3_C11 (bank21, rsi_main_20261021b consensuses.clean.fa)
 GGGCCGGCCCGGTGGCTCAGGCGGTTAGAGCTCCGTGCTCCTAACTCCGAAGGCTGCCGG
 TTCGATTCCCACATGGGCCAGTGGGCTCTCAACCACAAGGTTGCCAGTTCAATTCCTCGA
 GTCCCGCAAGGGATGGTGGGCTCTGCCCCCTGCAACTAAGATTGAACACGGCACCTTGAG
@@ -66,7 +66,7 @@ AA----------------------------------------------------------
 ---GTCCTGTTCCCCT-------------------TCCCCAATAAAATCTTTAAAAAAAA
 AAAAAAA-----------------------------------------------------
 ---------------------------------
->r1_r3_P1
+>r1_r3_P1 R. sinicus SINE consensus r1_r3_P1 (bank21, rsi_main_20261021b consensuses.clean.fa)
 GGGCCGGCCCGGTGGCTCAGGCGGTTAGAGCTCCATGCTCCTAACTCCGAAGGCTGCCGG
 TTCGATTCCCACATGGGCCAGTGGGCTCTCAACCACAAGGTTGCCAGTTCAATTCCTCGA
 GTCCCGCAAGGGATGGTGGGCTCTGCCCCCTGCAACTAAGATTGAACACGGCACCTTGAG
@@ -83,7 +83,7 @@ AA----------------------------------------------------------
 ---GTCCTGTTCCCCT-------------------TCCCCAATAAAATCTTTAAAAAAAA
 AAAAAAA-----------------------------------------------------
 ---------------------------------
->r1_r3_P2
+>r1_r3_P2 R. sinicus SINE consensus r1_r3_P2 (bank21, rsi_main_20261021b consensuses.clean.fa)
 G-----------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -100,7 +100,7 @@ AA----------------------------------------------------------
 ---GTCCTGTTCCCCT-------------------TCCCCAATAAAATCTTAAAAAAAAA
 AAAAAA------------------------------------------------------
 ---------------------------------
->r2_3seqs
+>r2_3seqs R. sinicus SINE consensus r2_3seqs (bank21, rsi_main_20261021b consensuses.clean.fa)
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -117,7 +117,7 @@ GCTCCGG-----------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
 ---------------------------------
->r3_58seqs
+>r3_58seqs R. sinicus SINE consensus r3_58seqs (bank21, rsi_main_20261021b consensuses.clean.fa)
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -134,7 +134,7 @@ AAGTCC--------------TGGAAGTACA----------CACTGTTCC-----------
 ------------------------------------------------------------
 ------------------------------------------------------------
 ---------------------------------
->r4_32seqs
+>r4_32seqs R. sinicus SINE consensus r4_32seqs (bank21, rsi_main_20261021b consensuses.clean.fa)
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -151,7 +151,7 @@ TGTGCCCCCTGCAACTAGCAACGGCAACTG------GACCTGGAGCTGAGCTGC------
 ------------------------------------------------------------
 ------------------------------------------------------------
 ---------------------------------
->r5_27seqs
+>r5_27seqs R. sinicus SINE consensus r5_27seqs (bank21, rsi_main_20261021b consensuses.clean.fa)
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -168,7 +168,7 @@ T-----------------------------------------------------------
 -----------------------------------TCCCCAATAAAATAAAAA-------
 ------------------------------------------------------------
 ---------------------------------
->r5_r3_P34
+>r5_r3_P34 R. sinicus SINE consensus r5_r3_P34 (bank21, rsi_main_20261021b consensuses.clean.fa)
 GG-------------------------------------------------GGCGGACGG
 GTGGCTCAGTTGGTTAGAGCGCGAGCTCTGGGCAACGGGGCTGCCGGTTCGAT-------
 -TCCCACATGGGCCAGCGAGCTGCGCCCTCCGCAACTAGAATGAAGTCAATGAGCTGCCG
@@ -185,7 +185,7 @@ AA----------------------------------------------------------
 ---GTCCTGTTCCCCT-------------------TCCCCAATAAAATCTT---------
 ------------------------------------------------------------
 ---------------------------------
->r5_r5_P48
+>r5_r5_P48 R. sinicus SINE consensus r5_r5_P48 (bank21, rsi_main_20261021b consensuses.clean.fa)
 -G-------------------------------------------------GGCGGCCGG
 ATGGCTCAGTTGGTTAGAGCGCGAGCTCTGAACAACAGGGTTGCCGGTTCGAT-------
 -TCCCACATGGGCCAGTGAGCTGCGCCCTCCACAACTAGATTGAAGACAACGAGCTGCCG
@@ -202,7 +202,7 @@ T-----------------------------------------------------------
 -----------------------------------TCCCCAATAAAA-------------
 ------------------------------------------------------------
 ---------------------------------
->r5_r6_P26
+>r5_r6_P26 R. sinicus SINE consensus r5_r6_P26 (bank21, rsi_main_20261021b consensuses.clean.fa)
 GG-------------------------------------------------GGCGGCCGG
 ATGGCTCAGTTGGTTAGAGCGCGAGCTCTGAACAACAGGGTTGCCGGTTCGAT-------
 -TCCCACATGGGCCAGTGAGCTGCGCCCTCCACAACTAGATTGAAGACAACGAGCTGCCG
@@ -219,7 +219,7 @@ T-----------------------------------------------------------
 -----------------------------------TCCCCAATAAAAAAAAAAAAAAAAA
 AA----------------------------------------------------------
 ---------------------------------
->r6_210seqs
+>r6_210seqs R. sinicus SINE consensus r6_210seqs (bank21, rsi_main_20261021b consensuses.clean.fa)
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -236,7 +236,7 @@ T-----------------------------------------------------------
 -----------------------------------TCCCCAATAAAAA------------
 ------------------------------------------------------------
 ---------------------------------
->r7_133seqs
+>r7_133seqs R. sinicus SINE consensus r7_133seqs (bank21, rsi_main_20261021b consensuses.clean.fa)
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -253,7 +253,7 @@ TGCGCCCTCCACAACTAGATTGAAACAACT--ACTTGACTTGGAGCTGATGGGT------
 ------------------------------------------------------------
 ------------------------------------------------------------
 ---------------------------------
->r8_83seqs
+>r8_83seqs R. sinicus SINE consensus r8_83seqs (bank21, rsi_main_20261021b consensuses.clean.fa)
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -270,7 +270,7 @@ T-----------------------------------------------------------
 -----------------------------------TCCCCAATAAAAAAAA---------
 ------------------------------------------------------------
 ---------------------------------
->r9_15seqs
+>r9_15seqs R. sinicus SINE consensus r9_15seqs (bank21, rsi_main_20261021b consensuses.clean.fa)
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -287,7 +287,7 @@ TGCGCCCTCCTTAAAAAAA-----------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
 ---------------------------------
->GENUINE|Ile-AAU_TRNAI-AAU-10_NC_142512.1:13700223-13700296
+>GENUINE|Ile-AAU_TRNAI-AAU-10_NC_142512.1:13700223-13700296 R. sinicus tRNA gene TRNAI-AAU-10, RefSeq annotation of GCF_057876585.1, NC_142512.1:13700223-13700296: complete gene (74 bp, upper case) + 100 bp downstream (lower case); class: genuine (T-run 11 bp after the end); best SINE consensus r9_15seqs: 87.9 bits, matches 0 bp past the tRNA end
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -304,7 +304,7 @@ acttca-------cacacaaaagaaaaacg----------tgtg----------------
 ------------------------------------------------------------
 ------------------------------------------------------------
 ---------------------------------
->GENUINE|Ile-AAU_TRNAI-AAU-3_NC_142503.1:199539612-199539685
+>GENUINE|Ile-AAU_TRNAI-AAU-3_NC_142503.1:199539612-199539685 R. sinicus tRNA gene TRNAI-AAU-3, RefSeq annotation of GCF_057876585.1, NC_142503.1:199539612-199539685: complete gene (74 bp, upper case) + 100 bp downstream (lower case); class: genuine (T-run 11 bp after the end); best SINE consensus r9_15seqs: 89.5 bits, matches 3 bp past the tRNA end
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -321,7 +321,7 @@ actttttttttccttttttcttttaatact------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
 ---------------------------------
->GENUINE|Ile-AAU_TRNAI-AAU-6_NC_142507.1:56371868-56371941
+>GENUINE|Ile-AAU_TRNAI-AAU-6_NC_142507.1:56371868-56371941 R. sinicus tRNA gene TRNAI-AAU-6, RefSeq annotation of GCF_057876585.1, NC_142507.1:56371868-56371941: complete gene (74 bp, upper case) + 100 bp downstream (lower case); class: genuine (T-run 19 bp after the end); best SINE consensus r9_15seqs: 98.1 bits, matches 21 bp past the tRNA end
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -338,7 +338,7 @@ tgtgcttctcttttttccaccttggccatc------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
 ---------------------------------
->GENUINE|Ile-AAU_TRNAI-AAU-7_NC_142507.1:56440880-56440953
+>GENUINE|Ile-AAU_TRNAI-AAU-7_NC_142507.1:56440880-56440953 R. sinicus tRNA gene TRNAI-AAU-7, RefSeq annotation of GCF_057876585.1, NC_142507.1:56440880-56440953: complete gene (74 bp, upper case) + 100 bp downstream (lower case); class: genuine (T-run 9 bp after the end); best SINE consensus r9_15seqs: 90.8 bits, matches 10 bp past the tRNA end
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -355,7 +355,7 @@ tttgtgagtccctgactttcacttctttca--------------------cact------
 ------------------------------------------------------------
 ------------------------------------------------------------
 ---------------------------------
->GENUINE|Ile-AAU_TRNAI-AAU-9_NC_142512.1:13668397-13668470
+>GENUINE|Ile-AAU_TRNAI-AAU-9_NC_142512.1:13668397-13668470 R. sinicus tRNA gene TRNAI-AAU-9, RefSeq annotation of GCF_057876585.1, NC_142512.1:13668397-13668470: complete gene (74 bp, upper case) + 100 bp downstream (lower case); class: genuine (T-run 9 bp after the end); best SINE consensus r9_15seqs: 87.9 bits, matches 0 bp past the tRNA end
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -372,7 +372,7 @@ tccccccttcctatatctgctgttaccact------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
 ---------------------------------
->GENUINE|Ile-GAU_TRNAI-GAU-6_NC_142502.1:184345111-184345184
+>GENUINE|Ile-GAU_TRNAI-GAU-6_NC_142502.1:184345111-184345184 R. sinicus tRNA gene TRNAI-GAU-6, RefSeq annotation of GCF_057876585.1, NC_142502.1:184345111-184345184: complete gene (74 bp, upper case) + 100 bp downstream (lower case); class: genuine (T-run 27 bp after the end); best SINE consensus r9_15seqs: 100.1 bits, matches 13 bp past the tRNA end
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -389,7 +389,7 @@ tgtgctaaccagcactaatttttttaatta------------------------------
 --------------------------------------ggaagagt--------------
 ------------------------------------------------------------
 ---------------------------------
->GENUINE|Ile-UAU_TRNAI-UAU-2_NC_142502.1:161548535-161548627
+>GENUINE|Ile-UAU_TRNAI-UAU-2_NC_142502.1:161548535-161548627 R. sinicus tRNA gene TRNAI-UAU-2, RefSeq annotation of GCF_057876585.1, NC_142502.1:161548535-161548627: complete gene (93 bp including its intron, upper case) + 100 bp downstream (lower case); class: genuine (T-run 7 bp after the end); best SINE consensus -:  bits, matches  bp past the tRNA end
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -406,7 +406,7 @@ ccccttttatctccttgcccaagggaagga--------tttagtct--------------
 ------------------------------------------------------------
 ------------------------------------------------------------
 ---------------------------------
->GENUINE|Ile-UAU_TRNAI-UAU-4_NC_142507.1:56343147-56343240
+>GENUINE|Ile-UAU_TRNAI-UAU-4_NC_142507.1:56343147-56343240 R. sinicus tRNA gene TRNAI-UAU-4, RefSeq annotation of GCF_057876585.1, NC_142507.1:56343147-56343240: complete gene (94 bp including its intron, upper case) + 100 bp downstream (lower case); class: genuine (T-run 4 bp after the end); best SINE consensus -:  bits, matches  bp past the tRNA end
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -423,7 +423,7 @@ catccctttcctccttg-------------------------------------------
 --------------------------------------gaactgatattattgttttgtc
 t-----------------------------------------------------------
 ---------------------------------
->GENUINE|Ile-UAU_TRNAI-UAU-5_NC_142508.1:44133097-44133189
+>GENUINE|Ile-UAU_TRNAI-UAU-5_NC_142508.1:44133097-44133189 R. sinicus tRNA gene TRNAI-UAU-5, RefSeq annotation of GCF_057876585.1, NC_142508.1:44133097-44133189: complete gene (93 bp including its intron, upper case) + 100 bp downstream (lower case); class: genuine (T-run 2 bp after the end); best SINE consensus r7_133seqs: 32.2 bits, matches 6 bp past the tRNA end
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -440,7 +440,7 @@ tttttcttttctcatcagcttttataaacg--------tacacatt--------------
 ----------------------------------------agtgaccattttcatctt--
 ------------------------------------------------------------
 ---------------------------------
->noTrun_noAtail|Ile-AAU_TRNAI-AAU-14_NC_142516.1:34088629-34088702
+>noTrun_noAtail|Ile-AAU_TRNAI-AAU-14_NC_142516.1:34088629-34088702 R. sinicus tRNA gene TRNAI-AAU-14, RefSeq annotation of GCF_057876585.1, NC_142516.1:34088629-34088702: complete gene (74 bp, upper case) + 100 bp downstream (lower case); class: unclear (no T-run, no A-tail); best SINE consensus r9_15seqs: 118.6 bits, matches 24 bp past the tRNA end
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -457,7 +457,7 @@ tgccccctccttaaaacacacacacacaca------------------------------
 --------------------------------------c---------------------
 ------------------------------------------------------------
 ---------------------------------
->noTrun_noAtail|Ile-AAU_TRNAI-AAU-17_NC_142517.1:16062425-16062498
+>noTrun_noAtail|Ile-AAU_TRNAI-AAU-17_NC_142517.1:16062425-16062498 R. sinicus tRNA gene TRNAI-AAU-17, RefSeq annotation of GCF_057876585.1, NC_142517.1:16062425-16062498: complete gene (74 bp, upper case) + 100 bp downstream (lower case); class: unclear (no T-run, no A-tail); best SINE consensus r9_15seqs: 116.0 bits, matches 27 bp past the tRNA end
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -474,7 +474,7 @@ tgcactcgcctcaaataaataaataaataa------------------------------
 --------------------------------------ttacataatgcaag--------
 ------------------------------------------------------------
 ---------------------------------
->noTrun_noAtail|Ile-AAU_TRNAI-AAU-2_NC_142502.1:105726119-105726192
+>noTrun_noAtail|Ile-AAU_TRNAI-AAU-2_NC_142502.1:105726119-105726192 R. sinicus tRNA gene TRNAI-AAU-2, RefSeq annotation of GCF_057876585.1, NC_142502.1:105726119-105726192: complete gene (74 bp, upper case) + 100 bp downstream (lower case); class: unclear (no T-run, no A-tail); best SINE consensus r9_15seqs: 116.8 bits, matches 24 bp past the tRNA end
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -491,7 +491,7 @@ tgtgccttccttaaaactaaacaaacaaat------------------------------
 --------------------------------------cttaaagatttttttattgggg
 ------------------------------------------------------------
 ---------------------------------
->noTrun_noAtail|Ile-GAU_TRNAI-GAU-12_NC_142514.1:27397798-27397871
+>noTrun_noAtail|Ile-GAU_TRNAI-GAU-12_NC_142514.1:27397798-27397871 R. sinicus tRNA gene TRNAI-GAU-12, RefSeq annotation of GCF_057876585.1, NC_142514.1:27397798-27397871: complete gene (74 bp, upper case) + 100 bp downstream (lower case); class: unclear (no T-run, no A-tail); best SINE consensus r9_15seqs: 107.7 bits, matches 27 bp past the tRNA end
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -508,7 +508,7 @@ tgcgccctcctttaaataaataaataaata------------------------------
 --------------------------------------ggaatcagaataaaggctgga-
 ------------------------------------------------------------
 ---------------------------------
->noTrun_noAtail|Ile-GAU_TRNAI-GAU-14_NC_142514.1:124453623-124453696
+>noTrun_noAtail|Ile-GAU_TRNAI-GAU-14_NC_142514.1:124453623-124453696 R. sinicus tRNA gene TRNAI-GAU-14, RefSeq annotation of GCF_057876585.1, NC_142514.1:124453623-124453696: complete gene (74 bp, upper case) + 100 bp downstream (lower case); class: unclear (no T-run, no A-tail); best SINE consensus r9_15seqs: 119.4 bits, matches 26 bp past the tRNA end
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -525,7 +525,7 @@ tgcaccctccttaataaataaataaataaa------------------------------
 --------------------------------------tgcataaacaattctaatggca
 c-----------------------------------------------------------
 ---------------------------------
->noTrun_noAtail|Ile-GAU_TRNAI-GAU-20_NC_142518.1:61970858-61970931
+>noTrun_noAtail|Ile-GAU_TRNAI-GAU-20_NC_142518.1:61970858-61970931 R. sinicus tRNA gene TRNAI-GAU-20, RefSeq annotation of GCF_057876585.1, NC_142518.1:61970858-61970931: complete gene (74 bp, upper case) + 100 bp downstream (lower case); class: unclear (no T-run, no A-tail); best SINE consensus r9_15seqs: 119.1 bits, matches 24 bp past the tRNA end
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -542,7 +542,7 @@ tgcaccctccttaaaagcaaagcaacaaac------------------------------
 --------------------------------------tgggaaaatacacttg------
 ------------------------------------------------------------
 ---------------------------------
->noTrun_noAtail|Ile-UAU_TRNAI-UAU-3_NC_142504.1:102494044-102494117
+>noTrun_noAtail|Ile-UAU_TRNAI-UAU-3_NC_142504.1:102494044-102494117 R. sinicus tRNA gene TRNAI-UAU-3, RefSeq annotation of GCF_057876585.1, NC_142504.1:102494044-102494117: complete gene (74 bp, upper case) + 100 bp downstream (lower case); class: unclear (no T-run, no A-tail); best SINE consensus r9_15seqs: 123.0 bits, matches 27 bp past the tRNA end
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -559,7 +559,7 @@ tgtgccctccttaaaaatataaataaataa------------------------------
 --------------------------------------agaagaaagaaaga--------
 ------------------------------------------------------------
 ---------------------------------
->SINElike|Ile-AAU_TRNAI-AAU-12_NC_142514.1:32978451-32978524
+>SINElike|Ile-AAU_TRNAI-AAU-12_NC_142514.1:32978451-32978524 R. sinicus tRNA gene TRNAI-AAU-12, RefSeq annotation of GCF_057876585.1, NC_142514.1:32978451-32978524: complete gene (74 bp, upper case) + 100 bp downstream (lower case); class: SINE-like (A-rich tail, no T-run); best SINE consensus r9_15seqs: 120.7 bits, matches 27 bp past the tRNA end
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -576,7 +576,7 @@ tgcgccctccttaaaaaaacaaacaaaaca------------------------------
 --------------------------------------gcaaacactgtta---------
 ------------------------------------------------------------
 ---------------------------------
->SINElike|Ile-AAU_TRNAI-AAU-15_NC_142516.1:48798756-48798829
+>SINElike|Ile-AAU_TRNAI-AAU-15_NC_142516.1:48798756-48798829 R. sinicus tRNA gene TRNAI-AAU-15, RefSeq annotation of GCF_057876585.1, NC_142516.1:48798756-48798829: complete gene (74 bp, upper case) + 100 bp downstream (lower case); class: SINE-like (A-rich tail, no T-run); best SINE consensus r9_15seqs: 125.3 bits, matches 27 bp past the tRNA end
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -593,7 +593,7 @@ tgcgccctcctgaaaaacaaacaaacaaaa------------------------------
 --------------------------------------caaaaaaagagtga--------
 ------------------------------------------------------------
 ---------------------------------
->SINElike|Ile-AAU_TRNAI-AAU-18_NC_142517.1:56111035-56111108
+>SINElike|Ile-AAU_TRNAI-AAU-18_NC_142517.1:56111035-56111108 R. sinicus tRNA gene TRNAI-AAU-18, RefSeq annotation of GCF_057876585.1, NC_142517.1:56111035-56111108: complete gene (74 bp, upper case) + 100 bp downstream (lower case); class: SINE-like (A-rich tail, no T-run); best SINE consensus r9_15seqs: 120.7 bits, matches 27 bp past the tRNA end
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -610,7 +610,7 @@ tgtgcccgccttaaaaaaatcacacaaaaa------------------------------
 --------------------------------------aacataaatgatcttgtttt--
 ------------------------------------------------------------
 ---------------------------------
->SINElike|Ile-AAU_TRNAI-AAU-19_NC_142518.1:61614845-61614918
+>SINElike|Ile-AAU_TRNAI-AAU-19_NC_142518.1:61614845-61614918 R. sinicus tRNA gene TRNAI-AAU-19, RefSeq annotation of GCF_057876585.1, NC_142518.1:61614845-61614918: complete gene (74 bp, upper case) + 100 bp downstream (lower case); class: SINE-like (A-rich tail, no T-run); best SINE consensus r9_15seqs: 118.3 bits, matches 27 bp past the tRNA end
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -627,7 +627,7 @@ tgtaccctccttaacaacaacaaaaaaagg------------------------------
 --------------------------------------taggtaaacctttgtgaaggat
 ------------------------------------------------------------
 ---------------------------------
->SINElike|Ile-AAU_TRNAI-AAU-20_NC_142518.1:95632802-95632875
+>SINElike|Ile-AAU_TRNAI-AAU-20_NC_142518.1:95632802-95632875 R. sinicus tRNA gene TRNAI-AAU-20, RefSeq annotation of GCF_057876585.1, NC_142518.1:95632802-95632875: complete gene (74 bp, upper case) + 100 bp downstream (lower case); class: SINE-like (A-rich tail, no T-run); best SINE consensus r9_15seqs: 120.7 bits, matches 27 bp past the tRNA end
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -644,7 +644,7 @@ tgcgccctctttaaaaaaataatgaaaaac------------------------------
 ------------------------------------------------------------
 -------ttggttgttctctctctctttt-------------------------------
 ---------------------------------
->SINElike|Ile-AAU_TRNAI-AAU_NC_142501.1:159554169-159554242
+>SINElike|Ile-AAU_TRNAI-AAU_NC_142501.1:159554169-159554242 R. sinicus tRNA gene TRNAI-AAU, RefSeq annotation of GCF_057876585.1, NC_142501.1:159554169-159554242: complete gene (74 bp, upper case) + 100 bp downstream (lower case); class: SINE-like (A-rich tail, no T-run); best SINE consensus r9_15seqs: 113.6 bits, matches 27 bp past the tRNA end
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -661,7 +661,7 @@ tgtgccctcgtttaaaaaaaaaaaaaaaaa------------------------------
 --------------------------------------ctgctatgattaccgatctgt-
 ------------------------------------------------------------
 ---------------------------------
->SINElike|Ile-GAU_TRNAI-GAU-10_NC_142509.1:26665066-26665139
+>SINElike|Ile-GAU_TRNAI-GAU-10_NC_142509.1:26665066-26665139 R. sinicus tRNA gene TRNAI-GAU-10, RefSeq annotation of GCF_057876585.1, NC_142509.1:26665066-26665139: complete gene (74 bp, upper case) + 100 bp downstream (lower case); class: SINE-like (A-rich tail, no T-run); best SINE consensus r9_15seqs: 127.7 bits, matches 27 bp past the tRNA end
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -678,7 +678,7 @@ ct----------------------------------------------------------
 -----------------------------------gc-----------------------
 ------------------------------------------------------------
 ---------------------------------
->SINElike|Ile-GAU_TRNAI-GAU-11_NC_142512.1:20848613-20848686
+>SINElike|Ile-GAU_TRNAI-GAU-11_NC_142512.1:20848613-20848686 R. sinicus tRNA gene TRNAI-GAU-11, RefSeq annotation of GCF_057876585.1, NC_142512.1:20848613-20848686: complete gene (74 bp, upper case) + 100 bp downstream (lower case); class: SINE-like (A-rich tail, no T-run); best SINE consensus r9_15seqs: 104.3 bits, matches 27 bp past the tRNA end
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -695,7 +695,7 @@ tgtgcccttctttaaaataaataaataaat------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
 ---------------------------------
->SINElike|Ile-GAU_TRNAI-GAU-13_NC_142514.1:29931051-29931124
+>SINElike|Ile-GAU_TRNAI-GAU-13_NC_142514.1:29931051-29931124 R. sinicus tRNA gene TRNAI-GAU-13, RefSeq annotation of GCF_057876585.1, NC_142514.1:29931051-29931124: complete gene (74 bp, upper case) + 100 bp downstream (lower case); class: SINE-like (A-rich tail, no T-run); best SINE consensus r9_15seqs: 125.3 bits, matches 27 bp past the tRNA end
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -712,7 +712,7 @@ tgcgccctcctgaaaaaaataataataata------------------------------
 --------------------------------------acattgttgtaagata------
 ------------------------------------------------------------
 ---------------------------------
->SINElike|Ile-GAU_TRNAI-GAU-15_NC_142515.1:34619175-34619248
+>SINElike|Ile-GAU_TRNAI-GAU-15_NC_142515.1:34619175-34619248 R. sinicus tRNA gene TRNAI-GAU-15, RefSeq annotation of GCF_057876585.1, NC_142515.1:34619175-34619248: complete gene (74 bp, upper case) + 100 bp downstream (lower case); class: SINE-like (A-rich tail, no T-run); best SINE consensus r9_15seqs: 116.0 bits, matches 27 bp past the tRNA end
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -729,7 +729,7 @@ tgcaccctccttaaaaaaacaaaaagtatt------------------------------
 --------------------------------------ttataaaatc------------
 ------------------------------------------------------------
 ---------------------------------
->SINElike|Ile-GAU_TRNAI-GAU-16_NC_142516.1:26114868-26114941
+>SINElike|Ile-GAU_TRNAI-GAU-16_NC_142516.1:26114868-26114941 R. sinicus tRNA gene TRNAI-GAU-16, RefSeq annotation of GCF_057876585.1, NC_142516.1:26114868-26114941: complete gene (74 bp, upper case) + 100 bp downstream (lower case); class: SINE-like (A-rich tail, no T-run); best SINE consensus r9_15seqs: 113.6 bits, matches 27 bp past the tRNA end
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -746,7 +746,7 @@ tgtgcccttcttaggaaaaaaaagaaaaaa------------------------------
 --------------------------------------ctagtgtgactctttaagtt--
 ------------------------------------------------------------
 ---------------------------------
->SINElike|Ile-GAU_TRNAI-GAU-19_NC_142518.1:31767565-31767638
+>SINElike|Ile-GAU_TRNAI-GAU-19_NC_142518.1:31767565-31767638 R. sinicus tRNA gene TRNAI-GAU-19, RefSeq annotation of GCF_057876585.1, NC_142518.1:31767565-31767638: complete gene (74 bp, upper case) + 100 bp downstream (lower case); class: SINE-like (A-rich tail, no T-run); best SINE consensus r9_15seqs: 125.3 bits, matches 27 bp past the tRNA end
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -763,7 +763,7 @@ tgtgccctccttaaaaaaaaaaaaaaaaag------------------------------
 --------------------------------------tcataaaacaatgaaa------
 ------------------------------------------------------------
 ---------------------------------
->SINElike|Ile-GAU_TRNAI-GAU-2_NC_142501.1:156394579-156394652
+>SINElike|Ile-GAU_TRNAI-GAU-2_NC_142501.1:156394579-156394652 R. sinicus tRNA gene TRNAI-GAU-2, RefSeq annotation of GCF_057876585.1, NC_142501.1:156394579-156394652: complete gene (74 bp, upper case) + 100 bp downstream (lower case); class: SINE-like (A-rich tail, no T-run); best SINE consensus r9_15seqs: 123.0 bits, matches 27 bp past the tRNA end
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -780,7 +780,7 @@ tgcaccctacttaaaaaaaaagaaaaaaaa------------------------------
 --------------------------------------ccatggagaaaagaaaatgaat
 ctgtgtc-----------------------------------------------------
 ---------------------------------
->SINElike|Ile-GAU_TRNAI-GAU-3_NC_142501.1:177961493-177961566
+>SINElike|Ile-GAU_TRNAI-GAU-3_NC_142501.1:177961493-177961566 R. sinicus tRNA gene TRNAI-GAU-3, RefSeq annotation of GCF_057876585.1, NC_142501.1:177961493-177961566: complete gene (74 bp, upper case) + 100 bp downstream (lower case); class: SINE-like (A-rich tail, no T-run); best SINE consensus r9_15seqs: 118.3 bits, matches 27 bp past the tRNA end
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -797,7 +797,7 @@ tgcaccctccttaaaaagacaaacaaacaa------------------------------
 ------------------------------------------------------------
 agcctttgctattcctctccctctctcctctgtctttg----------------------
 ---------------------------------
->SINElike|Ile-GAU_TRNAI-GAU-5_NC_142502.1:174040655-174040728
+>SINElike|Ile-GAU_TRNAI-GAU-5_NC_142502.1:174040655-174040728 R. sinicus tRNA gene TRNAI-GAU-5, RefSeq annotation of GCF_057876585.1, NC_142502.1:174040655-174040728: complete gene (74 bp, upper case) + 100 bp downstream (lower case); class: SINE-like (A-rich tail, no T-run); best SINE consensus r9_15seqs: 113.6 bits, matches 27 bp past the tRNA end
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -814,7 +814,7 @@ cgcgcccttcttaaaaataaataaataaat------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
 ---------------------------------
->SINElike|Ile-GAU_TRNAI-GAU-7_NC_142503.1:162279187-162279260
+>SINElike|Ile-GAU_TRNAI-GAU-7_NC_142503.1:162279187-162279260 R. sinicus tRNA gene TRNAI-GAU-7, RefSeq annotation of GCF_057876585.1, NC_142503.1:162279187-162279260: complete gene (74 bp, upper case) + 100 bp downstream (lower case); class: SINE-like (A-rich tail, no T-run); best SINE consensus r9_15seqs: 113.6 bits, matches 27 bp past the tRNA end
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -831,7 +831,7 @@ tgtacccaccttaaaaaaatactttaaaat------------------------------
 --------------------------------------aacatacca-------------
 ------------------------------------------------------------
 ---------------------------------
->SINElike|Ile-GAU_TRNAI-GAU-8_NC_142507.1:11002737-11002810
+>SINElike|Ile-GAU_TRNAI-GAU-8_NC_142507.1:11002737-11002810 R. sinicus tRNA gene TRNAI-GAU-8, RefSeq annotation of GCF_057876585.1, NC_142507.1:11002737-11002810: complete gene (74 bp, upper case) + 100 bp downstream (lower case); class: SINE-like (A-rich tail, no T-run); best SINE consensus r9_15seqs: 113.6 bits, matches 27 bp past the tRNA end
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -848,7 +848,7 @@ tgtaccctcctttaaaaaaaaaaaaaagaa------------------------------
 --------------------------------------tcataaaa--------------
 ------------------------------------------------------------
 ---------------------------------
->SINElike|Ile-GAU_TRNAI-GAU-9_NC_142509.1:17356284-17356357
+>SINElike|Ile-GAU_TRNAI-GAU-9_NC_142509.1:17356284-17356357 R. sinicus tRNA gene TRNAI-GAU-9, RefSeq annotation of GCF_057876585.1, NC_142509.1:17356284-17356357: complete gene (74 bp, upper case) + 100 bp downstream (lower case); class: SINE-like (A-rich tail, no T-run); best SINE consensus r9_15seqs: 113.6 bits, matches 27 bp past the tRNA end
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -865,7 +865,7 @@ tgtgccctttgtgaaaaaacaaaacaaaac------------------------------
 --------------------------------------gacaagactgtatagacggt--
 ------------------------------------------------------------
 ---------------------------------
->SINElike|Ile-GAU_TRNAI-GAU_NC_142501.1:54295524-54295597
+>SINElike|Ile-GAU_TRNAI-GAU_NC_142501.1:54295524-54295597 R. sinicus tRNA gene TRNAI-GAU, RefSeq annotation of GCF_057876585.1, NC_142501.1:54295524-54295597: complete gene (74 bp, upper case) + 100 bp downstream (lower case); class: SINE-like (A-rich tail, no T-run); best SINE consensus r9_15seqs: 127.7 bits, matches 27 bp past the tRNA end
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -882,7 +882,7 @@ cc----------------------------------------------------------
 -----------------------------------ctc----------------------
 ------------------------------------------------------------
 ---------------------------------
->SINElike|Ile-UAU_TRNAI-UAU-6_NC_142512.1:30029826-30029899
+>SINElike|Ile-UAU_TRNAI-UAU-6_NC_142512.1:30029826-30029899 R. sinicus tRNA gene TRNAI-UAU-6, RefSeq annotation of GCF_057876585.1, NC_142512.1:30029826-30029899: complete gene (74 bp, upper case) + 100 bp downstream (lower case); class: SINE-like (A-rich tail, no T-run); best SINE consensus r9_15seqs: 111.0 bits, matches 25 bp past the tRNA end
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -899,7 +899,7 @@ tgcgccctccgtaaatatgaaaacaaacaa------------------------------
 --------------------------------------gcagttaaaaataa--------
 ------------------------------------------------------------
 ---------------------------------
->SINElike|Ile-UAU_TRNAI-UAU_NC_142502.1:101510724-101510797
+>SINElike|Ile-UAU_TRNAI-UAU_NC_142502.1:101510724-101510797 R. sinicus tRNA gene TRNAI-UAU, RefSeq annotation of GCF_057876585.1, NC_142502.1:101510724-101510797: complete gene (74 bp, upper case) + 100 bp downstream (lower case); class: SINE-like (A-rich tail, no T-run); best SINE consensus r9_15seqs: 111.3 bits, matches 27 bp past the tRNA end
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
