@@ -17,3 +17,14 @@
 
 `rsi_r10_tsd.snapshot.json`: the same alignment as a ViewAlign snapshot with every 5' and 3' TSD base marked (yellow) and the
 BED track. Open: https://toki-bio.github.io/MSA-viewer/?snapshotFile=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2F80c8de9%2Frsi_main_20261022%2Fanalyses_20261022%2Fr10_tsd%2Frsi_r10_tsd.snapshot.json
+
+## Is what follows r10 shared with other subfamilies? (`rsi_r10_vs_P18.aln.fa` + `.bed`, `post.py`, `post2.py`, `ctx.py`)
+The 100 bp right after r10's end in 271 r10 copies, searched (ssearch36, >= 40 bp, E <= 1e-3) against up to 300 copies of
+every other subfamily, each read 400 bp past its own end; control = 100 bp of the same copies' 5' flank:
+- 2,644 copy pairs hit INSIDE r10_r8_P18 copies' elements, starting mostly at P18 positions 100-260 and ending at 180-340;
+  hits past the ends of other subfamilies' copies are at the control's level (genomic repeats in their flanks);
+- P18's middle piece (146-291) is a tandem array with a 10-bp period (self-identity 0.61 at 10, 0.68 at 20 bp): units like
+  GTGAGCTGCC / GTGGGCTGCT; r10's consensus ends with the start of it (...GCTGCCGTGAGCAGCC).
+So the r10 copies carry a variable number of these units past r10's end, then a G-rich / A-rich stretch, then the TSD.
+The alignment: r10 and P18 consensuses, the 48 r10 copies with a TSD (element up to their 3' TSD) and 40 P18 copies (SINE
+verdict, best bitscore), MAFFT --localpair; the track marks P18's three parts on the P18 consensus row.
