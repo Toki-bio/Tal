@@ -26,10 +26,12 @@ of r10_r8_P18 (P18 positions about 290-423), without P18's middle piece. r10_r8_
 r10_r8_P18del: 729 assigned copies; 635 SINE, 78 grey, 16 not SINE (flank twins 2.2 %); both sides tested independent
 (step 7). r10_19seqs keeps 315 copies (median 149 bp), r10_r8_P18 4,138.
 
-**Not explained yet:** 502 copies that were r6_210seqs in 21b now fail the unanimous vote (r6 copies with 9 of 10 votes:
-567 here, 142 / 201 / 252 in the three earlier runs with the 21-consensus bank). In a sample of 150 of them the best
-ssearch36 hit is r5_r6_P26, not P18del. Whether this is the run-to-run spread of the vote (ssearch36 `-z 11`) or an effect
-of the larger bank is not tested.
+**r6 copies that failed the vote: run-to-run spread, not the new consensus.** 502 copies that were r6_210seqs in 21b
+fail the unanimous vote here; their other votes went to r5_r6_P26 (889 copies with an r6/P26 split here, 423 in 21b), not to
+P18del. Each consensus is searched on its own, so a new consensus cannot change r6's or P26's scores. Repeating only the
+r6 and P26 cycles (10 cycles, 5 times on each run's own copy library; therioserver `/home/toki/tmp/r6vote/`, `vt.sh`):
+copies won by r6 in most but not all cycles, 2,800-3,846 on the 21b library and 2,524-3,870 on this run's library. The
+spread between repeats on one library is larger than the difference between the runs.
 
 ## Verdicts (every copy; `loci_verdict.tsv`, per subfamily `flank_verdict.tsv`)
 Rules: SINEderella `docs/VERDICTS.md`.
