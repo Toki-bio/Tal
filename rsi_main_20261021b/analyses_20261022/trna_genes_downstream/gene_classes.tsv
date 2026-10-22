@@ -1,0 +1,38 @@
+gene	class	best SINE (bits, bp past the tRNA end)	downstream 40 bp
+Ile-AAU_TRNAI-AAU-10_NC_142512.1:13700223-13700296	genuine (T-run 11 bp after the end)	r9_15seqs (87.9, 0)	gcaaggtcacttttagtaaatgtgctgttggaaccgggaa
+Ile-AAU_TRNAI-AAU-12_NC_142514.1:32978451-32978524	SINE-like (A-rich tail, no T-run)	r9_15seqs (120.7, 27)	ctgtgagttgcgccctccttaaaaaaacaaacaaaacaaa
+Ile-AAU_TRNAI-AAU-14_NC_142516.1:34088629-34088702	unclear (no T-run, no A-tail)	r9_15seqs (118.6, 24)	gtgagctgccccctccttaaaacacacacacacacacaca
+Ile-AAU_TRNAI-AAU-15_NC_142516.1:48798756-48798829	SINE-like (A-rich tail, no T-run)	r9_15seqs (125.3, 27)	ctgtgagctgcgccctcctgaaaaacaaacaaacaaaaaa
+Ile-AAU_TRNAI-AAU-17_NC_142517.1:16062425-16062498	unclear (no T-run, no A-tail)	r9_15seqs (116.0, 27)	ctgtgagctgcactcgcctcaaataaataaataaataaat
+Ile-AAU_TRNAI-AAU-18_NC_142517.1:56111035-56111108	SINE-like (A-rich tail, no T-run)	r9_15seqs (120.7, 27)	ctgtgaactgtgcccgccttaaaaaaatcacacaaaaaaa
+Ile-AAU_TRNAI-AAU-19_NC_142518.1:61614845-61614918	SINE-like (A-rich tail, no T-run)	r9_15seqs (118.3, 27)	ctgtgagctgtaccctccttaacaacaacaaaaaaaggca
+Ile-AAU_TRNAI-AAU-20_NC_142518.1:95632802-95632875	SINE-like (A-rich tail, no T-run)	r9_15seqs (120.7, 27)	ctgtgagctgcgccctctttaaaaaaataatgaaaaacaa
+Ile-AAU_TRNAI-AAU-2_NC_142502.1:105726119-105726192	unclear (no T-run, no A-tail)	r9_15seqs (116.8, 24)	ctgtgagctgtgccttccttaaaactaaacaaacaaataa
+Ile-AAU_TRNAI-AAU-3_NC_142503.1:199539612-199539685	genuine (T-run 11 bp after the end)	r9_15seqs (89.5, 3)	cagctgtcactttttttttccttttttcttttaatactag
+Ile-AAU_TRNAI-AAU-6_NC_142507.1:56371868-56371941	genuine (T-run 19 bp after the end)	r9_15seqs (98.1, 21)	ctttgagctgtgcttctcttttttccaccttggccatcgt
+Ile-AAU_TRNAI-AAU-7_NC_142507.1:56440880-56440953	genuine (T-run 9 bp after the end)	r9_15seqs (90.8, 10)	actctgagttttgtgagtccctgactttcacttctttcac
+Ile-AAU_TRNAI-AAU-9_NC_142512.1:13668397-13668470	genuine (T-run 9 bp after the end)	r9_15seqs (87.9, 0)	gaggtttattttattattttttttcgctccccccttccta
+Ile-AAU_TRNAI-AAU_NC_142501.1:159554169-159554242	SINE-like (A-rich tail, no T-run)	r9_15seqs (113.6, 27)	ctgtgagctgtgccctcgtttaaaaaaaaaaaaaaaaaaa
+Ile-GAU_TRNAI-GAU-10_NC_142509.1:26665066-26665139	SINE-like (A-rich tail, no T-run)	r9_15seqs (127.7, 27)	ctgtgagctgtgccctccttaaaaaaaaaaaaaaaaaaaa
+Ile-GAU_TRNAI-GAU-11_NC_142512.1:20848613-20848686	SINE-like (A-rich tail, no T-run)	r9_15seqs (104.3, 27)	ctgtgagctgtgcccttctttaaaataaataaataaataa
+Ile-GAU_TRNAI-GAU-12_NC_142514.1:27397798-27397871	unclear (no T-run, no A-tail)	r9_15seqs (107.7, 27)	ctgtgagctgcgccctcctttaaataaataaataaataaa
+Ile-GAU_TRNAI-GAU-13_NC_142514.1:29931051-29931124	SINE-like (A-rich tail, no T-run)	r9_15seqs (125.3, 27)	ctgtgagctgcgccctcctgaaaaaaataataataataag
+Ile-GAU_TRNAI-GAU-14_NC_142514.1:124453623-124453696	unclear (no T-run, no A-tail)	r9_15seqs (119.4, 26)	ctgtgagctgcaccctccttaataaataaataaataaata
+Ile-GAU_TRNAI-GAU-15_NC_142515.1:34619175-34619248	SINE-like (A-rich tail, no T-run)	r9_15seqs (116.0, 27)	gtgtgagctgcaccctccttaaaaaaacaaaaagtattag
+Ile-GAU_TRNAI-GAU-16_NC_142516.1:26114868-26114941	SINE-like (A-rich tail, no T-run)	r9_15seqs (113.6, 27)	ctgtgagctgtgcccttcttaggaaaaaaaagaaaaaaat
+Ile-GAU_TRNAI-GAU-19_NC_142518.1:31767565-31767638	SINE-like (A-rich tail, no T-run)	r9_15seqs (125.3, 27)	ctgtgagctgtgccctccttaaaaaaaaaaaaaaaaagtt
+Ile-GAU_TRNAI-GAU-20_NC_142518.1:61970858-61970931	unclear (no T-run, no A-tail)	r9_15seqs (119.1, 24)	ctgtgagctgcaccctccttaaaagcaaagcaacaaacaa
+Ile-GAU_TRNAI-GAU-2_NC_142501.1:156394579-156394652	SINE-like (A-rich tail, no T-run)	r9_15seqs (123.0, 27)	ctgtgagctgcaccctacttaaaaaaaaagaaaaaaaaag
+Ile-GAU_TRNAI-GAU-3_NC_142501.1:177961493-177961566	SINE-like (A-rich tail, no T-run)	r9_15seqs (118.3, 27)	ctgtgagctgcaccctccttaaaaagacaaacaaacaaaa
+Ile-GAU_TRNAI-GAU-5_NC_142502.1:174040655-174040728	SINE-like (A-rich tail, no T-run)	r9_15seqs (113.6, 27)	ctgtgagccgcgcccttcttaaaaataaataaataaataa
+Ile-GAU_TRNAI-GAU-6_NC_142502.1:184345111-184345184	genuine (T-run 27 bp after the end)	r9_15seqs (100.1, 13)	ctgtgagctgtgctaaccagcactaatttttttaattaaa
+Ile-GAU_TRNAI-GAU-7_NC_142503.1:162279187-162279260	SINE-like (A-rich tail, no T-run)	r9_15seqs (113.6, 27)	ctgtgagctgtacccaccttaaaaaaatactttaaaatat
+Ile-GAU_TRNAI-GAU-8_NC_142507.1:11002737-11002810	SINE-like (A-rich tail, no T-run)	r9_15seqs (113.6, 27)	ctgtgagctgtaccctcctttaaaaaaaaaaaaaagaata
+Ile-GAU_TRNAI-GAU-9_NC_142509.1:17356284-17356357	SINE-like (A-rich tail, no T-run)	r9_15seqs (113.6, 27)	ctatgagctgtgccctttgtgaaaaaacaaaacaaaacaa
+Ile-GAU_TRNAI-GAU_NC_142501.1:54295524-54295597	SINE-like (A-rich tail, no T-run)	r9_15seqs (127.7, 27)	ctgtgagctgcgccctccttacaaaaaaaaaaaagcgagg
+Ile-UAU_TRNAI-UAU-2_NC_142502.1:161548535-161548627	genuine (T-run 7 bp after the end)	-	cgacccttttggataccggaacccccttttatctccttgc
+Ile-UAU_TRNAI-UAU-3_NC_142504.1:102494044-102494117	unclear (no T-run, no A-tail)	r9_15seqs (123.0, 27)	ctgtgagctgtgccctccttaaaaatataaataaataaat
+Ile-UAU_TRNAI-UAU-4_NC_142507.1:56343147-56343240	genuine (T-run 4 bp after the end)	-	tcgttttccaacagcgacagcatccctttcctccttgctt
+Ile-UAU_TRNAI-UAU-5_NC_142508.1:44133097-44133189	genuine (T-run 2 bp after the end)	r7_133seqs (32.2, 6)	cttttaattttttcttttctcatcagcttttataaacgta
+Ile-UAU_TRNAI-UAU-6_NC_142512.1:30029826-30029899	SINE-like (A-rich tail, no T-run)	r9_15seqs (111.0, 25)	ctgtgagctgcgccctccgtaaatatgaaaacaaacaaac
+Ile-UAU_TRNAI-UAU_NC_142502.1:101510724-101510797	SINE-like (A-rich tail, no T-run)	r9_15seqs (111.3, 27)	ctgtgagctgcaccctccgtaaatataaaaacaaacaaac
