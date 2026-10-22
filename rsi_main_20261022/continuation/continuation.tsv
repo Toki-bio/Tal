@@ -1,0 +1,8 @@
+consensus	group	side	sampled	tested	target	copies	share	junction_bp	target_start	target_end	identity	inside_locus	flag	candidate	candidate_bp	seeds_differ_mm	bank_match
+r10_19seqs	assigned	3'	315	315	r10_r8_P18	128	0.406	1	173	291	79.5	0 of 107 bp	yes	r10_19seqs__3p__r10_r8_P18_173-291	202	1	not in the bank (closest r10_19seqs: 0 mismatches and 58 gap columns end to end; local match at its positions 1-145)
+r10_19seqs	unassigned	3'	105	85	r10_r8_P18	19	0.224	2	232	361	84.7	57 of 96 bp	yes	r10_19seqs__3p__r10_r8_P18_232-361	165	0	not in the bank (closest r10_19seqs: 1 mismatches and 27 gap columns end to end; local match at its positions 2-143)
+r10_r8_P18	unassigned	5'	400	225	r10_r8_P18del	24	0.107	0	1	59	89.0	56 of 58 bp	no				
+r1_r3_P1	unassigned	5'	320	315	r5_r3_P34	29	0.092	0	1	162	92.3	161 of 161 bp	no				
+r1_r2_r3_r3_C11	unassigned	5'	392	390	r5_r3_P34	14	0.036	0	1	59	90.3	59 of 59 bp	no				
+r5_r5_P48	assigned	3'	400	400	r5_r6_P26	11	0.028	0	314	376	92.1	63 of 63 bp	no				
+r5_r3_P34	assigned	3'	400	400	r1_r3_P2	10	0.025	1	224	304	89.0	81 of 81 bp	no				

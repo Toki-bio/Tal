@@ -1,0 +1,46 @@
+consensus	kind	start	end	unit	identity	alternatives
+MEG-RL	unit	1	207	MEG-RL	100.0	-
+MEG-RS	unit	1	135	MEG-RS	100.0	-
+MEG-T2	unit	1	232	MEG-T2	100.0	-
+MEG-TR	unit	1	196	MEG-TR	100.0	-
+r10_19seqs	unit	1	146	r10_19seqs	100.0	-
+r10_r8_P18	composite	1	5	r10_r8_P18del	98.7	r8_83seqs 85.5, r7_133seqs 83.1
+r10_r8_P18	composite	6	151	r10_19seqs	100.0	r10_r8_P18del 98.7, r1_9seqs 91.4
+r10_r8_P18	composite	152	289	-	-	-
+r10_r8_P18	composite	290	426	r10_r8_P18del	88.4	r8_83seqs 78.3, r7_133seqs 78.1
+r10_r8_P18del	unit	1	255	r10_r8_P18del	100.0	-
+r1_9seqs	unit	1	155	r1_9seqs	100.0	-
+r1_r2_r3_r3_C11	composite	1	5	r10_r8_P18del	91.9	r8_83seqs 84.2, r5_27seqs 82.0
+r1_r2_r3_r3_C11	composite	6	161	r1_9seqs	96.1	r2_3seqs 93.8, r10_r8_P18del 91.9
+r1_r2_r3_r3_C11	composite	162	338	r2_3seqs	99.3	r6_210seqs 92.0, r4_32seqs 89.5
+r1_r2_r3_r3_C11	composite	339	471	r4_32seqs	97.1	r3_58seqs 92.1, r6_210seqs 87.2
+r1_r2_r3_r3_C11	composite	472	589	r3_58seqs	90.8	r6_210seqs 84.4, r8_83seqs 82.3
+r1_r2_r3_r3_C11	composite	590	608	-	-	-
+r1_r3_P1	composite	1	5	r10_r8_P18del	90.7	r8_83seqs 83.2, r5_27seqs 82.0
+r1_r3_P1	composite	6	161	r1_9seqs	96.8	r2_3seqs 94.3, r10_r8_P18del 90.7
+r1_r3_P1	composite	162	200	r2_3seqs	94.3	r4_32seqs 86.2, r3_58seqs 85.4
+r1_r3_P1	composite	201	401	r3_58seqs	99.5	r4_32seqs 97.8, r2_3seqs 88.5
+r1_r3_P1	composite	402	429	r5_27seqs	86.3	-
+r1_r3_P1	composite	430	448	-	-	-
+r1_r3_P2	composite	1	5	r10_r8_P18del	78.8	r8_83seqs 83.2, r5_27seqs 80.7
+r1_r3_P2	composite	6	85	r1_9seqs	97.3	r8_83seqs 83.2, r10_19seqs 82.7
+r1_r3_P2	composite	86	258	r3_58seqs	98.8	r4_32seqs 96.4, r2_3seqs 88.1
+r1_r3_P2	composite	259	294	r5_27seqs	89.9	-
+r1_r3_P2	composite	295	304	-	-	-
+r2_3seqs	unit	1	146	r2_3seqs	100.0	-
+r3_58seqs	unit	1	201	r3_58seqs	100.0	-
+r4_32seqs	unit	1	144	r4_32seqs	100.0	-
+r5_27seqs	unit	1	178	r5_27seqs	100.0	-
+r5_r3_P34	composite	1	1	-	-	-
+r5_r3_P34	composite	2	140	r5_27seqs	85.4	r6_210seqs 84.1, r7_133seqs 80.0
+r5_r3_P34	composite	141	339	r3_58seqs	99.0	r4_32seqs 96.3, r2_3seqs 88.8
+r5_r3_P34	composite	340	370	r5_27seqs	82.4	-
+r5_r5_P48	composite	1	136	r5_27seqs	96.8	r7_133seqs 89.8, r8_83seqs 89.2
+r5_r5_P48	composite	137	308	r6_210seqs	100.0	r5_27seqs 95.9, r7_133seqs 92.5
+r5_r6_P26	composite	1	1	r10_r8_P18del	81.9	-
+r5_r6_P26	composite	2	137	r5_27seqs	96.8	r7_133seqs 89.8, r8_83seqs 89.2
+r5_r6_P26	composite	138	376	r6_210seqs	100.0	r5_27seqs 97.2, r2_3seqs 92.0
+r6_210seqs	unit	1	225	r6_210seqs	100.0	-
+r7_133seqs	unit	1	154	r7_133seqs	100.0	-
+r8_83seqs	unit	1	181	r8_83seqs	100.0	-
+r9_15seqs	unit	1	105	r9_15seqs	100.0	-
