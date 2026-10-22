@@ -1,6 +1,6 @@
->r10_r8_P18:292-407~r8_83seqs_head:4-78
+>r10_r8_P18:292-407~r8_83seqs_head:4-78 R. sinicus composite consensus r10_r8_P18, part 292-407 (unit r8_83seqs); shown: positions 4-78 of that part (tRNA-like head and about 30 bp past it); bank21, rsi_main_20261021b consensuses.clean.fa
 gaccgactgcctcagccggggggagcgcaaggctcataataccagcatgggccagggagc
 tgtgtcctacacaac---
->tRNA-Lys-CTT-9-1_human|best:r10_r8_P18:292-407~r8_83seqs
+>tRNA-Lys-CTT-9-1_human|best:r10_r8_P18:292-407~r8_83seqs Homo sapiens tRNA-Lys-CTT-9-1, GtRNAdb hg19 (tRNAscan-SE chr5.trna23), chr5:26198539-26198611 (-), complete gene 73 bp, tRNAscan-SE score 58.2; best match of r10_r8_P18:292-407|r8_83seqs
 gcccgactacctcagtc-ggtggagcatgggactcttcatccca----gggttgtgggtt
 cgagccccacattgggca

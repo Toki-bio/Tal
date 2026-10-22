@@ -1,15 +1,15 @@
->MEG-T2_head:6-109
+>MEG-T2_head:6-109 R. sinicus SINE consensus MEG-T2; shown: positions 6-109 (tRNA-like head and about 30 bp past it); bank21, rsi_main_20261021b consensuses.clean.fa
 ggctccatagtgtagtggttagcacgtctgctttacacgcagaaggtcctgggttcgcgc
 cccaggtggagccacggaccataccccgggtgcgccaggcccca
->MEG-TR_head:1-85
+>MEG-TR_head:1-85 R. sinicus SINE consensus MEG-TR; shown: positions 1-85 (tRNA-like head and about 30 bp past it); bank21, rsi_main_20261021b consensuses.clean.fa
 ------------------ttagcacgtctgctttacacgcagaaggtcctgggttcgcgc
 cccag-tggagccacagtccatggtctacggccatgccaccctg
->tRNA-Val-TAC-1-1_human|best:MEG-T2,MEG-TR
+>tRNA-Val-TAC-1-1_human|best:MEG-T2,MEG-TR Homo sapiens tRNA-Val-TAC-1-1, GtRNAdb hg19 (tRNAscan-SE chr11.trna18), chr11:59318102-59318174 (-), complete gene 73 bp, tRNAscan-SE score 82.9; best match of MEG-T2, MEG-TR
 ggttccatagtgtagtggttatcacgtctgctttacacgcagaaggtcctgggttcgagc
 cccag-tggaacca------------------------------
->tRNA-Val-TAC-2-1_human|close:MEG-T2,MEG-TR
+>tRNA-Val-TAC-2-1_human|close:MEG-T2,MEG-TR Homo sapiens tRNA-Val-TAC-2-1, GtRNAdb hg19 (tRNAscan-SE chr11.trna17), chr11:59318460-59318532 (-), complete gene 73 bp, tRNAscan-SE score 80.5; close match (>= 90 % of the best score) of MEG-T2, MEG-TR
 ggttccatagtgtagcggttatcacgtctgctttacacgcagaaggtcctgggttcgagc
 cccag-tggaacca------------------------------
->tRNA-Val-TAC-3-1_human|close:MEG-T2,MEG-TR
+>tRNA-Val-TAC-3-1_human|close:MEG-T2,MEG-TR Homo sapiens tRNA-Val-TAC-3-1, GtRNAdb hg19 (tRNAscan-SE chr10.trna6), chr10:5895674-5895746 (-), complete gene 73 bp, tRNAscan-SE score 80.7; close match (>= 90 % of the best score) of MEG-T2, MEG-TR
 ggttccatagtgtagtggttatcacatctgctttacacgcagaaggtcctgggttcaagc
 cccag-tggaacca------------------------------

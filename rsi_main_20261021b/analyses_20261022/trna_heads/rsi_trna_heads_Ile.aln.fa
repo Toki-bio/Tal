@@ -1,138 +1,138 @@
->r10_19seqs_head:1-104
+>r10_19seqs_head:1-104 R. sinicus SINE consensus r10_19seqs; shown: positions 1-104 (tRNA-like head and about 30 bp past it); bank21, rsi_main_20261021b consensuses.clean.fa
 ggcccggtggctcaggtggttggagcgccgtgctcctaacgcc-gaggtcgccggttcga
 t--------tcccacatgggcca--gtgagctgcgccctctacagctaagattgt
->r10_r8_P18_head:6-109
+>r10_r8_P18_head:6-109 R. sinicus SINE consensus r10_r8_P18; shown: positions 6-109 (tRNA-like head and about 30 bp past it); bank21, rsi_main_20261021b consensuses.clean.fa
 ggcccggtggctcaggtggttggagcgccgtgctcctaacgcc-gaggtcgccggttcga
 t--------tcccacatgggcca--gtgagctgcgccctctacagctaagattgt
->r1_9seqs_head:1-105
+>r1_9seqs_head:1-105 R. sinicus SINE consensus r1_9seqs; shown: positions 1-105 (tRNA-like head and about 30 bp past it); bank21, rsi_main_20261021b consensuses.clean.fa
 ggcccggtggctcaggcggttggagctccatgctcctaactccgaaggctgccggttcga
 t--------tcccacatgggcca--gtgggctctcaaccacaaggttgccagttc
->r1_r2_r3_r3_C11_head:6-110
+>r1_r2_r3_r3_C11_head:6-110 R. sinicus SINE consensus r1_r2_r3_r3_C11; shown: positions 6-110 (tRNA-like head and about 30 bp past it); bank21, rsi_main_20261021b consensuses.clean.fa
 ggcccggtggctcaggcggttagagctccgtgctcctaactccgaaggctgccggttcga
 t--------tcccacatgggcca--gtgggctctcaaccacaaggttgccagttc
->r1_r3_P1_head:6-110
+>r1_r3_P1_head:6-110 R. sinicus SINE consensus r1_r3_P1; shown: positions 6-110 (tRNA-like head and about 30 bp past it); bank21, rsi_main_20261021b consensuses.clean.fa
 ggcccggtggctcaggcggttagagctccatgctcctaactccgaaggctgccggttcga
 t--------tcccacatgggcca--gtgggctctcaaccacaaggttgccagttc
->r1_r3_P2_head:6-110
+>r1_r3_P2_head:6-110 R. sinicus SINE consensus r1_r3_P2; shown: positions 6-110 (tRNA-like head and about 30 bp past it); bank21, rsi_main_20261021b consensuses.clean.fa
 ggcccggtggctcaggcggttagagctccatgctcctaactccgaaggctgccggttcga
 t--------tcccacatgggcca--gtgggctctcaaccacaaggttgccagttc
->r2_3seqs_head:1-96
+>r2_3seqs_head:1-96 R. sinicus SINE consensus r2_3seqs; shown: positions 1-96 (tRNA-like head and about 30 bp past it); bank21, rsi_main_20261021b consensuses.clean.fa
 --ccggatggctcagttggttggagcgcgg-gctctcaaccac-aaggttgccagttcaa
 ttcctcgactcccgcaagggatg--gtgggcagcgccccctg-------------
->r3_58seqs_head:1-97
+>r3_58seqs_head:1-97 R. sinicus SINE consensus r3_58seqs; shown: positions 1-97 (tRNA-like head and about 30 bp past it); bank21, rsi_main_20261021b consensuses.clean.fa
 ---ccgatggctcagttggttggagcgcgt-cctctcaaccac-aaggttgccggttcga
 c--------tcccgcaagggatg--gtgggctgcgccccctgcaactagcaa---
->r4_32seqs_head:1-96
+>r4_32seqs_head:1-96 R. sinicus SINE consensus r4_32seqs; shown: positions 1-96 (tRNA-like head and about 30 bp past it); bank21, rsi_main_20261021b consensuses.clean.fa
 --ccggatggctcagttggttggagcgcgt-gctctcaaccac-aaggttgccagttcga
 ttcctcgactcccgcaagggatg--gtgggctgtgccccctg-------------
->r5_27seqs_head:5-107
+>r5_27seqs_head:5-107 R. sinicus SINE consensus r5_27seqs; shown: positions 5-107 (tRNA-like head and about 30 bp past it); bank21, rsi_main_20261021b consensuses.clean.fa
 ggccggatggctcagttggttagagcgcga-gctctgaacaac-agggttgccggttcga
 t--------tcccacatgggcca--gtgagctgcgccctccacaactagattgaa
->r5_r3_P34_head:138-237
+>r5_r3_P34_head:138-237 R. sinicus SINE consensus r5_r3_P34; shown: positions 138-237 (tRNA-like head and about 30 bp past it); bank21, rsi_main_20261021b consensuses.clean.fa
 ggccagatggctcagttggttggagcgcgt-cctctcaaccac-aaggttgccggttcga
 c--------tcccgcaagggatg--gtgggctgcgccccctgcaactaacaa---
->r5_r5_P48_head:5-107
+>r5_r5_P48_head:5-107 R. sinicus SINE consensus r5_r5_P48; shown: positions 5-107 (tRNA-like head and about 30 bp past it); bank21, rsi_main_20261021b consensuses.clean.fa
 ggccggatggctcagttggttagagcgcga-gctctgaacaac-agggttgccggttcga
 t--------tcccacatgggcca--gtgagctgcgccctccacaactagattgaa
->r5_r6_P26_head:6-108
+>r5_r6_P26_head:6-108 R. sinicus SINE consensus r5_r6_P26; shown: positions 6-108 (tRNA-like head and about 30 bp past it); bank21, rsi_main_20261021b consensuses.clean.fa
 ggccggatggctcagttggttagagcgcga-gctctgaacaac-agggttgccggttcga
 t--------tcccacatgggcca--gtgagctgcgccctccacaactagattgaa
->r6_210seqs_head:5-104
+>r6_210seqs_head:5-104 R. sinicus SINE consensus r6_210seqs; shown: positions 5-104 (tRNA-like head and about 30 bp past it); bank21, rsi_main_20261021b consensuses.clean.fa
 ggccggatggctcagttggttagagcgcga-gctctcaacaac-aaggttgccggttcaa
 t--------tcccacatgggatg--gtgggctgcgccccctgcaactaaaga---
->r7_133seqs_head:5-108
+>r7_133seqs_head:5-108 R. sinicus SINE consensus r7_133seqs; shown: positions 5-108 (tRNA-like head and about 30 bp past it); bank21, rsi_main_20261021b consensuses.clean.fa
 ggccggttagctcagttggttagagcgcggtgctcttaacaac-aaggttgccggttcga
 t--------ccccacatgggccactgtgagctgcgccctccacaactagattg--
->r8_83seqs_head:5-108
+>r8_83seqs_head:5-108 R. sinicus SINE consensus r8_83seqs; shown: positions 5-108 (tRNA-like head and about 30 bp past it); bank21, rsi_main_20261021b consensuses.clean.fa
 ggccggttggctcagttggttagagcgcagtgctcataacacc-aaggtcgccggttcga
 t--------tcccacatgggcca--gtgagctgcgccctccacaactagattgaa
->r9_15seqs_head:5-105
+>r9_15seqs_head:5-105 R. sinicus SINE consensus r9_15seqs; shown: positions 5-105 (tRNA-like head and about 30 bp past it); bank21, rsi_main_20261021b consensuses.clean.fa
 ggccggttagctcagttggttagagcgtggtgctaataacacc-aaggttgccggttcga
 t--------ccccgcatgggccactgtgagctgcgccctccttaaaaaaa-----
->r10_r8_P18:6-150~r10_19seqs_head:1-104
+>r10_r8_P18:6-150~r10_19seqs_head:1-104 R. sinicus composite consensus r10_r8_P18, part 6-150 (unit r10_19seqs); shown: positions 1-104 of that part (tRNA-like head and about 30 bp past it); bank21, rsi_main_20261021b consensuses.clean.fa
 ggcccggtggctcaggtggttggagcgccgtgctcctaacgcc-gaggtcgccggttcga
 t--------tcccacatgggcca--gtgagctgcgccctctacagctaagattgt
->r1_r2_r3_r3_C11:6-161~r1_9seqs_head:1-105
+>r1_r2_r3_r3_C11:6-161~r1_9seqs_head:1-105 R. sinicus composite consensus r1_r2_r3_r3_C11, part 6-161 (unit r1_9seqs); shown: positions 1-105 of that part (tRNA-like head and about 30 bp past it); bank21, rsi_main_20261021b consensuses.clean.fa
 ggcccggtggctcaggcggttagagctccgtgctcctaactccgaaggctgccggttcga
 t--------tcccacatgggcca--gtgggctctcaaccacaaggttgccagttc
->r1_r2_r3_r3_C11:162-338~r2_3seqs_head:32-127
+>r1_r2_r3_r3_C11:162-338~r2_3seqs_head:32-127 R. sinicus composite consensus r1_r2_r3_r3_C11, part 162-338 (unit r2_3seqs); shown: positions 32-127 of that part (tRNA-like head and about 30 bp past it); bank21, rsi_main_20261021b consensuses.clean.fa
 --ccggatggctcagttggttggagcgcgg-gctctcaaccac-aaggttgccagttcaa
 ttcctcgactcccgcaagggatg--gtgggcagcgccccctg-------------
->r1_r2_r3_r3_C11:339-471~r4_32seqs_head:1-95
+>r1_r2_r3_r3_C11:339-471~r4_32seqs_head:1-95 R. sinicus composite consensus r1_r2_r3_r3_C11, part 339-471 (unit r4_32seqs); shown: positions 1-95 of that part (tRNA-like head and about 30 bp past it); bank21, rsi_main_20261021b consensuses.clean.fa
 -----gatggctcagttggttggagcctgt-cctctcaaccac-aaggttgccggttcga
 c--------tcccgcaagggatg--gtgggctgtgccccctgcaactagcaa---
->r1_r3_P1:6-161~r1_9seqs_head:1-105
+>r1_r3_P1:6-161~r1_9seqs_head:1-105 R. sinicus composite consensus r1_r3_P1, part 6-161 (unit r1_9seqs); shown: positions 1-105 of that part (tRNA-like head and about 30 bp past it); bank21, rsi_main_20261021b consensuses.clean.fa
 ggcccggtggctcaggcggttagagctccatgctcctaactccgaaggctgccggttcga
 t--------tcccacatgggcca--gtgggctctcaaccacaaggttgccagttc
->r1_r3_P1:201-401~r3_58seqs_head:1-97
+>r1_r3_P1:201-401~r3_58seqs_head:1-97 R. sinicus composite consensus r1_r3_P1, part 201-401 (unit r3_58seqs); shown: positions 1-97 of that part (tRNA-like head and about 30 bp past it); bank21, rsi_main_20261021b consensuses.clean.fa
 ---cggatggctcagttggttggagcgcgt-cctctcaaccac-aaggttgccggttcga
 c--------tcccgcaagggatg--gtgggctgcgccccctgcaactagcaa---
->r1_r3_P2:6-85~r1_9seqs_head:1-80
+>r1_r3_P2:6-85~r1_9seqs_head:1-80 R. sinicus composite consensus r1_r3_P2, part 6-85 (unit r1_9seqs); shown: positions 1-80 of that part (tRNA-like head and about 30 bp past it); bank21, rsi_main_20261021b consensuses.clean.fa
 ggcccggtggctcaggcggttagagctccatgctcctaactccgaaggctgccggttcga
 t--------tcccacatgggcca--gtggg-------------------------
->r1_r3_P2:86-258~r3_58seqs_head:6-69
+>r1_r3_P2:86-258~r3_58seqs_head:6-69 R. sinicus composite consensus r1_r3_P2, part 86-258 (unit r3_58seqs); shown: positions 6-69 of that part (tRNA-like head and about 30 bp past it); bank21, rsi_main_20261021b consensuses.clean.fa
 -------------------------------------aaccac-aaggttgccagttcaa
 c--------tcccgcaagggatg--gtgggctgcgccccctgcaactagcaa---
->r5_r3_P34:2-140~r5_27seqs_head:5-107
+>r5_r3_P34:2-140~r5_27seqs_head:5-107 R. sinicus composite consensus r5_r3_P34, part 2-140 (unit r5_27seqs); shown: positions 5-107 of that part (tRNA-like head and about 30 bp past it); bank21, rsi_main_20261021b consensuses.clean.fa
 ggacgggtggctcagttggttagagcgcga-gctctgggcaac-ggggctgccggttcga
 t--------tcccacatgggcca--gcgagctgcgccctccgcaactagaatgaa
->r5_r3_P34:141-339~r3_58seqs_head:1-97
+>r5_r3_P34:141-339~r3_58seqs_head:1-97 R. sinicus composite consensus r5_r3_P34, part 141-339 (unit r3_58seqs); shown: positions 1-97 of that part (tRNA-like head and about 30 bp past it); bank21, rsi_main_20261021b consensuses.clean.fa
 ---cagatggctcagttggttggagcgcgt-cctctcaaccac-aaggttgccggttcga
 c--------tcccgcaagggatg--gtgggctgcgccccctgcaactaacaa---
->r5_r5_P48:1-136~r5_27seqs_head:5-107
+>r5_r5_P48:1-136~r5_27seqs_head:5-107 R. sinicus composite consensus r5_r5_P48, part 1-136 (unit r5_27seqs); shown: positions 5-107 of that part (tRNA-like head and about 30 bp past it); bank21, rsi_main_20261021b consensuses.clean.fa
 ggccggatggctcagttggttagagcgcga-gctctgaacaac-agggttgccggttcga
 t--------tcccacatgggcca--gtgagctgcgccctccacaactagattgaa
->r5_r5_P48:137-308~r6_210seqs_head:5-104
+>r5_r5_P48:137-308~r6_210seqs_head:5-104 R. sinicus composite consensus r5_r5_P48, part 137-308 (unit r6_210seqs); shown: positions 5-104 of that part (tRNA-like head and about 30 bp past it); bank21, rsi_main_20261021b consensuses.clean.fa
 ggccggatggctcagttggttagagcgcga-gctctcaacaac-aaggttgccggttcaa
 t--------tcccacatgggatg--gtgggctgcgccctccacaactagatt---
->r5_r6_P26:2-137~r5_27seqs_head:5-107
+>r5_r6_P26:2-137~r5_27seqs_head:5-107 R. sinicus composite consensus r5_r6_P26, part 2-137 (unit r5_27seqs); shown: positions 5-107 of that part (tRNA-like head and about 30 bp past it); bank21, rsi_main_20261021b consensuses.clean.fa
 ggccggatggctcagttggttagagcgcga-gctctgaacaac-agggttgccggttcga
 t--------tcccacatgggcca--gtgagctgcgccctccacaactagattgaa
->r5_r6_P26:138-376~r6_210seqs_head:5-104
+>r5_r6_P26:138-376~r6_210seqs_head:5-104 R. sinicus composite consensus r5_r6_P26, part 138-376 (unit r6_210seqs); shown: positions 5-104 of that part (tRNA-like head and about 30 bp past it); bank21, rsi_main_20261021b consensuses.clean.fa
 ggccggatggctcagttggttagagcgcga-gctctcaacaac-aaggttgccggttcaa
 t--------tcccacatgggatg--gtgggctgcgccccctgcaactaaaga---
->tRNA-Ile-AAT-5-3_human|best:r10_19seqs,r10_r8_P18,r3_58seqs,r5_27seqs,r5_r3_P34,r5_r5_P48...|close:r2_3seqs,r4_32seqs,r1_r2_r3_r3_C11:162-338~r2_3seqs
+>tRNA-Ile-AAT-5-3_human|best:r10_19seqs,r10_r8_P18,r3_58seqs,r5_27seqs,r5_r3_P34,r5_r5_P48...|close:r2_3seqs,r4_32seqs,r1_r2_r3_r3_C11:162-338~r2_3seqs Homo sapiens tRNA-Ile-AAT-5-3, GtRNAdb hg19 (tRNAscan-SE chr6.trna158), chr6:27205350-27205423 (-), complete gene 74 bp, tRNAscan-SE score 81.2; best match of r10_19seqs, r10_r8_P18, r3_58seqs, r5_27seqs, r5_r3_P34, r5_r5_P48, r5_r6_P26, r6_210seqs, r7_133seqs, r8_83seqs, r9_15seqs, r10_r8_P18:6-150|r10_19seqs, r1_r2_r3_r3_C11:339-471|r4_32seqs, r1_r3_P1:201-401|r3_58seqs, r5_r3_P34:2-140|r5_27seqs, r5_r3_P34:141-339|r3_58seqs, r5_r5_P48:1-136|r5_27seqs, r5_r5_P48:137-308|r6_210seqs, r5_r6_P26:2-137|r5_27seqs, r5_r6_P26:138-376|r6_210seqs; close match (>= 90 % of the best score) of r2_3seqs, r4_32seqs, r1_r2_r3_r3_C11:162-338|r2_3seqs
 ggccggttagctcagttggttagagcgtggtgctaataacgcc-aaggtcgcgggttcga
 t--------ccccgtacgggcca--------------------------------
->tRNA-Ile-AAT-7-1_human|close:r10_19seqs,r10_r8_P18,r7_133seqs,r9_15seqs,r10_r8_P18:6-150~r10_19seqs
+>tRNA-Ile-AAT-7-1_human|close:r10_19seqs,r10_r8_P18,r7_133seqs,r9_15seqs,r10_r8_P18:6-150~r10_19seqs Homo sapiens tRNA-Ile-AAT-7-1, GtRNAdb hg19 (tRNAscan-SE chr6.trna170), chr6:26721221-26721294 (-), complete gene 74 bp, tRNAscan-SE score 81.2; close match (>= 90 % of the best score) of r10_19seqs, r10_r8_P18, r7_133seqs, r9_15seqs, r10_r8_P18:6-150|r10_19seqs
 ggccggttagctcagttggtcagagcgtggtgctaataacgcc-aaggtcgcgggttcga
 t--------ccccgtacgggcca--------------------------------
->tRNA-Ile-AAT-2-1_human|best:r2_3seqs,r4_32seqs,r1_r2_r3_r3_C11:162-338~r2_3seqs|close:r10_19seqs,r10_r8_P18,r1_9seqs,r1_r2_r3_r3_C11,r1_r3_P2,r5_27seqs...
+>tRNA-Ile-AAT-2-1_human|best:r2_3seqs,r4_32seqs,r1_r2_r3_r3_C11:162-338~r2_3seqs|close:r10_19seqs,r10_r8_P18,r1_9seqs,r1_r2_r3_r3_C11,r1_r3_P2,r5_27seqs... Homo sapiens tRNA-Ile-AAT-2-1, GtRNAdb hg19 (tRNAscan-SE chr6.trna60), chr6:27655967-27656040 (+), complete gene 74 bp, tRNAscan-SE score 86.3; best match of r2_3seqs, r4_32seqs, r1_r2_r3_r3_C11:162-338|r2_3seqs; close match (>= 90 % of the best score) of r10_19seqs, r10_r8_P18, r1_9seqs, r1_r2_r3_r3_C11, r1_r3_P2, r5_27seqs, r5_r5_P48, r5_r6_P26, r6_210seqs, r7_133seqs, r8_83seqs, r9_15seqs, r10_r8_P18:6-150|r10_19seqs, r1_r2_r3_r3_C11:6-161|r1_9seqs, r1_r3_P1:6-161|r1_9seqs, r1_r3_P2:6-85|r1_9seqs, r5_r3_P34:2-140|r5_27seqs, r5_r5_P48:1-136|r5_27seqs, r5_r5_P48:137-308|r6_210seqs, r5_r6_P26:2-137|r5_27seqs, r5_r6_P26:138-376|r6_210seqs
 ggccggttagctcagttggttagagcgtggtgctaataacgcc-aaggtcgcgggttcga
 t--------ccccgtactggcca--------------------------------
->tRNA-Ile-AAT-1-1_human|close:r10_19seqs,r10_r8_P18,r1_r3_P1,r2_3seqs,r3_58seqs,r5_27seqs...
+>tRNA-Ile-AAT-1-1_human|close:r10_19seqs,r10_r8_P18,r1_r3_P1,r2_3seqs,r3_58seqs,r5_27seqs... Homo sapiens tRNA-Ile-AAT-1-1, GtRNAdb hg19 (tRNAscan-SE chr6.trna82), chr6:58149254-58149327 (+), complete gene 74 bp, tRNAscan-SE score 81.9; close match (>= 90 % of the best score) of r10_19seqs, r10_r8_P18, r1_r3_P1, r2_3seqs, r3_58seqs, r5_27seqs, r5_r3_P34, r5_r5_P48, r5_r6_P26, r6_210seqs, r8_83seqs, r9_15seqs, r10_r8_P18:6-150|r10_19seqs, r1_r2_r3_r3_C11:162-338|r2_3seqs, r1_r2_r3_r3_C11:339-471|r4_32seqs, r1_r3_P1:201-401|r3_58seqs, r5_r3_P34:2-140|r5_27seqs, r5_r3_P34:141-339|r3_58seqs, r5_r5_P48:1-136|r5_27seqs, r5_r5_P48:137-308|r6_210seqs, r5_r6_P26:2-137|r5_27seqs, r5_r6_P26:138-376|r6_210seqs
 ggccggttagctcagttggttagagcgtggcgctaataacgcc-aaggtcgcgggttcga
 t--------ccccgtacgggcca--------------------------------
->tRNA-Ile-AAT-8-1_human|best:r1_9seqs,r1_r2_r3_r3_C11,r1_r3_P1,r1_r3_P2,r1_r2_r3_r3_C11:6-161~r1_9seqs,r1_r3_P1:6-161~r1_9seqs...
+>tRNA-Ile-AAT-8-1_human|best:r1_9seqs,r1_r2_r3_r3_C11,r1_r3_P1,r1_r3_P2,r1_r2_r3_r3_C11:6-161~r1_9seqs,r1_r3_P1:6-161~r1_9seqs... Homo sapiens tRNA-Ile-AAT-8-1, GtRNAdb hg19 (tRNAscan-SE chr6.trna59), chr6:27636362-27636435 (+), complete gene 74 bp, tRNAscan-SE score 75.8; best match of r1_9seqs, r1_r2_r3_r3_C11, r1_r3_P1, r1_r3_P2, r1_r2_r3_r3_C11:6-161|r1_9seqs, r1_r3_P1:6-161|r1_9seqs, r1_r3_P2:6-85|r1_9seqs
 ggccggttagctcagtcggctagagcgtggtgctaataacgcc-aaggtcgcgggttcga
 t--------ccccgtacgggcca--------------------------------
->tRNA-Ile-GAT-1-2_human|best:r1_r3_P2:86-258~r3_58seqs|close:r1_9seqs,r1_r3_P1,r1_r3_P2,r1_r2_r3_r3_C11:6-161~r1_9seqs,r1_r3_P1:6-161~r1_9seqs,r1_r3_P2:6-85~r1_9seqs
+>tRNA-Ile-GAT-1-2_human|best:r1_r3_P2:86-258~r3_58seqs|close:r1_9seqs,r1_r3_P1,r1_r3_P2,r1_r2_r3_r3_C11:6-161~r1_9seqs,r1_r3_P1:6-161~r1_9seqs,r1_r3_P2:6-85~r1_9seqs Homo sapiens tRNA-Ile-GAT-1-2, GtRNAdb hg19 (tRNAscan-SE chrX.trna8), chrX:3794842-3794915 (-), complete gene 74 bp, tRNAscan-SE score 75.5; best match of r1_r3_P2:86-258|r3_58seqs; close match (>= 90 % of the best score) of r1_9seqs, r1_r3_P1, r1_r3_P2, r1_r2_r3_r3_C11:6-161|r1_9seqs, r1_r3_P1:6-161|r1_9seqs, r1_r3_P2:6-85|r1_9seqs
 ggccggttagctcagttggtaagagcgtggtgctgataacacc-aaggtcgcgggctcga
 c--------tcccgcaccggcca--------------------------------
->tRNA-Ile-AAT-5-4_human|close:r1_9seqs,r1_r2_r3_r3_C11,r1_r3_P1,r1_r3_P2,r1_r2_r3_r3_C11:6-161~r1_9seqs,r1_r3_P1:6-161~r1_9seqs...
+>tRNA-Ile-AAT-5-4_human|close:r1_9seqs,r1_r2_r3_r3_C11,r1_r3_P1,r1_r3_P2,r1_r2_r3_r3_C11:6-161~r1_9seqs,r1_r3_P1:6-161~r1_9seqs... Homo sapiens tRNA-Ile-AAT-5-4, GtRNAdb hg19 (tRNAscan-SE chr14.trna10), chr14:102783429-102783502 (+), complete gene 74 bp, tRNAscan-SE score 81.2; close match (>= 90 % of the best score) of r1_9seqs, r1_r2_r3_r3_C11, r1_r3_P1, r1_r3_P2, r1_r2_r3_r3_C11:6-161|r1_9seqs, r1_r3_P1:6-161|r1_9seqs, r1_r3_P2:6-85|r1_9seqs
 ggccggttagctcagttggttagagcgtggtgctaataacgcc-aaggtcgcgggttcga
 t--------ccccgtacgggcca--------------------------------
->tRNA-Ile-GAT-1-1_human|close:r1_r2_r3_r3_C11,r2_3seqs,r3_58seqs,r5_r3_P34,r7_133seqs,r1_r2_r3_r3_C11:162-338~r2_3seqs...
+>tRNA-Ile-GAT-1-1_human|close:r1_r2_r3_r3_C11,r2_3seqs,r3_58seqs,r5_r3_P34,r7_133seqs,r1_r2_r3_r3_C11:162-338~r2_3seqs... Homo sapiens tRNA-Ile-GAT-1-1, GtRNAdb hg19 (tRNAscan-SE chrX.trna10), chrX:3756418-3756491 (-), complete gene 74 bp, tRNAscan-SE score 75.5; close match (>= 90 % of the best score) of r1_r2_r3_r3_C11, r2_3seqs, r3_58seqs, r5_r3_P34, r7_133seqs, r1_r2_r3_r3_C11:162-338|r2_3seqs, r1_r2_r3_r3_C11:339-471|r4_32seqs, r1_r3_P1:201-401|r3_58seqs, r5_r3_P34:141-339|r3_58seqs
 ggccggttagctcagttggtaagagcgtggtgctgataacacc-aaggtcgcgggctcga
 c--------tcccgcaccggcca--------------------------------
->tRNA-Ile-AAT-4-1_human|close:r3_58seqs,r5_r3_P34,r1_r2_r3_r3_C11:339-471~r4_32seqs,r1_r3_P1:201-401~r3_58seqs,r5_r3_P34:141-339~r3_58seqs
+>tRNA-Ile-AAT-4-1_human|close:r3_58seqs,r5_r3_P34,r1_r2_r3_r3_C11:339-471~r4_32seqs,r1_r3_P1:201-401~r3_58seqs,r5_r3_P34:141-339~r3_58seqs Homo sapiens tRNA-Ile-AAT-4-1, GtRNAdb hg19 (tRNAscan-SE chr17.trna32), chr17:8130309-8130382 (-), complete gene 74 bp, tRNAscan-SE score 81.2; close match (>= 90 % of the best score) of r3_58seqs, r5_r3_P34, r1_r2_r3_r3_C11:339-471|r4_32seqs, r1_r3_P1:201-401|r3_58seqs, r5_r3_P34:141-339|r3_58seqs
 ggccggttagctcagttggttagagcgtggtgctaataacgcc-aaggtcgcgggttcga
 a--------ccccgtacgggcca--------------------------------
->tRNA-Ile-AAT-3-1_human|close:r4_32seqs
+>tRNA-Ile-AAT-3-1_human|close:r4_32seqs Homo sapiens tRNA-Ile-AAT-3-1, GtRNAdb hg19 (tRNAscan-SE chr6.trna157), chr6:27242990-27243063 (-), complete gene 74 bp, tRNAscan-SE score 84.9; close match (>= 90 % of the best score) of r4_32seqs
 ggctggttagctcagttggttagagcgtggtgctaataacgcc-aaggtcgcgggttcga
 t--------ccccgtactggcca--------------------------------
->tRNA-Ile-AAT-6-1_human|close:r4_32seqs
+>tRNA-Ile-AAT-6-1_human|close:r4_32seqs Homo sapiens tRNA-Ile-AAT-6-1, GtRNAdb hg19 (tRNAscan-SE chr6.trna168), chr6:26745255-26745328 (-), complete gene 74 bp, tRNAscan-SE score 81.6; close match (>= 90 % of the best score) of r4_32seqs
 ggccggttagctcagttggttagagcgtggtgctaataacgct-aaggtcgcgggttcga
 t--------ccccgtactggcca--------------------------------
->tRNA-Ile-GAT-1-3_human|close:r5_27seqs,r5_r5_P48,r5_r6_P26,r6_210seqs,r8_83seqs,r5_r3_P34:2-140~r5_27seqs...
+>tRNA-Ile-GAT-1-3_human|close:r5_27seqs,r5_r5_P48,r5_r6_P26,r6_210seqs,r8_83seqs,r5_r3_P34:2-140~r5_27seqs... Homo sapiens tRNA-Ile-GAT-1-3, GtRNAdb hg19 (tRNAscan-SE chrX.trna6), chrX:3833271-3833344 (-), complete gene 74 bp, tRNAscan-SE score 75.5; close match (>= 90 % of the best score) of r5_27seqs, r5_r5_P48, r5_r6_P26, r6_210seqs, r8_83seqs, r5_r3_P34:2-140|r5_27seqs, r5_r5_P48:1-136|r5_27seqs, r5_r5_P48:137-308|r6_210seqs, r5_r6_P26:2-137|r5_27seqs, r5_r6_P26:138-376|r6_210seqs
 ggccggttagctcagttggtaagagcgtggtgctgataacacc-aaggtcgcgggctcga
 c--------tcccgcaccggcca--------------------------------
->tRNA-Trp-CCA-2-1_human|close:r1_r3_P2:86-258~r3_58seqs
+>tRNA-Trp-CCA-2-1_human|close:r1_r3_P2:86-258~r3_58seqs Homo sapiens tRNA-Trp-CCA-2-1, GtRNAdb hg19 (tRNAscan-SE chr17.trna10), chr17:19411494-19411565 (+), complete gene 72 bp, tRNAscan-SE score 75.1; close match (>= 90 % of the best score) of r1_r3_P2:86-258|r3_58seqs
 gacctcgtggcgcaat--ggtagcgcgtctgactccagatcag-aaggttgcgtgttcaa
 g--------tcacgtcggggtca--------------------------------
->tRNA-Trp-CCA-3-1_human|close:r1_r3_P2:86-258~r3_58seqs
+>tRNA-Trp-CCA-3-1_human|close:r1_r3_P2:86-258~r3_58seqs Homo sapiens tRNA-Trp-CCA-3-1, GtRNAdb hg19 (tRNAscan-SE chr6.trna175), chr6:26319330-26319401 (-), complete gene 72 bp, tRNAscan-SE score 73.3; close match (>= 90 % of the best score) of r1_r3_P2:86-258|r3_58seqs
 gacctcgtggcgcaac--ggtagcgcgtctgactccagatcag-aaggttgcgtgttcaa
 a--------tcacgtcggggtca--------------------------------
->tRNA-Trp-CCA-5-1_human|close:r1_r3_P2:86-258~r3_58seqs
+>tRNA-Trp-CCA-5-1_human|close:r1_r3_P2:86-258~r3_58seqs Homo sapiens tRNA-Trp-CCA-5-1, GtRNAdb hg19 (tRNAscan-SE chr7.trna3), chr7:99067307-99067378 (+), complete gene 72 bp, tRNAscan-SE score 68.8; close match (>= 90 % of the best score) of r1_r3_P2:86-258|r3_58seqs
 gacctcgtggcgcaac--ggcagcgcgtctgactccagatcag-aaggttgcgtgttcaa
 a--------tcacgtcggggtca--------------------------------
