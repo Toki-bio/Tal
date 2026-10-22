@@ -1,0 +1,4 @@
+track name="P18 parts"
+r10_r8_P18	0	145	P18 1-145 (r10 part)	0	+	0	0	60,110,200
+r10_r8_P18	145	291	P18 146-291: tandem of ~10-bp GC-rich units	0	+	0	0	220,140,40
+r10_r8_P18	291	426	P18 292-426 (r8 module)	0	+	0	0	60,160,90
