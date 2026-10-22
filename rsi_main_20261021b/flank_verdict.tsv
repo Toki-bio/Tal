@@ -1,0 +1,22 @@
+subfamily	verdict	side5	side3	source	assigned_copies	sine	grey	not_sine	reason
+MEG-RL	interspersed	independent	independent	step7	13	9	1	3	step7 general sample: 5' independent, 3' independent
+MEG-RS	untested	independent	untested	border_loop	733	0	733	0	5' independent (island_fraction=0.0876); 3' untested: no flank left to scan -- STILL BAD
+MEG-T2	interspersed	independent	independent	step7	104	95	1	8	step7 general sample: 5' independent, 3' independent
+MEG-TR	interspersed	independent	independent	step7	16	16	0	0	step7 general sample: 5' independent, 3' independent
+r10_19seqs	interspersed	independent	independent	step7	779	593	168	18	step7 general sample: 5' independent, 3' independent
+r10_r8_P18	interspersed	independent	independent	step7	4234	3574	543	117	step7 general sample: 5' independent, 3' independent
+r1_9seqs	interspersed	independent	independent	step7	25	13	12	0	step7 general sample: 5' independent, 3' independent
+r1_r2_r3_r3_C11	interspersed	independent	independent	step7	2876	2296	498	82	step7 general sample: 5' independent, 3' independent
+r1_r3_P1	interspersed	independent	independent	step7	14436	11541	1827	1068	step7 general sample: 5' independent, 3' independent
+r1_r3_P2	interspersed	independent	independent	step7	6886	5737	884	265	step7 general sample: 5' independent, 3' independent
+r2_3seqs	interspersed	independent	independent	step7	19	18	1	0	step7 general sample: 5' independent, 3' independent
+r3_58seqs	interspersed	independent	independent	step7	51	31	20	0	step7 general sample: 5' independent, 3' independent
+r4_32seqs	interspersed	independent	independent	step7	12	11	1	0	step7 general sample: 5' independent, 3' independent
+r5_27seqs	interspersed	independent	independent	step7	1886	1585	276	25	step7 general sample: 5' independent, 3' independent
+r5_r3_P34	interspersed	independent	independent	step7	1619	1305	280	34	step7 general sample: 5' independent, 3' independent
+r5_r5_P48	interspersed	independent	independent	step7	477	409	61	7	step7 general sample: 5' independent, 3' independent
+r5_r6_P26	interspersed	independent	independent	step7	5648	4572	809	267	step7 general sample: 5' independent, 3' independent
+r6_210seqs	interspersed	independent	independent	step7	6942	5781	894	267	step7 general sample: 5' independent, 3' independent
+r7_133seqs	interspersed	independent	independent	step7	6851	5920	778	153	step7 general sample: 5' independent, 3' independent
+r8_83seqs	interspersed	independent	independent	step7	3360	2891	398	71	step7 general sample: 5' independent, 3' independent
+r9_15seqs	interspersed	independent	independent	step7	6849	5703	988	158	step7 general sample: 5' independent, 3' independent

@@ -1,0 +1,3 @@
+family	n_subfamilies	parent_source	parent_length	members
+MEG	4	derived	211	MEG-RL,MEG-RS,MEG-T2,MEG-TR
+Rhin	17	derived	172	r10_19seqs,r10_r8_P18,r1_9seqs,r1_r2_r3_r3_C11,r1_r3_P1,r1_r3_P2,r2_3seqs,r3_58seqs,r4_32seqs,r5_27seqs,r5_r3_P34,r5_r5_P48,r5_r6_P26,r6_210seqs,r7_133seqs,r8_83seqs,r9_15seqs
