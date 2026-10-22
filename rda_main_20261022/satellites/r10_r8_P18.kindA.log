@@ -1,0 +1,3 @@
+gen-consensuses.clean.part_r10_r8_P18.rawhits: 73871 hits -> 56918 windows (135.6 Mb)
+gen-consensuses.clean.part_r10_r8_P18.rawhits: 179 TRF loci (period >= 55, copies >= 4)
+gen-consensuses.clean.part_r10_r8_P18.rawhits: 25 SINE-derived tandem loci, 235 monomers; period mode [(55, 5), (186, 3), (136, 2)]; consensus part mode [((0, 140), 4), ((120, 200), 4)]
