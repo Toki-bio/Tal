@@ -1,0 +1,15 @@
+>MEG-T2_head:6-109
+ggctccatagtgtagtggttagcacgtctgctttacacgcagaaggtcctgggttcgcgc
+cccaggtggagccacggaccataccccgggtgcgccaggcccca
+>MEG-TR_head:1-85
+------------------ttagcacgtctgctttacacgcagaaggtcctgggttcgcgc
+cccag-tggagccacagtccatggtctacggccatgccaccctg
+>tRNA-Val-TAC-1-1_human|best:MEG-T2,MEG-TR
+ggttccatagtgtagtggttatcacgtctgctttacacgcagaaggtcctgggttcgagc
+cccag-tggaacca------------------------------
+>tRNA-Val-TAC-2-1_human|close:MEG-T2,MEG-TR
+ggttccatagtgtagcggttatcacgtctgctttacacgcagaaggtcctgggttcgagc
+cccag-tggaacca------------------------------
+>tRNA-Val-TAC-3-1_human|close:MEG-T2,MEG-TR
+ggttccatagtgtagtggttatcacatctgctttacacgcagaaggtcctgggttcaagc
+cccag-tggaacca------------------------------
