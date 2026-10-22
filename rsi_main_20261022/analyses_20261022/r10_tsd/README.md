@@ -14,3 +14,6 @@
   element (lower) | 65-662 element: r10 match and everything up to the 3' TSD (UPPER, MAFFT --localpair; r10's
   consensus spans 65-240) | 663-682 3' TSD (UPPER, left-justified) | right flank (lower). The gaps before the 3' TSD
   are there to put all TSDs in the same columns.
+
+`rsi_r10_tsd.snapshot.json`: the same alignment as a ViewAlign snapshot with every 5' and 3' TSD base marked (yellow) and the
+BED track. Open: https://toki-bio.github.io/MSA-viewer/?snapshotFile=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2F80c8de9%2Frsi_main_20261022%2Fanalyses_20261022%2Fr10_tsd%2Frsi_r10_tsd.snapshot.json
