@@ -1,0 +1,5 @@
+track name="TSD"
+alignment	40	60	5' TSD (10-20 bp, right-justified)	0	+	40	40	220,60,60
+alignment	64	240	r10 consensus	0	+	64	64	60,110,200
+alignment	240	662	past r10 end, up to the 3' TSD	0	+	64	64	120,160,120
+alignment	662	682	3' TSD (left-justified)	0	+	64	64	220,60,60

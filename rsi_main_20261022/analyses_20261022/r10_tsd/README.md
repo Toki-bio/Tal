@@ -1,0 +1,16 @@
+# r10_19seqs copies with their target-site duplications (rsi_main_20261022)
+
+`rsi_r10_tsd.aln.fa` + `rsi_r10_tsd.bed` (ViewAlign track, alignment columns). Built by `tsd_aln.py` on therioserver
+`/home/toki/tmp/tsd_r10/` from the 315 assigned r10 copies of `rsi_main_20261022` (padded 60 bp 5', 1 kb 3';
+`tsdscan.py`).
+
+- Copies: 5'- and 3'-complete r10 match (260), nearest TSD starting at most 250 bp past r10's end (48); copies with
+  verdict not_SINE are left out (none here), grey ones are marked [grey]. Rows sorted by where the 3' TSD starts.
+- TSD: the 5' flank ending at most 4 bp before the element, repeated on the 3' side; 10-20 bp, <= 10 % mismatches; the
+  longest at the nearest position. Null: the 5' side of one copy against the 3' side of the next copy gives a TSD in the
+  same window in 15 of 260 pairs, against 48 real. So about a third of the TSDs shown can be chance; TSD is a supporting
+  fact, not proof.
+- Columns: 1-40 left flank (lower case) | 41-60 5' TSD (UPPER, right-justified) | 61-64 bases between the TSD and the
+  element (lower) | 65-662 element: r10 match and everything up to the 3' TSD (UPPER, MAFFT --localpair; r10's
+  consensus spans 65-240) | 663-682 3' TSD (UPPER, left-justified) | right flank (lower). The gaps before the 3' TSD
+  are there to put all TSDs in the same columns.
