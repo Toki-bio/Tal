@@ -58,6 +58,19 @@ copies afterwards with that code (therioserver `/home/toki/tmp/cont_oracle2/22`;
   loci stop at r10's end. The candidate built from them (`candidates.fa`) is not in the bank;
 - 19 of 85 tested unassigned copies with best match r10 continue into P18 232-361.
 
+## r10_19seqs: what the "simple repeats" in the right flank are (2026-10-22)
+On the r10 plates the sequence past r10's end looks like simple repeats. It is the element itself. Measured on the 315
+assigned r10 copies, padded 1 kb on the 3' side (therioserver `/home/toki/tmp/tsd_r10/`, `tsdscan.py`, `tsd4.py`):
+- words of the GC-rich unit that ends the r10 consensus (GCTGC, GAGC, GTGGGC, GGCAGC, GCCGTG) are 18 times denser in the
+  first 25 bp past r10's end than in the 5' flank (1.26 against 0.07 per 25 bp), 12 times at 25-49 bp, and fall to
+  about twice the flank level by 150 bp: a tract of r10's own terminal units, of variable length;
+- target-site duplications (5' flank repeated on the 3' side, 10-20 bp, <= 10 % mismatches, against a shuffled-pair
+  null): 68 of 260 copies with a complete r10 match have one within 1 kb; real hits exceed the null from 25 to 225 bp past
+  r10's end, only 3 copies have their nearest TSD within 25 bp of it.
+So most r10 insertions end 25-225 bp after the r10 consensus: the consensus stops inside the element, and the workflow
+takes the rest (the unit tract, then the tail) as flank. The continuation step's "r10 into P18 173-291" is the same tract
+(P18's middle piece is built of these units).
+
 ## Plates
 `alignments/`: top 100, random 100 and subfamily plates (SINE loci, topped up with grey copies marked [grey]).
 No copy row has a gap inside a flank. In 91 of 3,960 rows (21b: 83 of 3,770) there is a run of gap columns between the
