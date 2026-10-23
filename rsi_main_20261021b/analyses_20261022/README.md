@@ -67,3 +67,12 @@ a unit (`unit@composite:start-end`); unlabelled stretches of >= 30 bp as `unassi
 - `by_unit/<unit>.aln.fa`: one alignment per unit with at least two pieces (r1, r2, r3, r4, r5, r6, r8, r10, unassigned;
   r7 and r9 occur only alone).
 MAFFT `--localpair --maxiterate 1000 --threadit 0`, input order. Script `scripts/f_pieces.sh`.
+
+### `unit_pieces/rsi_unit_pieces_r1module.aln.fa` (+ `.bed`): r1's first B-box module set apart (2026-10-23, owner's layout)
+The same 31 pieces. r1 carries the B-box module twice (27-75 and ~76-133; 29 of 42 columns identical), every other unit
+once. Here all other pieces were aligned (MAFFT --localpair --maxiterate 1000) against r1 without its first module
+(r1 1-26 + 76-155), so their module sits under r1's second one; r1's first module (49 bp) was then put back as its own
+column block, gaps in all other rows. The other three r1 pieces were added with `mafft --add --keeplength` (one base of
+r1_r3_P1:6-161 falls outside the columns and is dropped; named in its header). Track: r1's 5' part, module 1, module 2.
+Script `scripts/shift_r1_module.py` (run on therioserver `/home/toki/tmp/shift/`).
+
