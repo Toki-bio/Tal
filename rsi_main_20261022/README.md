@@ -92,3 +92,11 @@ last element base and the flank (64 on the 3' side, 27 on the 5' side); not yet 
 | `length_variants/`, `consensus_audit/` | length-version test; each consensus rebuilt from its own copies |
 | `composite_units.tsv`, `consensus_blocks.tsv` | composite consensuses read as units; the bank drawn as elementary blocks |
 | `consensuses.clean.fa`, `manifest.txt` | the bank; tool versions and the command |
+
+## r1 head is bipartite: two copies of the B-box half (2026-10-23)
+Seen by the owner in the unit-pieces alignment (r1-r5 tops). r1_9seqs (155 bp) carries the same ~40 bp module twice:
+positions 45-80 `AAGGCTGCCGGTTCGATTCCCACATGGGCCAGTGGG` and 92-133 `AAGGTTGCCAGTTCGACTCCTGATCCCGCAAGGGATGGTGGG`,
+29 of 42 alignment columns identical (one 4-bp and one 2-bp gap), 0 of 200 shuffles of the second piece as close. Each
+copy holds a B box (GGTTCGAnTCC). r2, r3, r4 and r5 have the 5' part (to ...GGTTGGAGC, ~26 bp) followed directly by the
+second module only; r1 has the first module in between.
+
