@@ -1,0 +1,3 @@
+gen-consensuses.clean.part_MEG-T2.rawhits: 6201 hits -> 6110 windows (13.2 Mb)
+gen-consensuses.clean.part_MEG-T2.rawhits: 18 TRF loci (period >= 55, copies >= 4)
+gen-consensuses.clean.part_MEG-T2.rawhits: 6 SINE-derived tandem loci, 34 monomers; period mode [(60, 1), (92, 1), (62, 1)]; consensus part mode [((50, 140), 2), ((90, 220), 1)]

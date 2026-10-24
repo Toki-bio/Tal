@@ -1,0 +1,7 @@
+family	copies	bank_bp	rebuilt_bp_s1	mismatches_s1	gap_columns_s1	rebuilt_bp_s2	mismatches_s2	gap_columns_s2	rebuilds_differ_mm	verdict
+MEG-RL	23	207	85	2	122	85	2	122	0	SHORTER
+MEG-RS	41	135	132	8	3	132	8	3	0	DIVERGED
+MEG-T2	62	232	61	0	171	64	0	168	2	SHORTER
+MEG-TR	24	196	44	0	152	40	0	156	3	SHORTER
+Rhin-1	181	182	138	31	50	137	29	51	0	DIVERGED
+VES	91807	220	182	33	56	186	35	52	0	DIVERGED

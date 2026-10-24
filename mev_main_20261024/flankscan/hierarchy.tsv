@@ -1,0 +1,2 @@
+element	bank_name	type	copies	pct_full	verdict	cons_len	part1	part1_start	part1_end	gap	part2	part2_start	part2_end	open_ends	open5_unit	open3_unit	parts
+VES__VES_P1	VES_VES_P1	homodimer	8241	0.0	check	454	VES	1	220	10	VES	1	220	-	-	-	VES:1-220;gap:10;VES:1-220

@@ -1,0 +1,23 @@
+RUN	/home/toki/chiro/mgi_main_20261024/run_20261024_132440
+PWD	/home/toki/chiro/mgi_main_20261024
+SCRIPT_DIR	/home/toki/SINEderella_main_20261024
+GENOME_IN	/home/toki/chiro/genomes/mgi.fna
+CONS_IN	/home/toki/chiro/rerun_20261024/bank6.fa
+THREADS	24
+CHUNK_BP	30000
+FLANK	50
+MODE	full
+COMMAND	/home/toki/SINEderella_main_20261024/SINEderella --families /home/toki/chiro/rerun_20261024/bat_families.tsv /home/toki/chiro/genomes/mgi.fna /home/toki/chiro/rerun_20261024/bank6.fa
+INVOKED_FROM	/home/toki/chiro/mgi_main_20261024
+PIPELINE_COMMIT	1cd0b9b
+SUBFAM_VERSION	1.5.1
+VERSION	ssearch36	 version: 36.3.8g Dec, 2017
+VERSION	mafft	v7.526 (2024/Apr/26)
+VERSION	bedtools	bedtools v2.31.1
+VERSION	samtools	samtools 1.24
+VERSION	seqkit	seqkit v2.13.0
+VERSION	trf	Tandem Repeats Finder
+VERSION	dustmasker	dustmasker: 1.0.0
+VERSION	python3	Python 3.11.16
+DATE	Sat Oct 24 01:24:40 PM MSK 2026
+ASSEMBLY_QC_VERDICT	SOLID

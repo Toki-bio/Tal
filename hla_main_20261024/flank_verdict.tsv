@@ -1,0 +1,7 @@
+subfamily	verdict	side5	side3	source	assigned_copies	sine	grey	not_sine	reason
+MEG-RL	not_interspersed	still_shared	still_shared	border_loop	423	0	0	423	5' hit MAX_FLANK cap (1000 bp), still shared (island_fraction=0.3756) -- STILL BAD; 3' hit MAX_FLANK cap (1000 bp), still shared (island_fraction=0.4907) -- STILL BAD
+MEG-RS	interspersed	independent	independent	step7	30	19	3	8	step7 general sample: 5' independent, 3' independent
+MEG-T2	interspersed	independent	independent	step7	80	79	1	0	step7 general sample: 5' independent, 3' independent
+MEG-TR	interspersed	independent	independent	step7	16	10	2	4	step7 general sample: 5' independent, 3' independent
+Rhin-1	interspersed	independent	independent	step7	20401	13472	3245	3684	step7 general sample: 5' independent, 3' independent
+VES	interspersed	independent	independent	step7	20	17	3	0	step7 general sample: 5' independent, 3' independent

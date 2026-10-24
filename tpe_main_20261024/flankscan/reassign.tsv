@@ -1,0 +1,5 @@
+name	peak_elements	now_main	full	pct_full	verdict	from_full	from_part
+Rhin-1__Rhin-1_P1	1024	404	400	39.1	check	Rhin-1 717	Rhin-1 53
+Rhin-1__Rhin-1_P6	1003	288	92	9.2	check	Rhin-1 170	Rhin-1 459
+Rhin-1__Rhin-1_P5	382	180	161	42.1	check	Rhin-1 392	Rhin-1 4623
+chain_C1	32	31	27	84.4	accept	Rhin-1 1123	Rhin-1 1188

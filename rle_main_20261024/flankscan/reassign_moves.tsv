@@ -1,0 +1,6 @@
+old_family	new_main	elements	full	in_peak
+MEG-RL	MEG-RL	8017	7206	39
+MEG-RL	MEG-TR__MEG-RL_P1	1643	60	22
+MEG-RL	MEG-TR	40	2	0
+MEG-TR	MEG-TR	2709	2500	0
+MEG-TR	MEG-RL	1	0	0

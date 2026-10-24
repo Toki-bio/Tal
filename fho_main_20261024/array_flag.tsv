@@ -1,0 +1,7 @@
+family	copies	copies_in_arrays	pct_in_arrays	null_pct	excess_pct	arrays	largest_array	median_spacing_bp	flag
+MEG-RS	74	36	48.6	0.0	48.6	1	36	936	ARRAY
+VES	140399	35788	25.5	18.3	7.2	3500	68	4246	-
+MEG-RL	10	0	0.0	0.0	0.0	0	0	0	-
+MEG-T2	128	0	0.0	0.0	0.0	0	0	0	-
+MEG-TR	16	0	0.0	0.0	0.0	0	0	0	-
+Rhin-1	286	0	0.0	0.0	0.0	0	0	0	-

@@ -1,0 +1,2 @@
+element	bank_name	type	copies	pct_full	verdict	cons_len	part1	part1_start	part1_end	gap	part2	part2_start	part2_end	open_ends	open5_unit	open3_unit	parts
+MEG-TR__MEG-RL_P1	MEG-TR_MEG-RL_P1	composite	61	16.4	check	260	MEG-TR	1	63	0	MEG-RL	1	207	-	-	-	MEG-TR:1-63;MEG-RL:1-207

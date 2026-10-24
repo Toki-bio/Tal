@@ -1,0 +1,2 @@
+name	peak	type	upstream	downstream	n_peak	mirrors	elements	n_used	len_p10	len_med	len_p90	cons_len	status
+MEG-TR__MEG-RL_P1	P1	composite	MEG-TR	MEG-RL	61	-	61	60	244	270	300	260	kept

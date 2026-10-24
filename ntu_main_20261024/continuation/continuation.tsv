@@ -1,0 +1,3 @@
+consensus	group	side	sampled	tested	target	copies	share	junction_bp	target_start	target_end	identity	inside_locus	flag	candidate	candidate_bp	seeds_differ_mm	bank_match
+VES	assigned	3'	400	400	VES	11	0.028	4	158	209	78.4	0 of 64 bp	no				
+VES	unassigned	3'	400	353	VES	10	0.028	7	84	202	75.1	83 of 114 bp	no				

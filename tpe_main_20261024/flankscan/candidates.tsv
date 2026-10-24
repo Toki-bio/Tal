@@ -1,0 +1,10 @@
+name	peak	type	upstream	downstream	n_peak	mirrors	elements	n_used	len_p10	len_med	len_p90	cons_len	status
+Rhin-1__Rhin-1_P1	P1	piecewise	Rhin-1	Rhin-1	604	-	604	60	213	220	234	219	kept
+Rhin-1__Rhin-1_P6	P6	homodimer	Rhin-1	Rhin-1	572	-	572	60	264	280	302	309	kept
+Rhin-1__Rhin-1_P2	P2	piecewise	Rhin-1	Rhin-1	519	P8	680	60	213	219	232	221	same_as:Rhin-1__Rhin-1_P1
+Rhin-1__Rhin-1_P7	P7	homodimer	Rhin-1	Rhin-1	432	-	432	60	292	308	327	313	same_as:Rhin-1__Rhin-1_P6
+Rhin-1__Rhin-1_P5	P5	homodimer	Rhin-1	Rhin-1	383	-	383	60	292	303	319	306	kept
+Rhin-1__Rhin-1_P9	P9	homodimer	Rhin-1	Rhin-1	175	-	175	60	241	260	287	301	extended:chain_C1
+Rhin-1__Rhin-1_P3	P3	piecewise	Rhin-1	Rhin-1	100	-	100	60	223	227	238	230	same_as:Rhin-1__Rhin-1_P1
+Rhin-1__Rhin-1_P4	P4	homodimer	Rhin-1	Rhin-1	71	-	71	60	256	281	323	348	same_as:Rhin-1__Rhin-1_P9
+chain_C1	C1	chain	Rhin-1	Rhin-1	32	-	32	32	313	328	341	329	kept

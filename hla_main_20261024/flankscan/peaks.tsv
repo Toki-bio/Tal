@@ -1,0 +1,13 @@
+family	side	partner	rel	type	n	n_group	expected	main_j	p_j	gap	linker	linker_id	linker_A	peak
+Rhin-1	5	Rhin-1	same	homodimer	723	2850	1.87	2	132	16	CCGCTGAGCTGCCGGT	0.86	0.06	P1
+Rhin-1	5	Rhin-1	same	homodimer	754	2850	1.87	3	92	28	AAGCTGAGCTGCCGCTGAGCTGCCAACA	0.68	0.25	P2
+Rhin-1	5	Rhin-1	same	homodimer	363	2850	1.87	2	132	0	CCAGT	0.79	0.20	P3
+Rhin-1	5	Rhin-1	same	piecewise	194	2850	1.87	81	130	0	.	.	.	P4
+Rhin-1	5	Rhin-1	same	homodimer	207	2850	1.87	2	92	17	TAGCTGAGCTGCCAACA	0.57	0.29	P5
+Rhin-1	5	Rhin-1	same	homodimer	53	2850	1.87	2	143	1	T	0.92	0.00	P6
+Rhin-1	5	Rhin-1	same	homodimer	93	2850	1.87	2	80	39	TGAGCTGCGCCCGAGCTGAGCTGCCACTGAGCTGCCAAT	0.90	0.18	P7
+Rhin-1	5	Rhin-1	same	homodimer	53	2850	1.87	15	92	14	TGAGCTGAGCTGCT	0.61	0.14	P8
+Rhin-1	3	Rhin-1	same	piecewise	1765	3586	1.87	147	102	0	CTA	0.98	0.33	P9
+Rhin-1	3	Rhin-1	same	piecewise	754	3586	1.87	133	84	0	.	.	.	P10
+Rhin-1	3	Rhin-1	same	piecewise	212	3586	1.87	149	89	0	.	.	.	P11
+Rhin-1	5	Rhin-1	opp	inverted	53	258	1.87	1	1	30	AATTAATTTCTTTATATAAAGCCAATCCAA	0.60	0.43	P12

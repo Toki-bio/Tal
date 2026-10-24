@@ -1,0 +1,7 @@
+subfam	firm_assigned	soft_assigned	total_assigned	leak_n	conf_alt_n	firm_pct	total_pct	leak_pct	conf_alt_pct	sim_mean	sim_median
+VES	140399	12106	152505	0	526	91.71	99.62	0.00	0.37	0.3890	0.3818
+Rhin-1	286	48	334	119	4	0.19	0.22	41.61	1.40	0.1742	0.1758
+MEG-T2	128	0	128	0	0	0.08	0.08	0.00	0.00	0.1124	0.1099
+MEG-RS	74	19	93	74	45	0.05	0.06	100.00	60.81	0.6693	0.7689
+MEG-TR	16	3	19	3	1	0.01	0.01	18.75	6.25	0.1331	0.1255
+MEG-RL	10	1	11	5	0	0.01	0.01	50.00	0.00	0.1467	0.1347

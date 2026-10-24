@@ -1,0 +1,4 @@
+gen-consensuses.clean.part_VES.rawhits: windows 613 Mb exceed --max-window-mb 600 with --min-hits 1; using --min-hits 2 (less sensitive)
+gen-consensuses.clean.part_VES.rawhits: 344295 hits -> 19704 windows (49.7 Mb)
+gen-consensuses.clean.part_VES.rawhits: 25 TRF loci (period >= 55, copies >= 4)
+gen-consensuses.clean.part_VES.rawhits: 3 SINE-derived tandem loci, 14 monomers; period mode [(57, 1), (79, 1), (142, 1)]; consensus part mode [((130, 190), 2), ((140, 190), 1)]

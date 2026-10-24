@@ -1,0 +1,7 @@
+family	copies	bank_bp	rebuilt_bp_s1	mismatches_s1	gap_columns_s1	rebuilt_bp_s2	mismatches_s2	gap_columns_s2	rebuilds_differ_mm	verdict
+MEG-RL	9700	207	203	1	4	204	2	3	0	MATCH
+MEG-RS	5539	135	132	4	3	131	3	4	0	MATCH
+MEG-T2	2154	232	232	16	20	227	18	21	1	DIVERGED
+MEG-TR	2710	196	194	3	2	193	2	3	0	MATCH
+Rhin-1	7	182								SKIPPED
+VES	14	220								SKIPPED

@@ -1,0 +1,4 @@
+family	n_subfamilies	parent_source	parent_length	members
+MEG	4	derived	211	MEG-RL,MEG-RS,MEG-T2,MEG-TR
+Rhin	1	member	182	Rhin-1
+VES	1	member	220	VES

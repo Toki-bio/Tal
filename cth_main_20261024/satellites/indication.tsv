@@ -1,0 +1,7 @@
+consensus	cons_len	full_hits	kindA_loci	kindA_monomers	kindA_largest	kindB_runs	kindB_pct	kindB_excess_pct	kindB_long_min	kindB_long_runs	kindB_verified_arrays	flag_A	flag_B
+MEG-RL	207	20	0	0	0	0	0.0	0.0	-	0	0	-	-
+MEG-RS	135	254	0	0	0	8	61.4	61.4	6	7	8	-	SAT_B
+MEG-T2	232	61	23	184	22	0	0.0	0.0	-	0	0	SAT_A	-
+MEG-TR	196	27	0	0	0	0	0.0	0.0	-	0	0	-	-
+Rhin-1	182	196	0	0	0	0	0.0	0.0	-	0	0	-	-
+VES	220	95477	34	183	11	1054	14.8	7.9	22	65	84	SAT_A	-

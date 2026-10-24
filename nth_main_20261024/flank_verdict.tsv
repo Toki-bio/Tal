@@ -1,0 +1,7 @@
+subfamily	verdict	side5	side3	source	assigned_copies	sine	grey	not_sine	reason
+MEG-RL	untested	untested	untested	step7	4	0	4	0	step7 general sample: 5' untested, 3' untested
+MEG-RS	interspersed	independent	independent	step7	62	33	21	8	step7 general sample: 5' independent, 3' independent
+MEG-T2	interspersed	independent	independent	step7	103	92	11	0	step7 general sample: 5' independent, 3' independent
+MEG-TR	interspersed	independent	independent	step7	19	16	3	0	step7 general sample: 5' independent, 3' independent
+Rhin-1	interspersed	independent	independent	step7	1180	865	286	29	step7 general sample: 5' independent, 3' independent
+VES	interspersed	independent	independent	step7	23742	15655	2725	5362	step7 general sample: 5' independent, 3' independent

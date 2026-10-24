@@ -1,0 +1,7 @@
+consensus	kind	start	end	unit	identity	alternatives
+MEG-RL	unit	1	207	MEG-RL	100.0	-
+MEG-RS	unit	1	135	MEG-RS	100.0	-
+MEG-T2	unit	1	232	MEG-T2	100.0	-
+MEG-TR	unit	1	196	MEG-TR	100.0	-
+Rhin-1	unit	1	182	Rhin-1	100.0	-
+VES	unit	1	220	VES	100.0	-

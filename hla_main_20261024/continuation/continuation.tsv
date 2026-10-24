@@ -1,0 +1,4 @@
+consensus	group	side	sampled	tested	target	copies	share	junction_bp	target_start	target_end	identity	inside_locus	flag	candidate	candidate_bp	seeds_differ_mm	bank_match
+Rhin-1	assigned	3'	400	400	Rhin-1	59	0.147	2	90	165	88.5	75 of 82 bp	no				
+Rhin-1	assigned	5'	400	400	Rhin-1	21	0.052	9	1	132	80.9	0 of 123 bp	no				
+Rhin-1	unassigned	3'	400	351	Rhin-1	11	0.031	4	59	171	77.0	88 of 100 bp	no				
