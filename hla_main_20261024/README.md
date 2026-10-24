@@ -29,3 +29,11 @@ Rules: SINEderella `docs/VERDICTS.md`.
 Contents: `report.html` (full report), `alignments/` (top 100, random 100, subfamily plates), `flankscan/`, `satellites/`,
 `length_variants/`, `consensus_audit/`, `continuation/` (where present), per-subfamily tables, `consensuses.clean.fa`, `manifest.txt`,
 `pipeline_stages.txt` (stage times).
+
+## Why MEG-RL and MEG-TR dropped against the 2026-09-27 run
+The satellite screen (added to SINEderella after that run) removed 5,955 hits lying in 838 verified tandem arrays
+(`satellites/indication.tsv`: 89.5 % of MEG-RS hits and 88.9 % of MEG-TR hits in arrays; arrays 233 bp to 116 kb, median 38 kb).
+Of the 4,029 firmly assigned MEG-RL copies of the old run, 3,572 lie inside these arrays; of 527 MEG-TR copies, 511.
+Example, CM063088.1:109.71-109.80 Mb: 14 old MEG-RL copies at a regular spacing of 5.42-5.46 kb (gaps of about 10.9 and
+13.3 kb where a unit is missing), i.e. one MEG copy per 5.4 kb array unit. The 423 MEG-RL copies left are verdicted not a
+SINE at subfamily level: their flanks are still shared at the expansion limit. Rhin-1 is unchanged (20,602 -> 20,401).
