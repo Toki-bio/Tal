@@ -1,0 +1,7 @@
+subfamily	verdict	side5	side3	source	assigned_copies	sine	grey	not_sine	reason
+MEG-RL	interspersed	independent	independent	step7	8	8	0	0	step7 general sample: 5' independent, 3' independent
+MEG-RS	interspersed	independent	independent	step7	158	52	15	91	step7 general sample: 5' independent, 3' independent
+MEG-T2	interspersed	independent	independent	step7	263	85	81	97	step7 general sample: 5' independent, 3' independent
+MEG-TR	interspersed	independent	independent	border_loop	22	1	0	21	5' independent (island_fraction=0.03); 3' independent (island_fraction=0.0451)
+Rhin-1	interspersed	independent	independent	step7	96	82	14	0	step7 general sample: 5' independent, 3' independent
+VES	interspersed	independent	independent	step7	421304	292778	65428	63098	step7 general sample: 5' independent, 3' independent

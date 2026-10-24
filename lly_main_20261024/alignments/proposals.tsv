@@ -1,0 +1,13 @@
+plate	subfamily	orig_len	add5_bp	add5_ungapped	add5_support	add5_null	add3_bp	add3_ungapped	add3_support	add3_null	trim5_bp	trim5_support	trim3_bp	trim3_support	copies	rebuilt_vs_orig
+lly_MEG-RL_rand100.aln.fa	MEG-RL	207	7	0.43	0.57	0.43	18	0.22	0.50	0.50	0		4	0.00	100	0.70
+lly_MEG-RL_top100.aln.fa	MEG-RL	207	31	0.32	0.61	0.48	66	0.35	0.53	0.48	0		0		100	0.67
+lly_MEG-RS_rand100.aln.fa	MEG-RS	135	6	0.17	0.33	0.33	7	0.43	0.57	0.43	0		0		21	0.69
+lly_MEG-RS_top100.aln.fa	MEG-RS	135	6	0.17	0.33	0.33	7	0.43	0.57	0.43	0		0		21	0.69
+lly_MEG-T2_rand100.aln.fa	MEG-T2	224	0				0				2	0.50	11	0.36	80	0.66
+lly_MEG-T2_top100.aln.fa	MEG-T2	231	0				3	0.33	0.33	0.67	1	0.00	11	0.36	80	0.60
+lly_MEG-TR_rand100.aln.fa	MEG-TR	196	2	0.25	0.50	0.50	2	0.50	0.50	0.50	0		0		24	0.72
+lly_MEG-TR_top100.aln.fa	MEG-TR	196	5	0.20	0.40	0.40	3	0.33	0.33	0.33	0		0		24	0.76
+lly_Rhin-1_rand100.aln.fa	Rhin-1	182	6	0.33	0.33	0.33	0				0		2	0.50	100	0.67
+lly_Rhin-1_top100.aln.fa	Rhin-1	182	1	1.00	1.00	1.00	1	0.00	0.00	0.00	0		0		100	0.68
+lly_VES_rand100.aln.fa	VES	220	7	0.57	0.57	0.57	27	0.35	0.50	0.46	0		0		10	0.62
+lly_VES_top100.aln.fa	VES	220	7	0.57	0.57	0.57	27	0.35	0.50	0.46	0		0		10	0.62

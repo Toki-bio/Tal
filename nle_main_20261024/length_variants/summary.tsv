@@ -1,0 +1,2 @@
+short	long	consensus_identity	extra_bp	verdict	copies_5prime_complete	mode_ends	valley_ratio	linkage_index	diagnostic_columns	tsd_excess_points	notes
+MEG-RS	MEG-RL	97.0	72	NOT_TESTED							too few assigned copies (MEG-RS: 270, MEG-RL: 37; need 100 each): test on another species with more copies

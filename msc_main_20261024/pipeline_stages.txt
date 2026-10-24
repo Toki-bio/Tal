@@ -1,0 +1,7 @@
+== start 2026-10-24 16:07:35 code 8d4961c genome /home/toki/chiro/genomes/msc.fna bank /home/toki/chiro/rerun_20261024/bank6.fa
+==========================================
+==========================================
+== SINEderella rc=0 2026-10-24 17:46:52
+== flankscan 1-7 2026-10-24 17:46:52
+== report rebuild through publish_run 2026-10-24 17:49:52
+== done 2026-10-24 17:50:13; Element hierarchy: 0

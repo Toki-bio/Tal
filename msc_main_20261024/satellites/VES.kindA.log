@@ -1,0 +1,3 @@
+gen-consensuses.clean.part_VES.rawhits: 312688 hits -> 189578 windows (539.6 Mb)
+gen-consensuses.clean.part_VES.rawhits: 535 TRF loci (period >= 55, copies >= 4)
+gen-consensuses.clean.part_VES.rawhits: 67 SINE-derived tandem loci, 407 monomers; period mode [(58, 5), (66, 5), (67, 4)]; consensus part mode [((130, 210), 22), ((130, 190), 12)]

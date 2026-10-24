@@ -1,0 +1,5 @@
+a	b	strand	a_start	a_end	b_start	b_end	identity
+MEG-RL	MEG-RS	+	1	120	1	120	98.3
+MEG-RL	MEG-TR	+	1	127	65	188	96.1
+MEG-RS	MEG-TR	+	1	118	65	179	95.8
+MEG-T2	MEG-TR	+	24	70	1	47	100.0

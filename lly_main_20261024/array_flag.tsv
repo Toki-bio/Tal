@@ -1,0 +1,7 @@
+family	copies	copies_in_arrays	pct_in_arrays	null_pct	excess_pct	arrays	largest_array	median_spacing_bp	flag
+MEG-RS	21	0	0.0	0.0	0.0	0	0	0	-
+MEG-T2	82	0	0.0	0.0	0.0	0	0	0	-
+MEG-TR	24	0	0.0	0.0	0.0	0	0	0	-
+Rhin-1	319	0	0.0	0.0	0.0	0	0	0	-
+VES	10	0	0.0	0.0	0.0	0	0	0	-
+MEG-RL	243	5	2.1	21.4	-19.4	1	5	2143	-

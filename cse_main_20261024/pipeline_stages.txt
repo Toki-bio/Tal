@@ -1,0 +1,7 @@
+== start 2026-10-24 15:54:45 code 1cd0b9b genome /home/toki/chiro/genomes/cse.fna bank /home/toki/chiro/rerun_20261024/bank6.fa
+==========================================
+==========================================
+== SINEderella rc=0 2026-10-24 20:47:18
+== flankscan 1-7 2026-10-24 20:47:18
+== report rebuild through publish_run 2026-10-24 20:54:53
+== done 2026-10-24 20:55:11; Element hierarchy: 0
