@@ -116,7 +116,7 @@ shifted right so that their module lies under r1 81-133. The workflow's block ta
 ### Is r1 more than r10 + r4? (2026-10-26)
 r1 against r10 1-79 + r4 30-end (global alignment of the consensuses): 12 differences.
 - Head (r1 1-80), 8 differences from r10. Four bases are r1's own, in no other single consensus: 17 C, 27 T, 41 T,
-  49 C. The other four are shared with older types (30 A with r5/r6, 45 A and 50 T with r5-r9, 79 G with r6 and r2-r4).
+  49 C. The other four are shared with older types (30 A with r5/r6, 45 A with r2-r9, 50 T with r2-r7 and r9, 79 G with r6 and r2-r4).
   The r1 parts of r1_r3_P1, r1_r3_P2 and r1_r2_r3_r3_C11 carry r1's base at 7-8 of these 8 positions. So the head is its
   own lineage, a sister of r10, carried by the 24,288 copies of those three composites.
 - Body (r1 81-155), 4 differences from r4 (108, two 1-bp gaps, 152). The composites do not share them (P1 matches r1 at
