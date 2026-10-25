@@ -1,0 +1,4 @@
+track name="r1 parts"
+r1_9seqs@r1_9seqs	0	26	5' part (A box side)	0	+	0	0	60,110,200
+r1_9seqs@r1_9seqs	26	80	module 1 (r10 type)	0	+	0	0	220,60,60
+r1_9seqs@r1_9seqs	80	133	module 2 (r2/r4 type)	0	+	0	0	230,140,40

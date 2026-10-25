@@ -76,3 +76,16 @@ column block, gaps in all other rows. The other three r1 pieces were added with 
 r1_r3_P1:6-161 falls outside the columns and is dropped; named in its header). Track: r1's 5' part, module 1, module 2.
 Script `scripts/shift_r1_module.py` (run on therioserver `/home/toki/tmp/shift/`).
 
+
+### `unit_pieces/rsi_unit_pieces_r1_two_modules.aln.fa` (+ `.bed`): each piece under the r1 module it is like (2026-10-25)
+The same 31 pieces. r1 1-80 is an r10-type head and r1 81-155 an r2/r4-type element (`../../rsi_main_20261022/README.md`,
+"Which r1 module is r2's?"), so the two modules are two column blocks and every piece goes under the one it scores
+higher against (local alignment to r1 27-80 and to r1 81-133):
+- module 1 (r10 type, unshifted): r5, r7, r8, r9, r10 and their composite pieces;
+- module 2 (r2/r4 type, shifted right): r2, r3, r4 and their pieces; r6 scores the same against both (its module is half
+  one type, half the other) and is put here, marked "tie";
+- no module (both scores below 18): six short tail pieces and P18's middle piece; they sit only in the tail columns.
+The 5' parts of all pieces and the tails of all pieces share columns (realigned together); the r2/r3/r4/r6 rows carry
+an extra ~45 bp after their module (`CTGCGCCCCCTGCAACTA...GAGCTGAGCTG`) before the tail shared with the r10-type rows.
+Track: r1's 5' part, module 1, module 2. Script `scripts/r1_two_modules.py` (run on KIT `/data/V/toki/temp/r1two/`,
+therioserver was unreachable).
