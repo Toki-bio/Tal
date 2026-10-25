@@ -1,0 +1,10 @@
+r1 assigned copies 21, own match 21, complete 7
+TSD within 300 bp past r1's end: real 1 of 7, shuffled pairs 0
+copy	locus	verdict	r1_match	TSD_start_past_r1_end	TSD_len	best hits of the 300 bp past r1's end (consensus:cons_start-cons_end q_start-q_end identity bits)
+c0	NC@U@142514.1:146321124-146321306(+)	SINE	2-155	-	-	none
+c1	NC@U@142515.1:55908440-55908594(-)	grey	2-154	-	-	r1_r3_P1:162-319 q1-151 93% 131; r1_r2_r3_r3_C11:298-455 q1-151 92% 129; r3_58seqs:3-119 q35-151 93% 108; r5_r3_P34:143-259 q35-151 92% 105
+c2	NC@U@142514.1:17801016-17801172(+)	SINE	1-150	-	-	none
+c3	NC@U@142504.1:13868426-13868586(-)	grey	1-154	-	-	r2_3seqs:106-138 q1-33 94% 47; r1_r2_r3_r3_C11:298-330 q1-33 94% 47; r1_r3_P1:162-194 q1-33 94% 47
+c4	NC@U@142518.1:103814724-103814878(+)	grey	2-154	-	-	r1_r3_P2:252-304 q6-58 91% 69; r1_r2_r3_r3_C11:555-608 q6-59 89% 67; r1_r3_P1:395-448 q6-59 89% 67; r5_r3_P34:333-369 q6-42 95% 53
+c5	NC@U@142505.1:27424682-27424832(-)	SINE	2-152	-	-	none
+c6	NC@U@142516.1:153233188-153233343(-)	SINE	2-155	13	10	none
