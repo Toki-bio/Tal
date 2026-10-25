@@ -16,7 +16,7 @@ r1's consensus (155 bp) ends at `...CTGCAACTAACAA`, where r4 and r3 go on. Check
 TSD within 300 bp past r1's end: 1 of 7 (shuffled pairs 0 of 7).
 
 Copies with r1's head are mostly assigned to the composites that start with it: r1_r3_P1 14,471, r1_r3_P2 6,910,
-r1_r2_r3_r3_C11 2,907, r1 alone 21. In those consensuses r1 goes on with r2's tail (`TTGAACACGGCACC...`, P1 157-200)
+r1_r2_r3_r3_C11 2,907, r1 alone 21. In those consensuses r1 goes on with r2's tail (`TTGAACACGGCACC...`, P1 162-200)
 and then a second element. The 21 stand-alone r1 copies are the few that stop at r1's end or soon after (2 of 7 with an
 A-rich tail right there).
 
