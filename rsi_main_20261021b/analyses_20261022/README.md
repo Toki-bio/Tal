@@ -84,8 +84,8 @@ higher against (local alignment to r1 27-80 and to r1 81-133):
 - module 1 (r10 type, unshifted): r5, r7, r8, r9, r10 and their composite pieces;
 - module 2 (r2/r4 type, shifted right): r2, r3, r4 and their pieces; r6 scores the same against both (its module is half
   one type, half the other) and is put here, marked "tie";
-- no module (both scores below 18): six short tail pieces and P18's middle piece; they sit only in the tail columns.
-The 5' parts of all pieces and the tails of all pieces share columns (realigned together); the r2/r3/r4/r6 rows carry
+- no module (both scores below 18): five short tail pieces and P18's middle piece; they sit only in the tail columns.
+The 5' parts of all pieces and the tails of all pieces share columns (realigned together); the r3, r4 and r6 rows carry
 an extra ~45 bp after their module (`CTGCGCCCCCTGCAACTA...GAGCTGAGCTG`) before the tail shared with the r10-type rows.
 Track: r1's 5' part, module 1, module 2. Script `scripts/r1_two_modules.py` (run on KIT `/data/V/toki/temp/r1two/`,
 therioserver was unreachable).
