@@ -16,9 +16,10 @@ r1's consensus (155 bp) ends at `...CTGCAACTAACAA`, where r4 and r3 go on. Check
 TSD within 300 bp past r1's end: 1 of 7 (shuffled pairs 0 of 7).
 
 Copies with r1's head are mostly assigned to the composites that start with it: r1_r3_P1 14,471, r1_r3_P2 6,910,
-r1_r2_r3_r3_C11 2,907, r1 alone 21. In those consensuses r1 goes on with r2's tail (`TTGAACACGGCACC...`, P1 162-200)
-and then a second element. The 21 stand-alone r1 copies are the few that stop at r1's end or soon after (2 of 7 with an
-A-rich tail right there).
+r1_r2_r3_r3_C11 2,907, r1 alone 21. r1 itself has no
+r2-type tail: its consensus and 4 of the 7 copies end at `...CTGCAACTA(A)CAA` (2 of them with an A-rich tail right
+there). r2's tail (`TTGAACACGGCACC...`) comes after the r1 unit only in the composites (r1_r3_P1 162-200, C11) and in the
+2 grey copies that are composite-like (one of them an r1_r3_P1 copy).
 
 `rsi_r1_copies_3prime.aln.fa`: r1, r4, r3 and r1_r3_P1 consensuses + the 7 complete copies, each from r1's start to 250 bp
 past its end (to the TSD for the one copy with one), MAFFT --localpair. `r1_22.report.txt`: the script's table.
