@@ -28,6 +28,16 @@ SINES = ["Rhin-1", "VES"]
 # The tree badge is their sum: assignment gives each locus to one family, so the sum does not double-count.
 MEG = ["MEG-RL", "MEG-RS", "MEG-T2", "MEG-TR"]
 MEG_SHORT = {"MEG-RL": "RL", "MEG-RS": "RS", "MEG-T2": "T2", "MEG-TR": "TR"}
+# 2026-10-24: all one-per-family bats rerun on SINEderella main (bank6 = Rhin-1, VES, MEG-RL/RS/T2/TR; per-copy verdicts,
+# families). Counts and the main report button come from <code>_main_20261024 when it exists; the 2026-09-27 run stays as
+# "previous run". rsi, rre, rda have their own newer runs (LEGACY below).
+RERUN = "_main_20261024"
+
+
+def cur(c):
+    return c + RERUN if os.path.isdir(os.path.join(ROOT, c + RERUN)) else c
+
+
 DENOVO_PENDING = set()  # hla, tbr de novo chains finished 2026-09-27
 
 # (copies, firm, sim median) per SINE; None = not searched. Earlier runs: Rhin-1 was the
@@ -35,24 +45,28 @@ DENOVO_PENDING = set()  # hla, tbr de novo chains finished 2026-09-27
 LEGACY = {
     "rsi": {"Rhin-1": (30079, 23545, 0.48), "VES": None, "tag": ("tag-ok", "full report"),
             "note": "Rhin-1-only search; peel bank r1&ndash;r10: 10 subfamilies &middot; 67,162 assigned copies",
-            "acts": [("btn", "rsi/report.html", "<i>Rhinolophus sinicus</i> &mdash; full report"),
+            "acts": [("btn", "rsi_main_20261022/report.html", "<i>Rhinolophus sinicus</i> &mdash; current report (22 consensuses, 2026-10-22)"),
+                     ("sec", "rsi/report.html", "earlier report (peel bank)"),
                      ("msa", "rsi/alignments/rsi_consensuses.aln.fa", "rsi all consensi (r1-r10 + Rhin-1)", "All Consensi in MSA"),
                      ("msa", "rhin/alignments/rsi_subfam_input_30k.aln.fa", "rsi Rhin-1 SubFam input, 600 chunk consensi + anchor", "SubFam input (600 chunks)"),
                      ("sec", "rhin.html", "Peel alignments")]},
     "rre": {"Rhin-1": (32410, 23073, 0.48), "VES": None, "tag": ("tag-ok", "full report"),
             "note": "Rhin-1 + MEG search (no VES)",
             # full report with alignments since the MEG add (2026-09-27)
-            "acts": [("btn", "rre/report.html", "<i>Rhinolophus rex</i> &mdash; full report"),
+            "acts": [("btn", "rre_main_20261022/report.html", "<i>Rhinolophus rex</i> &mdash; current report (rsi bank, 2026-10-22)"),
+                     ("sec", "rre/report.html", "previous run (2026-09-27)"),
                      ("msa", "rhin/alignments/rre_subfam_input_30k.aln.fa", "rre Rhin-1 SubFam input, 600 chunk consensi + anchor", "SubFam input (600 chunks)")]},
     "rda": {"Rhin-1": (30169, 23850, 0.48), "VES": None, "tag": ("tag-ok", "full report"),
             "note": "Rhin-1 + MEG search (no VES)",
             # full report with alignments since the MEG add (2026-09-27)
-            "acts": [("btn", "rda/report.html", "<i>Rhinolophus darlingi</i> &mdash; full report"),
+            "acts": [("btn", "rda_main_20261022/report.html", "<i>Rhinolophus darlingi</i> &mdash; current report (rsi bank, 2026-10-22)"),
+                     ("sec", "rda/report.html", "previous run (2026-09-27)"),
                      ("msa", "rhin/alignments/rda_subfam_input_30k.aln.fa", "rda (hap1) Rhin-1 SubFam input, 600 chunk consensi + anchor", "SubFam input (600 chunks)")]},
     "lly": {"Rhin-1": (290, 290, 0.16), "VES": (11, 11, 0.14), "tag": ("tag-ok", "full report"),
             "note": "fragmented assembly (1.9 M scaffolds); <i>Macroderma</i> (mgi) is the better Megadermatidae genome",
             # full report with alignments since the MEG add (2026-09-27); the old chiroptera/lly report had none
-            "acts": [("btn", "lly/report.html", "<i>Lyroderma lyra</i> &mdash; full report"),
+            "acts": [("btn", "lly_main_20261024/report.html", "<i>Lyroderma lyra</i> &mdash; full report (2026-10-24)"),
+                     ("sec", "lly/report.html", "previous run (2026-09-27)"),
                      ("msa", "chiroptera/lly/lly_subfam_input.aln.fa", "lly SubFam input, 6 chunk consensi + Rhin-1 + VES", "SubFam input (6 chunks)")]},
 }
 
@@ -71,7 +85,7 @@ def msa_btn(path, title, label, cls="secondary"):
 
 
 def read_summary(code):
-    p = os.path.join(ROOT, code, "summary.by_subfam.tsv")
+    p = os.path.join(ROOT, cur(code), "summary.by_subfam.tsv")
     if not os.path.exists(p):
         return None
     with open(p, encoding="utf8") as fh:
@@ -126,7 +140,10 @@ def load(g):
     if any(s in rs for s in MEG):
         for s in MEG:
             vals[s] = sine_tuple(rs, s) if s in rs else (0, 0, None)
-    acts = [f'<a class="btn" href="{c}/report.html"><i>{sp}</i> &mdash; full report</a>']
+    acts = [f'<a class="btn" href="{cur(c)}/report.html"><i>{sp}</i> &mdash; full report'
+            + (" (2026-10-24)" if cur(c) != c else "") + '</a>']
+    if cur(c) != c and os.path.exists(os.path.join(ROOT, c, "report.html")):
+        acts.append(f'<a class="btn secondary" href="{c}/report.html">previous run (2026-09-27)</a>')
     sub = f"{c}/alignments/{c}_subfam_input_30k.aln.fa"
     if os.path.exists(os.path.join(ROOT, sub)):
         n = sum(1 for l in open(os.path.join(ROOT, sub), encoding="utf8") if l.startswith(">")) - 2
@@ -214,7 +231,7 @@ def short(n):
 def report_href(g, status):
     if g["code"] in LEGACY:
         return next((a[1] for a in LEGACY[g["code"]]["acts"] if a[0] == "btn"), None)
-    return f'{g["code"]}/report.html' if status == "done" else None
+    return f'{cur(g["code"])}/report.html' if status == "done" else None
 
 
 def tree_svg(rows):
@@ -415,7 +432,7 @@ def main():
         if g["code"] == "-":
             continue
         rep = (next((a[1] for a in LEGACY[g["code"]]["acts"] if a[0] == "btn"), None)
-               if g["code"] in LEGACY else f'{g["code"]}/report.html')
+               if g["code"] in LEGACY else f'{cur(g["code"])}/report.html')
         if rep:
             add_back_nav(rep)
 
@@ -475,7 +492,7 @@ def main():
             cards.append(card + '    </div>\n')
 
             href = (next((a[1] for a in LEGACY[c]["acts"] if a[0] == "btn"), None) if c in LEGACY
-                    else f"{c}/report.html")
+                    else f"{cur(c)}/report.html")
             rep = (f'<span class="tag tag-ok"><a href="{href}">HTML</a></span>' if status == "done" and href
                    else '<span class="tag tag-no">&mdash;</span>')
             if status != "done":
