@@ -100,3 +100,15 @@ positions 45-80 `AAGGCTGCCGGTTCGATTCCCACATGGGCCAGTGGG` and 92-133 `AAGGTTGCCAGTT
 copy holds a B box (GGTTCGAnTCC). r2, r3, r4 and r5 have the 5' part (to ...GGTTGGAGC, ~26 bp) followed directly by the
 second module only; r1 has the first module in between.
 
+
+### Which r1 module is r2's? (2026-10-25)
+Measured with ssearch36 against the bank (therioserver `/home/toki/tmp/r1mod/`, `run.sh`):
+- r1 1-80 (5' part + first module) is r10's head: 91 % over 80 bp with r10_19seqs (r8 84 %, r5 82 %, r6-r9 77-80 %).
+  It is also the tRNA head: tRNA-Ile 73 % over 75 nt, 50 bits (r1 with the first module removed: 34 bits).
+- r1 81-155 (second module + tail) is an r2/r3/r4 body: r4 97 % over 77 bp, r3 96 %, r2 93 % (r10 72 %).
+- r2's module against r1's two modules: second module 96 % over 55 bp, 61.5 bits (shuffle null max 25); first module
+  78 % over 33 bp, 25.6 bits (null max 20).
+So r1 is not r2 with a piece inserted: it is an r10-type head joined, after its module, to an r2/r4-type element at the
+start of that element's module (one junction). In a general alignment, r1 1-80 lies over r5-r10, and r2, r3 and r4 are
+shifted right so that their module lies under r1 81-133. The workflow's block table already shows the r10 part
+(`consensus_blocks.tsv`: r10_19seqs 1-81 = r1 1-82, 88.9 %).
