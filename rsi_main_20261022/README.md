@@ -133,5 +133,6 @@ Bank22 minus r1_9seqs, same code (4305f5c), genome and settings; therioserver
   against a 300-600 bp composite. 3 are not found at all; one of them is the copy with a TSD.
 - P1, P2 and C11 change by -14, -7 and +9 copies; r1's removal gives them nothing.
 - The only large move is r6_210seqs +462 (515 copies from "no unanimous vote" to r6), the vote's run-to-run spread seen
-  before (502 copies between 21b and 22); every other subfamily moves by 17 copies or fewer.
+  before (502 copies between 21b and 22), and r8_83seqs +49 (50 copies from "no unanimous vote"); every other
+  subfamily moves by 17 copies or fewer.
 So r1 in the bank catches its own 21 short copies and changes nothing else.
