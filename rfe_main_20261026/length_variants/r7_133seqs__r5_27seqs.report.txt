@@ -1,0 +1,10 @@
+VERDICT: UNLINKED_ENDS
+copies 8813, 5'-complete 8612, consensus 178 bp
+  mode at 147 (window 145-151)
+  mode at 175 (window 173-181), valley ratio to the previous mode 0.008 (4597 copies between the peaks)
+  linkage: 1 diagnostic columns [48]; P(short allele | short mode) 0.78586609989373, P(short allele | long mode) 0.4610223642172524, index 0.3248437356764776
+  TSD (>=7 bp) mode 147: n=4493 real 87.06666666666666 % shuffled 39.86666666666667 % excess 47.199999999999996
+  TSD (>=7 bp) mode 175: n=3578 real 87.46666666666667 % shuffled 35.66666666666667 % excess 51.8
+  residual similarity past the short mode: {'median_real': 0.4838709677419355, 'median_shuffled': 0.4838709677419355, 'frac75_real': 0.0, 'frac75_shuffled': 0.0}
+  note: internal bases do not follow the length (index 0.32, 1 diagnostic columns)
+(8813 hits used, 0 with mixed strand skipped)

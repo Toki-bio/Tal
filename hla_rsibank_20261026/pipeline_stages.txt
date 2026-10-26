@@ -1,0 +1,7 @@
+== start 2026-10-26 20:30:20 hla code a9d2a51 bank /home/toki/rhin/final_bank_20261026/bank21_nor1.fa genome /home/toki/chiro/genomes/hla.fna
+==========================================
+==========================================
+== SINEderella rc=0 2026-10-26 23:42:25
+== flankscan 1-7 2026-10-26 23:42:25
+== report rebuild through publish_run 2026-10-27 01:08:44
+== done 2026-10-27 01:11:09

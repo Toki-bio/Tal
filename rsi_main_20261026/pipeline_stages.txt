@@ -1,0 +1,7 @@
+== start 2026-10-26 20:30:20 rsi code a9d2a51 bank /home/toki/rhin/final_bank_20261026/bank21_nor1.fa genome /home/toki/rhin/genomes/rsi.fna
+==========================================
+==========================================
+== SINEderella rc=0 2026-10-26 22:13:34
+== flankscan 1-7 2026-10-26 22:13:34
+== report rebuild through publish_run 2026-10-26 22:31:20
+== done 2026-10-26 22:34:17

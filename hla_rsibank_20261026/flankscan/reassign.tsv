@@ -1,0 +1,20 @@
+name	peak_elements	now_main	full	pct_full	verdict	from_full	from_part
+r10_r8_P18__r1_r2_r3_r3_C11_P1	45484	375	51	0.1	check	r10_r8_P18 69, r5_r5_P48 1	r6_210seqs 1, r10_r8_P18 802, r5_r5_P48 20
+r5_r6_P26__r5_r3_P34_P10	7905	6538	103	1.3	check	r1_r3_P1 1, r5_r6_P26 128, r1_r2_r3_r3_C11 1	r1_r3_P1 6, r6_210seqs 107, r5_r5_P48 207, r7_133seqs 1, r5_r6_P26 9065, r8_83seqs 6, r1_r2_r3_r3_C11 274, r5_r3_P34 17
+r9_15seqs__r8_83seqs_P68	2655	2597	2567	96.7	accept	r6_210seqs 1, r5_r5_P48 2, r9_15seqs 3969, r8_83seqs 6	r9_15seqs 468
+r5_r6_P26__r5_r3_P34_P11	2348	160	28	1.2	check	r5_r6_P26 38, r5_r5_P48 2	r5_r6_P26 834, r6_210seqs 42, r5_r3_P34 1, r8_83seqs 2, r5_r5_P48 62
+r5_r6_P26__r10_r8_P18_P49	576	299	64	11.1	check	r6_210seqs 2, r10_r8_P18 567, r9_15seqs 1, r1_r2_r3_r3_C11 1, r8_83seqs 1	r1_r3_P1 1, r6_210seqs 19, r10_r8_P18 46705, r9_15seqs 9, r5_r6_P26 11, r1_r2_r3_r3_C11 9, r7_133seqs 1, r5_r3_P34 8, r8_83seqs 45
+r1_r2_r3_r3_C11__r5_r6_P26_P6	387	85	66	17.1	check	r6_210seqs 3, r1_r3_P1 7, r5_r5_P48 3, r5_r6_P26 114, r1_r2_r3_r3_C11 22	r8_83seqs 15, r9_15seqs 8, r1_r3_P1 9, r6_210seqs 1429, r5_r5_P48 94, r5_r6_P26 1471, r1_r2_r3_r3_C11 5
+r8_83seqs__r1_r2_r3_r3_C11_P69	368	33	33	9.0	check	r8_83seqs 899, r7_133seqs 6	r8_83seqs 53, r7_133seqs 3
+r5_r5_P48__r8_83seqs_P98	201	54	28	13.9	check	r7_133seqs 1, r5_r5_P48 1, r8_83seqs 61	r7_133seqs 3, r9_15seqs 7, r8_83seqs 1652
+r1_r3_P1__r8_83seqs_P83	129	67	7	5.4	check	r7_133seqs 8, r8_83seqs 393	r7_133seqs 251, r8_83seqs 4720, r5_r5_P48 3, r9_15seqs 12
+r6_210seqs__r1_r3_P1_P99	222	16	3	1.4	check	r6_210seqs 5	r6_210seqs 341, r9_15seqs 2, r8_83seqs 7, r5_r6_P26 6
+r1_r3_P1__r1_r3_P1_P56	82	82	0	0.0	check	-	r5_r5_P48 49, r5_r6_P26 367, r8_83seqs 1, r1_r2_r3_r3_C11 59, r1_r3_P1 627, r6_210seqs 17
+r10_r8_P18__r5_r6_P26_P26	32	32	14	43.8	check	r1_r3_P1 11, r8_83seqs 4, r5_r6_P26 199, r10_r8_P18 238, r5_r3_P34 1, r6_210seqs 11, r5_r5_P48 3, r1_r2_r3_r3_C11 25	r8_83seqs 95, r1_r3_P1 16, r9_15seqs 22, r5_r6_P26 1953, r10_r8_P18 6531, r5_r3_P34 2, r6_210seqs 524, r5_r5_P48 63, r7_133seqs 3, r1_r2_r3_r3_C11 216
+r10_r8_P18__r8_83seqs_P55	92	90	87	94.6	accept	r1_r2_r3_r3_C11 1, r9_15seqs 3, r5_r6_P26 4, r8_83seqs 153, r10_r8_P18 168, r7_133seqs 3, r6_210seqs 18	r1_r2_r3_r3_C11 16, r9_15seqs 72, r5_r6_P26 35, r8_83seqs 124, r10_r8_P18 70655, r7_133seqs 4, r6_210seqs 21, r1_r3_P1 5, r5_r5_P48 5
+r1_r2_r3_r3_C11__r1_r2_r3_r3_C11_P40	69	64	5	7.2	check	r8_83seqs 1, r10_r8_P18 1, r1_r3_P1 134, r5_r6_P26 6, r1_r2_r3_r3_C11 504	r8_83seqs 13, r6_210seqs 24, r9_15seqs 9, r10_r8_P18 15, r7_133seqs 1, r1_r3_P1 561, r5_r3_P34 14, r5_r5_P48 39, r5_r6_P26 299, r1_r2_r3_r3_C11 7126
+r1_r3_P1__r10_r8_P18_P8	59	54	0	0.0	check	-	r5_r5_P48 1, r5_r6_P26 1, r8_83seqs 10, r6_210seqs 1, r10_r8_P18 7766, r1_r2_r3_r3_C11 3
+r1_r2_r3_r3_C11__r8_83seqs_P100	57	11	0	0.0	check	-	r7_133seqs 81, r9_15seqs 5, r8_83seqs 1280
+r1_r2_r3_r3_C11__r5_r3_P34_P103	51	23	0	0.0	check	-	r5_r6_P26 15, r1_r3_P1 433, r8_83seqs 4, r9_15seqs 1, r10_r8_P18 1, r5_r3_P34 1, r6_210seqs 5, r1_r2_r3_r3_C11 1309
+r7_133seqs__r6_210seqs_P105	57	56	54	94.7	accept	r5_r6_P26 7, r9_15seqs 2, r6_210seqs 143, r7_133seqs 73, r8_83seqs 201, r5_r5_P48 6	r5_r6_P26 1, r6_210seqs 5, r7_133seqs 8, r8_83seqs 16
+chain_C2	18	16	0	0.0	check	-	r1_r3_P1 5, r5_r5_P48 1, r5_r6_P26 45, r8_83seqs 10, r1_r2_r3_r3_C11 13, r6_210seqs 7, r10_r8_P18 3462

@@ -1,0 +1,46 @@
+consensus	group	side	sampled	tested	target	copies	share	junction_bp	target_start	target_end	identity	inside_locus	flag	candidate	candidate_bp	seeds_differ_mm	bank_match
+r10_19seqs	unassigned	3'	308	283	r10_r8_P18	124	0.438	3	247	384	75.0	126 of 126 bp	yes	r10_19seqs__3p__r10_r8_P18_247-384	268	3	not in the bank (closest r10_r8_P18del: 34 mismatches and 63 gap columns end to end; local match at its positions 13-190)
+r10_19seqs	assigned	3'	400	400	r10_r8_P18	165	0.412	4	227	352	74.0	2 of 120 bp	yes	r10_19seqs__3p__r10_r8_P18_227-352	219	1	not in the bank (closest r10_r8_P18del: 24 mismatches and 70 gap columns end to end; local match at its positions 11-164)
+r10_r8_P18	assigned	3'	400	400	r1_r2_r3_r3_C11	142	0.355	0	530	607	81.8	88 of 88 bp	yes	r10_r8_P18__3p__r1_r2_r3_r3_C11_530-607	439	0	not in the bank (closest r5_r6_P26: 55 mismatches and 121 gap columns end to end; local match at its positions 1-376)
+r10_r8_P18	unassigned	3'	400	383	r1_r2_r3_r3_C11	96	0.251	0	530	607	81.0	88 of 92 bp	yes	r10_r8_P18__3p__r1_r2_r3_r3_C11_530-607	262	0	not in the bank (closest r5_27seqs: 32 mismatches and 88 gap columns end to end; local match at its positions 62-173)
+r10_r8_P18del	assigned	3'	400	400	r1_r2_r3_r3_C11	98	0.245	0	530	607	82.9	82 of 88 bp	yes	r10_r8_P18del__3p__r1_r2_r3_r3_C11_530-607	338	0	not in the bank (closest r5_r5_P48: 53 mismatches and 80 gap columns end to end; local match at its positions 18-308)
+r10_r8_P18	unassigned	3'	400	383	r10_r8_P18	93	0.243	1	293	384	77.7	91 of 91 bp	yes	r10_r8_P18__3p__r10_r8_P18_293-384	294	0	deletion inside r10_r8_P18 (own match ends at 202, resumes at 293); not in the bank (closest r10_r8_P18del: 37 mismatches and 73 gap columns end to end; local match at its positions 19-164)
+r10_r8_P18del	unassigned	3'	400	346	r10_r8_P18	81	0.234	1	261	384	75.2	115 of 117 bp	yes	r10_r8_P18del__3p__r10_r8_P18_261-384	264	0	not in the bank (closest r10_r8_P18del: 44 mismatches and 51 gap columns end to end; local match at its positions 1-158)
+r10_r8_P18del	assigned	3'	400	400	r10_r8_P18	92	0.23	1	272	384	76.7	111 of 111 bp	yes	r10_r8_P18del__3p__r10_r8_P18_272-384	269	0	not in the bank (closest r10_r8_P18del: 30 mismatches and 66 gap columns end to end; local match at its positions 7-220)
+r1_r2_r3_r3_C11	assigned	5'	400	400	r5_r6_P26	91	0.228	0	1	87	85.7	92 of 92 bp	yes	r1_r2_r3_r3_C11__5p__r5_r6_P26_1-87	508	0	not in the bank (closest r1_r3_P1: 51 mismatches and 132 gap columns end to end; local match at its positions 1-448)
+r1_r2_r3_r3_C11	unassigned	5'	400	396	r5_r6_P26	75	0.189	0	1	88	85.2	94 of 95 bp	no				
+r7_133seqs	assigned	3'	400	400	r8_83seqs	52	0.13	0	93	180	87.5	87 of 87 bp	no				
+r1_r2_r3_r3_C11	assigned	5'	400	400	r5_r5_P48	51	0.128	1	1	196	82.7	176 of 176 bp	no				
+r5_r6_P26	assigned	3'	400	400	r1_r2_r3_r3_C11	43	0.107	10	510	606	85.2	84 of 87 bp	no				
+r10_r8_P18	assigned	3'	400	400	r1_r3_P1	42	0.105	15	392	447	82.4	62 of 62 bp	no				
+r1_r2_r3_r3_C11	unassigned	5'	400	396	r5_r5_P48	34	0.086	1	1	195	82.2	155 of 155 bp	no				
+r1_r3_P1	unassigned	5'	400	372	r5_r5_P48	27	0.073	1	1	195	82.3	166 of 166 bp	no				
+r8_83seqs	unassigned	5'	400	328	r10_r8_P18	24	0.073	0	199	328	71.9	0 of 114 bp	no				
+r5_r6_P26	assigned	3'	400	400	r1_r3_P1	28	0.07	0	393	446	82.0	57 of 57 bp	no				
+r5_r6_P26	unassigned	3'	400	383	r6_210seqs	27	0.07	0	9	72	83.9	63 of 63 bp	no				
+r10_r8_P18	unassigned	3'	400	383	r1_r3_P1	23	0.06	15	392	448	80.7	41 of 61 bp	no				
+r6_210seqs	assigned	3'	400	400	r1_r3_P2	24	0.06	0	250	303	83.0	52 of 57 bp	no				
+r10_r8_P18	unassigned	5'	400	383	r10_r8_P18del	22	0.057	0	6	132	78.0	114 of 116 bp	no				
+r5_r5_P48	assigned	3'	400	400	r1_r3_P1	21	0.052	0	393	448	80.4	58 of 58 bp	no				
+r6_210seqs	assigned	3'	400	400	r1_r3_P1	21	0.052	0	393	448	82.1	55 of 57 bp	no				
+r7_133seqs	unassigned	3'	400	253	r8_83seqs	13	0.051	1	93	181	86.4	87 of 87 bp	no				
+r5_r6_P26	unassigned	3'	400	383	r1_r2_r3_r3_C11	19	0.05	3	503	603	81.0	110 of 110 bp	no				
+r1_r2_r3_r3_C11	unassigned	3'	400	396	r1_r2_r3_r3_C11	19	0.048	0	530	605	77.2	84 of 84 bp	no				
+r1_r3_P1	assigned	5'	400	400	r5_r5_P48	19	0.048	1	1	195	82.4	173 of 173 bp	no				
+r5_r6_P26	unassigned	5'	400	383	r5_r6_P26	18	0.047	14	1	90	85.7	92 of 92 bp	no				
+r10_r8_P18	assigned	3'	400	400	r1_r3_P2	18	0.045	15	249	304	82.2	60 of 61 bp	no				
+r5_r6_P26	assigned	5'	400	400	r5_r6_P26	18	0.045	14	1	90	85.6	91 of 91 bp	no				
+r10_r8_P18del	unassigned	3'	400	346	r1_r2_r3_r3_C11	15	0.043	0	530	608	81.0	62 of 92 bp	no				
+r10_r8_P18	unassigned	3'	400	383	r1_r3_P2	15	0.039	14	249	304	82.1	47 of 66 bp	no				
+r5_27seqs	assigned	3'	400	399	r5_r6_P26	15	0.038	4	115	269	80.8	3 of 121 bp	no				
+r5_r5_P48	assigned	3'	400	400	r1_r3_P2	15	0.037	0	250	303	81.1	55 of 55 bp	no				
+r5_r5_P48	assigned	5'	400	400	r5_r6_P26	15	0.037	14	1	91	87.4	92 of 92 bp	no				
+r5_r6_P26	assigned	3'	400	400	r1_r3_P2	15	0.037	0	250	303	83.3	57 of 57 bp	no				
+r6_210seqs	unassigned	5'	400	364	r1_r3_P1	13	0.036	1	133	193	85.2	5 of 62 bp	no				
+r1_r3_P1	unassigned	5'	400	372	r5_r6_P26	12	0.032	9	1	130	81.0	114 of 125 bp	no				
+r1_r3_P1	assigned	5'	400	400	r5_r6_P26	12	0.03	12	1	91	85.4	91 of 92 bp	no				
+r5_27seqs	assigned	3'	400	399	r5_r5_P48	12	0.03	5	115	205	77.3	19 of 83 bp	no				
+r8_83seqs	unassigned	3'	400	328	r8_83seqs	10	0.03	0	93	180	84.6	89 of 89 bp	no				
+r1_r2_r3_r3_C11	unassigned	5'	400	396	r10_r8_P18	11	0.028	4	225	328	73.0	9 of 92 bp	no				
+r5_r6_P26	unassigned	3'	400	383	r1_r3_P1	10	0.026	1	301	443	77.2	115 of 115 bp	no				
+r10_r8_P18del	assigned	3'	400	400	r5_r6_P26	10	0.025	0	295	376	74.2	85 of 85 bp	no				

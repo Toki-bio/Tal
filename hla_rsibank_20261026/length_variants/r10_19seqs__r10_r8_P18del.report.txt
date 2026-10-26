@@ -1,0 +1,12 @@
+VERDICT: UNRESOLVED
+copies 2316, 5'-complete 1731, consensus 255 bp
+  mode at 161 (window 142-174)
+  mode at 221 (window 217-223), valley ratio to the previous mode 0.029 (963 copies between the peaks)
+  mode at 252 (window 246-258), valley ratio to the previous mode 0.076 (114 copies between the peaks)
+  linkage: 33 diagnostic columns [4, 11, 12, 14, 17, 19, 21, 26, 27, 28, 31, 34]; P(short allele | short mode) 0.7852834740651388, P(short allele | long mode) 0.0851063829787234, index 0.7001770910864153
+  TSD (>=7 bp) mode 161: n=855 real 40.35087719298245 % shuffled 25.380116959064324 % excess 14.970760233918128
+  TSD (>=7 bp) mode 221: n=533 real 21.388367729831145 % shuffled 22.5140712945591 % excess -1.125703564727953
+  TSD (>=7 bp) mode 252: n=94 real 87.2340425531915 % shuffled 42.5531914893617 % excess 44.6808510638298
+  residual similarity past the short mode: {'median_real': 0.4, 'median_shuffled': 0.4, 'frac75_real': 0.0, 'frac75_shuffled': 0.0}
+  note: TSD excess under 10 points in at least one mode
+(2316 hits used, 0 with mixed strand skipped)

@@ -45,7 +45,9 @@ DENOVO_PENDING = set()  # hla, tbr de novo chains finished 2026-09-27
 LEGACY = {
     "rsi": {"Rhin-1": (30079, 23545, 0.48), "VES": None, "tag": ("tag-ok", "full report"),
             "note": "Rhin-1-only search; peel bank r1&ndash;r10: 10 subfamilies &middot; 67,162 assigned copies",
-            "acts": [("btn", "rsi_main_20261022/report.html", "<i>Rhinolophus sinicus</i> &mdash; current report (22 consensuses, 2026-10-22)"),
+            "acts": [("btn", "rsi_main_20261026/report.html", "<i>Rhinolophus sinicus</i> &mdash; current report (21 consensuses, partial copies, 2026-10-26)"),
+                     ("sec", "rsi_main_20261022/report.html", "previous run (22 consensuses, 2026-10-22)"),
+                     ("sec", "rfe_main_20261026/report.html", "<i>Rhinolophus ferrumequinum</i> with the same bank (2026-10-26)"),
                      ("sec", "rsi/report.html", "earlier report (peel bank)"),
                      ("msa", "rsi/alignments/rsi_consensuses.aln.fa", "rsi all consensi (r1-r10 + Rhin-1)", "All Consensi in MSA"),
                      ("msa", "rhin/alignments/rsi_subfam_input_30k.aln.fa", "rsi Rhin-1 SubFam input, 600 chunk consensi + anchor", "SubFam input (600 chunks)"),
@@ -69,6 +71,10 @@ LEGACY = {
                      ("sec", "lly/report.html", "previous run (2026-09-27)"),
                      ("msa", "chiroptera/lly/lly_subfam_input.aln.fa", "lly SubFam input, 6 chunk consensi + Rhin-1 + VES", "SubFam input (6 chunks)")]},
 }
+
+
+# further runs of a genome with another bank, shown as secondary links on its card
+EXTRA = {"hla": [("hla_rsibank_20261026/report.html", "with the <i>Rhinolophus sinicus</i> bank (2026-10-26)")]}
 
 
 def fmt(n):
@@ -144,6 +150,9 @@ def load(g):
             + (" (2026-10-24)" if cur(c) != c else "") + '</a>']
     if cur(c) != c and os.path.exists(os.path.join(ROOT, c, "report.html")):
         acts.append(f'<a class="btn secondary" href="{c}/report.html">previous run (2026-09-27)</a>')
+    for href, label in EXTRA.get(c, []):
+        if os.path.exists(os.path.join(ROOT, href)):
+            acts.append(f'<a class="btn secondary" href="{href}">{label}</a>')
     sub = f"{c}/alignments/{c}_subfam_input_30k.aln.fa"
     if os.path.exists(os.path.join(ROOT, sub)):
         n = sum(1 for l in open(os.path.join(ROOT, sub), encoding="utf8") if l.startswith(">")) - 2
