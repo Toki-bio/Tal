@@ -123,3 +123,15 @@ r1 against r10 1-79 + r4 30-end (global alignment of the consensuses): 12 differ
   152 only), so they look like noise of a 9-copy consensus.
 - r1 alone has 21 assigned copies, 7 with a complete match. It is in the bank because the starting bank had r1_9seqs,
   not because the workflow found it.
+
+### Rerun without r1_9seqs (2026-10-26)
+Bank22 minus r1_9seqs, same code (4305f5c), genome and settings; therioserver
+`/home/toki/rhin/rsi_nor1_20261026/run_20261026_072243` (`launch.sh`; copies matched by coordinate overlap, `moved.py`,
+`moved.txt`). Report only (no flank scan, not published).
+- r1's 21 copies: none is assigned. 18 are still found, with best match r1_r3_P2 (11), r1_r2_r3_r3_C11 (6) or
+  r1_r3_P1 (1), but fail the score threshold (11) or the unanimous vote (7). A copy of a 155-bp head scores too low
+  against a 300-600 bp composite. 3 are not found at all; one of them is the copy with a TSD.
+- P1, P2 and C11 change by -14, -7 and +9 copies; r1's removal gives them nothing.
+- The only large move is r6_210seqs +462 (515 copies from "no unanimous vote" to r6), the vote's run-to-run spread seen
+  before (502 copies between 21b and 22); every other subfamily moves by 17 copies or fewer.
+So r1 in the bank catches its own 21 short copies and changes nothing else.
