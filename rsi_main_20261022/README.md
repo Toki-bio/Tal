@@ -135,4 +135,6 @@ Bank22 minus r1_9seqs, same code (4305f5c), genome and settings; therioserver
 - The only large move is r6_210seqs +462 (515 copies from "no unanimous vote" to r6), the vote's run-to-run spread seen
   before (502 copies between 21b and 22), and r8_83seqs +49 (50 copies from "no unanimous vote"); every other
   subfamily moves by 17 copies or fewer.
-So r1 in the bank catches its own 21 short copies and changes nothing else.
+- At family level they are assigned: the family roll-up (`family_view/family_view.tsv`) gives the checked copies
+  Rhin, 10 of 10 family votes, `layer2=unresolved` (subfamily open), as for 3,059 copies of this run in all.
+So r1 in the bank gives its own 21 short copies a subfamily and changes nothing else.
