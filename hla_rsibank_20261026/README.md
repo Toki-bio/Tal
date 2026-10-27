@@ -66,3 +66,12 @@ copies are family-firm Rhin but have no subfamily; a consensus built from them w
 | `length_variants/`, `consensus_audit/` | length-version test; each consensus rebuilt from its copies |
 | `composite_units.tsv`, `consensus_blocks.tsv` | composites read as units; the bank as blocks |
 | `consensuses.clean.fa`, `manifest.txt`, `pipeline_stages.txt` | the bank; tool versions and command; stage times |
+
+## r10_r8_P18 in this genome is not rsi's P18 (2026-10-27)
+The consensus audit (`consensus_audit/summary.tsv`) calls r10_r8_P18 DIVERGED here: rebuilt from its 140,029 hla copies
+it is 440-442 bp against 426, with 66-70 mismatches and 106-110 gap columns, the same with both seeds. On the subfamily
+(chunk) plate every one of the 201 chunk consensuses carries an insertion of 18-53 bp after P18 position ~386-401, so this
+is the hla element's own 3' part, not a subfamily mark. Rarer: 16-20 bp inside the 10-bp-unit middle piece (after ~209,
+2 of 201 chunks; 9 of the top 100 copies) and 107-140 bp before the start (2 chunks).
+`alignments/hla_r10_r8_P18_peel.aln.fa`: the subfamily plate (SubFam chunk order kept, bases unchanged) with the two
+rebuilt hla consensuses added under rsi's P18 (MAFFT --add, therioserver `/home/toki/tmp/hla_p18_peel/`), for peeling.
