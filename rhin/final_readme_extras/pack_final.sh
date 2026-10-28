@@ -15,6 +15,7 @@ for f in family_view.summary.tsv family_view.tsv partial_copies.tsv partial_stre
 [ -f $R/genome.clean_step1/searches/composite_units.bank.tsv ] && cp $R/genome.clean_step1/searches/composite_units.bank.tsv "$P/family_view/pieces_from_composite_units.tsv"
 for d in satellites length_variants consensus_audit continuation; do [ -e $R/results/$d ] && cp -rL $R/results/$d "$P/"; done
 cp $R/results/alignments/* "$P/alignments/"
+cp $R/genome.clean_step1/subfam_input/input.clw.al "$P/alignments/${code}_all_copies_subfam30k.aln.fa"   # step 1 SubFam: 600 chunk consensuses of 30,000 copies + the bank
 for f in accepted.fa candidates.fa candidates.tsv chains.tsv ends.tsv family_summary.tsv hierarchy.tsv peaks.tsv reassign.tsv reassign_moves.tsv; do [ -f $R/flankscan/$f ] && cp $R/flankscan/$f "$P/flankscan/"; done
 [ -d $R/flankscan/cand ] && cp -r $R/flankscan/cand "$P/flankscan/"
 grep "^==" $D/pipeline.log > "$P/pipeline_stages.txt"

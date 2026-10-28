@@ -57,6 +57,7 @@ only as weak hits, partial copies or continuations.
 | `loci_verdict.tsv.gz`, `flank_verdict.tsv` | per-copy and per-subfamily verdicts |
 | `family_view/` | family roll-up per copy, partial copies, stretches, the composite stretches searched in step 1 |
 | `alignments/` | plates (SINE loci, topped up with grey copies marked [grey]) |
+| `alignments/rfe_all_copies_subfam30k.aln.fa` | step 1 SubFam: 600 chunk consensuses of 30,000 random copies of all subfamilies, aligned with the 21 bank consensuses |
 | `continuation/`, `flankscan/` | continuation check; flank scan stages 1-7 |
 | `assignment_stats.tsv`, `summary.by_subfam.tsv` | per-consensus numbers |
 | `flank_twins.tsv`, `array_flag.tsv`, `satellites/` | flank twins, tandem-array share, satellite screen |
