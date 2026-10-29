@@ -75,3 +75,29 @@ consensus_10seqs_noterm (069-068) and consensus_10seqs_b (048-076 group).
 consensus_386seqs against the bank and the consensus audit (ssearch36): r10_r8_P18_seed1 (the hla P18 rebuilt by
 `../consensus_audit/` from its copies) 99.1 % over 1-438 / 1-437; seed2 99.1 %; rsi r10_r8_P18 80.3 % over 1-354 / 1-384.
 So the big block is hla's own P18, the one the audit already rebuilt and called DIVERGED.
+
+## Bank for the hla rerun (2026-10-30): `bank30_hla/`
+
+`bank30_hla/build_bank.sh` (therioserver `/home/toki/rhin/hla_bank_20261030/`): the rsi bank21_nor1 with
+
+| change | consensus | evidence |
+|---|---|---|
+| replaces r6_210seqs | r5_r6_short_hla | 96.7 % over r6 1-211 of 225; colleague: r6 plate, 10 chunks with a ~40 bp insertion (the long form) |
+| replaces r5_r6_P26 | r5_r6_long_hla | 94.2 % over P26 1-357 of 376; colleague: r5-r6 plate in two groups (insertions at 300-330, 570-610, 1030-1050, 1280-1320) |
+| replaces r8_83seqs | r8_hla | 96.9 % over r8 1-164 of 181; owner: r8 with a difference in ttcccc near the tail |
+| replaces r10_r8_P18 | consensus_386seqs | 99.1 % to the audit-rebuilt hla P18; 80.3 % to rsi P18 |
+| added (r9 kept) | r9_ext | owner: keep r9 as in rsi, add the longer form; colleague: 14 chunks = rsi r9, the rest ~70 bp longer (T+) |
+| added | consensus_28seqs, consensus_47seqs | shorties; tail present in 94-98 % of genome copies (above) |
+| added | consensus_10seqs_noterm, consensus_12seqs, consensus_10seqs_b, consensus_29seqs | owner, round 2; 75-88 % to their nearest rsi consensus |
+| added | r1_r3_P1_hla020 | colleague: "separate subfamily, chunks 020-029" of `../alignments/hla_r1_r3_P1_subfam.aln.fa`; plurality consensus of those 10 rows (`rows_consensus.py`), 512 bp; 97.4 % to consensus_29seqs but ~100 bp longer (colleague: long insertion at 89-175) |
+| added | r5_r5_P48_hla007 | colleague: chunks 007-011 of `../alignments/hla_r5_r5_P48_subfam.aln.fa` (deletion in the first monomer, insertion near the end of the second); 323 bp; 97.8 % to r5_r6_long_hla without ~80 bp of it |
+
+Kept as in rsi: MEG-RL, MEG-RS, MEG-T2, MEG-TR, r10_19seqs, r10_r8_P18del, r2-r5, r7, r9_15seqs, r1_r3_P1, r1_r3_P2, r5_r3_P34,
+r5_r5_P48, r1_r2_r3_r3_C11 (the owner took the r1/r3 set and the r10 consensuses off the peel plate; they still have hla hits,
+and the vote shows whether they keep copies). 30 consensuses, all new ones in family Rhin (`families30_hla.tsv`).
+
+Not used from the colleague's notes: r7 (chunks 7, 8 longer by 60 bp: two chunks), C11 ("from 100 or 112 down, probably a
+separate subfamily"; "above 140, probably separate": boundaries not fixed).
+
+Run: SINEderella branch end-extension (bf2480a, step 1 end extension), therioserver `/home/toki/rhin/hla_hlabank_20261030/`,
+launched 2026-10-29 22:04 server time (`launch_hla30.sh hla /home/toki/chiro/genomes/hla.fna`).
