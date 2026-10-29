@@ -59,3 +59,19 @@ So both shorties end right after GGCTCAGCT with an A tail; the sequence after it
 - rows 420-453 except a few: 510-565 bp chunks, best r1_r2_r3_r3_C11 at 75-82 % over its 81-608 (058: r1_r3_P1
   81.6 % over all 448); second best r5_r6_long_hla at 0.84-0.97 of the score. Rows 422, 428, 430, 451 (048, 080, 082,
   077) match only the first ~250-265 bp of r5_r6_long_hla.
+
+## Round 2 (owner, 2026-10-29): rows 393-453 and the big block
+
+Consensuses: `peel_round2_owner_consensuses.fa`. The owner named two of them consensus_10seqs; here they are
+consensus_10seqs_noterm (069-068) and consensus_10seqs_b (048-076 group).
+
+| chunks | call |
+|---|---|
+| 069 ... 068 (10) | good match, **without terminator**; the two bottom ones odd (large insertion and deletion): **consensus_10seqs_noterm** |
+| 048 ... 076 | with terminator, except the odd 080, 597, 082. AGAGCACGTGCTCC splits them into groups, and CACGAGCTGCCGACGGGAAGCCAGATGGCGAC marks the lower group; all else matches: **consensus_12seqs**, **consensus_10seqs_b** |
+| 006 ... 027 (029 rows) | **consensus_29seqs** (026, 027 carry the long insertion of the previous group) |
+| 004 ... 005 (386) | could be subdivided, maybe artefacts; proposed as one unresolved group: **consensus_386seqs** |
+
+consensus_386seqs against the bank and the consensus audit (ssearch36): r10_r8_P18_seed1 (the hla P18 rebuilt by
+`../consensus_audit/` from its copies) 99.1 % over 1-438 / 1-437; seed2 99.1 %; rsi r10_r8_P18 80.3 % over 1-354 / 1-384.
+So the big block is hla's own P18, the one the audit already rebuilt and called DIVERGED.
