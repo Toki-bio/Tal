@@ -6,6 +6,7 @@ the SINE_orth_loc repo, which loads bundles named in its address).
 Data (copied beside the page): data/loci.tsv and data/<category>/<run>/aln_rsi-rfe_<PM|MP|SINE|rejected>.aln.gz from
 SINE_orth_loc tests/compare_real.py --out (therioserver:/home/toki/sol_bank/view_rsi-rfe); summary.txt = its stdout.
 Style: the Tal main page's <style>, as for chiroptera.html."""
+import csv
 import html
 import os
 import sys
@@ -37,6 +38,60 @@ def summary_rows():
         "</tr>" for r in rows)
 
 
+MIN_LOCI = 20   # references with fewer loci are summed into one line
+
+
+def results_section():
+    """Results of the current run (data/summary_rsi-rfe.tsv from orth_summary.py, data/run_facts.tsv)."""
+    facts = dict(l.rstrip("\n").split("\t", 1) for l in open(os.path.join(OUT, "data", "run_facts.tsv"), encoding="utf8") if "\t" in l)
+    rows = list(csv.DictReader(open(os.path.join(OUT, "data", "summary_rsi-rfe.tsv"), encoding="utf8"), delimiter="\t"))
+    total = [r for r in rows if r["reference"] == "total"][0]
+    big = [r for r in rows if r["reference"] != "total" and int(r["loci"]) >= MIN_LOCI]
+    small = [r for r in rows if r["reference"] != "total" and int(r["loci"]) < MIN_LOCI]
+    cols = ["copies_rsi", "copies_rfe", "loci", "SINE", "PM_rsi_only", "MP_rfe_only"]
+
+    def td(r, c):
+        v = r.get(c, "")
+        return f'<td class="num">{int(v):,}</td>' if v.lstrip("-").isdigit() else f'<td class="num">{html.escape(v)}</td>'
+
+    def tr(r, name=None, strong=False):
+        n = html.escape(name or r["reference"])
+        n = f"<strong>{n}</strong>" if strong else n
+        return (f"      <tr><td>{n}</td>" + "".join(td(r, c) for c in cols) +
+                f'<td class="num">{html.escape(r["shared_pct"])}</td>' +
+                "".join(f'<td class="num">{html.escape(r[c])}</td>' for c in
+                        ("identity_to_reference", "identity_between_copies", "identity_left_flanks")) + "</tr>")
+    body = [tr(r) for r in big]
+    if small:
+        agg = {c: str(sum(int(r[c]) for r in small)) for c in cols}
+        agg["shared_pct"] = f'{100 * int(agg["SINE"]) / int(agg["loci"]):.1f}' if int(agg["loci"]) else ""
+        agg.update(identity_to_reference="", identity_between_copies="", identity_left_flanks="", reference="")
+        body.append(tr(agg, f"other ({len(small)} references with fewer than {MIN_LOCI} loci, mostly partial spans)"))
+    body.append(tr(total, "total", strong=True))
+    return f"""<section class="card">
+  <h2>Results &mdash; {html.escape(facts["run"].split(" (")[0])}</h2>
+  <p style="margin:0 0 10px;font-size:.9rem;color:var(--muted);">{html.escape(facts["run"])}. Bank: {html.escape(facts["bank"])}.
+  Loci more than 300 bp from the next copy, whose flanks were mapped: rsi {int(facts["unique_loci_rsi"]):,}, rfe {int(facts["unique_loci_rfe"]):,}.
+  Alignments rejected by ComPair: {html.escape(facts["rejected"])}; {int(facts["widened_references"]):,} clusters got a longer (container) reference;
+  {int(facts["superseded"]):,} flank rows inside compound loci were superseded by the nested-locus analysis.
+  Copies = SINEderella copies of that label per genome; loci = rows of the orth table (C flank-mapped, M rescued with both flanks, N from nested loci);
+  SINE = in both genomes, PM = <i>R. sinicus</i> only, MP = <i>R. ferrumequinum</i> only; shared % = SINE / loci.
+  Identities (%) are ComPair's: copy vs its reference consensus (divergence = 100 &minus; identity), copy vs copy at shared loci, and the left flanks;
+  median and 10&ndash;90 % range. E1&ndash;E4, HE1 are the elements of nested loci (sine_nest naming), which carry no identities.</p>
+  <div style="overflow-x:auto;">
+  <table class="tbl">
+    <thead><tr><th>Subfamily (reference)</th><th>Copies rsi</th><th>Copies rfe</th><th>Loci</th><th>Shared</th><th>rsi only</th><th>rfe only</th><th>Shared %</th><th>Identity to reference</th><th>Copy vs copy</th><th>Left flanks</th></tr></thead>
+    <tbody>
+{chr(10).join(body)}
+    </tbody>
+  </table>
+  </div>
+  <p style="margin:8px 0 0;"><a class="btn secondary" href="data/summary_rsi-rfe.tsv">summary_rsi-rfe.tsv (all {len(rows) - 1} references)</a></p>
+</section>
+
+"""
+
+
 def main():
     runs_js = "[" + ",".join(f'"{r}"' for r, _ in RUNS) + "]"
     cat_btns = "\n    ".join(
@@ -57,7 +112,7 @@ def main():
 </header>
 <main>
 
-<section class="card">
+{results_section()}<section class="card">
   <h2>Runs</h2>
   <table class="tbl">
     <thead><tr><th>Setting</th><th>Rows</th><th>SINE</th><th>PM</th><th>MP</th><th>Agree</th><th>Disagree</th><th>Untested</th></tr></thead>

@@ -1,0 +1,7 @@
+run	rsi-rfe_bwa300both_v2 (bwa, 300 bp, both flanks, SINE_orth_loc 41ccc90), finished 2026-10-29T16:13:28+03:00
+bank	bank21_nor1.fa, 21 consensi; loci from the SINEderella runs rsi_main_20261026 and rfe_main_20261026 (SINE verdicts and partial copies)
+unique_loci_rsi	50776
+unique_loci_rfe	48518
+rejected	670 shortRF, 632 badRF, 223 badLF, 106 lfSINE, 9 rfSINE
+widened_references	756
+superseded	875
