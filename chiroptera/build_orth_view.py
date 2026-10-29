@@ -5,6 +5,8 @@ the SINE_orth_loc repo, which loads bundles named in its address).
 
 Data (copied beside the page): data/loci.tsv and data/<category>/<run>/aln_rsi-rfe_<PM|MP|SINE|rejected>.aln.gz from
 SINE_orth_loc tests/compare_real.py --out (therioserver:/home/toki/sol_bank/view_rsi-rfe); summary.txt = its stdout.
+data/by_reference/<dir>/aln_rsi-rfe_<SINE|PM|MP>.aln.gz + index.tsv = orth_split.py output of the current run
+(therioserver:/home/toki/sol_bank/rsi-rfe_bwa300both_v2/by_reference), linked from the results table.
 Style: the Tal main page's <style>, as for chiroptera.html."""
 import csv
 import html
@@ -49,15 +51,29 @@ def results_section():
     big = [r for r in rows if r["reference"] != "total" and int(r["loci"]) >= MIN_LOCI]
     small = [r for r in rows if r["reference"] != "total" and int(r["loci"]) < MIN_LOCI]
     cols = ["copies_rsi", "copies_rfe", "loci", "SINE", "PM_rsi_only", "MP_rfe_only"]
+    # by_reference/<dir>/aln_rsi-rfe_<status>.aln.gz from orth_split.py: the alignments behind the SINE / PM / MP counts
+    idx = list(csv.DictReader(open(os.path.join(OUT, "data", "by_reference", "index.tsv"), encoding="utf8"), delimiter="	"))
+    dir_of = {i["reference"]: i["dir"] for i in idx}
+    status_of = {"SINE": "SINE", "PM_rsi_only": "PM", "MP_rfe_only": "MP"}
 
-    def td(r, c):
+    def view(dirs, status, title):
+        q = [f"bundle=data/by_reference/{d}/aln_rsi-rfe_{status}.aln.gz" for d in dirs]
+        return "sine_loci_browser.html?" + "&".join(q + ["title=" + html.escape(title)])
+
+    def td(r, c, dirs=None):
         v = r.get(c, "")
-        return f'<td class="num">{int(v):,}</td>' if v.lstrip("-").isdigit() else f'<td class="num">{html.escape(v)}</td>'
+        if not v.lstrip("-").isdigit():
+            return f'<td class="num">{html.escape(v)}</td>'
+        if c in status_of and dirs and int(v):
+            return f'<td class="num"><a href="{view(dirs, status_of[c], r["reference"] + " " + status_of[c])}" target="_blank">{int(v):,}</a></td>'
+        return f'<td class="num">{int(v):,}</td>'
 
-    def tr(r, name=None, strong=False):
+    def tr(r, name=None, strong=False, dirs=None):
         n = html.escape(name or r["reference"])
         n = f"<strong>{n}</strong>" if strong else n
-        return (f"      <tr><td>{n}</td>" + "".join(td(r, c) for c in cols) +
+        if dirs is None:
+            dirs = [dir_of[r["reference"]]] if r["reference"] in dir_of else None
+        return (f"      <tr><td>{n}</td>" + "".join(td(r, c, dirs) for c in cols) +
                 f'<td class="num">{html.escape(r["shared_pct"])}</td>' +
                 "".join(f'<td class="num">{html.escape(r[c])}</td>' for c in
                         ("identity_to_reference", "identity_between_copies", "identity_left_flanks")) + "</tr>")
@@ -65,9 +81,10 @@ def results_section():
     if small:
         agg = {c: str(sum(int(r[c]) for r in small)) for c in cols}
         agg["shared_pct"] = f'{100 * int(agg["SINE"]) / int(agg["loci"]):.1f}' if int(agg["loci"]) else ""
-        agg.update(identity_to_reference="", identity_between_copies="", identity_left_flanks="", reference="")
-        body.append(tr(agg, f"other ({len(small)} references with fewer than {MIN_LOCI} loci, mostly partial spans)"))
-    body.append(tr(total, "total", strong=True))
+        agg.update(identity_to_reference="", identity_between_copies="", identity_left_flanks="", reference="other")
+        body.append(tr(agg, f"other ({len(small)} references with fewer than {MIN_LOCI} loci, mostly partial spans)",
+                       dirs=["other"] if "other" in dir_of.values() else None))
+    body.append(tr(total, "total", strong=True, dirs=sorted(set(dir_of.values()))))
     return f"""<section class="card">
   <h2>Results &mdash; {html.escape(facts["run"].split(" (")[0])}</h2>
   <p style="margin:0 0 10px;font-size:.9rem;color:var(--muted);">{html.escape(facts["run"])}. Bank: {html.escape(facts["bank"])}.
@@ -77,7 +94,9 @@ def results_section():
   Copies = SINEderella copies of that label per genome; loci = rows of the orth table (C flank-mapped, M rescued with both flanks, N from nested loci);
   SINE = in both genomes, PM = <i>R. sinicus</i> only, MP = <i>R. ferrumequinum</i> only; shared % = SINE / loci.
   Identities (%) are ComPair's: copy vs its reference consensus (divergence = 100 &minus; identity), copy vs copy at shared loci, and the left flanks;
-  median and 10&ndash;90 % range. E1&ndash;E4, HE1 are the elements of nested loci (sine_nest naming), which carry no identities.</p>
+  median and 10&ndash;90 % range. E1&ndash;E4, HE1 are the elements of nested loci (sine_nest naming), which carry no identities.
+  <b>The Shared, rsi-only and rfe-only counts are links</b>: each opens that subfamily's alignments of that status alone in the
+  SINE loci browser (data/by_reference/ from orth_split.py; nested-locus rows and the superseded flank rows have no alignment there).</p>
   <div style="overflow-x:auto;">
   <table class="tbl">
     <thead><tr><th>Subfamily (reference)</th><th>Copies rsi</th><th>Copies rfe</th><th>Loci</th><th>Shared</th><th>rsi only</th><th>rfe only</th><th>Shared %</th><th>Identity to reference</th><th>Copy vs copy</th><th>Left flanks</th></tr></thead>
