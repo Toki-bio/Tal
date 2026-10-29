@@ -87,18 +87,15 @@ def results_section():
     body.append(tr(total, "total", strong=True, dirs=sorted(set(dir_of.values()))))
     return f"""<section class="card">
   <h2>Results &mdash; {html.escape(facts["run"].split(" (")[0])}</h2>
-  <p style="margin:0 0 10px;font-size:.9rem;color:var(--muted);">{html.escape(facts["run"])}. Bank: {html.escape(facts["bank"])}.
-  Loci more than 300 bp from the next copy, whose flanks were mapped: rsi {int(facts["unique_loci_rsi"]):,}, rfe {int(facts["unique_loci_rfe"]):,}.
-  Alignments rejected by ComPair: {html.escape(facts["rejected"])}; {int(facts["widened_references"]):,} clusters got a longer (container) reference;
-  {int(facts["superseded"]):,} flank rows inside compound loci were superseded by the nested-locus analysis.
-  Copies = SINEderella copies of that label per genome; loci = rows of the orth table (C flank-mapped, M rescued with both flanks, N from nested loci);
-  SINE = in both genomes, PM = <i>R. sinicus</i> only, MP = <i>R. ferrumequinum</i> only; shared % = SINE / loci.
-  Identities (%) are ComPair's: copy vs its reference consensus (divergence = 100 &minus; identity), copy vs copy at shared loci, and the left flanks;
-  median and 10&ndash;90 % range. E1&ndash;E4, HE1 are the elements of nested loci (sine_nest naming), which carry no identities.
-  <b>The Shared, rsi-only and rfe-only counts are links</b>: each opens that subfamily's alignments of that status alone in the
-  SINE loci browser (data/by_reference/ from orth_split.py; nested-locus rows and the superseded flank rows have no alignment there).
-  Inside the browser the subfamily list, the SINE / PM / MP / rejected chips and the name box narrow the loaded alignments further;
-  <a href="{html.escape(view(sorted(set(dir_of.values())), "SINE", "rsi-rfe all") + "&bundle=" + "&bundle=".join(f"data/by_reference/{d}/aln_rsi-rfe_{t}.aln.gz" for t in ("PM", "MP") for d in sorted(set(dir_of.values()))))}" target="_blank">all 53,193 alignments at once</a> (30 MB) if you want to filter freely.</p>
+  <p style="margin:0 0 8px;font-size:.9rem;">{html.escape(facts["run"].split(" (", 1)[1].rstrip(")").replace(", finished", "; finished") if " (" in facts["run"] else facts["run"])}.
+  Bank {html.escape(facts["bank"].split(",")[0])}; loci from SINEderella (rsi_main_20261026, rfe_main_20261026).</p>
+  <div class="facts">
+    <span><b>Loci with mapped flanks</b> rsi {int(facts["unique_loci_rsi"]):,} &middot; rfe {int(facts["unique_loci_rfe"]):,}</span>
+    <span><b>Rejected alignments</b> {html.escape(facts["rejected"])}</span>
+    <span><b>Container reference</b> {int(facts["widened_references"]):,} clusters</span>
+    <span><b>Superseded by nested loci</b> {int(facts["superseded"]):,} rows</span>
+    <span><b>Counts in the table are links</b> &rarr; those alignments in the viewer</span>
+  </div>
   <div style="overflow-x:auto;">
   <table class="tbl">
     <thead><tr><th>Subfamily (reference)</th><th>Copies rsi</th><th>Copies rfe</th><th>Loci</th><th>Shared</th><th>rsi only</th><th>rfe only</th><th>Shared %</th><th>Identity to reference</th><th>Copy vs copy</th><th>Left flanks</th></tr></thead>
@@ -107,6 +104,15 @@ def results_section():
     </tbody>
   </table>
   </div>
+  <details class="legend"><summary>Columns, statuses, identities</summary>
+  <p style="margin:6px 0 0;">Copies = SINEderella copies of that label per genome. Loci = rows of the orth table: C flank-mapped, M rescued with both flanks, N from nested loci.
+  Shared (SINE) = copy in both genomes; rsi only (PM) = <i>R. sinicus</i> only; rfe only (MP) = <i>R. ferrumequinum</i> only; shared % = shared / loci.
+  Identities (%) are ComPair's, median and 10&ndash;90 % range: copy vs its reference consensus (divergence = 100 &minus; identity), copy vs copy at shared loci, left flanks.
+  E1&ndash;E4, HE1 are the elements of nested loci (sine_nest naming), without identities.
+  The links open the SINE loci browser on that subfamily's alignments of that status (data/by_reference/ from orth_split.py; nested-locus rows and superseded flank rows have no alignment there);
+  inside it the subfamily list, the SINE / PM / MP / rejected chips and the name box narrow further, or
+  <a href="{html.escape(view(sorted(set(dir_of.values())), "SINE", "rsi-rfe all") + "&bundle=" + "&bundle=".join(f"data/by_reference/{d}/aln_rsi-rfe_{t}.aln.gz" for t in ("PM", "MP") for d in sorted(set(dir_of.values()))))}" target="_blank">open all 53,193 alignments at once</a> (30 MB).</p>
+  </details>
   <p style="margin:8px 0 0;"><a class="btn secondary" href="data/summary_rsi-rfe.tsv">summary_rsi-rfe.tsv (all {len(rows) - 1} references)</a></p>
 </section>
 
@@ -125,6 +131,18 @@ def main():
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Orthologous SINE loci rsi-rfe</title>
 {tal_style()}
+<style>
+  main {{ max-width:none; padding:18px 22px; }}
+  .tbl {{ font-size:.84rem; }}
+  .tbl th, .tbl td {{ padding:4px 7px; }}
+  #loci th {{ position:sticky; top:0; z-index:1; }}
+  #loci td {{ white-space:nowrap; vertical-align:top; }}
+  .muted {{ color:var(--muted); }}
+  .facts {{ display:flex; flex-wrap:wrap; gap:6px 18px; font-size:.86rem; margin:0 0 10px; }}
+  .facts b {{ font-weight:600; }}
+  details.legend {{ font-size:.84rem; color:var(--muted); margin:8px 0 0; }}
+  details.legend summary {{ cursor:pointer; color:var(--text); }}
+</style>
 </head><body>
 <header>
   <h1>Orthologous SINE loci &mdash; <i>R. sinicus</i> (rsi) vs <i>R. ferrumequinum</i> (rfe)</h1>
@@ -166,10 +184,11 @@ def main():
     {cat_btns}
   </div>
   <p style="margin:10px 0;"><input id="q" type="text" placeholder="search subfamily, locus, coordinate or alignment name" style="width:340px;max-width:100%;padding:4px 6px;">
+  <span class="muted" style="font-size:.82rem;margin-left:8px;">&#10003; agree / &#10007; disagree with the copy &plusmn;10 kb check; ~ = no main row, alignment(s) at this place; hover a cell for the coordinate</span>
   <span id="shown" style="color:var(--muted);font-size:.85rem;margin-left:8px;"></span></p>
   <div style="overflow-x:auto;">
   <table class="tbl" id="loci">
-    <thead><tr><th>Locus</th><th>Groups</th><th>rsi junction</th><th>Check</th><th>Subfamily (reference row)</th>{"".join(f"<th>{r}</th>" for r, _ in RUNS)}</tr></thead>
+    <thead><tr><th>Locus</th><th>Groups</th><th>rsi junction</th><th>Check</th><th>Subfamily</th>{"".join(f'<th title="{html.escape(d)}">{r.replace("rsi-rfe_", "").replace("rsi-rfe", "baseline")}</th>' for r, d in RUNS)}</tr></thead>
     <tbody></tbody>
   </table>
   </div>
@@ -190,18 +209,19 @@ function viewer(group, run, names, title) {{
   return 'sine_loci_browser.html?' + q.join('&');
 }}
 function cell(L, run, v) {{
-  if (v === '-') return '<span style="color:var(--muted);">nothing at the locus</span>';
-  let names, label;
-  if (v.startsWith('~')) {{ names = v.slice(1).split(','); label = esc(v); }}
-  else {{ const p = v.split(' '); names = [p[2]]; label = `<b>${{esc(p[0])}}</b> ${{esc(p[1])}}<br>${{esc(p[2])}} ${{esc(p[3] || '')}}`; }}
-  return `<a href="${{viewer(cat, run, names, L[0] + ' ' + run)}}" target="_blank">${{label}}</a>`;
+  if (v === '-') return '<span class="muted">&ndash;</span>';
+  let names, label, title;
+  const short = n => n.replace('.cl.dbl', '');
+  if (v.startsWith('~')) {{ names = v.slice(1).split(','); label = '<span class="muted">~</span>' + names.map(short).map(esc).join('<br>'); title = 'no main row; alignment(s) at this place: ' + names.join(', '); }}
+  else {{ const p = v.split(' '); names = [p[2]]; label = `<b>${{esc(p[0])}}</b> ${{esc(short(p[2]).replace(/\.[A-Za-z]+$/, ''))}} <span class="muted">${{p[3] === '(agree)' ? '&#10003;' : p[3] === '(disagree)' ? '&#10007;' : esc(p[3] || '')}}</span>`; title = p[1] + ' ' + p[2] + ' ' + (p[3] || ''); }}
+  return `<a href="${{viewer(cat, run, names, L[0] + ' ' + run)}}" target="_blank" title="${{esc(title)}}">${{label}}</a>`;
 }}
 function render() {{
   const q = document.getElementById('q').value.trim().toLowerCase();
   const rows = LOCI.filter(L => L[1].split(',').includes(cat) && (!q || L.join(' ').toLowerCase().includes(q)));
   document.querySelector('#loci tbody').innerHTML = rows.slice(0, shown).map(L =>
-    `<tr><td><strong>${{L[0]}}</strong></td><td>${{esc(L[1]).replace(/,/g, '<br>')}}</td><td>${{esc(L[2])}}</td><td>${{esc(L[3])}}</td><td><b>${{esc(L[4])}}</b></td>` +
-    RUNS.map((r, i) => `<td style="font-size:.82rem;">${{cell(L, r, L[5 + i])}}</td>`).join('') + '</tr>').join('');
+    `<tr><td><strong>${{L[0]}}</strong></td><td class="muted" style="font-size:.78rem;">${{esc(L[1]).replace(/,/g, '<br>')}}</td><td>${{esc(L[2])}}</td><td>${{esc(L[3]).replace(/,/g, '<br>')}}</td><td><b>${{esc(L[4])}}</b></td>` +
+    RUNS.map((r, i) => `<td>${{cell(L, r, L[5 + i])}}</td>`).join('') + '</tr>').join('');
   document.getElementById('shown').textContent = `${{Math.min(shown, rows.length)}} of ${{rows.length}} shown`;
   document.getElementById('more').style.display = rows.length > shown ? '' : 'none';
   document.querySelectorAll('[data-cat]').forEach(b => b.classList.toggle('secondary', b.dataset.cat !== cat));

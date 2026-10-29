@@ -46,6 +46,18 @@ a { color:var(--accent); }
 .sp-card .sci { font-style:italic; color:var(--muted); font-size:.88rem; }
 .sp-card .actions { margin-top:10px; }
 </style>
+<style>
+  main { max-width:none; padding:18px 22px; }
+  .tbl { font-size:.84rem; }
+  .tbl th, .tbl td { padding:4px 7px; }
+  #loci th { position:sticky; top:0; z-index:1; }
+  #loci td { white-space:nowrap; vertical-align:top; }
+  .muted { color:var(--muted); }
+  .facts { display:flex; flex-wrap:wrap; gap:6px 18px; font-size:.86rem; margin:0 0 10px; }
+  .facts b { font-weight:600; }
+  details.legend { font-size:.84rem; color:var(--muted); margin:8px 0 0; }
+  details.legend summary { cursor:pointer; color:var(--text); }
+</style>
 </head><body>
 <header>
   <h1>Orthologous SINE loci &mdash; <i>R. sinicus</i> (rsi) vs <i>R. ferrumequinum</i> (rfe)</h1>
@@ -56,18 +68,15 @@ a { color:var(--accent); }
 
 <section class="card">
   <h2>Results &mdash; rsi-rfe_bwa300both_v2</h2>
-  <p style="margin:0 0 10px;font-size:.9rem;color:var(--muted);">rsi-rfe_bwa300both_v2 (bwa, 300 bp, both flanks, SINE_orth_loc 41ccc90), finished 2026-10-29T16:13:28+03:00. Bank: bank21_nor1.fa, 21 consensi; loci from the SINEderella runs rsi_main_20261026 and rfe_main_20261026 (SINE verdicts and partial copies).
-  Loci more than 300 bp from the next copy, whose flanks were mapped: rsi 50,776, rfe 48,518.
-  Alignments rejected by ComPair: 670 shortRF, 632 badRF, 223 badLF, 106 lfSINE, 9 rfSINE; 756 clusters got a longer (container) reference;
-  875 flank rows inside compound loci were superseded by the nested-locus analysis.
-  Copies = SINEderella copies of that label per genome; loci = rows of the orth table (C flank-mapped, M rescued with both flanks, N from nested loci);
-  SINE = in both genomes, PM = <i>R. sinicus</i> only, MP = <i>R. ferrumequinum</i> only; shared % = SINE / loci.
-  Identities (%) are ComPair's: copy vs its reference consensus (divergence = 100 &minus; identity), copy vs copy at shared loci, and the left flanks;
-  median and 10&ndash;90 % range. E1&ndash;E4, HE1 are the elements of nested loci (sine_nest naming), which carry no identities.
-  <b>The Shared, rsi-only and rfe-only counts are links</b>: each opens that subfamily's alignments of that status alone in the
-  SINE loci browser (data/by_reference/ from orth_split.py; nested-locus rows and the superseded flank rows have no alignment there).
-  Inside the browser the subfamily list, the SINE / PM / MP / rejected chips and the name box narrow the loaded alignments further;
-  <a href="sine_loci_browser.html?bundle=data/by_reference/MEG-T2/aln_rsi-rfe_SINE.aln.gz&amp;bundle=data/by_reference/MEG-TR/aln_rsi-rfe_SINE.aln.gz&amp;bundle=data/by_reference/other/aln_rsi-rfe_SINE.aln.gz&amp;bundle=data/by_reference/r10_19seqs/aln_rsi-rfe_SINE.aln.gz&amp;bundle=data/by_reference/r10_r8_P18/aln_rsi-rfe_SINE.aln.gz&amp;bundle=data/by_reference/r10_r8_P18_290-426/aln_rsi-rfe_SINE.aln.gz&amp;bundle=data/by_reference/r10_r8_P18del/aln_rsi-rfe_SINE.aln.gz&amp;bundle=data/by_reference/r1_r2_r3_r3_C11/aln_rsi-rfe_SINE.aln.gz&amp;bundle=data/by_reference/r1_r3_P1/aln_rsi-rfe_SINE.aln.gz&amp;bundle=data/by_reference/r1_r3_P2/aln_rsi-rfe_SINE.aln.gz&amp;bundle=data/by_reference/r2_3seqs/aln_rsi-rfe_SINE.aln.gz&amp;bundle=data/by_reference/r5_27seqs/aln_rsi-rfe_SINE.aln.gz&amp;bundle=data/by_reference/r5_r3_P34/aln_rsi-rfe_SINE.aln.gz&amp;bundle=data/by_reference/r5_r5_P48/aln_rsi-rfe_SINE.aln.gz&amp;bundle=data/by_reference/r5_r6_P26/aln_rsi-rfe_SINE.aln.gz&amp;bundle=data/by_reference/r6_210seqs/aln_rsi-rfe_SINE.aln.gz&amp;bundle=data/by_reference/r7_133seqs/aln_rsi-rfe_SINE.aln.gz&amp;bundle=data/by_reference/r8_83seqs/aln_rsi-rfe_SINE.aln.gz&amp;bundle=data/by_reference/r9_15seqs/aln_rsi-rfe_SINE.aln.gz&amp;title=rsi-rfe all&amp;bundle=data/by_reference/MEG-T2/aln_rsi-rfe_PM.aln.gz&amp;bundle=data/by_reference/MEG-TR/aln_rsi-rfe_PM.aln.gz&amp;bundle=data/by_reference/other/aln_rsi-rfe_PM.aln.gz&amp;bundle=data/by_reference/r10_19seqs/aln_rsi-rfe_PM.aln.gz&amp;bundle=data/by_reference/r10_r8_P18/aln_rsi-rfe_PM.aln.gz&amp;bundle=data/by_reference/r10_r8_P18_290-426/aln_rsi-rfe_PM.aln.gz&amp;bundle=data/by_reference/r10_r8_P18del/aln_rsi-rfe_PM.aln.gz&amp;bundle=data/by_reference/r1_r2_r3_r3_C11/aln_rsi-rfe_PM.aln.gz&amp;bundle=data/by_reference/r1_r3_P1/aln_rsi-rfe_PM.aln.gz&amp;bundle=data/by_reference/r1_r3_P2/aln_rsi-rfe_PM.aln.gz&amp;bundle=data/by_reference/r2_3seqs/aln_rsi-rfe_PM.aln.gz&amp;bundle=data/by_reference/r5_27seqs/aln_rsi-rfe_PM.aln.gz&amp;bundle=data/by_reference/r5_r3_P34/aln_rsi-rfe_PM.aln.gz&amp;bundle=data/by_reference/r5_r5_P48/aln_rsi-rfe_PM.aln.gz&amp;bundle=data/by_reference/r5_r6_P26/aln_rsi-rfe_PM.aln.gz&amp;bundle=data/by_reference/r6_210seqs/aln_rsi-rfe_PM.aln.gz&amp;bundle=data/by_reference/r7_133seqs/aln_rsi-rfe_PM.aln.gz&amp;bundle=data/by_reference/r8_83seqs/aln_rsi-rfe_PM.aln.gz&amp;bundle=data/by_reference/r9_15seqs/aln_rsi-rfe_PM.aln.gz&amp;bundle=data/by_reference/MEG-T2/aln_rsi-rfe_MP.aln.gz&amp;bundle=data/by_reference/MEG-TR/aln_rsi-rfe_MP.aln.gz&amp;bundle=data/by_reference/other/aln_rsi-rfe_MP.aln.gz&amp;bundle=data/by_reference/r10_19seqs/aln_rsi-rfe_MP.aln.gz&amp;bundle=data/by_reference/r10_r8_P18/aln_rsi-rfe_MP.aln.gz&amp;bundle=data/by_reference/r10_r8_P18_290-426/aln_rsi-rfe_MP.aln.gz&amp;bundle=data/by_reference/r10_r8_P18del/aln_rsi-rfe_MP.aln.gz&amp;bundle=data/by_reference/r1_r2_r3_r3_C11/aln_rsi-rfe_MP.aln.gz&amp;bundle=data/by_reference/r1_r3_P1/aln_rsi-rfe_MP.aln.gz&amp;bundle=data/by_reference/r1_r3_P2/aln_rsi-rfe_MP.aln.gz&amp;bundle=data/by_reference/r2_3seqs/aln_rsi-rfe_MP.aln.gz&amp;bundle=data/by_reference/r5_27seqs/aln_rsi-rfe_MP.aln.gz&amp;bundle=data/by_reference/r5_r3_P34/aln_rsi-rfe_MP.aln.gz&amp;bundle=data/by_reference/r5_r5_P48/aln_rsi-rfe_MP.aln.gz&amp;bundle=data/by_reference/r5_r6_P26/aln_rsi-rfe_MP.aln.gz&amp;bundle=data/by_reference/r6_210seqs/aln_rsi-rfe_MP.aln.gz&amp;bundle=data/by_reference/r7_133seqs/aln_rsi-rfe_MP.aln.gz&amp;bundle=data/by_reference/r8_83seqs/aln_rsi-rfe_MP.aln.gz&amp;bundle=data/by_reference/r9_15seqs/aln_rsi-rfe_MP.aln.gz" target="_blank">all 53,193 alignments at once</a> (30 MB) if you want to filter freely.</p>
+  <p style="margin:0 0 8px;font-size:.9rem;">bwa, 300 bp, both flanks, SINE_orth_loc 41ccc90); finished 2026-10-29T16:13:28+03:00.
+  Bank bank21_nor1.fa; loci from SINEderella (rsi_main_20261026, rfe_main_20261026).</p>
+  <div class="facts">
+    <span><b>Loci with mapped flanks</b> rsi 50,776 &middot; rfe 48,518</span>
+    <span><b>Rejected alignments</b> 670 shortRF, 632 badRF, 223 badLF, 106 lfSINE, 9 rfSINE</span>
+    <span><b>Container reference</b> 756 clusters</span>
+    <span><b>Superseded by nested loci</b> 875 rows</span>
+    <span><b>Counts in the table are links</b> &rarr; those alignments in the viewer</span>
+  </div>
   <div style="overflow-x:auto;">
   <table class="tbl">
     <thead><tr><th>Subfamily (reference)</th><th>Copies rsi</th><th>Copies rfe</th><th>Loci</th><th>Shared</th><th>rsi only</th><th>rfe only</th><th>Shared %</th><th>Identity to reference</th><th>Copy vs copy</th><th>Left flanks</th></tr></thead>
@@ -100,6 +109,15 @@ a { color:var(--accent); }
     </tbody>
   </table>
   </div>
+  <details class="legend"><summary>Columns, statuses, identities</summary>
+  <p style="margin:6px 0 0;">Copies = SINEderella copies of that label per genome. Loci = rows of the orth table: C flank-mapped, M rescued with both flanks, N from nested loci.
+  Shared (SINE) = copy in both genomes; rsi only (PM) = <i>R. sinicus</i> only; rfe only (MP) = <i>R. ferrumequinum</i> only; shared % = shared / loci.
+  Identities (%) are ComPair's, median and 10&ndash;90 % range: copy vs its reference consensus (divergence = 100 &minus; identity), copy vs copy at shared loci, left flanks.
+  E1&ndash;E4, HE1 are the elements of nested loci (sine_nest naming), without identities.
+  The links open the SINE loci browser on that subfamily's alignments of that status (data/by_reference/ from orth_split.py; nested-locus rows and superseded flank rows have no alignment there);
+  inside it the subfamily list, the SINE / PM / MP / rejected chips and the name box narrow further, or
+  <a href="sine_loci_browser.html?bundle=data/by_reference/MEG-T2/aln_rsi-rfe_SINE.aln.gz&amp;bundle=data/by_reference/MEG-TR/aln_rsi-rfe_SINE.aln.gz&amp;bundle=data/by_reference/other/aln_rsi-rfe_SINE.aln.gz&amp;bundle=data/by_reference/r10_19seqs/aln_rsi-rfe_SINE.aln.gz&amp;bundle=data/by_reference/r10_r8_P18/aln_rsi-rfe_SINE.aln.gz&amp;bundle=data/by_reference/r10_r8_P18_290-426/aln_rsi-rfe_SINE.aln.gz&amp;bundle=data/by_reference/r10_r8_P18del/aln_rsi-rfe_SINE.aln.gz&amp;bundle=data/by_reference/r1_r2_r3_r3_C11/aln_rsi-rfe_SINE.aln.gz&amp;bundle=data/by_reference/r1_r3_P1/aln_rsi-rfe_SINE.aln.gz&amp;bundle=data/by_reference/r1_r3_P2/aln_rsi-rfe_SINE.aln.gz&amp;bundle=data/by_reference/r2_3seqs/aln_rsi-rfe_SINE.aln.gz&amp;bundle=data/by_reference/r5_27seqs/aln_rsi-rfe_SINE.aln.gz&amp;bundle=data/by_reference/r5_r3_P34/aln_rsi-rfe_SINE.aln.gz&amp;bundle=data/by_reference/r5_r5_P48/aln_rsi-rfe_SINE.aln.gz&amp;bundle=data/by_reference/r5_r6_P26/aln_rsi-rfe_SINE.aln.gz&amp;bundle=data/by_reference/r6_210seqs/aln_rsi-rfe_SINE.aln.gz&amp;bundle=data/by_reference/r7_133seqs/aln_rsi-rfe_SINE.aln.gz&amp;bundle=data/by_reference/r8_83seqs/aln_rsi-rfe_SINE.aln.gz&amp;bundle=data/by_reference/r9_15seqs/aln_rsi-rfe_SINE.aln.gz&amp;title=rsi-rfe all&amp;bundle=data/by_reference/MEG-T2/aln_rsi-rfe_PM.aln.gz&amp;bundle=data/by_reference/MEG-TR/aln_rsi-rfe_PM.aln.gz&amp;bundle=data/by_reference/other/aln_rsi-rfe_PM.aln.gz&amp;bundle=data/by_reference/r10_19seqs/aln_rsi-rfe_PM.aln.gz&amp;bundle=data/by_reference/r10_r8_P18/aln_rsi-rfe_PM.aln.gz&amp;bundle=data/by_reference/r10_r8_P18_290-426/aln_rsi-rfe_PM.aln.gz&amp;bundle=data/by_reference/r10_r8_P18del/aln_rsi-rfe_PM.aln.gz&amp;bundle=data/by_reference/r1_r2_r3_r3_C11/aln_rsi-rfe_PM.aln.gz&amp;bundle=data/by_reference/r1_r3_P1/aln_rsi-rfe_PM.aln.gz&amp;bundle=data/by_reference/r1_r3_P2/aln_rsi-rfe_PM.aln.gz&amp;bundle=data/by_reference/r2_3seqs/aln_rsi-rfe_PM.aln.gz&amp;bundle=data/by_reference/r5_27seqs/aln_rsi-rfe_PM.aln.gz&amp;bundle=data/by_reference/r5_r3_P34/aln_rsi-rfe_PM.aln.gz&amp;bundle=data/by_reference/r5_r5_P48/aln_rsi-rfe_PM.aln.gz&amp;bundle=data/by_reference/r5_r6_P26/aln_rsi-rfe_PM.aln.gz&amp;bundle=data/by_reference/r6_210seqs/aln_rsi-rfe_PM.aln.gz&amp;bundle=data/by_reference/r7_133seqs/aln_rsi-rfe_PM.aln.gz&amp;bundle=data/by_reference/r8_83seqs/aln_rsi-rfe_PM.aln.gz&amp;bundle=data/by_reference/r9_15seqs/aln_rsi-rfe_PM.aln.gz&amp;bundle=data/by_reference/MEG-T2/aln_rsi-rfe_MP.aln.gz&amp;bundle=data/by_reference/MEG-TR/aln_rsi-rfe_MP.aln.gz&amp;bundle=data/by_reference/other/aln_rsi-rfe_MP.aln.gz&amp;bundle=data/by_reference/r10_19seqs/aln_rsi-rfe_MP.aln.gz&amp;bundle=data/by_reference/r10_r8_P18/aln_rsi-rfe_MP.aln.gz&amp;bundle=data/by_reference/r10_r8_P18_290-426/aln_rsi-rfe_MP.aln.gz&amp;bundle=data/by_reference/r10_r8_P18del/aln_rsi-rfe_MP.aln.gz&amp;bundle=data/by_reference/r1_r2_r3_r3_C11/aln_rsi-rfe_MP.aln.gz&amp;bundle=data/by_reference/r1_r3_P1/aln_rsi-rfe_MP.aln.gz&amp;bundle=data/by_reference/r1_r3_P2/aln_rsi-rfe_MP.aln.gz&amp;bundle=data/by_reference/r2_3seqs/aln_rsi-rfe_MP.aln.gz&amp;bundle=data/by_reference/r5_27seqs/aln_rsi-rfe_MP.aln.gz&amp;bundle=data/by_reference/r5_r3_P34/aln_rsi-rfe_MP.aln.gz&amp;bundle=data/by_reference/r5_r5_P48/aln_rsi-rfe_MP.aln.gz&amp;bundle=data/by_reference/r5_r6_P26/aln_rsi-rfe_MP.aln.gz&amp;bundle=data/by_reference/r6_210seqs/aln_rsi-rfe_MP.aln.gz&amp;bundle=data/by_reference/r7_133seqs/aln_rsi-rfe_MP.aln.gz&amp;bundle=data/by_reference/r8_83seqs/aln_rsi-rfe_MP.aln.gz&amp;bundle=data/by_reference/r9_15seqs/aln_rsi-rfe_MP.aln.gz" target="_blank">open all 53,193 alignments at once</a> (30 MB).</p>
+  </details>
   <p style="margin:8px 0 0;"><a class="btn secondary" href="data/summary_rsi-rfe.tsv">summary_rsi-rfe.tsv (all 681 references)</a></p>
 </section>
 
@@ -157,10 +175,11 @@ a { color:var(--accent); }
     <a class="btn secondary" href="#" data-cat="only_rsi-rfe_mm2k11_500both" title="main row in rsi-rfe_mm2k11_500both only">only_rsi-rfe_mm2k11_500both <span id="n-only_rsi-rfe_mm2k11_500both"></span></a>
   </div>
   <p style="margin:10px 0;"><input id="q" type="text" placeholder="search subfamily, locus, coordinate or alignment name" style="width:340px;max-width:100%;padding:4px 6px;">
+  <span class="muted" style="font-size:.82rem;margin-left:8px;">&#10003; agree / &#10007; disagree with the copy &plusmn;10 kb check; ~ = no main row, alignment(s) at this place; hover a cell for the coordinate</span>
   <span id="shown" style="color:var(--muted);font-size:.85rem;margin-left:8px;"></span></p>
   <div style="overflow-x:auto;">
   <table class="tbl" id="loci">
-    <thead><tr><th>Locus</th><th>Groups</th><th>rsi junction</th><th>Check</th><th>Subfamily (reference row)</th><th>rsi-rfe</th><th>rsi-rfe_bwa300both</th><th>rsi-rfe_bwa300both_v2</th><th>rsi-rfe_bwa500</th><th>rsi-rfe_bwa500both</th><th>rsi-rfe_mm2k11_500both</th></tr></thead>
+    <thead><tr><th>Locus</th><th>Groups</th><th>rsi junction</th><th>Check</th><th>Subfamily</th><th title="bwa, 300 bp, one flank (baseline)">baseline</th><th title="bwa, 300 bp, both flanks">bwa300both</th><th title="bwa, 300 bp, both flanks, junction from the annotated copy (41ccc90)">bwa300both_v2</th><th title="bwa, 500 bp, one flank">bwa500</th><th title="bwa, 500 bp, both flanks">bwa500both</th><th title="minimap2 -x sr -k 11 -w 3, 500 bp, both flanks">mm2k11_500both</th></tr></thead>
     <tbody></tbody>
   </table>
   </div>
@@ -181,18 +200,19 @@ function viewer(group, run, names, title) {
   return 'sine_loci_browser.html?' + q.join('&');
 }
 function cell(L, run, v) {
-  if (v === '-') return '<span style="color:var(--muted);">nothing at the locus</span>';
-  let names, label;
-  if (v.startsWith('~')) { names = v.slice(1).split(','); label = esc(v); }
-  else { const p = v.split(' '); names = [p[2]]; label = `<b>${esc(p[0])}</b> ${esc(p[1])}<br>${esc(p[2])} ${esc(p[3] || '')}`; }
-  return `<a href="${viewer(cat, run, names, L[0] + ' ' + run)}" target="_blank">${label}</a>`;
+  if (v === '-') return '<span class="muted">&ndash;</span>';
+  let names, label, title;
+  const short = n => n.replace('.cl.dbl', '');
+  if (v.startsWith('~')) { names = v.slice(1).split(','); label = '<span class="muted">~</span>' + names.map(short).map(esc).join('<br>'); title = 'no main row; alignment(s) at this place: ' + names.join(', '); }
+  else { const p = v.split(' '); names = [p[2]]; label = `<b>${esc(p[0])}</b> ${esc(short(p[2]).replace(/\.[A-Za-z]+$/, ''))} <span class="muted">${p[3] === '(agree)' ? '&#10003;' : p[3] === '(disagree)' ? '&#10007;' : esc(p[3] || '')}</span>`; title = p[1] + ' ' + p[2] + ' ' + (p[3] || ''); }
+  return `<a href="${viewer(cat, run, names, L[0] + ' ' + run)}" target="_blank" title="${esc(title)}">${label}</a>`;
 }
 function render() {
   const q = document.getElementById('q').value.trim().toLowerCase();
   const rows = LOCI.filter(L => L[1].split(',').includes(cat) && (!q || L.join(' ').toLowerCase().includes(q)));
   document.querySelector('#loci tbody').innerHTML = rows.slice(0, shown).map(L =>
-    `<tr><td><strong>${L[0]}</strong></td><td>${esc(L[1]).replace(/,/g, '<br>')}</td><td>${esc(L[2])}</td><td>${esc(L[3])}</td><td><b>${esc(L[4])}</b></td>` +
-    RUNS.map((r, i) => `<td style="font-size:.82rem;">${cell(L, r, L[5 + i])}</td>`).join('') + '</tr>').join('');
+    `<tr><td><strong>${L[0]}</strong></td><td class="muted" style="font-size:.78rem;">${esc(L[1]).replace(/,/g, '<br>')}</td><td>${esc(L[2])}</td><td>${esc(L[3]).replace(/,/g, '<br>')}</td><td><b>${esc(L[4])}</b></td>` +
+    RUNS.map((r, i) => `<td>${cell(L, r, L[5 + i])}</td>`).join('') + '</tr>').join('');
   document.getElementById('shown').textContent = `${Math.min(shown, rows.length)} of ${rows.length} shown`;
   document.getElementById('more').style.display = rows.length > shown ? '' : 'none';
   document.querySelectorAll('[data-cat]').forEach(b => b.classList.toggle('secondary', b.dataset.cat !== cat));
