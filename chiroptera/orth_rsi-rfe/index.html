@@ -49,7 +49,7 @@ a { color:var(--accent); }
 </head><body>
 <header>
   <h1>Orthologous SINE loci &mdash; <i>R. sinicus</i> (rsi) vs <i>R. ferrumequinum</i> (rfe)</h1>
-  <div class="sub">SINE_orth_loc in bank mode (SINEderella loci, bank21_nor1), four flank settings compared, 2026-10-28.
+  <div class="sub">SINE_orth_loc in bank mode (SINEderella loci, bank21_nor1), five flank settings compared, 2026-10-28/29.
   <a href="../../chiroptera.html" style="color:#fff;">&larr; Chiroptera page</a></div>
 </header>
 <main>
@@ -60,6 +60,7 @@ a { color:var(--accent); }
     <thead><tr><th>Setting</th><th>Rows</th><th>SINE</th><th>PM</th><th>MP</th><th>Agree</th><th>Disagree</th><th>Untested</th></tr></thead>
     <tbody>
       <tr><td><strong>rsi-rfe</strong><br><span style="color:var(--muted);font-size:.82rem;">bwa, 300 bp, one flank (baseline)</span></td><td class="num">51,186</td><td class="num">39,613</td><td class="num">4,402</td><td class="num">7,171</td><td class="num">48,554</td><td class="num">1,266</td><td class="num">1,366</td></tr>
+      <tr><td><strong>rsi-rfe_bwa300both</strong><br><span style="color:var(--muted);font-size:.82rem;">bwa, 300 bp, both flanks</span></td><td class="num">51,073</td><td class="num">39,653</td><td class="num">4,327</td><td class="num">7,093</td><td class="num">48,680</td><td class="num">1,169</td><td class="num">1,224</td></tr>
       <tr><td><strong>rsi-rfe_bwa500</strong><br><span style="color:var(--muted);font-size:.82rem;">bwa, 500 bp, one flank</span></td><td class="num">48,199</td><td class="num">37,163</td><td class="num">4,199</td><td class="num">6,837</td><td class="num">45,236</td><td class="num">1,724</td><td class="num">1,239</td></tr>
       <tr><td><strong>rsi-rfe_bwa500both</strong><br><span style="color:var(--muted);font-size:.82rem;">bwa, 500 bp, both flanks</span></td><td class="num">48,749</td><td class="num">37,651</td><td class="num">4,203</td><td class="num">6,895</td><td class="num">45,762</td><td class="num">1,852</td><td class="num">1,135</td></tr>
       <tr><td><strong>rsi-rfe_mm2k11_500both</strong><br><span style="color:var(--muted);font-size:.82rem;">minimap2 -x sr -k 11 -w 3, 500 bp, both flanks</span></td><td class="num">48,732</td><td class="num">37,631</td><td class="num">4,205</td><td class="num">6,896</td><td class="num">45,683</td><td class="num">1,910</td><td class="num">1,139</td></tr>
@@ -85,6 +86,7 @@ a { color:var(--accent); }
     <li><b>partner</b>: runs pair the locus with different loci in the other genome</li>
     <li><b>status</b>: runs give different calls (SINE / PM / MP)</li>
     <li><b>only_rsi-rfe</b>: main row in rsi-rfe only</li>
+    <li><b>only_rsi-rfe_bwa300both</b>: main row in rsi-rfe_bwa300both only</li>
     <li><b>only_rsi-rfe_bwa500</b>: main row in rsi-rfe_bwa500 only</li>
     <li><b>only_rsi-rfe_bwa500both</b>: main row in rsi-rfe_bwa500both only</li>
     <li><b>only_rsi-rfe_mm2k11_500both</b>: main row in rsi-rfe_mm2k11_500both only</li>
@@ -94,15 +96,16 @@ a { color:var(--accent); }
     <a class="btn secondary" href="#" data-cat="partner" title="runs pair the locus with different loci in the other genome">partner <span id="n-partner"></span></a>
     <a class="btn secondary" href="#" data-cat="status" title="runs give different calls (SINE / PM / MP)">status <span id="n-status"></span></a>
     <a class="btn secondary" href="#" data-cat="only_rsi-rfe" title="main row in rsi-rfe only">only_rsi-rfe <span id="n-only_rsi-rfe"></span></a>
+    <a class="btn secondary" href="#" data-cat="only_rsi-rfe_bwa300both" title="main row in rsi-rfe_bwa300both only">only_rsi-rfe_bwa300both <span id="n-only_rsi-rfe_bwa300both"></span></a>
     <a class="btn secondary" href="#" data-cat="only_rsi-rfe_bwa500" title="main row in rsi-rfe_bwa500 only">only_rsi-rfe_bwa500 <span id="n-only_rsi-rfe_bwa500"></span></a>
     <a class="btn secondary" href="#" data-cat="only_rsi-rfe_bwa500both" title="main row in rsi-rfe_bwa500both only">only_rsi-rfe_bwa500both <span id="n-only_rsi-rfe_bwa500both"></span></a>
     <a class="btn secondary" href="#" data-cat="only_rsi-rfe_mm2k11_500both" title="main row in rsi-rfe_mm2k11_500both only">only_rsi-rfe_mm2k11_500both <span id="n-only_rsi-rfe_mm2k11_500both"></span></a>
   </div>
-  <p style="margin:10px 0;"><input id="q" type="text" placeholder="search locus, coordinate or alignment name" style="width:340px;max-width:100%;padding:4px 6px;">
+  <p style="margin:10px 0;"><input id="q" type="text" placeholder="search subfamily, locus, coordinate or alignment name" style="width:340px;max-width:100%;padding:4px 6px;">
   <span id="shown" style="color:var(--muted);font-size:.85rem;margin-left:8px;"></span></p>
   <div style="overflow-x:auto;">
   <table class="tbl" id="loci">
-    <thead><tr><th>Locus</th><th>Groups</th><th>rsi junction</th><th>Check</th><th>rsi-rfe</th><th>rsi-rfe_bwa500</th><th>rsi-rfe_bwa500both</th><th>rsi-rfe_mm2k11_500both</th></tr></thead>
+    <thead><tr><th>Locus</th><th>Groups</th><th>rsi junction</th><th>Check</th><th>Subfamily (reference row)</th><th>rsi-rfe</th><th>rsi-rfe_bwa300both</th><th>rsi-rfe_bwa500</th><th>rsi-rfe_bwa500both</th><th>rsi-rfe_mm2k11_500both</th></tr></thead>
     <tbody></tbody>
   </table>
   </div>
@@ -112,7 +115,7 @@ a { color:var(--accent); }
 
 </main>
 <script>
-const RUNS = ["rsi-rfe","rsi-rfe_bwa500","rsi-rfe_bwa500both","rsi-rfe_mm2k11_500both"];
+const RUNS = ["rsi-rfe","rsi-rfe_bwa300both","rsi-rfe_bwa500","rsi-rfe_bwa500both","rsi-rfe_mm2k11_500both"];
 const TYPES = ['PM', 'MP', 'SINE', 'rejected'];
 let LOCI = [], cat = 'disagree', shown = 200;
 const esc = s => s.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'})[c]);
@@ -133,8 +136,8 @@ function render() {
   const q = document.getElementById('q').value.trim().toLowerCase();
   const rows = LOCI.filter(L => L[1].split(',').includes(cat) && (!q || L.join(' ').toLowerCase().includes(q)));
   document.querySelector('#loci tbody').innerHTML = rows.slice(0, shown).map(L =>
-    `<tr><td><strong>${L[0]}</strong></td><td>${esc(L[1]).replace(/,/g, '<br>')}</td><td>${esc(L[2])}</td><td>${esc(L[3])}</td>` +
-    RUNS.map((r, i) => `<td style="font-size:.82rem;">${cell(L, r, L[4 + i])}</td>`).join('') + '</tr>').join('');
+    `<tr><td><strong>${L[0]}</strong></td><td>${esc(L[1]).replace(/,/g, '<br>')}</td><td>${esc(L[2])}</td><td>${esc(L[3])}</td><td><b>${esc(L[4])}</b></td>` +
+    RUNS.map((r, i) => `<td style="font-size:.82rem;">${cell(L, r, L[5 + i])}</td>`).join('') + '</tr>').join('');
   document.getElementById('shown').textContent = `${Math.min(shown, rows.length)} of ${rows.length} shown`;
   document.getElementById('more').style.display = rows.length > shown ? '' : 'none';
   document.querySelectorAll('[data-cat]').forEach(b => b.classList.toggle('secondary', b.dataset.cat !== cat));

@@ -15,6 +15,7 @@ from build_lineages import ROOT, tal_style
 
 OUT = os.path.join(ROOT, "chiroptera", "orth_rsi-rfe")
 RUNS = [("rsi-rfe", "bwa, 300 bp, one flank (baseline)"),
+        ("rsi-rfe_bwa300both", "bwa, 300 bp, both flanks"),
         ("rsi-rfe_bwa500", "bwa, 500 bp, one flank"),
         ("rsi-rfe_bwa500both", "bwa, 500 bp, both flanks"),
         ("rsi-rfe_mm2k11_500both", "minimap2 -x sr -k 11 -w 3, 500 bp, both flanks")]
@@ -50,7 +51,7 @@ def main():
 </head><body>
 <header>
   <h1>Orthologous SINE loci &mdash; <i>R. sinicus</i> (rsi) vs <i>R. ferrumequinum</i> (rfe)</h1>
-  <div class="sub">SINE_orth_loc in bank mode (SINEderella loci, bank21_nor1), four flank settings compared, 2026-10-28.
+  <div class="sub">SINE_orth_loc in bank mode (SINEderella loci, bank21_nor1), five flank settings compared, 2026-10-28/29.
   <a href="../../chiroptera.html" style="color:#fff;">&larr; Chiroptera page</a></div>
 </header>
 <main>
@@ -84,11 +85,11 @@ def main():
   <div class="actions">
     {cat_btns}
   </div>
-  <p style="margin:10px 0;"><input id="q" type="text" placeholder="search locus, coordinate or alignment name" style="width:340px;max-width:100%;padding:4px 6px;">
+  <p style="margin:10px 0;"><input id="q" type="text" placeholder="search subfamily, locus, coordinate or alignment name" style="width:340px;max-width:100%;padding:4px 6px;">
   <span id="shown" style="color:var(--muted);font-size:.85rem;margin-left:8px;"></span></p>
   <div style="overflow-x:auto;">
   <table class="tbl" id="loci">
-    <thead><tr><th>Locus</th><th>Groups</th><th>rsi junction</th><th>Check</th>{"".join(f"<th>{r}</th>" for r, _ in RUNS)}</tr></thead>
+    <thead><tr><th>Locus</th><th>Groups</th><th>rsi junction</th><th>Check</th><th>Subfamily (reference row)</th>{"".join(f"<th>{r}</th>" for r, _ in RUNS)}</tr></thead>
     <tbody></tbody>
   </table>
   </div>
@@ -119,8 +120,8 @@ function render() {{
   const q = document.getElementById('q').value.trim().toLowerCase();
   const rows = LOCI.filter(L => L[1].split(',').includes(cat) && (!q || L.join(' ').toLowerCase().includes(q)));
   document.querySelector('#loci tbody').innerHTML = rows.slice(0, shown).map(L =>
-    `<tr><td><strong>${{L[0]}}</strong></td><td>${{esc(L[1]).replace(/,/g, '<br>')}}</td><td>${{esc(L[2])}}</td><td>${{esc(L[3])}}</td>` +
-    RUNS.map((r, i) => `<td style="font-size:.82rem;">${{cell(L, r, L[4 + i])}}</td>`).join('') + '</tr>').join('');
+    `<tr><td><strong>${{L[0]}}</strong></td><td>${{esc(L[1]).replace(/,/g, '<br>')}}</td><td>${{esc(L[2])}}</td><td>${{esc(L[3])}}</td><td><b>${{esc(L[4])}}</b></td>` +
+    RUNS.map((r, i) => `<td style="font-size:.82rem;">${{cell(L, r, L[5 + i])}}</td>`).join('') + '</tr>').join('');
   document.getElementById('shown').textContent = `${{Math.min(shown, rows.length)}} of ${{rows.length}} shown`;
   document.getElementById('more').style.display = rows.length > shown ? '' : 'none';
   document.querySelectorAll('[data-cat]').forEach(b => b.classList.toggle('secondary', b.dataset.cat !== cat));
