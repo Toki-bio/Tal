@@ -49,7 +49,7 @@ a { color:var(--accent); }
 </head><body>
 <header>
   <h1>Orthologous SINE loci &mdash; <i>R. sinicus</i> (rsi) vs <i>R. ferrumequinum</i> (rfe)</h1>
-  <div class="sub">SINE_orth_loc in bank mode (SINEderella loci, bank21_nor1), five flank settings compared, 2026-10-28/29.
+  <div class="sub">SINE_orth_loc in bank mode (SINEderella loci, bank21_nor1), five flank settings compared, 2026-10-28/29, plus the best one rerun with the insertion-junction fix.
   <a href="../../chiroptera.html" style="color:#fff;">&larr; Chiroptera page</a></div>
 </header>
 <main>
@@ -61,6 +61,7 @@ a { color:var(--accent); }
     <tbody>
       <tr><td><strong>rsi-rfe</strong><br><span style="color:var(--muted);font-size:.82rem;">bwa, 300 bp, one flank (baseline)</span></td><td class="num">51,186</td><td class="num">39,613</td><td class="num">4,402</td><td class="num">7,171</td><td class="num">48,554</td><td class="num">1,266</td><td class="num">1,366</td></tr>
       <tr><td><strong>rsi-rfe_bwa300both</strong><br><span style="color:var(--muted);font-size:.82rem;">bwa, 300 bp, both flanks</span></td><td class="num">51,073</td><td class="num">39,653</td><td class="num">4,327</td><td class="num">7,093</td><td class="num">48,680</td><td class="num">1,169</td><td class="num">1,224</td></tr>
+      <tr><td><strong>rsi-rfe_bwa300both_v2</strong><br><span style="color:var(--muted);font-size:.82rem;">bwa, 300 bp, both flanks, junction from the annotated copy (41ccc90)</span></td><td class="num">51,075</td><td class="num">39,646</td><td class="num">4,328</td><td class="num">7,101</td><td class="num">48,870</td><td class="num">1,179</td><td class="num">1,026</td></tr>
       <tr><td><strong>rsi-rfe_bwa500</strong><br><span style="color:var(--muted);font-size:.82rem;">bwa, 500 bp, one flank</span></td><td class="num">48,199</td><td class="num">37,163</td><td class="num">4,199</td><td class="num">6,837</td><td class="num">45,236</td><td class="num">1,724</td><td class="num">1,239</td></tr>
       <tr><td><strong>rsi-rfe_bwa500both</strong><br><span style="color:var(--muted);font-size:.82rem;">bwa, 500 bp, both flanks</span></td><td class="num">48,749</td><td class="num">37,651</td><td class="num">4,203</td><td class="num">6,895</td><td class="num">45,762</td><td class="num">1,852</td><td class="num">1,135</td></tr>
       <tr><td><strong>rsi-rfe_mm2k11_500both</strong><br><span style="color:var(--muted);font-size:.82rem;">minimap2 -x sr -k 11 -w 3, 500 bp, both flanks</span></td><td class="num">48,732</td><td class="num">37,631</td><td class="num">4,205</td><td class="num">6,896</td><td class="num">45,683</td><td class="num">1,910</td><td class="num">1,139</td></tr>
@@ -70,8 +71,11 @@ a { color:var(--accent); }
     Main flank-mapping rows only (clusters C&hellip;); rescue (M) and nested (N) rows are left out, so a locus a run
     holds as an M row counts as missing from that run. Check: each input copy &plusmn;10 kb was aligned to the other genome
     (minimap2 -x asm20) and its junction lifted; agree = the row's partner is within 50 bp of the lifted junction.
-    Disagree is not the same as wrong: at segmental duplications the check itself can pick the wrong copy. In about 5 % of
-    rows the reported anchor lies more than 50 bp inside the flank; there the window position is used as the junction.
+    Disagree is not the same as wrong: at segmental duplications the check itself can pick the wrong copy. Before the
+    junction fix (SINE_orth_loc 41ccc90) about 5 % of anchors lay more than 50 bp off the window junction, because a
+    reference longer than its copy (partial copy, composite) can start anywhere in the left flank; the comparison then
+    uses the window position. With the fix the junction is the annotated copy's own start: 1.6 % remain off, and 198
+    more rows become testable.
   </p>
 </section>
 
@@ -87,6 +91,7 @@ a { color:var(--accent); }
     <li><b>status</b>: runs give different calls (SINE / PM / MP)</li>
     <li><b>only_rsi-rfe</b>: main row in rsi-rfe only</li>
     <li><b>only_rsi-rfe_bwa300both</b>: main row in rsi-rfe_bwa300both only</li>
+    <li><b>only_rsi-rfe_bwa300both_v2</b>: main row in rsi-rfe_bwa300both_v2 only</li>
     <li><b>only_rsi-rfe_bwa500</b>: main row in rsi-rfe_bwa500 only</li>
     <li><b>only_rsi-rfe_bwa500both</b>: main row in rsi-rfe_bwa500both only</li>
     <li><b>only_rsi-rfe_mm2k11_500both</b>: main row in rsi-rfe_mm2k11_500both only</li>
@@ -97,6 +102,7 @@ a { color:var(--accent); }
     <a class="btn secondary" href="#" data-cat="status" title="runs give different calls (SINE / PM / MP)">status <span id="n-status"></span></a>
     <a class="btn secondary" href="#" data-cat="only_rsi-rfe" title="main row in rsi-rfe only">only_rsi-rfe <span id="n-only_rsi-rfe"></span></a>
     <a class="btn secondary" href="#" data-cat="only_rsi-rfe_bwa300both" title="main row in rsi-rfe_bwa300both only">only_rsi-rfe_bwa300both <span id="n-only_rsi-rfe_bwa300both"></span></a>
+    <a class="btn secondary" href="#" data-cat="only_rsi-rfe_bwa300both_v2" title="main row in rsi-rfe_bwa300both_v2 only">only_rsi-rfe_bwa300both_v2 <span id="n-only_rsi-rfe_bwa300both_v2"></span></a>
     <a class="btn secondary" href="#" data-cat="only_rsi-rfe_bwa500" title="main row in rsi-rfe_bwa500 only">only_rsi-rfe_bwa500 <span id="n-only_rsi-rfe_bwa500"></span></a>
     <a class="btn secondary" href="#" data-cat="only_rsi-rfe_bwa500both" title="main row in rsi-rfe_bwa500both only">only_rsi-rfe_bwa500both <span id="n-only_rsi-rfe_bwa500both"></span></a>
     <a class="btn secondary" href="#" data-cat="only_rsi-rfe_mm2k11_500both" title="main row in rsi-rfe_mm2k11_500both only">only_rsi-rfe_mm2k11_500both <span id="n-only_rsi-rfe_mm2k11_500both"></span></a>
@@ -105,7 +111,7 @@ a { color:var(--accent); }
   <span id="shown" style="color:var(--muted);font-size:.85rem;margin-left:8px;"></span></p>
   <div style="overflow-x:auto;">
   <table class="tbl" id="loci">
-    <thead><tr><th>Locus</th><th>Groups</th><th>rsi junction</th><th>Check</th><th>Subfamily (reference row)</th><th>rsi-rfe</th><th>rsi-rfe_bwa300both</th><th>rsi-rfe_bwa500</th><th>rsi-rfe_bwa500both</th><th>rsi-rfe_mm2k11_500both</th></tr></thead>
+    <thead><tr><th>Locus</th><th>Groups</th><th>rsi junction</th><th>Check</th><th>Subfamily (reference row)</th><th>rsi-rfe</th><th>rsi-rfe_bwa300both</th><th>rsi-rfe_bwa300both_v2</th><th>rsi-rfe_bwa500</th><th>rsi-rfe_bwa500both</th><th>rsi-rfe_mm2k11_500both</th></tr></thead>
     <tbody></tbody>
   </table>
   </div>
@@ -115,7 +121,7 @@ a { color:var(--accent); }
 
 </main>
 <script>
-const RUNS = ["rsi-rfe","rsi-rfe_bwa300both","rsi-rfe_bwa500","rsi-rfe_bwa500both","rsi-rfe_mm2k11_500both"];
+const RUNS = ["rsi-rfe","rsi-rfe_bwa300both","rsi-rfe_bwa300both_v2","rsi-rfe_bwa500","rsi-rfe_bwa500both","rsi-rfe_mm2k11_500both"];
 const TYPES = ['PM', 'MP', 'SINE', 'rejected'];
 let LOCI = [], cat = 'disagree', shown = 200;
 const esc = s => s.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'})[c]);

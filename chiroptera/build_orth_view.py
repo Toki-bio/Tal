@@ -16,6 +16,7 @@ from build_lineages import ROOT, tal_style
 OUT = os.path.join(ROOT, "chiroptera", "orth_rsi-rfe")
 RUNS = [("rsi-rfe", "bwa, 300 bp, one flank (baseline)"),
         ("rsi-rfe_bwa300both", "bwa, 300 bp, both flanks"),
+        ("rsi-rfe_bwa300both_v2", "bwa, 300 bp, both flanks, junction from the annotated copy (41ccc90)"),
         ("rsi-rfe_bwa500", "bwa, 500 bp, one flank"),
         ("rsi-rfe_bwa500both", "bwa, 500 bp, both flanks"),
         ("rsi-rfe_mm2k11_500both", "minimap2 -x sr -k 11 -w 3, 500 bp, both flanks")]
@@ -51,7 +52,7 @@ def main():
 </head><body>
 <header>
   <h1>Orthologous SINE loci &mdash; <i>R. sinicus</i> (rsi) vs <i>R. ferrumequinum</i> (rfe)</h1>
-  <div class="sub">SINE_orth_loc in bank mode (SINEderella loci, bank21_nor1), five flank settings compared, 2026-10-28/29.
+  <div class="sub">SINE_orth_loc in bank mode (SINEderella loci, bank21_nor1), five flank settings compared, 2026-10-28/29, plus the best one rerun with the insertion-junction fix.
   <a href="../../chiroptera.html" style="color:#fff;">&larr; Chiroptera page</a></div>
 </header>
 <main>
@@ -68,8 +69,11 @@ def main():
     Main flank-mapping rows only (clusters C&hellip;); rescue (M) and nested (N) rows are left out, so a locus a run
     holds as an M row counts as missing from that run. Check: each input copy &plusmn;10 kb was aligned to the other genome
     (minimap2 -x asm20) and its junction lifted; agree = the row's partner is within 50 bp of the lifted junction.
-    Disagree is not the same as wrong: at segmental duplications the check itself can pick the wrong copy. In about 5 % of
-    rows the reported anchor lies more than 50 bp inside the flank; there the window position is used as the junction.
+    Disagree is not the same as wrong: at segmental duplications the check itself can pick the wrong copy. Before the
+    junction fix (SINE_orth_loc 41ccc90) about 5 % of anchors lay more than 50 bp off the window junction, because a
+    reference longer than its copy (partial copy, composite) can start anywhere in the left flank; the comparison then
+    uses the window position. With the fix the junction is the annotated copy's own start: 1.6 % remain off, and 198
+    more rows become testable.
   </p>
 </section>
 

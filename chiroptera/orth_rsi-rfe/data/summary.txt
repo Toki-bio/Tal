@@ -1,15 +1,17 @@
 ﻿run	rows	SINE	PM	MP	agree	disagree	untested
 rsi-rfe	51186	39613	4402	7171	48554	1266	1366
 rsi-rfe_bwa300both	51073	39653	4327	7093	48680	1169	1224
+rsi-rfe_bwa300both_v2	51075	39646	4328	7101	48870	1179	1026
 rsi-rfe_bwa500	48199	37163	4199	6837	45236	1724	1239
 rsi-rfe_bwa500both	48749	37651	4203	6895	45762	1852	1135
 rsi-rfe_mm2k11_500both	48732	37631	4205	6896	45683	1910	1139
 
 run	only_this_run	agree	disagree	untested	other_partner_in_some_run	other_status_in_some_run
-rsi-rfe	205	49	74	82	887	73
-rsi-rfe_bwa300both	207	117	62	28	847	63
-rsi-rfe_bwa500	408	135	161	112	745	74
-rsi-rfe_bwa500both	34	6	22	6	829	64
-rsi-rfe_mm2k11_500both	113	21	75	17	827	64
+rsi-rfe	203	47	74	82	1024	73
+rsi-rfe_bwa300both	5	0	1	4	985	63
+rsi-rfe_bwa300both_v2	322	296	19	7	977	64
+rsi-rfe_bwa500	407	135	160	112	875	75
+rsi-rfe_bwa500both	34	6	22	6	962	64
+rsi-rfe_mm2k11_500both	113	21	75	17	960	64
 
-3627 loci written to view_rsi-rfe/loci.tsv
+3952 loci written to view_rsi-rfe/loci.tsv
