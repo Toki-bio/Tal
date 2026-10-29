@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Orthologous SINE loci rsi-rfe</title>
+<style>
+:root { --fg:#222; --bg:#f5f6f8; --card:#fff; --accent:#4C72B0;
+        --muted:#666; --border:#e2e2e2; }
+* { box-sizing: border-box; }
+body { font-family: -apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+       background:var(--bg); color:var(--fg); margin:0; padding:0; }
+header { background: linear-gradient(135deg, #2c3e50, #4C72B0);
+         color:#fff; padding:28px 36px; }
+header h1 { margin:0 0 6px 0; font-size:1.7rem; }
+header .sub { opacity:.85; font-size:.95rem; }
+main { max-width:1100px; margin:0 auto; padding:28px 24px; }
+section.card { background:var(--card); border:1px solid var(--border);
+               border-radius:8px; padding:20px 24px; margin:18px 0;
+               box-shadow:0 1px 3px rgba(0,0,0,0.05); }
+section.card h2 { margin-top:0; font-size:1.1rem; color:#2c3e50;
+                  border-bottom:1px solid var(--border); padding-bottom:8px; }
+.tbl { border-collapse:collapse; width:100%; font-size:.88rem; margin:8px 0; }
+.tbl th,.tbl td { border:1px solid var(--border); padding:6px 10px; text-align:left; }
+.tbl th { background:#f0f3f7; }
+.tbl tbody tr:nth-child(even) { background:#fafbfd; }
+.tbl td.num { font-variant-numeric:tabular-nums; text-align:right; }
+.tag { display:inline-block; border-radius:3px; padding:1px 6px;
+       font-size:.78rem; font-weight:600; }
+.tag-ok  { background:#d4edda; color:#155724; }
+.tag-partial { background:#fff3cd; color:#856404; }
+.tag-candidate { background:#f8d7da; color:#721c24; }
+.tag-other-family { background:#e2e3ff; color:#2d2d8f; }
+.tag-no  { background:#f0f0f0; color:#777; }
+a.btn { display:inline-block; background:var(--accent); color:#fff;
+        padding:4px 12px; border-radius:4px; font-size:.84rem;
+        text-decoration:none; margin:2px 2px 2px 0; }
+a.btn:hover { background:#2c3e50; }
+a.btn.secondary { background:#6c757d; }
+a.btn.green  { background:#28a745; }
+a { color:var(--accent); }
+.species-grid { display:grid; gap:16px;
+                grid-template-columns: repeat(auto-fit, minmax(320px,1fr)); }
+.sp-card { border:1px solid var(--border); border-radius:7px;
+           padding:14px 16px; background:#fff; }
+.sp-card h3 { margin:0 0 4px; font-size:1rem; color:#2c3e50; }
+.sp-card .sci { font-style:italic; color:var(--muted); font-size:.88rem; }
+.sp-card .actions { margin-top:10px; }
+</style>
+</head><body>
+<header>
+  <h1>Orthologous SINE loci &mdash; <i>R. sinicus</i> (rsi) vs <i>R. ferrumequinum</i> (rfe)</h1>
+  <div class="sub">SINE_orth_loc in bank mode (SINEderella loci, bank21_nor1), four flank settings compared, 2026-10-28.
+  <a href="../../chiroptera.html" style="color:#fff;">&larr; Chiroptera page</a></div>
+</header>
+<main>
+
+<section class="card">
+  <h2>Runs</h2>
+  <table class="tbl">
+    <thead><tr><th>Setting</th><th>Rows</th><th>SINE</th><th>PM</th><th>MP</th><th>Agree</th><th>Disagree</th><th>Untested</th></tr></thead>
+    <tbody>
+      <tr><td><strong>rsi-rfe</strong><br><span style="color:var(--muted);font-size:.82rem;">bwa, 300 bp, one flank (baseline)</span></td><td class="num">51,186</td><td class="num">39,613</td><td class="num">4,402</td><td class="num">7,171</td><td class="num">48,554</td><td class="num">1,266</td><td class="num">1,366</td></tr>
+      <tr><td><strong>rsi-rfe_bwa500</strong><br><span style="color:var(--muted);font-size:.82rem;">bwa, 500 bp, one flank</span></td><td class="num">48,199</td><td class="num">37,163</td><td class="num">4,199</td><td class="num">6,837</td><td class="num">45,236</td><td class="num">1,724</td><td class="num">1,239</td></tr>
+      <tr><td><strong>rsi-rfe_bwa500both</strong><br><span style="color:var(--muted);font-size:.82rem;">bwa, 500 bp, both flanks</span></td><td class="num">48,749</td><td class="num">37,651</td><td class="num">4,203</td><td class="num">6,895</td><td class="num">45,762</td><td class="num">1,852</td><td class="num">1,135</td></tr>
+      <tr><td><strong>rsi-rfe_mm2k11_500both</strong><br><span style="color:var(--muted);font-size:.82rem;">minimap2 -x sr -k 11 -w 3, 500 bp, both flanks</span></td><td class="num">48,732</td><td class="num">37,631</td><td class="num">4,205</td><td class="num">6,896</td><td class="num">45,683</td><td class="num">1,910</td><td class="num">1,139</td></tr>
+    </tbody>
+  </table>
+  <p style="color:var(--muted);font-size:.82rem;margin-top:8px;">
+    Main flank-mapping rows only (clusters C&hellip;); rescue (M) and nested (N) rows are left out, so a locus a run
+    holds as an M row counts as missing from that run. Check: each input copy &plusmn;10 kb was aligned to the other genome
+    (minimap2 -x asm20) and its junction lifted; agree = the row's partner is within 50 bp of the lifted junction.
+    Disagree is not the same as wrong: at segmental duplications the check itself can pick the wrong copy. In about 5 % of
+    rows the reported anchor lies more than 50 bp inside the flank; there the window position is used as the junction.
+  </p>
+</section>
+
+<section class="card">
+  <h2>Loci that differ between runs</h2>
+  <p style="margin:0 0 10px;font-size:.9rem;color:var(--muted);">Pick a group, then open a run's alignment for a locus.
+  The alignment opens in the SINE loci browser in a new tab, one tab per run, so the same locus can be compared side by side.
+  A name starting with ~ means that run has no main row at the locus; it is the alignment the run made there instead
+  (an M rescue row, or one rejected, e.g. shortRF / badRF).</p>
+  <ul style="font-size:.85rem;color:var(--muted);margin:0 0 10px 18px;">
+    <li><b>disagree</b>: a run&#x27;s row differs from the copy +-10 kb alignment check</li>
+    <li><b>partner</b>: runs pair the locus with different loci in the other genome</li>
+    <li><b>status</b>: runs give different calls (SINE / PM / MP)</li>
+    <li><b>only_rsi-rfe</b>: main row in rsi-rfe only</li>
+    <li><b>only_rsi-rfe_bwa500</b>: main row in rsi-rfe_bwa500 only</li>
+    <li><b>only_rsi-rfe_bwa500both</b>: main row in rsi-rfe_bwa500both only</li>
+    <li><b>only_rsi-rfe_mm2k11_500both</b>: main row in rsi-rfe_mm2k11_500both only</li>
+  </ul>
+  <div class="actions">
+    <a class="btn secondary" href="#" data-cat="disagree" title="a run&#x27;s row differs from the copy +-10 kb alignment check">disagree <span id="n-disagree"></span></a>
+    <a class="btn secondary" href="#" data-cat="partner" title="runs pair the locus with different loci in the other genome">partner <span id="n-partner"></span></a>
+    <a class="btn secondary" href="#" data-cat="status" title="runs give different calls (SINE / PM / MP)">status <span id="n-status"></span></a>
+    <a class="btn secondary" href="#" data-cat="only_rsi-rfe" title="main row in rsi-rfe only">only_rsi-rfe <span id="n-only_rsi-rfe"></span></a>
+    <a class="btn secondary" href="#" data-cat="only_rsi-rfe_bwa500" title="main row in rsi-rfe_bwa500 only">only_rsi-rfe_bwa500 <span id="n-only_rsi-rfe_bwa500"></span></a>
+    <a class="btn secondary" href="#" data-cat="only_rsi-rfe_bwa500both" title="main row in rsi-rfe_bwa500both only">only_rsi-rfe_bwa500both <span id="n-only_rsi-rfe_bwa500both"></span></a>
+    <a class="btn secondary" href="#" data-cat="only_rsi-rfe_mm2k11_500both" title="main row in rsi-rfe_mm2k11_500both only">only_rsi-rfe_mm2k11_500both <span id="n-only_rsi-rfe_mm2k11_500both"></span></a>
+  </div>
+  <p style="margin:10px 0;"><input id="q" type="text" placeholder="search locus, coordinate or alignment name" style="width:340px;max-width:100%;padding:4px 6px;">
+  <span id="shown" style="color:var(--muted);font-size:.85rem;margin-left:8px;"></span></p>
+  <div style="overflow-x:auto;">
+  <table class="tbl" id="loci">
+    <thead><tr><th>Locus</th><th>Groups</th><th>rsi junction</th><th>Check</th><th>rsi-rfe</th><th>rsi-rfe_bwa500</th><th>rsi-rfe_bwa500both</th><th>rsi-rfe_mm2k11_500both</th></tr></thead>
+    <tbody></tbody>
+  </table>
+  </div>
+  <p><a class="btn secondary" href="#" id="more">Show 200 more</a>
+  <a class="btn secondary" href="data/loci.tsv">loci.tsv</a></p>
+</section>
+
+</main>
+<script>
+const RUNS = ["rsi-rfe","rsi-rfe_bwa500","rsi-rfe_bwa500both","rsi-rfe_mm2k11_500both"];
+const TYPES = ['PM', 'MP', 'SINE', 'rejected'];
+let LOCI = [], cat = 'disagree', shown = 200;
+const esc = s => s.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'})[c]);
+function viewer(group, run, names, title) {
+  const q = TYPES.map(t => 'bundle=' + encodeURIComponent(`data/${group}/${run}/aln_rsi-rfe_${t}.aln.gz`));
+  names.forEach(n => q.push('name=' + encodeURIComponent(n)));
+  q.push('title=' + encodeURIComponent(title));
+  return 'sine_loci_browser.html?' + q.join('&');
+}
+function cell(L, run, v) {
+  if (v === '-') return '<span style="color:var(--muted);">nothing at the locus</span>';
+  let names, label;
+  if (v.startsWith('~')) { names = v.slice(1).split(','); label = esc(v); }
+  else { const p = v.split(' '); names = [p[2]]; label = `<b>${esc(p[0])}</b> ${esc(p[1])}<br>${esc(p[2])} ${esc(p[3] || '')}`; }
+  return `<a href="${viewer(cat, run, names, L[0] + ' ' + run)}" target="_blank">${label}</a>`;
+}
+function render() {
+  const q = document.getElementById('q').value.trim().toLowerCase();
+  const rows = LOCI.filter(L => L[1].split(',').includes(cat) && (!q || L.join(' ').toLowerCase().includes(q)));
+  document.querySelector('#loci tbody').innerHTML = rows.slice(0, shown).map(L =>
+    `<tr><td><strong>${L[0]}</strong></td><td>${esc(L[1]).replace(/,/g, '<br>')}</td><td>${esc(L[2])}</td><td>${esc(L[3])}</td>` +
+    RUNS.map((r, i) => `<td style="font-size:.82rem;">${cell(L, r, L[4 + i])}</td>`).join('') + '</tr>').join('');
+  document.getElementById('shown').textContent = `${Math.min(shown, rows.length)} of ${rows.length} shown`;
+  document.getElementById('more').style.display = rows.length > shown ? '' : 'none';
+  document.querySelectorAll('[data-cat]').forEach(b => b.classList.toggle('secondary', b.dataset.cat !== cat));
+}
+fetch('data/loci.tsv').then(r => r.text()).then(t => {
+  LOCI = t.trim().split('\n').slice(1).map(l => l.split('\t'));
+  const n = {};
+  LOCI.forEach(L => L[1].split(',').forEach(c => n[c] = (n[c] || 0) + 1));
+  for (const c in n) { const e = document.getElementById('n-' + c); if (e) e.textContent = '(' + n[c].toLocaleString() + ')'; }
+  render();
+});
+document.querySelectorAll('[data-cat]').forEach(b => b.addEventListener('click', e => {
+  e.preventDefault(); cat = b.dataset.cat; shown = 200; render(); }));
+document.getElementById('q').addEventListener('input', () => { shown = 200; render(); });
+document.getElementById('more').addEventListener('click', e => { e.preventDefault(); shown += 200; render(); });
+</script>
+</body></html>

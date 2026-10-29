@@ -577,6 +577,14 @@ def main():
 
 {chr(10).join(sections)}
 <section class="card">
+  <h2>Orthologous SINE loci &mdash; rsi vs rfe</h2>
+  <p style="margin:0 0 10px;font-size:.9rem;color:var(--muted);">SINE_orth_loc in bank mode (loci from the SINEderella runs),
+  four flank settings compared: bwa 300 bp one flank, bwa 500 bp one flank, bwa 500 bp both flanks, minimap2 500 bp both flanks.
+  Loci that differ between runs, each run's alignment one click away.</p>
+  <a class="btn" href="chiroptera/orth_rsi-rfe/index.html">Open the comparison</a>
+</section>
+
+<section class="card">
   <h2>Analysis Status</h2>
   <table class="tbl">
     <thead>
