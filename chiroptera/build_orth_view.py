@@ -96,7 +96,9 @@ def results_section():
   Identities (%) are ComPair's: copy vs its reference consensus (divergence = 100 &minus; identity), copy vs copy at shared loci, and the left flanks;
   median and 10&ndash;90 % range. E1&ndash;E4, HE1 are the elements of nested loci (sine_nest naming), which carry no identities.
   <b>The Shared, rsi-only and rfe-only counts are links</b>: each opens that subfamily's alignments of that status alone in the
-  SINE loci browser (data/by_reference/ from orth_split.py; nested-locus rows and the superseded flank rows have no alignment there).</p>
+  SINE loci browser (data/by_reference/ from orth_split.py; nested-locus rows and the superseded flank rows have no alignment there).
+  Inside the browser the subfamily list, the SINE / PM / MP / rejected chips and the name box narrow the loaded alignments further;
+  <a href="{html.escape(view(sorted(set(dir_of.values())), "SINE", "rsi-rfe all") + "&bundle=" + "&bundle=".join(f"data/by_reference/{d}/aln_rsi-rfe_{t}.aln.gz" for t in ("PM", "MP") for d in sorted(set(dir_of.values()))))}" target="_blank">all 53,193 alignments at once</a> (30 MB) if you want to filter freely.</p>
   <div style="overflow-x:auto;">
   <table class="tbl">
     <thead><tr><th>Subfamily (reference)</th><th>Copies rsi</th><th>Copies rfe</th><th>Loci</th><th>Shared</th><th>rsi only</th><th>rfe only</th><th>Shared %</th><th>Identity to reference</th><th>Copy vs copy</th><th>Left flanks</th></tr></thead>
