@@ -1,31 +1,31 @@
-consensus	tRNA_gene	ident%	aln_bp	q_span	bits	null_max_bits	call	plate
-MEG-RL	Homo_sapiens_tRNA-Arg-TCT-1-1	62.5	40	86-125	20.4	24.9	below_null	MEG-RL.trna.aln.fa
-MEG-RS	Homo_sapiens_tRNA-Arg-TCT-1-1	62.5	40	86-125	19.7	25.3	below_null	MEG-RS.trna.aln.fa
-MEG-T2	Homo_sapiens_tRNA-Val-TAC-1-1	94.5	74	6-79	80.3	24.3	head	MEG-T2.trna.aln.fa
-MEG-TR	Homo_sapiens_tRNA-Val-TAC-1-1	94.5	55	1-55	62.5	25.7	head	MEG-TR.trna.aln.fa
-consensus_10seqs_b	Homo_sapiens_tRNA-Ile-GAT-1-2	76.1	71	255-321	39.9	27.0	head	consensus_10seqs_b.trna.aln.fa
-consensus_10seqs_noterm	Homo_sapiens_tRNA-Ile-GAT-1-2	77.6	69	255-321	43.0	24.8	head	consensus_10seqs_noterm.trna.aln.fa
-consensus_12seqs	Homo_sapiens_tRNA-Ile-GAT-1-2	78.3	71	239-307	46.9	26.1	head	consensus_12seqs.trna.aln.fa
-consensus_28seqs	Homo_sapiens_tRNA-Ile-GAT-1-2	78.6	82	6-87	34.1	24.2	head	consensus_28seqs.trna.aln.fa
-consensus_29seqs	Homo_sapiens_tRNA-Ile-GAT-1-2	78.6	71	124-193	50.5	25.2	head	consensus_29seqs.trna.aln.fa
-consensus_386seqs	Homo_sapiens_tRNA-Pro-AGG-1-1	77.8	62	14-67	32.0	24.6	head	consensus_386seqs.trna.aln.fa
-consensus_47seqs	Homo_sapiens_tRNA-Lys-TTT-5-1	72.2	79	6-84	28.9	23.0	head	consensus_47seqs.trna.aln.fa
-r10_19seqs	Homo_sapiens_tRNA-Ile-AAT-5-3	79.7	74	1-74	62.8	24.3	head	r10_19seqs.trna.aln.fa
-r10_r8_P18del	Homo_sapiens_tRNA-Ile-AAT-5-3	79.7	74	6-79	60.7	26.1	head	r10_r8_P18del.trna.aln.fa
-r1_r2_r3_r3_C11	Homo_sapiens_tRNA-Ile-AAT-8-1	75.7	75	6-80	50.8	25.4	head	r1_r2_r3_r3_C11.trna.aln.fa
-r1_r3_P1	Homo_sapiens_tRNA-Ile-AAT-8-1	74.3	75	6-80	48.7	27.9	head	r1_r3_P1.trna.aln.fa
-r1_r3_P1_hla020	Homo_sapiens_tRNA-Ile-AAT-5-3	76.7	75	6-79	49.0	28.5	head	r1_r3_P1_hla020.trna.aln.fa
-r1_r3_P2	Homo_sapiens_tRNA-Ile-AAT-8-1	74.3	75	6-80	49.4	27.7	head	r1_r3_P2.trna.aln.fa
-r2_3seqs	Homo_sapiens_tRNA-Ile-AAT-2-1	74.2	67	1-66	45.9	26.8	head	r2_3seqs.trna.aln.fa
-r3_58seqs	Homo_sapiens_tRNA-Ile-AAT-5-3	74.6	68	1-67	46.1	26.5	head	r3_58seqs.trna.aln.fa
-r4_32seqs	Homo_sapiens_tRNA-Ile-AAT-2-1	75.8	67	1-66	47.6	22.6	head	r4_32seqs.trna.aln.fa
-r5_27seqs	Homo_sapiens_tRNA-Ile-AAT-5-3	78.1	74	5-77	54.6	27.5	head	r5_27seqs.trna.aln.fa
-r5_r3_P34	Homo_sapiens_tRNA-Ile-AAT-5-3	75.7	71	138-207	48.9	26.5	head	r5_r3_P34.trna.aln.fa
-r5_r5_P48	Homo_sapiens_tRNA-Ile-AAT-5-3	78.1	74	5-77	55.0	25.5	head	r5_r5_P48.trna.aln.fa
-r5_r5_P48_hla007	Homo_sapiens_tRNA-Ile-GAT-1-2	78.6	71	124-193	51.4	24.1	head	r5_r5_P48_hla007.trna.aln.fa
-r5_r6_long_hla	Homo_sapiens_tRNA-Ile-GAT-1-2	81.2	71	122-190	53.7	25.1	head	r5_r6_long_hla.trna.aln.fa
-r5_r6_short_hla	Homo_sapiens_tRNA-Ile-AAT-5-3	81.4	71	6-75	58.5	23.8	head	r5_r6_short_hla.trna.aln.fa
-r7_133seqs	Homo_sapiens_tRNA-Ile-AAT-5-3	86.5	74	5-78	79.6	23.7	head	r7_133seqs.trna.aln.fa
-r8_hla	Homo_sapiens_tRNA-Ile-AAT-5-3	87.8	74	6-79	76.5	24.5	head	r8_hla.trna.aln.fa
-r9_15seqs	Homo_sapiens_tRNA-Ile-AAT-5-3	93.2	74	5-78	86.0	24.0	head	r9_15seqs.trna.aln.fa
-r9_ext	Homo_sapiens_tRNA-Ile-AAT-5-3	90.5	74	6-79	83.9	26.9	head	r9_ext.trna.aln.fa
+consensus	tRNA_gene	ident%	aln_bp	q_span	bits	null_max_bits	call	tie_gene	tie_ident%	tie_aln_bp	tie_bits	plate
+MEG-RL	Homo_sapiens_tRNA-Arg-TCT-1-1	62.5	40	86-125	20.4	24.9	below_null	-	-	-	-	MEG-RL.trna.aln.fa
+MEG-RS	Homo_sapiens_tRNA-Arg-TCT-1-1	62.5	40	86-125	19.7	25.3	below_null	-	-	-	-	MEG-RS.trna.aln.fa
+MEG-T2	Homo_sapiens_tRNA-Val-TAC-1-1	94.5	74	6-79	80.3	24.3	head	-	-	-	-	MEG-T2.trna.aln.fa
+MEG-TR	Homo_sapiens_tRNA-Val-TAC-1-1	94.5	55	1-55	62.5	25.7	head	-	-	-	-	MEG-TR.trna.aln.fa
+consensus_10seqs_b	Homo_sapiens_tRNA-Ile-GAT-1-2	76.1	71	255-321	39.9	27.0	head	-	-	-	-	consensus_10seqs_b.trna.aln.fa
+consensus_10seqs_noterm	Homo_sapiens_tRNA-Ile-GAT-1-2	77.6	69	255-321	43.0	24.8	head	Homo_sapiens_tRNA-Lys-CTT-4-1	73.5	69	41.6	consensus_10seqs_noterm.trna.aln.fa
+consensus_12seqs	Homo_sapiens_tRNA-Ile-GAT-1-2	78.3	71	239-307	46.9	26.1	head	-	-	-	-	consensus_12seqs.trna.aln.fa
+consensus_28seqs	Homo_sapiens_tRNA-Ile-GAT-1-2	78.6	82	6-87	34.1	24.2	head	-	-	-	-	consensus_28seqs.trna.aln.fa
+consensus_29seqs	Homo_sapiens_tRNA-Ile-GAT-1-2	78.6	71	124-193	50.5	25.2	head	-	-	-	-	consensus_29seqs.trna.aln.fa
+consensus_386seqs	Homo_sapiens_tRNA-Pro-AGG-1-1	77.8	62	14-67	32.0	24.6	head	Homo_sapiens_tRNA-Ala-AGC-4-1	70.9	56	31.3	consensus_386seqs.trna.aln.fa
+consensus_47seqs	Homo_sapiens_tRNA-Lys-TTT-5-1	72.2	79	6-84	28.9	23.0	head	Homo_sapiens_tRNA-Ser-GCT-5-1	69.1	74	28.6	consensus_47seqs.trna.aln.fa
+r10_19seqs	Homo_sapiens_tRNA-Ile-AAT-5-3	79.7	74	1-74	62.8	24.3	head	-	-	-	-	r10_19seqs.trna.aln.fa
+r10_r8_P18del	Homo_sapiens_tRNA-Ile-AAT-5-3	79.7	74	6-79	60.7	26.1	head	-	-	-	-	r10_r8_P18del.trna.aln.fa
+r1_r2_r3_r3_C11	Homo_sapiens_tRNA-Ile-AAT-8-1	75.7	75	6-80	50.8	25.4	head	-	-	-	-	r1_r2_r3_r3_C11.trna.aln.fa
+r1_r3_P1	Homo_sapiens_tRNA-Ile-AAT-8-1	74.3	75	6-80	48.7	27.9	head	-	-	-	-	r1_r3_P1.trna.aln.fa
+r1_r3_P1_hla020	Homo_sapiens_tRNA-Ile-AAT-5-3	76.7	75	6-79	49.0	28.5	head	-	-	-	-	r1_r3_P1_hla020.trna.aln.fa
+r1_r3_P2	Homo_sapiens_tRNA-Ile-AAT-8-1	74.3	75	6-80	49.4	27.7	head	-	-	-	-	r1_r3_P2.trna.aln.fa
+r2_3seqs	Homo_sapiens_tRNA-Ile-AAT-2-1	74.2	67	1-66	45.9	26.8	head	-	-	-	-	r2_3seqs.trna.aln.fa
+r3_58seqs	Homo_sapiens_tRNA-Ile-AAT-5-3	74.6	68	1-67	46.1	26.5	head	-	-	-	-	r3_58seqs.trna.aln.fa
+r4_32seqs	Homo_sapiens_tRNA-Ile-AAT-2-1	75.8	67	1-66	47.6	22.6	head	-	-	-	-	r4_32seqs.trna.aln.fa
+r5_27seqs	Homo_sapiens_tRNA-Ile-AAT-5-3	78.1	74	5-77	54.6	27.5	head	-	-	-	-	r5_27seqs.trna.aln.fa
+r5_r3_P34	Homo_sapiens_tRNA-Ile-AAT-5-3	75.7	71	138-207	48.9	26.5	head	-	-	-	-	r5_r3_P34.trna.aln.fa
+r5_r5_P48	Homo_sapiens_tRNA-Ile-AAT-5-3	78.1	74	5-77	55.0	25.5	head	-	-	-	-	r5_r5_P48.trna.aln.fa
+r5_r5_P48_hla007	Homo_sapiens_tRNA-Ile-GAT-1-2	78.6	71	124-193	51.4	24.1	head	-	-	-	-	r5_r5_P48_hla007.trna.aln.fa
+r5_r6_long_hla	Homo_sapiens_tRNA-Ile-GAT-1-2	81.2	71	122-190	53.7	25.1	head	-	-	-	-	r5_r6_long_hla.trna.aln.fa
+r5_r6_short_hla	Homo_sapiens_tRNA-Ile-AAT-5-3	81.4	71	6-75	58.5	23.8	head	-	-	-	-	r5_r6_short_hla.trna.aln.fa
+r7_133seqs	Homo_sapiens_tRNA-Ile-AAT-5-3	86.5	74	5-78	79.6	23.7	head	-	-	-	-	r7_133seqs.trna.aln.fa
+r8_hla	Homo_sapiens_tRNA-Ile-AAT-5-3	87.8	74	6-79	76.5	24.5	head	-	-	-	-	r8_hla.trna.aln.fa
+r9_15seqs	Homo_sapiens_tRNA-Ile-AAT-5-3	93.2	74	5-78	86.0	24.0	head	-	-	-	-	r9_15seqs.trna.aln.fa
+r9_ext	Homo_sapiens_tRNA-Ile-AAT-5-3	90.5	74	6-79	83.9	26.9	head	-	-	-	-	r9_ext.trna.aln.fa

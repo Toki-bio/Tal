@@ -1,4 +1,6 @@
 >consensus_47seqs
-gggccGGCCGAGTGGCTCAGTTGGTTAAGAGCTCGCTCAAGAGTTTGAGCTCTGAGCAACAGCGGTTCGATTCCCAGCCCGAGCtgagcagccgctgagctgccaacaggtagcaggatggctcagct
+---gggccGGCCGAGTGGCTCAGTTGGTTAAGAGCTCGCTCAAGAGTTTGAGCTCTGAGCAACAGCGGTTCGATTCCCAGCCCGAGCtgagcagccgctgagctgccaacaggtagcaggatggctcagct
 >Homo_sapiens_tRNA-Lys-TTT-5-1 72.2%_over_79nt_bits_28.9_shuffle_max_23.0
------GCCCGGATAGCTCAGTCGGT--AGAGCA---TCA-GACTTTTAA-TCTGAGGGTCCGGGGTTCAAGTCCCTGTTCGGGCg-------------------------------------------
+--------GCCCGGATAGCTCAGTCGGT--AGAGCA---TCA-GACTTTTAA-TCTGAGGGTCCGGGGTTCAAGTCCCTGTTCGGGCg-------------------------------------------
+>Homo_sapiens_tRNA-Ser-GCT-5-1 69.1%_over_74nt_bits_28.6_shuffle_max_23.0
+gacgaggtGGCCGAGTGGTTAAGGCGATGGACTGCT-----AATCCATTGTGCTCTGCACA-CGTGGGTTCGAATCCCATCCtcgtcg-------------------------------------------
