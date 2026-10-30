@@ -21,7 +21,7 @@ for r in csv.DictReader(open(os.path.join(d, "index.tsv"), encoding="utf-8"), de
         ties.append("%s (%s %s bits, %s %s)" % (r["consensus"], short(r["tRNA_gene"]).split("-")[1], r["bits"],
                                                 short(r["tie_gene"]).split("-")[1], r["tie_bits"]))
     two = lambda a, b: a + ("<br>" + b if tie else "")
-    rows.append("<tr><td><a href='%s' target='_blank'>%s</a></td><td>%s</td><td class='num'>%s</td><td class='num'>%s</td>"
+    rows.append("<tr><td><a href='%s' target='_blank'>%s</a></td><td style='white-space:nowrap'>%s</td><td class='num'>%s</td><td class='num'>%s</td>"
                 "<td class='num'>%s</td><td class='num'>%s</td><td class='num'>%s</td><td>%s</td>"
                 "<td><a class='btn' href='%s' target='_blank'>ViewAlign</a> <a href='%s'>fasta</a></td></tr>" % (
                     html.escape(link), html.escape(r["consensus"]),
