@@ -86,6 +86,19 @@ rsi consensuses kept in the bank that now collect few firm copies: r1_r2_r3_r3_C
 | MEG-RS | 3' / 5' | 515 | 25 / 19 | 60 / 38 | |
 | r10_r8_P18del | 3' | 732 | 2 | 32 | |
 
+## Shorties are complete short elements (`shortie_check/`)
+
+consensus_47seqs (128 bp) and consensus_28seqs (134 bp) are the head of the long elements (consensus_10seqs_b, consensus_29seqs, consensus_12seqs: first ~150 bp at 96-99 %, with an ~18 bp deletion in the shorties). Their genome copies stop where the consensus stops:
+
+| test | result |
+|---|---|
+| shared 10-mers past either end, all copies (step 1 end extension) | 0 (42,402 windows for 47seqs, 11,191 for 28seqs) |
+| 150 bp 3' flank of 100 random SINE copies each, ssearch36 against the long-element bodies (consensus position 150 to end), E < 1e-3 | 47seqs 2 of 100; 28seqs 0 of 100 |
+| control: 150 bp after the head in 100 random SINE copies each of consensus_10seqs_b and consensus_29seqs, same search | 99 of 100; 100 of 100 |
+| verdicts of assigned copies | 47seqs SINE 30,934, grey 6,661, not SINE 4,141; 28seqs SINE 8,998, grey 1,880, not SINE 626 |
+
+Plate: `shortie_check/hla_shorties_flank150.aln.fa`: the 5 consensuses and 100 random SINE copies of each shortie with 150 bp genome flanks (copy upper case, flanks lower case, element orientation), mafft localpair; script `shortie_plate.sh`.
+
 ## Contents
 | Path | What |
 |---|---|
