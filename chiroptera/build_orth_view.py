@@ -6,7 +6,9 @@ the SINE_orth_loc repo, which loads bundles named in its address).
 Data (copied beside the page): data/loci.tsv and data/<category>/<run>/aln_rsi-rfe_<PM|MP|SINE|rejected>.aln.gz from
 SINE_orth_loc tests/compare_real.py --out (therioserver:/home/toki/sol_bank/view_rsi-rfe); summary.txt = its stdout.
 data/by_reference/<dir>/aln_rsi-rfe_<SINE|PM|MP>.aln.gz + index.tsv = orth_split.py output of the current run
-(therioserver:/home/toki/sol_bank/rsi-rfe_bwa300both_v2/by_reference), linked from the results table.
+(therioserver:/home/toki/sol_bank/rsi-rfe_mm2adapt2_300both/by_reference), linked from the results table.
+Refresh: scratchpad mm/view9.sh on therioserver builds page9.tgz (compare_real.py --out for the RUNS below, run_facts.tsv,
+summary_rsi-rfe.tsv, by_reference/); unpack into data/, run this script, `git add -f` the .gz files.
 Style: the Tal main page's <style>, as for chiroptera.html."""
 import csv
 import html
@@ -18,11 +20,13 @@ from build_lineages import ROOT, tal_style
 
 OUT = os.path.join(ROOT, "chiroptera", "orth_rsi-rfe")
 RUNS = [("rsi-rfe", "bwa, 300 bp, one flank (baseline)"),
-        ("rsi-rfe_bwa300both", "bwa, 300 bp, both flanks"),
         ("rsi-rfe_bwa300both_v2", "bwa, 300 bp, both flanks, junction from the annotated copy (41ccc90)"),
         ("rsi-rfe_bwa500", "bwa, 500 bp, one flank"),
         ("rsi-rfe_bwa500both", "bwa, 500 bp, both flanks"),
-        ("rsi-rfe_mm2k11_500both", "minimap2 -x sr -k 11 -w 3, 500 bp, both flanks")]
+        ("rsi-rfe_mm2k11_500both", "minimap2 -x sr -k 11 -w 3, 500 bp, both flanks"),
+        ("rsi-rfe_mm2full_300both", "minimap2 -x sr -k 11 -w 3 -p 0.5 -N 50, 300 bp, both flanks (23318eb)"),
+        ("rsi-rfe_mm2adapt2_300both", "minimap2 as above + adaptive flank extension 600/1000 bp stopping at neighbouring copies (0189cd2): the current run"),
+        ("rsi-rfe_bwaadapt2_300both", "bwa, 300 bp, both flanks + the same adaptive extension (control)")]
 CATS = [("disagree", "a run's row differs from the copy +-10 kb alignment check"),
         ("partner", "runs pair the locus with different loci in the other genome"),
         ("status", "runs give different calls (SINE / PM / MP)")] + \
@@ -54,6 +58,7 @@ def results_section():
     # by_reference/<dir>/aln_rsi-rfe_<status>.aln.gz from orth_split.py: the alignments behind the SINE / PM / MP counts
     idx = list(csv.DictReader(open(os.path.join(OUT, "data", "by_reference", "index.tsv"), encoding="utf8"), delimiter="	"))
     dir_of = {i["reference"]: i["dir"] for i in idx}
+    n_aln = sum(int(i["alignments"]) for i in idx)
     status_of = {"SINE": "SINE", "PM_rsi_only": "PM", "MP_rfe_only": "MP"}
 
     def view(dirs, status, title):
@@ -111,7 +116,7 @@ def results_section():
   E1&ndash;E4, HE1 are the elements of nested loci (sine_nest naming), without identities.
   The links open the SINE loci browser on that subfamily's alignments of that status (data/by_reference/ from orth_split.py; nested-locus rows and superseded flank rows have no alignment there);
   inside it the subfamily list, the SINE / PM / MP / rejected chips and the name box narrow further, or
-  <a href="{html.escape(view(sorted(set(dir_of.values())), "SINE", "rsi-rfe all") + "&bundle=" + "&bundle=".join(f"data/by_reference/{d}/aln_rsi-rfe_{t}.aln.gz" for t in ("PM", "MP") for d in sorted(set(dir_of.values()))))}" target="_blank">open all 53,193 alignments at once</a> (30 MB).</p>
+  <a href="{html.escape(view(sorted(set(dir_of.values())), "SINE", "rsi-rfe all") + "&bundle=" + "&bundle=".join(f"data/by_reference/{d}/aln_rsi-rfe_{t}.aln.gz" for t in ("PM", "MP") for d in sorted(set(dir_of.values()))))}" target="_blank">open all {n_aln:,} alignments at once</a> (30 MB).</p>
   </details>
   <p style="margin:8px 0 0;"><a class="btn secondary" href="data/summary_rsi-rfe.tsv">summary_rsi-rfe.tsv (all {len(rows) - 1} references)</a></p>
 </section>
@@ -146,7 +151,7 @@ def main():
 </head><body>
 <header>
   <h1>Orthologous SINE loci &mdash; <i>R. sinicus</i> (rsi) vs <i>R. ferrumequinum</i> (rfe)</h1>
-  <div class="sub">SINE_orth_loc in bank mode (SINEderella loci, bank21_nor1), five flank settings compared, 2026-10-28/29, plus the best one rerun with the insertion-junction fix.
+  <div class="sub">SINE_orth_loc in bank mode (SINEderella loci, bank21_nor1), eight mapper / flank settings compared, 2026-10-28 to 30; the results below are the current run (minimap2, 300 bp, both flanks, adaptive flank extension).
   <a href="../../chiroptera.html" style="color:#fff;">&larr; Chiroptera page</a></div>
 </header>
 <main>
