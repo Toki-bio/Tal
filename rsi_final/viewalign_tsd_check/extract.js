@@ -1,7 +1,7 @@
 // pulls the TSD finder functions out of script.js into a module, unchanged
 const fs = require('fs');
 const src = fs.readFileSync(process.argv[2] || 'C:/work/MSA-viewer-new/script.js', 'utf8').replace(/\r\n/g, '\n');
-const names = ['_maxOf','_tsdBase','_collectUngappedBasesWithColumns','_residueNumbers','_tsdFlanks','_sliceCollectedWindow','_tsdMismatchCount','_tsdGapFraction','_isTsdReferenceRow','_largestNonGapBlockBounds','_pickTsdReferenceSeq','_seqsForTsdBoundaryScoring','_boundaryFromReferenceSeq','_columnConservationScores','_windowMean','_findSineBoundaryColumns','_findBestTsdInFlanks','_findBestTsdWide','_findTSD'];
+const names = ['_maxOf','_tsdBase','_collectUngappedBasesWithColumns','_residueNumbers','_tsdFlanks','_sliceCollectedWindow','_tsdMismatchCount','_tsdGapFraction','_isTsdReferenceRow','_largestNonGapBlockBounds','_pickTsdReferenceSeq','_seqsForTsdBoundaryScoring','_boundaryFromReferenceSeq','_columnConservationScores','_windowMean','_findSineBoundaryColumns','_tsdTrimPair','_findBestTsdInFlanks','_findBestTsdWide','_findTSD'];
 let out = '';
 for (const n of names) {
   const i = src.indexOf('\nfunction ' + n + '(') + 1;
