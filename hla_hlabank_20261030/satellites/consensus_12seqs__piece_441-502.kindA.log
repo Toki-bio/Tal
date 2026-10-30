@@ -1,0 +1,3 @@
+gen-pieces.part_consensus_12seqs__piece_441-502.rawhits: 178035 hits -> 142270 windows (331.9 Mb)
+gen-pieces.part_consensus_12seqs__piece_441-502.rawhits: 202 TRF loci (period >= 55, copies >= 4)
+gen-pieces.part_consensus_12seqs__piece_441-502.rawhits: 1 SINE-derived tandem loci, 4 monomers; period mode [(56, 1)]; consensus part mode [((0, 40), 1)]

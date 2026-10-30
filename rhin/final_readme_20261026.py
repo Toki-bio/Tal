@@ -36,12 +36,15 @@ stages = open(os.path.join(d, "pipeline_stages.txt"), encoding="utf-8").read().s
 out = []
 w = out.append
 w("# %s\n" % os.path.basename(d))
-w("%s Bank: the *Rhinolophus sinicus* bank without r1_9seqs (21 consensuses: r2-r10, r10_r8_P18del, seven composites, four "
-  "MEG SINEs; therioserver `/home/toki/rhin/final_bank_20261026/bank21_nor1.fa`), families Rhin and MEG (`families.tsv`). "
-  "SINEderella main a9d2a51 (2026-10-26): composite stretches of >= 50 bp searched as queries of their own in step 1; "
-  "partial copies labelled and grouped into stretches in the family roll-up (stretch tables regrouped with main 9d484fa); "
-  "flank scan stages 1-7 and the report rebuild as for rsi_main_20261022.\n" % species)
-w("- Server: therioserver `/home/toki/rhin/%s/` (`../final_bank_20261026/launch_final.sh`, `pack_final.sh`)." % os.path.basename(d))
+if len(sys.argv) > 4:   # optional: markdown file describing the bank, code and server paths of this run
+    w("%s %s\n" % (species, open(sys.argv[4], encoding="utf-8").read().strip()))
+else:
+    w("%s Bank: the *Rhinolophus sinicus* bank without r1_9seqs (21 consensuses: r2-r10, r10_r8_P18del, seven composites, four "
+      "MEG SINEs; therioserver `/home/toki/rhin/final_bank_20261026/bank21_nor1.fa`), families Rhin and MEG (`families.tsv`). "
+      "SINEderella main a9d2a51 (2026-10-26): composite stretches of >= 50 bp searched as queries of their own in step 1; "
+      "partial copies labelled and grouped into stretches in the family roll-up (stretch tables regrouped with main 9d484fa); "
+      "flank scan stages 1-7 and the report rebuild as for rsi_main_20261022.\n" % species)
+    w("- Server: therioserver `/home/toki/rhin/%s/` (`../final_bank_20261026/launch_final.sh`, `pack_final.sh`)." % os.path.basename(d))
 if stages:
     w("- Run: %s; %s." % (stages[0].lstrip("= ").split(" code")[0], stages[-1].lstrip("= ")))
 w("")
@@ -75,7 +78,11 @@ w("\n## Contents\n| Path | What |\n|---|---|")
 w("| `report.html` | full report |\n| `loci_verdict.tsv.gz`, `flank_verdict.tsv` | per-copy and per-subfamily verdicts |")
 w("| `family_view/` | family roll-up per copy, partial copies, stretches, the composite stretches searched in step 1 |")
 w("| `alignments/` | plates (SINE loci, topped up with grey copies marked [grey]) |")
-w("| `alignments/<sp>_all_copies_subfam30k.aln.fa` | step 1 SubFam: 600 chunk consensuses of 30,000 random copies of all subfamilies, aligned with the 21 bank consensuses |")
+w("| `alignments/<sp>_all_copies_subfam30k.aln.fa` | step 1 SubFam: 600 chunk consensuses of 30,000 random copies of all subfamilies, aligned with the bank consensuses |")
+if os.path.isdir(os.path.join(d, "end_extension")):
+    w("| `end_extension/` | step 1 end extension: per group and side (`ends_extension.tsv`), every moved locus (`loci_extended.tsv`) |")
+if os.path.isdir(os.path.join(d, "compare_to_hla_rsibank")):
+    w("| `compare_to_hla_rsibank/` | per-copy cross-tab against hla_rsibank_20261026 (`crosstab.tsv`, `by_new.tsv`, `by_old.tsv`, `crosstab.sh`) |")
 w("| `continuation/`, `flankscan/` | continuation check; flank scan stages 1-7 |")
 w("| `assignment_stats.tsv`, `summary.by_subfam.tsv` | per-consensus numbers |")
 w("| `flank_twins.tsv`, `array_flag.tsv`, `satellites/` | flank twins, tandem-array share, satellite screen |")

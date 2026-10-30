@@ -1,0 +1,3 @@
+gen-consensuses.clean.part_consensus_29seqs.rawhits: 272999 hits -> 183533 windows (525.8 Mb)
+gen-consensuses.clean.part_consensus_29seqs.rawhits: 330 TRF loci (period >= 55, copies >= 4)
+gen-consensuses.clean.part_consensus_29seqs.rawhits: 36 SINE-derived tandem loci, 353 monomers; period mode [(161, 8), (160, 6), (163, 5)]; consensus part mode [((0, 130), 19), ((0, 140), 7)]

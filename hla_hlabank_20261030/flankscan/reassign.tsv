@@ -1,0 +1,19 @@
+name	peak_elements	now_main	full	pct_full	verdict	from_full	from_part
+consensus_386seqs__r1_r2_r3_r3_C11_P1	29756	3	0	0.0	check	-	consensus_386seqs 42
+consensus_10seqs_noterm__r1_r2_r3_r3_C11_P24	4855	805	0	0.0	check	-	r5_r5_P48 3, r5_r6_long_hla 1, consensus_29seqs 24, r1_r2_r3_r3_C11 1, consensus_10seqs_b 173, consensus_10seqs_noterm 1406, r5_r6_short_hla 1, consensus_12seqs 19, consensus_386seqs 1
+r1_r2_r3_r3_C11__consensus_386seqs_P17	620	0	0	0.0	check	-	consensus_386seqs 47, consensus_10seqs_b 1
+consensus_47seqs__consensus_386seqs_P5	558	513	0	0.0	check	-	consensus_29seqs 1, consensus_386seqs 1408, consensus_12seqs 2, r8_hla 11, consensus_28seqs 31, consensus_10seqs_b 1, r5_r6_long_hla 3, consensus_47seqs 220
+r8_hla__r1_r2_r3_r3_C11_P30	376	59	0	0.0	check	-	r8_hla 1796
+consensus_47seqs__consensus_12seqs_P42	216	90	9	4.2	check	consensus_47seqs 152	consensus_47seqs 18449, r8_hla 4, r5_r6_long_hla 1
+r5_r5_P48__r8_hla_P57	514	123	43	8.4	check	r5_r6_short_hla 1, r8_hla 757	r8_hla 2221
+r5_r6_long_hla__r5_r6_long_hla_P58	224	124	25	11.2	check	r5_r6_long_hla 34	r5_r6_long_hla 259, r5_r6_short_hla 81
+r1_r2_r3_r3_C11__consensus_29seqs_P4	106	43	0	0.0	check	consensus_29seqs 1	r5_r6_long_hla 3, r5_r6_short_hla 1, consensus_10seqs_b 13, consensus_29seqs 4769, r1_r2_r3_r3_C11 2, consensus_10seqs_noterm 6, consensus_12seqs 12, r5_r5_P48 1
+r1_r3_P1__r5_r6_short_hla_P39	95	67	58	61.1	check	r5_r6_short_hla 59	consensus_47seqs 1, r5_r6_long_hla 1, r1_r3_P1 1, r5_r6_short_hla 106, r5_r5_P48 14, r8_hla 54
+consensus_386seqs__r8_hla_P25	54	53	51	94.4	accept	r8_hla 122, consensus_386seqs 270, consensus_29seqs 1, r5_r6_long_hla 1, r5_r6_short_hla 12	consensus_28seqs 16, consensus_386seqs 1263, r8_hla 2963, consensus_47seqs 57, consensus_10seqs_noterm 12, r5_r5_P48 7, consensus_29seqs 68, r5_r6_long_hla 31, consensus_10seqs_b 10, consensus_12seqs 10, r5_r6_short_hla 20
+r8_hla__r5_r6_short_hla_P62	135	93	93	68.9	check	r5_r6_short_hla 195, r5_r5_P48 5, r8_hla 130	r5_r6_short_hla 4, r8_hla 23
+r1_r2_r3_r3_C11__consensus_386seqs_P18	137	89	0	0.0	check	-	r5_r6_long_hla 1, r5_r6_short_hla 1, consensus_10seqs_noterm 1, consensus_12seqs 2, consensus_386seqs 84116, r8_hla 1
+consensus_28seqs__consensus_12seqs_P46	60	58	10	16.7	check	consensus_28seqs 112, consensus_47seqs 41	r8_hla 5, consensus_28seqs 11205, r5_r5_P48 2, consensus_47seqs 992
+consensus_47seqs__consensus_10seqs_b_P16	56	32	3	5.4	check	consensus_47seqs 162	consensus_28seqs 4, r8_hla 3, r5_r5_P48 1, consensus_47seqs 20983
+r5_r6_long_hla__r8_hla_P48	53	9	4	7.5	check	r8_hla 131	r5_r6_long_hla 1, r8_hla 1502
+chain_C1	67	66	66	98.5	accept	consensus_28seqs 3, consensus_47seqs 7, consensus_10seqs_noterm 34, consensus_10seqs_b 10, r5_r6_long_hla 1, consensus_29seqs 9, consensus_386seqs 595, consensus_12seqs 26	consensus_28seqs 82, consensus_10seqs_b 4, consensus_10seqs_noterm 8, consensus_47seqs 209, r5_r6_long_hla 6, consensus_29seqs 16, consensus_386seqs 825, consensus_12seqs 13
+chain_C5	25	25	0	0.0	check	-	consensus_386seqs 51142, consensus_12seqs 6, consensus_10seqs_b 12, r8_hla 6, consensus_47seqs 45, r5_r6_long_hla 35, consensus_10seqs_noterm 13, consensus_28seqs 12, r5_r5_P48 18, consensus_29seqs 110, r5_r6_short_hla 10

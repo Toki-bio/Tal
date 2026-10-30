@@ -1,0 +1,23 @@
+r10_r8_P18	140029	consensus_386seqs 138267, NO_NEW 850, unassigned 784
+unassigned	42311	consensus_47seqs 18764, consensus_28seqs 7983, unassigned 5608
+NO_OLD	31765	consensus_47seqs 22931, unassigned 4429, consensus_28seqs 3473
+r5_r6_P26	14868	consensus_29seqs 9542, r5_r6_long_hla 3107, r1_r3_P1_hla020 515
+r8_83seqs	11625	r8_hla 10986, consensus_386seqs 196, r5_r6_short_hla 153
+r1_r2_r3_r3_C11	9727	consensus_10seqs_noterm 3508, consensus_10seqs_b 2665, consensus_12seqs 2620
+r9_15seqs	5130	r9_ext 4178, r9_15seqs 796, unassigned 85
+r6_210seqs	2938	r5_r6_short_hla 2060, r5_r6_long_hla 511, unassigned 167
+r1_r3_P1	1834	consensus_12seqs 936, r1_r3_P1_hla020 652, consensus_10seqs_b 146
+r10_r8_P18del	1423	unassigned 895, consensus_386seqs 390, r10_r8_P18del 115
+r10_19seqs	893	unassigned 599, consensus_386seqs 158, NO_NEW 109
+r5_r5_P48	796	r5_r5_P48 333, r5_r5_P48_hla007 238, unassigned 75
+r7_133seqs	514	r8_hla 374, r7_133seqs 59, unassigned 55
+r5_27seqs	470	unassigned 226, r5_27seqs 140, NO_NEW 40
+MEG-RL	418	MEG-RL 412, unassigned 5, NO_NEW 1
+r1_r3_P2	102	consensus_29seqs 39, r5_r6_long_hla 25, unassigned 24
+MEG-T2	85	MEG-T2 79, NO_NEW 6
+r5_r3_P34	46	consensus_29seqs 13, unassigned 11, consensus_386seqs 7
+MEG-RS	44	MEG-RS 40, unassigned 4
+r3_58seqs	27	r3_58seqs 13, unassigned 11, NO_NEW 3
+r2_3seqs	25	unassigned 16, NO_NEW 3, consensus_47seqs 2
+MEG-TR	15	MEG-TR 13, NO_NEW 1, unassigned 1
+r4_32seqs	5	r4_32seqs 5

@@ -1,0 +1,32 @@
+consensus_386seqs	143098	r10_r8_P18 138267, unassigned 3225, NO_OLD 657
+consensus_47seqs	41736	NO_OLD 22931, unassigned 18764, r9_15seqs 15
+unassigned	14054	unassigned 5608, NO_OLD 4429, r10_r8_P18del 895
+r8_hla	12107	r8_83seqs 10986, unassigned 637, r7_133seqs 374
+consensus_28seqs	11504	unassigned 7983, NO_OLD 3473, r5_27seqs 36
+consensus_29seqs	10748	r5_r6_P26 9542, unassigned 774, r1_r2_r3_r3_C11 270
+consensus_12seqs	4724	r1_r2_r3_r3_C11 2620, unassigned 1058, r1_r3_P1 936
+consensus_10seqs_noterm	4437	r1_r2_r3_r3_C11 3508, unassigned 727, r5_r6_P26 72
+r9_ext	4221	r9_15seqs 4178, NO_OLD 18, r8_83seqs 10
+r5_r6_long_hla	3779	r5_r6_P26 3107, r6_210seqs 511, r5_r5_P48 60
+NO_NEW	3533	unassigned 2181, r10_r8_P18 850, r10_19seqs 109
+consensus_10seqs_b	3297	r1_r2_r3_r3_C11 2665, unassigned 296, r5_r6_P26 160
+r5_r6_short_hla	2848	r6_210seqs 2060, unassigned 388, r5_r6_P26 204
+r1_r3_P1_hla020	1505	r1_r3_P1 652, r5_r6_P26 515, unassigned 217
+r9_15seqs	814	r9_15seqs 796, NO_OLD 17, unassigned 1
+r5_r5_P48_hla007	574	r5_r5_P48 238, unassigned 205, r6_210seqs 72
+r5_r5_P48	518	r5_r5_P48 333, r5_r6_P26 88, unassigned 75
+r5_r3_P34	510	r5_r6_P26 504, NO_OLD 5, unassigned 1
+MEG-RL	451	MEG-RL 412, unassigned 39
+r5_27seqs	185	r5_27seqs 140, unassigned 25, r8_83seqs 16
+r10_r8_P18del	144	r10_r8_P18del 115, r10_r8_P18 18, unassigned 10
+MEG-T2	79	MEG-T2 79
+r7_133seqs	67	r7_133seqs 59, unassigned 7, r8_83seqs 1
+MEG-RS	40	MEG-RS 40
+r10_19seqs	36	r10_19seqs 22, r10_r8_P18 8, NO_OLD 5
+r1_r2_r3_r3_C11	14	r1_r2_r3_r3_C11 6, r5_r6_P26 5, NO_OLD 1
+r1_r3_P2	14	unassigned 10, NO_OLD 4
+r2_3seqs	14	unassigned 7, NO_OLD 5, r2_3seqs 2
+MEG-TR	13	MEG-TR 13
+r3_58seqs	13	r3_58seqs 13
+r1_r3_P1	8	unassigned 4, r5_r6_P26 3, NO_OLD 1
+r4_32seqs	5	r4_32seqs 5

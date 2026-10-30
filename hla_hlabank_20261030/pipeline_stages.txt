@@ -1,0 +1,7 @@
+== start 2026-10-29 22:04:42 hla code bf2480a bank /home/toki/rhin/hla_bank_20261030/bank30_hla.fa genome /home/toki/chiro/genomes/hla.fna
+==========================================
+==========================================
+== SINEderella rc=0 2026-10-30 02:04:22
+== flankscan 1-7 2026-10-30 02:04:22
+== report rebuild through publish_run 2026-10-30 03:18:47
+== done 2026-10-30 03:23:49

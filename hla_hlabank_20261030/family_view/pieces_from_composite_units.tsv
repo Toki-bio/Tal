@@ -1,0 +1,74 @@
+consensus	kind	start	end	unit	identity	alternatives
+MEG-RL	unit	1	207	MEG-RL	100.0	-
+MEG-RS	unit	1	135	MEG-RS	100.0	-
+MEG-T2	unit	1	232	MEG-T2	100.0	-
+MEG-TR	unit	1	196	MEG-TR	100.0	-
+consensus_10seqs_b	composite	1	152	consensus_28seqs	98.5	consensus_47seqs 96.1, r5_27seqs 93.3
+consensus_10seqs_b	composite	153	443	r5_r6_short_hla	91.7	r3_58seqs 90.5, r2_3seqs 84.2
+consensus_10seqs_b	composite	444	508	r5_27seqs	86.4	consensus_386seqs 85.2
+consensus_10seqs_noterm	composite	1	153	consensus_28seqs	95.5	consensus_47seqs 93.8, r5_27seqs 93.3
+consensus_10seqs_noterm	composite	154	254	r5_r6_short_hla	86.2	r2_3seqs 83.5, r8_hla 79.0
+consensus_10seqs_noterm	composite	255	414	r5_r6_short_hla	87.5	r3_58seqs 84.0, r7_133seqs 82.2
+consensus_10seqs_noterm	composite	415	510	consensus_386seqs	90.4	r5_27seqs 81.6
+consensus_12seqs	composite	1	153	consensus_28seqs	94.8	r5_27seqs 93.3, consensus_47seqs 93.0
+consensus_12seqs	composite	154	178	r5_r6_short_hla	86.0	r3_58seqs 76.8, consensus_386seqs 75.7
+consensus_12seqs	composite	179	240	r2_3seqs	88.5	r5_r6_short_hla 86.0, r4_32seqs 77.6
+consensus_12seqs	composite	241	440	r5_r6_short_hla	86.7	r3_58seqs 83.3, r7_133seqs 82.9
+consensus_12seqs	composite	441	502	r5_27seqs	84.4	consensus_386seqs 75.7
+consensus_28seqs	unit	1	134	consensus_28seqs	100.0	-
+consensus_29seqs	composite	1	140	consensus_28seqs	99.2	consensus_47seqs 97.4, r5_27seqs 94.4
+consensus_29seqs	composite	141	296	r5_r6_short_hla	92.5	r2_3seqs 86.1, r4_32seqs 81.6
+consensus_29seqs	composite	297	345	r3_58seqs	98.0	r5_r6_short_hla 92.5, r7_133seqs 82.1
+consensus_29seqs	composite	346	410	r5_27seqs	79.8	-
+consensus_386seqs	unit	1	438	consensus_386seqs	100.0	-
+consensus_47seqs	unit	1	128	consensus_47seqs	100.0	-
+r10_19seqs	unit	1	146	r10_19seqs	100.0	-
+r10_r8_P18del	unit	1	255	r10_r8_P18del	100.0	-
+r1_r2_r3_r3_C11	composite	1	80	r10_r8_P18del	91.9	r10_19seqs 91.4, r5_27seqs 82.0
+r1_r2_r3_r3_C11	composite	81	338	r2_3seqs	99.3	r4_32seqs 89.5, r5_r6_short_hla 87.9
+r1_r2_r3_r3_C11	composite	339	471	r4_32seqs	97.1	r3_58seqs 92.1, r2_3seqs 86.1
+r1_r2_r3_r3_C11	composite	472	589	r3_58seqs	90.8	r5_r6_short_hla 84.2, r5_27seqs 81.6
+r1_r2_r3_r3_C11	composite	590	608	-	-	-
+r1_r3_P1	composite	1	80	r10_r8_P18del	90.7	r10_19seqs 90.1, consensus_28seqs 84.3
+r1_r3_P1	composite	81	200	r2_3seqs	94.3	r4_32seqs 86.2, r3_58seqs 85.4
+r1_r3_P1	composite	201	405	r3_58seqs	99.5	r4_32seqs 97.8, r5_r6_short_hla 90.0
+r1_r3_P1	composite	406	429	r5_27seqs	86.3	-
+r1_r3_P1	composite	430	448	-	-	-
+r1_r3_P1_hla020	composite	1	114	consensus_28seqs	99.0	consensus_47seqs 97.8, r5_27seqs 94.4
+r1_r3_P1_hla020	composite	115	231	r5_r6_short_hla	89.7	r2_3seqs 86.2, r9_ext 82.5
+r1_r3_P1_hla020	composite	232	245	r2_3seqs	86.2	consensus_47seqs 84.3, r7_133seqs 80.0
+r1_r3_P1_hla020	composite	246	360	r5_r6_short_hla	96.3	r3_58seqs 90.1, r4_32seqs 89.0
+r1_r3_P1_hla020	composite	361	454	r8_hla	97.5	r7_133seqs 97.3, r5_27seqs 96.5
+r1_r3_P1_hla020	composite	455	512	-	-	-
+r1_r3_P2	composite	1	70	consensus_28seqs	84.3	r10_19seqs 82.7, r5_27seqs 80.7
+r1_r3_P2	composite	71	85	r5_r6_short_hla	83.3	r10_19seqs 82.7, r5_27seqs 80.7
+r1_r3_P2	composite	86	262	r3_58seqs	98.8	r4_32seqs 96.4, r8_hla 90.7
+r1_r3_P2	composite	263	294	r5_27seqs	89.9	-
+r1_r3_P2	composite	295	304	-	-	-
+r2_3seqs	unit	1	146	r2_3seqs	100.0	-
+r3_58seqs	unit	1	201	r3_58seqs	100.0	-
+r4_32seqs	unit	1	144	r4_32seqs	100.0	-
+r5_27seqs	unit	1	178	r5_27seqs	100.0	-
+r5_r3_P34	composite	1	89	consensus_47seqs	90.8	consensus_28seqs 89.0, r5_r6_short_hla 86.1
+r5_r3_P34	composite	90	108	r5_r6_short_hla	86.1	r5_27seqs 85.4, r7_133seqs 80.0
+r5_r3_P34	composite	109	140	r5_27seqs	85.4	r7_133seqs 80.0, r2_3seqs 78.6
+r5_r3_P34	composite	141	343	r3_58seqs	99.0	r4_32seqs 96.3, r5_r6_short_hla 90.9
+r5_r3_P34	composite	344	370	r5_27seqs	82.4	-
+r5_r5_P48	composite	1	136	r5_27seqs	96.8	consensus_47seqs 91.9, consensus_28seqs 91.5
+r5_r5_P48	composite	137	308	r5_27seqs	95.9	r7_133seqs 92.5, r5_r6_short_hla 90.8
+r5_r5_P48_hla007	composite	1	140	consensus_28seqs	99.2	consensus_47seqs 97.4, r5_27seqs 94.4
+r5_r5_P48_hla007	composite	141	215	r3_58seqs	86.2	r7_133seqs 85.0, r4_32seqs 84.4
+r5_r5_P48_hla007	composite	216	245	r7_133seqs	85.0	r8_hla 82.5, r2_3seqs 82.5
+r5_r5_P48_hla007	composite	246	267	r5_r6_short_hla	81.2	r5_27seqs 80.2, r9_ext 76.7
+r5_r5_P48_hla007	composite	268	305	r5_27seqs	80.2	-
+r5_r5_P48_hla007	composite	306	323	-	-	-
+r5_r6_long_hla	composite	1	1	consensus_28seqs	95.8	consensus_47seqs 93.9, r5_r6_short_hla 90.0
+r5_r6_long_hla	composite	2	91	r5_27seqs	96.6	consensus_28seqs 95.8, consensus_47seqs 93.9
+r5_r6_long_hla	composite	92	117	consensus_28seqs	95.8	consensus_47seqs 93.9
+r5_r6_long_hla	composite	118	345	r5_r6_short_hla	96.7	r4_32seqs 90.4, r3_58seqs 89.7
+r5_r6_long_hla	composite	346	393	-	-	-
+r5_r6_short_hla	unit	1	227	r5_r6_short_hla	100.0	-
+r7_133seqs	unit	1	154	r7_133seqs	100.0	-
+r8_hla	unit	1	174	r8_hla	100.0	-
+r9_15seqs	unit	1	105	r9_15seqs	100.0	-
+r9_ext	unit	1	178	r9_ext	100.0	-

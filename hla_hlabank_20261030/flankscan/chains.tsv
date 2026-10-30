@@ -1,0 +1,6 @@
+name	parent	peak	side5_unit	s5_qs	s5_qe	s5_gap	side3_unit	s3_qs	s3_qe	s3_gap	copies
+chain_C1	consensus_28seqs__consensus_386seqs_P6	C1	-	-	-	-	consensus_28seqs	43	134	0	52
+chain_C2	consensus_386seqs__consensus_28seqs_P9	C2	consensus_28seqs	1	53	0	-	-	-	-	32
+chain_C3	consensus_10seqs_noterm__consensus_10seqs_b_P32	C3	-	-	-	-	consensus_10seqs_noterm	305	455	0	49
+chain_C4	r1_r2_r3_r3_C11__consensus_386seqs_P19	C4	consensus_386seqs	124	373	0	-	-	-	-	45
+chain_C5	chain_C4	C5	consensus_386seqs	1	124	0	-	-	-	-	34

@@ -1,0 +1,2 @@
+contig	start	end	period	copies	pmatch	score	aln_len	pct_id	cons_start	cons_end	span_ok
+CM063094.1	84145682	84146306	125	5.0	99	1229	49	61.2	13	61	yes
