@@ -99,6 +99,49 @@ consensus_47seqs (128 bp) and consensus_28seqs (134 bp) are the head of the long
 
 Plate: `shortie_check/hla_shorties_flank150.aln.fa`: the 5 consensuses and 100 random SINE copies of each shortie with 150 bp genome flanks (copy upper case, flanks lower case, element orientation), mafft localpair; script `shortie_plate.sh`.
 
+## Heads against tRNA genes (`trna_plates/`)
+
+One plate per consensus: the consensus against its best-scoring human tRNA gene (GtRNAdb hg19), aligned by the same ssearch36
+that scored it in the workflow's tRNA step (SINEderella `tools/trna_heads.sh` + `tools/trna_plates.py`). Aligned part in upper case,
+the rest in lower case. "Shuffles" = best score of 20 dinucleotide shuffles of the consensus. Open them from the picker on the
+chiroptera page.
+
+| consensus | best tRNA gene | identity | aligned | consensus span | bits | shuffles max |
+|---|---|---|---|---|---|---|
+| MEG-RL | tRNA-Arg-TCT-1-1 | 62.5 % | 40 nt | 86-125 | 20.4 | 24.9 |
+| MEG-RS | tRNA-Arg-TCT-1-1 | 62.5 % | 40 nt | 86-125 | 19.7 | 25.3 |
+| MEG-T2 | tRNA-Val-TAC-1-1 | 94.5 % | 74 nt | 6-79 | 80.3 | 24.3 |
+| MEG-TR | tRNA-Val-TAC-1-1 | 94.5 % | 55 nt | 1-55 | 62.5 | 25.7 |
+| consensus_10seqs_b | tRNA-Ile-GAT-1-2 | 76.1 % | 71 nt | 255-321 | 39.9 | 27.0 |
+| consensus_10seqs_noterm | tRNA-Ile-GAT-1-2 | 77.6 % | 69 nt | 255-321 | 43.0 | 24.8 |
+| consensus_12seqs | tRNA-Ile-GAT-1-2 | 78.3 % | 71 nt | 239-307 | 46.9 | 26.1 |
+| consensus_28seqs | tRNA-Ile-GAT-1-2 | 78.6 % | 82 nt | 6-87 | 34.1 | 24.2 |
+| consensus_29seqs | tRNA-Ile-GAT-1-2 | 78.6 % | 71 nt | 124-193 | 50.5 | 25.2 |
+| consensus_386seqs | tRNA-Pro-AGG-1-1 | 77.8 % | 62 nt | 14-67 | 32.0 | 24.6 |
+| consensus_47seqs | tRNA-Lys-TTT-5-1 | 72.2 % | 79 nt | 6-84 | 28.9 | 23.0 |
+| r10_19seqs | tRNA-Ile-AAT-5-3 | 79.7 % | 74 nt | 1-74 | 62.8 | 24.3 |
+| r10_r8_P18del | tRNA-Ile-AAT-5-3 | 79.7 % | 74 nt | 6-79 | 60.7 | 26.1 |
+| r1_r2_r3_r3_C11 | tRNA-Ile-AAT-8-1 | 75.7 % | 75 nt | 6-80 | 50.8 | 25.4 |
+| r1_r3_P1 | tRNA-Ile-AAT-8-1 | 74.3 % | 75 nt | 6-80 | 48.7 | 27.9 |
+| r1_r3_P1_hla020 | tRNA-Ile-AAT-5-3 | 76.7 % | 75 nt | 6-79 | 49.0 | 28.5 |
+| r1_r3_P2 | tRNA-Ile-AAT-8-1 | 74.3 % | 75 nt | 6-80 | 49.4 | 27.7 |
+| r2_3seqs | tRNA-Ile-AAT-2-1 | 74.2 % | 67 nt | 1-66 | 45.9 | 26.8 |
+| r3_58seqs | tRNA-Ile-AAT-5-3 | 74.6 % | 68 nt | 1-67 | 46.1 | 26.5 |
+| r4_32seqs | tRNA-Ile-AAT-2-1 | 75.8 % | 67 nt | 1-66 | 47.6 | 22.6 |
+| r5_27seqs | tRNA-Ile-AAT-5-3 | 78.1 % | 74 nt | 5-77 | 54.6 | 27.5 |
+| r5_r3_P34 | tRNA-Ile-AAT-5-3 | 75.7 % | 71 nt | 138-207 | 48.9 | 26.5 |
+| r5_r5_P48 | tRNA-Ile-AAT-5-3 | 78.1 % | 74 nt | 5-77 | 55.0 | 25.5 |
+| r5_r5_P48_hla007 | tRNA-Ile-GAT-1-2 | 78.6 % | 71 nt | 124-193 | 51.4 | 24.1 |
+| r5_r6_long_hla | tRNA-Ile-GAT-1-2 | 81.2 % | 71 nt | 122-190 | 53.7 | 25.1 |
+| r5_r6_short_hla | tRNA-Ile-AAT-5-3 | 81.4 % | 71 nt | 6-75 | 58.5 | 23.8 |
+| r7_133seqs | tRNA-Ile-AAT-5-3 | 86.5 % | 74 nt | 5-78 | 79.6 | 23.7 |
+| r8_hla | tRNA-Ile-AAT-5-3 | 87.8 % | 74 nt | 6-79 | 76.5 | 24.5 |
+| r9_15seqs | tRNA-Ile-AAT-5-3 | 93.2 % | 74 nt | 5-78 | 86.0 | 24.0 |
+| r9_ext | tRNA-Ile-AAT-5-3 | 90.5 % | 74 nt | 6-79 | 83.9 | 26.9 |
+
+MEG-RL and MEG-RS are 5S-derived (Rfam 5S_rRNA 1-119); their best tRNA hit is below the shuffles. consensus_386seqs: Pro-AGG
+32.0 bits against Ala-AGC 31.3, so its isotype is not resolved.
+
 ## Contents
 | Path | What |
 |---|---|
@@ -115,3 +158,4 @@ Plate: `shortie_check/hla_shorties_flank150.aln.fa`: the 5 consensuses and 100 r
 | `length_variants/`, `consensus_audit/` | length-version test; each consensus rebuilt from its copies |
 | `composite_units.tsv`, `consensus_blocks.tsv` | composites read as units; the bank as blocks |
 | `consensuses.clean.fa`, `manifest.txt`, `pipeline_stages.txt` | the bank; tool versions and command; stage times |
+| `trna_plates/` | each consensus against its best tRNA gene (ViewAlign plates) + `index.tsv` |
