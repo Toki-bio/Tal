@@ -1,0 +1,34 @@
+group	pieces	best unit (pieces)	median identity to best
+r10_19seqs@alone	50	r10_19seqs 50	90.0
+r10_r8_P18del@alone	50	r10_19seqs 35, P18_2nd 15	90.7
+r2_3seqs@alone	19	r2_3seqs 19	69.8
+r3_58seqs@alone	16	r3_58seqs 16	92.8
+r4_32seqs@alone	11	r4_32seqs 10, r3_58seqs 1	70.5
+r5_27seqs@alone	50	r5_27seqs 50	92.3
+r6_210seqs@alone	50	r6_210seqs 49, r5_27seqs 1	92.3
+r7_133seqs@alone	50	r7_133seqs 50	92.9
+r8_83seqs@alone	50	r8_83seqs 49, r10_19seqs 1	91.1
+r9_15seqs@alone	50	r9_15seqs 50	90.4
+r10_19seqs@r10_r8_P18:6-151	49	r10_19seqs 49	91.0
+unassigned@r10_r8_P18:152-289	48	r10_19seqs 30, none 8, r7_133seqs 5, r9_15seqs 3, r4_32seqs 2	83.8
+P18_2nd@r10_r8_P18:290-426	48	P18_2nd 48	90.3
+r10_r8_P18del@r1_r2_r3_r3_C11:1-80	42	r10_19seqs 42	88.4
+r2_3seqs@r1_r2_r3_r3_C11:81-338	49	r2_3seqs 48, r3_58seqs 1	94.2
+r4_32seqs@r1_r2_r3_r3_C11:339-471	50	r3_58seqs 48, r4_32seqs 2	95.1
+r3_58seqs@r1_r2_r3_r3_C11:472-589	46	r3_58seqs 43, r6_210seqs 2, r8_83seqs 1	90.1
+r10_r8_P18del@r1_r3_P1:1-80	47	r10_19seqs 47	87.8
+r2_3seqs@r1_r3_P1:81-200	50	r2_3seqs 49, r4_32seqs 1	92.2
+r3_58seqs@r1_r3_P1:201-401	50	r3_58seqs 50	93.8
+unassigned@r1_r3_P1:402-448	45	r5_27seqs 31, r8_83seqs 9, r6_210seqs 4, r3_58seqs 1	95.8
+r8_83seqs@r1_r3_P2:2-85	50	r10_19seqs 50	86.1
+r3_58seqs@r1_r3_P2:86-258	50	r3_58seqs 50	94.7
+r5_27seqs@r1_r3_P2:259-294	47	r5_27seqs 34, r8_83seqs 9, r6_210seqs 2, r9_15seqs 1, r3_58seqs 1	96.0
+r5_27seqs@r5_r3_P34:2-140	47	r5_27seqs 46, r8_83seqs 1	82.1
+r3_58seqs@r5_r3_P34:141-339	49	r3_58seqs 45, r6_210seqs 3, r8_83seqs 1	91.8
+r5_27seqs@r5_r3_P34:340-370	41	r5_27seqs 36, r3_58seqs 4, r4_32seqs 1	95.7
+r5_27seqs@r5_r5_P48:1-136	46	r5_27seqs 31, r8_83seqs 14, r6_210seqs 1	89.0
+r6_210seqs@r5_r5_P48:137-308	49	r8_83seqs 27, r5_27seqs 17, r6_210seqs 4, r7_133seqs 1	88.9
+r5_27seqs@r5_r6_P26:2-137	47	r5_27seqs 45, r8_83seqs 2	88.1
+r6_210seqs@r5_r6_P26:138-376	49	r6_210seqs 49	92.0
+r10_19seqs@r10_r8_P18del:1-151	48	r10_19seqs 48	89.4
+P18_2nd@r10_r8_P18del:152-255	48	P18_2nd 48	91.5
