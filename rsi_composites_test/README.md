@@ -1,5 +1,7 @@
 # rsi: unit vs declared composite, main vs branch coverage-tiebreak (2026-10-16)
 
+**Superseded 2026-11-01** by `r6_P26_20261101/` (current run, groups labelled, flanks packed at the junction, verdict proposed).
+
 Copies whose step-2 call differs between SINEderella main (296fa33) and branch `coverage-tiebreak` (6e8eacf: composite only if the copy covers >= half of the other module) with the
 declared composites table (`therioserver:/home/toki/rhin/rsi_tiebreak_20261016/rsi_composites_explicit.tsv`), on the same
 step-1 copies (`/home/toki/rhin/rsi_main_20261016/run_20261016_194647`). Up to 60 copies per file, evenly sampled.

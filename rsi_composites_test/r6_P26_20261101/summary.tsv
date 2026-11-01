@@ -1,0 +1,5 @@
+group	copies	flanks_unique	fs9_status	shown	P26_from_median	head_above_null	head_ge_50bp_above_null
+A	6243	4973	{'unique': 4973, 'masked': 1165, 'twin1': 105}	40	136	3	0
+B	1188	958	{'unique': 958, 'masked': 194, 'twin1': 31, 'not_tested': 5}	40	137	7	1
+C	497	358	{'unique': 358, 'masked': 134, 'twin1': 5}	40	2	31	31
+D	5165	3991	{'unique': 3991, 'masked': 1125, 'twin1': 49}	40	1	38	38
