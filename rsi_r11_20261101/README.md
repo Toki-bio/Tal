@@ -1,5 +1,7 @@
 # rsi_r11_20261101
 
+**Superseded (owner, 2026-11-01):** r11 is not a SINE. Its plates show no A box, a poor B box and a ragged 5' edge with good tails: standalone r11 copies are 5'-truncated copies of the second unit of r10_r8_P18. Without r11 in the bank the partial-copy rule reports them as such (in `rsi_main_20261026`, 411 of these 571 copies are partial copies; stretch Rhin_partial1, 284 copies, = r10_r8_P18 290-426).
+
 *Rhinolophus sinicus* (rsi), rerun with r11 added to the bank. Bank: `bank22_r11` = the rsi bank21_nor1 (as `rsi_main_20261026`) + `r11_4003seqs`, the second unit of r10_r8_P18 / r10_r8_P18del built from 4,003 copies cut at their junctions (`../rsi_main_20261026/unit_pieces_copies/`, section "r11"); families as bank21_nor1, r11 in Rhin. SINEderella main f19fcf1 (main a9d2a51 of the 2026-10-26 run + step 1 end extension + tRNA plates); flank scan stages 1-7 and the report rebuild as for the 2026-10-26 runs. therioserver `/home/toki/rhin/rsi_r11_20261101/` (bank and launcher `/home/toki/rhin/bank22_r11_20261101/`).
 
 - Run: start 2026-11-01 13:56:06 rsi; done 2026-11-01 17:31:50.
