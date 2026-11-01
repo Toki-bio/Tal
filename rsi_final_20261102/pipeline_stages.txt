@@ -1,0 +1,7 @@
+== start 2026-11-01 23:56:02 rsi code f2457a8 bank /home/toki/rhin/final_bank_20261026/bank21_nor1.fa genome /home/toki/rhin/genomes/rsi.fna
+==========================================
+==========================================
+== SINEderella rc=0 2026-11-02 01:27:50
+== flankscan 1-7 2026-11-02 01:27:50
+== report rebuild through publish_run 2026-11-02 01:45:26
+== done 2026-11-02 01:48:13

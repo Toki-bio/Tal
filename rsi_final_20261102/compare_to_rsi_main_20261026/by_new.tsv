@@ -1,0 +1,23 @@
+r1_r3_P1	14464	r1_r3_P1 14444, unassigned 20
+r6_210seqs	7442	r6_210seqs 5285, unassigned 2045, r5_r6_P26 112
+r1_r3_P2	6940	r1_r3_P2 6936, unassigned 4
+r9_15seqs	6937	r9_15seqs 6937
+r7_133seqs	6862	r7_133seqs 6859, unassigned 3
+r5_r6_P26	5677	r5_r6_P26 5584, unassigned 53, r6_210seqs 40
+r10_r8_P18	4308	r10_r8_P18 4069, r10_r8_P18del 183, unassigned 56
+unassigned	3883	unassigned 3513, r10_r8_P18del 151, r10_r8_P18 50
+r8_83seqs	3385	r8_83seqs 3382, unassigned 3
+r1_r2_r3_r3_C11	2866	r1_r2_r3_r3_C11 2862, unassigned 4
+r5_27seqs	1981	r5_27seqs 1873, unassigned 82, r5_r5_P48 26
+r5_r3_P34	1576	r5_r3_P34 1573, unassigned 3
+MEG-RS	729	MEG-RS 729
+r10_r8_P18del	505	r10_r8_P18del 391, unassigned 73, r10_r8_P18 41
+r5_r5_P48	464	r5_r5_P48 451, r5_27seqs 12, unassigned 1
+r10_19seqs	351	r10_19seqs 271, unassigned 42, r10_r8_P18 38
+MEG-T2	103	MEG-T2 102, NO_OLD 1
+r3_58seqs	40	r3_58seqs 22, unassigned 16, r1_r3_P1 2
+r2_3seqs	29	r2_3seqs 21, unassigned 8
+MEG-TR	18	MEG-TR 18
+r4_32seqs	12	r4_32seqs 11, unassigned 1
+NO_NEW	10	unassigned 4, MEG-T2 3, MEG-TR 2
+MEG-RL	8	MEG-RL 8
