@@ -81,8 +81,11 @@ w("| `alignments/` | plates (SINE loci, topped up with grey copies marked [grey]
 w("| `alignments/<sp>_all_copies_subfam30k.aln.fa` | step 1 SubFam: 600 chunk consensuses of 30,000 random copies of all subfamilies, aligned with the bank consensuses |")
 if os.path.isdir(os.path.join(d, "end_extension")):
     w("| `end_extension/` | step 1 end extension: per group and side (`ends_extension.tsv`), every moved locus (`loci_extended.tsv`) |")
-if os.path.isdir(os.path.join(d, "compare_to_hla_rsibank")):
-    w("| `compare_to_hla_rsibank/` | per-copy cross-tab against hla_rsibank_20261026 (`crosstab.tsv`, `by_new.tsv`, `by_old.tsv`, `crosstab.sh`) |")
+for cmp in sorted(x for x in os.listdir(d) if x.startswith("compare_to_") and os.path.isdir(os.path.join(d, x))):
+    ref = "hla_rsibank_20261026" if cmp == "compare_to_hla_rsibank" else cmp[len("compare_to_"):]
+    w("| `%s/` | per-copy cross-tab against %s (`crosstab.tsv`, `by_new.tsv`, `by_old.tsv`, `crosstab.sh`) |" % (cmp, ref))
+if os.path.isdir(os.path.join(d, "trna_plates")):
+    w("| `trna_plates/` | each consensus against its best tRNA gene (SINEderella `tools/trna_plates.py`; `index.html`, `index.tsv`) |")
 w("| `continuation/`, `flankscan/` | continuation check; flank scan stages 1-7 |")
 w("| `assignment_stats.tsv`, `summary.by_subfam.tsv` | per-consensus numbers |")
 w("| `flank_twins.tsv`, `array_flag.tsv`, `satellites/` | flank twins, tandem-array share, satellite screen |")

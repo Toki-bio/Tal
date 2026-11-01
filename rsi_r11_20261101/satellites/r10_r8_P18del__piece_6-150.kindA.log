@@ -1,0 +1,3 @@
+gen-pieces.part_r10_r8_P18del__piece_6-150.rawhits: 102347 hits -> 58138 windows (138.0 Mb)
+gen-pieces.part_r10_r8_P18del__piece_6-150.rawhits: 49 TRF loci (period >= 55, copies >= 4)
+gen-pieces.part_r10_r8_P18del__piece_6-150.rawhits: 6 SINE-derived tandem loci, 80 monomers; period mode [(140, 1), (59, 1), (136, 1)]; consensus part mode [((0, 130), 2), ((0, 140), 2)]

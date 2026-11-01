@@ -1,0 +1,11 @@
+VERDICT: UNLINKED_ENDS
+copies 987, 5'-complete 944, consensus 255 bp
+  mode at 148 (window 137-161)
+  mode at 252 (window 246-258), valley ratio to the previous mode 0.021 (334 copies between the peaks)
+  linkage: 0 diagnostic columns []; P(short allele | short mode) None, P(short allele | long mode) None, index 0.0
+  TSD (>=7 bp) mode 148: n=200 real 28.999999999999996 % shuffled 20.0 % excess 8.999999999999996
+  TSD (>=7 bp) mode 252: n=585 real 86.15384615384616 % shuffled 40.0 % excess 46.15384615384616
+  residual similarity past the short mode: {'median_real': 0.425, 'median_shuffled': 0.425, 'frac75_real': 0.005, 'frac75_shuffled': 0.005}
+  note: internal bases do not follow the length (index 0.00, 0 diagnostic columns)
+  note: TSD excess under 10 points in at least one mode
+(987 hits used, 0 with mixed strand skipped)
