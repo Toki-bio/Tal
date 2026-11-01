@@ -6,13 +6,16 @@ the SINE_orth_loc repo, which loads bundles named in its address).
 Data (copied beside the page): data/loci.tsv and data/<category>/<run>/aln_rsi-rfe_<PM|MP|SINE|rejected>.aln.gz from
 SINE_orth_loc tests/compare_real.py --out (therioserver:/home/toki/sol_bank/view_rsi-rfe); summary.txt = its stdout.
 data/by_reference/<dir>/aln_rsi-rfe_<SINE|PM|MP>.aln.gz + index.tsv + summary_rsi-rfe.tsv = orth_split.py / orth_summary.py
-output of the current run (therioserver:/home/toki/sol_bank/rsi-rfe/run11_fix0da8b28/work), linked from the results table.
+output of the current run (therioserver:/home/toki/sol_bank/rsi-rfe/run12_tiepm_ccdfeef/work), linked from the results table.
 Refresh 2026-10-30: scratchpad mm/view9.sh on therioserver built page9.tgz (compare_real.py --out for the RUNS below,
 run_facts.tsv, summary_rsi-rfe.tsv, by_reference/); unpack into data/, run this script, `git add -f` the .gz files.
 Refresh 2026-11-01 (run11, read-only on the server): scp of summary_rsi-rfe.tsv and by_reference/; run_facts.tsv from
 scratchpad r11/facts.sh (stdout; adds support_*, mapq_*, copies_*, nest_*, overlong keys); summary_current.txt =
 compare_real.py without --out on rsi-rfe_mm2adapt2_300both and run11 (row 'work' = run11). The comparison data
 (loci.tsv, <category>/) are still those of the eight RUNS.
+Refresh 2026-11-01 (run12, same way): facts from r12/facts.sh; summary_current.txt = compare_real.py on run11 and run12
+(rows '<run>_work'); data/questioned/ (aln_rsi-rfe_questioned.aln.gz = the tiePM and overlong alignments of run12's
+rejected bundle, questioned.tsv with run11's call per cluster) from scratchpad r12/questioned.py.
 Style: the Tal main page's <style>, as for chiroptera.html."""
 import csv
 import html
@@ -36,7 +39,9 @@ CATS = [("disagree", "a run's row differs from the copy +-10 kb alignment check"
         ("status", "runs give different calls (SINE / PM / MP)")] + \
        [(f"only_{r}", f"main row in {r} only") for r, _ in RUNS]
 # the current run: rerun of rsi-rfe_mm2adapt2_300both, in the Runs table only (row 'work' of data/summary_current.txt)
-CURRENT = ("run11_fix0da8b28", "the same settings rerun with SINE_orth_loc 0da8b28 (audit fixes; flank_mapq and support columns): the current run")
+CURRENTS = [("run11_fix0da8b28", "the same settings rerun with SINE_orth_loc 0da8b28 (audit fixes; flank_mapq and support columns)"),
+            ("run12_tiepm_ccdfeef", "run11 with SINE_orth_loc ccdfeef: an alignment whose two rows both carry the insertion is rejected as tiePM: the current run")]
+CURRENT = CURRENTS[-1]
 
 
 def summary_rows():
@@ -44,8 +49,12 @@ def summary_rows():
     t = t.strip().split("\n\n")[0].splitlines()
     rows = [l.split("\t") for l in t if "\t" in l][1:]
     c = open(os.path.join(OUT, "data", "summary_current.txt"), encoding="utf-8-sig").read().replace("\r", "")
-    rows += [[CURRENT[0]] + l.split("\t")[1:] for l in c.strip().split("\n\n")[0].splitlines() if l.startswith("work\t")]
-    desc = dict(RUNS + [CURRENT])
+    tab = c.strip().split("\n\n")[0].splitlines()
+    rows += [[n] + l.split("\t")[1:] for n, _ in CURRENTS for l in tab if l.startswith(n + "_work\t")]
+    desc = dict(RUNS + CURRENTS)
+    tot = [r for r in csv.DictReader(open(os.path.join(OUT, "data", "summary_rsi-rfe.tsv"), encoding="utf8"), delimiter="\t") if r["reference"] == "total"][0]
+    desc[CURRENT[0]] += (f"; all rows (C, M, N): {int(tot['loci']):,}, shared {int(tot['SINE']):,}, "
+                         f"rsi only {int(tot['PM_rsi_only']):,}, rfe only {int(tot['MP_rfe_only']):,}")
     return "\n".join(
         f'      <tr><td><strong>{r[0]}</strong><br><span style="color:var(--muted);font-size:.82rem;">'
         f'{html.escape(desc.get(r[0], ""))}</span></td>' + "".join(f'<td class="num">{int(x):,}</td>' for x in r[1:]) +
@@ -134,7 +143,76 @@ def results_section():
   <p style="margin:8px 0 0;"><a class="btn secondary" href="data/summary_rsi-rfe.tsv">summary_rsi-rfe.tsv (all {len(rows) - 1} references)</a></p>
 </section>
 
-{support_section(facts)}"""
+{support_section(facts)}{questioned_section()}"""
+
+
+def questioned_section():
+    """Questioned alignments of the current run: tiePM and overlong (data/questioned/questioned.tsv + bundle)."""
+    q = list(csv.DictReader(open(os.path.join(OUT, "data", "questioned", "questioned.tsv"), encoding="utf8"), delimiter="\t"))
+    bundle = "data/questioned/aln_rsi-rfe_questioned.aln.gz"
+    tie = [r for r in q if r["kind"] == "tiePM"]
+    ovl = [r for r in q if r["kind"] == "overlong"]
+    n_cl = len({r["cluster"] for r in tie})
+
+    def link(r):
+        return ("sine_loci_browser.html?bundle=" + bundle + "&name=" + r["alignment"] + "&title=" + r["alignment"])
+
+    def tr(r):
+        loc = lambda v: "<br>".join(html.escape(x) for x in v.split(","))
+        return (f'      <tr data-kind="{r["kind"]}"><td><a href="{html.escape(link(r))}" target="_blank">{html.escape(r["alignment"])}</a></td>'
+                f'<td>{html.escape(r["kind"])}</td><td>{loc(r["rsi"])}</td><td>{loc(r["rfe"])}</td><td>{html.escape(r["reference"])}</td>'
+                f'<td><b>{html.escape(r["run11_call"])}</b></td><td>{html.escape(r["run11_copy_in"])}</td><td>{html.escape(r["run11_reference"])}</td></tr>')
+    calls = {}
+    for r in tie:
+        calls[r["run11_call"]] = calls.get(r["run11_call"], 0) + 1
+    call_txt = ", ".join(f"{v:,} {k}" for k, v in sorted(calls.items(), key=lambda kv: -kv[1]))
+    nl = "\n"
+    return f"""<section class="card" id="questioned">
+  <h2>Questioned alignments &mdash; {html.escape(CURRENT[0])}</h2>
+  <p style="margin:0 0 8px;font-size:.9rem;">Most of these loci were called PM or MP in run11 by identity to the reference. In {html.escape(CURRENT[0])} both rows
+  of the alignment carry the insertion (at least 50 % of the reference's residues in the SINE columns), so the pipeline rejects them as <b>tiePM</b>:
+  {len(tie):,} alignments from {n_cl:,} clusters (run11 calls: {html.escape(call_txt)}). They are questioned, not decided; each link opens that alignment.
+  Below them, the {len(ovl):,} <b>overlong</b> alignments (multi clusters, &ge; 1,600 columns), kept aside and not in the orth table.</p>
+  <div class="actions">
+    <a class="btn" href="#" data-qkind="">all <span>({len(q):,})</span></a>
+    <a class="btn secondary" href="#" data-qkind="tiePM">tiePM <span>({len(tie):,})</span></a>
+    <a class="btn secondary" href="#" data-qkind="overlong">overlong <span>({len(ovl):,})</span></a>
+  </div>
+  <p style="margin:10px 0;"><input id="qq" type="text" placeholder="search alignment, coordinate, subfamily or call" style="width:340px;max-width:100%;padding:4px 6px;">
+  <span id="qshown" style="color:var(--muted);font-size:.85rem;margin-left:8px;"></span>
+  <a class="btn secondary" href="data/questioned/questioned.tsv" style="margin-left:8px;">questioned.tsv</a>
+  <a class="btn secondary" href="{html.escape("sine_loci_browser.html?bundle=" + bundle + "&title=rsi-rfe questioned")}" target="_blank">open all {len(q):,}</a></p>
+  <div style="overflow:auto;max-height:640px;">
+  <table class="tbl" id="qtab">
+    <thead><tr><th>Alignment (opens it)</th><th>Kind</th><th>rsi</th><th>rfe</th><th>Reference</th><th>run11 call</th><th>run11 copy in</th><th>run11 reference</th></tr></thead>
+    <tbody>
+{nl.join(tr(r) for r in tie + ovl)}
+    </tbody>
+  </table>
+  </div>
+  <details class="legend"><summary>Columns</summary>
+  <p style="margin:6px 0 0;">rsi / rfe = the loci (with flanks) in the alignment; reference = the consensus row of this alignment.
+  run11 call / copy in / reference = the run11 orth-table row of the same cluster: its status, the genome that carried the copy, and its reference
+  (&ndash; = no run11 row: an overlong alignment was deleted then, or the cluster had no PM / MP / SINE row).</p>
+  </details>
+<script>
+(function () {{
+  let kind = '';
+  const rows = Array.from(document.querySelectorAll('#qtab tbody tr'));
+  function draw() {{
+    const t = document.getElementById('qq').value.trim().toLowerCase(); let n = 0;
+    rows.forEach(r => {{ const on = (!kind || r.dataset.kind === kind) && (!t || r.textContent.toLowerCase().includes(t)); r.style.display = on ? '' : 'none'; n += on; }});
+    document.getElementById('qshown').textContent = n.toLocaleString() + ' of ' + rows.length.toLocaleString() + ' shown';
+    document.querySelectorAll('[data-qkind]').forEach(b => b.classList.toggle('secondary', b.dataset.qkind !== kind));
+  }}
+  document.querySelectorAll('[data-qkind]').forEach(b => b.addEventListener('click', e => {{ e.preventDefault(); kind = b.dataset.qkind; draw(); }}));
+  document.getElementById('qq').addEventListener('input', draw);
+  draw();
+}})();
+</script>
+</section>
+
+"""
 
 
 def support_section(facts):
@@ -246,7 +324,7 @@ def main():
 </head><body>
 <header>
   <h1>Orthologous SINE loci &mdash; <i>R. sinicus</i> (rsi) vs <i>R. ferrumequinum</i> (rfe)</h1>
-  <div class="sub">SINE_orth_loc in bank mode (SINEderella loci, bank21_nor1), eight mapper / flank settings compared, 2026-10-28 to 30, and the best one rerun with SINE_orth_loc 0da8b28 on 2026-11-01; the results below are that rerun, the current run (minimap2, 300 bp, both flanks, adaptive flank extension).
+  <div class="sub">SINE_orth_loc in bank mode (SINEderella loci, bank21_nor1), eight mapper / flank settings compared, 2026-10-28 to 30, and the best one rerun with SINE_orth_loc 0da8b28 (run11) and ccdfeef (run12) on 2026-11-01; the results below are run12, the current run (minimap2, 300 bp, both flanks, adaptive flank extension).
   <a href="../../chiroptera.html" style="color:#fff;">&larr; Chiroptera page</a></div>
 </header>
 <main>
@@ -267,8 +345,9 @@ def main():
     junction fix (SINE_orth_loc 41ccc90) about 5 % of anchors lay more than 50 bp off the window junction, because a
     reference longer than its copy (partial copy, composite) can start anywhere in the left flank; the comparison then
     uses the window position. With the fix the junction is the annotated copy's own start: 1.6 % remain off, and 198
-    more rows become testable. {CURRENT[0]} (2026-11-01) repeats rsi-rfe_mm2adapt2_300both with the newer code; it is
-    not in the locus comparison below, where rsi-rfe_mm2adapt2_300both stands for it.
+    more rows become testable. run11 and run12 (2026-11-01) repeat rsi-rfe_mm2adapt2_300both with newer code; they are
+    not in the locus comparison below, where rsi-rfe_mm2adapt2_300both stands for them. run12 has fewer main rows than run11
+    because its tiePM alignments are set aside (<a href="#questioned">questioned alignments</a>).
   </p>
 </section>
 

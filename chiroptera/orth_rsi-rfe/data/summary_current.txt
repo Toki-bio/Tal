@@ -1,9 +1,9 @@
-rsi-rfe_mm2adapt2_300both: FLANK 300
-work: FLANK 300
+run11_fix0da8b28_work: FLANK 300
+run12_tiepm_ccdfeef_work: FLANK 300
 run	rows	SINE	PM	MP	agree	disagree	untested
-rsi-rfe_mm2adapt2_300both	51083	39683	4323	7077	48939	1022	1122
-work	51084	39684	4323	7077	48940	1022	1122
+run11_fix0da8b28_work	51084	39684	4323	7077	48940	1022	1122
+run12_tiepm_ccdfeef_work	50477	39684	4095	6698	48505	1007	965
 
 run	only_this_run	agree	disagree	untested	other_partner_in_some_run	other_status_in_some_run
-rsi-rfe_mm2adapt2_300both	0	0	0	0	0	0
-work	1	1	0	0	0	0
+run11_fix0da8b28_work	607	435	15	157	0	0
+run12_tiepm_ccdfeef_work	0	0	0	0	0	0

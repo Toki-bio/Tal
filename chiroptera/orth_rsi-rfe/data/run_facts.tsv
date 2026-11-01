@@ -1,33 +1,33 @@
-run	run11_fix0da8b28 (minimap2 -x sr -k 11 -w 3 -p 0.5 -N 50, 300 bp, both flanks, adaptive flank extension 600/1000 bp stopping at neighbouring copies, SINE_orth_loc 0da8b28), finished 2026-11-01T10:32:34+03:00
+run	run12_tiepm_ccdfeef (minimap2 -x sr -k 11 -w 3 -p 0.5 -N 50, 300 bp, both flanks, adaptive flank extension 600/1000 bp stopping at neighbouring copies, SINE_orth_loc ccdfeef), finished 2026-11-01T16:49:16+03:00
 bank	bank21_nor1.fa, 21 consensi; loci from the SINEderella runs rsi_main_20261026 and rfe_main_20261026 (SINE verdicts and partial copies)
 unique_loci_rsi	50776
 unique_loci_rfe	48518
-rejected	861 shortRF, 769 badLF, 768 badRF, 162 overlong, 127 lfSINE, 19 rfSINE
+rejected	860 shortRF, 769 badLF, 768 badRF, 657 tiePM, 160 overlong, 127 lfSINE, 19 rfSINE
 widened_references	767
-superseded	867
+superseded	858
 extended_flank_hits	6256 of 93528 left-flank hits
-overlong	162 multi-cluster alignments of 1,635 to 3,843 columns (133 SINE, 19 MP, 10 PM), kept as .overlong in the rejected bundle
-support_C_MP_reciprocal	127
-support_C_MP_single	6950
-support_C_PM_reciprocal	81
-support_C_PM_single	4242
+overlong	160 multi-cluster alignments of 1,635 to 3,843 columns (133 SINE, 18 MP, 9 PM), kept as .overlong in the rejected bundle
+support_C_MP_reciprocal	76
+support_C_MP_single	6622
+support_C_PM_reciprocal	46
+support_C_PM_single	4049
 support_C_SINE_reciprocal	33470
 support_C_SINE_single	6214
-support_M_MP_rescue	291
-support_M_PM_rescue	468
-support_M_SINE_rescue	1320
+support_M_MP_rescue	281
+support_M_PM_rescue	453
+support_M_SINE_rescue	1328
 support_N_PM_nested	407
 support_N_SINE_nested	3566
 mapq_reciprocal_0	1
 mapq_reciprocal_10-19	114
-mapq_reciprocal_1-9	175
-mapq_reciprocal_20-59	23565
-mapq_reciprocal_60	9823
+mapq_reciprocal_1-9	173
+mapq_reciprocal_20-59	23502
+mapq_reciprocal_60	9802
 mapq_single_0	19
-mapq_single_10-19	116
-mapq_single_1-9	234
-mapq_single_20-59	11900
-mapq_single_60	5137
+mapq_single_10-19	113
+mapq_single_1-9	228
+mapq_single_20-59	11588
+mapq_single_60	4937
 copies_rfe_close_copies	1898
 copies_rfe_mapped	45422
 copies_rfe_right_flank_disagrees	2635
