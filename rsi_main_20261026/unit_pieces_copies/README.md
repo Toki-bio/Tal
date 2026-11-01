@@ -21,6 +21,23 @@ Median identity of each group's pieces to each consensus (best local hit), and h
 
 Plate: [r8 question](https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Frsi_main_20261026%2Funit_pieces_copies%2Fplates%2Fr8_question.aln.fa&title=rsi%20r8%20alone%20vs%20P18%20second%20unit%20%28copies%20cut%20at%20junctions%29) (r7 and r10 consensuses on top, then r8, the P2 "r8" piece and the two P18_2nd groups).
 
+## r11: consensus of P18's second unit (2026-11-01, `r11/`)
+
+Built from the second unit cut out of every SINE-verdict copy of r10_r8_P18 (3,393 pieces, stretch 290-426) and
+r10_r8_P18del (610 pieces, 152-255): 4,003 pieces, `tools/vendor/sine_consensus.sh -n 100` (SINE_consensus bootstrap),
+seeds 1 and 2. Both converged at iteration 5 and differ only in the length of the 3' poly-G (127 vs 129 bp); seed 1 is
+`r11/r11_4003seqs.fa` (127 bp). Against r8_83seqs it lacks a 20-bp stretch (r8's `aggtcgccggttcgattccc`, the B-box region).
+
+| pieces | n | r11_4003seqs | r8_83seqs | r7_133seqs | r10_19seqs | best |
+|---|---|---|---|---|---|---|
+| P18 second unit (290-426) | 3393 | 90.8 | 77.4 | 76.7 | 72.2 | r11 3392, r10 1 |
+| P18del second unit (152-255) | 610 | 90.2 | 78.2 | 76.9 | 72.6 | r11 609, r7 1 |
+| r8 alone | 2916 | 76.0 | 91.2 | 88.1 | 80.0 | r8 2911, r10 5 |
+
+Median identity (best local hit). Plate: [r11 consensus, r8, the two stretch consensuses, 100 random pieces](https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Frsi_main_20261026%2Funit_pieces_copies%2Fr11%2Fr11_plate.aln.fa&title=rsi%20r11%20%28P18%20second%20unit%29%3A%20consensus%20%2B%20100%20cut%20copies).
+Candidate bank (not run): therioserver `/home/toki/rhin/bank22_r11_20261101/bank22_r11.fa` = bank21_nor1 + r11_4003seqs,
+families `families22_r11.tsv` (r11 in Rhin, as r8).
+
 ## Every group against every standalone unit
 
 Each piece scored against the standalone consensuses (r2-r10) and P18 290-426; the unit that scores best, and the median identity to it:
