@@ -5,10 +5,14 @@ the SINE_orth_loc repo, which loads bundles named in its address).
 
 Data (copied beside the page): data/loci.tsv and data/<category>/<run>/aln_rsi-rfe_<PM|MP|SINE|rejected>.aln.gz from
 SINE_orth_loc tests/compare_real.py --out (therioserver:/home/toki/sol_bank/view_rsi-rfe); summary.txt = its stdout.
-data/by_reference/<dir>/aln_rsi-rfe_<SINE|PM|MP>.aln.gz + index.tsv = orth_split.py output of the current run
-(therioserver:/home/toki/sol_bank/rsi-rfe_mm2adapt2_300both/by_reference), linked from the results table.
-Refresh: scratchpad mm/view9.sh on therioserver builds page9.tgz (compare_real.py --out for the RUNS below, run_facts.tsv,
-summary_rsi-rfe.tsv, by_reference/); unpack into data/, run this script, `git add -f` the .gz files.
+data/by_reference/<dir>/aln_rsi-rfe_<SINE|PM|MP>.aln.gz + index.tsv + summary_rsi-rfe.tsv = orth_split.py / orth_summary.py
+output of the current run (therioserver:/home/toki/sol_bank/rsi-rfe/run11_fix0da8b28/work), linked from the results table.
+Refresh 2026-10-30: scratchpad mm/view9.sh on therioserver built page9.tgz (compare_real.py --out for the RUNS below,
+run_facts.tsv, summary_rsi-rfe.tsv, by_reference/); unpack into data/, run this script, `git add -f` the .gz files.
+Refresh 2026-11-01 (run11, read-only on the server): scp of summary_rsi-rfe.tsv and by_reference/; run_facts.tsv from
+scratchpad r11/facts.sh (stdout; adds support_*, mapq_*, copies_*, nest_*, overlong keys); summary_current.txt =
+compare_real.py without --out on rsi-rfe_mm2adapt2_300both and run11 (row 'work' = run11). The comparison data
+(loci.tsv, <category>/) are still those of the eight RUNS.
 Style: the Tal main page's <style>, as for chiroptera.html."""
 import csv
 import html
@@ -25,19 +29,23 @@ RUNS = [("rsi-rfe", "bwa, 300 bp, one flank (baseline)"),
         ("rsi-rfe_bwa500both", "bwa, 500 bp, both flanks"),
         ("rsi-rfe_mm2k11_500both", "minimap2 -x sr -k 11 -w 3, 500 bp, both flanks"),
         ("rsi-rfe_mm2full_300both", "minimap2 -x sr -k 11 -w 3 -p 0.5 -N 50, 300 bp, both flanks (23318eb)"),
-        ("rsi-rfe_mm2adapt2_300both", "minimap2 as above + adaptive flank extension 600/1000 bp stopping at neighbouring copies (0189cd2): the current run"),
+        ("rsi-rfe_mm2adapt2_300both", "minimap2 as above + adaptive flank extension 600/1000 bp stopping at neighbouring copies (0189cd2)"),
         ("rsi-rfe_bwaadapt2_300both", "bwa, 300 bp, both flanks + the same adaptive extension (control)")]
 CATS = [("disagree", "a run's row differs from the copy +-10 kb alignment check"),
         ("partner", "runs pair the locus with different loci in the other genome"),
         ("status", "runs give different calls (SINE / PM / MP)")] + \
        [(f"only_{r}", f"main row in {r} only") for r, _ in RUNS]
+# the current run: rerun of rsi-rfe_mm2adapt2_300both, in the Runs table only (row 'work' of data/summary_current.txt)
+CURRENT = ("run11_fix0da8b28", "the same settings rerun with SINE_orth_loc 0da8b28 (audit fixes; flank_mapq and support columns): the current run")
 
 
 def summary_rows():
     t = open(os.path.join(OUT, "data", "summary.txt"), encoding="utf-8-sig").read().replace("\r", "")
     t = t.strip().split("\n\n")[0].splitlines()
     rows = [l.split("\t") for l in t if "\t" in l][1:]
-    desc = dict(RUNS)
+    c = open(os.path.join(OUT, "data", "summary_current.txt"), encoding="utf-8-sig").read().replace("\r", "")
+    rows += [[CURRENT[0]] + l.split("\t")[1:] for l in c.strip().split("\n\n")[0].splitlines() if l.startswith("work\t")]
+    desc = dict(RUNS + [CURRENT])
     return "\n".join(
         f'      <tr><td><strong>{r[0]}</strong><br><span style="color:var(--muted);font-size:.82rem;">'
         f'{html.escape(desc.get(r[0], ""))}</span></td>' + "".join(f'<td class="num">{int(x):,}</td>' for x in r[1:]) +
@@ -59,10 +67,12 @@ def results_section():
     idx = list(csv.DictReader(open(os.path.join(OUT, "data", "by_reference", "index.tsv"), encoding="utf8"), delimiter="	"))
     dir_of = {i["reference"]: i["dir"] for i in idx}
     n_aln = sum(int(i["alignments"]) for i in idx)
-    status_of = {"SINE": "SINE", "PM_rsi_only": "PM", "MP_rfe_only": "MP"}
+    # rsi only / rfe only are counted by the genome that carries the copy; a PM or MP alignment can be either
+    # (PM = copy in the alignment's first genome), so those counts open both one-genome bundles
+    status_of = {"SINE": ("SINE",), "PM_rsi_only": ("PM", "MP"), "MP_rfe_only": ("PM", "MP")}
 
     def view(dirs, status, title):
-        q = [f"bundle=data/by_reference/{d}/aln_rsi-rfe_{status}.aln.gz" for d in dirs]
+        q = [f"bundle=data/by_reference/{d}/aln_rsi-rfe_{t}.aln.gz" for t in status for d in dirs]
         return "sine_loci_browser.html?" + "&".join(q + ["title=" + html.escape(title)])
 
     def td(r, c, dirs=None):
@@ -70,7 +80,8 @@ def results_section():
         if not v.lstrip("-").isdigit():
             return f'<td class="num">{html.escape(v)}</td>'
         if c in status_of and dirs and int(v):
-            return f'<td class="num"><a href="{view(dirs, status_of[c], r["reference"] + " " + status_of[c])}" target="_blank">{int(v):,}</a></td>'
+            ttl = r["reference"] + (" SINE" if c == "SINE" else " one genome only")
+            return f'<td class="num"><a href="{view(dirs, status_of[c], ttl)}" target="_blank">{int(v):,}</a></td>'
         return f'<td class="num">{int(v):,}</td>'
 
     def tr(r, name=None, strong=False, dirs=None):
@@ -111,14 +122,98 @@ def results_section():
   </div>
   <details class="legend"><summary>Columns, statuses, identities</summary>
   <p style="margin:6px 0 0;">Copies = SINEderella copies of that label per genome. Loci = rows of the orth table: C flank-mapped, M rescued with both flanks, N from nested loci.
-  Shared (SINE) = copy in both genomes; rsi only (PM) = <i>R. sinicus</i> only; rfe only (MP) = <i>R. ferrumequinum</i> only; shared % = shared / loci.
+  Shared (SINE) = copy in both genomes; rsi only = <i>R. sinicus</i> only; rfe only = <i>R. ferrumequinum</i> only, counted by the genome that carries the copy
+  (orth_summary.py since SINE_orth_loc 172b152; the alignment status PM / MP is relative to the alignment's first genome, which can be either); shared % = shared / loci.
   Identities (%) are ComPair's, median and 10&ndash;90 % range: copy vs its reference consensus (divergence = 100 &minus; identity), copy vs copy at shared loci, left flanks.
   E1&ndash;E4, HE1 are the elements of nested loci (sine_nest naming), without identities.
-  The links open the SINE loci browser on that subfamily's alignments of that status (data/by_reference/ from orth_split.py; nested-locus rows and superseded flank rows have no alignment there);
+  The links open the SINE loci browser on that subfamily's alignments of that status; rsi only and rfe only both open its PM and MP alignments, the one-genome loci of either genome
+  (data/by_reference/ from orth_split.py; nested-locus rows and superseded flank rows have no alignment there);
   inside it the subfamily list, the SINE / PM / MP / rejected chips and the name box narrow further, or
   <a href="{html.escape(view(sorted(set(dir_of.values())), "SINE", "rsi-rfe all") + "&bundle=" + "&bundle=".join(f"data/by_reference/{d}/aln_rsi-rfe_{t}.aln.gz" for t in ("PM", "MP") for d in sorted(set(dir_of.values()))))}" target="_blank">open all {n_aln:,} alignments at once</a> (30 MB).</p>
   </details>
   <p style="margin:8px 0 0;"><a class="btn secondary" href="data/summary_rsi-rfe.tsv">summary_rsi-rfe.tsv (all {len(rows) - 1} references)</a></p>
+</section>
+
+{support_section(facts)}"""
+
+
+def support_section(facts):
+    """Flank support of the orth rows (flank_mapq, support columns), fate of every copy (copies_rsi-rfe.tsv),
+    nested-locus scan, overlong alignments: run_facts.tsv keys support_*, mapq_*, copies_*, nest_*, overlong."""
+    f = lambda k: int(facts.get(k, "0").split()[0])
+    sts = ("SINE", "PM", "MP")
+    kinds = [("reciprocal", "C", "reciprocal", "flank hits in both directions (rsi flanks on rfe and rfe flanks on rsi)"),
+             ("single", "C", "single", "flank hits in one direction only"),
+             ("rescue", "M", "rescue", "rescued with both flanks; no flank MAPQ"),
+             ("nested", "N", "nested", "from nested loci; no flank MAPQ")]
+    sup = []
+    for name, t, s, d in kinds:
+        v = [f(f"support_{t}_{st}_{s}") for st in sts]
+        sup.append(f'      <tr><td><strong>{name}</strong><br><span style="color:var(--muted);font-size:.82rem;">{html.escape(d)}</span></td>' +
+                   "".join(f'<td class="num">{x:,}</td>' for x in v) + f'<td class="num">{sum(v):,}</td></tr>')
+    tot = [sum(f(f"support_{t}_{st}_{s}") for _, t, s, _ in kinds) for st in sts]
+    sup.append("      <tr><td><strong>total</strong></td>" + "".join(f'<td class="num"><strong>{x:,}</strong></td>' for x in tot) +
+               f'<td class="num"><strong>{sum(tot):,}</strong></td></tr>')
+    bins = ("0", "1-9", "10-19", "20-59", "60")
+    mq = []
+    for s in ("reciprocal", "single"):
+        v = [f(f"mapq_{s}_{b}") for b in bins]
+        mq.append(f"      <tr><td><strong>{s}</strong></td>" + "".join(f'<td class="num">{x:,}</td>' for x in v) +
+                  f'<td class="num">{sum(v):,}</td><td class="num">{sum(v[:3]):,}</td></tr>')
+    v = [f(f"mapq_reciprocal_{b}") + f(f"mapq_single_{b}") for b in bins]
+    mq.append("      <tr><td><strong>all flank rows</strong></td>" + "".join(f'<td class="num"><strong>{x:,}</strong></td>' for x in v) +
+              f'<td class="num"><strong>{sum(v):,}</strong></td><td class="num"><strong>{sum(v[:3]):,}</strong></td></tr>')
+    fates = [("mapped", "left flank placed in the other genome"),
+             ("right_flank_disagrees", "left flank placed, the right flank points elsewhere"),
+             ("unmapped", "left flank not placed"),
+             ("close_copies", "within the flank length (300 bp) of another copy: not analysed"),
+             ("no_flank", "left flank shorter than 100 bases")]
+    cp = []
+    for k, d in fates:
+        cp.append(f'      <tr><td><strong>{k}</strong><br><span style="color:var(--muted);font-size:.82rem;">{html.escape(d)}</span></td>' +
+                  "".join(f'<td class="num">{f(f"copies_{sp}_{k}"):,}</td>' for sp in ("rsi", "rfe")) + "</tr>")
+    cp.append("      <tr><td><strong>total</strong></td>" + "".join(
+        f'<td class="num"><strong>{sum(f(f"copies_{sp}_{k}") for k, _ in fates):,}</strong></td>' for sp in ("rsi", "rfe")) + "</tr>")
+    nl = "\n"
+    return f"""<section class="card">
+  <h2>Flank support and copy fates &mdash; {html.escape(facts["run"].split(" (")[0])}</h2>
+  <p style="margin:0 0 8px;font-size:.9rem;">Orth table columns <b>flank_mapq</b> (lowest MAPQ of the flank hits that formed the cluster) and <b>support</b>;
+  copies_rsi-rfe.tsv gives every annotated copy one row with its fate at the flank stage.</p>
+  <div class="facts">
+    <span><b>Nested-locus scan, dropped hits</b> rsi {html.escape(facts.get("nest_dropped_rsi", ""))} &middot; rfe {html.escape(facts.get("nest_dropped_rfe", ""))}</span>
+    <span><b>Kept</b> rsi {f("nest_kept_rsi"):,} &middot; rfe {f("nest_kept_rfe"):,} elements</span>
+    <span><b>Overlong</b> {html.escape(facts.get("overlong", "none"))}</span>
+  </div>
+  <div style="display:flex;flex-wrap:wrap;gap:12px 28px;align-items:flex-start;">
+  <div style="overflow-x:auto;">
+  <table class="tbl">
+    <thead><tr><th>Support</th><th>Shared (SINE)</th><th>PM</th><th>MP</th><th>Rows</th></tr></thead>
+    <tbody>
+{nl.join(sup)}
+    </tbody>
+  </table>
+  </div>
+  <div style="overflow-x:auto;">
+  <table class="tbl">
+    <thead><tr><th>Flank MAPQ</th>{"".join(f"<th>{b}</th>" for b in bins)}<th>Rows</th><th>&lt; 20</th></tr></thead>
+    <tbody>
+{nl.join(mq)}
+    </tbody>
+  </table>
+  <table class="tbl" style="margin-top:12px;">
+    <thead><tr><th>Copy fate</th><th>rsi</th><th>rfe</th></tr></thead>
+    <tbody>
+{nl.join(cp)}
+    </tbody>
+  </table>
+  </div>
+  </div>
+  <details class="legend"><summary>Support, MAPQ, fates, dropped hits</summary>
+  <p style="margin:6px 0 0;">PM / MP here are the alignment statuses as written (PM = copy in the alignment's first genome only), not the rsi only / rfe only counts above.
+  Flank MAPQ is minimap2's; a low value means the locus rests on a repetitive flank. Copy totals equal the input copies per genome in the results table.
+  Dropped hits are nhmmer hits of the nested-locus scan suppressed by a better overlapping hit (overlap) or trimmed below the minimum piece (trimmed), listed in nest_&lt;genome&gt;.dropped.tsv.
+  Overlong alignments (&ge; 1,600 columns) of multi clusters were deleted by earlier runs; they are now kept in the rejected bundle and are not in the orth table.</p>
+  </details>
 </section>
 
 """
@@ -151,7 +246,7 @@ def main():
 </head><body>
 <header>
   <h1>Orthologous SINE loci &mdash; <i>R. sinicus</i> (rsi) vs <i>R. ferrumequinum</i> (rfe)</h1>
-  <div class="sub">SINE_orth_loc in bank mode (SINEderella loci, bank21_nor1), eight mapper / flank settings compared, 2026-10-28 to 30; the results below are the current run (minimap2, 300 bp, both flanks, adaptive flank extension).
+  <div class="sub">SINE_orth_loc in bank mode (SINEderella loci, bank21_nor1), eight mapper / flank settings compared, 2026-10-28 to 30, and the best one rerun with SINE_orth_loc 0da8b28 on 2026-11-01; the results below are that rerun, the current run (minimap2, 300 bp, both flanks, adaptive flank extension).
   <a href="../../chiroptera.html" style="color:#fff;">&larr; Chiroptera page</a></div>
 </header>
 <main>
@@ -172,7 +267,8 @@ def main():
     junction fix (SINE_orth_loc 41ccc90) about 5 % of anchors lay more than 50 bp off the window junction, because a
     reference longer than its copy (partial copy, composite) can start anywhere in the left flank; the comparison then
     uses the window position. With the fix the junction is the annotated copy's own start: 1.6 % remain off, and 198
-    more rows become testable.
+    more rows become testable. {CURRENT[0]} (2026-11-01) repeats rsi-rfe_mm2adapt2_300both with the newer code; it is
+    not in the locus comparison below, where rsi-rfe_mm2adapt2_300both stands for it.
   </p>
 </section>
 

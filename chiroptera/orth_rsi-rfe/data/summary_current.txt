@@ -1,0 +1,9 @@
+rsi-rfe_mm2adapt2_300both: FLANK 300
+work: FLANK 300
+run	rows	SINE	PM	MP	agree	disagree	untested
+rsi-rfe_mm2adapt2_300both	51083	39683	4323	7077	48939	1022	1122
+work	51084	39684	4323	7077	48940	1022	1122
+
+run	only_this_run	agree	disagree	untested	other_partner_in_some_run	other_status_in_some_run
+rsi-rfe_mm2adapt2_300both	0	0	0	0	0	0
+work	1	1	0	0	0	0

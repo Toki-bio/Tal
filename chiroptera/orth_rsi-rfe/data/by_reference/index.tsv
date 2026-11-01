@@ -136,7 +136,6 @@ r10_r8_P18:301-426	other	SINE	3
 r10_r8_P18:306-426	other	SINE	3
 r10_r8_P18:309-426	other	PM	1
 r10_r8_P18:309-426	other	SINE	2
-r10_r8_P18:312-425	other	SINE	3
 r10_r8_P18:314-426	other	SINE	3
 r10_r8_P18:316-426	other	SINE	3
 r10_r8_P18:323-426	other	SINE	3
@@ -185,6 +184,7 @@ r10_r8_P18:294-425	other	SINE	2
 r10_r8_P18:297-425	other	SINE	2
 r10_r8_P18:297-426	other	SINE	2
 r10_r8_P18:300-426	other	SINE	2
+r10_r8_P18:312-425	other	SINE	2
 r10_r8_P18:317-425	other	SINE	2
 r10_r8_P18:324-426	other	SINE	2
 r10_r8_P18del:1-70	other	SINE	2
@@ -366,6 +366,7 @@ r10_r8_P18:307-421	other	SINE	1
 r10_r8_P18:307-425	other	SINE	1
 r10_r8_P18:307-426	other	SINE	1
 r10_r8_P18:309-421	other	SINE	1
+r10_r8_P18:309-422	other	SINE	1
 r10_r8_P18:309-424	other	SINE	1
 r10_r8_P18:311-425	other	SINE	1
 r10_r8_P18:313-426	other	SINE	1
@@ -398,7 +399,7 @@ r10_r8_P18del:143-241	other	SINE	1
 r10_r8_P18del:145-255	other	SINE	1
 r10_r8_P18del:150-229	other	SINE	1
 r10_r8_P18del:153-251	other	SINE	1
-r10_r8_P18del:154-254	other	SINE	1
+r10_r8_P18del:153-253	other	SINE	1
 r10_r8_P18del:154-255	other	SINE	1
 r10_r8_P18del:157-248	other	SINE	1
 r10_r8_P18del:157-249	other	SINE	1
@@ -698,6 +699,7 @@ r5_r5_P48:1-133	other	SINE	1
 r5_r5_P48:1-138	other	SINE	1
 r5_r5_P48:1-142	other	SINE	1
 r5_r5_P48:1-178	other	SINE	1
+r5_r5_P48:1-179	other	SINE	1
 r5_r5_P48:136-295	other	SINE	1
 r5_r5_P48:138-300	other	SINE	1
 r5_r6_P26:1-120	other	SINE	1
@@ -712,7 +714,6 @@ r5_r6_P26:1-181	other	SINE	1
 r5_r6_P26:2-151	other	SINE	1
 r5_r6_P26:2-156	other	SINE	1
 r5_r6_P26:2-169	other	SINE	1
-r5_r6_P26:2-180	other	SINE	1
 r5_r6_P26:250-367	other	SINE	1
 r5_r6_P26:260-376	other	SINE	1
 r5_r6_P26:316-376	other	SINE	1
