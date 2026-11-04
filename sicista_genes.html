@@ -57,6 +57,32 @@ a { color:var(--accent); }
 </header>
 <main>
 <section class="card">
+  <h2>TMED4 <span class="tag tag-ok">gene on both haplotypes</span></h2>
+  <p>The hap1 N run <b>OZ418347.1:96,007,475-96,007,574</b> sits inside the gene and hides 4 of its 5 exons. Hap2 has all 5. The gene-search version fills the N with 2,331 bp copied from hap2 (<b>OZ418087.1:95,802,105-95,804,435</b>), which restores 5 of 5 exons. That fill is the hap2 allele, not hap1's own sequence.</p>
+  <p>One read shows what hap1 really has: <b>ERR16751478.985790</b> matches the hap1 flanks (about 11 differences, against 260 on hap2) and crosses the gap. It carries all 5 exons, so the gene is on hap1 too. Between the flanks it has about 2,500 bp, about 170 bp more than the hap2 fill, with 30 mismatches in the aligned part. Hap1 is under-read here: of 13 reads near the gap only 3 are hap1 reads, and the other two end within 10 bp of the gap. One read is below the 3-read repair rule, so hap1's exact sequence is shown but not accepted as a repair.</p>
+  <p><b>1. Alignment</b>: trizona hap1, hap2, hap1 fixed, betulina hap1, hap2, and the hap1 read.<br>
+  <a class="btn" href="#" onclick="openMSA('sicista/genes/TMED4/TMED4.aln.fa','TMED4 alleles','sicista/genes/TMED4/TMED4.aln.bed')">Open alignment in ViewAlign</a></p>
+  <p><b>2. IGV session</b>: before (hap1 with N), after (fixed) and hap2 side by side. Unzip, then File &rarr; Open Session &rarr; TMED4.igv_session.xml.<br>
+  <a class="btn green" href="sicista/genes/TMED4/TMED4_igv.zip">Download IGV session (zip)</a></p>
+  <p><b>3. HiFi reads in ViewAlign (Reads mode)</b>:<br>
+  <a class="btn" href="#" onclick="openRef('TMED4','TMED4_tri_hap1','TMED4 hap1 before, with N')">Before: hap1 with N (53)</a>
+  <a class="btn" href="#" onclick="openRef('TMED4','TMED4_tri_hap1_fixed','TMED4 hap1 after, fill from hap2')">After: fixed hap1 (53)</a>
+  <a class="btn" href="#" onclick="openRef('TMED4','TMED4_tri_hap2','TMED4 hap2')">Hap2 (60)</a></p>
+  <p class="caption">Windows: hap1 OZ418347.1:95,982,475-96,032,574; hap2 OZ418087.1:95,777,189-95,829,000; betulina h1tg000303l:3,583,161-3,637,365 and h2tg001824l:453,931-507,671 (reverse strand). In the fixed view 7 and 8 reads cross the two fill edges, but 4 of the 5 reads crossing the original gap are hap2 reads, so those counts do not prove the fill belongs to hap1.</p>
+</section>
+<section class="card">
+  <h2>EPS8L1 <span class="tag tag-candidate">not repaired, hap1 unknown</span></h2>
+  <p>The hap1 N run <b>OZ418348.1:12,671,658-12,671,757</b> stands where hap2 has about 16 kb (near <b>OZ418088.1:13,047,934-13,064,230</b>) holding exons 1 to 18 and the end of exon 19. Hap1 keeps only exon 20 and most of exon 19; hap2 has all 20. It stays N: the region was classed as tandem and no read crosses it. All 14 reads near the gap fit hap2 better, so I have no read showing what hap1 has there. The gene is present on hap2, and whether hap1 has it is unknown.</p>
+  <p><b>1. Alignment</b>: trizona hap1, hap2, betulina hap2. There is no betulina hap1 row: I could not find this region in that assembly beyond short fragments, and the betulina primary assembly is identical to hap2 here (74,398 of 74,398 bp).<br>
+  <a class="btn" href="#" onclick="openMSA('sicista/genes/EPS8L1/EPS8L1.aln.fa','EPS8L1 alleles','sicista/genes/EPS8L1/EPS8L1.aln.bed')">Open alignment in ViewAlign</a></p>
+  <p><b>2. IGV session</b>: hap1 with N and hap2 side by side. There is no after version. Unzip, then File &rarr; Open Session &rarr; EPS8L1.igv_session.xml.<br>
+  <a class="btn green" href="sicista/genes/EPS8L1/EPS8L1_igv.zip">Download IGV session (zip)</a></p>
+  <p><b>3. HiFi reads in ViewAlign (Reads mode)</b>:<br>
+  <a class="btn" href="#" onclick="openRef('EPS8L1','EPS8L1_tri_hap1','EPS8L1 hap1 with N')">Hap1 with N (46)</a>
+  <a class="btn" href="#" onclick="openRef('EPS8L1','EPS8L1_tri_hap2','EPS8L1 hap2')">Hap2 (51)</a></p>
+  <p class="caption">Windows: hap1 OZ418348.1:12,646,658-12,696,757; hap2 OZ418088.1:13,022,100-13,093,388; betulina h2tg000165l:1,526,673-1,601,070 (reverse strand). Reads for both genes come from the fished gap reads plus the HiCanu BAM, not a scan of all reads, so a hap1 read could have been missed.</p>
+</section>
+<section class="card">
   <h2>TMEM114 <span class="tag tag-partial">heterozygous deletion</span></h2>
   <p>Deposited hap1 has lost a 63,566 bp segment that holds the whole gene (all 4 exons). The segment is intact on deposited hap2 at <b>OZ418090.1:110,290,353-110,353,918</b>, and both betulina haplotypes carry it, so this is a deletion on trizona hap1, not an insertion on hap2. The hap1 junction is at <b>OZ418350.1:111,028,553</b> (&plusmn;1 bp, one shared base at the break). There is no N within 300 kb of the locus on either haplotype, so nothing here can be repaired: the sequence is absent from that allele. 14 HiFi reads cross the hap1 junction by at least 1 kb on both sides, and 8 and 9 cross the two hap2 breakpoints.</p>
   <p class="caption">Sequences in the alignment: hap1 OZ418350.1:111,012,846-111,045,261, hap2 OZ418090.1:110,274,645-110,370,690, betulina h1tg000312l:6,327,125-6,423,689 and h2tg001095l:629,999-722,000 (reverse strand); each matches its assembly exactly. Coordinates in final.tsv are in the repaired assemblies (+254,422 bp on hap1, +709,928 bp on hap2 here), not the deposited ones.</p>
@@ -86,6 +112,10 @@ function openMSA(relPath, title, bed) {
   let u = MSA + '?url=' + encodeURIComponent(RAW + relPath) + '&title=' + encodeURIComponent(title);
   if (bed) u += '&bed=' + encodeURIComponent(RAW + bed);
   window.open(u, '_blank');
+}
+function openRef(gene, name, title) {
+  const b = RAW + 'sicista/genes/' + gene + '/' + name;
+  window.open(MSA + '?url=' + encodeURIComponent(b + '.fa') + '&reads=' + encodeURIComponent(b + '.sam') + '&bed=' + encodeURIComponent(b + '.bed') + '&title=' + encodeURIComponent(title), '_blank');
 }
 function openReads(hap, title) {
   const b = RAW + 'sicista/genes/TMEM114/' + hap;
