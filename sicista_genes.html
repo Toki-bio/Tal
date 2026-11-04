@@ -52,22 +52,30 @@ a { color:var(--accent); }
 </head><body>
 <header>
   <h1>Sicista trizona gene gaps, gene by gene</h1>
-  <div class="sub">One card per gene: alignment of both trizona and both betulina alleles, HiFi reads in ViewAlign, and an IGV session. Unpublished, for review.
+  <div class="sub">One card per gene: alignment of both trizona and both betulina alleles, HiFi reads in ViewAlign, an IGV session, and the mobile elements in the indels. Unpublished, for review.
   <a href="sicista.html" style="color:#fff;">&larr; Sicista SINE page</a></div>
 </header>
 <main>
 <section class="card">
   <h2>TMEM114 <span class="tag tag-partial">heterozygous deletion</span></h2>
-  <p>Hap1 (deposited GCA_982266845.1) carries the deleted allele: the locus <b>OZ418350.1:111281769-111285248</b> is 3.5 kb against 28.1 kb in betulina, with 0 of 4 exons.
-  Hap2 carries the whole gene, 4 of 4 exons, at <b>OZ418090.1:111009554-111039906</b>. The gene is present in the animal. There is no repaired version, because the sequence is absent from the hap1 allele.</p>
-  <p><b>1. Alignment</b>: trizona hap1, trizona hap2, betulina hap1, betulina hap2 (110 kb, gaps mark the deletion).<br>
+  <p>The gene allele sits on deposited hap2 at <b>OZ418090.1:110,274,646-110,370,691</b> (96 kb, 4 of 4 exons, with a ~63.5 kb segment inside). On deposited hap1 the same place, <b>OZ418350.1:111,012,847-111,045,262</b>, lacks that segment, including the whole gene. The gene is present in the animal on one haplotype. There is no repaired version, because the sequence is absent from the hap1 allele, not hidden in an N gap. Both coordinates were checked by mapping the alignment sequences back (exact full-length matches).</p>
+  <p><b>1. Alignment</b>: trizona hap1, trizona hap2, betulina hap1, betulina hap2 (110 kb; gaps mark the deletion). It opens at column 1, so scroll to the gene.<br>
   <a class="btn" href="#" onclick="openMSA('sicista/genes/TMEM114/TMEM114.aln.fa','TMEM114 alleles','sicista/genes/TMEM114/TMEM114.aln.bed')">Open alignment in ViewAlign</a></p>
-  <p><b>2. IGV session</b>: HiFi reads over both haplotype windows side by side. Unzip, then File &rarr; Open Session &rarr; TMEM114.igv_session.xml.<br>
-  <a class="btn green" href="sicista/genes/TMEM114/TMEM114_igv.zip">Download IGV session (zip, 1.5 MB)</a></p>
-  <p><b>3. HiFi reads in ViewAlign (Reads mode)</b>: reads ERR16751478 mapped to a 30 kb window of each haplotype (MAPQ &ge; 20, aligned &ge; 3 kb).<br>
-  <a class="btn" href="#" onclick="openReads('hap1','TMEM114 hap1 (deleted allele) with HiFi reads')">Hap1 reads</a>
-  <a class="btn" href="#" onclick="openReads('hap2','TMEM114 hap2 (gene allele) with HiFi reads')">Hap2 reads</a></p>
-  <p class="caption">Reads in window: hap1 75, hap2 136. Windows: hap1 slice 18,001-48,000 of OZ418350.1:111251769-111315248; hap2 slice 15,001-68,000 of OZ418090.1:110979554-111069906. The exon track in the reads views is the whole gene or locus interval from the TOGA2 re-call, not individual exons.</p>
+  <p><b>2. IGV session</b>: HiFi reads over the hap1 deletion junction and the hap2 gene allele side by side. Unzip, then File &rarr; Open Session &rarr; TMEM114.igv_session.xml.<br>
+  <a class="btn green" href="sicista/genes/TMEM114/TMEM114_igv.zip">Download IGV session (zip, 0.4 MB)</a></p>
+  <p><b>3. HiFi reads in ViewAlign (Reads mode)</b>: reads ERR16751478 mapped to a 93 kb (hap1) and 158 kb (hap2) window around the locus; MAPQ &ge; 20, aligned &ge; 3 kb. The deletion junction (hap1) and the exons and breakpoints (hap2) are in the annotation track.<br>
+  <a class="btn" href="#" onclick="openReads('hap1','TMEM114 hap1 (deleted allele) with HiFi reads')">Hap1 reads (24)</a>
+  <a class="btn" href="#" onclick="openReads('hap2','TMEM114 hap2 (gene allele) with HiFi reads')">Hap2 reads (53)</a></p>
+  <p class="caption">Reads were taken from the HiCanu read-to-contig BAM (contigs tig00001945 for hap1, tig00006196 for hap2) and mapped to the deposited-genome windows, so they are the reads that assembled these alleles. Reads open at the start of the window, not on the gene.</p>
+</section>
+<section class="card">
+  <h2>Mobile elements in the TMEM114 indels</h2>
+  <p>Every indel of 50 bp or more in the alignment was cut out and searched with ssearch36 (E &le; 1e-5) against RepBase (the local RepBase_filtered bank, 12,030 sequences), SINEBase and the five Dip consensuses. Hits were tiled by score. Full table with genomic positions: <a href="sicista/genes/TMEM114/TMEM114_indel_TEs.tsv">TMEM114_indel_TEs.tsv</a>.</p>
+  <div class="species-grid">
+    <div class="sp-card"><h3>hap1 vs hap2 (hap2-only insertion and small indels)</h3><table class="tbl"><thead><tr><th>class</th><th class="num">elements</th><th class="num">bp</th></tr></thead><tbody><tr><td>ERV3</td><td class="num">15</td><td class="num">4,679</td></tr><tr><td>L1</td><td class="num">7</td><td class="num">3,704</td></tr><tr><td>SINE tRNA (B2/ID/B4 type)</td><td class="num">13</td><td class="num">3,115</td></tr><tr><td>SINE Dip (tRNA-derived)</td><td class="num">11</td><td class="num">2,098</td></tr><tr><td>CR1</td><td class="num">3</td><td class="num">1,309</td></tr><tr><td>SINE 7SL (B1/Alu type)</td><td class="num">7</td><td class="num">1,019</td></tr><tr><td>Gypsy</td><td class="num">1</td><td class="num">815</td></tr><tr><td>ERV1</td><td class="num">1</td><td class="num">429</td></tr><tr><td>Ginger1</td><td class="num">1</td><td class="num">130</td></tr></tbody></table></div>
+    <div class="sp-card"><h3>trizona vs betulina</h3><table class="tbl"><thead><tr><th>class</th><th class="num">elements</th><th class="num">bp</th></tr></thead><tbody><tr><td>ERV1</td><td class="num">2</td><td class="num">5,785</td></tr><tr><td>L1</td><td class="num">3</td><td class="num">5,383</td></tr><tr><td>SINE Dip (tRNA-derived)</td><td class="num">5</td><td class="num">1,102</td></tr><tr><td>CR1</td><td class="num">1</td><td class="num">518</td></tr><tr><td>Satellite</td><td class="num">1</td><td class="num">245</td></tr><tr><td>ERV3</td><td class="num">1</td><td class="num">223</td></tr><tr><td>ERV2</td><td class="num">1</td><td class="num">171</td></tr><tr><td>Ginger1</td><td class="num">1</td><td class="num">98</td></tr><tr><td>SINE tRNA (B2/ID/B4 type)</td><td class="num">1</td><td class="num">94</td></tr></tbody></table></div>
+  </div>
+  <p class="caption">The ~63.5 kb hap2 segment is a mosaic of old, fragmented repeats (L1 LX8 up to 1.3 kb at 63&ndash;76 % identity, CR1, ERV3/MaLR, ERV1, a Gypsy fragment, 11 Dip and 20 other SINE copies at 77&ndash;87 %). No single full-length element explains it. The largest trizona-vs-betulina differences are an ERV1 and an L1 (L1_Mur3 ORF2) of 3 kb each.</p>
 </section>
 </main>
 <script>
