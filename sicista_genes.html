@@ -53,13 +53,13 @@ a { color:var(--accent); }
 <header>
   <h1>Sicista trizona gene gaps, gene by gene</h1>
   <div class="sub">One card per gene: alignment of both trizona and both betulina alleles, HiFi reads in ViewAlign, an IGV session, and the mobile elements in the indels. Unpublished, for review.
-  <a href="sicista.html" style="color:#fff;">&larr; Sicista SINE page</a></div>
+  <a href="sicista.html" style="color:#fff;">&larr; Sicista SINE page</a> &middot; <a href="sicista_recovery.html" style="color:#fff;">Final gap recovery</a></div>
 </header>
 <main>
 <section class="card">
   <h2>TMED4 <span class="tag tag-ok">gene on both haplotypes</span></h2>
   <p>The hap1 N run <b>OZ418347.1:96,007,475-96,007,574</b> sits inside the gene and hides 4 of its 5 exons. Hap2 has all 5. The gene-search version fills the N with 2,331 bp copied from hap2 (<b>OZ418087.1:95,802,105-95,804,435</b>), which restores 5 of 5 exons. That fill is the hap2 allele, not hap1's own sequence.</p>
-  <p>One read shows what hap1 really has: <b>ERR16751478.985790</b> matches the hap1 flanks (about 11 differences, against 260 on hap2) and crosses the gap. It carries all 5 exons, so the gene is on hap1 too. Between the flanks it has about 2,500 bp, about 170 bp more than the hap2 fill, with 30 mismatches in the aligned part. Hap1 is under-read here: of 13 reads near the gap only 3 are hap1 reads, and the other two end within 10 bp of the gap. One read is below the 3-read repair rule, so hap1's exact sequence is shown but not accepted as a repair.</p>
+  <p>One read shows what hap1 really has: <b>ERR16751478.985790</b> matches the hap1 flanks (about 11 differences, against 260 on hap2) and crosses the gap. It carries all 5 exons, so the gene is on hap1 too. Between the flanks it has about 2,500 bp, about 170 bp more than the hap2 fill, with 20 substitutions and 7 indels in the aligned part. Hap1 is under-read here: fished again from the whole read file, 18 hap1 and 26 hap2 reads lie near the gap, and only this one hap1 read crosses it. One read is below the 3-read repair rule, so hap1's exact sequence is shown but not accepted as a repair.</p>
   <p><b>1. Alignment</b>: trizona hap1, hap2, hap1 fixed, betulina hap1, hap2, and the hap1 read.<br>
   <a class="btn" href="#" onclick="openMSA('sicista/genes/TMED4/TMED4.aln.fa','TMED4 alleles','sicista/genes/TMED4/TMED4.aln.bed')">Open alignment in ViewAlign</a></p>
   <p><b>2. IGV session</b>: before (hap1 with N), after (fixed) and hap2 side by side. Unzip, then File &rarr; Open Session &rarr; TMED4.igv_session.xml.<br>
