@@ -68,7 +68,8 @@ a { color:var(--accent); }
 <section class="card">
   <h2>How to read the views</h2>
   <p><b>Alignment</b> rows: the deposited haplotype with its N run, the final version with the fill (when there is one), the other haplotype, betulina primary, and reads that cross the gap (<code>read_hap1_1</code> and so on: up to 3 of this haplotype, 1 of the other). The annotation track marks the N run, the fill and, for genes, the exons.</p>
-  <p><b>Reads</b> opens ViewAlign in Reads mode on the final window, or on the deposited window where the gap is still N. Every read name starts with its phase: <code>hap1|</code>, <code>hap2|</code>, <code>tie|</code> or <code>nophase|</code>, with <code>_cross</code> added when the read crosses the gap, for example <code>hap1_cross|ERR16751478.240853</code>.</p>
+  <p><b>Reads</b> opens ViewAlign in Reads mode on the final window, or on the deposited window where the gap is still N. Pink and blue are the two strands, not the haplotypes. Hover over a read to see its name, which starts with its phase: <code>hap1|</code>, <code>hap2|</code>, <code>tie|</code> or <code>nophase|</code>, with <code>_cross</code> added when the read crosses the gap, for example <code>hap1_cross|ERR16751478.240853</code>.</p>
+  <p><b>Where to look:</b> views open at column 1. The gap or fill starts 5,000 bp into the window, or 25,000 bp for genes.</p>
   <p class="caption">A read is phased by its differences from each haplotype over the same read bases in the flanks. "Crosses" means at least 400 of the 500 bp on each side of the gap are aligned. Reads were fished again from the whole file with words from both haplotypes, so these counts are new and independent of the run that made the fills. A read made only of repeat cannot be fished. Windows reach 5 kb past the gap, 25 kb for genes. Reads have soft clips and qualities removed to keep the files small.</p>
 </section>
 <section class="card">
