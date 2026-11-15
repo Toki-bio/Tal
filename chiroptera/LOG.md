@@ -252,3 +252,7 @@ Groups at ≥ 80 % identity (single linkage):
 ## 2026-10-05 — old versus new runs, reruns of 19 species on SINEderella 13093c9
 
 See `../OLD_VS_NEW_RUNS_2026-10-05.md`: what changed in the code since the 09-27 runs (satellite stage, length versions, consensus audit, array flag with chance null, reproducible plates), the measured rsi/tbr/rle deltas (only MEG-RS moves, where it forms arrays), the 7 kb-period MEG-RS array missed by the 6 kb rule (13093c9), and the rerun of the other 19 bats running on therioserver (`~/tmp/release_check/bats/`).
+
+## 2026-11-16 rfe_final_20261115: r9 comb histogram, r5_r5_P48 two peaks
+- r9_15seqs divergence PNG is comb-shaped because of binning: consensus 105 bp, 3,712 of 6,981 copies (53 %) have identity exactly k/105 (steps of 0.95 %), while plot_subfamily.py uses min(50, range/0.5) bins = 0.6 % wide over 0-30 %. The 1 % bins of the report line plot are smooth (one peak at 8-9 %). Not biology.
+- r5_r5_P48 (495 firm copies) has peaks at ~9-10 % and ~16-17 %. Each half scored separately (ssearch36 -z -1, therioserver /home/toki/tmp/r5r5_halves): low group (256 copies, <13 %) head 1-136 at 9.1 %, second unit 137-308 at 11.0 %; high group (223 copies, >=14 %) head 14.9 %, second unit 16.7 %. Both halves shift by ~6 %, copy lengths equal (median 318 vs 321 bp), the best-fitting second unit is r5_r5's own in both groups. So the second peak is not copies with a different second unit; it is an older (or sequence-distinct) group of whole r5_r5 copies. Whether it is a separate subfamily needs the 50-best alignment test.
