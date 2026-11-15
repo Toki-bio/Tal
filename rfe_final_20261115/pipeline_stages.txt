@@ -1,0 +1,7 @@
+== start 2026-11-15 19:21:58 rfe code f2457a8 bank /home/toki/rhin/final_bank_20261026/bank21_nor1.fa genome /home/toki/rhin/genomes/rfe.fna
+==========================================
+==========================================
+== SINEderella rc=0 2026-11-15 20:44:50
+== flankscan 1-7 2026-11-15 20:44:50
+== report rebuild through publish_run 2026-11-15 21:00:55
+== done 2026-11-15 21:03:48
