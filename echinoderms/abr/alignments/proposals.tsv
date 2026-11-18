@@ -1,0 +1,47 @@
+plate	subfamily	orig_len	add5_bp	add5_ungapped	add5_support	add5_null	add3_bp	add3_ungapped	add3_support	add3_null	trim5_bp	trim5_support	trim3_bp	trim3_support	copies	rebuilt_vs_orig
+abr_abr_seed10_rand100.aln.fa	abr_seed10	201	29	0.48	0.72	0.48	2	0.00	0.00	0.00	0		0		100	0.95
+abr_abr_seed10_top100.aln.fa	abr_seed10	201	40	0.64	0.81	0.50	10	0.40	0.50	0.50	0		0		100	0.97
+abr_abr_seed11_rand100.aln.fa	abr_seed11	434	287	0.35	0.75	0.50	185	0.46	0.64	0.49	0		0		83	0.90
+abr_abr_seed11_top100.aln.fa	abr_seed11	434	287	0.35	0.75	0.50	185	0.46	0.64	0.49	0		0		83	0.90
+abr_abr_seed12_rand100.aln.fa	abr_seed12	259	20	0.55	0.70	0.50	9	0.61	0.67	0.56	0		0		100	0.80
+abr_abr_seed12_subfam.aln.fa	abr_seed12	259	17	1.00	1.00	0.47	0				0		0		20	0.81
+abr_abr_seed12_top100.aln.fa	abr_seed12	258	19	0.42	0.63	0.47	10	0.65	0.70	0.60	0		0		100	0.87
+abr_abr_seed13_rand100.aln.fa	abr_seed13	302	7	0.43	0.57	0.57	9	0.56	0.56	0.56	0		0		100	0.78
+abr_abr_seed13_top100.aln.fa	abr_seed13	302	54	0.37	0.57	0.50	3	0.33	0.33	0.33	1	0.00	0		100	0.78
+abr_abr_seed14_rand100.aln.fa	abr_seed14	270	8	0.38	0.50	0.50	7	0.29	0.43	0.43	0		0		20	0.81
+abr_abr_seed14_top100.aln.fa	abr_seed14	270	5	0.40	0.60	0.60	1	0.00	0.00	0.00	0		0		20	0.81
+abr_abr_seed15_rand100.aln.fa	abr_seed15	294	0				1	0.50	0.50	0.50	1	0.00	0		100	0.93
+abr_abr_seed15_subfam.aln.fa	abr_seed15	294	0				0				1	1.00	1	1.00	17	0.93
+abr_abr_seed15_top100.aln.fa	abr_seed15	294	0				2	0.50	0.50	0.50	1	0.00	0		100	0.93
+abr_abr_seed16_rand100.aln.fa	abr_seed16	126	0				230	0.34	0.69	0.50	0		0		100	0.97
+abr_abr_seed16_top100.aln.fa	abr_seed16	126	0				260	0.33	0.77	0.49	0		0		100	0.96
+abr_abr_seed17_rand100.aln.fa	abr_seed17	326	106	0.42	0.76	0.53	0				0		1	0.00	100	0.94
+abr_abr_seed17_top100.aln.fa	abr_seed17	326	181	0.43	0.73	0.53	0				0		0		100	0.95
+abr_abr_seed18_rand100.aln.fa	abr_seed18	291	2	0.50	0.50	0.50	13	0.69	0.69	0.62	0		6	0.33	100	0.99
+abr_abr_seed18_top100.aln.fa	abr_seed18	291	2	0.50	0.50	0.50	5	0.60	0.60	0.60	0		0		100	0.97
+abr_abr_seed19_rand100.aln.fa	abr_seed19	388	0				0				0		1	0.00	100	0.95
+abr_abr_seed19_subfam.aln.fa	abr_seed19	388	0				0				0		1		76	0.95
+abr_abr_seed19_top100.aln.fa	abr_seed19	388	0				0				0		0		100	0.96
+abr_abr_seed1_rand100.aln.fa	abr_seed1	176	56	0.68	0.82	0.48	142	0.27	0.71	0.50	0		0		100	0.91
+abr_abr_seed1_subfam.aln.fa	abr_seed1	176	63	0.79	0.89	0.48	57	0.93	0.93	0.49	0		0		14	0.91
+abr_abr_seed1_top100.aln.fa	abr_seed1	176	56	0.91	0.93	0.48	116	0.48	0.73	0.50	0		0		100	0.95
+abr_abr_seed2_rand100.aln.fa	abr_seed2	211	44	0.39	0.68	0.48	15	0.93	0.93	0.53	0		0		100	0.83
+abr_abr_seed2_subfam.aln.fa	abr_seed2	211	5	0.60	0.70	0.60	23	1.00	1.00	0.48	0		0		9	0.81
+abr_abr_seed2_top100.aln.fa	abr_seed2	211	43	0.41	0.76	0.49	23	0.91	0.93	0.48	0		0		100	0.80
+abr_abr_seed3_rand100.aln.fa	abr_seed3	290	1	0.50	0.50	0.50	0				0		5	0.40	100	0.98
+abr_abr_seed3_top100.aln.fa	abr_seed3	290	0				0				2	0.50	1	0.00	100	0.98
+abr_abr_seed4_rand100.aln.fa	abr_seed4	508	5	0.80	0.80	0.40	7	0.43	0.43	0.43	1	0.00	0		100	0.71
+abr_abr_seed4_subfam.aln.fa	abr_seed4	517	28	1.00	1.00	0.46	0				0		39	0.34	17	0.69
+abr_abr_seed4_top100.aln.fa	abr_seed4	517	0				27	0.44	0.80	0.48	0		0		100	0.71
+abr_abr_seed5_rand100.aln.fa	abr_seed5	481	94	0.77	0.94	0.50	20	0.60	0.75	0.60	0		0		76	0.95
+abr_abr_seed5_top100.aln.fa	abr_seed5	481	104	0.73	0.90	0.50	12	0.83	0.83	0.67	0		0		76	0.95
+abr_abr_seed6_rand100.aln.fa	abr_seed6	241	0				109	0.39	0.70	0.50	3	0.33	0		100	0.91
+abr_abr_seed6_top100.aln.fa	abr_seed6	241	0				113	0.35	0.69	0.50	1	0.00	0		100	0.90
+abr_abr_seed7_rand100.aln.fa	abr_seed7	312	2	0.50	0.50	0.50	0				0		1	0.00	100	0.97
+abr_abr_seed7_subfam.aln.fa	abr_seed7	312	0				0				0		4	0.67	32	0.96
+abr_abr_seed7_top100.aln.fa	abr_seed7	312	3	0.67	0.67	0.33	3	0.33	0.33	0.33	0		0		100	0.96
+abr_abr_seed8_rand100.aln.fa	abr_seed8	161	47	0.34	0.66	0.49	32	0.47	0.72	0.53	0		0		100	0.82
+abr_abr_seed8_subfam.aln.fa	abr_seed8	161	0				29	0.55	0.79	0.55	1	0.00	0		11	0.80
+abr_abr_seed8_top100.aln.fa	abr_seed8	161	50	0.38	0.72	0.50	36	0.56	0.83	0.50	0		0		100	0.81
+abr_abr_seed9_rand100.aln.fa	abr_seed9	164	1	1.00	1.00	1.00	328	0.39	0.76	0.51	0		0		100	0.98
+abr_abr_seed9_top100.aln.fa	abr_seed9	164	2	0.50	0.50	0.50	345	0.39	0.74	0.51	0		0		100	0.99
