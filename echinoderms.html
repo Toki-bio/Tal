@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Echinoderm SINE — brittle stars</title>
+<style>
+:root { --fg:#222; --bg:#f5f6f8; --card:#fff; --accent:#4C72B0;
+        --muted:#666; --border:#e2e2e2; }
+* { box-sizing: border-box; }
+body { font-family: -apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+       background:var(--bg); color:var(--fg); margin:0; padding:0; }
+header { background: linear-gradient(135deg, #2c3e50, #4C72B0);
+         color:#fff; padding:28px 36px; }
+header h1 { margin:0 0 6px 0; font-size:1.7rem; }
+header .sub { opacity:.85; font-size:.95rem; }
+main { max-width:1100px; margin:0 auto; padding:28px 24px; }
+section.card { background:var(--card); border:1px solid var(--border);
+               border-radius:8px; padding:20px 24px; margin:18px 0;
+               box-shadow:0 1px 3px rgba(0,0,0,0.05); }
+section.card h2 { margin-top:0; font-size:1.1rem; color:#2c3e50;
+                  border-bottom:1px solid var(--border); padding-bottom:8px; }
+.tbl { border-collapse:collapse; width:100%; font-size:.88rem; margin:8px 0; }
+.tbl th,.tbl td { border:1px solid var(--border); padding:6px 10px; text-align:left; }
+.tbl th { background:#f0f3f7; }
+.tbl tbody tr:nth-child(even) { background:#fafbfd; }
+.tbl td.num { font-variant-numeric:tabular-nums; text-align:right; }
+.tag { display:inline-block; border-radius:3px; padding:1px 6px;
+       font-size:.78rem; font-weight:600; }
+.tag-ok  { background:#d4edda; color:#155724; }
+.tag-partial { background:#fff3cd; color:#856404; }
+.tag-candidate { background:#f8d7da; color:#721c24; }
+.tag-other-family { background:#e2e3ff; color:#2d2d8f; }
+.tag-no  { background:#f0f0f0; color:#777; }
+a.btn { display:inline-block; background:var(--accent); color:#fff;
+        padding:4px 12px; border-radius:4px; font-size:.84rem;
+        text-decoration:none; margin:2px 2px 2px 0; }
+a.btn:hover { background:#2c3e50; }
+a.btn.secondary { background:#6c757d; }
+a.btn.green  { background:#28a745; }
+a { color:var(--accent); }
+.species-grid { display:grid; gap:16px;
+                grid-template-columns: repeat(auto-fit, minmax(320px,1fr)); }
+.sp-card { border:1px solid var(--border); border-radius:7px;
+           padding:14px 16px; background:#fff; }
+.sp-card h3 { margin:0 0 4px; font-size:1rem; color:#2c3e50; }
+.sp-card .sci { font-style:italic; color:var(--muted); font-size:.88rem; }
+.sp-card .actions { margin-top:10px; }
+</style>
+</head><body>
+<header>
+  <h1>Echinoderm SINEs &mdash; brittle stars (Ophiuroidea)</h1>
+  <div class="sub">SINE discovery and SINEderella runs on the five most contiguous brittle star genomes in NCBI. Started 2026-11-18; work in progress.
+  <a href="index.html" style="color:#fff;">&larr; Tal SINE main page</a></div>
+</header>
+<main>
+
+<section class="card">
+  <h2>Genomes</h2>
+  <p style="margin:0 0 10px;font-size:.9rem;color:var(--muted);">One primary assembly per species, ranked by contig N50 among the 25 Ophiuroidea assemblies in NCBI (queried 2026-11-18). Server copies: KIT <code>/data/V/toki/Genomes/Ophiuroidea/&lt;code&gt;/genome.fna</code>.</p>
+  <div style="overflow-x:auto;"><table class="tbl">
+  <thead><tr><th>Code</th><th>Species</th><th>Accession</th><th>Contig N50</th><th>Level</th><th>Size</th><th>Status</th></tr></thead>
+  <tbody>
+  <tr><td>ofr</td><td><i>Ophiothrix fragilis</i></td><td><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_986172105.1/">GCA_986172105.1</a></td><td class="num">5.7 Mb</td><td>Chromosome</td><td class="num">1.65 Gb</td><td><span class="tag tag-no">pending</span></td></tr>
+  <tr><td>ame</td><td><i>Astrospartus mediterraneus</i></td><td><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_964277075.1/">GCA_964277075.1</a></td><td class="num">3.5 Mb</td><td>Chromosome</td><td class="num">2.29 Gb</td><td><span class="tag tag-no">pending</span></td></tr>
+  <tr><td>abr</td><td><i>Acrocnida brachiata</i></td><td><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_973358045.1/">GCA_973358045.1</a></td><td class="num">3.2 Mb</td><td>Chromosome</td><td class="num">1.66 Gb</td><td><span class="tag tag-no">pending</span></td></tr>
+  <tr><td>olo</td><td><i>Ophioderma longicauda</i></td><td><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_965120465.1/">GCA_965120465.1</a></td><td class="num">2.6 Mb</td><td>Chromosome</td><td class="num">3.24 Gb</td><td><span class="tag tag-no">pending</span></td></tr>
+  <tr><td>oac</td><td><i>Ophiopholis aculeata</i></td><td><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_047301525.2/">GCA_047301525.2</a></td><td class="num">2.4 Mb</td><td>Scaffold</td><td class="num">2.76 Gb</td><td><span class="tag tag-no">pending</span></td></tr>
+  </tbody></table></div>
+</section>
+
+<section class="card">
+  <h2>Workflow</h2>
+  <p>No ophiuroid SINE family is known (see Literature), so the bank is built de novo, from two discovery arms per genome, pooled, then run through SINEderella:</p>
+  <ol>
+    <li><b>AnnoSINE_v2</b> mode 3 (structure + homology), <code>-a 1</code> (animal Dfam HMMs).</li>
+    <li><b>SINE-de-novo-genome-scan</b> (<code>sine_scan.sh</code>) with the query bank v2.2: 1801 fragments of 50 bp from SINEbase (231), the post-2015 literature collection (395) and ten RepBase echinoderm SINEs (<i>Patiria miniata</i> Pami, <i>Paracentrotus lividus</i> SINE2-1_PL, <i>Strongylocentrotus purpuratus</i> SINE2-4/4a/4a1/4b/4c/8, SPEC1, SURF1).</li>
+    <li>Candidates from both arms &rarr; SubFam &rarr; consensus bank &rarr; <b>SINEderella</b> (full run, report per species).</li>
+  </ol>
+  <p style="font-size:.9rem;color:var(--muted);">AnnoSINE fix (2026-11-18): genomes whose first sequence starts with a G-free telomeric repeat (<code>ccctaa&hellip;</code>) made nhmmer fail to guess the alphabet, so AnnoSINE silently ran without its homology arm (affects <i>O. fragilis</i>, <i>O. longicauda</i>). Fixed by <code>nhmmer --dna</code> plus the matching one-line shift in AnnoSINE's output parser; positive control (30 inserted MIR copies) recovered as one seed.</p>
+</section>
+
+<section class="card">
+  <h2>Literature</h2>
+  <p>No named SINE family from any brittle star was found in the literature, Dfam or RepBase. Echinoderm SINEs with consensus sequences come only from sea urchins and one sea star (above).</p>
+  <ul>
+    <li><i>Amphiura filiformis</i> genome (Parey et al. 2024, <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11310086/"><i>Nature Ecology &amp; Evolution</i></a>): &ldquo;The repeat family SINE/tRNA-Deu-L2 is significantly associated with breakpoint locations and may have contributed to the Hox1-Hox3 inversion through non-homologous repair&rdquo;. Their repeat library is in the Zenodo record <a href="https://zenodo.org/records/10785182">10.5281/zenodo.10785182</a> (checked 2026-11-18: it holds the soft-masked genome but no repeat consensus library, so no ophiuroid SINE consensus is available from it).</li>
+    <li><i>Ophiura sarsii</i> (<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11139871/"><i>Sci Data</i> 2024</a>, Table 8): SINE 1.51% of the genome, combined homology + de novo; no families named.</li>
+    <li><i>Ophioderma brevispinum</i> (<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9367165/"><i>BMC Genomics</i> 2022</a>): &ldquo;Short interspersed nuclear elements (SINEs) &hellip; amounted to 0.11%&rdquo;, all classed as MIR.</li>
+    <li>Dfam (API, 2026-11-18): 0 families under Ophiuroidea (taxid 7618); 0 SINE families under Echinodermata (7586).</li>
+    <li><i>Patiria miniata</i> Pami: CORE-domain SINE, Luchetti &amp; Mantovani 2016 (<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5804259/"><i>Curr Zool</i></a>). <i>Paracentrotus lividus</i> SINE2-1_PL: Nishihara et al. 2016 (<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4824008/"><i>GBE</i></a>).</li>
+  </ul>
+</section>
+
+<section class="card">
+  <h2>Analysis Status</h2>
+  <table class="tbl">
+  <tr><td>2026-11-18</td><td>Genomes downloaded to KIT; AnnoSINE nhmmer fix + positive control; query bank v2.2 built; scan test on a 20 Mb <i>O. fragilis</i> slice: about 400,000 bank hits per Gb, ~40x denser than in scorpion genomes, so the scan will run on a genome masked with the first SINEderella run. AnnoSINE started on all five genomes (two at a time).</td></tr>
+  </table>
+</section>
+
+</main>
+</body></html>
