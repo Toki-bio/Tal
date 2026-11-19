@@ -1,0 +1,100 @@
+plate	subfamily	orig_len	add5_bp	add5_ungapped	add5_support	add5_null	add3_bp	add3_ungapped	add3_support	add3_null	trim5_bp	trim5_support	trim3_bp	trim3_support	copies	rebuilt_vs_orig
+olo_olo_seed10_rand100.aln.fa	olo_seed10	350	3	0.67	0.67	0.67	15	0.53	0.80	0.53	0		0		100	0.81
+olo_olo_seed10_subfam.aln.fa	olo_seed10	350	0				17	0.54	0.82	0.53	0		0		14	0.81
+olo_olo_seed10_top100.aln.fa	olo_seed10	350	1	1.00	1.00	1.00	10	0.80	0.90	0.50	0		0		100	0.93
+olo_olo_seed11_rand100.aln.fa	olo_seed11	349	2	1.00	1.00	0.50	0				0		0		100	0.89
+olo_olo_seed11_subfam.aln.fa	olo_seed11	349	3	1.00	1.00	0.33	1	1.00	1.00	1.00	0		0		73	0.88
+olo_olo_seed11_top100.aln.fa	olo_seed11	349	3	0.67	0.67	0.33	9	0.67	0.78	0.67	0		0		100	0.92
+olo_olo_seed12_rand100.aln.fa	olo_seed12	305	0				0				2	0.50	3	0.33	100	0.98
+olo_olo_seed12_subfam.aln.fa	olo_seed12	305	0				0				2	1.00	0		26	0.97
+olo_olo_seed12_top100.aln.fa	olo_seed12	305	0				1	1.00	1.00	1.00	0		0		100	0.99
+olo_olo_seed13_rand100.aln.fa	olo_seed13	245	1	1.00	1.00	1.00	0				0		1	0.00	100	0.88
+olo_olo_seed13_subfam.aln.fa	olo_seed13	245	0				0				0		1	1.00	81	0.87
+olo_olo_seed13_top100.aln.fa	olo_seed13	245	1	1.00	1.00	1.00	0				0		1	0.00	100	0.88
+olo_olo_seed14_rand100.aln.fa	olo_seed14	180	16	0.38	0.56	0.50	841	0.38	0.82	0.51	0		0		100	0.93
+olo_olo_seed14_top100.aln.fa	olo_seed14	180	63	0.36	0.52	0.51	1028	0.41	0.81	0.50	0		0		100	0.94
+olo_olo_seed15_rand100.aln.fa	olo_seed15	294	2	0.50	0.50	0.50	0				0		4	0.25	100	0.90
+olo_olo_seed15_top100.aln.fa	olo_seed15	294	4	0.25	0.50	0.50	0				0		4	0.25	100	0.90
+olo_olo_seed16_rand100.aln.fa	olo_seed16	306	0				3	0.33	0.67	0.67	0		0		100	0.98
+olo_olo_seed16_subfam.aln.fa	olo_seed16	306	0				0				1	1.00	0		17	0.97
+olo_olo_seed16_top100.aln.fa	olo_seed16	306	0				3	0.67	0.67	0.67	0		0		100	0.98
+olo_olo_seed17_rand100.aln.fa	olo_seed17	291	0				3	0.33	0.67	0.33	1	0.00	0		100	0.94
+olo_olo_seed17_subfam.aln.fa	olo_seed17	291	0				0				1		0		11	0.93
+olo_olo_seed17_top100.aln.fa	olo_seed17	291	0				0				1	0.00	1	0.00	100	0.98
+olo_olo_seed18_rand100.aln.fa	olo_seed18	280	3	0.33	0.33	0.33	7	0.29	0.57	0.57	0		0		45	0.91
+olo_olo_seed18_top100.aln.fa	olo_seed18	280	4	0.25	0.50	0.50	7	0.29	0.57	0.57	0		0		45	0.91
+olo_olo_seed19_rand100.aln.fa	olo_seed19	295	1	1.00	1.00	1.00	0				0		0		100	0.96
+olo_olo_seed19_subfam.aln.fa	olo_seed19	295	2	1.00	1.00	1.00	0				0		0		12	0.96
+olo_olo_seed19_top100.aln.fa	olo_seed19	295	3	0.67	0.67	0.50	1	1.00	1.00	1.00	0		0		100	0.95
+olo_olo_seed1_rand100.aln.fa	olo_seed1	310	0				2	0.50	0.50	0.50	0		0		100	0.96
+olo_olo_seed1_subfam.aln.fa	olo_seed1	310	0				1	1.00	1.00	1.00	0		0		9	0.95
+olo_olo_seed1_top100.aln.fa	olo_seed1	310	1	0.00	0.00	0.00	6	0.67	0.67	0.67	0		0		100	0.98
+olo_olo_seed20_rand100.aln.fa	olo_seed20	367	0				27	0.70	0.74	0.63	1	0.00	0		100	0.93
+olo_olo_seed20_subfam.aln.fa	olo_seed20	367	0				22	1.00	0.95	0.73	1	1.00	0		13	0.93
+olo_olo_seed20_top100.aln.fa	olo_seed20	367	0				15	0.87	0.87	0.67	1	0.00	0		100	0.92
+olo_olo_seed21_rand100.aln.fa	olo_seed21	322	1	1.00	1.00	1.00	1	1.00	1.00	1.00	0		0		100	0.96
+olo_olo_seed21_subfam.aln.fa	olo_seed21	322	1	1.00	1.00	1.00	2	1.00	1.00	1.00	0		0		10	0.96
+olo_olo_seed21_top100.aln.fa	olo_seed21	322	1	1.00	1.00	1.00	3	0.67	0.67	0.67	0		0		100	0.96
+olo_olo_seed22_rand100.aln.fa	olo_seed22	271	0				5	0.40	0.40	0.40	3	0.33	0		31	0.90
+olo_olo_seed22_top100.aln.fa	olo_seed22	271	0				5	0.40	0.40	0.40	3	0.33	0		31	0.90
+olo_olo_seed23_rand100.aln.fa	olo_seed23	106	24	0.25	0.50	0.50	9	0.56	0.56	0.56	0		10	0.30	73	0.77
+olo_olo_seed23_top100.aln.fa	olo_seed23	105	26	0.27	0.54	0.50	3	0.67	0.67	0.67	0		0		73	0.78
+olo_olo_seed24_rand100.aln.fa	olo_seed24	275	2	1.00	1.00	1.00	0				0		1	0.00	100	0.90
+olo_olo_seed24_subfam.aln.fa	olo_seed24	275	3	1.00	1.00	0.67	0				0		3	0.58	11	0.91
+olo_olo_seed24_top100.aln.fa	olo_seed24	275	4	0.75	0.75	0.50	1	1.00	1.00	1.00	0		0		100	0.90
+olo_olo_seed25_rand100.aln.fa	olo_seed25	530	0				0				1	0.00	0		100	0.93
+olo_olo_seed25_subfam.aln.fa	olo_seed25	530	0				0				1		0		18	0.93
+olo_olo_seed25_top100.aln.fa	olo_seed25	530	0				0				1	0.00	0		100	0.93
+olo_olo_seed26_rand100.aln.fa	olo_seed26	534	0				0				1	0.00	0		100	0.95
+olo_olo_seed26_subfam.aln.fa	olo_seed26	534	0				0				1	0.50	0		200	0.95
+olo_olo_seed26_top100.aln.fa	olo_seed26	534	0				0				1	0.00	0		100	0.96
+olo_olo_seed27_rand100.aln.fa	olo_seed27	114	0				255	0.30	0.73	0.50	1	0.00	0		100	0.92
+olo_olo_seed27_top100.aln.fa	olo_seed27	114	0				269	0.29	0.76	0.50	1	0.00	0		100	0.92
+olo_olo_seed28_rand100.aln.fa	olo_seed28	236	396	0.31	0.96	0.52	676	0.38	0.84	0.51	3	0.33	0		100	0.76
+olo_olo_seed28_top100.aln.fa	olo_seed28	236	659	0.51	0.98	0.52	588	0.35	0.83	0.50	0		0		100	0.48
+olo_olo_seed29_rand100.aln.fa	olo_seed29	262	67	1.00	1.00	0.46	155	0.64	0.74	0.52	0		0		2	1.00
+olo_olo_seed29_top100.aln.fa	olo_seed29	262	67	1.00	1.00	0.46	155	0.64	0.74	0.52	0		0		2	1.00
+olo_olo_seed2_rand100.aln.fa	olo_seed2	413	0				1	1.00	1.00	1.00	1	0.00	0		100	0.94
+olo_olo_seed2_subfam.aln.fa	olo_seed2	413	0				1	1.00	1.00	1.00	1	1.00	0		25	0.93
+olo_olo_seed2_top100.aln.fa	olo_seed2	413	0				5	0.60	0.60	0.60	0		0		100	0.94
+olo_olo_seed30_rand100.aln.fa	olo_seed30	492	1	1.00	1.00	1.00	3	0.33	0.33	0.33	0		0		100	0.98
+olo_olo_seed30_top100.aln.fa	olo_seed30	492	1	1.00	1.00	1.00	2	0.50	0.50	0.50	0		0		100	0.98
+olo_olo_seed31_rand100.aln.fa	olo_seed31	202	0				297	0.32	0.63	0.51	0		0		100	0.91
+olo_olo_seed31_subfam.aln.fa	olo_seed31	202	0				18	1.00	1.00	0.50	0		0		26	0.90
+olo_olo_seed31_top100.aln.fa	olo_seed31	202	0				155	0.46	0.74	0.51	0		0		100	0.93
+olo_olo_seed32_rand100.aln.fa	olo_seed32	536	1	0.00	0.00	0.00	3	0.33	0.33	0.33	0		0		100	0.96
+olo_olo_seed32_top100.aln.fa	olo_seed32	536	2	0.00	0.50	0.50	1	1.00	1.00	1.00	0		0		100	0.96
+olo_olo_seed33_rand100.aln.fa	olo_seed33	132	3	1.00	1.00	0.67	32	0.97	0.97	0.50	0		0		100	0.97
+olo_olo_seed33_subfam.aln.fa	olo_seed33	132	0				37	1.00	1.00	0.50	0		0		30	0.97
+olo_olo_seed33_top100.aln.fa	olo_seed33	132	3	0.67	0.67	0.67	34	0.97	0.97	0.50	0		0		100	0.98
+olo_olo_seed34_rand100.aln.fa	olo_seed34	276	0				1	0.00	0.00	0.00	1	0.00	0		13	0.91
+olo_olo_seed34_top100.aln.fa	olo_seed34	276	0				1	0.00	0.00	0.00	1	0.00	0		13	0.91
+olo_olo_seed35_rand100.aln.fa	olo_seed35	304	0				18	0.67	0.78	0.67	2	0.50	0		100	0.99
+olo_olo_seed35_subfam.aln.fa	olo_seed35	304	0				0				1	1.00	0		16	0.98
+olo_olo_seed35_top100.aln.fa	olo_seed35	304	0				18	0.75	0.89	0.67	0		0		100	0.99
+olo_olo_seed36_rand100.aln.fa	olo_seed36	185	1	1.00	1.00	1.00	0				0		1	0.00	100	0.96
+olo_olo_seed36_subfam.aln.fa	olo_seed36	185	1	1.00	1.00	1.00	0				0		1	1.00	18	0.96
+olo_olo_seed36_top100.aln.fa	olo_seed36	185	1	1.00	1.00	1.00	0				0		1	0.00	100	0.97
+olo_olo_seed37_rand100.aln.fa	olo_seed37	285	1	0.00	0.00	0.00	10	0.30	0.55	0.50	0		0		24	0.91
+olo_olo_seed37_top100.aln.fa	olo_seed37	285	1	0.00	0.00	0.00	10	0.30	0.55	0.50	0		0		24	0.91
+olo_olo_seed38_rand100.aln.fa	olo_seed38	236	208	0.59	0.90	0.50	2	1.00	1.00	0.50	0		0		100	0.95
+olo_olo_seed38_top100.aln.fa	olo_seed38	236	214	0.56	0.92	0.50	2	1.00	1.00	0.50	0		0		100	0.95
+olo_olo_seed39_rand100.aln.fa	olo_seed39	241	11	0.45	0.55	0.45	0				0		4	0.50	100	0.83
+olo_olo_seed39_top100.aln.fa	olo_seed39	241	13	0.31	0.46	0.46	0				0		5	0.40	100	0.84
+olo_olo_seed3_rand100.aln.fa	olo_seed3	438	3	0.67	0.67	0.67	2	0.00	0.50	0.50	0		0		92	0.64
+olo_olo_seed3_top100.aln.fa	olo_seed3	438	46	0.26	0.55	0.50	0				0		0		92	0.62
+olo_olo_seed4_rand100.aln.fa	olo_seed4	359	159	0.31	0.53	0.51	10	0.50	0.60	0.50	0		0		100	0.95
+olo_olo_seed4_top100.aln.fa	olo_seed4	359	71	0.27	0.54	0.51	10	0.50	0.60	0.50	0		0		100	0.95
+olo_olo_seed5_rand100.aln.fa	olo_seed5	214	0				0				0		6	0.33	100	0.73
+olo_olo_seed5_subfam.aln.fa	olo_seed5	214	0				0				0		9		23	0.73
+olo_olo_seed5_top100.aln.fa	olo_seed5	214	0				0				0		8	0.25	100	0.87
+olo_olo_seed6_rand100.aln.fa	olo_seed6	182	0				97	0.45	0.74	0.49	0		0		100	0.91
+olo_olo_seed6_subfam.aln.fa	olo_seed6	182	0				43	0.98	0.98	0.47	0		0		72	0.90
+olo_olo_seed6_top100.aln.fa	olo_seed6	182	0				95	0.51	0.77	0.49	0		0		100	0.90
+olo_olo_seed7_rand100.aln.fa	olo_seed7	430	0				1	0.00	0.00	0.00	0		0		100	0.97
+olo_olo_seed7_subfam.aln.fa	olo_seed7	430	0				0				0		11	1.00	19	0.97
+olo_olo_seed7_top100.aln.fa	olo_seed7	430	0				2	0.50	0.50	0.50	0		0		100	0.99
+olo_olo_seed8_rand100.aln.fa	olo_seed8	507	0				4	0.50	0.50	0.50	0		0		100	0.97
+olo_olo_seed8_top100.aln.fa	olo_seed8	507	0				4	0.50	0.50	0.50	0		3	0.33	100	0.97
+olo_olo_seed9_rand100.aln.fa	olo_seed9	285	1	0.00	0.00	0.00	3	0.33	0.33	0.33	0		0		90	0.92
+olo_olo_seed9_top100.aln.fa	olo_seed9	285	1	0.00	0.00	0.00	3	0.33	0.33	0.33	0		0		90	0.92
