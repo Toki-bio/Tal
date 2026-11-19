@@ -1,0 +1,148 @@
+plate	subfamily	orig_len	add5_bp	add5_ungapped	add5_support	add5_null	add3_bp	add3_ungapped	add3_support	add3_null	trim5_bp	trim5_support	trim3_bp	trim3_support	copies	rebuilt_vs_orig
+ame_ame_seed10_rand100.aln.fa	ame_seed10	334	3	0.67	0.67	0.33	1	1.00	1.00	1.00	0		0		100	0.76
+ame_ame_seed10_subfam.aln.fa	ame_seed10	335	0				0				1	1.00	1	1.00	47	0.77
+ame_ame_seed10_top100.aln.fa	ame_seed10	335	1	1.00	1.00	1.00	2	0.50	0.50	0.50	0		0		100	0.79
+ame_ame_seed11_rand100.aln.fa	ame_seed11	289	0				1	0.00	0.00	0.00	0		0		12	0.75
+ame_ame_seed11_top100.aln.fa	ame_seed11	289	21	0.33	0.57	0.55	1	0.00	0.00	0.00	0		0		12	0.75
+ame_ame_seed12_rand100.aln.fa	ame_seed12	236	10	0.60	0.60	0.50	10	0.40	0.50	0.40	0		0		100	0.85
+ame_ame_seed12_top100.aln.fa	ame_seed12	236	87	0.29	0.55	0.52	4	0.50	0.50	0.50	0		0		100	0.85
+ame_ame_seed13_rand100.aln.fa	ame_seed13	435	0				3	0.33	0.33	0.33	0		0		100	0.78
+ame_ame_seed13_top100.aln.fa	ame_seed13	420	3	0.67	0.67	0.67	1	0.00	0.00	0.00	0		0		100	0.75
+ame_ame_seed14_rand100.aln.fa	ame_seed14	226	14	0.36	0.57	0.43	8	0.75	0.75	0.50	0		0		100	0.87
+ame_ame_seed14_subfam.aln.fa	ame_seed14	226	16	0.62	0.88	0.50	9	1.00	0.89	0.56	0		0		28	0.87
+ame_ame_seed14_top100.aln.fa	ame_seed14	226	19	0.68	0.74	0.47	8	0.75	0.88	0.50	0		0		100	0.88
+ame_ame_seed15_rand100.aln.fa	ame_seed15	242	25	0.68	0.74	0.52	90	0.37	0.64	0.48	0		0		100	0.83
+ame_ame_seed15_top100.aln.fa	ame_seed15	242	27	0.67	0.78	0.52	90	0.31	0.64	0.49	0		4	0.25	100	0.81
+ame_ame_seed16_rand100.aln.fa	ame_seed16	152	8	0.62	0.62	0.50	1	0.00	0.00	0.00	0		0		100	0.89
+ame_ame_seed16_subfam.aln.fa	ame_seed16	152	0				0				0		1	1.00	139	0.88
+ame_ame_seed16_top100.aln.fa	ame_seed16	152	37	0.92	0.92	0.49	35	0.39	0.57	0.51	0		0		100	0.91
+ame_ame_seed17_rand100.aln.fa	ame_seed17	488	116	0.46	0.71	0.53	11	0.27	0.64	0.55	0		0		100	0.83
+ame_ame_seed17_top100.aln.fa	ame_seed17	488	117	0.45	0.70	0.53	4	0.50	0.50	0.50	0		0		100	0.83
+ame_ame_seed18_rand100.aln.fa	ame_seed18	533	33	0.36	0.64	0.47	42	0.33	0.60	0.48	0		0		100	0.83
+ame_ame_seed18_top100.aln.fa	ame_seed18	533	35	0.43	0.66	0.49	54	0.46	0.66	0.46	0		0		100	0.84
+ame_ame_seed19_rand100.aln.fa	ame_seed19	188	0				4	0.75	0.75	0.50	0		0		100	0.89
+ame_ame_seed19_subfam.aln.fa	ame_seed19	188	0				0				0		0		120	0.89
+ame_ame_seed19_top100.aln.fa	ame_seed19	188	0				4	0.75	0.75	0.50	0		0		100	0.88
+ame_ame_seed1_rand100.aln.fa	ame_seed1	256	1	1.00	1.00	1.00	1	0.00	0.00	0.00	0		0		56	0.97
+ame_ame_seed1_top100.aln.fa	ame_seed1	256	1	1.00	1.00	1.00	0				0		12	0.33	56	0.97
+ame_ame_seed20_rand100.aln.fa	ame_seed20	219	23	0.46	0.72	0.48	2	0.50	0.50	0.50	0		0		100	0.84
+ame_ame_seed20_subfam.aln.fa	ame_seed20	219	0				4	1.00	1.00	0.62	0		0		27	0.84
+ame_ame_seed20_top100.aln.fa	ame_seed20	219	62	0.44	0.73	0.50	10	0.40	0.60	0.60	0		0		100	0.84
+ame_ame_seed21_rand100.aln.fa	ame_seed21	370	76	0.42	0.76	0.49	13	0.23	0.54	0.46	0		0		100	0.87
+ame_ame_seed21_subfam.aln.fa	ame_seed21	370	0				0				0		0		31	0.86
+ame_ame_seed21_top100.aln.fa	ame_seed21	370	98	0.43	0.76	0.49	52	0.46	0.71	0.48	0		0		100	0.87
+ame_ame_seed22_rand100.aln.fa	ame_seed22	263	1	1.00	1.00	1.00	11	0.55	0.73	0.64	0		0		100	0.98
+ame_ame_seed22_top100.aln.fa	ame_seed22	263	3	0.67	0.67	0.33	9	0.56	0.78	0.56	0		0		100	0.98
+ame_ame_seed23_rand100.aln.fa	ame_seed23	233	32	0.59	0.72	0.44	58	0.41	0.69	0.47	0		0		100	0.88
+ame_ame_seed23_top100.aln.fa	ame_seed23	234	32	0.66	0.75	0.47	52	0.40	0.75	0.48	0		0		100	0.88
+ame_ame_seed24_rand100.aln.fa	ame_seed24	193	0				52	0.40	0.54	0.44	3	0.33	0		100	0.85
+ame_ame_seed24_top100.aln.fa	ame_seed24	193	0				63	0.50	0.63	0.46	3	0.33	0		100	0.90
+ame_ame_seed25_rand100.aln.fa	ame_seed25	255	0				5	0.20	0.60	0.40	0		0		100	0.92
+ame_ame_seed25_subfam.aln.fa	ame_seed25	255	0				8	0.62	0.69	0.56	0		0		9	0.91
+ame_ame_seed25_top100.aln.fa	ame_seed25	255	1	1.00	1.00	1.00	13	0.69	0.77	0.62	0		0		100	0.92
+ame_ame_seed26_rand100.aln.fa	ame_seed26	534	0				0				6	0.33	0		100	0.90
+ame_ame_seed26_subfam.aln.fa	ame_seed26	534	0				0				95		2	1.00	14	0.92
+ame_ame_seed26_top100.aln.fa	ame_seed26	534	5	0.40	0.40	0.40	5	0.50	0.60	0.60	0		0		100	0.90
+ame_ame_seed27_rand100.aln.fa	ame_seed27	319	443	0.32	0.70	0.51	1	0.50	0.50	0.50	0		0		100	0.86
+ame_ame_seed27_top100.aln.fa	ame_seed27	319	585	0.28	0.71	0.51	1	1.00	1.00	1.00	0		0		100	0.86
+ame_ame_seed28_rand100.aln.fa	ame_seed28	523	0				5	0.40	0.40	0.40	1	0.00	12	0.33	100	0.86
+ame_ame_seed28_subfam.aln.fa	ame_seed28	523	0				0				10	0.89	69	0.22	48	0.87
+ame_ame_seed28_top100.aln.fa	ame_seed28	523	0				9	0.78	0.78	0.67	0		0		100	0.97
+ame_ame_seed29_rand100.aln.fa	ame_seed29	280	3	0.67	0.67	0.67	0				0		2	0.50	59	0.91
+ame_ame_seed29_top100.aln.fa	ame_seed29	280	3	0.67	0.67	0.67	0				0		2	0.50	59	0.91
+ame_ame_seed2_rand100.aln.fa	ame_seed2	398	4	0.00	0.50	0.50	2	0.50	0.50	0.50	0		0		100	0.84
+ame_ame_seed2_subfam.aln.fa	ame_seed2	398	0				0				0		0		9	0.86
+ame_ame_seed2_top100.aln.fa	ame_seed2	398	9	0.89	0.89	0.56	4	0.50	0.50	0.50	0		0		100	0.90
+ame_ame_seed30_rand100.aln.fa	ame_seed30	477	207	0.60	0.86	0.50	6	0.67	0.67	0.58	0		0		100	0.96
+ame_ame_seed30_subfam.aln.fa	ame_seed30	477	24	0.96	0.96	0.50	113	0.31	0.98	0.50	0		0		123	0.96
+ame_ame_seed30_top100.aln.fa	ame_seed30	477	16	0.50	0.62	0.50	449	0.98	0.99	0.51	0		0		100	0.97
+ame_ame_seed31_rand100.aln.fa	ame_seed31	178	94	0.29	0.61	0.49	219	0.32	0.65	0.51	0		0		100	0.94
+ame_ame_seed31_top100.aln.fa	ame_seed31	178	88	0.31	0.69	0.50	266	0.36	0.74	0.51	0		0		100	0.94
+ame_ame_seed32_rand100.aln.fa	ame_seed32	256	1	1.00	1.00	1.00	86	0.36	0.55	0.52	0		0		100	0.91
+ame_ame_seed32_top100.aln.fa	ame_seed32	256	0				112	0.58	0.84	0.52	0		0		100	0.93
+ame_ame_seed33_rand100.aln.fa	ame_seed33	189	0				237	0.28	0.65	0.51	0		0		100	0.86
+ame_ame_seed33_subfam.aln.fa	ame_seed33	189	0				0				1	1.00	0		12	0.85
+ame_ame_seed33_top100.aln.fa	ame_seed33	189	1	0.00	0.00	0.00	348	0.29	0.66	0.51	0		0		100	0.87
+ame_ame_seed34_rand100.aln.fa	ame_seed34	350	1	1.00	1.00	1.00	68	0.40	0.63	0.50	0		0		100	0.92
+ame_ame_seed34_subfam.aln.fa	ame_seed34	350	0				1	1.00	1.00	1.00	3	1.00	0		9	0.89
+ame_ame_seed34_top100.aln.fa	ame_seed34	350	1	1.00	1.00	1.00	129	0.56	0.85	0.50	0		0		100	0.92
+ame_ame_seed35_rand100.aln.fa	ame_seed35	282	5	0.60	0.80	0.60	135	0.37	0.67	0.51	0		0		100	0.72
+ame_ame_seed35_top100.aln.fa	ame_seed35	282	11	0.64	0.82	0.45	103	0.31	0.72	0.50	0		0		100	0.73
+ame_ame_seed36_rand100.aln.fa	ame_seed36	358	0				0				1	0.00	3	0.33	100	0.97
+ame_ame_seed36_subfam.aln.fa	ame_seed36	358	0				0				1		0		101	0.95
+ame_ame_seed36_top100.aln.fa	ame_seed36	358	0				3	0.67	0.67	0.33	1	0.00	0		100	0.95
+ame_ame_seed37_rand100.aln.fa	ame_seed37	299	5	0.60	0.60	0.60	1	0.00	0.00	0.00	0		0		100	0.94
+ame_ame_seed37_subfam.aln.fa	ame_seed37	299	0				0				0		1	1.00	52	0.92
+ame_ame_seed37_top100.aln.fa	ame_seed37	299	5	0.80	0.80	0.60	5	0.60	0.60	0.60	0		0		100	0.95
+ame_ame_seed38_rand100.aln.fa	ame_seed38	222	0				0				0		0		100	0.89
+ame_ame_seed38_top100.aln.fa	ame_seed38	222	0				0				0		0		100	0.84
+ame_ame_seed39_rand100.aln.fa	ame_seed39	428	0				4	0.50	0.50	0.50	1	0.00	0		100	0.97
+ame_ame_seed39_top100.aln.fa	ame_seed39	428	0				0				1	0.00	2	0.50	100	0.97
+ame_ame_seed3_rand100.aln.fa	ame_seed3	325	0				0				3	0.33	0		72	0.86
+ame_ame_seed3_top100.aln.fa	ame_seed3	325	0				0				3	0.33	0		72	0.86
+ame_ame_seed40_rand100.aln.fa	ame_seed40	128	3	0.33	0.67	0.67	1	1.00	1.00	1.00	0		0		100	0.90
+ame_ame_seed40_top100.aln.fa	ame_seed40	128	3	0.33	0.67	0.67	0				0		1	0.00	100	0.89
+ame_ame_seed41_rand100.aln.fa	ame_seed41	283	0				1	1.00	1.00	1.00	0		0		100	0.96
+ame_ame_seed41_top100.aln.fa	ame_seed41	283	1	1.00	1.00	1.00	2	0.50	0.50	0.50	0		0		100	0.96
+ame_ame_seed42_rand100.aln.fa	ame_seed42	253	1	1.00	1.00	1.00	0				0		0		100	0.91
+ame_ame_seed42_top100.aln.fa	ame_seed42	253	1	1.00	1.00	1.00	5	0.80	0.80	0.60	0		0		100	0.95
+ame_ame_seed43_rand100.aln.fa	ame_seed43	295	34	0.38	0.53	0.47	14	0.29	0.57	0.57	0		0		19	0.66
+ame_ame_seed43_top100.aln.fa	ame_seed43	295	21	0.43	0.52	0.52	10	0.20	0.40	0.50	0		0		19	0.68
+ame_ame_seed44_rand100.aln.fa	ame_seed44	302	4	0.50	0.50	0.50	39	0.36	0.54	0.51	0		0		19	0.79
+ame_ame_seed44_top100.aln.fa	ame_seed44	302	29	0.28	0.52	0.52	62	0.32	0.53	0.52	0		0		19	0.84
+ame_ame_seed45_rand100.aln.fa	ame_seed45	471	0				0				46	0.26	0		100	0.89
+ame_ame_seed45_top100.aln.fa	ame_seed45	471	0				4	0.00	0.25	0.50	6	0.33	0		100	0.88
+ame_ame_seed46_rand100.aln.fa	ame_seed46	323	122	0.33	0.93	0.51	58	0.97	0.81	0.50	0		0		100	0.52
+ame_ame_seed46_top100.aln.fa	ame_seed46	323	700	0.35	0.66	0.50	856	0.28	0.68	0.50	0		0		100	0.90
+ame_ame_seed47_rand100.aln.fa	ame_seed47	313	78	0.60	0.78	0.51	291	0.30	0.80	0.52	0		0		20	0.90
+ame_ame_seed47_top100.aln.fa	ame_seed47	313	307	0.38	0.88	0.52	165	0.34	0.83	0.52	0		0		20	0.91
+ame_ame_seed48_rand100.aln.fa	ame_seed48	218	91	0.31	0.59	0.52	0				0		2	0.50	100	0.86
+ame_ame_seed48_top100.aln.fa	ame_seed48	218	0				9	0.44	0.56	0.44	1	0.00	11	0.36	100	0.73
+ame_ame_seed49_rand100.aln.fa	ame_seed49	316	839	0.28	0.81	0.51	771	0.29	0.77	0.51	0		0		100	0.76
+ame_ame_seed49_top100.aln.fa	ame_seed49	316	838	0.28	0.81	0.51	869	0.28	0.78	0.51	0		0		100	0.76
+ame_ame_seed4_rand100.aln.fa	ame_seed4	409	10	0.40	0.70	0.50	3	0.33	0.33	0.33	0		0		100	0.75
+ame_ame_seed4_top100.aln.fa	ame_seed4	409	3	0.67	0.67	0.67	5	0.60	0.60	0.40	0		0		100	0.78
+ame_ame_seed50_rand100.aln.fa	ame_seed50	250	81	0.41	0.69	0.51	4	0.50	0.50	0.50	0		0		39	0.82
+ame_ame_seed50_top100.aln.fa	ame_seed50	250	83	0.36	0.70	0.52	3	0.33	0.33	0.33	0		0		39	0.83
+ame_ame_seed51_rand100.aln.fa	ame_seed51	265	50	0.98	0.98	0.42	69	0.84	0.97	0.55	0		0		3	1.00
+ame_ame_seed51_top100.aln.fa	ame_seed51	265	50	0.98	0.98	0.42	69	0.84	0.97	0.55	0		0		3	1.00
+ame_ame_seed53_rand100.aln.fa	ame_seed53	301	16	0.50	0.62	0.50	0				0		11	0.36	100	0.90
+ame_ame_seed53_top100.aln.fa	ame_seed53	303	69	0.51	0.67	0.54	4	0.25	0.25	0.25	0		0		100	0.86
+ame_ame_seed54_rand100.aln.fa	ame_seed54	423	2	1.00	1.00	1.00	0				0		2	0.00	100	0.81
+ame_ame_seed54_top100.aln.fa	ame_seed54	423	4	1.00	0.75	0.50	0				0		2	0.00	100	0.81
+ame_ame_seed55_rand100.aln.fa	ame_seed55	324	0				0				25	0.28	29	0.28	100	0.94
+ame_ame_seed55_subfam.aln.fa	ame_seed55	324	0				0				25	0.23	29	0.76	200	0.94
+ame_ame_seed55_top100.aln.fa	ame_seed55	324	2	0.50	0.50	0.50	2	0.50	0.50	0.50	7	0.14	2	0.00	100	0.94
+ame_ame_seed56_rand100.aln.fa	ame_seed56	280	4	0.25	0.50	0.50	41	0.46	0.78	0.49	0		0		100	0.88
+ame_ame_seed56_subfam.aln.fa	ame_seed56	280	0				35	0.94	0.94	0.46	41	0.39	0		24	0.90
+ame_ame_seed56_top100.aln.fa	ame_seed56	280	0				35	0.90	0.91	0.49	37	0.27	0		100	0.90
+ame_ame_seed57_rand100.aln.fa	ame_seed57	346	36	0.38	0.62	0.47	97	0.31	0.66	0.49	0		0		100	0.83
+ame_ame_seed57_top100.aln.fa	ame_seed57	346	38	0.39	0.61	0.47	43	0.35	0.72	0.48	1	0.00	0		100	0.84
+ame_ame_seed58_rand100.aln.fa	ame_seed58	320	368	0.33	0.76	0.51	126	0.44	0.79	0.50	0		0		100	0.90
+ame_ame_seed58_top100.aln.fa	ame_seed58	320	373	0.35	0.74	0.51	132	0.43	0.82	0.50	0		0		100	0.93
+ame_ame_seed59_rand100.aln.fa	ame_seed59	517	0				0				43	0.28	10	0.22	100	0.96
+ame_ame_seed59_subfam.aln.fa	ame_seed59	517	0				0				42	0.35	152		114	0.98
+ame_ame_seed59_top100.aln.fa	ame_seed59	517	0				0				10	0.30	15	0.27	100	0.95
+ame_ame_seed5_rand100.aln.fa	ame_seed5	281	7	0.71	0.71	0.50	2	0.50	0.50	0.50	0		0		100	0.92
+ame_ame_seed5_subfam.aln.fa	ame_seed5	282	0				0				0		0		17	0.91
+ame_ame_seed5_top100.aln.fa	ame_seed5	282	7	0.86	0.86	0.57	1	0.00	0.00	0.00	0		0		100	0.93
+ame_ame_seed60_rand100.aln.fa	ame_seed60	267	147	0.29	0.77	0.50	4	0.50	0.75	0.75	0		0		100	0.85
+ame_ame_seed60_subfam.aln.fa	ame_seed60	267	84	0.71	0.96	0.50	0				0		10	0.35	11	0.88
+ame_ame_seed60_top100.aln.fa	ame_seed60	267	150	0.30	0.83	0.49	235	0.32	0.70	0.50	0		0		100	0.92
+ame_ame_seed61_rand100.aln.fa	ame_seed61	317	31	0.55	0.61	0.52	795	0.32	0.90	0.53	0		0		33	0.35
+ame_ame_seed61_top100.aln.fa	ame_seed61	319	2	1.00	1.00	1.00	420	0.35	0.95	0.52	3		9	0.22	33	0.42
+ame_ame_seed62_rand100.aln.fa	ame_seed62	304	0				433	0.33	0.76	0.53	0		0		55	0.74
+ame_ame_seed62_top100.aln.fa	ame_seed62	304	0				460	0.33	0.75	0.53	2	0.50	0		55	0.79
+ame_ame_seed63_rand100.aln.fa	ame_seed63	312	11	0.18	0.55	0.55	26	0.27	0.50	0.48	0		0		10	0.79
+ame_ame_seed63_top100.aln.fa	ame_seed63	312	11	0.18	0.55	0.55	28	0.23	0.50	0.48	0		0		10	0.79
+ame_ame_seed6_rand100.aln.fa	ame_seed6	295	0				2	0.50	0.50	0.50	3	0.33	0		100	0.95
+ame_ame_seed6_subfam.aln.fa	ame_seed6	295	0				1	1.00	1.00	1.00	2	1.00	0		23	0.95
+ame_ame_seed6_top100.aln.fa	ame_seed6	295	1	1.00	1.00	1.00	8	0.62	0.62	0.62	0		0		100	0.96
+ame_ame_seed7_rand100.aln.fa	ame_seed7	267	0				11	0.27	0.55	0.55	1	0.00	0		100	0.95
+ame_ame_seed7_subfam.aln.fa	ame_seed7	267	0				11	0.36	0.64	0.55	0		0		176	0.95
+ame_ame_seed7_top100.aln.fa	ame_seed7	267	2	0.50	0.50	0.50	11	1.00	1.00	0.55	0		0		100	0.94
+ame_ame_seed8_rand100.aln.fa	ame_seed8	276	0				7	0.57	0.71	0.57	1	0.00	0		100	0.85
+ame_ame_seed8_subfam.aln.fa	ame_seed8	276	0				7	1.00	1.00	0.57	1		0		21	0.84
+ame_ame_seed8_top100.aln.fa	ame_seed8	276	0				7	0.71	0.71	0.57	1	0.00	0		100	0.86
+ame_ame_seed9_rand100.aln.fa	ame_seed9	350	0				5	0.80	0.80	0.60	1	0.00	0		100	0.94
+ame_ame_seed9_top100.aln.fa	ame_seed9	350	0				5	0.80	0.80	0.50	1	0.00	0		100	0.95
