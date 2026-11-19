@@ -1,0 +1,97 @@
+plate	subfamily	orig_len	add5_bp	add5_ungapped	add5_support	add5_null	add3_bp	add3_ungapped	add3_support	add3_null	trim5_bp	trim5_support	trim3_bp	trim3_support	copies	rebuilt_vs_orig
+oac_oac_seed10_rand100.aln.fa	oac_seed10	346	0				84	0.38	0.64	0.51	0		0		100	0.95
+oac_oac_seed10_top100.aln.fa	oac_seed10	346	1	1.00	1.00	1.00	61	0.61	0.82	0.54	0		0		100	0.94
+oac_oac_seed11_rand100.aln.fa	oac_seed11	229	0				417	0.31	0.70	0.52	0		0		100	0.95
+oac_oac_seed11_top100.aln.fa	oac_seed11	229	0				310	0.32	0.65	0.51	0		0		100	0.95
+oac_oac_seed12_rand100.aln.fa	oac_seed12	262	22	0.86	0.86	0.50	25	0.68	0.76	0.60	0		0		100	0.89
+oac_oac_seed12_subfam.aln.fa	oac_seed12	262	23	1.00	1.00	0.52	17	0.94	0.94	0.59	0		0		41	0.89
+oac_oac_seed12_top100.aln.fa	oac_seed12	262	25	0.92	0.92	0.52	24	0.79	0.83	0.58	0		0		100	0.89
+oac_oac_seed13_rand100.aln.fa	oac_seed13	296	5	0.80	0.80	0.60	8	0.62	0.62	0.62	0		0		100	0.95
+oac_oac_seed13_subfam.aln.fa	oac_seed13	296	0				0				0		0		60	0.94
+oac_oac_seed13_top100.aln.fa	oac_seed13	296	9	0.78	0.89	0.56	11	0.73	0.73	0.73	0		0		100	0.96
+oac_oac_seed14_rand100.aln.fa	oac_seed14	267	7	0.71	0.71	0.43	0				0		6	0.33	85	0.90
+oac_oac_seed14_top100.aln.fa	oac_seed14	267	7	0.71	0.71	0.43	0				0		6	0.33	85	0.91
+oac_oac_seed15_rand100.aln.fa	oac_seed15	444	0				1	0.00	0.00	0.00	0		0		100	0.99
+oac_oac_seed15_subfam.aln.fa	oac_seed15	444	0				0				0		13	1.00	17	0.99
+oac_oac_seed15_top100.aln.fa	oac_seed15	444	0				5	0.80	0.80	0.60	0		0		100	1.00
+oac_oac_seed16_rand100.aln.fa	oac_seed16	354	0				329	0.39	0.74	0.51	0		0		100	0.92
+oac_oac_seed16_top100.aln.fa	oac_seed16	354	0				314	0.37	0.75	0.51	0		0		100	0.94
+oac_oac_seed17_rand100.aln.fa	oac_seed17	316	198	0.36	0.82	0.49	853	0.29	0.84	0.50	0		0		34	0.80
+oac_oac_seed17_top100.aln.fa	oac_seed17	316	285	0.32	0.74	0.50	563	0.31	0.84	0.50	0		0		34	0.80
+oac_oac_seed18_rand100.aln.fa	oac_seed18	454	75	0.96	0.96	0.52	645	0.54	0.96	0.52	0		0		100	0.84
+oac_oac_seed18_top100.aln.fa	oac_seed18	454	67	0.97	0.97	0.54	643	0.60	0.98	0.52	0		0		100	0.84
+oac_oac_seed19_rand100.aln.fa	oac_seed19	335	1	1.00	1.00	1.00	0				0		5	0.20	100	0.91
+oac_oac_seed19_top100.aln.fa	oac_seed19	335	1	1.00	1.00	1.00	0				0		5	0.20	100	0.91
+oac_oac_seed1_rand100.aln.fa	oac_seed1	302	2	1.00	1.00	0.50	0				0		1	0.00	100	0.88
+oac_oac_seed1_top100.aln.fa	oac_seed1	302	3	0.67	0.67	0.67	0				0		1	0.00	100	0.87
+oac_oac_seed20_rand100.aln.fa	oac_seed20	360	4	0.75	0.75	0.50	2	0.50	0.50	0.50	0		0		100	0.93
+oac_oac_seed20_subfam.aln.fa	oac_seed20	360	1	1.00	1.00	1.00	41	1.00	1.00	0.49	0		0		22	0.90
+oac_oac_seed20_top100.aln.fa	oac_seed20	360	4	0.75	0.75	0.50	0				0		0		100	0.98
+oac_oac_seed21_rand100.aln.fa	oac_seed21	328	0				3	0.67	0.67	0.67	0		0		100	0.94
+oac_oac_seed21_subfam.aln.fa	oac_seed21	328	0				0				1	1.00	0		21	0.94
+oac_oac_seed21_top100.aln.fa	oac_seed21	328	1	1.00	1.00	1.00	5	0.60	0.60	0.60	0		0		100	0.98
+oac_oac_seed22_rand100.aln.fa	oac_seed22	307	164	0.36	0.68	0.51	4	0.50	0.75	0.50	0		0		100	0.86
+oac_oac_seed22_top100.aln.fa	oac_seed22	307	119	0.34	0.69	0.51	50	0.36	0.58	0.50	0		0		100	0.87
+oac_oac_seed23_rand100.aln.fa	oac_seed23	372	0				0				1	0.00	2	0.00	100	0.92
+oac_oac_seed23_top100.aln.fa	oac_seed23	372	0				0				1	0.00	2	0.00	100	0.94
+oac_oac_seed24_rand100.aln.fa	oac_seed24	41	28	0.75	0.86	0.57	131	0.25	0.80	0.49	0		0		100	0.41
+oac_oac_seed24_top100.aln.fa	oac_seed24	41	30	0.57	0.90	0.57	156	0.34	0.84	0.49	0		0		100	0.42
+oac_oac_seed25_rand100.aln.fa	oac_seed25	241	16	0.31	0.50	0.44	0				0		0		33	0.67
+oac_oac_seed25_top100.aln.fa	oac_seed25	241	20	0.35	0.45	0.45	0				0		2	0.50	33	0.65
+oac_oac_seed26_rand100.aln.fa	oac_seed26	326	146	0.43	0.60	0.48	0				0		14	0.21	100	0.87
+oac_oac_seed26_top100.aln.fa	oac_seed26	326	143	0.41	0.62	0.48	0				0		13	0.23	100	0.87
+oac_oac_seed27_rand100.aln.fa	oac_seed27	385	451	0.50	0.84	0.51	163	0.32	0.74	0.51	0		0		100	0.96
+oac_oac_seed27_top100.aln.fa	oac_seed27	385	274	0.60	0.79	0.51	405	0.31	0.71	0.51	0		0		100	0.97
+oac_oac_seed28_rand100.aln.fa	oac_seed28	320	8	0.25	0.38	0.50	17	0.41	0.76	0.53	0		0		33	0.72
+oac_oac_seed28_top100.aln.fa	oac_seed28	320	8	0.38	0.50	0.50	17	0.41	0.76	0.53	0		0		33	0.71
+oac_oac_seed29_rand100.aln.fa	oac_seed29	327	18	0.37	0.50	0.44	0				0		0		100	0.68
+oac_oac_seed29_subfam.aln.fa	oac_seed29	327	0				0				2	0.50	89	0.55	11	0.75
+oac_oac_seed29_top100.aln.fa	oac_seed29	327	16	0.31	0.53	0.50	5	0.40	0.40	0.40	0		12	0.38	100	0.70
+oac_oac_seed2_rand100.aln.fa	oac_seed2	157	60	0.50	0.87	0.52	1	0.00	0.00	0.00	0		0		100	0.95
+oac_oac_seed2_top100.aln.fa	oac_seed2	157	56	0.49	0.88	0.52	1	1.00	1.00	1.00	0		0		100	0.95
+oac_oac_seed30_rand100.aln.fa	oac_seed30	174	255	0.31	0.60	0.51	10	0.50	0.60	0.50	0		0		100	0.75
+oac_oac_seed30_top100.aln.fa	oac_seed30	174	220	0.30	0.55	0.51	34	0.43	0.56	0.53	0		0		100	0.94
+oac_oac_seed31_rand100.aln.fa	oac_seed31	329	151	0.32	0.82	0.51	301	0.41	0.75	0.50	0		0		100	0.91
+oac_oac_seed31_top100.aln.fa	oac_seed31	329	321	0.88	0.94	0.51	1012	0.35	0.89	0.50	0		0		100	0.99
+oac_oac_seed32_rand100.aln.fa	oac_seed32	336	25	0.80	0.80	0.52	2	0.50	0.50	0.50	0		0		100	0.95
+oac_oac_seed32_subfam.aln.fa	oac_seed32	336	26	0.96	0.92	0.54	0				0		30	0.53	33	0.95
+oac_oac_seed32_top100.aln.fa	oac_seed32	336	26	0.88	0.88	0.54	20	0.35	0.50	0.50	0		8	0.38	100	0.98
+oac_oac_seed33_rand100.aln.fa	oac_seed33	280	28	0.62	0.86	0.57	13	0.62	0.69	0.54	0		0		100	0.87
+oac_oac_seed33_subfam.aln.fa	oac_seed33	280	27	0.40	0.85	0.59	7	0.86	0.86	0.57	0		0		104	0.85
+oac_oac_seed33_top100.aln.fa	oac_seed33	280	38	0.84	0.92	0.61	10	1.00	1.00	0.50	0		0		100	0.99
+oac_oac_seed34_rand100.aln.fa	oac_seed34	559	235	0.33	0.71	0.51	199	0.33	0.71	0.52	0		0		100	0.91
+oac_oac_seed34_subfam.aln.fa	oac_seed34	559	24	0.54	0.83	0.50	19	0.16	0.89	0.47	0		0		8	0.89
+oac_oac_seed34_top100.aln.fa	oac_seed34	559	239	0.28	0.78	0.51	205	0.34	0.80	0.52	0		0		100	0.94
+oac_oac_seed35_rand100.aln.fa	oac_seed35	277	609	0.50	0.87	0.51	0				0		34	0.38	82	0.99
+oac_oac_seed35_top100.aln.fa	oac_seed35	277	740	0.49	0.72	0.51	186	0.56	0.97	0.49	0		0		82	0.99
+oac_oac_seed36_rand100.aln.fa	oac_seed36	305	0				48	0.33	0.52	0.54	11		11	0.30	21	0.63
+oac_oac_seed36_top100.aln.fa	oac_seed36	305	0				47	0.36	0.55	0.53	1	0.00	10	0.37	21	0.66
+oac_oac_seed37_rand100.aln.fa	oac_seed37	312	2	0.50	0.50	0.50	5	0.40	0.60	0.60	0		0		35	0.60
+oac_oac_seed37_top100.aln.fa	oac_seed37	328	0				5	0.40	0.60	0.60	11	0.32	0		35	0.62
+oac_oac_seed39_rand100.aln.fa	oac_seed39	328	18	0.36	0.56	0.50	195	0.67	0.96	0.53	0		0		100	0.76
+oac_oac_seed39_top100.aln.fa	oac_seed39	328	147	0.40	0.68	0.54	198	0.71	0.96	0.53	0		0		100	0.80
+oac_oac_seed3_rand100.aln.fa	oac_seed3	362	3	0.67	0.67	0.33	0				0		9	0.33	100	0.88
+oac_oac_seed3_subfam.aln.fa	oac_seed3	362	0				0				0		8	0.50	30	0.89
+oac_oac_seed3_top100.aln.fa	oac_seed3	362	3	0.67	0.67	0.67	0				0		4	0.25	100	0.98
+oac_oac_seed40_rand100.aln.fa	oac_seed40	368	337	0.38	0.85	0.51	836	0.30	0.74	0.50	0		3	0.33	72	0.97
+oac_oac_seed40_top100.aln.fa	oac_seed40	368	330	0.38	0.85	0.51	813	0.30	0.74	0.50	0		3	0.33	72	0.97
+oac_oac_seed41_rand100.aln.fa	oac_seed41	334	909	0.36	0.76	0.51	282	0.55	0.93	0.51	0		0		40	0.97
+oac_oac_seed41_top100.aln.fa	oac_seed41	334	938	0.37	0.74	0.51	282	0.55	0.93	0.51	0		0		40	0.97
+oac_oac_seed42_rand100.aln.fa	oac_seed42	334	88	0.41	0.77	0.52	0				0		3	0.33	100	0.86
+oac_oac_seed42_top100.aln.fa	oac_seed42	334	198	0.39	0.69	0.51	1	0.00	0.00	0.00	0		0		100	0.85
+oac_oac_seed43_rand100.aln.fa	oac_seed43	140	1	0.00	0.00	0.00	56	0.25	0.57	0.48	0		0		100	0.88
+oac_oac_seed43_top100.aln.fa	oac_seed43	140	0				30	0.27	0.57	0.50	34	0.29	0		100	0.92
+oac_oac_seed4_rand100.aln.fa	oac_seed4	295	5	0.60	0.60	0.60	0				0		0		91	0.88
+oac_oac_seed4_top100.aln.fa	oac_seed4	295	5	0.60	0.60	0.60	0				0		0		91	0.88
+oac_oac_seed5_rand100.aln.fa	oac_seed5	240	5	0.80	0.80	0.60	0				0		1	0.00	100	0.96
+oac_oac_seed5_top100.aln.fa	oac_seed5	240	117	0.43	0.63	0.51	0				0		1	0.00	100	0.95
+oac_oac_seed6_rand100.aln.fa	oac_seed6	320	2	0.50	0.50	0.50	9	0.89	0.89	0.67	0		0		100	0.99
+oac_oac_seed6_subfam.aln.fa	oac_seed6	320	10	1.00	0.85	0.50	10	1.00	0.95	0.65	0		0		8	0.99
+oac_oac_seed6_top100.aln.fa	oac_seed6	320	10	0.90	0.90	0.50	12	0.67	0.75	0.67	0		0		100	1.00
+oac_oac_seed7_rand100.aln.fa	oac_seed7	333	0				0				1	0.00	0		100	0.89
+oac_oac_seed7_subfam.aln.fa	oac_seed7	333	0				0				1	1.00	0		130	0.89
+oac_oac_seed7_top100.aln.fa	oac_seed7	333	0				0				1	0.00	0		100	0.90
+oac_oac_seed8_rand100.aln.fa	oac_seed8	255	21	0.48	0.67	0.48	17	0.76	0.76	0.53	0		0		100	0.86
+oac_oac_seed8_top100.aln.fa	oac_seed8	255	20	0.40	0.55	0.50	21	0.76	0.81	0.52	0		0		100	0.91
+oac_oac_seed9_rand100.aln.fa	oac_seed9	226	0				6	0.33	0.50	0.50	15	0.27	4	0.50	100	0.81
+oac_oac_seed9_top100.aln.fa	oac_seed9	226	0				0				5	0.20	0		100	0.81
