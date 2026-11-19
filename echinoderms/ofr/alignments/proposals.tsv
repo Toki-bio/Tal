@@ -1,0 +1,56 @@
+plate	subfamily	orig_len	add5_bp	add5_ungapped	add5_support	add5_null	add3_bp	add3_ungapped	add3_support	add3_null	trim5_bp	trim5_support	trim3_bp	trim3_support	copies	rebuilt_vs_orig
+ofr_ofr_seed10_rand100.aln.fa	ofr_seed10	340	2	0.50	0.50	0.50	278	0.37	0.57	0.50	0		0		100	0.67
+ofr_ofr_seed10_top100.aln.fa	ofr_seed10	340	2	0.50	0.50	0.50	285	0.28	0.56	0.50	4	0.25	0		100	0.66
+ofr_ofr_seed11_rand100.aln.fa	ofr_seed11	566	2	0.50	0.50	0.50	2	0.50	0.50	0.50	0		0		100	1.00
+ofr_ofr_seed11_top100.aln.fa	ofr_seed11	566	2	0.50	0.50	0.50	1	0.00	0.00	0.00	0		0		100	1.00
+ofr_ofr_seed12_rand100.aln.fa	ofr_seed12	300	1	1.00	1.00	1.00	7	1.00	1.00	0.71	0		0		100	0.94
+ofr_ofr_seed12_subfam.aln.fa	ofr_seed12	300	2	1.00	1.00	1.00	12	1.00	1.00	0.67	0		0		15	0.93
+ofr_ofr_seed12_top100.aln.fa	ofr_seed12	300	3	0.67	0.67	0.67	21	0.57	0.81	0.67	0		0		100	0.97
+ofr_ofr_seed13_rand100.aln.fa	ofr_seed13	86	104	0.40	0.68	0.56	5	0.40	0.50	0.60	0		0		100	0.85
+ofr_ofr_seed13_top100.aln.fa	ofr_seed13	86	119	0.38	0.70	0.54	1	0.00	0.00	0.00	0		0		100	0.86
+ofr_ofr_seed14_rand100.aln.fa	ofr_seed14	139	42	0.31	0.68	0.50	163	0.54	0.79	0.53	0		0		100	0.95
+ofr_ofr_seed14_top100.aln.fa	ofr_seed14	139	69	0.46	0.70	0.51	154	0.61	0.80	0.53	0		0		100	0.95
+ofr_ofr_seed15_rand100.aln.fa	ofr_seed15	323	0				1	0.50	0.50	0.50	1	0.00	0		100	0.93
+ofr_ofr_seed15_subfam.aln.fa	ofr_seed15	323	0				0				1	1.00	2	0.00	12	0.92
+ofr_ofr_seed15_top100.aln.fa	ofr_seed15	323	0				1	0.50	0.50	0.50	0		0		100	0.92
+ofr_ofr_seed16_rand100.aln.fa	ofr_seed16	280	0				2	0.50	0.50	0.50	2	0.50	0		100	0.90
+ofr_ofr_seed16_subfam.aln.fa	ofr_seed16	280	0				0				1	1.00	2	0.25	21	0.90
+ofr_ofr_seed16_top100.aln.fa	ofr_seed16	280	1	1.00	1.00	1.00	3	0.67	0.67	0.67	0		0		100	0.90
+ofr_ofr_seed17_rand100.aln.fa	ofr_seed17	368	127	0.39	0.53	0.54	49	0.35	0.53	0.49	0		0		100	0.93
+ofr_ofr_seed17_top100.aln.fa	ofr_seed17	368	887	0.28	0.65	0.50	0				0		186	0.26	100	0.97
+ofr_ofr_seed18_rand100.aln.fa	ofr_seed18	309	0				1	1.00	1.00	1.00	4	0.25	0		100	0.94
+ofr_ofr_seed18_subfam.aln.fa	ofr_seed18	309	0				0				3	1.00	1	1.00	30	0.95
+ofr_ofr_seed18_top100.aln.fa	ofr_seed18	309	0				1	0.00	0.00	0.00	1	0.00	0		100	0.98
+ofr_ofr_seed19_rand100.aln.fa	ofr_seed19	311	0				0				0		3	0.33	100	0.92
+ofr_ofr_seed19_subfam.aln.fa	ofr_seed19	311	0				0				1	1.00	4	0.50	24	0.92
+ofr_ofr_seed19_top100.aln.fa	ofr_seed19	311	1	0.50	0.50	0.50	0				0		3	0.33	100	0.91
+ofr_ofr_seed1_rand100.aln.fa	ofr_seed1	104	2	0.50	0.50	0.50	0				0		3	0.33	38	0.96
+ofr_ofr_seed1_top100.aln.fa	ofr_seed1	104	2	0.50	0.50	0.50	0				0		1	0.00	38	0.97
+ofr_ofr_seed20_rand100.aln.fa	ofr_seed20	208	448	0.34	0.75	0.51	63	0.33	0.84	0.49	0		4	0.25	100	0.91
+ofr_ofr_seed20_top100.aln.fa	ofr_seed20	208	245	0.43	0.93	0.50	64	0.97	0.97	0.48	0		0		100	0.90
+ofr_ofr_seed21_rand100.aln.fa	ofr_seed21	112	1	0.00	0.00	0.00	108	0.61	0.82	0.49	0		0		76	0.85
+ofr_ofr_seed21_top100.aln.fa	ofr_seed21	112	0				110	0.61	0.82	0.49	15	0.33	0		76	0.89
+ofr_ofr_seed22_rand100.aln.fa	ofr_seed22	384	702	0.41	0.76	0.52	919	0.34	0.87	0.52	0		0		89	0.93
+ofr_ofr_seed22_top100.aln.fa	ofr_seed22	384	715	0.41	0.76	0.52	854	0.31	0.89	0.52	0		0		89	0.93
+ofr_ofr_seed2_rand100.aln.fa	ofr_seed2	256	3	0.67	0.67	0.67	14	0.64	0.71	0.64	0		0		100	0.98
+ofr_ofr_seed2_top100.aln.fa	ofr_seed2	256	3	0.67	0.67	0.67	6	1.00	1.00	0.67	0		0		100	0.98
+ofr_ofr_seed3_rand100.aln.fa	ofr_seed3	218	139	0.35	0.75	0.54	0				0		1	0.00	100	0.91
+ofr_ofr_seed3_top100.aln.fa	ofr_seed3	218	163	0.36	0.86	0.54	0				0		0		100	0.86
+ofr_ofr_seed4_rand100.aln.fa	ofr_seed4	271	75	0.32	0.56	0.49	130	0.40	0.67	0.49	0		0		100	0.86
+ofr_ofr_seed4_subfam.aln.fa	ofr_seed4	271	3	0.50	0.50	0.50	18	0.50	0.83	0.50	0		0		8	0.86
+ofr_ofr_seed4_top100.aln.fa	ofr_seed4	271	126	0.37	0.71	0.49	50	0.52	0.72	0.48	0		0		100	0.87
+ofr_ofr_seed5_rand100.aln.fa	ofr_seed5	233	7	0.57	0.71	0.57	63	0.50	0.78	0.48	0		0		100	0.88
+ofr_ofr_seed5_subfam.aln.fa	ofr_seed5	233	0				64	0.98	0.98	0.47	0		0		17	0.89
+ofr_ofr_seed5_top100.aln.fa	ofr_seed5	233	6	0.67	0.67	0.50	61	0.57	0.82	0.48	0		0		100	0.88
+ofr_ofr_seed6_rand100.aln.fa	ofr_seed6	213	93	0.52	0.81	0.48	0				0		1	0.00	100	0.90
+ofr_ofr_seed6_subfam.aln.fa	ofr_seed6	213	81	0.98	0.98	0.48	0				0		1	1.00	40	0.90
+ofr_ofr_seed6_top100.aln.fa	ofr_seed6	213	97	0.71	0.86	0.48	3	0.33	0.33	0.33	0		0		100	0.92
+ofr_ofr_seed7_rand100.aln.fa	ofr_seed7	258	13	0.77	0.77	0.46	2	0.50	0.50	0.50	0		0		100	0.95
+ofr_ofr_seed7_subfam.aln.fa	ofr_seed7	258	10	1.00	1.00	0.50	0				0		1	1.00	52	0.95
+ofr_ofr_seed7_top100.aln.fa	ofr_seed7	258	13	0.92	0.92	0.46	2	0.50	0.50	0.50	0		0		100	0.95
+ofr_ofr_seed8_rand100.aln.fa	ofr_seed8	227	22	0.91	0.91	0.50	8	0.62	0.75	0.62	0		0		100	0.96
+ofr_ofr_seed8_subfam.aln.fa	ofr_seed8	227	21	1.00	0.95	0.52	0				0		0		20	0.96
+ofr_ofr_seed8_top100.aln.fa	ofr_seed8	227	21	0.95	0.95	0.52	12	0.67	0.75	0.67	0		0		100	0.96
+ofr_ofr_seed9_rand100.aln.fa	ofr_seed9	318	22	0.89	0.89	0.50	4	1.00	1.00	0.50	0		0		100	0.88
+ofr_ofr_seed9_subfam.aln.fa	ofr_seed9	318	22	0.95	0.95	0.45	11	1.00	1.00	0.55	0		0		49	0.88
+ofr_ofr_seed9_top100.aln.fa	ofr_seed9	318	15	1.00	1.00	0.53	12	0.92	0.92	0.50	0		0		100	0.87
