@@ -737,3 +737,4 @@ A 282, B 359 positions as called, including a few A-rich bases before the start.
 B = e2-3 plus about 150 bp, ending in ...GCAGGCACCGAGCCCAGCAATAACCCTGGAGG(A)n.
 Boundaries and subfamily decisions: owner, from the plates (local
 `atelerix/ten10/aal_e2-3_long{A,B}.aln.fa`, `aal_e2-3_versions.aln.fa`).
+Selection of the sets (writes short.bed, SINE.bed; run first): `scripts/atelerix_e23_long_select.sh`.
