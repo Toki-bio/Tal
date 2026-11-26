@@ -54,3 +54,23 @@ needs the owner's member lists.
 Bank: the seven consensuses plus Repbase SINE-1_Mad and SINE-3_Mad (owner, 2026-11-26); all nine kept by the
 canonicalisation step (no merges). Run: `Biotech2024:/staging/tmp/apple_sines/sd_peel9/run_20261126_011507`, SINEderella
 b5c8a4a. consensus_354seqs and SINE-1_Mad compete for the same copies.
+
+### Result (finished 2026-11-26, exit 0)
+
+19,335 extracted copies, 15,113 assigned; verdicts: SINE 12,225, grey 1,730, not SINE 5,380.
+
+| query | firm copies | soft | leak % of firm | verdict SINE | consensus audit |
+|---|---|---|---|---|---|
+| SINE-1_Mad | 8,781 | 1,811 | 34.3 | 7,094 | SHORTER |
+| consensus_25seqs | 1,804 | 520 | 0.0 | 1,489 | MATCH |
+| consensus_4seqs | 1,781 | 55 | 0.0 | 1,560 | MATCH |
+| consensus_7seqs | 1,200 | 128 | 2.4 | 1,022 | DIVERGED |
+| consensus_3seqs | 450 | 263 | 0.0 | 112 | LONGER |
+| consensus_354seqs | 381 | 951 | 85.3 | 331 | DIVERGED |
+| consensus_34seqs | 376 | 38 | 0.5 | 336 | MATCH |
+| consensus_17seqs | 324 | 67 | 2.5 | 266 | SHORTER |
+| SINE-3_Mad | 16 | 389 | 0.0 | 15 | SKIPPED |
+
+Length-version test: consensus_354seqs against SINE-1_Mad = one end mode (no second length version).
+consensus_3seqs: 330 of 400 sampled assigned copies continue 5' into the same consensus (dimer or tandem copies);
+323 of its 450 assigned copies have masked (repeat) flanks and could not be tested.
