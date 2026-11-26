@@ -711,3 +711,4 @@ SubFam alignment, md5 4b09c571...), `atelerix/ten10/report.html` (md5
 assigned wording). Known log bug: `tools/array_flag.py` prints "0 flagged ARRAY"
 although its table flags e1-4 and e2-2. SINEderella main now 3c799fb (step 2
 subfamily split in one pass; checked identical on this run's files).
+- Published: `alignments/aal_ten10_subfam_general.aln.fa` (general SubFam alignment of the run, owner approved).
