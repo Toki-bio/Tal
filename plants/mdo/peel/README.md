@@ -87,3 +87,8 @@ Seen while checking the published copy (SINEderella b5c8a4a):
 - the report's satellite table still lists SINE-1_Mad (carried over from the source run);
 - the report's similarity matrix and array table cut names at the first "_", so every `consensus_Nseqs` shows as
   "consensus" (`report_hierarchy.py` `_short`).
+
+Fixed in SINEderella bd2a54e (names, satellite table after --exclude, all-seed alignment after --add / --exclude).
+The published report was rebuilt from the same run with bd2a54e (report step only): names are now full. Its satellite
+table and all-seeds plate are still the source run's until the exclusion is run again with the new code. The stale
+SINE-1_Mad satellite spans cover 0 of the 18,887 merged loci, so the copy set is not affected.
