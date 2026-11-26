@@ -57,6 +57,22 @@ Ranges: Su et al. 2024, Plant Physiol 195:2799 (PMID 38743633), Supplementary Ta
 
 G02_170 loci lie on 8 chromosomes; on 5 of them (chr01, chr08, chr10, chr11, chr14) a locus is within 0.4 Mb of the centromere range (inside it on chr01 and chr11; 60 kb on chr14, 164 kb on chr08, 392 kb on chr10); on chr09, chr12 and chr13 the nearest locus is 1.9, 3.3 and 12.3 Mb away. G02_170 is therefore centromere-proximal on most chromosomes that carry it, but it is a small family (65 kb) and the ranges are rough. No other family is near a centromere; G05_178 and G07_95 are at chromosome ends.
 
+## What the families are (NCBI BLAST, 2026-11-26; raw hit lists in `blast_hits.txt`)
+
+blastn (word size 11) of each consensus against NCBI core nt; every family also matches the apple genome itself (expected). Beyond that:
+
+| family | other hits | reading |
+|---|---|---|
+| G04_210 | mRNAs of *Pyrus* and *Malus sylvestris* annotated "disease resistance protein", "TMV resistance protein N-like", "protein SUPPRESSOR OF npr1-1, CONSTITUTIVE 1", 87-93 % identity over the full 210 bp | a repeated stretch of a TIR-NBS-LRR-type resistance gene (translation of the consensus has no stop codon and the pattern LNLSGC...ELPSSI) |
+| G07_95 | ribosomal RNA gene entries of *Pyracantha*, *Crataegus*, *Aria*, *Sorbus* (SSU/LSU/ITS), 92-96 % over 76-95 bp | derived from rDNA |
+| G06_104 | *M. sylvestris* mRNAs of a peptidyl-prolyl cis-trans isomerase (97 %) and an uncharacterised lncRNA of *M. domestica* (96 %), over the whole 104 bp | contains gene or transcribed sequence |
+| G05_178 | *M. sylvestris* / *M. domestica* acetyl-CoA synthetase mRNAs, 88-92 % over 133-179 bp (Rosaceae-restricted search) | contains gene-derived sequence |
+| G03_169 | *Prunus persica* chromosomes 1-3 at 76-80 % over 91-109 bp, *Argentina anserina* and *P. persica* mRNA fragments at 76-82 % (Rosaceae-restricted search) | weak similarity outside *Malus*; the 166 bp *Prunus* centromeric monomer reported by Wang et al. 2022 (Genes 13:641) is a candidate relation, not tested (monomer sequence not at hand) |
+| G01_95, G02_170 | top 12 hits are apple chromosomes only (G01 100 %, G02 85-92 %) | no information from the 12-hit lists |
+
+A match to a gene says that the repeat unit is gene-derived (or that the gene contains the repeat); it does not show that the family is a gene.
+The unrestricted G03 and G05 searches and the protein search for G04 stayed queued at NCBI for more than 30 minutes and were not used.
+
 ## Alignments of each peeled group (ViewAlign)
 
 - G01 (177 motifs): https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Fplants%2Fmdo%2Fminisat%2Fgroups%2Fmdo_minisat_G01.aln.fa
@@ -69,6 +85,6 @@ G02_170 loci lie on 8 chromosomes; on 5 of them (chr01, chr08, chr10, chr11, chr
 
 ## Not established
 
-- Consensus content is described, not identified: G04_210 translates without a stop codon and shows the repeat pattern LNLSGC...ELPSSI (resembles the leucine-rich repeat of plant resistance genes); G03_169 contains GGTTCGACTCC (a tRNA T-arm-like motif); G01_95 has an inverted-repeat core. None was searched against a database.
+- G03_169 and G05_178: the Rosaceae-restricted BLAST gives weak (G03) or gene-fragment (G05) similarity only; whether either is a known satellite is open.
 - One haplotype only.
 - satpipe's cluster stage is plus-strand only; two clusters of one family (G01_95) were merged by hand-built peel, not by the tool.

@@ -1,0 +1,88 @@
+NCBI BLAST (web service, 2026-11-26), blastn word size 11 (not megablast), database core nt, E <= 0.001; query = the family consensus in mdo_minisat_consensuses.fa.
+G03 and G05 were run restricted to Rosaceae[Organism] (the unrestricted runs stayed queued at NCBI and were abandoned). No protein search was done (G04 blastx abandoned for the same reason).
+Lines: subject title | identities as reported by BLAST (best alignment per subject).
+
+==== G01
+Sequences producing significant alignments:                       (Bits)  Value  Ident
+CP168780.1 Malus domestica cultivar Golden Delicious chromosom...  172     7e-39  100%      
+CP168774.1 Malus domestica cultivar Golden Delicious chromosom...  172     7e-39  100%      
+CP168771.1 Malus domestica cultivar Golden Delicious chromosom...  172     7e-39  100%      
+CP168779.1 Malus domestica cultivar Golden Delicious chromosom...  172     7e-39  100%      
+CP168772.1 Malus domestica cultivar Golden Delicious chromosom...  172     7e-39  100%      
+CP168778.1 Malus domestica cultivar Golden Delicious chromosom...  172     7e-39  100%      
+CP168776.1 Malus domestica cultivar Golden Delicious chromosom...  172     7e-39  100%      
+CP168777.1 Malus domestica cultivar Golden Delicious chromosom...  172     7e-39  100%      
+
+==== G02
+Sequences producing significant alignments:                       (Bits)  Value  Ident
+CP168776.1 Malus domestica cultivar Golden Delicious chromosom...  244     3e-60  92%       
+CP168779.1 Malus domestica cultivar Golden Delicious chromosom...  235     2e-57  91%       
+CP168775.1 Malus domestica cultivar Golden Delicious chromosom...  211     6e-50  87%       
+CP168778.1 Malus domestica cultivar Golden Delicious chromosom...  206     8e-49  87%       
+CP168777.1 Malus domestica cultivar Golden Delicious chromosom...  203     9e-48  87%       
+CP168766.1 Malus domestica cultivar Golden Delicious chromosom...  195     5e-45  85%       
+CP168774.1 Malus domestica cultivar Golden Delicious chromosom...  193     2e-44  85%       
+CP168772.1 Malus domestica cultivar Golden Delicious chromosom...  185     3e-42  85%       
+
+==== G03
+CP168775.1 Malus domestica cultivar Golden Delicious chromosome 11 |  Identities = 158/169 (93%), Gaps = 2/169 (1%)
+CP168772.1 Malus domestica cultivar Golden Delicious chromosome 08 |  Identities = 90/110 (82%), Gaps = 6/110 (5%)
+CP168769.1 Malus domestica cultivar Golden Delicious chromosome 05 |  Identities = 80/99 (81%), Gaps = 4/99 (4%)
+AP041825.1 Prunus persica Akatsuki DNA, chromosome: 2 |  Identities = 73/91 (80%), Gaps = 3/91 (3%)
+AP041824.1 Prunus persica Akatsuki DNA, chromosome: 1 |  Identities = 85/109 (78%), Gaps = 6/109 (6%)
+XM_050524775.1 PREDICTED: Argentina anserina sulfoquinovosyl transferase SQD2  |  Identities = 72/95 (76%), Gaps = 4/95 (4%)
+XM_007218745.2 PREDICTED: Prunus persica spindle and kinetochore-associated  |  Identities = 63/77 (82%), Gaps = 3/77 (4%)
+AP041826.1 Prunus persica Akatsuki DNA, chromosome: 3 |  Identities = 73/96 (76%), Gaps = 5/96 (5%)
+CP168780.1 Malus domestica cultivar Golden Delicious chromosome 16 |  Identities = 66/85 (78%), Gaps = 3/85 (4%)
+CP168779.1 Malus domestica cultivar Golden Delicious chromosome 15 |  Identities = 60/77 (78%), Gaps = 3/77 (4%)
+XM_004307754.2 PREDICTED: Fragaria vesca subsp. vesca NO-associated protein  |  Identities = 73/97 (75%), Gaps = 13/97 (13%)
+CP168767.1 Malus domestica cultivar Golden Delicious chromosome 03 |  Identities = 69/92 (75%), Gaps = 7/92 (8%)
+
+==== G04
+XM_048590656.1 PREDICTED: Pyrus x bretschneideri disease resistance protein  |  Identities = 195/210 (93%), Gaps = 0/210 (0%)
+XM_088692553.1 PREDICTED: Pyrus communis protein SUPPRESSOR OF npr1-1, CONSTITUTIVE  |  Identities = 194/210 (92%), Gaps = 0/210 (0%)
+XM_088692557.1 PREDICTED: Pyrus communis protein SUPPRESSOR OF npr1-1, CONSTITUTIVE  |  Identities = 194/210 (92%), Gaps = 0/210 (0%)
+XM_088688149.1 PREDICTED: Pyrus communis TMV resistance protein N (LOC137720129),  |  Identities = 194/210 (92%), Gaps = 0/210 (0%)
+XM_084665015.1 PREDICTED: Malus sylvestris TMV resistance protein N-like (LOC126627735),  |  Identities = 194/210 (92%), Gaps = 0/210 (0%)
+XM_084665020.1 PREDICTED: Malus sylvestris TMV resistance protein N-like (LOC126627735),  |  Identities = 194/210 (92%), Gaps = 0/210 (0%)
+XM_050297301.2 PREDICTED: Malus sylvestris TMV resistance protein N-like (LOC126627756),  |  Identities = 194/210 (92%), Gaps = 0/210 (0%)
+XM_084665013.1 PREDICTED: Malus sylvestris TMV resistance protein N-like (LOC126627735),  |  Identities = 194/210 (92%), Gaps = 0/210 (0%)
+XM_084665017.1 PREDICTED: Malus sylvestris TMV resistance protein N-like (LOC126627735),  |  Identities = 194/210 (92%), Gaps = 0/210 (0%)
+XM_050297291.2 PREDICTED: Malus sylvestris TMV resistance protein N-like (LOC126627735),  |  Identities = 194/210 (92%), Gaps = 0/210 (0%)
+XM_084665007.1 PREDICTED: Malus sylvestris TMV resistance protein N-like (LOC126627735),  |  Identities = 194/210 (92%), Gaps = 0/210 (0%)
+XM_084665010.1 PREDICTED: Malus sylvestris TMV resistance protein N-like (LOC126627735),  |  Identities = 194/210 (92%), Gaps = 0/210 (0%)
+
+==== G05
+CP168769.1 Malus domestica cultivar Golden Delicious chromosome 05 |  Identities = 169/178 (95%), Gaps = 0/178 (0%)
+CP168768.1 Malus domestica cultivar Golden Delicious chromosome 04 |  Identities = 168/178 (94%), Gaps = 0/178 (0%)
+CP168775.1 Malus domestica cultivar Golden Delicious chromosome 11 |  Identities = 169/179 (94%), Gaps = 1/179 (1%)
+CP168779.1 Malus domestica cultivar Golden Delicious chromosome 15 |  Identities = 165/176 (94%), Gaps = 1/176 (1%)
+CP168781.1 Malus domestica cultivar Golden Delicious chromosome 17 |  Identities = 163/176 (93%), Gaps = 0/176 (0%)
+CP168776.1 Malus domestica cultivar Golden Delicious chromosome 12 |  Identities = 164/178 (92%), Gaps = 0/178 (0%)
+XM_084659697.1 PREDICTED: Malus sylvestris acetyl-CoA synthetase (ACS), transcript  |  Identities = 158/179 (88%), Gaps = 4/179 (2%)
+XR_014719564.1 PREDICTED: Malus sylvestris acetyl-CoA synthetase (ACS), transcript  |  Identities = 158/179 (88%), Gaps = 4/179 (2%)
+XM_070816753.1 PREDICTED: Malus domestica acetyl-coenzyme A synthetase, chloroplastic/glyoxysomal  |  Identities = 122/133 (92%), Gaps = 0/133 (0%)
+XM_070816754.1 PREDICTED: Malus domestica acetyl-coenzyme A synthetase, chloroplastic/glyoxysomal  |  Identities = 114/131 (87%), Gaps = 0/131 (0%)
+XM_084659698.1 PREDICTED: Malus sylvestris acetyl-CoA synthetase (ACS), transcript  |  Identities = 114/131 (87%), Gaps = 0/131 (0%)
+XR_011573415.1 PREDICTED: Malus domestica uncharacterized lncRNA (LOC139189609),  |  Identities = 61/65 (94%), Gaps = 0/65 (0%)
+
+==== G06
+CP168766.1 Malus domestica cultivar Golden Delicious chromosome 02 |  Identities = 102/104 (98%), Gaps = 0/104 (0%)
+XM_050250943.2 PREDICTED: Malus sylvestris peptidyl-prolyl cis-trans isomerase  |  Identities = 101/104 (97%), Gaps = 0/104 (0%)
+XM_084660371.1 PREDICTED: Malus sylvestris peptidyl-prolyl cis-trans isomerase  |  Identities = 101/104 (97%), Gaps = 0/104 (0%)
+XR_001787352.3 PREDICTED: Malus domestica uncharacterized lncRNA (LOC108170883),  |  Identities = 100/104 (96%), Gaps = 0/104 (0%)
+XR_007610766.2 PREDICTED: Malus sylvestris uncharacterized LOC126586231 (LOC126586231),  |  Identities = 100/104 (96%), Gaps = 0/104 (0%)
+
+==== G07
+CP168780.1 Malus domestica cultivar Golden Delicious chromosome 16 |  Identities = 91/95 (96%), Gaps = 0/95 (0%)
+CP168769.1 Malus domestica cultivar Golden Delicious chromosome 05 |  Identities = 91/95 (96%), Gaps = 0/95 (0%)
+CP168777.1 Malus domestica cultivar Golden Delicious chromosome 13 |  Identities = 90/95 (95%), Gaps = 0/95 (0%)
+CP168765.1 Malus domestica cultivar Golden Delicious chromosome 01 |  Identities = 90/95 (95%), Gaps = 0/95 (0%)
+OP821228.1 Pyracantha fortuneana isolate PBY-404 small subunit ribosomal  |  Identities = 88/95 (93%), Gaps = 0/95 (0%)
+CP168778.1 Malus domestica cultivar Golden Delicious chromosome 14 |  Identities = 85/93 (91%), Gaps = 0/93 (0%)
+MT796496.1 Crataegus rhipidophylla isolate DM611 large subunit ribosomal  |  Identities = 80/87 (92%), Gaps = 0/87 (0%)
+MT796577.1 Aria rupicola isolate DM624 large subunit ribosomal RNA gene,  |  Identities = 73/76 (96%), Gaps = 0/76 (0%)
+MT784109.1 Sorbus aria isolate DM621 small subunit ribosomal RNA gene, internal  |  Identities = 73/76 (96%), Gaps = 0/76 (0%)
+CP168773.1 Malus domestica cultivar Golden Delicious chromosome 09 |  Identities = 69/72 (96%), Gaps = 0/72 (0%)
+CP168775.1 Malus domestica cultivar Golden Delicious chromosome 11 |  Identities = 59/64 (92%), Gaps = 0/64 (0%)
+CP168772.1 Malus domestica cultivar Golden Delicious chromosome 08 |  Identities = 74/93 (80%), Gaps = 11/93 (12%)
