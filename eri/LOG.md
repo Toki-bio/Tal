@@ -677,3 +677,8 @@ Genome `/home/toki/tmp/atelerix/GWHEQWD00000000.genome.fasta` (25 sequences,
 `data/genome.length`; assembly QC SOLID). Bank: ERI-1, ERI-2, e1-1 to e2-4.
 Owner: subfamilies to be decided from the general SubFam alignment.
 Launcher: `scripts/atelerix_sinederella_launch.sh`.
+- 18:56 server time: step 3 was in an insertion-sort median (quadratic, hours).
+  Fixed in SINEderella e37ee95 (heapsort; medians checked equal on all 10
+  subfamilies). Run stopped by its PID tree and resumed from step 3
+  (`ten10/resume.sh`): steps 1-2 are by bd2a54e, step 3 onward by e37ee95.
+  Summary table written 18:58.
