@@ -1,0 +1,135 @@
+#!/usr/bin/env python3
+"""Build ../../plants.html from the files in this folder (run from anywhere).
+
+Inputs: alignments/{mdo_consensuses.aln.fa, mdo_seeds.names.tsv, counts.txt}, genome.fai, ncbi_assembly.json.
+The first three come from Biotech2024:/staging/tmp/apple_sines/publish/, genome.fai from
+/staging/tmp/apple_sines/genome/apple.fna.fai, ncbi_assembly.json from the NCBI Datasets API.
+Also normalises the plate once: the aligner's _R_ prefix is moved from sequence names into the table.
+"""
+import csv
+import json
+import urllib.parse
+from pathlib import Path
+
+H = Path(__file__).resolve().parent
+A = H / "alignments"
+REPO = H.parent.parent
+
+plate = (A / "mdo_consensuses.aln.fa").read_text(encoding="utf-8").splitlines()
+rev = {l[4:].split()[0] for l in plate if l.startswith(">_R_")}
+if rev:
+    plate = [">" + l[4:] if l.startswith(">_R_") else l for l in plate]
+    (A / "mdo_consensuses.aln.fa").write_bytes(("\n".join(plate) + "\n").encode())
+rows = list(csv.DictReader(open(A / "mdo_seeds.names.tsv", encoding="utf-8"), delimiter="\t"))
+if "reverse_complemented_in_plate" not in rows[0]:
+    for r in rows:
+        r["reverse_complemented_in_plate"] = "yes" if r["name"] in rev else "no"
+    with open(A / "mdo_seeds.names.tsv", "w", encoding="utf-8", newline="\n") as f:
+        w = csv.DictWriter(f, list(rows[0].keys()), delimiter="\t", lineterminator="\n")
+        w.writeheader()
+        w.writerows(rows)
+
+c = dict(l.split() for l in (A / "counts.txt").read_text(encoding="utf-8").splitlines() if l.strip())
+names = [l[1:] for l in plate if l.startswith(">")]
+assert len(names) == len(set(names)) == len(rows) == int(c["seeds"])
+assert set(names) == {r["name"] for r in rows}
+assert c["mismatch"] == "0"
+assert sum(r["reverse_complemented_in_plate"] == "yes" for r in rows) == int(c["reverse_complemented"])
+fai = [l.split("\t") for l in (H / "genome.fai").read_text(encoding="utf-8").splitlines()]
+total = sum(int(x[1]) for x in fai)
+nc = json.load(open(H / "ncbi_assembly.json", encoding="utf-8"))
+organelle = total - nc["total_sequence_length"]
+
+
+def n(v):
+    return f"{int(v):,}"
+
+
+raw = "https://raw.githubusercontent.com/Toki-bio/Tal/main/plants/mdo/alignments/mdo_consensuses.aln.fa"
+title = f"Apple (mdo): {c['seeds']} AnnoSINE_v2 seed consensuses"
+msa = ("https://toki-bio.github.io/MSA-viewer/?url=" + urllib.parse.quote(raw, safe="")
+       + "&title=" + urllib.parse.quote(title, safe=""))
+tags = [("tRNA", "transfer RNA (tRNA)"), ("5S_rRNA", "5S ribosomal RNA (rRNA)"),
+        ("7SL_RNA", "7SL RNA"), ("Unknown", "unknown")]
+assert sum(int(c.get("tag_" + k, 0)) for k, _ in tags) == int(c["seeds"])
+tagrows = "".join(f"<tr><td>{lab}</td><td class='num'>{n(c['tag_' + k])}</td></tr>" for k, lab in tags)
+mm = sorted(((k[6:], int(v)) for k, v in c.items() if k.startswith("match_")), key=lambda x: -x[1])
+matchrows = "".join(f"<tr><td>{k}</td><td class='num'>{n(v)}</td></tr>" for k, v in mm)
+assert sum(v for _, v in mm) == int(c["matched"])
+unmatched = int(c["seeds"]) - int(c["matched"])
+
+css = (REPO / "echinoderms.html").read_text(encoding="utf-8")
+css = css[css.index("<style>"):css.index("</style>")]
+old = "main { max-width:1100px; margin:0 auto; padding:28px 24px; }"
+assert old in css
+css = css.replace(old, "main { margin:0; padding:28px 24px; }\n"
+                       "main p, main li { max-width:120ch; }\ncode { overflow-wrap:anywhere; }") + "</style>"
+
+html = f"""<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Plant SINEs — apple</title>
+{css}
+</head><body>
+<header>
+  <h1>Plant SINEs &mdash; apple (<i>Malus domestica</i>)</h1>
+  <div class="sub">Search for short interspersed nuclear elements (SINEs) with AnnoSINE_v2 and SINEderella. Work in progress, state of 2026-11-26.
+  <a href="index.html" style="color:#fff;">&larr; Tal SINE main page</a></div>
+</header>
+<main>
+
+<section class="card">
+  <h2>Genome</h2>
+  <div style="overflow-x:auto;"><table class="tbl">
+  <thead><tr><th>Code</th><th>Species</th><th>Accession</th><th>Contig N50</th><th>Sequences</th><th>Size searched, base pairs (bp)</th></tr></thead>
+  <tbody><tr><td>mdo</td><td><i>Malus domestica</i> cv. Golden Delicious</td>
+  <td><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/{nc['accession']}/">{nc['accession']}</a> ({nc['assembly_name']}, one haplotype)</td>
+  <td class="num">{nc['contig_n50'] / 1e6:.2f} Mb</td><td class="num">{len(fai)}</td><td class="num">{n(total)}</td></tr></tbody></table></div>
+  <p>Accession and contig N50: National Center for Biotechnology Information (NCBI). The size searched includes the two organelle genomes ({n(organelle)} bp) on top of the NCBI genome total. Mb: million base pairs. Server copy: <code>Biotech2024:/staging/tmp/apple_sines/genome/apple.fna</code>.</p>
+</section>
+
+<section class="card">
+  <h2>Consensus plate</h2>
+  <p>All {n(c['seeds'])} AnnoSINE_v2 seed consensuses in one alignment ({n(c['columns'])} columns). They are not yet deduplicated and not yet tested by copy assignment. {n(c['reverse_complemented'])} sequences are shown reverse-complemented so that they line up with the rest; the seed table records which. Similar sequences are placed next to each other.</p>
+  <a class="btn" href="{msa.replace('&', '&amp;')}" target="_blank">Consensus plate in ViewAlign</a>
+  <a class="btn secondary" href="plants/mdo/alignments/mdo_consensuses.aln.fa">alignment (FASTA)</a>
+  <a class="btn secondary" href="plants/mdo/alignments/mdo_seeds.names.tsv">seed table: location, length, head type, match</a>
+</section>
+
+<section class="card">
+  <h2>AnnoSINE_v2 result</h2>
+  <p>{n(c['seeds'])} seed consensuses, {c['len_min']}&ndash;{c['len_max']} bp, median {c['len_median']} bp.</p>
+  <div class="species-grid">
+  <div><table class="tbl"><thead><tr><th>Predicted origin of the head</th><th>Seeds</th></tr></thead><tbody>{tagrows}</tbody></table></div>
+  <div><table class="tbl"><thead><tr><th>Apple Repbase entry matched</th><th>Seeds</th></tr></thead><tbody>{matchrows}<tr><td>no query entry matched at this cut</td><td class="num">{n(unmatched)}</td></tr></tbody></table></div>
+  </div>
+  <p>Match: ssearch36, either strand, at least 80&nbsp;% identity over at least 80&nbsp;% of the seed; the best-scoring such entry is counted. Sources: <code>Biotech2024:/staging/tmp/apple_sines/anno_full/out/Seed_SINE.fa</code> and <code>Biotech2024:/staging/tmp/apple_sines/publish/counts.txt</code>.</p>
+</section>
+
+<section class="card">
+  <h2>Workflow</h2>
+  <ol>
+    <li><b>AnnoSINE_v2</b> 2.0.9, mode 3 (structure and homology search), plant profiles, whole genome, RepeatMasker step off.</li>
+    <li><b>Query set from Repbase</b> (the repeat library of the Genetic Information Research Institute): 84 land-plant SINE entries, 83 of 95&ndash;369 bp plus apple SINE-3_Mad (797 bp). Repbase sequences are licensed and are not published here.</li>
+    <li><b>SINEderella</b> (commit b5c8a4a): search, copy assignment, flank test and report, with the Repbase entries and the AnnoSINE_v2 seeds as queries.</li>
+  </ol>
+</section>
+
+<section class="card">
+  <h2>Analysis Status</h2>
+  <table class="tbl">
+  <tr><td>Genome and tools</td><td>done</td></tr>
+  <tr><td>Test of both tools on the first 10 million bp of one chromosome</td><td>done; apple Repbase SINEs found</td></tr>
+  <tr><td>AnnoSINE_v2, whole genome</td><td>done, {n(c['seeds'])} seeds</td></tr>
+  <tr><td>Removal of duplicate consensuses</td><td>method not yet chosen</td></tr>
+  <tr><td>SINEderella, whole genome</td><td>not started; no genome-wide copy numbers yet</td></tr>
+  </table>
+</section>
+
+</main>
+</body></html>
+"""
+(REPO / "plants.html").write_bytes(html.encode("utf-8"))
+print("plants.html written;", len(names), "sequences")
+print(msa)

@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Plant SINEs — apple</title>
+<style>
+:root { --fg:#222; --bg:#f5f6f8; --card:#fff; --accent:#4C72B0;
+        --muted:#666; --border:#e2e2e2; }
+* { box-sizing: border-box; }
+body { font-family: -apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+       background:var(--bg); color:var(--fg); margin:0; padding:0; }
+header { background: linear-gradient(135deg, #2c3e50, #4C72B0);
+         color:#fff; padding:28px 36px; }
+header h1 { margin:0 0 6px 0; font-size:1.7rem; }
+header .sub { opacity:.85; font-size:.95rem; }
+main { margin:0; padding:28px 24px; }
+main p, main li { max-width:120ch; }
+code { overflow-wrap:anywhere; }
+section.card { background:var(--card); border:1px solid var(--border);
+               border-radius:8px; padding:20px 24px; margin:18px 0;
+               box-shadow:0 1px 3px rgba(0,0,0,0.05); }
+section.card h2 { margin-top:0; font-size:1.1rem; color:#2c3e50;
+                  border-bottom:1px solid var(--border); padding-bottom:8px; }
+.tbl { border-collapse:collapse; width:100%; font-size:.88rem; margin:8px 0; }
+.tbl th,.tbl td { border:1px solid var(--border); padding:6px 10px; text-align:left; }
+.tbl th { background:#f0f3f7; }
+.tbl tbody tr:nth-child(even) { background:#fafbfd; }
+.tbl td.num { font-variant-numeric:tabular-nums; text-align:right; }
+.tag { display:inline-block; border-radius:3px; padding:1px 6px;
+       font-size:.78rem; font-weight:600; }
+.tag-ok  { background:#d4edda; color:#155724; }
+.tag-partial { background:#fff3cd; color:#856404; }
+.tag-candidate { background:#f8d7da; color:#721c24; }
+.tag-other-family { background:#e2e3ff; color:#2d2d8f; }
+.tag-no  { background:#f0f0f0; color:#777; }
+a.btn { display:inline-block; background:var(--accent); color:#fff;
+        padding:4px 12px; border-radius:4px; font-size:.84rem;
+        text-decoration:none; margin:2px 2px 2px 0; }
+a.btn:hover { background:#2c3e50; }
+a.btn.secondary { background:#6c757d; }
+a.btn.green  { background:#28a745; }
+a { color:var(--accent); }
+.species-grid { display:grid; gap:16px;
+                grid-template-columns: repeat(auto-fit, minmax(320px,1fr)); }
+.sp-card { border:1px solid var(--border); border-radius:7px;
+           padding:14px 16px; background:#fff; }
+.sp-card h3 { margin:0 0 4px; font-size:1rem; color:#2c3e50; }
+.sp-card .sci { font-style:italic; color:var(--muted); font-size:.88rem; }
+.sp-card .actions { margin-top:10px; }
+</style>
+</head><body>
+<header>
+  <h1>Plant SINEs &mdash; apple (<i>Malus domestica</i>)</h1>
+  <div class="sub">Search for short interspersed nuclear elements (SINEs) with AnnoSINE_v2 and SINEderella. Work in progress, state of 2026-11-26.
+  <a href="index.html" style="color:#fff;">&larr; Tal SINE main page</a></div>
+</header>
+<main>
+
+<section class="card">
+  <h2>Genome</h2>
+  <div style="overflow-x:auto;"><table class="tbl">
+  <thead><tr><th>Code</th><th>Species</th><th>Accession</th><th>Contig N50</th><th>Sequences</th><th>Size searched, base pairs (bp)</th></tr></thead>
+  <tbody><tr><td>mdo</td><td><i>Malus domestica</i> cv. Golden Delicious</td>
+  <td><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_042453785.1/">GCF_042453785.1</a> (GDT2T_hap1, one haplotype)</td>
+  <td class="num">37.72 Mb</td><td class="num">19</td><td class="num">651,332,481</td></tr></tbody></table></div>
+  <p>Accession and contig N50: National Center for Biotechnology Information (NCBI). The size searched includes the two organelle genomes (557,235 bp) on top of the NCBI genome total. Mb: million base pairs. Server copy: <code>Biotech2024:/staging/tmp/apple_sines/genome/apple.fna</code>.</p>
+</section>
+
+<section class="card">
+  <h2>Consensus plate</h2>
+  <p>All 496 AnnoSINE_v2 seed consensuses in one alignment (1,311 columns). They are not yet deduplicated and not yet tested by copy assignment. 248 sequences are shown reverse-complemented so that they line up with the rest; the seed table records which. Similar sequences are placed next to each other.</p>
+  <a class="btn" href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Fplants%2Fmdo%2Falignments%2Fmdo_consensuses.aln.fa&amp;title=Apple%20%28mdo%29%3A%20496%20AnnoSINE_v2%20seed%20consensuses" target="_blank">Consensus plate in ViewAlign</a>
+  <a class="btn secondary" href="plants/mdo/alignments/mdo_consensuses.aln.fa">alignment (FASTA)</a>
+  <a class="btn secondary" href="plants/mdo/alignments/mdo_seeds.names.tsv">seed table: location, length, head type, match</a>
+</section>
+
+<section class="card">
+  <h2>AnnoSINE_v2 result</h2>
+  <p>496 seed consensuses, 85&ndash;415 bp, median 175 bp.</p>
+  <div class="species-grid">
+  <div><table class="tbl"><thead><tr><th>Predicted origin of the head</th><th>Seeds</th></tr></thead><tbody><tr><td>transfer RNA (tRNA)</td><td class='num'>363</td></tr><tr><td>5S ribosomal RNA (rRNA)</td><td class='num'>50</td></tr><tr><td>7SL RNA</td><td class='num'>6</td></tr><tr><td>unknown</td><td class='num'>77</td></tr></tbody></table></div>
+  <div><table class="tbl"><thead><tr><th>Apple Repbase entry matched</th><th>Seeds</th></tr></thead><tbody><tr><td>SINE-1_Mad</td><td class='num'>207</td></tr><tr><td>SINE-4_Mad</td><td class='num'>11</td></tr><tr><td>SINE-2_Mad</td><td class='num'>3</td></tr><tr><td>SINE-5_Mad</td><td class='num'>2</td></tr><tr><td>no query entry matched at this cut</td><td class="num">273</td></tr></tbody></table></div>
+  </div>
+  <p>Match: ssearch36, either strand, at least 80&nbsp;% identity over at least 80&nbsp;% of the seed; the best-scoring such entry is counted. Sources: <code>Biotech2024:/staging/tmp/apple_sines/anno_full/out/Seed_SINE.fa</code> and <code>Biotech2024:/staging/tmp/apple_sines/publish/counts.txt</code>.</p>
+</section>
+
+<section class="card">
+  <h2>Workflow</h2>
+  <ol>
+    <li><b>AnnoSINE_v2</b> 2.0.9, mode 3 (structure and homology search), plant profiles, whole genome, RepeatMasker step off.</li>
+    <li><b>Query set from Repbase</b> (the repeat library of the Genetic Information Research Institute): 84 land-plant SINE entries, 83 of 95&ndash;369 bp plus apple SINE-3_Mad (797 bp). Repbase sequences are licensed and are not published here.</li>
+    <li><b>SINEderella</b> (commit b5c8a4a): search, copy assignment, flank test and report, with the Repbase entries and the AnnoSINE_v2 seeds as queries.</li>
+  </ol>
+</section>
+
+<section class="card">
+  <h2>Analysis Status</h2>
+  <table class="tbl">
+  <tr><td>Genome and tools</td><td>done</td></tr>
+  <tr><td>Test of both tools on the first 10 million bp of one chromosome</td><td>done; apple Repbase SINEs found</td></tr>
+  <tr><td>AnnoSINE_v2, whole genome</td><td>done, 496 seeds</td></tr>
+  <tr><td>Removal of duplicate consensuses</td><td>method not yet chosen</td></tr>
+  <tr><td>SINEderella, whole genome</td><td>not started; no genome-wide copy numbers yet</td></tr>
+  </table>
+</section>
+
+</main>
+</body></html>
