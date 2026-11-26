@@ -751,3 +751,12 @@ of ten10 with e2-3 replaced by e2-3longA (276 bp) and e2-3longB (349 bp).
 - Owner 2026-11-27: yes to an E. europaeus re-run with long A and long B after the Atelerix run 2 finishes. Genome
   therioserver `/home/toki/tmp/gymnure_keratin/genomes/EEU_pri.fa` (1,174 sequences, 2,720,683,831 bp, mEriEur2.1
   names). First: check that the long A / long B boundaries (called on Atelerix copies) hold on European copies.
+
+## 2026-11-27 — Long A / long B in E. europaeus (`scripts/eeu_e23_long_check.sh`)
+
+therioserver `/home/toki/sine_runs/Eeu/e23_check/`, genome EEU_pri.fa. 969,848 hits of the old 203 bp e2-3 (sear
+0.8 / 65). By exact words in the next 300 bp: A-like 307,034 (31.7 %), B 38,750 (4.0 %), one B word 66,964 (6.9 %),
+neither 557,085 (57.4 %; includes diverged copies). Per type: 100 best bit scores without a shared distant flank,
+mafft, cons 35/50/60 %. At 60 %: long A 281 positions, 257 of 258 aligned positions identical to the Atelerix long A;
+long B 349, 333 of 333 identical to the Atelerix long B. Both end in the same poly-A. Local plates
+`atelerix/eeu_check/eeu_e2-3_long{A,B}.aln.fa` (not published).
