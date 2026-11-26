@@ -719,3 +719,6 @@ Checked on a sample: a random genome position fails the same flank test in 58.9 
 copies grey); short-period tandem repeats are under 10 % of the masked bases; the 3 prime flank is masked more than
 random, with low-complexity sequence (likely element tails, not tested). Long-unit satellites not excluded. Full table
 and script: local C:/work/Raks_COI/results/sinederella_20261126/MASKED_FLANKS.md.
+- Long-unit satellites do not explain grey (1.3 % of grey copies have both flanks repeated within 30 kb; random
+  8.6 %). Starting the 3 prime flank 100 bp further makes 17.7 % of grey copies testable (5 prime: 5.2 %). Some e2-3
+  copies continue past the consensus end (seen in raw sequence, not counted).
