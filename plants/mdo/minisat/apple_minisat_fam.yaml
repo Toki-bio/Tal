@@ -1,0 +1,16 @@
+# Apple de novo minisatellite scan, pass 2: families = the seven groups peeled from the stage-04 motifs (peel/ on DRAGEN).
+run_name: apple_minisat_fam
+out_dir: /staging/tmp/apple_minisat/run_fam
+genomes:
+  mdo: /staging/tmp/apple_sines/genome/apple.fna
+families:
+  G01_95: {consensus: /staging/tmp/apple_minisat/cfg/fam/G01_95.fa, mono: 95}
+  G02_170: {consensus: /staging/tmp/apple_minisat/cfg/fam/G02_170.fa, mono: 170}
+  G03_169: {consensus: /staging/tmp/apple_minisat/cfg/fam/G03_169.fa, mono: 169}
+  G04_210: {consensus: /staging/tmp/apple_minisat/cfg/fam/G04_210.fa, mono: 210}
+  G05_178: {consensus: /staging/tmp/apple_minisat/cfg/fam/G05_178.fa, mono: 178}
+  G06_104: {consensus: /staging/tmp/apple_minisat/cfg/fam/G06_104.fa, mono: 104}
+  G07_95: {consensus: /staging/tmp/apple_minisat/cfg/fam/G07_95.fa, mono: 95}
+anchor:
+  independent: true
+family_assignment: /staging/tmp/apple_minisat/cfg/cluster_family_fam.tsv
