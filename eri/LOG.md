@@ -685,3 +685,29 @@ Launcher: `scripts/atelerix_sinederella_launch.sh`.
 - Speed-ups pushed to SINEderella main: heapsort median (e37ee95) and the end
   extension in bash/awk (`tools/extend_ends.sh`; full Atelerix data identical to
   this run's output, 41 s instead of 23 min). This run does not use the second.
+
+## 2026-11-26 — Atelerix ten10 run finished (19:41 server time, DONE)
+
+1,895,638 loci; 1,668,079 assigned. Verdicts (`step2_output/loci_verdict.tsv`):
+SINE 698,805, grey 948,284, not_SINE 248,549 (227,559 unassigned + 20,990
+assigned). All 10 subfamilies pass the flank test as interspersed.
+
+| subfamily | assigned | SINE | grey | not_SINE of assigned |
+|---|---|---|---|---|
+| e2-3 | 874097 | 306955 | 559330 | 7812 |
+| e2-1 | 472311 | 243577 | 220980 | 7754 |
+| e1-2 | 96299 | 48913 | 45536 | 1850 |
+| e1-1 | 92921 | 38815 | 52524 | 1582 |
+| e2-4 | 61831 | 25647 | 35605 | 579 |
+| e1-3 | 52034 | 26643 | 24356 | 1035 |
+| ERI-1 | 13563 | 5859 | 7412 | 292 |
+| ERI-2 | 4887 | 2370 | 2440 | 77 |
+| e2-2 | 72 | 19 | 44 | 9 |
+| e1-4 | 64 | 7 | 57 | 0 |
+
+Local copies (not committed): `atelerix/ten10/aal_subfam_general.aln.fa` (step 1
+SubFam alignment, md5 4b09c571...), `atelerix/ten10/report.html` (md5
+338abf9d...). The report was built with e37ee95 code, before fee9d5e (soft-
+assigned wording). Known log bug: `tools/array_flag.py` prints "0 flagged ARRAY"
+although its table flags e1-4 and e2-2. SINEderella main now 3c799fb (step 2
+subfamily split in one pass; checked identical on this run's files).
