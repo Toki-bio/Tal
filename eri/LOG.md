@@ -764,3 +764,30 @@ long B 349, 333 of 333 identical to the Atelerix long B. Both end in the same po
 - 2026-11-27: satellite and flank-twin speed-ups pushed (SINEderella main 042416f), checked identical on ten10
   (flank twins all 121 files; satellite screen ERI-1 and e2-4 by me, all ten by the agent). ten11 does not use them.
   Queued: `--add` of the paper UnS-1..4 to ten11 (`/home/toki/sine_runs/Ata/uns4/`).
+
+## 2026-11-27 — Atelerix run 2 (ten11) finished 00:54 server time
+
+2,094,319 loci; 1,621,678 assigned; SINE 787,094, grey 813,653, not_SINE 493,572 (472,641 unassigned).
+Run 1: 1,895,638 / 1,668,079; 698,805 / 948,284 / 248,549.
+
+| subfamily | run 1 assigned / SINE / grey | run 2 assigned / SINE / grey |
+|---|---|---|
+| e2-3 | 874097 / 306955 / 559330 | replaced |
+| e2-3longA | - | 658710 / 312482 / 340023 |
+| e2-3longB | - | 192983 / 95105 / 95784 |
+| e2-1 | 472311 / 243577 / 220980 | 463028 / 242733 / 212948 |
+| e1-2 | 96299 / 48913 / 45536 | 95048 / 48874 / 44324 |
+| e1-1 | 92921 / 38815 / 52524 | 91585 / 38818 / 51198 |
+| e2-4 | 61831 / 25647 / 35605 | 50477 / 14297 / 35713 |
+| e1-3 | 52034 / 26643 / 24356 | 51604 / 26605 / 23974 |
+| ERI-1 | 13563 / 5859 / 7412 | 13399 / 5853 / 7257 |
+| ERI-2 | 4887 / 2370 / 2440 | 4749 / 2304 / 2369 |
+| e2-2 | 72 / 19 / 44 | 72 / 20 / 43 |
+| e1-4 | 64 / 7 / 57 | 23 / 3 / 20 |
+
+End extension moved the 3' end of 2,724 loci (run 1: 785,010). The continuation check flagged 4 groups, all
+continuing into e2-3longB (e2-4 assigned: 68 % of 400 sampled, into positions 272-349). Unassigned rose by 245,082;
+cause not checked (the 69 bp long-B piece searched separately had 432,862 hits).
+Local: `atelerix/ten11/report.html`, `atelerix/ten11/aal_ten11_subfam_general.aln.fa` (not published).
+Running next: UnS-1..4 `--add` (`/home/toki/sine_runs/Ata/uns4/`), then E. europaeus with the same bank
+(`/home/toki/sine_runs/Eeu/eleven/`, newest code, tests first).
