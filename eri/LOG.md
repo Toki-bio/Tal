@@ -742,3 +742,9 @@ Selection of the sets (writes short.bed, SINE.bed; run first): `scripts/atelerix
 - Owner boundary call 2026-11-26: both long forms end at the poly-A near column 430 of the plates. Cut with
   `scripts/atelerix_e23_cut_at_polya.awk` (start = e2-3 start, 50 % bases, 10 A kept): long A 276 bp, long B 349 bp
   (local `atelerix/ten10/e23_long_consensus.fa`).
+
+## 2026-11-26 — Second Atelerix run, 11 consensuses (started 21:43 server time)
+
+therioserver `/home/toki/sine_runs/Ata/ten11/run_20261126_214359` (PID 3515376, THREADS 64, no PUBLISH), code
+`SINEderella_main_20261127` at 250cc8a (toy 19 PASS / 0 FAIL; pytest 192 passed). Bank `atelerix/bank11.fa`: the ten
+of ten10 with e2-3 replaced by e2-3longA (276 bp) and e2-3longB (349 bp).
