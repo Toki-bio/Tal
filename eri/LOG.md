@@ -760,3 +760,4 @@ neither 557,085 (57.4 %; includes diverged copies). Per type: 100 best bit score
 mafft, cons 35/50/60 %. At 60 %: long A 281 positions, 257 of 258 aligned positions identical to the Atelerix long A;
 long B 349, 333 of 333 identical to the Atelerix long B. Both end in the same poly-A. Local plates
 `atelerix/eeu_check/eeu_e2-3_long{A,B}.aln.fa` (not published).
+- Published (owner approved): `alignments/eeu_ten11_e2-3_long{A,B}.aln.fa`.
