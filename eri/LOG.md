@@ -761,3 +761,6 @@ mafft, cons 35/50/60 %. At 60 %: long A 281 positions, 257 of 258 aligned positi
 long B 349, 333 of 333 identical to the Atelerix long B. Both end in the same poly-A. Local plates
 `atelerix/eeu_check/eeu_e2-3_long{A,B}.aln.fa` (not published).
 - Published (owner approved): `alignments/eeu_ten11_e2-3_long{A,B}.aln.fa`.
+- 2026-11-27: satellite and flank-twin speed-ups pushed (SINEderella main 042416f), checked identical on ten10
+  (flank twins all 121 files; satellite screen ERI-1 and e2-4 by me, all ten by the agent). ten11 does not use them.
+  Queued: `--add` of the paper UnS-1..4 to ten11 (`/home/toki/sine_runs/Ata/uns4/`).
