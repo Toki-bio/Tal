@@ -791,3 +791,19 @@ cause not checked (the 69 bp long-B piece searched separately had 432,862 hits).
 Local: `atelerix/ten11/report.html`, `atelerix/ten11/aal_ten11_subfam_general.aln.fa` (not published).
 Running next: UnS-1..4 `--add` (`/home/toki/sine_runs/Ata/uns4/`), then E. europaeus with the same bank
 (`/home/toki/sine_runs/Eeu/eleven/`, newest code, tests first).
+
+## 2026-11-27 — UnS-1..4 of the Atelerix paper added to run 2 (finished 02:16 server time)
+
+`/home/toki/sine_runs/Ata/uns4/run_add_20261127_005624` (`--add`, code 250cc8a). Non-ACGT letters dropped
+(279->276, 196->195, 208->203, 123->121 bp). 2,101,411 loci; the other 11 subfamilies changed by small numbers.
+
+| family | hits >= 80 % length | assigned | SINE | grey | median similarity | flank test | consensus rebuild |
+|---|---|---|---|---|---|---|---|
+| UnS1 | 13509 | 27 | 2 | 25 | 0.17 | interspersed | UNSTABLE |
+| UnS2 | 8229 | 67 | 16 | 51 | 0.24 | interspersed | SHORTER (78-79 of 195 bp) |
+| UnS3 | 2577 | 2299 | 9 | 2266 | 0.71 | interspersed | DIVERGED (4-6 mismatches, same length) |
+| UnS4 | 4498 | 2908 | 0 | 0 | 0.53 | NOT interspersed: 5' flank still shared at 1000 bp | DIVERGED |
+
+Why the other UnS1 / UnS2 hits were not assigned to them was not checked.
+E. europaeus run started 02:22 with a0d3aad (toy and 200 tests passed):
+`/home/toki/sine_runs/Eeu/eleven/run_20261127_022251`.
