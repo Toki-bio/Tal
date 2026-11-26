@@ -1,0 +1,15 @@
+plate 496 sequences, 1311 columns; in a reconstructed group 442, outside 54
+group	size	within	vs_rest	diag_cols	of_which_gap_state	plate_rows_first-last	longest_adjacent_run
+consensus_3seqs	4	0.652	0.562	58	41	390-462	3
+consensus_4seqs	6	0.650	0.509	15	13	453-488	4
+consensus_7seqs	6	0.703	0.473	62	27	446-452	5
+consensus_17seqs	16	0.710	0.500	58	22	429-444	16
+consensus_25seqs	24	0.693	0.503	51	38	355-379	22
+consensus_34seqs	34	0.733	0.544	37	20	396-478	33
+consensus_354seqs	352	0.696	0.537	37	19	1-353	288
+
+method (ViewAlign code)	groups	ARI_against_reconstructed_groups	unassigned
+tree cut, automatic	2	0.000	2
+tree cut, 7 groups given	7	0.946	23
+peel loop, outliers off	8	0.787	12
+peel loop, outliers on	8	0.787	12

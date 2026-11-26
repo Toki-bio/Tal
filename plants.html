@@ -68,7 +68,7 @@ a { color:var(--accent); }
 
 <section class="card">
   <h2>Consensus plate</h2>
-  <p>All 496 AnnoSINE_v2 seed consensuses in one alignment (1,311 columns). They are not yet deduplicated and not yet tested by copy assignment. 248 sequences are shown reverse-complemented so that they line up with the rest; the seed table records which. Similar sequences are placed next to each other.</p>
+  <p>All 496 AnnoSINE_v2 seed consensuses in one alignment (1,311 columns). The seeds are redundant; the consensuses peeled from this plate are listed below. 248 sequences are shown reverse-complemented so that they line up with the rest; the seed table records which. Similar sequences are placed next to each other.</p>
   <a class="btn" href="https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Fplants%2Fmdo%2Falignments%2Fmdo_consensuses.aln.fa&amp;title=Apple%20%28mdo%29%3A%20496%20AnnoSINE_v2%20seed%20consensuses" target="_blank">Consensus plate in ViewAlign</a>
   <a class="btn secondary" href="plants/mdo/alignments/mdo_consensuses.aln.fa">alignment (FASTA)</a>
   <a class="btn secondary" href="plants/mdo/alignments/mdo_seeds.names.tsv">seed table: location, length, head type, match</a>
@@ -85,11 +85,21 @@ a { color:var(--accent); }
 </section>
 
 <section class="card">
+  <h2>Peeled consensuses</h2>
+  <p>7 consensuses taken from the plate by hand; each name carries the number of seeds in its group (444 of 496 in total).</p>
+  <div style="overflow-x:auto;"><table class="tbl"><thead><tr><th>Consensus</th><th>Length, bp</th></tr></thead><tbody><tr><td>consensus_4seqs</td><td class='num'>175</td></tr><tr><td>consensus_7seqs</td><td class='num'>179</td></tr><tr><td>consensus_17seqs</td><td class='num'>212</td></tr><tr><td>consensus_34seqs</td><td class='num'>211</td></tr><tr><td>consensus_3seqs</td><td class='num'>160</td></tr><tr><td>consensus_25seqs</td><td class='num'>125</td></tr><tr><td>consensus_354seqs</td><td class='num'>163</td></tr></tbody></table></div>
+  <p></p>
+  <a class="btn secondary" href="plants/mdo/peel/peel_round1_owner_consensuses.fa">consensuses (FASTA)</a>
+  <a class="btn secondary" href="https://github.com/Toki-bio/Tal/blob/main/plants/mdo/peel/README.md" target="_blank">peel log</a>
+</section>
+
+<section class="card">
   <h2>Workflow</h2>
   <ol>
     <li><b>AnnoSINE_v2</b> 2.0.9, mode 3 (structure and homology search), plant profiles, whole genome, RepeatMasker step off.</li>
-    <li><b>Query set from Repbase</b> (the repeat library of the Genetic Information Research Institute): 84 land-plant SINE entries, 83 of 95&ndash;369 bp plus apple SINE-3_Mad (797 bp). Repbase sequences are licensed and are not published here.</li>
-    <li><b>SINEderella</b> (commit b5c8a4a): search, copy assignment, flank test and report, with the Repbase entries and the AnnoSINE_v2 seeds as queries.</li>
+    <li><b>Comparison set from Repbase</b> (the repeat library of the Genetic Information Research Institute): 84 land-plant SINE entries, 83 of 95&ndash;369 bp plus apple SINE-3_Mad (797 bp), used for the match table above. Repbase sequences are licensed and are not published here.</li>
+    <li><b>Peeling</b> of the seed plate into groups, one consensus per group.</li>
+    <li><b>SINEderella</b> (commit b5c8a4a): search, copy assignment, flank test and report, with 9 queries: the 7 peeled consensuses and Repbase SINE-1_Mad and SINE-3_Mad.</li>
   </ol>
 </section>
 
@@ -99,8 +109,8 @@ a { color:var(--accent); }
   <tr><td>Genome and tools</td><td>done</td></tr>
   <tr><td>Test of both tools on the first 10 million bp of one chromosome</td><td>done; apple Repbase SINEs found</td></tr>
   <tr><td>AnnoSINE_v2, whole genome</td><td>done, 496 seeds</td></tr>
-  <tr><td>Removal of duplicate consensuses</td><td>method not yet chosen</td></tr>
-  <tr><td>SINEderella, whole genome</td><td>not started; no genome-wide copy numbers yet</td></tr>
+  <tr><td>Peeling of the seed plate</td><td>round 1 done, 7 consensuses</td></tr>
+  <tr><td>SINEderella, whole genome</td><td>running; no genome-wide copy numbers yet</td></tr>
   </table>
 </section>
 

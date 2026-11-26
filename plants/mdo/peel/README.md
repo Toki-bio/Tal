@@ -1,0 +1,56 @@
+# Apple (mdo) peel of the AnnoSINE_v2 seed plate, round 1 (2026-11-26)
+
+Plate: `../alignments/mdo_consensuses.aln.fa` (496 AnnoSINE_v2 seed consensuses, 1,311 columns). Unlike the earlier
+peels, the rows are de novo seeds, not SubFam chunk consensuses.
+
+## Owner's result
+
+Seven consensuses, verbatim in `peel_round1_owner_consensuses.fa`; each name carries the owner's member count
+(3, 4, 7, 17, 25, 34, 354 = 444 of 496). Member lists, call order and comments were not given.
+
+## Reconstructed membership (not the owner's calls)
+
+`seeds_vs_peeled.py` -> `seeds_vs_peeled.tsv`: each seed goes to its best consensus if identity >= 0.6 over >= 0.5 of
+the seed. This gives 6, 6, 16, 34, 4, 24, 352 for the groups named 4, 7, 17, 34, 3, 25, 354 (442 seeds; 54 outside).
+The counts agree to within 2 per group, which does not prove that the same seeds are in each group.
+
+`peel_compare.js` -> `peel_compare.txt`: per group, identity within the group and against the rest, diagnostic columns
+(definition of `SINE_discriminator/RSI_PEEL_LOG.md`: >= 90 % in the group, <= 50 % in the rest) and position on the
+plate, then ViewAlign's own methods scored against the reconstructed groups.
+
+| method (ViewAlign code, minimum group 3) | groups | adjusted Rand index (ARI) | unassigned |
+|---|---|---|---|
+| tree cut, automatic | 2 | 0.000 | 2 |
+| tree cut, 7 groups given | 7 | 0.946 | 23 |
+| diagnostic-column peel loop | 8 | 0.787 | 12 |
+
+**Do not read the tree cut's 0.946 as reproducing the owner's judgement.** The reference groups were rebuilt by
+sequence similarity, which favours a similarity method, and the number of groups (7) was given to it. A fair score
+needs the owner's member lists.
+
+## Against the earlier peel logs
+
+| point | earlier peels (ccr, oma, rsi, hla) | this peel |
+|---|---|---|
+| rows left out | outliers, noise and singletons are deleted | 52 of 496 are in no named group |
+| group shape | a block of adjacent rows, taken out as one | the 354, 25, 17 and 34 groups are mostly adjacent runs (see `peel_compare.txt`) |
+| smallest group | two single chunks were "not enough to support a subfamily" (hla) | groups of 3 and 4 seeds were kept |
+| scores on ccr / oma | one-shot tree cut ARI about 0.42-0.67, peel loop 0.55-0.84 (ViewAlign v237 notes) | order reversed, with the caveat above |
+
+## Relation to the apple Repbase entries (names only; sequences are licensed)
+
+| peeled consensus | closest apple entry | identity | share of the peeled consensus aligned |
+|---|---|---|---|
+| consensus_354seqs | SINE-1_Mad | 94.7 % | 99 % |
+| consensus_17seqs | SINE-4_Mad | 95.8 % | 98 % |
+| consensus_4seqs | SINE-5_Mad (opposite strand) | 97.3 % | 83 % |
+| consensus_7seqs | SINE-2_Mad | 81.9 % | 100 % |
+| consensus_34seqs | SINE-2_Mad | 74.2 % | 93 % |
+| consensus_3seqs | no real match (best 49.6 % over half) | | |
+| consensus_25seqs | no real match (best 51.1 %) | | |
+
+## SINEderella run
+
+Bank: the seven consensuses plus Repbase SINE-1_Mad and SINE-3_Mad (owner, 2026-11-26); all nine kept by the
+canonicalisation step (no merges). Run: `Biotech2024:/staging/tmp/apple_sines/sd_peel9/run_20261126_011507`, SINEderella
+b5c8a4a. consensus_354seqs and SINE-1_Mad compete for the same copies.

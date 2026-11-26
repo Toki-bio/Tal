@@ -58,6 +58,15 @@ matchrows = "".join(f"<tr><td>{k}</td><td class='num'>{n(v)}</td></tr>" for k, v
 assert sum(v for _, v in mm) == int(c["matched"])
 unmatched = int(c["seeds"]) - int(c["matched"])
 
+peeled = []
+for line in (H / "peel" / "peel_round1_owner_consensuses.fa").read_text(encoding="utf-8").splitlines():
+    if line.startswith(">"):
+        peeled.append([line[1:].strip(), 0])
+    elif line.strip():
+        peeled[-1][1] += len(line.strip())
+peeled_sum = sum(int(k.split("_")[1].replace("seqs", "")) for k, _ in peeled)
+peelrows = "".join(f"<tr><td>{k}</td><td class='num'>{v}</td></tr>" for k, v in peeled)
+
 css = (REPO / "echinoderms.html").read_text(encoding="utf-8")
 css = css[css.index("<style>"):css.index("</style>")]
 old = "main { max-width:1100px; margin:0 auto; padding:28px 24px; }"
@@ -91,7 +100,7 @@ html = f"""<!doctype html>
 
 <section class="card">
   <h2>Consensus plate</h2>
-  <p>All {n(c['seeds'])} AnnoSINE_v2 seed consensuses in one alignment ({n(c['columns'])} columns). They are not yet deduplicated and not yet tested by copy assignment. {n(c['reverse_complemented'])} sequences are shown reverse-complemented so that they line up with the rest; the seed table records which. Similar sequences are placed next to each other.</p>
+  <p>All {n(c['seeds'])} AnnoSINE_v2 seed consensuses in one alignment ({n(c['columns'])} columns). The seeds are redundant; the consensuses peeled from this plate are listed below. {n(c['reverse_complemented'])} sequences are shown reverse-complemented so that they line up with the rest; the seed table records which. Similar sequences are placed next to each other.</p>
   <a class="btn" href="{msa.replace('&', '&amp;')}" target="_blank">Consensus plate in ViewAlign</a>
   <a class="btn secondary" href="plants/mdo/alignments/mdo_consensuses.aln.fa">alignment (FASTA)</a>
   <a class="btn secondary" href="plants/mdo/alignments/mdo_seeds.names.tsv">seed table: location, length, head type, match</a>
@@ -108,11 +117,21 @@ html = f"""<!doctype html>
 </section>
 
 <section class="card">
+  <h2>Peeled consensuses</h2>
+  <p>{len(peeled)} consensuses taken from the plate by hand; each name carries the number of seeds in its group ({n(peeled_sum)} of {n(c['seeds'])} in total).</p>
+  <div style="overflow-x:auto;"><table class="tbl"><thead><tr><th>Consensus</th><th>Length, bp</th></tr></thead><tbody>{peelrows}</tbody></table></div>
+  <p></p>
+  <a class="btn secondary" href="plants/mdo/peel/peel_round1_owner_consensuses.fa">consensuses (FASTA)</a>
+  <a class="btn secondary" href="https://github.com/Toki-bio/Tal/blob/main/plants/mdo/peel/README.md" target="_blank">peel log</a>
+</section>
+
+<section class="card">
   <h2>Workflow</h2>
   <ol>
     <li><b>AnnoSINE_v2</b> 2.0.9, mode 3 (structure and homology search), plant profiles, whole genome, RepeatMasker step off.</li>
-    <li><b>Query set from Repbase</b> (the repeat library of the Genetic Information Research Institute): 84 land-plant SINE entries, 83 of 95&ndash;369 bp plus apple SINE-3_Mad (797 bp). Repbase sequences are licensed and are not published here.</li>
-    <li><b>SINEderella</b> (commit b5c8a4a): search, copy assignment, flank test and report, with the Repbase entries and the AnnoSINE_v2 seeds as queries.</li>
+    <li><b>Comparison set from Repbase</b> (the repeat library of the Genetic Information Research Institute): 84 land-plant SINE entries, 83 of 95&ndash;369 bp plus apple SINE-3_Mad (797 bp), used for the match table above. Repbase sequences are licensed and are not published here.</li>
+    <li><b>Peeling</b> of the seed plate into groups, one consensus per group.</li>
+    <li><b>SINEderella</b> (commit b5c8a4a): search, copy assignment, flank test and report, with {len(peeled) + 2} queries: the {len(peeled)} peeled consensuses and Repbase SINE-1_Mad and SINE-3_Mad.</li>
   </ol>
 </section>
 
@@ -122,8 +141,8 @@ html = f"""<!doctype html>
   <tr><td>Genome and tools</td><td>done</td></tr>
   <tr><td>Test of both tools on the first 10 million bp of one chromosome</td><td>done; apple Repbase SINEs found</td></tr>
   <tr><td>AnnoSINE_v2, whole genome</td><td>done, {n(c['seeds'])} seeds</td></tr>
-  <tr><td>Removal of duplicate consensuses</td><td>method not yet chosen</td></tr>
-  <tr><td>SINEderella, whole genome</td><td>not started; no genome-wide copy numbers yet</td></tr>
+  <tr><td>Peeling of the seed plate</td><td>round 1 done, {len(peeled)} consensuses</td></tr>
+  <tr><td>SINEderella, whole genome</td><td>running; no genome-wide copy numbers yet</td></tr>
   </table>
 </section>
 
