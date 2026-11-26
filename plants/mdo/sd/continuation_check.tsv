@@ -1,0 +1,5 @@
+consensus	group	side	sampled	tested	target	copies	share	junction_bp	target_start	target_end	identity	inside_locus	flag	candidate	candidate_bp	seeds_differ_mm	bank_match
+consensus_3seqs	assigned	5'	400	400	consensus_3seqs	339	0.848	0	3	148	81.8	148 of 148 bp	yes				continues into itself (dimer or tandem copies): not built
+consensus_3seqs	unassigned	5'	296	296	consensus_3seqs	55	0.186	2	3	148	78.6	144 of 145 bp	no				
+consensus_3seqs	unassigned	3'	296	296	consensus_3seqs	30	0.101	1	18	151	76.8	0 of 131 bp	no				
+consensus_3seqs	assigned	3'	400	400	consensus_3seqs	23	0.058	1	18	158	83.2	0 of 131 bp	no				

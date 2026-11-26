@@ -74,3 +74,16 @@ b5c8a4a. consensus_354seqs and SINE-1_Mad compete for the same copies.
 Length-version test: consensus_354seqs against SINE-1_Mad = one end mode (no second length version).
 consensus_3seqs: 330 of 400 sampled assigned copies continue 5' into the same consensus (dimer or tandem copies);
 323 of its 450 assigned copies have masked (repeat) flanks and could not be tested.
+
+## Run without SINE-1_Mad (2026-11-26, owner: "remove SINE-1_Mad, keep mine")
+
+`SINEderella --exclude SINE-1_Mad` -> `Biotech2024:/staging/tmp/apple_sines/sd_peel9/run_excl_20261126_020256`, then
+`publish_run.sh ... mdo`. consensus_354seqs: 9,203 firm copies, leak 0.01 % (before: 381 and 85.3 %; SINE-1_Mad had
+8,781). Verdicts: SINE 12,331, grey 1,715, not SINE 4,841 (18,887 copies). Published copy: `../sd/`, made by
+`../strip_repbase.py` (Repbase consensus rows and the SINE-3_Mad sequence string removed).
+
+Seen while checking the published copy (SINEderella b5c8a4a):
+- the excluded run's all-seeds plate still carried the SINE-1_Mad consensus row;
+- the report's satellite table still lists SINE-1_Mad (carried over from the source run);
+- the report's similarity matrix and array table cut names at the first "_", so every `consensus_Nseqs` shows as
+  "consensus" (`report_hierarchy.py` `_short`).

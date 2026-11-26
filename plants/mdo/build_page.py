@@ -67,6 +67,43 @@ for line in (H / "peel" / "peel_round1_owner_consensuses.fa").read_text(encoding
 peeled_sum = sum(int(k.split("_")[1].replace("seqs", "")) for k, _ in peeled)
 peelrows = "".join(f"<tr><td>{k}</td><td class='num'>{v}</td></tr>" for k, v in peeled)
 
+SD = H / "sd"
+summ = list(csv.DictReader(open(SD / "summary.by_subfam.tsv", encoding="utf-8"), delimiter="\t"))
+verd = {}
+for line in (SD / "verdict_counts.tsv").read_text(encoding="utf-8").splitlines():
+    fam, v, k = line.split("\t")
+    verd.setdefault(fam, {})[v] = int(k)
+tot = {v: sum(d.get(v, 0) for d in verd.values()) for v in ("SINE", "grey", "not_SINE")}
+copies = sum(tot.values())
+base = "https://raw.githubusercontent.com/Toki-bio/Tal/main/plants/mdo/sd/alignments/"
+
+
+def view(fname, label, cls=""):
+    if not (SD / "alignments" / fname).is_file():
+        return ""
+    u = ("https://toki-bio.github.io/MSA-viewer/?url=" + urllib.parse.quote(base + fname, safe="")
+         + "&title=" + urllib.parse.quote("mdo " + fname.replace(".aln.fa", ""), safe=""))
+    return f"<a class='btn{cls}' href='{u.replace('&', '&amp;')}' target='_blank'>{label}</a>"
+
+
+resrows = ""
+for r in sorted(summ, key=lambda x: -verd[x["subfam"]].get("SINE", 0)):
+    s, d = r["subfam"], verd[r["subfam"]]
+    assert sum(d.values()) >= int(r["firm_assigned"])
+    plates = (view(f"mdo_{s}_top100.aln.fa", "top copies") + view(f"mdo_{s}_rand100.aln.fa", "random copies", " secondary")
+              + view(f"mdo_{s}_subfam.aln.fa", "chunk consensuses", " green"))
+    resrows += (f"<tr><td>{s}</td><td class='num'>{n(r['firm_assigned'])}</td><td class='num'>{n(d.get('SINE', 0))}</td>"
+                f"<td class='num'>{n(d.get('grey', 0))}</td><td class='num'>{n(d.get('not_SINE', 0))}</td>"
+                f"<td class='num'>{r['leak_pct']}</td><td>{plates}</td></tr>")
+cont = [x for x in csv.DictReader(open(SD / "continuation_check.tsv", encoding="utf-8"), delimiter="\t")
+        if x["consensus"] == "consensus_3seqs" and x["flag"] == "yes"]
+selfnote = ""
+if cont:
+    x = cont[0]
+    selfnote = (f"<p><b>consensus_3seqs needs caution.</b> In {n(x['copies'])} of {n(x['tested'])} tested assigned copies the "
+                f"sequence continues at the {x['side'].replace(chr(39), '&prime;')} end into the same consensus (dimer or "
+                f"tandem copies), and {n(verd['consensus_3seqs'].get('grey', 0))} of its copies are in the grey zone.</p>")
+
 css = (REPO / "echinoderms.html").read_text(encoding="utf-8")
 css = css[css.index("<style>"):css.index("</style>")]
 old = "main { max-width:1100px; margin:0 auto; padding:28px 24px; }"
@@ -87,6 +124,17 @@ html = f"""<!doctype html>
   <a href="index.html" style="color:#fff;">&larr; Tal SINE main page</a></div>
 </header>
 <main>
+
+<section class="card">
+  <h2>SINEderella result, whole genome</h2>
+  <p>{n(copies)} extracted copies. Verdicts: <b>{n(tot['SINE'])} SINE</b> (assigned to one query, flanks unique), {n(tot['grey'])} grey zone (flanks could not be tested), {n(tot['not_SINE'])} not SINE (not assigned, or flanks shared with other copies).</p>
+  <a class="btn" href="plants/mdo/sd/report.html">full SINEderella report</a>
+  {view('mdo_consensuses.aln.fa', 'consensus alignment', ' secondary')} {view('mdo_allseeds_chunks.aln.fa', 'all chunk consensuses with the queries', ' secondary')}
+  <div style="overflow-x:auto;"><table class="tbl"><thead><tr><th>Query</th><th>Assigned</th><th>SINE</th><th>Grey zone</th><th>Not SINE</th><th>Leak, % of assigned</th><th>Alignments of copies (ViewAlign)</th></tr></thead><tbody>{resrows}</tbody></table></div>
+  <p>Assigned: copies that the same query won in all ten voting rounds, above the score threshold. Leak: share of assigned copies whose second-best query scores at least 90&nbsp;% of the best. Grey-zone and not-SINE counts include copies that were not firmly assigned. Repbase consensus rows are not shown in the published alignments.</p>
+  {selfnote}
+  <p>Sources: <code>Biotech2024:/staging/tmp/apple_sines/sd_peel9/run_excl_20261126_020256/results/summary.by_subfam.tsv</code> and <code>.../step2/step2_output/loci_verdict.tsv</code>.</p>
+</section>
 
 <section class="card">
   <h2>Genome</h2>
@@ -131,7 +179,7 @@ html = f"""<!doctype html>
     <li><b>AnnoSINE_v2</b> 2.0.9, mode 3 (structure and homology search), plant profiles, whole genome, RepeatMasker step off.</li>
     <li><b>Comparison set from Repbase</b> (the repeat library of the Genetic Information Research Institute): 84 land-plant SINE entries, 83 of 95&ndash;369 bp plus apple SINE-3_Mad (797 bp), used for the match table above. Repbase sequences are licensed and are not published here.</li>
     <li><b>Peeling</b> of the seed plate into groups, one consensus per group.</li>
-    <li><b>SINEderella</b> (commit b5c8a4a): search, copy assignment, flank test and report, with {len(peeled) + 2} queries: the {len(peeled)} peeled consensuses and Repbase SINE-1_Mad and SINE-3_Mad.</li>
+    <li><b>SINEderella</b> (commit b5c8a4a): search, copy assignment, flank test, alignments and report, with {len(peeled) + 1} queries: the {len(peeled)} peeled consensuses and Repbase SINE-3_Mad. Repbase SINE-1_Mad was removed in favour of the nearly identical consensus_354seqs, and the copies were assigned again.</li>
   </ol>
 </section>
 
@@ -142,7 +190,7 @@ html = f"""<!doctype html>
   <tr><td>Test of both tools on the first 10 million bp of one chromosome</td><td>done; apple Repbase SINEs found</td></tr>
   <tr><td>AnnoSINE_v2, whole genome</td><td>done, {n(c['seeds'])} seeds</td></tr>
   <tr><td>Peeling of the seed plate</td><td>round 1 done, {len(peeled)} consensuses</td></tr>
-  <tr><td>SINEderella, whole genome</td><td>running; no genome-wide copy numbers yet</td></tr>
+  <tr><td>SINEderella, whole genome</td><td>done: {n(tot['SINE'])} SINE loci; report and alignments published</td></tr>
   </table>
 </section>
 

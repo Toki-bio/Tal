@@ -1,0 +1,9 @@
+subfam	firm_assigned	soft_assigned	total_assigned	leak_n	conf_alt_n	firm_pct	total_pct	leak_pct	conf_alt_pct	sim_mean	sim_median
+consensus_354seqs	9203	2271	11474	1	25	48.73	60.75	0.01	0.27	0.5524	0.5497
+consensus_25seqs	1907	420	2327	0	9	10.10	12.32	0.00	0.47	0.5151	0.5120
+consensus_4seqs	1781	55	1836	0	4	9.43	9.72	0.00	0.22	0.7499	0.7600
+consensus_7seqs	1199	128	1327	27	426	6.35	7.03	2.25	35.53	0.3628	0.3575
+consensus_3seqs	417	296	713	0	0	2.21	3.78	0.00	0.00	0.7056	0.7325
+consensus_34seqs	376	38	414	2	292	1.99	2.19	0.53	77.66	0.5504	0.5559
+consensus_17seqs	324	67	391	8	255	1.72	2.07	2.47	78.70	0.4943	0.4981
+SINE-3_Mad	16	389	405	0	0	0.08	2.14	0.00	0.00	0.5780	0.6190
