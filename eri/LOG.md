@@ -645,3 +645,24 @@ real content differences from the previously-published versions (the other
 2, `e1-4_top100` and `e2-2_top100`, happened to sample zero `(+,-)`-header
 loci by chance — expected at ~0.9% affected rate over a 100-sequence
 sample). Republished, replacing the old files in place.
+
+## 2026-11-26 — Comparison with the Atelerix albiventris SINE consensuses (Genes 16:397)
+
+Source: PMC12026660, github.com/SystemBio-Sdut/Ata_TEs `data/family_sine.fasta`
+(219 consensuses, 144 of them <= 600 bp) and `family_sine_info1.txt` (copy
+numbers). Their species is the African hedgehog, ours the European one.
+Script: `scripts/atelerix_compare.sh`, run on KIT
+`/data/V/toki/tal_eri_atelerix/`; results in `atelerix/`.
+
+- Search: ssearch36, both strands, their 144 against our ten (ERI-1, ERI-2,
+  e1-1..e2-4). Match = at least 80 bp aligned and bit score above the best of the
+  same sequences shuffled (one shuffle, seed 1: 22.3 bits).
+- 87 of 144 match: 43 at >= 85 % identity, 21 at 70-85 %, 23 below 70 %. The
+  weak ones are near the null and are not settled matches.
+- Control: e1-1 / ERI-1 96.8 % (158 bp), e2-1 / ERI-2 93.8 % (194 bp).
+- UnS-1 and UnS-2 pass only weakly (64.9 %, 60.9 %); UnS-3 and UnS-4 do not.
+- Plates: `alignments/eri_atelerix_matched.aln.fa` (our ten + 87 + UnS-3, UnS-4
+  = 99) and `alignments/eri_atelerix_all_short.aln.fa` (our ten + 144 = 154).
+  mafft L-INS-i, `--adjustdirection` (`_R_` = reverse complemented); sequences
+  checked identical to the input.
+- Not done: SINEderella on an A. albiventris genome.

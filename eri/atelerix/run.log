@@ -1,0 +1,41 @@
+null max bit score (aligned >= 80 bp): 22.3
+eri_atelerix_matched.aln.fa in=99 out=99 bad=0
+eri_atelerix_all_short.aln.fa in=154 out=154 bad=0
+reversed by mafft:
+>_R_Ata_rnd-6_family-214_10207copies
+>_R_Ata_rnd-6_family-580_4133copies
+>_R_Ata_DR0187873_10copies
+>_R_Ata_rnd-6_family-5311_173copies
+>_R_Ata_DF0000368_157copies
+>_R_Ata_DF0000001_9847copies
+>_R_Ata_DR0187905_1035copies
+>_R_Ata_DF0000975_9422copies
+>_R_Ata_DR0188069_1033copies
+>_R_Ata_DR0187974_1528copies
+>_R_Ata_rnd-5_family-114_478copies
+>_R_Ata_rnd-5_family-67_593copies
+>_R_Ata_DF0000974_2771copies
+>_R_Ata_DF0001253_943copies
+>_R_Ata_rnd-5_family-634_249copies
+>_R_Ata_DR0187928_794copies
+>_R_Ata_rnd-5_family-1653_330copies
+>_R_Ata_DR0188075_706copies
+>_R_Ata_DR0187823_825copies
+>_R_Ata_DR0187987_724copies
+>_R_Ata_DR0188002_1743copies
+>_R_Ata_DR0187927_192copies
+>_R_Ata_DR0188099_192copies
+>_R_Ata_rnd-5_family-259_473copies
+>_R_Ata_UnS-3_rnd-1_family-337_17copies
+>_R_Ata_UnS-4_rnd-1_family-322_11copies
+>_R_Ata_rnd-6_family-2310_365copies
+>_R_Ata_rnd-6_family-214_10207copies
+>_R_Ata_rnd-6_family-580_4133copies
+>_R_Ata_DR0187873_10copies
+>_R_Ata_rnd-6_family-5311_173copies
+>_R_Ata_rnd-6_family-2310_365copies
+>_R_Ata_UnS-4_rnd-1_family-322_11copies
+>_R_Ata_rnd-6_family-516_2049copies
+>_R_Ata_DR0188075_706copies
+88 matches.tsv
+DONE
