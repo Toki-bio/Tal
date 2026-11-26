@@ -41,6 +41,22 @@ Pattern, from the table:
 - **G02_170** lies in the interior of eight chromosomes (11-70 % of chromosome length), single clusters of 1-5 loci, the largest 18.9 kb; **G04_210** on two chromosomes (NC_091661.1: 5 loci, NC_091677.1: 3), **G06_104** one 5.7 kb locus on NC_091662.1.
 - All together the minisatellite fraction is small (0.09 %). I could not find a published apple satellite family to compare with (literature search 2026-11-26; apple centromeres are described as retrotransposon-based).
 
+## Position relative to the published centromere ranges
+
+Ranges: Su et al. 2024, Plant Physiol 195:2799 (PMID 38743633), Supplementary Table S6 (`GDT2T_hap1_chrNN`, start/end; defined roughly from transposon abundance, Gypsy and HODOR, so Mb-scale ranges), copied in `gdt2t_hap1_centromeres.tsv`. The paper gives no accession mapping; chromosome NN = NCBI "chromosome NN" in the FASTA header of GCF_042453785.1 (NC_091661.1 = 01 ... NC_091677.1 = 17). Table S6 has no chromosome lengths, so the mapping could not be cross-checked; the paper gives the longest hap1 scaffold as 56,139,794 bp against 56,249,447 bp for NC_091675.1. Per locus in `loci_vs_centromere.tsv` (script `scripts/cen.sh`).
+
+| family | loci | inside a centromere range | within 1 Mb of it | expected if uniform (inside; within 1 Mb) |
+|---|---|---|---|---|
+| G01_95 | 181 | 0 | 6 (3 %) | 2.4 %; 7.7 % |
+| G02_170 | 14 | 2 (14 %) | 6 (43 %) | 2.2 %; 7.8 % |
+| G03_169 | 4 | 0 | 0 | 1.8 %; 6.6 % |
+| G04_210 | 8 | 0 | 0 | 2.7 %; 8.7 % |
+| G05_178 | 26 | 0 | 0 | 1.6 %; 5.6 % |
+| G06_104 | 1 | 0 | 0 | 7.4 %; 12.7 % |
+| G07_95 | 5 | 0 | 0 | 1.8 %; 6.0 % |
+
+G02_170 loci lie on 8 chromosomes; on 5 of them (chr01, chr08, chr10, chr11, chr14) a locus is within 0.4 Mb of the centromere range (inside it on chr01 and chr11; 60 kb on chr14, 164 kb on chr08, 392 kb on chr10); on chr09, chr12 and chr13 the nearest locus is 1.9, 3.3 and 12.3 Mb away. G02_170 is therefore centromere-proximal on most chromosomes that carry it, but it is a small family (65 kb) and the ranges are rough. No other family is near a centromere; G05_178 and G07_95 are at chromosome ends.
+
 ## Alignments of each peeled group (ViewAlign)
 
 - G01 (177 motifs): https://toki-bio.github.io/MSA-viewer/?url=https%3A%2F%2Fraw.githubusercontent.com%2FToki-bio%2FTal%2Fmain%2Fplants%2Fmdo%2Fminisat%2Fgroups%2Fmdo_minisat_G01.aln.fa
@@ -54,6 +70,5 @@ Pattern, from the table:
 ## Not established
 
 - Consensus content is described, not identified: G04_210 translates without a stop codon and shows the repeat pattern LNLSGC...ELPSSI (resembles the leucine-rich repeat of plant resistance genes); G03_169 contains GGTTCGACTCC (a tRNA T-arm-like motif); G01_95 has an inverted-repeat core. None was searched against a database.
-- No test of centromere position: centromere coordinates of GDT2T were not available to me.
 - One haplotype only.
 - satpipe's cluster stage is plus-strand only; two clusters of one family (G01_95) were merged by hand-built peel, not by the tool.
