@@ -724,3 +724,16 @@ and script: local C:/work/Raks_COI/results/sinederella_20261126/MASKED_FLANKS.md
   copies continue past the consensus end (seen in raw sequence, not counted).
 - e2-3 is longer than its consensus: 82.6 % of unique copies are 41-100 bp longer after end extension; grey copies
   not extended (length <= 213 bp) continue in 81.6 % of cases, mostly 121-200 bp, past the 100 bp extension cap.
+
+## 2026-11-26 — Longer e2-3 consensus (Atelerix)
+
+`scripts/atelerix_e23_long_consensus.sh`, therioserver
+`/home/toki/sine_runs/Ata/ten10/e23_long/` (first it needs short.bed from the
+selection step of the same folder). 100 best bit scores per set; copies with a
+shared distant flank (160-300 bp after the end) removed: A (unique-flank copies)
+86 kept, B (grey, ends not extended, with continuation words) 67 kept. EMBOSS
+cons at 35 / 50 / 60 % (35 % calls noise in the flanks). Consensus span at 60 %:
+A 282, B 359 positions as called, including a few A-rich bases before the start.
+B = e2-3 plus about 150 bp, ending in ...GCAGGCACCGAGCCCAGCAATAACCCTGGAGG(A)n.
+Boundaries and subfamily decisions: owner, from the plates (local
+`atelerix/ten10/aal_e2-3_long{A,B}.aln.fa`, `aal_e2-3_versions.aln.fa`).
