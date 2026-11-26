@@ -712,3 +712,10 @@ assigned wording). Known log bug: `tools/array_flag.py` prints "0 flagged ARRAY"
 although its table flags e1-4 and e2-2. SINEderella main now 3c799fb (step 2
 subfamily split in one pass; checked identical on this run's files).
 - Published: `alignments/aal_ten10_subfam_general.aln.fa` (general SubFam alignment of the run, owner approved).
+
+## 2026-11-26 — Why half of the loci are grey (flanks masked)
+
+Checked on a sample: a random genome position fails the same flank test in 58.9 % of cases (run: 56.8 % of assigned
+copies grey); short-period tandem repeats are under 10 % of the masked bases; the 3 prime flank is masked more than
+random, with low-complexity sequence (likely element tails, not tested). Long-unit satellites not excluded. Full table
+and script: local C:/work/Raks_COI/results/sinederella_20261126/MASKED_FLANKS.md.
