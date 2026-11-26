@@ -666,3 +666,14 @@ Script: `scripts/atelerix_compare.sh`, run on KIT
   mafft L-INS-i, `--adjustdirection` (`_R_` = reverse complemented); sequences
   checked identical to the input.
 - Not done: SINEderella on an A. albiventris genome.
+
+## 2026-11-26 — SINEderella on Atelerix albiventris, ten-consensus bank (started)
+
+Server therioserver, `/home/toki/sine_runs/Ata/ten10/run_20261126_160931`
+(PID 1182286, THREADS 64, SPECIES_CODE aal, no PUBLISH). Code
+`/home/toki/SINEderella_main_20261126` at bd2a54e (toy test: 19 PASS, 0 FAIL).
+Genome `/home/toki/tmp/atelerix/GWHEQWD00000000.genome.fasta` (25 sequences,
+2,789,306,589 bp, total and longest chromosome equal the paper's
+`data/genome.length`; assembly QC SOLID). Bank: ERI-1, ERI-2, e1-1 to e2-4.
+Owner: subfamilies to be decided from the general SubFam alignment.
+Launcher: `scripts/atelerix_sinederella_launch.sh`.
