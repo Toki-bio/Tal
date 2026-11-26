@@ -89,6 +89,6 @@ Seen while checking the published copy (SINEderella b5c8a4a):
   "consensus" (`report_hierarchy.py` `_short`).
 
 Fixed in SINEderella bd2a54e (names, satellite table after --exclude, all-seed alignment after --add / --exclude).
-The published report was rebuilt from the same run with bd2a54e (report step only): names are now full. Its satellite
-table and all-seeds plate are still the source run's until the exclusion is run again with the new code. The stale
-SINE-1_Mad satellite spans cover 0 of the 18,887 merged loci, so the copy set is not affected.
+The exclusion was run again with that code: `.../sd_peel9/run_excl_20261126_031836`, published in `../sd/`. Checked:
+8 seeds in the all-seed alignment, no SINE-1_Mad in it or in the satellite table; copy, verdict and continuation
+tables identical to the first exclusion run.

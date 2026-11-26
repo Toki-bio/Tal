@@ -83,9 +83,7 @@ def blank(m):
 html = re.sub(r"[ACGTNRYKMSWacgtnrykmsw\-]{60,}", blank, html)
 if leaks(html) or any(v in html.upper() or rc(v) in html.upper() for v in whole.values()):
     sys.exit("Repbase sequence left in the report")
-old_label = "and 9 seeds"
-if old_label in html:
-    html = html.replace(old_label, "and the query consensuses (Repbase rows not published)")
+html = re.sub(r"and \d+ seeds", "and the query consensuses (Repbase rows not published)", html)
 (out / "report.html").write_bytes(html.encode("utf-8"))
 print("alignment rows removed:", removed)
 print("report strings blanked:", n_replaced)

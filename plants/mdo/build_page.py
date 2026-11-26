@@ -133,7 +133,7 @@ html = f"""<!doctype html>
   <div style="overflow-x:auto;"><table class="tbl"><thead><tr><th>Query</th><th>Assigned</th><th>SINE</th><th>Grey zone</th><th>Not SINE</th><th>Leak, % of assigned</th><th>Alignments of copies (ViewAlign)</th></tr></thead><tbody>{resrows}</tbody></table></div>
   <p>Assigned: copies that the same query won in all ten voting rounds, above the score threshold. Leak: share of assigned copies whose second-best query scores at least 90&nbsp;% of the best. Grey-zone and not-SINE counts include copies that were not firmly assigned. Repbase consensus rows are not shown in the published alignments.</p>
   {selfnote}
-  <p>Sources: <code>Biotech2024:/staging/tmp/apple_sines/sd_peel9/run_excl_20261126_020256/results/summary.by_subfam.tsv</code> and <code>.../step2/step2_output/loci_verdict.tsv</code>.</p>
+  <p>Sources: <code>Biotech2024:/staging/tmp/apple_sines/sd_peel9/run_excl_20261126_031836/results/summary.by_subfam.tsv</code> and <code>.../step2/step2_output/loci_verdict.tsv</code>.</p>
 </section>
 
 <section class="card">
