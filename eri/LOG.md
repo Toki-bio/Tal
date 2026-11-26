@@ -738,3 +738,4 @@ B = e2-3 plus about 150 bp, ending in ...GCAGGCACCGAGCCCAGCAATAACCCTGGAGG(A)n.
 Boundaries and subfamily decisions: owner, from the plates (local
 `atelerix/ten10/aal_e2-3_long{A,B}.aln.fa`, `aal_e2-3_versions.aln.fa`).
 Selection of the sets (writes short.bed, SINE.bed; run first): `scripts/atelerix_e23_long_select.sh`.
+- Published (owner approved): `alignments/aal_ten10_e2-3_{versions,longA,longB}.aln.fa`.
