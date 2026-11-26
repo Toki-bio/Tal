@@ -682,3 +682,6 @@ Launcher: `scripts/atelerix_sinederella_launch.sh`.
   subfamilies). Run stopped by its PID tree and resumed from step 3
   (`ten10/resume.sh`): steps 1-2 are by bd2a54e, step 3 onward by e37ee95.
   Summary table written 18:58.
+- Speed-ups pushed to SINEderella main: heapsort median (e37ee95) and the end
+  extension in bash/awk (`tools/extend_ends.sh`; full Atelerix data identical to
+  this run's output, 41 s instead of 23 min). This run does not use the second.
