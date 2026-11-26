@@ -139,3 +139,8 @@ Scale: 29,205 of 2,172,946 extracted copies are "+,-" (1.3 %); among DIP-best-vo
 Remaining outliers (128 forward ones of the 300 in chunks 595-600): 56 have NO DIP hit overlapping (53 of them rejected_low_bitscore copies of RSINE1, IDL-Geo, B4, STRIDM, B2 ...: an "all copies = best vote DIP, any status" sample takes in copies of other
 families whose closest bank consensus is DIP); 37 are diverged DIP (< 80 % identity to the consensus); 30 are DIP plus another element on the same strand (350-380 bp pieces); 3 normal; 2 truncated.
 Fix of the strand problem in SINEderella (2026-10-13): `tools/merge_hits.py`, docs/STRAND_AWARE_MERGE.md; the Sicista run itself has not been redone.
+
+## 2026-11-26 - sbe58 page: the "unassigned" count was a report bug
+- The page said 236,947 copies (10.9 %) "remained unassigned"; that is step2's count before step3 soft-assigns those copies to the subfamily of their best original search hit. The Soft column of `sbe58/summary.by_subfam.tsv` sums to 236,947, so 0 remained unassigned. Fixed in SINEderella fee9d5e (step6_report.py, test tests/test_report_soft_count.py).
+- The page's count table and headline were rebuilt with its own step6 code (2fac340, md5 93b10d99 = the run folder's copy) plus the fix, run on therioserver `run_20261006_143837`; only those two fragments of `sbe58/report.html` were replaced (Tal commit ee37bed). Side effect: step6 rewrote `results/consensus_blocks.tsv` in the run folder (same size, 4,265 bytes, same code and inputs).
+
