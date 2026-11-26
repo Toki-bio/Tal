@@ -722,3 +722,5 @@ and script: local C:/work/Raks_COI/results/sinederella_20261126/MASKED_FLANKS.md
 - Long-unit satellites do not explain grey (1.3 % of grey copies have both flanks repeated within 30 kb; random
   8.6 %). Starting the 3 prime flank 100 bp further makes 17.7 % of grey copies testable (5 prime: 5.2 %). Some e2-3
   copies continue past the consensus end (seen in raw sequence, not counted).
+- e2-3 is longer than its consensus: 82.6 % of unique copies are 41-100 bp longer after end extension; grey copies
+  not extended (length <= 213 bp) continue in 81.6 % of cases, mostly 121-200 bp, past the 100 bp extension cap.
