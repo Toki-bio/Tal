@@ -739,3 +739,6 @@ Boundaries and subfamily decisions: owner, from the plates (local
 `atelerix/ten10/aal_e2-3_long{A,B}.aln.fa`, `aal_e2-3_versions.aln.fa`).
 Selection of the sets (writes short.bed, SINE.bed; run first): `scripts/atelerix_e23_long_select.sh`.
 - Published (owner approved): `alignments/aal_ten10_e2-3_{versions,longA,longB}.aln.fa`.
+- Owner boundary call 2026-11-26: both long forms end at the poly-A near column 430 of the plates. Cut with
+  `scripts/atelerix_e23_cut_at_polya.awk` (start = e2-3 start, 50 % bases, 10 A kept): long A 276 bp, long B 349 bp
+  (local `atelerix/ten10/e23_long_consensus.fa`).
