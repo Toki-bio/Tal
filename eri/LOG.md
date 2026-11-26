@@ -748,3 +748,6 @@ Selection of the sets (writes short.bed, SINE.bed; run first): `scripts/atelerix
 therioserver `/home/toki/sine_runs/Ata/ten11/run_20261126_214359` (PID 3515376, THREADS 64, no PUBLISH), code
 `SINEderella_main_20261127` at 250cc8a (toy 19 PASS / 0 FAIL; pytest 192 passed). Bank `atelerix/bank11.fa`: the ten
 of ten10 with e2-3 replaced by e2-3longA (276 bp) and e2-3longB (349 bp).
+- Owner 2026-11-27: yes to an E. europaeus re-run with long A and long B after the Atelerix run 2 finishes. Genome
+  therioserver `/home/toki/tmp/gymnure_keratin/genomes/EEU_pri.fa` (1,174 sequences, 2,720,683,831 bp, mEriEur2.1
+  names). First: check that the long A / long B boundaries (called on Atelerix copies) hold on European copies.
