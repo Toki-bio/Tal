@@ -878,3 +878,5 @@ SINEderella main. Eeu and the UnS addition were made with the old rule (tail pie
   by me, not rerun).
 - Owner 2026-11-27, option B: array_flag to awk with its own seeded generator (null values will differ slightly from
   Python, identical on every machine); dedicated agent, tests on therioserver and KIT. satellite screen unchanged.
+- Step 4 independent check (my script, therioserver /home/toki/tmp/atelerix_s4mine.sh): old 0971e4f vs new f1da547 on Ata
+  ten11_nodash inputs, 24 cores: 494 s -> 190 s; 33 of 33 tables/PNGs identical by md5, 22 PDFs identical without dates.
