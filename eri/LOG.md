@@ -873,3 +873,6 @@ SINEderella main. Eeu and the UnS addition were made with the old rule (tail pie
   Session restarted; both rewrite agents (awk verdict scripts, step4 parallel) resumed from scratch (no commits had landed).
 - Owner 2026-11-27: warn on removed non-ACGT letters. SINEderella 0971e4f: one WARNING line per consensus in the run
   log (e.g. "ERI-2: 8 letters other than A/C/G/T removed (N:2,R:2,W:1,Y:3); searched as 188 bp"); run goes on.
+- Step 4 in parallel pushed (SINEderella f1da547 line, on main): subfamilies THREADS/4 at a time, 4 threads each; Ata 10:45 ->
+  3:52, rsi 11:15 -> 4:09 at 24 cores; tables and PNGs byte-identical, PDFs except creation date (agent's comparison; diff read
+  by me, not rerun).
