@@ -876,3 +876,5 @@ SINEderella main. Eeu and the UnS addition were made with the old rule (tail pie
 - Step 4 in parallel pushed (SINEderella f1da547 line, on main): subfamilies THREADS/4 at a time, 4 threads each; Ata 10:45 ->
   3:52, rsi 11:15 -> 4:09 at 24 cores; tables and PNGs byte-identical, PDFs except creation date (agent's comparison; diff read
   by me, not rerun).
+- Owner 2026-11-27, option B: array_flag to awk with its own seeded generator (null values will differ slightly from
+  Python, identical on every machine); dedicated agent, tests on therioserver and KIT. satellite screen unchanged.
