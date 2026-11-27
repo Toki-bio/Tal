@@ -843,3 +843,8 @@ Scripts `scripts/atelerix_why_unassigned_uns.sh`, `scripts/atelerix_why_piece_se
 - UnS hit places in the --add run (locus covering >= half of the hit): UnS1 13,509: 63.3 % assigned to e2-3longA,
   15.9 % longB, 15.8 % e2-1, 27 to UnS1. UnS2 8,229: 39.2 % longA, 38.3 % e2-1, 9.2 % longB, 0.5 % UnS2. UnS3 2,577:
   89.2 % UnS3, rest unassigned or none. UnS4 4,498: 64.7 % UnS4, 35.0 % unassigned.
+
+## 2026-11-27 — Rule 1 test (owner yes): "-" stretches not searched as pieces
+SINEderella branch commit 1a31f4c (local, not pushed; test fails on old code). Toy 0 FAIL, pytest 200 passed.
+Full Atelerix run started 09:39 server time: therioserver `/home/toki/sine_runs/Ata/ten11_nodash/` (bank11), to compare
+with ten11. rsi r1 check still to do.
