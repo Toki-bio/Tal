@@ -927,6 +927,11 @@ e2-4 SINE 20,087 -> 25,120; other subfamilies within a few hundred. e1-4 and e2-
   therioserver `/home/toki/sine_runs/bank10_tests/`), THREADS 48 each, run side by side, PUBLISH=1 (plates for Tal
   eri/runs/aal_bank10 and eri/runs/eeu_bank10). Run folders therioserver `/home/toki/sine_runs/Ata/bank10/` and
   `/home/toki/sine_runs/Eeu/bank10/`, started 20:49 server time.
+- Atelerix standard publish first stopped in step 6: report_profile.profile raised "SVD did not converge" on e1-4
+  top100/rand100 (windows empty in every row gave NaN). Fixed in SINEderella 7603267 (those windows left out of the SVD;
+  test with the plate; old vs new on 44 plates of both runs: 42 identical, the 2 failing ones now work). Report redone
+  (SKIP_ALIGN, SKIP_STEP4) and published: `eri/runs/aal/report.html` + 34 plates in `eri/runs/aal/alignments/`; basic page
+  removed. The bank10 runs use 1ed8961 (before the fix); their Atelerix report may stop the same way and be redone.
 - Atelerix standard publish started 20:43 (1ed8961): log therioserver `/home/toki/sine_runs/Ata/ten11_nodash/publish_20261127/`.
 - Owner 2026-11-27 (correcting my wrong "as agreed"): option 1 - port all random parts to awk with the tested MRG32k3a
   generator: satellite_screen null_b, continuation_check, length_variants; then full rerun comparisons (Ata, a bat run).
