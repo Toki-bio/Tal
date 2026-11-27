@@ -852,3 +852,17 @@ with ten11. rsi r1 check still to do.
   unit tables (rsi, rfe, hla, Atelerix, Eeu; MIN_LEN 50 and 30; mawk and gawk). Toy 0 FAIL, pytest 200 passed (server).
   Bat check: rule 1 drops only r10_r8_P18 152-289 (rsi-type banks) and r1_r3_P1_hla020 455-512 (hla bank); r1 head
   pieces are unit-labelled and kept. Not pushed: waiting for the ten11_nodash comparison.
+
+## 2026-11-27 — Rule 1 run (ten11_nodash, finished 11:58, 2 h 19 min) and push
+
+| | run 2 (ten11) | rule 1 (ten11_nodash) |
+|---|---|---|
+| loci | 2,094,319 | 1,896,745 |
+| assigned | 1,621,678 | 1,618,697 |
+| SINE | 787,094 | 793,779 |
+| grey | 813,653 | 803,967 |
+| unassigned | 472,641 | 278,048 |
+
+e2-4: assigned 50,477 -> 47,019, SINE 14,297 -> 20,006. Other subfamilies within a few hundred.
+Run time includes the satellite and flank-twin speed-ups (main contained them). Rule 1 + awk composite_pieces pushed to
+SINEderella main. Eeu and the UnS addition were made with the old rule (tail piece searched).
