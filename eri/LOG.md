@@ -868,3 +868,6 @@ Run time includes the satellite and flank-twin speed-ups (main contained them). 
 SINEderella main. Eeu and the UnS addition were made with the old rule (tail piece searched).
 - E. europaeus rerun with rule 1 (owner yes), code 2c7d786 (toy 0 FAIL, pytest 200 passed), started 12:46 server time:
   therioserver `/home/toki/sine_runs/Eeu/eleven_v2/run_20261127_124612`.
+- 2026-11-27 owner: yes, fix after the awk rewrite, each with a test: (1) needs_border_loop looks for "insufficient", step7 writes
+  "insufficient_data"; (2) array_flag log count. Open: deleted non-ACGT letters in consensuses - warn or stop (not answered).
+  Session restarted; both rewrite agents (awk verdict scripts, step4 parallel) resumed from scratch (no commits had landed).
