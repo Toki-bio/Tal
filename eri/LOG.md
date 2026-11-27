@@ -880,3 +880,16 @@ SINEderella main. Eeu and the UnS addition were made with the old rule (tail pie
   Python, identical on every machine); dedicated agent, tests on therioserver and KIT. satellite screen unchanged.
 - Step 4 independent check (my script, therioserver /home/toki/tmp/atelerix_s4mine.sh): old 0971e4f vs new f1da547 on Ata
   ten11_nodash inputs, 24 cores: 494 s -> 190 s; 33 of 33 tables/PNGs identical by md5, 22 PDFs identical without dates.
+
+## 2026-11-27 — E. europaeus rerun with rule 1 (eleven_v2, finished 15:20, 2 h 34 min)
+`therioserver:/home/toki/sine_runs/Eeu/eleven_v2/run_20261127_124612` (2c7d786).
+
+| | eleven (old rule) | eleven_v2 (rule 1) |
+|---|---|---|
+| loci | 1,929,872 | 1,767,595 |
+| assigned | 1,448,918 | 1,448,691 |
+| SINE | 736,369 | 742,241 |
+| grey | 688,479 | 682,309 |
+| unassigned | 480,954 | 318,904 |
+
+e2-4 SINE 20,087 -> 25,120; other subfamilies within a few hundred. e1-4 and e2-2 still have 0 and 2 SINE loci.
