@@ -903,5 +903,10 @@ e2-4 SINE 20,087 -> 25,120; other subfamilies within a few hundred. e1-4 and e2-
   `eri/runs/eeu/report.html` + 34 plates in `eri/runs/eeu/alignments/` (every report link matched to a file). The basic
   page `eri/runs/eeu_eleven_v2_run_20261127_124612.html` removed. Atelerix publish waits for the awk/speed comparison
   (it reads that run folder).
+- Owner 2026-11-27, from plate eri_e2-4_top100 (Eeu): e2-4 has a longer version ending at a second poly-A. Checked: the
+  pipeline's e2-4_extended row runs ~70 bp past the e2-4 poly-A; that piece = the 3' tail of e2-3longB (without longB's
+  middle part). Owner: build e2-4long, ending at the second poly-A, in both species (agent, method of long A/B; work in
+  therioserver /home/toki/sine_runs/{Ata,Eeu}/e24_long/). Also yes: satellite stage timing rerun python vs awk
+  (/home/toki/tmp/sd_sattime/).
 - Owner 2026-11-27 (correcting my wrong "as agreed"): option 1 - port all random parts to awk with the tested MRG32k3a
   generator: satellite_screen null_b, continuation_check, length_variants; then full rerun comparisons (Ata, a bat run).
