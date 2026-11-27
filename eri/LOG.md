@@ -908,5 +908,9 @@ e2-4 SINE 20,087 -> 25,120; other subfamilies within a few hundred. e1-4 and e2-
   middle part). Owner: build e2-4long, ending at the second poly-A, in both species (agent, method of long A/B; work in
   therioserver /home/toki/sine_runs/{Ata,Eeu}/e24_long/). Also yes: satellite stage timing rerun python vs awk
   (/home/toki/tmp/sd_sattime/).
+- Owner 2026-11-27: drop ERI-1 and ERI-2 (SINEbase) from the bank. They were in the bank only because I took the eri ten
+  as they stood; they are near-copies of e1-1 (96.8 %) and e2-1 (93.8 %) and split those families by best hit (Eeu rule-1
+  run: e1-1 92,361 / ERI-1 12,988; e2-1 504,072 / ERI-2 5,119). New bank `atelerix/bank9.fa` (bank11 without the two;
+  sequences unchanged). Next runs: bank9 + e2-4long once the owner has seen its plates.
 - Owner 2026-11-27 (correcting my wrong "as agreed"): option 1 - port all random parts to awk with the tested MRG32k3a
   generator: satellite_screen null_b, continuation_check, length_variants; then full rerun comparisons (Ata, a bat run).
