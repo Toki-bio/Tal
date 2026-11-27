@@ -898,5 +898,10 @@ e2-4 SINE 20,087 -> 25,120; other subfamilies within a few hundred. e1-4 and e2-
   `/home/toki/sine_runs/Ata/ten11_nodash/run_20261127_093910`) and `eri/runs/eeu_eleven_v2_run_20261127_124612.html`
   (from `/home/toki/sine_runs/Eeu/eleven_v2/run_20261127_124612`). Basic reports: no alignment links. Known layout issue
   (pipeline report, not edited): the nucleotide-frequency panels scroll sideways at 1920 px.
+- Owner 2026-11-27 "standard view with all plates": E. europaeus run published with publish_run.sh (SINEderella 1ed8961,
+  species code eri, log therioserver `/home/toki/sine_runs/Eeu/eleven_v2/publish_20261127/publish.log`, 44 min):
+  `eri/runs/eeu/report.html` + 34 plates in `eri/runs/eeu/alignments/` (every report link matched to a file). The basic
+  page `eri/runs/eeu_eleven_v2_run_20261127_124612.html` removed. Atelerix publish waits for the awk/speed comparison
+  (it reads that run folder).
 - Owner 2026-11-27 (correcting my wrong "as agreed"): option 1 - port all random parts to awk with the tested MRG32k3a
   generator: satellite_screen null_b, continuation_check, length_variants; then full rerun comparisons (Ata, a bat run).
