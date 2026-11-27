@@ -893,3 +893,5 @@ SINEderella main. Eeu and the UnS addition were made with the old rule (tail pie
 | unassigned | 480,954 | 318,904 |
 
 e2-4 SINE 20,087 -> 25,120; other subfamilies within a few hundred. e1-4 and e2-2 still have 0 and 2 SINE loci.
+- Owner 2026-11-27 (correcting my wrong "as agreed"): option 1 - port all random parts to awk with the tested MRG32k3a
+  generator: satellite_screen null_b, continuation_check, length_variants; then full rerun comparisons (Ata, a bat run).
