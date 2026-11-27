@@ -912,5 +912,15 @@ e2-4 SINE 20,087 -> 25,120; other subfamilies within a few hundred. e1-4 and e2-
   as they stood; they are near-copies of e1-1 (96.8 %) and e2-1 (93.8 %) and split those families by best hit (Eeu rule-1
   run: e1-1 92,361 / ERI-1 12,988; e2-1 504,072 / ERI-2 5,119). New bank `atelerix/bank9.fa` (bank11 without the two;
   sequences unchanged). Next runs: bank9 + e2-4long once the owner has seen its plates.
+- awk/speed branch full Atelerix run (4d0990e; toy 0 FAIL, pytest 221 passed): therioserver
+  `/home/toki/sine_runs/Ata/ten11_awkspeed/run_20261127_180213`, 2:36 (reference 2:19). Not byte-comparable: step 1 search
+  differs run to run (ssearch36 clock seed, SINEderella docs/SPEEDUP_SSEARCH.md 5.2; already the rawhits differ). Per family
+  the counts agree within 0.3 % (SINE within 47 copies; largest: e2-4 not_SINE 3,791 -> 3,897). No Atelerix old-old pair
+  exists to show this is the usual spread. Identity of the awk scripts still to be shown on the reference run's own inputs.
+- e2-4long built (agent; scripts eri/scripts/atelerix_e24_long.sh, eeu_e24_long.sh, e24_cut_at_second_polya.awk,
+  e24_long_compare.sh): Atelerix 282 bp, Eeu 281 bp, 97.9 % identical, same end. Plates eri/alignments_pending/
+  {aal,eeu}_e2-4_long.aln.fa, consensuses eri/e2-4long_aal_eeu.fa. Agent's method choice: set by an ssearch36 hit of the
+  tail after the e2-4 end (exact tail words occur in only ~20 copies); ~70 % of e2-4 SINE copies carry the tail.
+- Atelerix standard publish started 20:43 (1ed8961): log therioserver `/home/toki/sine_runs/Ata/ten11_nodash/publish_20261127/`.
 - Owner 2026-11-27 (correcting my wrong "as agreed"): option 1 - port all random parts to awk with the tested MRG32k3a
   generator: satellite_screen null_b, continuation_check, length_variants; then full rerun comparisons (Ata, a bat run).
