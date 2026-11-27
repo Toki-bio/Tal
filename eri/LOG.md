@@ -922,6 +922,11 @@ e2-4 SINE 20,087 -> 25,120; other subfamilies within a few hundred. e1-4 and e2-
   {aal,eeu}_e2-4_long.aln.fa, consensuses eri/e2-4long_aal_eeu.fa. Agent's method choice: set by an ssearch36 hit of the
   tail after the e2-4 end (exact tail words occur in only ~20 copies); ~70 % of e2-4 SINE copies carry the tail.
 - Owner 2026-11-27: e2-4long plates "look ok".
+- Owner 2026-11-27: keep both e2-4 and e2-4long; run both species. Banks `atelerix/bank10_aal.fa`, `atelerix/bank10_eeu.fa`
+  = bank9 + that species' e2-4long (282 / 281 bp). Code 1ed8961 (/home/toki/SINEderella_1ed8961; toy + pytest once:
+  therioserver `/home/toki/sine_runs/bank10_tests/`), THREADS 48 each, run side by side, PUBLISH=1 (plates for Tal
+  eri/runs/aal_bank10 and eri/runs/eeu_bank10). Run folders therioserver `/home/toki/sine_runs/Ata/bank10/` and
+  `/home/toki/sine_runs/Eeu/bank10/`, started 20:49 server time.
 - Atelerix standard publish started 20:43 (1ed8961): log therioserver `/home/toki/sine_runs/Ata/ten11_nodash/publish_20261127/`.
 - Owner 2026-11-27 (correcting my wrong "as agreed"): option 1 - port all random parts to awk with the tested MRG32k3a
   generator: satellite_screen null_b, continuation_check, length_variants; then full rerun comparisons (Ata, a bat run).
