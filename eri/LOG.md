@@ -831,3 +831,15 @@ Continuation check flagged 5 groups, all into the long forms; e2-4 copies contin
 this species (67 % of 400) as in Atelerix (68 %); e1-4 copies also continue (57 % into longB 206-346).
 Local: `eleven/report.html`, `eleven/eri_eleven_subfam_general.aln.fa` (not published).
 - 2026-11-27 published (owner approved): `alignments/aal_ten11_subfam_general.aln.fa`, `alignments/eri_eleven_subfam_general.aln.fa`.
+
+## 2026-11-27 — Why unassigned doubled in run 2, and where the UnS hits went
+
+Scripts `scripts/atelerix_why_unassigned_uns.sh`, `scripts/atelerix_why_piece_search.sh`.
+- ten11 unassigned 472,641 (ten10 227,559). By half-overlap with ten10 loci: 222,422 unassigned there too, 63,293
+  assigned there, 186,926 at places without a ten10 locus. Of the 173,770 new unassigned places with no overlap at
+  all, 169,241 (97.4 %) were found only by the separate search with positions 281-349 of e2-3longB (step 1 treats
+  longB as a composite and searches the 69 bp piece alone; mean length of these places 78 bp, all places). The 63,293
+  loci assigned in ten10 and unassigned now are not explained.
+- UnS hit places in the --add run (locus covering >= half of the hit): UnS1 13,509: 63.3 % assigned to e2-3longA,
+  15.9 % longB, 15.8 % e2-1, 27 to UnS1. UnS2 8,229: 39.2 % longA, 38.3 % e2-1, 9.2 % longB, 0.5 % UnS2. UnS3 2,577:
+  89.2 % UnS3, rest unassigned or none. UnS4 4,498: 64.7 % UnS4, 35.0 % unassigned.
