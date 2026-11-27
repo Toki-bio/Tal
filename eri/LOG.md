@@ -921,6 +921,7 @@ e2-4 SINE 20,087 -> 25,120; other subfamilies within a few hundred. e1-4 and e2-
   e24_long_compare.sh): Atelerix 282 bp, Eeu 281 bp, 97.9 % identical, same end. Plates eri/alignments_pending/
   {aal,eeu}_e2-4_long.aln.fa, consensuses eri/e2-4long_aal_eeu.fa. Agent's method choice: set by an ssearch36 hit of the
   tail after the e2-4 end (exact tail words occur in only ~20 copies); ~70 % of e2-4 SINE copies carry the tail.
+- Owner 2026-11-27: e2-4long plates "look ok".
 - Atelerix standard publish started 20:43 (1ed8961): log therioserver `/home/toki/sine_runs/Ata/ten11_nodash/publish_20261127/`.
 - Owner 2026-11-27 (correcting my wrong "as agreed"): option 1 - port all random parts to awk with the tested MRG32k3a
   generator: satellite_screen null_b, continuation_check, length_variants; then full rerun comparisons (Ata, a bat run).
