@@ -848,3 +848,7 @@ Scripts `scripts/atelerix_why_unassigned_uns.sh`, `scripts/atelerix_why_piece_se
 SINEderella branch commit 1a31f4c (local, not pushed; test fails on old code). Toy 0 FAIL, pytest 200 passed.
 Full Atelerix run started 09:39 server time: therioserver `/home/toki/sine_runs/Ata/ten11_nodash/` (bank11), to compare
 with ten11. rsi r1 check still to do.
+- composite_pieces rewritten in awk (branch commit 2c7d786, on 1a31f4c): identical files to the Python version on 15 real
+  unit tables (rsi, rfe, hla, Atelerix, Eeu; MIN_LEN 50 and 30; mawk and gawk). Toy 0 FAIL, pytest 200 passed (server).
+  Bat check: rule 1 drops only r10_r8_P18 152-289 (rsi-type banks) and r1_r3_P1_hla020 455-512 (hla bank); r1 head
+  pieces are unit-labelled and kept. Not pushed: waiting for the ten11_nodash comparison.
