@@ -830,3 +830,4 @@ SINE 736,369, grey 688,479, not_SINE 505,024 (all 11 subfamilies interspersed).
 Continuation check flagged 5 groups, all into the long forms; e2-4 copies continue into the end of e2-3longB in
 this species (67 % of 400) as in Atelerix (68 %); e1-4 copies also continue (57 % into longB 206-346).
 Local: `eleven/report.html`, `eleven/eri_eleven_subfam_general.aln.fa` (not published).
+- 2026-11-27 published (owner approved): `alignments/aal_ten11_subfam_general.aln.fa`, `alignments/eri_eleven_subfam_general.aln.fa`.
