@@ -866,3 +866,5 @@ with ten11. rsi r1 check still to do.
 e2-4: assigned 50,477 -> 47,019, SINE 14,297 -> 20,006. Other subfamilies within a few hundred.
 Run time includes the satellite and flank-twin speed-ups (main contained them). Rule 1 + awk composite_pieces pushed to
 SINEderella main. Eeu and the UnS addition were made with the old rule (tail piece searched).
+- E. europaeus rerun with rule 1 (owner yes), code 2c7d786 (toy 0 FAIL, pytest 200 passed), started 12:46 server time:
+  therioserver `/home/toki/sine_runs/Eeu/eleven_v2/run_20261127_124612`.
