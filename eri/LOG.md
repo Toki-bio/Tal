@@ -807,3 +807,26 @@ Running next: UnS-1..4 `--add` (`/home/toki/sine_runs/Ata/uns4/`), then E. europ
 Why the other UnS1 / UnS2 hits were not assigned to them was not checked.
 E. europaeus run started 02:22 with a0d3aad (toy and 200 tests passed):
 `/home/toki/sine_runs/Eeu/eleven/run_20261127_022251`.
+
+## 2026-11-27 — E. europaeus run, 11 consensuses (finished 04:45 server time, 2 h 23 min)
+
+`therioserver:/home/toki/sine_runs/Eeu/eleven/run_20261127_022251` (a0d3aad). 1,929,872 loci; 1,448,918 assigned;
+SINE 736,369, grey 688,479, not_SINE 505,024 (all 11 subfamilies interspersed).
+
+| subfamily | assigned | SINE | grey | median similarity |
+|---|---|---|---|---|
+| e2-1 | 502191 | 272541 | 220375 | 0.57 |
+| e2-3longA | 448748 | 225832 | 216779 | 0.72 |
+| e2-3longB | 175472 | 89253 | 83929 | 0.59 |
+| e1-2 | 103007 | 51854 | 49025 | 0.48 |
+| e1-1 | 92359 | 40687 | 49715 | 0.71 |
+| e2-4 | 54457 | 20087 | 33650 | 0.50 |
+| e1-3 | 53517 | 27822 | 24469 | 0.43 |
+| ERI-1 | 12988 | 5904 | 6823 | 0.63 |
+| ERI-2 | 5166 | 2387 | 2723 | 0.41 |
+| e2-2 | 591 | 2 | 575 | 0.87 |
+| e1-4 | 422 | 0 | 416 | 0.85 |
+
+Continuation check flagged 5 groups, all into the long forms; e2-4 copies continue into the end of e2-3longB in
+this species (67 % of 400) as in Atelerix (68 %); e1-4 copies also continue (57 % into longB 206-346).
+Local: `eleven/report.html`, `eleven/eri_eleven_subfam_general.aln.fa` (not published).
