@@ -952,3 +952,8 @@ e2-4 SINE 20,087 -> 25,120; other subfamilies within a few hundred. e1-4 and e2-
   Eeu 106,511, of which 95,021. Length median 69 / 70 bp (q10 60, q90 261 / 243; all loci median 245 / 237). Verdict
   not_SINE with reason "not assigned": Ata 121,530, Eeu 99,570. So they are the 69-bp tail-piece hits, as in ten11.
   SINE among them: Ata 4,855 e2-4long + 900 e2-3longB; Eeu 1,394 + 1,169 (not looked at).
+- Owner 2026-11-28: yes, write a rule so the shared-tail piece is not searched; show it before any rerun. Control first
+  (therioserver `/home/toki/tmp/units_tables2.sh`, 47 units tables of the rsi/rfe/hla/rda runs in `/home/toki/rhin/`):
+  a rule "search a piece only if it covers >= 70 % of its unit" would drop e2-3longB 281-349 (24-25 % of e2-4long) but
+  also the rsi r1-rescue head pieces (C11 1-80 and P1 1-80 = 31 % of r10_r8_P18del, P2 2-85 = 46 % of r8_83seqs;
+  docs/PARTIAL_COPIES.md: the r1 rescue comes from these). So piece length / unit length cannot tell them apart. No code written.
