@@ -947,3 +947,8 @@ e2-4 SINE 20,087 -> 25,120; other subfamilies within a few hundred. e1-4 and e2-
   1,840,213 (+73k): SINE 742,241 -> 753,201, not_SINE 343,045 -> 422,992. The new not_SINE loci sit in e2-4long (Ata
   104,189, Eeu 74,842) and e2-3longB (not_SINE Ata 39,503 -> 89,881, Eeu 55,992 -> 108,012). Not yet checked that they
   are tail-only loci. e2-4 itself drops to ~5k loci (its copies now go to e2-4long).
+- Check of the extra loci (script therioserver `/home/toki/tmp/newloci.sh`, beds in `/home/toki/tmp/newloci/`): bank10 loci
+  that overlap no rule-1 locus: Ata 132,469, of which 128,119 lie on a hit of `searches/gen-pieces.part_e2-3longB__piece_281-349.bed`;
+  Eeu 106,511, of which 95,021. Length median 69 / 70 bp (q10 60, q90 261 / 243; all loci median 245 / 237). Verdict
+  not_SINE with reason "not assigned": Ata 121,530, Eeu 99,570. So they are the 69-bp tail-piece hits, as in ten11.
+  SINE among them: Ata 4,855 e2-4long + 900 e2-3longB; Eeu 1,394 + 1,169 (not looked at).
