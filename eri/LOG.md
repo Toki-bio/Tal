@@ -969,3 +969,9 @@ e2-4 SINE 20,087 -> 25,120; other subfamilies within a few hundred. e1-4 and e2-
   5' side has 312,870 windows, the shared-10-mer bar is 6,258 windows, only 27 10-mers pass, 17,312 loci grew by median
   32 bp (`end_extension/ends_extension.tsv`). So no common sequence lies upstream of the ~108k tail-only loci; step 2
   scores them against every consensus and rejects them (rejected_low_bitscore). They stay in the locus list as not_SINE.
+- r1 check (therioserver `/home/toki/tmp/r1check2.sh`, `r1check3.sh`): rsi_main_20261022 has 48 r1_9seqs loci, 21 assigned
+  (12 SINE, 9 grey). All 21 have a locus in rsi_final; 20 of them are partial copies there (family_view/partial_copies.tsv),
+  and loci_verdict.tsv lists those as rejected_low_bitscore / no_unanimous, not_SINE. 3 of the 21 are piece-only, so option 1
+  judged by loci_verdict status alone would drop them. With partial copies kept: rsi_final piece-only 1,511 = 281 assigned
+  + 771 partial + 327 below_stretch_threshold + 132 neither; 0 of the 21 r1 loci dropped. Ata bank10 has no
+  family_view/partial_copies.tsv (no family step), so there all 108,536 unassigned piece-only loci would go.
