@@ -935,3 +935,15 @@ e2-4 SINE 20,087 -> 25,120; other subfamilies within a few hundred. e1-4 and e2-
 - Atelerix standard publish started 20:43 (1ed8961): log therioserver `/home/toki/sine_runs/Ata/ten11_nodash/publish_20261127/`.
 - Owner 2026-11-27 (correcting my wrong "as agreed"): option 1 - port all random parts to awk with the tested MRG32k3a
   generator: satellite_screen null_b, continuation_check, length_variants; then full rerun comparisons (Ata, a bat run).
+
+## 2026-11-28 — bank10 runs finished (e2-4 + e2-4long, both species)
+- Eeu `therioserver:/home/toki/sine_runs/Eeu/bank10/run_20261127_205519` published (00:42). Ata
+  `therioserver:/home/toki/sine_runs/Ata/bank10/run_20261127_205520` finished; its publish stopped on the known e1-4 SVD bug
+  (code 1ed8961, before 7603267); report not redone yet.
+- Adding e2-4long made composite_units label e2-3longB 281-349 as e2-4long (90 %), so rule 1 no longer skips it; that
+  69-bp tail piece was searched again (Ata 432,862 hits).
+- Against the rule-1 runs (Ata ten11_nodash, Eeu eleven_v2; per-family loci from step2 assignment_full + loci_verdict):
+  Ata loci 1,896,746 -> 2,006,737 (+110k): SINE 793,779 -> 804,160, not_SINE 298,999 -> 416,098. Eeu 1,767,596 ->
+  1,840,213 (+73k): SINE 742,241 -> 753,201, not_SINE 343,045 -> 422,992. The new not_SINE loci sit in e2-4long (Ata
+  104,189, Eeu 74,842) and e2-3longB (not_SINE Ata 39,503 -> 89,881, Eeu 55,992 -> 108,012). Not yet checked that they
+  are tail-only loci. e2-4 itself drops to ~5k loci (its copies now go to e2-4long).
