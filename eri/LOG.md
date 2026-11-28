@@ -975,3 +975,7 @@ e2-4 SINE 20,087 -> 25,120; other subfamilies within a few hundred. e1-4 and e2-
   judged by loci_verdict status alone would drop them. With partial copies kept: rsi_final piece-only 1,511 = 281 assigned
   + 771 partial + 327 below_stretch_threshold + 132 neither; 0 of the 21 r1 loci dropped. Ata bank10 has no
   family_view/partial_copies.tsv (no family step), so there all 108,536 unassigned piece-only loci would go.
+- Owner 2026-11-28: drop below_stretch_threshold too; write the rule. SINEderella 5cd168a/b16c887/1c237a6 (main):
+  `tools/piece_only_drop.sh`, run by verdict_chain.sh; docs/PARTIAL_COPIES.md last section. Checks: 13-case toy under
+  mawk/gawk; rsi_final 459 dropped, all r1 loci kept; Ata bank10 108,536 dropped, 662 kept; toy pipeline 19 PASS, toy
+  loci_verdict.tsv identical to main. Existing runs not changed yet.
