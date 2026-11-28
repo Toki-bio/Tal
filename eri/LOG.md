@@ -957,3 +957,15 @@ e2-4 SINE 20,087 -> 25,120; other subfamilies within a few hundred. e1-4 and e2-
   a rule "search a piece only if it covers >= 70 % of its unit" would drop e2-3longB 281-349 (24-25 % of e2-4long) but
   also the rsi r1-rescue head pieces (C11 1-80 and P1 1-80 = 31 % of r10_r8_P18del, P2 2-85 = 46 % of r8_83seqs;
   docs/PARTIAL_COPIES.md: the r1 rescue comes from these). So piece length / unit length cannot tell them apart. No code written.
+- Owner 2026-11-28: option 1 (piece-only loci that step 2 does not assign are not counted as loci), check rsi first.
+  Piece-only = loci overlapping no hit of a whole bank consensus (therioserver `/home/toki/tmp/pieceonly3.sh`, beds in
+  `/home/toki/tmp/pieceonly/`). rsi_final (`/home/toki/rhin/rsi_final_20261102/run_20261101_235602`): 1,511 of 68,580 loci;
+  281 assigned (181 SINE, 92 grey, 8 not_SINE), 1,133 rejected_low_bitscore, 97 no_unanimous. Head pieces C11 1-80 /
+  P1 1-80 / P2 2-85: 107 / 106 / 92 assigned. Ata bank10: 109,198 of 2,006,736; 662 assigned (305 SINE), 108,536
+  rejected_low_bitscore; the 281-349 piece alone: 129 of 108,429 assigned. Not yet checked that the 21 r1 loci are among
+  the assigned ones.
+- Owner asked why the extended-flank plates do not settle these copies. Found: rejected copies are on no plate (plates
+  hold assigned copies). End extension groups loci by the label of the best hit (e2-3longB for piece hits): the group's
+  5' side has 312,870 windows, the shared-10-mer bar is 6,258 windows, only 27 10-mers pass, 17,312 loci grew by median
+  32 bp (`end_extension/ends_extension.tsv`). So no common sequence lies upstream of the ~108k tail-only loci; step 2
+  scores them against every consensus and rejects them (rejected_low_bitscore). They stay in the locus list as not_SINE.
