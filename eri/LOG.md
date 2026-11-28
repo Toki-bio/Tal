@@ -979,3 +979,9 @@ e2-4 SINE 20,087 -> 25,120; other subfamilies within a few hundred. e1-4 and e2-
   `tools/piece_only_drop.sh`, run by verdict_chain.sh; docs/PARTIAL_COPIES.md last section. Checks: 13-case toy under
   mawk/gawk; rsi_final 459 dropped, all r1 loci kept; Ata bank10 108,536 dropped, 662 kept; toy pipeline 19 PASS, toy
   loci_verdict.tsv identical to main. Existing runs not changed yet.
+- Owner 2026-11-28: apply the rule to the finished runs. therioserver `/home/toki/tmp/pod/pod_apply.sh` (code
+  /home/toki/SINEderella_1c237a6; log `/home/toki/tmp/pod/apply.log`): originals kept as `loci_verdict.tsv.pre_piece_only`.
+  Ata bank10 dropped 108,536 (kept 662 piece-only assigned), loci 2,006,736 -> 1,898,200; Eeu bank10 dropped 82,523 (kept
+  331), 1,840,212 -> 1,757,689. Reports rebuilt (SKIP_ALIGN, SKIP_STEP4; plates hold SINE copies only, unchanged); Atelerix
+  report now builds (SVD fix). Published `eri/runs/aal_bank10/` and `eri/runs/eeu_bank10/` (report + 31 plates each);
+  index buttons point to them. The older pages eri/runs/aal and eri/runs/eeu are no longer linked.
