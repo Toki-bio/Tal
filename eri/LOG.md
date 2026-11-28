@@ -985,3 +985,5 @@ e2-4 SINE 20,087 -> 25,120; other subfamilies within a few hundred. e1-4 and e2-
   331), 1,840,212 -> 1,757,689. Reports rebuilt (SKIP_ALIGN, SKIP_STEP4; plates hold SINE copies only, unchanged); Atelerix
   report now builds (SVD fix). Published `eri/runs/aal_bank10/` and `eri/runs/eeu_bank10/` (report + 31 plates each);
   index buttons point to them. The older pages eri/runs/aal and eri/runs/eeu are no longer linked.
+- Owner 2026-11-28: removed the older pages eri/runs/aal and eri/runs/eeu (11-consensus runs ten11_nodash / eleven_v2);
+  they stay in git history (before this commit). Current pages: eri/runs/aal_bank10, eri/runs/eeu_bank10.
